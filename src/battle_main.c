@@ -2801,15 +2801,7 @@ void SpriteCb_HideAsMoveTarget(struct Sprite *sprite)
 
 void SpriteCb_OpponentMonFromBall(struct Sprite *sprite)
 {
-    if (sprite->affineAnimEnded)
-    {
-        if (!(gHitMarker & HITMARKER_NO_ANIMATIONS) || gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_x2000000))
-        {
-            if (HasTwoFramesAnimation(sprite->sSpeciesId))
-                StartSpriteAnim(sprite, 1);
-        }
-        BattleAnimateFrontSprite(sprite, sprite->sSpeciesId, TRUE, 1);
-    }
+    sprite->callback = SpriteCallbackDummy;
 }
 
 void sub_8039BB4(struct Sprite *sprite)
