@@ -625,6 +625,11 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
     LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
 
+    HueShiftMonPalette((u16*) gDecompressionBuffer, currentPersonality);
+
+    LoadPalette(gDecompressionBuffer, paletteOffset, PLTT_SIZE_4BPP);
+    LoadPalette(gDecompressionBuffer, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
+
     // transform's pink color
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies != SPECIES_NONE)
     {

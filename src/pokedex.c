@@ -4067,7 +4067,7 @@ static void Task_ExitCaughtMonPage(u8 taskId)
         personality = ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo;
         paletteNum = gSprites[gTasks[taskId].tMonSpriteId].oam.paletteNum;
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality);
-        LoadCompressedPalette(lzPaletteData, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP);
+        LoadHueShiftedMonPalette(lzPaletteData, OBJ_PLTT_ID(paletteNum), PLTT_SIZE_4BPP, personality);
         DestroyTask(taskId);
     }
 }

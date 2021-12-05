@@ -14,6 +14,7 @@ bool8 LoadCompressedSpriteSheetUsingHeap(const struct CompressedSpriteSheet *src
 
 void LoadCompressedSpritePalette(const struct CompressedSpritePalette *src);
 void LoadCompressedSpritePaletteOverrideBuffer(const struct CompressedSpritePalette *src, void *buffer);
+void LoadHueShiftedMonSpritePalette(const struct CompressedSpritePalette *src, u32 personality);
 bool8 LoadCompressedSpritePaletteUsingHeap(const struct CompressedSpritePalette *src);
 
 void DecompressPicFromTable(const struct CompressedSpriteSheet *src, void *buffer, s32 species);
