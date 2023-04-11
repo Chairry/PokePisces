@@ -1019,3 +1019,5 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+LittlerootTown_EventScript_BIGGESTSEX:
+	.string "I like 1 thing$"
