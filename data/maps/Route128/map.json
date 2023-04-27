@@ -19,11 +19,6 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE129",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_EVER_GRANDE_CITY",
       "offset": -40,
       "direction": "right"
@@ -166,8 +161,12 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

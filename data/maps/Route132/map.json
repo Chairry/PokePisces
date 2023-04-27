@@ -17,11 +17,6 @@
       "map": "MAP_ROUTE133",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_PACIFIDLOG_TOWN",
-      "offset": 0,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -156,7 +151,13 @@
       "flag": "FLAG_ITEM_ROUTE_132_PROTEIN"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

@@ -14,19 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE128",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE130",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_UNDERWATER_ROUTE129",
       "offset": 0,
       "direction": "dive"
+    },
+    {
+      "map": "MAP_ROUTE131",
+      "offset": 7,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_SOOTOPOLIS_CITY",
+      "offset": 8,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -96,7 +96,13 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

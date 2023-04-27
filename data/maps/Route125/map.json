@@ -14,11 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_MOSSDEEP_CITY",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_ROUTE124",
       "offset": 0,
       "direction": "left"
@@ -170,7 +165,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "secret_base",

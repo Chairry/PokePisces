@@ -14,11 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE126",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_LILYCOVE_CITY",
       "offset": 10,
       "direction": "left"
@@ -26,11 +21,6 @@
     {
       "map": "MAP_ROUTE125",
       "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_MOSSDEEP_CITY",
-      "offset": 40,
       "direction": "right"
     },
     {
@@ -206,7 +196,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
