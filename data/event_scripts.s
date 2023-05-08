@@ -1061,3 +1061,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/MangrottoTunnel/scripts.inc"
+
+	.include "data/maps/ScuttillHuts/scripts.inc"
+
+	.include "data/maps/TestMap/scripts.inc"
