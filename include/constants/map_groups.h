@@ -64,6 +64,8 @@
 #define MAP_UNDERWATER_ROUTE105 (55 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_MANGROTTO_TUNNEL    (57 | (0 << 8))
+#define MAP_SCUTTILL_HUTS       (58 | (0 << 8))
+#define MAP_TEST_MAP            (59 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
