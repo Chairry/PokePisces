@@ -15448,6 +15448,9 @@ static void Cmd_handleballthrow(void)
             case ITEM_ULTRA_BALL:
                 ballMultiplier = 200;
                 break;
+            case ITEM_PREMIER_BALL:
+                ballMultiplier = 250;
+                break;
         #if B_SPORT_BALL_MODIFIER <= GEN_7
             case ITEM_SPORT_BALL:
         #endif

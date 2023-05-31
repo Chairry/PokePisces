@@ -23,9 +23,9 @@ static const u8 sMasterBallDesc[] = _(
     "without fail.");
 
 static const u8 sPremierBallDesc[] = _(
-    "A rare Ball made\n"
-    "in commemoration\n"
-    "of some event.");
+    "A rare Ball with\n"
+    "a higher catch rate\n"
+    "than a Ultra Ball.");
 
 static const u8 sHealBallDesc[] = _(
     "A remedial Ball\n"
