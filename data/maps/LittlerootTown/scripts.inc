@@ -1021,3 +1021,4 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 
 LittlerootTown_EventScript_BIGGESTSEX:
 	.string "I like 1 thing$"
+	
