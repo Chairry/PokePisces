@@ -22,8 +22,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 24,
-      "y": 5,
+      "x": 11,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -35,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 25,
-      "y": 5,
+      "x": 12,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -48,7 +48,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 26,
+      "x": 9,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
@@ -153,7 +153,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 17,
-      "y": 128,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS",
       "movement_range_x": 0,
@@ -165,8 +165,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 28,
-      "y": 14,
+      "x": 13,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 0,
@@ -217,8 +217,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 25,
-      "y": 32,
+      "x": 13,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -282,8 +282,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 8,
-      "y": 18,
+      "x": 9,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -308,8 +308,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 13,
-      "y": 33,
+      "x": 16,
+      "y": 7,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -321,8 +321,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 13,
-      "y": 34,
+      "x": 15,
+      "y": 7,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -334,8 +334,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_3",
-      "x": 17,
-      "y": 33,
+      "x": 11,
+      "y": 10,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -360,8 +360,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 8,
-      "y": 23,
+      "x": 12,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -373,8 +373,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 9,
-      "y": 23,
+      "x": 11,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -412,8 +412,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
-      "x": 19,
-      "y": 133,
+      "x": 5,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 2,
@@ -451,8 +451,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 29,
-      "y": 6,
+      "x": 11,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 1,
@@ -464,8 +464,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
-      "x": 31,
-      "y": 6,
+      "x": 10,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -477,8 +477,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
-      "x": 25,
-      "y": 15,
+      "x": 10,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -529,8 +529,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 32,
-      "y": 15,
+      "x": 14,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -542,8 +542,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 19,
-      "y": 5,
+      "x": 10,
+      "y": 7,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -568,8 +568,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 28,
-      "y": 25,
+      "x": 13,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -582,8 +582,8 @@
   ],
   "warp_events": [
     {
-      "x": 6,
-      "y": 32,
+      "x": 9,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
       "dest_warp_id": "0"
@@ -599,8 +599,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 25,
-      "y": 31,
+      "x": 9,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_ROUTE119_STATE",
       "var_value": "0",
@@ -608,8 +608,8 @@
     },
     {
       "type": "trigger",
-      "x": 26,
-      "y": 31,
+      "x": 8,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_ROUTE119_STATE",
       "var_value": "0",
@@ -617,29 +617,29 @@
     },
     {
       "type": "weather",
-      "x": 29,
-      "y": 13,
+      "x": 9,
+      "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     },
     {
       "type": "weather",
-      "x": 30,
-      "y": 13,
+      "x": 10,
+      "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     },
     {
       "type": "weather",
-      "x": 31,
-      "y": 13,
+      "x": 11,
+      "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     },
     {
       "type": "weather",
-      "x": 32,
-      "y": 13,
+      "x": 12,
+      "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     },
@@ -694,28 +694,28 @@
     },
     {
       "type": "weather",
-      "x": 36,
-      "y": 6,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 36,
-      "y": 7,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 35,
+      "x": 8,
       "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 35,
+      "x": 9,
+      "y": 9,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 8,
+      "y": 9,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 10,
       "y": 9,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
@@ -757,8 +757,8 @@
     },
     {
       "type": "weather",
-      "x": 34,
-      "y": 13,
+      "x": 13,
+      "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     }
@@ -766,24 +766,24 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 9,
-      "y": 33,
+      "x": 8,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route119_EventScript_WeatherInstituteSign"
     },
     {
       "type": "sign",
-      "x": 27,
-      "y": 19,
+      "x": 8,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route119_EventScript_RouteSignFortree"
     },
     {
       "type": "secret_base",
-      "x": 5,
-      "y": 2,
+      "x": 11,
+      "y": 6,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_SHRUB1_1"
     },
@@ -796,8 +796,8 @@
     },
     {
       "type": "secret_base",
-      "x": 5,
-      "y": 15,
+      "x": 10,
+      "y": 6,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_SHRUB2_1"
     },
@@ -810,8 +810,8 @@
     },
     {
       "type": "secret_base",
-      "x": 34,
-      "y": 24,
+      "x": 7,
+      "y": 6,
       "elevation": 3,
       "secret_base_id": "SECRET_BASE_SHRUB3_1"
     },
@@ -831,8 +831,8 @@
     },
     {
       "type": "secret_base",
-      "x": 16,
-      "y": 28,
+      "x": 12,
+      "y": 10,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BLUE_CAVE4_3"
     },
@@ -875,15 +875,15 @@
     },
     {
       "type": "secret_base",
-      "x": 4,
-      "y": 15,
+      "x": 9,
+      "y": 6,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_SHRUB3_3"
     },
     {
       "type": "secret_base",
-      "x": 6,
-      "y": 2,
+      "x": 12,
+      "y": 6,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_SHRUB4_3"
     },
@@ -897,16 +897,16 @@
     },
     {
       "type": "hidden_item",
-      "x": 20,
-      "y": 29,
+      "x": 10,
+      "y": 10,
       "elevation": 3,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_119_MAX_ETHER"
     },
     {
       "type": "sign",
-      "x": 28,
-      "y": 9,
+      "x": 12,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route119_EventScript_TrainerTipsDecoration"

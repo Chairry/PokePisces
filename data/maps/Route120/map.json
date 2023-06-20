@@ -19,8 +19,8 @@
       "direction": "down"
     },
     {
-      "map": "MAP_FORTREE_CITY",
-      "offset": 0,
+      "map": "MAP_CANOPOUR_WILDS",
+      "offset": -96,
       "direction": "up"
     }
   ],

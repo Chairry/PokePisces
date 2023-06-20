@@ -66,6 +66,10 @@
 #define MAP_MANGROTTO_TUNNEL    (57 | (0 << 8))
 #define MAP_SCUTTILL_HUTS       (58 | (0 << 8))
 #define MAP_TEST_MAP            (59 | (0 << 8))
+#define MAP_CANOPOUR_WILDS      (60 | (0 << 8))
+#define MAP_PERPLUME_MAZE       (61 | (0 << 8))
+#define MAP_OZONE_INSTITUTE     (62 | (0 << 8))
+#define MAP_SWELTORN_DESERT     (63 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

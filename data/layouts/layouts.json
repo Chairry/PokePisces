@@ -45,7 +45,7 @@
       "id": "LAYOUT_FORTREE_CITY",
       "name": "FortreeCity_Layout",
       "width": 40,
-      "height": 20,
+      "height": 52,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
@@ -4437,9 +4437,49 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
+    },
+    {
+      "id": "LAYOUT_CANOPOUR_WILDS",
+      "name": "CanopourWilds_Layout",
+      "width": 120,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/CanopourWilds/border.bin",
+      "blockdata_filepath": "data/layouts/CanopourWilds/map.bin"
+    },
+    {
+      "id": "LAYOUT_PERPLUME_MAZE",
+      "name": "PerplumeMaze_Layout",
+      "width": 36,
+      "height": 59,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/PerplumeMaze/border.bin",
+      "blockdata_filepath": "data/layouts/PerplumeMaze/map.bin"
+    },
+    {
+      "id": "LAYOUT_OZONE_INSTITUTE",
+      "name": "OzoneInstitute_Layout",
+      "width": 44,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/OzoneInstitute/border.bin",
+      "blockdata_filepath": "data/layouts/OzoneInstitute/map.bin"
+    },
+    {
+      "id": "LAYOUT_SWELTORN_DESERT",
+      "name": "SweltornDesert_Layout",
+      "width": 66,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_desert",
+      "border_filepath": "data/layouts/SweltornDesert/border.bin",
+      "blockdata_filepath": "data/layouts/SweltornDesert/map.bin"
     }
   ]
 }

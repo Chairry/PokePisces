@@ -1065,3 +1065,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ScuttillHuts/scripts.inc"
 
 	.include "data/maps/TestMap/scripts.inc"
+
+	.include "data/maps/CanopourWilds/scripts.inc"
+
+	.include "data/maps/PerplumeMaze/scripts.inc"
+
+	.include "data/maps/OzoneInstitute/scripts.inc"
+
+	.include "data/maps/SweltornDesert/scripts.inc"

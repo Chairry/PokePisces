@@ -95,7 +95,11 @@
     "Underwater_Route125",
     "MangrottoTunnel",
     "ScuttillHuts",
-    "TestMap"
+    "TestMap",
+    "CanopourWilds",
+    "PerplumeMaze",
+    "OzoneInstitute",
+    "SweltornDesert"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
