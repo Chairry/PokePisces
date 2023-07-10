@@ -8350,7 +8350,7 @@ u32 GetMoveTargetCount(u16 move, u8 battlerAtk, u8 battlerDef)
     }
 }
 
-static void MulModifier(u16 *modifier, u16 val)
+void MulModifier(u16 *modifier, u16 val)
 {
     *modifier = UQ_4_12_TO_INT((*modifier * val) + UQ_4_12_ROUND);
 }
@@ -8508,7 +8508,10 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         basePower = gBattleStruct->presentBasePower;
         break;
     case EFFECT_TRIPLE_KICK:
-        basePower *= (4 - gMultiHitCounter);
+        if (gMultiHitCounter == 0) // Calc damage with max BP for move consideration
+            basePower *= 6;
+        else
+            basePower *= (4 - gMultiHitCounter);
         break;
     case EFFECT_SPIT_UP:
         basePower = 100 * gDisableStructs[battlerAtk].stockpileCounter;

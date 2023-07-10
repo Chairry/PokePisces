@@ -457,7 +457,7 @@ static u8 GetBattleAnimMoveTargets(u8 battlerArgIndex, u8 *targets)
 
         if (IsBattlerAlive(BATTLE_PARTNER(BATTLE_OPPOSITE(targets[0]))))
         {
-            targets[2] = BATTLE_PARTNER(BATTLE_OPPOSITE(targets[0])); 
+            targets[2] = BATTLE_PARTNER(BATTLE_OPPOSITE(targets[0]));
             numTargets++;
         }
         break;
@@ -525,12 +525,13 @@ static void Cmd_createsprite(void)
 
     subpriority = GetSubpriorityForMoveAnim(argVar);
 
-    CreateSpriteAndAnimate(
-        template,
+    if (CreateSpriteAndAnimate(template,
         GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2),
         GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET),
-        subpriority);
-    gAnimVisualTaskCount++;
+        subpriority) != MAX_SPRITES) // Don't increment the task count if the sprite couldn't be created(i.e. there are too many created sprites atm).
+     {
+         gAnimVisualTaskCount++;
+     }
 }
 
 static void CreateSpriteOnTargets(const struct SpriteTemplate *template, u8 argVar, u8 battlerArgIndex, u8 argsCount, bool32 overwriteAnimTgt)
@@ -555,12 +556,13 @@ static void CreateSpriteOnTargets(const struct SpriteTemplate *template, u8 argV
         if (overwriteAnimTgt)
             gBattleAnimArgs[battlerArgIndex] = targets[i];
 
-        CreateSpriteAndAnimate(
-            template,
+        if (CreateSpriteAndAnimate(template,
             GetBattlerSpriteCoord(targets[i], BATTLER_COORD_X_2),
             GetBattlerSpriteCoord(targets[i], BATTLER_COORD_Y_PIC_OFFSET),
-            subpriority);
-        gAnimVisualTaskCount++;
+            subpriority) != MAX_SPRITES) // Don't increment the task count if the sprite couldn't be created(i.e. there are too many created sprites atm).
+        {
+            gAnimVisualTaskCount++;
+        }
     }
 }
 
@@ -1080,27 +1082,15 @@ static void Task_UpdateMonBg(u8 taskId)
 
     if (!gTasks[taskId].t2_InBg2)
     {
-        u16 *src;
-        u16 *dst;
-
         gBattle_BG1_X = x + gTasks[taskId].t2_BgX;
         gBattle_BG1_Y = y + gTasks[taskId].t2_BgY;
-
-        src = &gPlttBufferFaded[0x100 + battlerId * 16];
-        dst = &gPlttBufferFaded[0x100 + animBg.paletteId * 16 - 256];
-        CpuCopy32(src, dst, 32);
+        CpuCopy32(&gPlttBufferFaded[OBJ_PLTT_ID(battlerId)], &gPlttBufferFaded[BG_PLTT_ID(animBg.paletteId)], PLTT_SIZE_4BPP);
     }
     else
     {
-        u16 *src;
-        u16 *dst;
-
         gBattle_BG2_X = x + gTasks[taskId].t2_BgX;
         gBattle_BG2_Y = y + gTasks[taskId].t2_BgY;
-
-        src = &gPlttBufferFaded[0x100 + battlerId * 16];
-        dst = &gPlttBufferFaded[0x100 - 112];
-        CpuCopy32(src, dst, 32);
+        CpuCopy32(&gPlttBufferFaded[OBJ_PLTT_ID(battlerId)], &gPlttBufferFaded[BG_PLTT_ID(9)], PLTT_SIZE_4BPP);
     }
 }
 

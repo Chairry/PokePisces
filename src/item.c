@@ -26,7 +26,8 @@ EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 #include "data/text/item_descriptions.h"
 #include "data/items.h"
 
-static u16 GetBagItemQuantity(u16 *quantity)
+// code
+u16 GetBagItemQuantity(u16 *quantity)
 {
     return gSaveBlock2Ptr->encryptionKey ^ *quantity;
 }
@@ -266,6 +267,12 @@ bool8 AddBagItem(u16 itemId, u16 count)
             slotCapacity = MAX_BAG_ITEM_CAPACITY;
         else
             slotCapacity = MAX_BERRY_CAPACITY;
+
+        if (pocket == TMHM_POCKET)
+        {
+            if (!CheckBagHasItem(ITEM_TM_CASE, 1))
+                AddBagItem(ITEM_TM_CASE, 1);
+        }
 
         for (i = 0; i < itemPocket->capacity; i++)
         {

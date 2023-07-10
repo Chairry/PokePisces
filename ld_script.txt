@@ -15,8 +15,8 @@ SECTIONS {
         . = 0x1C000;
 
         INCLUDE "sym_ewram.ld"
-        src/*.o(.ewram_data);
-        gflib/*.o(.ewram_data);
+        src/*.o(ewram_data);
+        gflib/*.o(ewram_data);
 
         *libc.a:impure.o(.data);
         *libc.a:locale.o(.data);
@@ -344,6 +344,7 @@ SECTIONS {
         src/international_string_util.o(.text);
         src/pokemon_debug.o(.text);
         src/expansion_intro.o(.text);
+        src/tm_case.o(.text);
     } =0
 
     script_data :
@@ -711,6 +712,7 @@ SECTIONS {
         data/sound_data.o(.rodata);
         src/pokemon_debug.o(.rodata);
         src/expansion_intro.o(.rodata);
+        src/tm_case.o(.rodata);
     } =0
 
     song_data :
