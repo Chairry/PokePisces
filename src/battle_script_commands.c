@@ -4268,9 +4268,7 @@ static void Cmd_getexp(void)
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
-                    continue;
-                if (GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+                if (!IsValidForBattle(&gPlayerParty[i]))
                     continue;
                 if (gBitTable[i] & sentIn)
                     viaSentIn++;
@@ -4361,8 +4359,7 @@ static void Cmd_getexp(void)
                     gBattleStruct->wildVictorySong++;
                 }
 
-                if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP)
-                    && !GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_IS_EGG))
+                if (IsValidForBattle(&gPlayerParty[gBattleStruct->expGetterMonId]))
                 {
                     if (gBattleStruct->sentInPokes & 1)
                         gBattleMoveDamage = *exp;
@@ -11941,10 +11938,17 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
                 {
                     BattleScriptPush(BS_ptr);
                     gBattleScripting.battler = gActiveBattler;
-                    gBattlerAbility = gActiveBattler;
-                    gBattlescriptCurrInstr = BattleScript_AbilityNoStatLoss;
-                    gLastUsedAbility = activeBattlerAbility;
-                    RecordAbilityBattle(gActiveBattler, gLastUsedAbility);
+                    if (GetBattlerHoldEffect(gActiveBattler, TRUE) == HOLD_EFFECT_CLEAR_AMULET)
+                    {
+                        gBattlescriptCurrInstr = BattleScript_ItemNoStatLoss;
+                    }
+                    else
+                    {
+                        gBattlerAbility = gActiveBattler;
+                        gBattlescriptCurrInstr = BattleScript_AbilityNoStatLoss;
+                        gLastUsedAbility = activeBattlerAbility;
+                        RecordAbilityBattle(gActiveBattler, gLastUsedAbility);
+                    }
                     gSpecialStatuses[gActiveBattler].statLowered = TRUE;
                 }
             }
@@ -12084,15 +12088,15 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == gActiveBattler);
             gProtectStructs[gActiveBattler].statRaised = TRUE;
-            
+
             // check mirror herb
             for (index = 0; index < gBattlersCount; index++)
             {
                 if (GetBattlerSide(index) == GetBattlerSide(gActiveBattler))
-                    continue; // Only triggers on opposing side 
+                    continue; // Only triggers on opposing side
                 if (GetBattlerHoldEffect(index, TRUE) == HOLD_EFFECT_MIRROR_HERB
                         && gBattleMons[index].statStages[statId] < MAX_STAT_STAGE)
-                {                    
+                {
                     gProtectStructs[index].eatMirrorHerb = 1;
                     gTotemBoosts[index].stats |= (1 << (statId - 1));    // -1 to start at atk
                     gTotemBoosts[index].statChanges[statId - 1] = statValue;
@@ -16308,7 +16312,7 @@ void BS_CheckParentalBondCounter(void)
 void BS_GetBattlerSide(void)
 {
     NATIVE_ARGS(u8 battler);
-    gBattleCommunication[0] = GetBattlerSide(GetBattlerForBattleScript(cmd->battler));   
+    gBattleCommunication[0] = GetBattlerSide(GetBattlerForBattleScript(cmd->battler));
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -16334,7 +16338,7 @@ void BS_TrySymbiosis(void)
         gBattlescriptCurrInstr = BattleScript_SymbiosisActivates;
         return;
     }
-    
+
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
