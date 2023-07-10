@@ -43,6 +43,7 @@ static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
 static void TilesetAnim_BattleDome(u16);
+static void TilesetAnim_Chimney(u16);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -73,6 +74,7 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_Chimney_TallSmoke(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -159,6 +161,26 @@ const u16 *const gTilesetAnims_Lavaridge_Steam[] = {
     gTilesetAnims_Lavaridge_Steam_Frame1,
     gTilesetAnims_Lavaridge_Steam_Frame2,
     gTilesetAnims_Lavaridge_Steam_Frame3
+};
+
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame0[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_1.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame1[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_2.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame2[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_3.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame3[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_4.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame4[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_5.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame5[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_6.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame6[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_7.4bpp");
+const u16 gTilesetAnims_Chimney_TallSmoke_Frame7[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thin_smoke/thinsmoke_anim_8.4bpp");
+
+const u16 *const gTilesetAnims_Chimney_TallSmoke[] = {
+    gTilesetAnims_Chimney_TallSmoke_Frame0,
+    gTilesetAnims_Chimney_TallSmoke_Frame1,
+    gTilesetAnims_Chimney_TallSmoke_Frame2,
+    gTilesetAnims_Chimney_TallSmoke_Frame3,
+    gTilesetAnims_Chimney_TallSmoke_Frame4,
+    gTilesetAnims_Chimney_TallSmoke_Frame5,
+    gTilesetAnims_Chimney_TallSmoke_Frame6,
+    gTilesetAnims_Chimney_TallSmoke_Frame7,
 };
 
 const u16 gTilesetAnims_Pacifidlog_LogBridges_Frame0[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/anim/log_bridges/0.4bpp");
@@ -673,6 +695,12 @@ static void QueueAnimTiles_General_Waterfall(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Waterfall[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(496)), 6 * TILE_SIZE_4BPP);
 }
 
+static void QueueAnimTiles_Chimney_TallSmoke(u16 timer)
+{
+    u16 i = timer % 8;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Chimney_TallSmoke[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(682)), 0x80);
+}
+
 void InitTilesetAnim_Petalburg(void)
 {
     sSecondaryTilesetAnimCounter = 0;
@@ -713,6 +741,13 @@ void InitTilesetAnim_Lavaridge(void)
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_Lavaridge;
+}
+
+void InitTilesetAnim_Chimney(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Chimney;
 }
 
 void InitTilesetAnim_Fallarbor(void)
@@ -895,6 +930,12 @@ static void TilesetAnim_Lavaridge(u16 timer)
         QueueAnimTiles_Lavaridge_Steam(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Lavaridge_Lava(timer / 16);
+}
+
+static void TilesetAnim_Chimney(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Chimney_TallSmoke(timer / 16);
 }
 
 static void TilesetAnim_EverGrande(u16 timer)

@@ -1073,3 +1073,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/OzoneInstitute/scripts.inc"
 
 	.include "data/maps/SweltornDesert/scripts.inc"
+
+	.include "data/maps/MasoriedHike/scripts.inc"

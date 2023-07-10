@@ -17,6 +17,11 @@
       "map": "MAP_PERPLUME_MAZE",
       "offset": 6,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OZONE_INSTITUTE",
+      "offset": -2,
+      "direction": "down"
     }
   ],
   "object_events": [

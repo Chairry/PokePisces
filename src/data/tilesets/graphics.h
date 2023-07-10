@@ -1672,3 +1672,41 @@ const u16 gTilesetPalettes_desert[][16] =
 };
 
 const u32 gTilesetTiles_desert[] = INCBIN_U32("data/tilesets/secondary/desert/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_ozoneinsitute[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/ozoneinsitute/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_ozoneinsitute[] = INCBIN_U32("data/tilesets/secondary/ozoneinsitute/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Chimney[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/chimney/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Chimney[] = INCBIN_U32("data/tilesets/secondary/chimney/tiles.4bpp.lz");
