@@ -310,7 +310,7 @@ static const u8 sSaddenedDescription[] = _("Lowers stats every turn.");
 static const u8 sShamblesDescription[] = _("Rooms boost switching moves.");
 static const u8 sStellarBodyDescription[] = _("Transforms as it battles.");
 static const u8 sSugarCoatDescription[] = _("Raises Sp. Def if restoring HP.");
-static const u8 sTimeTurntDescription[] = _("Summons Trick Room.");
+static const u8 sTimeTurnDescription[] = _("Summons Trick Room.");
 static const u8 sTitanicDescription[] = _("Too big to care.");
 static const u8 sWitchcraftDescription[] = _("Changes fairy magic into HP..");
 
