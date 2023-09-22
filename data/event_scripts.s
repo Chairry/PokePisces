@@ -1075,3 +1075,23 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SweltornDesert/scripts.inc"
 
 	.include "data/maps/MasoriedHike/scripts.inc"
+
+	.include "data/maps/CrimneyClimb/scripts.inc"
+
+	.include "data/maps/JaggroPass/scripts.inc"
+
+	.include "data/maps/FallarborNew/scripts.inc"
+
+	.include "data/maps/MauvilleNew/scripts.inc"
+
+	.include "data/maps/CyclingRoad/scripts.inc"
+
+	.include "data/maps/HatchloamField/scripts.inc"
+
+	.include "data/maps/VerdanturfNew/scripts.inc"
+
+	.include "data/maps/SeaMauville/scripts.inc"
+
+	.include "data/maps/SlateportShore/scripts.inc"
+
+	.include "data/maps/StraeSeapath/scripts.inc"

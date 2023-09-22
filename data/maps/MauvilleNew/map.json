@@ -1,0 +1,44 @@
+{
+  "id": "MAP_MAUVILLE_NEW",
+  "name": "MauvilleNew",
+  "layout": "LAYOUT_MAUVILLE_NEW",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_HATCHLOAM_FIELD",
+      "offset": 18,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_CYCLING_ROAD",
+      "offset": 26,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_SWELTORN_DESERT",
+      "offset": -1,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

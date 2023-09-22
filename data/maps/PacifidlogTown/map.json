@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE131",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_STRAE_SEAPATH",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [
