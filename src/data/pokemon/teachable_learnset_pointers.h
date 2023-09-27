@@ -915,6 +915,15 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SNEASLER] = sSneaslerTeachableLearnset,
     [SPECIES_OVERQWIL] = sOverqwilTeachableLearnset,
     [SPECIES_ENAMORUS] = sEnamorusTeachableLearnset,
+    [SPECIES_TIDPIT] = sEnamorusTeachableLearnset,
+    [SPECIES_SLIDLOW] = sEnamorusTeachableLearnset,
+    [SPECIES_CARDIOVOR] = sEnamorusTeachableLearnset,
+    [SPECIES_FIEFREET] = sEnamorusTeachableLearnset,
+    [SPECIES_BALBYRN] = sEnamorusTeachableLearnset,
+    [SPECIES_BLAZIZAHAK] = sEnamorusTeachableLearnset,
+    [SPECIES_PRONGY] = sEnamorusTeachableLearnset,
+    [SPECIES_TRIDALIER] = sEnamorusTeachableLearnset,
+    [SPECIES_TRITONAUT] = sEnamorusTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,

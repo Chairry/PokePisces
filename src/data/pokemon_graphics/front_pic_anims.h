@@ -9511,6 +9511,60 @@ static const union AnimCmd sAnim_Enamorus_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Tidpit_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Slidlow_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Cardiovor_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fiefreet_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Balbyrn_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Blazizahak_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Prongy_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Tridalier_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Tritonaut_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11467,6 +11521,15 @@ SINGLE_ANIMATION(Basculegion);
 SINGLE_ANIMATION(Sneasler);
 SINGLE_ANIMATION(Overqwil);
 SINGLE_ANIMATION(Enamorus);
+SINGLE_ANIMATION(Tidpit);
+SINGLE_ANIMATION(Slidlow);
+SINGLE_ANIMATION(Cardiovor);
+SINGLE_ANIMATION(Fiefreet);
+SINGLE_ANIMATION(Balbyrn);
+SINGLE_ANIMATION(Blazizahak);
+SINGLE_ANIMATION(Prongy);
+SINGLE_ANIMATION(Tridalier);
+SINGLE_ANIMATION(Tritonaut);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12554,6 +12617,15 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     [SPECIES_SNEASLER] = sAnims_Sneasler,
     [SPECIES_OVERQWIL] = sAnims_Overqwil,
     [SPECIES_ENAMORUS] = sAnims_Enamorus,
+    [SPECIES_TIDPIT] = sAnims_Tidpit,
+    [SPECIES_SLIDLOW] = sAnims_Slidlow,
+    [SPECIES_CARDIOVOR] = sAnims_Cardiovor,
+    [SPECIES_FIEFREET] = sAnims_Fiefreet,
+    [SPECIES_BALBYRN] = sAnims_Balbyrn,
+    [SPECIES_BLAZIZAHAK] = sAnims_Blazizahak,
+    [SPECIES_PRONGY] = sAnims_Prongy,
+    [SPECIES_TRIDALIER] = sAnims_Tridalier,
+    [SPECIES_TRITONAUT] = sAnims_Tritonaut,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

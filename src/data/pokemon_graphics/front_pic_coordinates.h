@@ -919,6 +919,15 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_SNEASLER]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_OVERQWIL]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_ENAMORUS]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_TIDPIT]                       = { .size = MON_COORDS_SIZE(42, 45), .y_offset =  9 },
+    [SPECIES_SLIDLOW]                     = { .size = MON_COORDS_SIZE(54, 54), .y_offset =  5 },
+    [SPECIES_CARDIOVOR]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_FIEFREET]                     = { .size = MON_COORDS_SIZE(40, 46), .y_offset =  9 },
+    [SPECIES_BALBYRN]                      = { .size = MON_COORDS_SIZE(56, 55), .y_offset =  5 },
+    [SPECIES_BLAZIZAHAK]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_PRONGY]                       = { .size = MON_COORDS_SIZE(46, 32), .y_offset = 16 },
+    [SPECIES_TRIDALIER]                    = { .size = MON_COORDS_SIZE(52, 50), .y_offset =  6 },
+    [SPECIES_TRITONAUT]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },

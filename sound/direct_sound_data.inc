@@ -4015,6 +4015,42 @@ Cry_Overqwil::
 Cry_Enamorus::
 	.incbin "sound/direct_sound_samples/cries/enamorus.bin"
 
+	.align 2
+Cry_Tidpit::
+	.incbin "sound/direct_sound_samples/cries/1tidpit.bin"
+
+	.align 2
+Cry_Slidlow::
+	.incbin "sound/direct_sound_samples/cries/2slidlow.bin"
+
+	.align 2
+Cry_Cardiovor::
+	.incbin "sound/direct_sound_samples/cries/3cardiovor.bin"
+
+	.align 2
+Cry_Fiefreet::
+	.incbin "sound/direct_sound_samples/cries/4fiefreet.bin"
+
+	.align 2
+Cry_Balbyrn::
+	.incbin "sound/direct_sound_samples/cries/5balbyrn.bin"
+
+	.align 2
+Cry_Blazizahak::
+	.incbin "sound/direct_sound_samples/cries/6blazizahak.bin"
+
+	.align 2
+Cry_Prongy::
+	.incbin "sound/direct_sound_samples/cries/7prongy.bin"
+
+	.align 2
+Cry_Tridalier::
+	.incbin "sound/direct_sound_samples/cries/8tridalier.bin"
+
+	.align 2
+Cry_Tritonaut::
+	.incbin "sound/direct_sound_samples/cries/9tritonaut.bin"
+
 .endif
 
 	.align 2

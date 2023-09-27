@@ -32096,6 +32096,42 @@ static const u16 sOverqwilTeachableLearnset[] = {
 static const u16 sEnamorusTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sTidpitTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSlidlowTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCardiovorTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sFiefreetTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBalbyrnTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBlazizahakTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sProngyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sTridalierTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sTritonautTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {

@@ -5398,4 +5398,56 @@ const u8 gEnamorusPokedexText[] = _(
     "winter. According to legend, this\n"
     "Pokémon's love gives rise to the\n"
     "budding of fresh life across the land.");
+
+const u8 gTidpitPokedexText[] = _(
+    "Young Tidpit hop around in the safety of\n"
+    "their den. Their mighty jaws can crush even\n"
+    "the toughest armor.");
+
+const u8 gSlidlowPokedexText[] = _(
+    "Slidlow strangles its prey with its thick,\n"
+    "serpentine vines. Slidlow's bite force has\n"
+    "strengthened and it can even spit poison at\n"
+    "its targets.");
+
+const u8 gCardiovorPokedexText[] = _(
+    "A Cardiovor hunts by sitting still, closing\n"
+    "its bud, and exuding an aroma that lures in\n"
+    "prey. When ready, its bud opens, and it traps\n"
+    "the prey in vines, thorns, and fangs.");
+
+const u8 gFiefreetPokedexText[] = _(
+    "It never blinks. Some say it communes with\n"
+    "the underworld, while others say it is the\n"
+    "souls of the wicked reborn as a Pokemon.");
+
+const u8 gBalbyrnPokedexText[] = _(
+    "Formerly believed to be demons from hell,\n"
+    "they were signs of ill omens. Its black-\n"
+    "colored flames contributed to this\n"
+    "superstition.");
+
+const u8 gBlazizahakPokedexText[] = _(
+    "Blazizahak's domineering presence commands\n"
+    "fear and pressure from those around it. It\n"
+    "leads fights with wings blazing with black\n"
+    "flames.");
+
+const u8 gProngyPokedexText[] = _(
+    "Prongy sticks out its tongue to smell and\n"
+    "hunt its favorite food Minote. Prongy uses\n"
+    "its tail to skewer and pulls them towards its\n"
+    "mouth.");
+
+const u8 gTridalierPokedexText[] = _(
+    "Tridalier's head, tail, and fins are\n"
+    "encrusted in steel-like keratin. Because of\n"
+    "the toughness of this armor, chefs have to\n"
+    "use power saws to cut it up.");
+
+const u8 gTritonautPokedexText[] = _(
+    "Tritonaut is revered in deep ocean trenches.\n"
+    "Its steel armor protects it from great\n"
+    "pressures, and its trident-like tail can sink\n"
+    "ships and pierce thick steel.");
 #endif

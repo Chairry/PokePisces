@@ -1341,6 +1341,15 @@ gCryTable::
 	cry Cry_Sneasler
 	cry Cry_Overqwil
 	cry Cry_Enamorus
+	cry Cry_Tidpit
+	cry Cry_Slidlow
+	cry Cry_Cardiovor
+	cry Cry_Fiefreet
+	cry Cry_Balbyrn
+	cry Cry_Blazizahak
+	cry Cry_Prongy
+	cry Cry_Tridalier
+	cry Cry_Tritonaut
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3467,6 +3476,15 @@ gCryTable_Reverse::
 	cry_reverse Cry_Sneasler
 	cry_reverse Cry_Overqwil
 	cry_reverse Cry_Enamorus
+	cry_reverse Cry_Tidpit
+	cry_reverse Cry_Slidlow
+	cry_reverse Cry_Cardiovor
+	cry_reverse Cry_Fiefreet
+	cry_reverse Cry_Balbyrn
+	cry_reverse Cry_Blazizahak
+	cry_reverse Cry_Prongy
+	cry_reverse Cry_Tridalier
+	cry_reverse Cry_Tritonaut
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

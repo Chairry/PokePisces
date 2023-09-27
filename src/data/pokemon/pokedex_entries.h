@@ -10880,5 +10880,113 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 296,
         .trainerOffset = 1,
     },
+
+    [NATIONAL_DEX_TIDPIT] =
+    {
+        .categoryName = _("Seedling"),
+        .height = 7,
+        .weight = 69,
+        .description = gTidpitPokedexText,
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SLIDLOW] =
+    {
+        .categoryName = _("Vine Snake"),
+        .height = 10,
+        .weight = 130,
+        .description = gSlidlowPokedexText,
+        .pokemonScale = 335,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_CARDIOVOR] =
+    {
+        .categoryName = _("Carnivore"),
+        .height = 20,
+        .weight = 1000,
+        .description = gCardiovorPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 388,
+        .trainerOffset = 6,
+    },
+
+    [NATIONAL_DEX_FIEFREET] =
+    {
+        .categoryName = _("Imp"),
+        .height = 6,
+        .weight = 85,
+        .description = gFiefreetPokedexText,
+        .pokemonScale = 444,
+        .pokemonOffset = 18,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BALBYRN] =
+    {
+        .categoryName = _("Dark Flame"),
+        .height = 11,
+        .weight = 190,
+        .description = gBalbyrnPokedexText,
+        .pokemonScale = 302,
+        .pokemonOffset = 9,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BLAZIZAHAK] =
+    {
+        .categoryName = _("Blackfire"),
+        .height = 17,
+        .weight = 905,
+        .description = gBlazizahakPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 302,
+        .trainerOffset = 3,
+    },
+
+    [NATIONAL_DEX_PRONGY] =
+    {
+        .categoryName = _("Spear"),
+        .height = 5,
+        .weight = 90,
+        .description = gProngyPokedexText,
+        .pokemonScale = 412,
+        .pokemonOffset = 18,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_TRIDALIER] =
+    {
+        .categoryName = _("Guardian"),
+        .height = 10,
+        .weight = 225,
+        .description = gTridalierPokedexText,
+        .pokemonScale = 332,
+        .pokemonOffset = 10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_TRITONAUT] =
+    {
+        .categoryName = _("Kingdom"),
+        .height = 16,
+        .weight = 855,
+        .description = gTritonautPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = -1,
+        .trainerScale = 293,
+        .trainerOffset = 2,
+    },
 #endif
 };

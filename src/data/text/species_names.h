@@ -914,6 +914,15 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SNEASLER] = _("Sneasler"),
     [SPECIES_OVERQWIL] = _("Overqwil"),
     [SPECIES_ENAMORUS] = _("Enamorus"),
+    [SPECIES_TIDPIT] = _("Tidpit"),
+    [SPECIES_SLIDLOW] = _("Slidlow"),
+    [SPECIES_CARDIOVOR] = _("Cardiovor"),
+    [SPECIES_FIEFREET] = _("Fiefreet"),
+    [SPECIES_BALBYRN] = _("Balbyrn"),
+    [SPECIES_BLAZIZAHAK] = _("Blazizahak"),
+    [SPECIES_PRONGY] = _("Prongy"),
+    [SPECIES_TRIDALIER] = _("Tridalier"),
+    [SPECIES_TRITONAUT] = _("Tritonaut"),
 #endif
 
     // Megas
