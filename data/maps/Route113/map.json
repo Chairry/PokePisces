@@ -17,6 +17,16 @@
       "map": "MAP_MASORIED_HIKE",
       "offset": 80,
       "direction": "down"
+    },
+    {
+      "map": "MAP_CRIMNEY_CLIMB",
+      "offset": -39,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_FALLARBOR_NEW",
+      "offset": -20,
+      "direction": "left"
     }
   ],
   "object_events": [

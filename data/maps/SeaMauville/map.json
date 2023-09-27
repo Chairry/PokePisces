@@ -1,0 +1,39 @@
+{
+  "id": "MAP_SEA_MAUVILLE",
+  "name": "SeaMauville",
+  "layout": "LAYOUT_SEA_MAUVILLE",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_SLATEPORT_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_CYCLING_ROAD",
+      "offset": 26,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_SLATEPORT_SHORE",
+      "offset": 0,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

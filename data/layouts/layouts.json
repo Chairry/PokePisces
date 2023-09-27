@@ -124,10 +124,10 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN",
       "name": "LavaridgeTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Chimney",
       "border_filepath": "data/layouts/LavaridgeTown/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown/map.bin"
     },
@@ -154,7 +154,7 @@
     {
       "id": "LAYOUT_PACIFIDLOG_TOWN",
       "name": "PacifidlogTown_Layout",
-      "width": 40,
+      "width": 61,
       "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Pacifidlog",
@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Chimney",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4490,6 +4490,106 @@
       "secondary_tileset": "gTileset_Chimney",
       "border_filepath": "data/layouts/MasoriedHike/border.bin",
       "blockdata_filepath": "data/layouts/MasoriedHike/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRIMNEY_CLIMB",
+      "name": "CrimneyClimb_Layout",
+      "width": 120,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/CrimneyClimb/border.bin",
+      "blockdata_filepath": "data/layouts/CrimneyClimb/map.bin"
+    },
+    {
+      "id": "LAYOUT_JAGGRO_PASS",
+      "name": "JaggroPass_Layout",
+      "width": 40,
+      "height": 92,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/JaggroPass/border.bin",
+      "blockdata_filepath": "data/layouts/JaggroPass/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_NEW",
+      "name": "FallarborNew_Layout",
+      "width": 39,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/FallarborNew/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_NEW",
+      "name": "MauvilleNew_Layout",
+      "width": 64,
+      "height": 64,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_mauvillenew",
+      "border_filepath": "data/layouts/MauvilleNew/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_CYCLING_ROAD",
+      "name": "CyclingRoad_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_mauvillenew",
+      "border_filepath": "data/layouts/CyclingRoad/border.bin",
+      "blockdata_filepath": "data/layouts/CyclingRoad/map.bin"
+    },
+    {
+      "id": "LAYOUT_HATCHLOAM_FIELD",
+      "name": "HatchloamField_Layout",
+      "width": 72,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/HatchloamField/border.bin",
+      "blockdata_filepath": "data/layouts/HatchloamField/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_NEW",
+      "name": "VerdanturfNew_Layout",
+      "width": 40,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/VerdanturfNew/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEA_MAUVILLE",
+      "name": "SeaMauville_Layout",
+      "width": 52,
+      "height": 68,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/SeaMauville/border.bin",
+      "blockdata_filepath": "data/layouts/SeaMauville/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_SHORE",
+      "name": "SlateportShore_Layout",
+      "width": 88,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/SlateportShore/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportShore/map.bin"
+    },
+    {
+      "id": "LAYOUT_STRAE_SEAPATH",
+      "name": "StraeSeapath_Layout",
+      "width": 36,
+      "height": 96,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/StraeSeapath/border.bin",
+      "blockdata_filepath": "data/layouts/StraeSeapath/map.bin"
     }
   ]
 }

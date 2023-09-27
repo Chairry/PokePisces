@@ -869,3 +869,14 @@ const struct Tileset gTileset_Chimney =
     .metatileAttributes = gMetatileAttributes_Chimney,
     .callback = InitTilesetAnim_Chimney,
 };
+
+const struct Tileset gTileset_mauvillenew =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_mauvillenew,
+    .palettes = gTilesetPalettes_mauvillenew,
+    .metatiles = gMetatiles_mauvillenew,
+    .metatileAttributes = gMetatileAttributes_mauvillenew,
+    .callback = NULL,
+};

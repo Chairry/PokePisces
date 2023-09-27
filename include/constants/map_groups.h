@@ -71,6 +71,16 @@
 #define MAP_OZONE_INSTITUTE     (62 | (0 << 8))
 #define MAP_SWELTORN_DESERT     (63 | (0 << 8))
 #define MAP_MASORIED_HIKE       (64 | (0 << 8))
+#define MAP_CRIMNEY_CLIMB       (65 | (0 << 8))
+#define MAP_JAGGRO_PASS         (66 | (0 << 8))
+#define MAP_FALLARBOR_NEW       (67 | (0 << 8))
+#define MAP_MAUVILLE_NEW        (68 | (0 << 8))
+#define MAP_CYCLING_ROAD        (69 | (0 << 8))
+#define MAP_HATCHLOAM_FIELD     (70 | (0 << 8))
+#define MAP_VERDANTURF_NEW      (71 | (0 << 8))
+#define MAP_SEA_MAUVILLE        (72 | (0 << 8))
+#define MAP_SLATEPORT_SHORE     (73 | (0 << 8))
+#define MAP_STRAE_SEAPATH       (74 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

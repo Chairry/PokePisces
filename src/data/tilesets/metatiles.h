@@ -219,3 +219,6 @@ const u16 gMetatileAttributes_ozoneinsitute[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_Chimney[] = INCBIN_U16("data/tilesets/secondary/chimney/metatiles.bin");
 const u16 gMetatileAttributes_Chimney[] = INCBIN_U16("data/tilesets/secondary/chimney/metatile_attributes.bin");
+
+const u16 gMetatiles_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatiles.bin");
+const u16 gMetatileAttributes_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatile_attributes.bin");

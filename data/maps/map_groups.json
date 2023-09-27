@@ -100,7 +100,17 @@
     "PerplumeMaze",
     "OzoneInstitute",
     "SweltornDesert",
-    "MasoriedHike"
+    "MasoriedHike",
+    "CrimneyClimb",
+    "JaggroPass",
+    "FallarborNew",
+    "MauvilleNew",
+    "CyclingRoad",
+    "HatchloamField",
+    "VerdanturfNew",
+    "SeaMauville",
+    "SlateportShore",
+    "StraeSeapath"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
