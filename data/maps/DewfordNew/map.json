@@ -1,0 +1,39 @@
+{
+  "id": "MAP_DEWFORD_NEW",
+  "name": "DewfordNew",
+  "layout": "LAYOUT_DEWFORD_NEW",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_DEWFORD_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_NAVIGULF_WAVES",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_DETERMANITE_BEACH",
+      "offset": -16,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

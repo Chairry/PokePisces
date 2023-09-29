@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4590,6 +4590,56 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/StraeSeapath/border.bin",
       "blockdata_filepath": "data/layouts/StraeSeapath/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAILORS_PAUSE",
+      "name": "SailorsPause_Layout",
+      "width": 48,
+      "height": 34,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SailorsPause/border.bin",
+      "blockdata_filepath": "data/layouts/SailorsPause/map.bin"
+    },
+    {
+      "id": "LAYOUT_NAVIGULF_WAVES",
+      "name": "NavigulfWaves_Layout",
+      "width": 100,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/NavigulfWaves/border.bin",
+      "blockdata_filepath": "data/layouts/NavigulfWaves/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_NEW",
+      "name": "DewfordNew_Layout",
+      "width": 56,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/DewfordNew/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_DETERMANITE_BEACH",
+      "name": "DetermaniteBeach_Layout",
+      "width": 64,
+      "height": 52,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/DetermaniteBeach/border.bin",
+      "blockdata_filepath": "data/layouts/DetermaniteBeach/map.bin"
+    },
+    {
+      "id": "LAYOUT_WISHWELL_OCEAN",
+      "name": "WishwellOcean_Layout",
+      "width": 32,
+      "height": 120,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/WishwellOcean/border.bin",
+      "blockdata_filepath": "data/layouts/WishwellOcean/map.bin"
     }
   ]
 }

@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE129",
       "offset": -7,
       "direction": "up"
+    },
+    {
+      "map": "MAP_SAILORS_PAUSE",
+      "offset": 32,
+      "direction": "down"
     }
   ],
   "object_events": [

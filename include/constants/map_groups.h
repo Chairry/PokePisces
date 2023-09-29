@@ -81,6 +81,11 @@
 #define MAP_SEA_MAUVILLE        (72 | (0 << 8))
 #define MAP_SLATEPORT_SHORE     (73 | (0 << 8))
 #define MAP_STRAE_SEAPATH       (74 | (0 << 8))
+#define MAP_SAILORS_PAUSE       (75 | (0 << 8))
+#define MAP_NAVIGULF_WAVES      (76 | (0 << 8))
+#define MAP_DEWFORD_NEW         (77 | (0 << 8))
+#define MAP_DETERMANITE_BEACH   (78 | (0 << 8))
+#define MAP_WISHWELL_OCEAN      (79 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

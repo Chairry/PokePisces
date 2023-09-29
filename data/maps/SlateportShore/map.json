@@ -22,6 +22,11 @@
       "map": "MAP_STRAE_SEAPATH",
       "offset": -64,
       "direction": "right"
+    },
+    {
+      "map": "MAP_NAVIGULF_WAVES",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

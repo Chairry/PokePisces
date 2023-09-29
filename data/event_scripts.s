@@ -1095,3 +1095,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SlateportShore/scripts.inc"
 
 	.include "data/maps/StraeSeapath/scripts.inc"
+
+	.include "data/maps/SailorsPause/scripts.inc"
+
+	.include "data/maps/NavigulfWaves/scripts.inc"
+
+	.include "data/maps/DewfordNew/scripts.inc"
+
+	.include "data/maps/DetermaniteBeach/scripts.inc"
+
+	.include "data/maps/WishwellOcean/scripts.inc"
