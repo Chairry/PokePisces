@@ -702,10 +702,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
             .power = 25,
-            .accuracy = 95,
+            .accuracy = 90,
         #else
-            .power = 14,
-            .accuracy = 85,
+            .power = 25,
+            .accuracy = 90,
         #endif
         .effect = EFFECT_MULTI_HIT,
         .type = TYPE_BUG,
@@ -6885,7 +6885,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SLICING_MOVE,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_SLICING_MOVE | FLAG_HIGH_CRIT,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
@@ -7645,14 +7645,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BUG_BITE] =
     {
         .effect = EFFECT_BUG_BITE,
-        .power = 60,
+        .power = 80,
         .type = TYPE_BUG,
         .accuracy = 100,
-        .pp = 20,
+        .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED | FLAG_STRONG_JAW_BOOST,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
@@ -10209,10 +10209,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_INFESTATION] =
     {
         .effect = EFFECT_TRAP,
-        .power = 20,
+        .power = 60,
         .type = TYPE_BUG,
-        .accuracy = 100,
-        .pp = 20,
+        .accuracy = 90,
+        .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -12149,10 +12149,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SKITTER_SMACK] =
     {
         .effect = EFFECT_SPECIAL_ATTACK_DOWN_HIT,
-        .power = 70,
+        .power = 80,
         .type = TYPE_BUG,
-        .accuracy = 90,
-        .pp = 10,
+        .accuracy = 100,
+        .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,

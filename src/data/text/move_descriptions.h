@@ -150,7 +150,7 @@ static const u8 sBodySlamDescription[] = _(
 
 static const u8 sWrapDescription[] = _(
     "Wraps and squeezes the foe\n"
-    BINDING_TURNS" times with vines, etc.");
+    ""BINDING_TURNS" times with vines, etc.");
 
 static const u8 sTakeDownDescription[] = _(
     "A reckless charge attack\n"
@@ -1637,8 +1637,8 @@ static const u8 sAirSlashDescription[] = _(
     "air. May cause flinching.");
 
 static const u8 sXScissorDescription[] = _(
-    "Slashes the foe with crossed\n"
-    "scythes, claws, etc.");
+    "Slashes foe in a X-shape.\n"
+    "High critical-hit ratio.");
 
 static const u8 sBugBuzzDescription[] = _(
     "A damaging sound wave that\n"
