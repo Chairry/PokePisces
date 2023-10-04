@@ -11184,13 +11184,13 @@ const struct PokedexEntry gPokedexEntries[] =
     [NATIONAL_DEX_SOWPHIROTH] =
     {
         .categoryName = _("Serene Pig"),
-        .height = 27,
-        .weight = 525,
+        .height = 32,
+        .weight = 160,
         .description = gSowphirothPokedexText,
-        .pokemonScale = 275,
-        .pokemonOffset = 7,
-        .trainerScale = 256,
-        .trainerOffset = 0,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 495,
+        .trainerOffset = 10,
     },
 
     [NATIONAL_DEX_TOXEXOT] =
