@@ -5450,4 +5450,123 @@ const u8 gTritonautPokedexText[] = _(
     "Its steel armor protects it from great\n"
     "pressures, and its trident-like tail can sink\n"
     "ships and pierce thick steel.");
+
+const u8 gSnelfrendPokedexText[] = _(
+    "Snelfrend are well known for their incredibly\n"
+    "pleasant personalities. It is for this reason\n"
+    "that they are popular household pets.");
+
+const u8 gSycoplodPokedexText[] = _(
+    "Sycoplod's shell seems to emit psychic\n"
+    "signals to it. This causes the Pokémon to eat\n"
+    "more than what scientists believe to be its\n"
+    "regular food intake.");
+
+const u8 gSycostromPokedexText[] = _(
+    "Sycostrom's shell has lived as a distinct\n"
+    "being the entire time, eating the Pokémon's\n"
+    "brain. Scientists are studying why they are\n"
+    "born with spiral parasites.");
+
+const u8 gGupsparPokedexText[] = _(
+    "Gupspar are overly aggressive Pokémon that\n"
+    "possess no sense of danger. They will\n"
+    "viciously assault any who come across them.");
+
+const u8 gVangarPokedexText[] = _(
+    "Vangar's highly aggressive behavior is famous\n"
+    "throughout the region. They are also known\n"
+    "for gnawing holes under ships.");
+
+const u8 gGhaerialPokedexText[] = _(
+    "Ghaerial's odd fins have granted them the\n"
+    "ability to glide, like “swimming” in the air.\n"
+    "They are often sighted in groups guarding\n"
+    "“The Princess of the Sea.”");
+
+const u8 gMarinarocPokedexText[] = _(
+    "Marinaroc travel down deep, filtering water\n"
+    "as they go. Eating mineral-rich rocks help\n"
+    "make their coral exterior become harder.");
+
+const u8 gMettatollPokedexText[] = _(
+    "Some Marinaroc crave metals and absorb them\n"
+    "to become Mettatoll. Mettatoll can go even\n"
+    "deeper and are unaffected by the ocean's\n"
+    "immense pressure.");
+
+const u8 gIcksqueekPokedexText[] = _(
+    "Icksqueek dart around quickly when searching\n"
+    "for small prey. Their saliva is teeming with\n"
+    "pathogens that can cause illnesses.");
+
+const u8 gKomorodePokedexText[] = _(
+    "Komorode lay still in the grass and ambush\n"
+    "their prey with a quick bite. They then let\n"
+    "their prey run and wait for them to be\n"
+    "knocked out.");
+
+const u8 gKyudiPokedexText[] = _(
+    "A primarily nocturnal scavenger, Kyudi uses\n"
+    "any chance it gets for food. Reports tell of\n"
+    "Kyudi leading lost wanderers back to dens for\n"
+    "it and its brethren to feed on.");
+
+const u8 gKombakyuPokedexText[] = _(
+    "This Pokémon wanders the desert expecting\n"
+    "fights. If Kombakyu is at a disadvantage, it\n"
+    "will produce sandstorms to hide within and\n"
+    "confuse its foe.");
+
+const u8 gFluffsirPokedexText[] = _(
+    "Its dense body hair causes immense joy just\n"
+    "by touching it. Although some people claim\n"
+    "that Fluffsir's eyes are so unsettling, so\n"
+    "they won't get close to one.");
+
+const u8 gFluffrearPokedexText[] = _(
+    "Fluffrear constantly carry their children.\n"
+    "When danger hits, Fluffrear put their bodies\n"
+    "between it and their children, ensuring the\n"
+    "child's survival.");
+
+const u8 gSaintisowPokedexText[] = _(
+    "Scientists discovered their ancestors didn't\n"
+    "possess wings 2,000 years ago. One theory\n"
+    "proposed is someone artificially gave them\n"
+    "wings.");
+
+const u8 gSanctisowPokedexText[] = _(
+    "Ancient texts dubbed these Pokémon, “The\n"
+    "Saints of War.” It's said soldiers long gone\n"
+    "used them as emotional support.");
+
+const u8 gSowphirothPokedexText[] = _(
+    "Just the sight of one flying in the sky\n"
+    "inspires awe. Formerly used in war as a\n"
+    "symbol of unity, it raises morale, leading\n"
+    "armies to fight with much ardor.");
+
+const u8 gToxexotPokedexText[] = _(
+    "Toxexot confound enemies with their abnormal\n"
+    "patterns. They use toxic fumes to knock out\n"
+    "their favorite snack, Mandimyte.");
+
+const u8 gPseudraPokedexText[] = _(
+    "What seems to be three extra heads are their\n"
+    "limbs and tail. These often disorient the\n"
+    "enemy they're opposing, leaving them unable\n"
+    "to react accordingly to attacks.");
+
+const u8 gMandimytePokedexText[] = _(
+    "Mandimyte live in interconnected tunnels they\n"
+    "have dug out deep within caves. They rush and\n"
+    "explode on any intruders approaching the\n"
+    "nest.");
+
+const u8 gTerminytePokedexText[] = _(
+    "Terminyte's abdomens are filled with\n"
+    "extremely volatile chemicals. These chemicals\n"
+    "release whenever they explode and eat through\n"
+    "any type of metal.");
 #endif

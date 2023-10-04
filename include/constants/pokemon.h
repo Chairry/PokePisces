@@ -243,9 +243,9 @@
 
 // Evolution types
 #define EVO_NONE                          0xffff // Not an actual evolution, used to generate offspring that can't evolve into the specified species, like regional forms.
-#define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 220
-#define EVO_FRIENDSHIP_DAY                2      // Pokémon levels up during the day with friendship ≥ 220
-#define EVO_FRIENDSHIP_NIGHT              3      // Pokémon levels up at night with friendship ≥ 220
+#define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 160
+#define EVO_FRIENDSHIP_DAY                2      // Pokémon levels up during the day with friendship ≥ 160
+#define EVO_FRIENDSHIP_NIGHT              3      // Pokémon levels up at night with friendship ≥ 160
 #define EVO_LEVEL                         4      // Pokémon reaches the specified level
 #define EVO_TRADE                         5      // Pokémon is traded
 #define EVO_TRADE_ITEM                    6      // Pokémon is traded while it's holding the specified item
@@ -266,7 +266,7 @@
 #define EVO_ITEM_HOLD_DAY                 21     // Pokémon levels up, holds specified item at day
 #define EVO_ITEM_HOLD_NIGHT               22     // Pokémon levels up, holds specified item at night
 #define EVO_MOVE                          23     // Pokémon levels up, knows specified move
-#define EVO_FRIENDSHIP_MOVE_TYPE          24     // Pokémon levels up with friendship ≥ 220, knows move with specified type
+#define EVO_FRIENDSHIP_MOVE_TYPE          24     // Pokémon levels up with friendship ≥ 160, knows move with specified type
 #define EVO_MAPSEC                        25     // Pokémon levels up on specified mapsec
 #define EVO_ITEM_MALE                     26     // specified item is used on a male Pokémon
 #define EVO_ITEM_FEMALE                   27     // specified item is used on a female Pokémon

@@ -9590,6 +9590,132 @@ static const union AnimCmd sAnim_Tritonaut_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Snelfrend_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sycoplod_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sycostrom_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Gupspar_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Vangar_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Ghaerial_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Marinaroc_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mettatoll_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Icksqueek_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Komorode_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Kyudi_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Kombakyu_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fluffsir_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fluffrear_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Saintisow_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sanctisow_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sowphiroth_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Toxexot_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Pseudra_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mandimyte_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Terminyte_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11547,6 +11673,27 @@ SINGLE_ANIMATION(Blazizahak);
 SINGLE_ANIMATION(Prongy);
 SINGLE_ANIMATION(Tridalier);
 SINGLE_ANIMATION(Tritonaut);
+SINGLE_ANIMATION(Snelfrend);
+SINGLE_ANIMATION(Sycoplod);
+SINGLE_ANIMATION(Sycostrom);
+SINGLE_ANIMATION(Gupspar);
+SINGLE_ANIMATION(Vangar);
+SINGLE_ANIMATION(Ghaerial);
+SINGLE_ANIMATION(Marinaroc);
+SINGLE_ANIMATION(Mettatoll);
+SINGLE_ANIMATION(Icksqueek);
+SINGLE_ANIMATION(Komorode);
+SINGLE_ANIMATION(Kyudi);
+SINGLE_ANIMATION(Kombakyu);
+SINGLE_ANIMATION(Fluffsir);
+SINGLE_ANIMATION(Fluffrear);
+SINGLE_ANIMATION(Saintisow);
+SINGLE_ANIMATION(Sanctisow);
+SINGLE_ANIMATION(Sowphiroth);
+SINGLE_ANIMATION(Toxexot);
+SINGLE_ANIMATION(Pseudra);
+SINGLE_ANIMATION(Mandimyte);
+SINGLE_ANIMATION(Terminyte);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12643,6 +12790,27 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_PRONGY] = sAnims_Prongy,
     [SPECIES_TRIDALIER] = sAnims_Tridalier,
     [SPECIES_TRITONAUT] = sAnims_Tritonaut,
+    [SPECIES_SNELFREND] = sAnims_Snelfrend,
+    [SPECIES_SYCOPLOD] = sAnims_Sycoplod,
+    [SPECIES_SYCOSTROM] = sAnims_Sycostrom,
+    [SPECIES_GUPSPAR] = sAnims_Gupspar,
+    [SPECIES_VANGAR] = sAnims_Vangar,
+    [SPECIES_GHAERIAL] = sAnims_Ghaerial,
+    [SPECIES_MARINAROC] = sAnims_Marinaroc,
+    [SPECIES_METTATOLL] = sAnims_Mettatoll,
+    [SPECIES_ICKSQUEEK] = sAnims_Icksqueek,
+    [SPECIES_KOMORODE] = sAnims_Komorode,
+    [SPECIES_KYUDI] = sAnims_Kyudi,
+    [SPECIES_KOMBAKYU] = sAnims_Kombakyu,
+    [SPECIES_FLUFFSIR] = sAnims_Fluffsir,
+    [SPECIES_FLUFFREAR] = sAnims_Fluffrear,
+    [SPECIES_SAINTISOW] = sAnims_Saintisow,
+    [SPECIES_SANCTISOW] = sAnims_Sanctisow,
+    [SPECIES_SOWPHIROTH] = sAnims_Sowphiroth,
+    [SPECIES_TOXEXOT] = sAnims_Toxexot,
+    [SPECIES_PSEUDRA] = sAnims_Pseudra,
+    [SPECIES_MANDIMYTE] = sAnims_Mandimyte,
+    [SPECIES_TERMINYTE] = sAnims_Terminyte,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

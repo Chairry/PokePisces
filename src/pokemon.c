@@ -113,6 +113,27 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(PRONGY),
     SPECIES_TO_HOENN(TRIDALIER),
     SPECIES_TO_HOENN(TRITONAUT),
+    SPECIES_TO_HOENN(SNELFREND),
+    SPECIES_TO_HOENN(SYCOPLOD),
+    SPECIES_TO_HOENN(SYCOSTROM),
+    SPECIES_TO_HOENN(GUPSPAR),
+    SPECIES_TO_HOENN(VANGAR),
+    SPECIES_TO_HOENN(GHAERIAL),
+    SPECIES_TO_HOENN(MARINAROC),
+    SPECIES_TO_HOENN(METTATOLL),
+    SPECIES_TO_HOENN(ICKSQUEEK),
+    SPECIES_TO_HOENN(KOMORODE),
+    SPECIES_TO_HOENN(KYUDI),
+    SPECIES_TO_HOENN(KOMBAKYU),
+    SPECIES_TO_HOENN(FLUFFSIR),
+    SPECIES_TO_HOENN(FLUFFREAR),
+    SPECIES_TO_HOENN(SAINTISOW),
+    SPECIES_TO_HOENN(SANCTISOW),
+    SPECIES_TO_HOENN(SOWPHIROTH),
+    SPECIES_TO_HOENN(TOXEXOT),
+    SPECIES_TO_HOENN(PSEUDRA),
+    SPECIES_TO_HOENN(MANDIMYTE),
+    SPECIES_TO_HOENN(TERMINYTE),
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1041,6 +1062,27 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(PRONGY),
     SPECIES_TO_NATIONAL(TRIDALIER),
     SPECIES_TO_NATIONAL(TRITONAUT),
+    SPECIES_TO_NATIONAL(SNELFREND),
+    SPECIES_TO_NATIONAL(SYCOPLOD),
+    SPECIES_TO_NATIONAL(SYCOSTROM),
+    SPECIES_TO_NATIONAL(GUPSPAR),
+    SPECIES_TO_NATIONAL(VANGAR),
+    SPECIES_TO_NATIONAL(GHAERIAL),
+    SPECIES_TO_NATIONAL(MARINAROC),
+    SPECIES_TO_NATIONAL(METTATOLL),
+    SPECIES_TO_NATIONAL(ICKSQUEEK),
+    SPECIES_TO_NATIONAL(KOMORODE),
+    SPECIES_TO_NATIONAL(KYUDI),
+    SPECIES_TO_NATIONAL(KOMBAKYU),
+    SPECIES_TO_NATIONAL(FLUFFSIR),
+    SPECIES_TO_NATIONAL(FLUFFREAR),
+    SPECIES_TO_NATIONAL(SAINTISOW),
+    SPECIES_TO_NATIONAL(SANCTISOW),
+    SPECIES_TO_NATIONAL(SOWPHIROTH),
+    SPECIES_TO_NATIONAL(TOXEXOT),
+    SPECIES_TO_NATIONAL(PSEUDRA),
+    SPECIES_TO_NATIONAL(MANDIMYTE),
+    SPECIES_TO_NATIONAL(TERMINYTE),
 #endif
 
     // Megas
@@ -1475,6 +1517,27 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(PRONGY),
     HOENN_TO_NATIONAL(TRIDALIER),
     HOENN_TO_NATIONAL(TRITONAUT),
+    HOENN_TO_NATIONAL(SNELFREND),
+    HOENN_TO_NATIONAL(SYCOPLOD),
+    HOENN_TO_NATIONAL(SYCOSTROM),
+    HOENN_TO_NATIONAL(GUPSPAR),
+    HOENN_TO_NATIONAL(VANGAR),
+    HOENN_TO_NATIONAL(GHAERIAL),
+    HOENN_TO_NATIONAL(MARINAROC),
+    HOENN_TO_NATIONAL(METTATOLL),
+    HOENN_TO_NATIONAL(ICKSQUEEK),
+    HOENN_TO_NATIONAL(KOMORODE),
+    HOENN_TO_NATIONAL(KYUDI),
+    HOENN_TO_NATIONAL(KOMBAKYU),
+    HOENN_TO_NATIONAL(FLUFFSIR),
+    HOENN_TO_NATIONAL(FLUFFREAR),
+    HOENN_TO_NATIONAL(SAINTISOW),
+    HOENN_TO_NATIONAL(SANCTISOW),
+    HOENN_TO_NATIONAL(SOWPHIROTH),
+    HOENN_TO_NATIONAL(TOXEXOT),
+    HOENN_TO_NATIONAL(PSEUDRA),
+    HOENN_TO_NATIONAL(MANDIMYTE),
+    HOENN_TO_NATIONAL(TERMINYTE),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -2455,6 +2518,27 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_PRONGY - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_TRIDALIER - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_TRITONAUT - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SNELFREND - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SYCOPLOD - 1]      = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SYCOSTROM - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_GUPSPAR - 1]       = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_VANGAR - 1]        = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_GHAERIAL - 1]      = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_MARINAROC - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_METTATOLL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_ICKSQUEEK - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_KOMORODE - 1]      = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_KYUDI - 1]         = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_KOMBAKYU - 1]      = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_FLUFFSIR - 1]      = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_FLUFFREAR - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SAINTISOW - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SANCTISOW - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_SOWPHIROTH - 1]    = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_TOXEXOT - 1]       = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_PSEUDRA - 1]       = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_MANDIMYTE - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
+    [SPECIES_TERMINYTE - 1]     = ANIM_V_SQUISH_AND_BOUNCE,    
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]   = ANIM_GROW_VIBRATE,
@@ -6042,12 +6126,12 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_FRIENDSHIP:
-                if (friendship >= 220)
+                if (friendship >= 160)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 220)
+                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 160)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_DAY:
@@ -6057,7 +6141,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_FRIENDSHIP_NIGHT:
                 RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 220)
+                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 160)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:
@@ -6136,7 +6220,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
-                if (friendship >= 220)
+                if (friendship >= 160)
                 {
                     for (j = 0; j < MAX_MON_MOVES; j++)
                     {

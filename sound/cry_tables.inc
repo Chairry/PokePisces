@@ -1350,6 +1350,27 @@ gCryTable::
 	cry Cry_Prongy
 	cry Cry_Tridalier
 	cry Cry_Tritonaut
+	cry Cry_Snelfrend
+	cry Cry_Sycoplod
+	cry Cry_Sycostrom
+	cry Cry_Gupspar
+	cry Cry_Vangar
+	cry Cry_Ghaerial
+	cry Cry_Marinaroc
+	cry Cry_Mettatoll
+	cry Cry_Icksqueek
+	cry Cry_Komorode
+	cry Cry_Kyudi
+	cry Cry_Kombakyu
+	cry Cry_Fluffsir
+	cry Cry_Fluffrear
+	cry Cry_Saintisow
+	cry Cry_Sanctisow
+	cry Cry_Sowphiroth
+	cry Cry_Toxexot
+	cry Cry_Pseudra
+	cry Cry_Mandimyte
+	cry Cry_Terminyte
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3485,6 +3506,27 @@ gCryTable_Reverse::
 	cry_reverse Cry_Prongy
 	cry_reverse Cry_Tridalier
 	cry_reverse Cry_Tritonaut
+	cry_reverse Cry_Snelfrend
+	cry_reverse Cry_Sycoplod
+	cry_reverse Cry_Sycostrom
+	cry_reverse Cry_Gupspar
+	cry_reverse Cry_Vangar
+	cry_reverse Cry_Ghaerial
+	cry_reverse Cry_Marinaroc
+	cry_reverse Cry_Mettatoll
+	cry_reverse Cry_Icksqueek
+	cry_reverse Cry_Komorode
+	cry_reverse Cry_Kyudi
+	cry_reverse Cry_Kombakyu
+	cry_reverse Cry_Fluffsir
+	cry_reverse Cry_Fluffrear
+	cry_reverse Cry_Saintisow
+	cry_reverse Cry_Sanctisow
+	cry_reverse Cry_Sowphiroth
+	cry_reverse Cry_Toxexot
+	cry_reverse Cry_Pseudra
+	cry_reverse Cry_Mandimyte
+	cry_reverse Cry_Terminyte
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

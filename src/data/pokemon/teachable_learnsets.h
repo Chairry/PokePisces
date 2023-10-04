@@ -32132,6 +32132,90 @@ static const u16 sTridalierTeachableLearnset[] = {
 static const u16 sTritonautTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sSnelfrendTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSycoplodTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSycostromTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGupsparTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sVangarTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGhaerialTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMarinarocTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMettatollTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sIcksqueekTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKomorodeTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKyudiTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKombakyuTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sFluffsirTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sFluffrearTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSaintisowTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSanctisowTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSowphirothTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sToxexotTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sPseudraTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMandimyteTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sTerminyteTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {

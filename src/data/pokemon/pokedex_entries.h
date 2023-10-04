@@ -10988,5 +10988,257 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 293,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_SNELFREND] =
+    {
+        .categoryName = _("Kind Snail"),
+        .height = 3,
+        .weight = 40,
+        .description = gSnelfrendPokedexText,
+        .pokemonScale = 530,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SYCOPLOD] =
+    {
+        .categoryName = _("Dazed Snail"),
+        .height = 7,
+        .weight = 115,
+        .description = gSycoplodPokedexText,
+        .pokemonScale = 391,
+        .pokemonOffset = 20,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SYCOSTROM] =
+    {
+        .categoryName = _("Spiral Being"),
+        .height = 17,
+        .weight = 608,
+        .description = gSycostromPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
+
+    [NATIONAL_DEX_GUPSPAR] =
+    {
+        .categoryName = _("Maw"),
+        .height = 5,
+        .weight = 10,
+        .description = gGupsparPokedexText,
+        .pokemonScale = 432,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_VANGAR] =
+    {
+        .categoryName = _("Jaw"),
+        .height = 15,
+        .weight = 400,
+        .description = gVangarPokedexText,
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_GHAERIAL] =
+    {
+        .categoryName = _("Flying Jaw"),
+        .height = 32,
+        .weight = 3200,
+        .description = gGhaerialPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 495,
+        .trainerOffset = 10,
+    },
+
+    [NATIONAL_DEX_MARINAROC] =
+    {
+        .categoryName = _("Submerging"),
+        .height = 19,
+        .weight = 452,
+        .description = gMarinarocPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+    },
+
+    [NATIONAL_DEX_METTATOLL] =
+    {
+        .categoryName = _("Deep Sea"),
+        .height = 34,
+        .weight = 2300,
+        .description = gMettatollPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 405,
+        .trainerOffset = 8,
+    },
+
+    [NATIONAL_DEX_ICKSQUEEK] =
+    {
+        .categoryName = _("Infection"),
+        .height = 8,
+        .weight = 60,
+        .description = gIcksqueekPokedexText,
+        .pokemonScale = 439,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KOMORODE] =
+    {
+        .categoryName = _("Patience"),
+        .height = 11,
+        .weight = 270,
+        .description = gKomorodePokedexText,
+        .pokemonScale = 320,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KYUDI] =
+    {
+        .categoryName = _("Desert Fae"),
+        .height = 6,
+        .weight = 120,
+        .description = gKyudiPokedexText,
+        .pokemonScale = 365,
+        .pokemonOffset = 18,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KOMBAKYU] =
+    {
+        .categoryName = _("Desert Fae"),
+        .height = 14,
+        .weight = 620,
+        .description = gKombakyuPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_FLUFFSIR] =
+    {
+        .categoryName = _("Big Eye"),
+        .height = 4,
+        .weight = 175,
+        .description = gFluffsirPokedexText,
+        .pokemonScale = 560,
+        .pokemonOffset = 22,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_FLUFFREAR] =
+    {
+        .categoryName = _("Rearing"),
+        .height = 14,
+        .weight = 392,
+        .description = gFluffrearPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 257,
+        .trainerOffset = -1,
+    },
+
+    [NATIONAL_DEX_SAINTISOW] =
+    {
+        .categoryName = _("Flying Pig"),
+        .height = 5,
+        .weight = 80,
+        .description = gSaintisowPokedexText,
+        .pokemonScale = 432,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SANCTISOW] =
+    {
+        .categoryName = _("Flying Pig"),
+        .height = 12,
+        .weight = 380,
+        .description = gSanctisowPokedexText,
+        .pokemonScale = 274,
+        .pokemonOffset = -1,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SOWPHIROTH] =
+    {
+        .categoryName = _("Serene Pig"),
+        .height = 27,
+        .weight = 525,
+        .description = gSowphirothPokedexText,
+        .pokemonScale = 275,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_TOXEXOT] =
+    {
+        .categoryName = _("Distraction"),
+        .height = 8,
+        .weight = 200,
+        .description = gToxexotPokedexText,
+        .pokemonScale = 381,
+        .pokemonOffset = 15,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_PSEUDRA] =
+    {
+        .categoryName = _("Misdirection"),
+        .height = 18,
+        .weight = 815,
+        .description = gPseudraPokedexText,
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_MANDIMYTE] =
+    {
+        .categoryName = _("Bursting"),
+        .height = 1,
+        .weight = 6,
+        .description = gMandimytePokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_TERMINYTE] =
+    {
+        .categoryName = _("Volatile"),
+        .height = 2,
+        .weight = 34,
+        .description = gTerminytePokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 #endif
 };
