@@ -93,7 +93,7 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 172 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
@@ -193,7 +193,7 @@
 #define FRIENDSHIP_MAX         6
 
 // Friendship value that the majority of species use. This was changed in Generation 8 to 50.
-#define STANDARD_FRIENDSHIP 70
+#define STANDARD_FRIENDSHIP 50
 
 #define MAX_FRIENDSHIP  255
 #define MAX_SHEEN       255
