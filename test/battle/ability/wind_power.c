@@ -170,7 +170,7 @@ DOUBLE_BATTLE_TEST("Wind Power activates correctly for every battler with the ab
         HP_BAR(playerRight);
         if (abilityRight == ABILITY_WIND_POWER) {
             ABILITY_POPUP(playerRight, ABILITY_WIND_POWER);
-            MESSAGE("Being hit by Petal Blizzard charged Wobbuffet with power!");
+            MESSAGE("Being hit by Petal Fury charged Wobbuffet with power!");
         }
         HP_BAR(opponentRight);
         NOT HP_BAR(opponentLeft);

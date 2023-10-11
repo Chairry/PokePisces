@@ -88,9 +88,9 @@ SINGLE_BATTLE_TEST("Aspear and Lum Berries cure frostbite")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_PUNCH, player);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_FRZ, opponent);
-        STATUS_ICON(opponent, freeze: TRUE);
+        STATUS_ICON(opponent, frostbite: TRUE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        STATUS_ICON(opponent, freeze: FALSE);
+        STATUS_ICON(opponent, frostbite: FALSE);
     }
 }
 
