@@ -1364,8 +1364,8 @@
     {
       "id": "LAYOUT_MT_PYRE_1F",
       "name": "MtPyre_1F_Layout",
-      "width": 22,
-      "height": 19,
+      "width": 32,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MtPyre_1F/border.bin",
@@ -1374,8 +1374,8 @@
     {
       "id": "LAYOUT_MT_PYRE_2F",
       "name": "MtPyre_2F_Layout",
-      "width": 13,
-      "height": 13,
+      "width": 32,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/MtPyre_2F/border.bin",
@@ -2924,8 +2924,8 @@
     {
       "id": "LAYOUT_FIERY_PATH",
       "name": "FieryPath_Layout",
-      "width": 35,
-      "height": 38,
+      "width": 100,
+      "height": 52,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/FieryPath/border.bin",
