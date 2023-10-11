@@ -72,7 +72,7 @@ SINGLE_BATTLE_TEST("Rawst and Lum Berries cure burn")
     }
 }
 
-SINGLE_BATTLE_TEST("Aspear and Lum Berries cure freeze")
+SINGLE_BATTLE_TEST("Aspear and Lum Berries cure frostbite")
 {
     u16 item;
 
