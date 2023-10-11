@@ -5567,8 +5567,8 @@ const u8 gMandimytePokedexText[] = _(
     "approaching the nest.");
 
 const u8 gTerminytePokedexText[] = _(
-    "Terminyte's abdomens are filled with\n"
+    "Terminyte's abdomen is filled with\n"
     "extremely volatile chemicals. These\n"
-    "chemicals release whenever they explode\n"
-    "and eat through any type of metal.");
+    "chemicals release whenever it explodes\n"
+    "and eats through any type of metal.");
 #endif
