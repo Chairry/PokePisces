@@ -8,7 +8,7 @@ ASSUMPTIONS
     ASSUME(gSpeciesInfo[SPECIES_PIKACHU].types[0] == TYPE_ELECTRIC || gSpeciesInfo[SPECIES_PIKACHU].types[1] == TYPE_ELECTRIC);
 }
 
-SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type")
+SINGLE_BATTLE_TEST("Overcharge user loses its Electric-type")
 {
     GIVEN {
         PLAYER(SPECIES_PIKACHU);
@@ -19,12 +19,12 @@ SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
         MESSAGE("Pikachu used up all of its electricity!");
-        MESSAGE("Pikachu used Double Shock!");
+        MESSAGE("Pikachu used Overcharge!");
         MESSAGE("But it failed!");
     }
 }
 
-SINGLE_BATTLE_TEST("Double Shock fails if the user isn't an Electric-type")
+SINGLE_BATTLE_TEST("Overcharge fails if the user isn't an Electric-type")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -33,12 +33,12 @@ SINGLE_BATTLE_TEST("Double Shock fails if the user isn't an Electric-type")
         TURN { MOVE(player, MOVE_DOUBLE_SHOCK); }
     } SCENE {
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player); }
-        MESSAGE("Wobbuffet used Double Shock!");
+        MESSAGE("Wobbuffet used Overcharge!");
         MESSAGE("But it failed!");
     }
 }
 
-SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type if enemy faints")
+SINGLE_BATTLE_TEST("Overcharge user loses its Electric-type if enemy faints")
 {
     GIVEN {
         PLAYER(SPECIES_PIKACHU);

@@ -1371,6 +1371,31 @@ gCryTable::
 	cry Cry_Pseudra
 	cry Cry_Mandimyte
 	cry Cry_Terminyte
+	cry Cry_Snotloud
+	cry Cry_Sickbeat
+	cry Cry_Spryte
+	cry Cry_Gumona
+	cry Cry_Nanggal
+	cry Cry_Sheedrake
+	cry Cry_Transera
+	cry Cry_Bivague
+	cry Cry_Lusckaw
+	cry Cry_Sadsod
+	cry Cry_Maeracholy
+	cry Cry_Lumelmo
+	cry Cry_Lumendela
+	cry Cry_Stomaway
+	cry Cry_Crawlaxy
+	cry Cry_Magnalure
+	cry Cry_Magnanicor
+	cry Cry_Cryplin
+	cry Cry_Uhefoe
+	cry Cry_Mystomania
+	cry Cry_Lyoresa
+	cry Cry_Kodough
+	cry Cry_Slickslice
+	cry Cry_Loafoof
+	cry Cry_Spiritoast
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3527,6 +3552,31 @@ gCryTable_Reverse::
 	cry_reverse Cry_Pseudra
 	cry_reverse Cry_Mandimyte
 	cry_reverse Cry_Terminyte
+	cry_reverse Cry_Snotloud
+	cry_reverse Cry_Sickbeat
+	cry_reverse Cry_Spryte
+	cry_reverse Cry_Gumona
+	cry_reverse Cry_Nanggal
+	cry_reverse Cry_Sheedrake
+	cry_reverse Cry_Transera
+	cry_reverse Cry_Bivague
+	cry_reverse Cry_Lusckaw
+	cry_reverse Cry_Sadsod
+	cry_reverse Cry_Maeracholy
+	cry_reverse Cry_Lumelmo
+	cry_reverse Cry_Lumendela
+	cry_reverse Cry_Stomaway
+	cry_reverse Cry_Crawlaxy
+	cry_reverse Cry_Magnalure
+	cry_reverse Cry_Magnanicor
+	cry_reverse Cry_Cryplin
+	cry_reverse Cry_Uhefoe
+	cry_reverse Cry_Mystomania
+	cry_reverse Cry_Lyoresa
+	cry_reverse Cry_Kodough
+	cry_reverse Cry_Slickslice
+	cry_reverse Cry_Loafoof
+	cry_reverse Cry_Spiritoast
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

@@ -6,9 +6,9 @@
 // revive their first fainted party member in order.
 
 #if B_EXPANDED_MOVE_NAMES
-#define REVIVAL_BLESSING "Revival Blessing"
+#define REVIVAL_BLESSING "Don't Give Up"
 #else
-#define REVIVAL_BLESSING "RevivlBlesng"
+#define REVIVAL_BLESSING "Don'tGiveUp"
 #endif
 
 ASSUMPTIONS
@@ -16,7 +16,7 @@ ASSUMPTIONS
     ASSUME(gBattleMoves[MOVE_REVIVAL_BLESSING].effect == EFFECT_REVIVAL_BLESSING);
 }
 
-SINGLE_BATTLE_TEST("Revival Blessing revives a chosen fainted party member for the player")
+SINGLE_BATTLE_TEST("Don't Give Up revives a chosen fainted party member for the player")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -31,7 +31,7 @@ SINGLE_BATTLE_TEST("Revival Blessing revives a chosen fainted party member for t
     }
 }
 
-SINGLE_BATTLE_TEST("Revival Blessing revives a fainted party member for an opponent")
+SINGLE_BATTLE_TEST("Don't Give Up revives a fainted party member for an opponent")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -46,7 +46,7 @@ SINGLE_BATTLE_TEST("Revival Blessing revives a fainted party member for an oppon
     }
 }
 
-SINGLE_BATTLE_TEST("Revival Blessing fails if no party members are fainted")
+SINGLE_BATTLE_TEST("Don't Give Up fails if no party members are fainted")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -61,8 +61,8 @@ SINGLE_BATTLE_TEST("Revival Blessing fails if no party members are fainted")
 
 // Note: There isn't a good way to test multi battles at the moment, but
 // this PASSES in game!
-TO_DO_BATTLE_TEST("Revival Blessing cannot revive a partner's party member");
-// DOUBLE_BATTLE_TEST("Revival Blessing cannot revive a partner's party member")
+TO_DO_BATTLE_TEST("Don't Give Up cannot revive a partner's party member");
+// DOUBLE_BATTLE_TEST("Don't Give Up cannot revive a partner's party member")
 // {
 //     struct BattlePokemon *user;
 //     gBattleTypeFlags |= BATTLE_TYPE_TWO_OPPONENTS;

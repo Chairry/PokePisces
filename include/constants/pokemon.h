@@ -93,7 +93,7 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 172 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
@@ -313,7 +313,7 @@
 #define SKIP_FRONT_ANIM (1 << 7)
 
 #define NUM_ABILITY_SLOTS (NUM_NORMAL_ABILITY_SLOTS + NUM_HIDDEN_ABILITY_SLOTS)
-#define NUM_NORMAL_ABILITY_SLOTS 2
+#define NUM_NORMAL_ABILITY_SLOTS 3
 #define NUM_HIDDEN_ABILITY_SLOTS 1
 
 // Species Flags
