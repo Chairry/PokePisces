@@ -5614,7 +5614,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 3:
             // Rare Candy / EXP Candy
             if ((itemEffect[i] & ITEM3_LEVEL_UP)
-             && GetMonData(mon, MON_DATA_LEVEL, NULL) != MAX_LEVEL)
+             && GetMonData(mon, MON_DATA_LEVEL, NULL) != GetCurrentLevelCap())
             {
                 u8 param = ItemId_GetHoldEffectParam(item);
                 dataUnsigned = 0;
@@ -8080,6 +8080,28 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
         return gfx->spritePointers[spriteNum];
     }
     return NULL;
+}
+
+u8 GetCurrentLevelCap(void)
+{
+    if (!FlagGet(FLAG_BADGE01_GET))
+        return 15;
+    else if (!FlagGet(FLAG_BADGE02_GET))
+        return 20;
+    else if (!FlagGet(FLAG_BADGE03_GET))
+        return 25;
+    else if (!FlagGet(FLAG_BADGE04_GET))
+        return 30;
+    else if (!FlagGet(FLAG_BADGE05_GET))
+        return 40;
+    else if (!FlagGet(FLAG_BADGE06_GET))
+        return 50;
+    else if (!FlagGet(FLAG_BADGE07_GET))
+        return 55;
+    else if (!FlagGet(FLAG_BADGE08_GET))
+        return 60;
+    else
+        return 100;
 }
 
 u16 GetFormSpeciesId(u16 speciesId, u8 formId)
