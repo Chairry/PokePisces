@@ -9716,6 +9716,156 @@ static const union AnimCmd sAnim_Terminyte_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Snotloud_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sickbeat_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Spryte_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Gumona_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Nanggal_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sheedrake_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Transera_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Bivague_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Lusckaw_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Sadsod_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Maeracholy_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Lumelmo_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Lumendela_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Stomaway_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Crawlaxy_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Magnalure_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Magnanicor_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Cryplin_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Uhefoe_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mystomania_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Lyoresa_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Kodough_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Slickslice_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Loafoof_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Spiritoast_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11694,6 +11844,31 @@ SINGLE_ANIMATION(Toxexot);
 SINGLE_ANIMATION(Pseudra);
 SINGLE_ANIMATION(Mandimyte);
 SINGLE_ANIMATION(Terminyte);
+SINGLE_ANIMATION(Snotloud);
+SINGLE_ANIMATION(Sickbeat);
+SINGLE_ANIMATION(Spryte);
+SINGLE_ANIMATION(Gumona);
+SINGLE_ANIMATION(Nanggal);
+SINGLE_ANIMATION(Sheedrake);
+SINGLE_ANIMATION(Transera);
+SINGLE_ANIMATION(Bivague);
+SINGLE_ANIMATION(Lusckaw);
+SINGLE_ANIMATION(Sadsod);
+SINGLE_ANIMATION(Maeracholy);
+SINGLE_ANIMATION(Lumelmo);
+SINGLE_ANIMATION(Lumendela);
+SINGLE_ANIMATION(Stomaway);
+SINGLE_ANIMATION(Crawlaxy);
+SINGLE_ANIMATION(Magnalure);
+SINGLE_ANIMATION(Magnanicor);
+SINGLE_ANIMATION(Cryplin);
+SINGLE_ANIMATION(Uhefoe);
+SINGLE_ANIMATION(Mystomania);
+SINGLE_ANIMATION(Lyoresa);
+SINGLE_ANIMATION(Kodough);
+SINGLE_ANIMATION(Slickslice);
+SINGLE_ANIMATION(Loafoof);
+SINGLE_ANIMATION(Spiritoast);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12811,6 +12986,31 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_PSEUDRA] = sAnims_Pseudra,
     [SPECIES_MANDIMYTE] = sAnims_Mandimyte,
     [SPECIES_TERMINYTE] = sAnims_Terminyte,
+    [SPECIES_SNOTLOUD] = sAnims_Snotloud,
+    [SPECIES_SICKBEAT] = sAnims_Sickbeat,
+    [SPECIES_SPRYTE] = sAnims_Spryte,
+    [SPECIES_GUMONA] = sAnims_Gumona,
+    [SPECIES_NANGGAL] = sAnims_Nanggal,
+    [SPECIES_SHEEDRAKE] = sAnims_Sheedrake,
+    [SPECIES_TRANSERA] = sAnims_Transera,
+    [SPECIES_BIVAGUE] = sAnims_Bivague,
+    [SPECIES_LUSCKAW] = sAnims_Lusckaw,
+    [SPECIES_SADSOD] = sAnims_Sadsod,
+    [SPECIES_MAERACHOLY] = sAnims_Maeracholy,
+    [SPECIES_LUMELMO] = sAnims_Lumelmo,
+    [SPECIES_LUMENDELA] = sAnims_Lumendela,
+    [SPECIES_STOMAWAY] = sAnims_Stomaway,
+    [SPECIES_CRAWLAXY] = sAnims_Crawlaxy,
+    [SPECIES_MAGNALURE] = sAnims_Magnalure,
+    [SPECIES_MAGNANICOR] = sAnims_Magnanicor,
+    [SPECIES_CRYPLIN] = sAnims_Cryplin,
+    [SPECIES_UHEFOE] = sAnims_Uhefoe,
+    [SPECIES_MYSTOMANIA] = sAnims_Mystomania,
+    [SPECIES_LYORESA] = sAnims_Lyoresa,
+    [SPECIES_KODOUGH] = sAnims_Kodough,
+    [SPECIES_SLICKSLICE] = sAnims_Slickslice,
+    [SPECIES_LOAFOOF] = sAnims_Loafoof,
+    [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

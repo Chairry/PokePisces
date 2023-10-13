@@ -32216,6 +32216,106 @@ static const u16 sMandimyteTeachableLearnset[] = {
 static const u16 sTerminyteTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sSnotloudTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSickbeatTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSpryteTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGumonaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sNanggalTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSheedrakeTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sTranseraTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBivagueTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sLusckawTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSadsodTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMaeracholyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sLumelmoTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sLumendelaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sStomawayTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCrawlaxyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMagnalureTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMagnanicorTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCryplinTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sUhefoeTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMystomaniaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sLyoresaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKodoughTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSlicksliceTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sLoafoofTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSpiritoastTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {
