@@ -1105,3 +1105,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/DetermaniteBeach/scripts.inc"
 
 	.include "data/maps/WishwellOcean/scripts.inc"
+
+	.include "data/maps/LavaridgeInt/scripts.inc"
