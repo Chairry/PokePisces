@@ -4650,6 +4650,56 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/LavaridgeInt/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeInt/map.bin"
+    },
+    {
+      "id": "LAYOUT_SWELTORN_PALACE",
+      "name": "SweltornPalace_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/SweltornPalace/border.bin",
+      "blockdata_filepath": "data/layouts/SweltornPalace/map.bin"
+    },
+    {
+      "id": "LAYOUT_SWELTORN_PALACE_OUTSIDE",
+      "name": "SweltornPalaceOutside_Layout",
+      "width": 72,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/SweltornPalaceOutside/border.bin",
+      "blockdata_filepath": "data/layouts/SweltornPalaceOutside/map.bin"
+    },
+    {
+      "id": "LAYOUT_SWELTORN_TRANSITION_CAVE",
+      "name": "SweltornTransitionCave_Layout",
+      "width": 32,
+      "height": 60,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseYellowCave",
+      "border_filepath": "data/layouts/SweltornTransitionCave/border.bin",
+      "blockdata_filepath": "data/layouts/SweltornTransitionCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHOAL_CAVE_NEW_FLOOR1",
+      "name": "ShoalCaveNewFloor1_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ShoalCaveNewFloor1/border.bin",
+      "blockdata_filepath": "data/layouts/ShoalCaveNewFloor1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHOAL_CAVE_NEW_FLOOR2",
+      "name": "ShoalCaveNewFloor2_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ShoalCaveNewFloor2/border.bin",
+      "blockdata_filepath": "data/layouts/ShoalCaveNewFloor2/map.bin"
     }
   ]
 }
