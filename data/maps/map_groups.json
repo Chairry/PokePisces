@@ -116,7 +116,12 @@
     "DewfordNew",
     "DetermaniteBeach",
     "WishwellOcean",
-    "LavaridgeInt"
+    "LavaridgeInt",
+    "SweltornPalace",
+    "SweltornPalaceOutside",
+    "SweltornTransitionCave",
+    "ShoalCaveNewFloor1",
+    "ShoalCaveNewFloor2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

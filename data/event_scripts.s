@@ -1107,3 +1107,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/WishwellOcean/scripts.inc"
 
 	.include "data/maps/LavaridgeInt/scripts.inc"
+
+	.include "data/maps/SweltornPalace/scripts.inc"
+
+	.include "data/maps/SweltornPalaceOutside/scripts.inc"
+
+	.include "data/maps/SweltornTransitionCave/scripts.inc"
+
+	.include "data/maps/ShoalCaveNewFloor1/scripts.inc"
+
+	.include "data/maps/ShoalCaveNewFloor2/scripts.inc"
