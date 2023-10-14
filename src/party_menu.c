@@ -2637,18 +2637,34 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         {
             if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
             {
-                if (sFieldMoves[j] != MOVE_FLY) // If Mon already knows FLY, prevent it from being added to action list
-                    if (sFieldMoves[j] != MOVE_FLASH) // If Mon already knows FLASH, prevent it from being added to action list
-                        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
-                        break;
+                if (sFieldMoves[j] != MOVE_CUT)
+                    if (sFieldMoves[j] != MOVE_FLY)
+                        if (sFieldMoves[j] != MOVE_SURF)
+                            if (sFieldMoves[j] != MOVE_STRENGTH)
+                                if (sFieldMoves[j] != MOVE_FLASH)
+                                    if (sFieldMoves[j] != MOVE_ROCK_SMASH)
+                                        if (sFieldMoves[j] != MOVE_WATERFALL)
+                                            if (sFieldMoves[j] != MOVE_DIVE)
+                                                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
+                                                break;
             }
         }
     }
 
-    if (sPartyMenuInternal->numActions < 5 && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_FLY))) // If Mon can learn HM02 and action list consists of < 4 moves, add FLY to action list
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE06_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_SURF)))
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 4 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE04_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_FLY))) 
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 5 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE01_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_FLASH))) // If Mon can learn HM05 and action list consists of < 4 moves, add FLASH to action list
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 1 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE07_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_DIVE))) 
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 6 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE08_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_WATERFALL))) 
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 7 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE05_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_STRENGTH)))
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 3 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE01_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_ROCK_SMASH))) 
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 2 + MENU_FIELD_MOVES);
+    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE03_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_CUT))) 
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 0 + MENU_FIELD_MOVES);
 
     if (!InBattlePike())
     {
