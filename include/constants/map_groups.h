@@ -92,6 +92,12 @@
 #define MAP_SWELTORN_TRANSITION_CAVE (83 | (0 << 8))
 #define MAP_SHOAL_CAVE_NEW_FLOOR1    (84 | (0 << 8))
 #define MAP_SHOAL_CAVE_NEW_FLOOR2    (85 | (0 << 8))
+#define MAP_SAILORS_PAUSE_SHIPS      (86 | (0 << 8))
+#define MAP_PETALBURG_NEW            (87 | (0 << 8))
+#define MAP_RUSTBURG_WHARF           (88 | (0 << 8))
+#define MAP_RUSTBORO_NEW             (89 | (0 << 8))
+#define MAP_DETERMANITE_QUARRY       (90 | (0 << 8))
+#define MAP_DETERMANITE_QUAR_B1F     (91 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

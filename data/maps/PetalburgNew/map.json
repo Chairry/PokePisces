@@ -1,0 +1,39 @@
+{
+  "id": "MAP_PETALBURG_NEW",
+  "name": "PetalburgNew",
+  "layout": "LAYOUT_PETALBURG_NEW",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_WISHWELL_OCEAN",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_RUSTBURG_WHARF",
+      "offset": -31,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -4700,6 +4700,66 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCaveNewFloor2/border.bin",
       "blockdata_filepath": "data/layouts/ShoalCaveNewFloor2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAILORS_PAUSE_SHIPS",
+      "name": "SailorsPauseShips_Layout",
+      "width": 60,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SailorsPauseShips/border.bin",
+      "blockdata_filepath": "data/layouts/SailorsPauseShips/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_NEW",
+      "name": "PetalburgNew_Layout",
+      "width": 47,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PetalburgNew/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTBURG_WHARF",
+      "name": "RustburgWharf_Layout",
+      "width": 60,
+      "height": 58,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/RustburgWharf/border.bin",
+      "blockdata_filepath": "data/layouts/RustburgWharf/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTBORO_NEW",
+      "name": "RustboroNew_Layout",
+      "width": 72,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/RustboroNew/border.bin",
+      "blockdata_filepath": "data/layouts/RustboroNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_DETERMANITE_QUARRY",
+      "name": "DetermaniteQuarry_Layout",
+      "width": 44,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/DetermaniteQuarry/border.bin",
+      "blockdata_filepath": "data/layouts/DetermaniteQuarry/map.bin"
+    },
+    {
+      "id": "LAYOUT_DETERMANITE_QUAR_B1F",
+      "name": "DetermaniteQuarB1F_Layout",
+      "width": 44,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/DetermaniteQuarB1F/border.bin",
+      "blockdata_filepath": "data/layouts/DetermaniteQuarB1F/map.bin"
     }
   ]
 }
