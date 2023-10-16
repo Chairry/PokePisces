@@ -1117,3 +1117,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ShoalCaveNewFloor1/scripts.inc"
 
 	.include "data/maps/ShoalCaveNewFloor2/scripts.inc"
+
+	.include "data/maps/SailorsPauseShips/scripts.inc"
+
+	.include "data/maps/PetalburgNew/scripts.inc"
+
+	.include "data/maps/RustburgWharf/scripts.inc"
+
+	.include "data/maps/RustboroNew/scripts.inc"
+
+	.include "data/maps/DetermaniteQuarry/scripts.inc"
+
+	.include "data/maps/DetermaniteQuarB1F/scripts.inc"
