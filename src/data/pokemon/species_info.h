@@ -21125,8 +21125,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseHP        = 65,
         .baseAttack    = 80,
         .baseDefense   = 55,
-        .baseSpeed     = 55,
-        .baseSpAttack  = 80,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 70,
         .baseSpDefense = 95,
         .types = { TYPE_FIRE, TYPE_FLYING },
         .catchRate = 45,
@@ -21144,11 +21144,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_BLAZIZAHAK] =
     {
-        .baseHP        = 90,
+        .baseHP        = 80,
         .baseAttack    = 115,
-        .baseDefense   = 80,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 60,
+        .baseDefense   = 70,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 70,
         .baseSpDefense = 105,
         .types = { TYPE_FIRE, TYPE_FLYING },
         .catchRate = 45,

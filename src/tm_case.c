@@ -1001,10 +1001,10 @@ static void DrawMoveInfoUIMarkers(void)
         BlitMenuInfoIcon(4, 21, 0, 24); // "Accuracy" sprite
         BlitMenuInfoIcon(4, 22, 0, 36); // "PP" sprite
     #else
-        BlitMenuInfoIcon(4, 20, 0, 0); // "Type" sprite
-        BlitMenuInfoIcon(4, 21, 0, 12); // "Power" sprite
-        BlitMenuInfoIcon(4, 22, 0, 24); // "Accuracy" sprite
-        BlitMenuInfoIcon(4, 23, 0, 36); // "PP" sprite
+        BlitMenuInfoIcon(4, 21, 0, 0); // "Type" sprite
+        BlitMenuInfoIcon(4, 22, 0, 12); // "Power" sprite
+        BlitMenuInfoIcon(4, 23, 0, 24); // "Accuracy" sprite
+        BlitMenuInfoIcon(4, 24, 0, 36); // "PP" sprite
     #endif
     CopyWindowToVram(4, 2);
 }

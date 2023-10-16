@@ -989,10 +989,14 @@ const u8 gNoctowlPokedexText[] = _(
     "light, and to their supple and silent wings.");
 
 const u8 gLedybaPokedexText[] = _(
-    "Needs New Entry.");
+    "Ledyba absorb energy from the stars. During\n"
+    "the day, it hides in burrows layered with\n"
+    "leaf litter.");
 
 const u8 gLedianPokedexText[] = _(
-    "Needs New Entry.");
+    "It gathers energy into its fist and\n"
+    "unleashes a flurry against foes. In meadows\n"
+    "with clean air, they gather in swarms.");
 
 const u8 gSpinarakPokedexText[] = _(
     "The web it spins can be considered its\n"
@@ -1571,10 +1575,16 @@ const u8 gMightyenaPokedexText[] = _(
     "coordinated teamwork.");
 
 const u8 gZigzagoonPokedexText[] = _(
-    "Needs New Entry.");
+    "Zigzagoon runs in an odd but sequential\n"
+    "pattern. This lets Zigzagoon not only catch\n"
+    "prey unaware but makes it difficult for\n"
+    "predators to trap it.");
 
 const u8 gLinoonePokedexText[] = _(
-    "Needs New Entry.");
+    "Linoone runs straight. The longer Linoone\n"
+    "runs straight, the faster it can get, even\n"
+    "outrunning a jet. However, it has\n"
+    "difficulty turning during this.");
 
 const u8 gWurmplePokedexText[] = _(
     "It sticks to tree branches and eats\n"
@@ -1943,10 +1953,16 @@ const u8 gAzurillPokedexText[] = _(
     "splash about for fun.");
 
 const u8 gSpoinkPokedexText[] = _(
-    "Needs New Entry.");
+    "When Spoink is happy, the frequency of its\n"
+    "bouncing increases. This isn't good when it\n"
+    "becomes too happy, as it might cause a\n"
+    "heart attack.");
 
 const u8 gGrumpigPokedexText[] = _(
-    "Needs New Entry.");
+    "If Grumpig performs a strange dance, it is\n"
+    "advised to burn sage and basil and consume\n"
+    "ground pearls. This is to prevent your body\n"
+    "from being stolen by this Pokémon.");
 
 const u8 gPluslePokedexText[] = _(
     "It has the trait of cheering on its fellow\n"
@@ -5515,13 +5531,20 @@ const u8 gFluffrearPokedexText[] = _(
     "ensuring the child's survival.");
 
 const u8 gSaintisowPokedexText[] = _(
-    "Needs New Entry.");
+    "It clumsily flies together in groups,\n"
+    "running from anything that comes near. Its\n"
+    "skin has the texture of marshmallows.");
 
 const u8 gSanctisowPokedexText[] = _(
-    "Needs New Entry.");
+    "Its feathers are so soft that they're used\n"
+    "in high-quality cushions. It spreads its\n"
+    "large wings when it recognizes danger.");
 
 const u8 gSowphirothPokedexText[] = _(
-    "Needs New Entry.");
+    "Its presence inspires calmness and serenity,\n"
+    "but in cases of battle, it instills fervor\n"
+    "and morale instead. It creates strange\n"
+    "barriers to protect itself from harm.");
 
 const u8 gToxexotPokedexText[] = _(
     "Toxexot confound enemies with their\n"
@@ -5635,13 +5658,15 @@ const u8 gCrawlaxyPokedexText[] = _(
     "that it can see beyond what we comprehend.");
 
 const u8 gMagnalurePokedexText[] = _(
-    "Needs New Entry.");
+    "It never stays put in one place, seemingly\n"
+    "seeking something. It manipulates magnetic\n"
+    "orbs in battle.");
 
 const u8 gMagnanicorPokedexText[] = _(
     "Its fur is made of tiny metallic particles\n"
     "collected because of its strong magnetic\n"
     "manipulation. It molds trillions of these\n"
-    "particles into weapons to guard tombs.");
+    "particles into weapons to guard its trainer.");
 
 const u8 gCryplinPokedexText[] = _(
     "Credible sightings of these Pokémon are\n"
