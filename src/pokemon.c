@@ -3486,7 +3486,7 @@ void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
         evsBits >>= 1;
     }
 
-    evAmount = MAX_TOTAL_EVS / statCount;
+    evAmount = GetMaxTotalEVs(level) / statCount;
 
     evsBits = 1;
 
@@ -3638,7 +3638,7 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(mon, src->party[monId].moves[i], i);
 
-    evAmount = MAX_TOTAL_EVS / NUM_STATS;
+    evAmount = GetMaxTotalEVs(GetMonData(mon, MON_DATA_LEVEL)) / NUM_STATS;
     for (i = 0; i < NUM_STATS; i++)
         SetMonData(mon, MON_DATA_HP_EV + i, &evAmount);
 
@@ -3670,7 +3670,7 @@ void CreateMonWithEVSpreadNatureOTID(struct Pokemon *mon, u16 species, u8 level,
         evsBits >>= 1;
     }
 
-    evAmount = MAX_TOTAL_EVS / statCount;
+    evAmount = GetMaxTotalEVs(level) / statCount;
     evsBits = 1;
     for (i = 0; i < NUM_STATS; i++)
     {
@@ -5697,8 +5697,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
                         if (evChange > 0) // Increasing EV (HP or Atk)
                         {
+                            u32 maxTotalEVs = GetMaxTotalEVs(GetMonData(mon, MON_DATA_LEVEL));
                             // Has EV increase limit already been reached?
-                            if (evCount >= MAX_TOTAL_EVS)
+                            if (evCount >= maxTotalEVs)
                                 return TRUE;
 
                             if (itemEffect[10] & ITEM10_IS_VITAMIN)
@@ -5715,8 +5716,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             else
                                 temp2 = evChange;
 
-                            if (evCount + temp2 > MAX_TOTAL_EVS)
-                                temp2 += MAX_TOTAL_EVS - (evCount + temp2);
+                            if (evCount + temp2 > maxTotalEVs)
+                                temp2 += maxTotalEVs - (evCount + temp2);
 
                             dataSigned += temp2;
                         }
@@ -5877,8 +5878,9 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         evChange = temp2;
                         if (evChange > 0) // Increasing EV
                         {
+                            u32 maxTotalEVs = GetMaxTotalEVs(GetMonData(mon, MON_DATA_LEVEL));
                             // Has EV increase limit already been reached?
-                            if (evCount >= MAX_TOTAL_EVS)
+                            if (evCount >= maxTotalEVs)
                                 return TRUE;
 
                             if (itemEffect[10] & ITEM10_IS_VITAMIN)
@@ -5895,8 +5897,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             else
                                 temp2 = evChange;
 
-                            if (evCount + temp2 > MAX_TOTAL_EVS)
-                                temp2 += MAX_TOTAL_EVS - (evCount + temp2);
+                            if (evCount + temp2 > maxTotalEVs)
+                                temp2 += maxTotalEVs - (evCount + temp2);
 
                             dataSigned += temp2;
                         }
@@ -6919,6 +6921,7 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
     int i, multiplier;
     u8 stat;
     u8 bonus;
+    u32 maxEVs = GetMaxTotalEVs(GetMonData(mon, MON_DATA_LEVEL));
 
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
@@ -6944,7 +6947,7 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 
     for (i = 0; i < NUM_STATS; i++)
     {
-        if (totalEVs >= MAX_TOTAL_EVS)
+        if (totalEVs >= maxEVs)
             break;
 
         if (CheckPartyHasHadPokerus(mon, 0))
@@ -6995,8 +6998,8 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
             evIncrease *= 2;
 
-        if (totalEVs + (s16)evIncrease > MAX_TOTAL_EVS)
-            evIncrease = ((s16)evIncrease + MAX_TOTAL_EVS) - (totalEVs + evIncrease);
+        if (totalEVs + (s16)evIncrease > maxEVs)
+            evIncrease = ((s16)evIncrease + maxEVs) - (totalEVs + evIncrease);
 
         if (evs[i] + (s16)evIncrease > MAX_PER_STAT_EVS)
         {
@@ -8431,4 +8434,29 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     *new3 = *old3;
     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
     EncryptBoxMon(boxMon);
+}
+
+static const u16 sMaxEvByLevel[][2] = {
+    {10,  50}, // before level 10, can only get 50 EVs total
+    {20,  100},
+    {30,  150},
+    {40,  200},
+    {50,  250},
+    {60,  300},
+    {70,  350},
+    {80,  400},
+    {90,  450},
+    {100, MAX_TOTAL_EVS},
+};
+
+u32 GetMaxTotalEVs(u32 level)
+{
+    u32 i = 0;
+    while (level < sMaxEvByLevel[i][0]) {
+        i++;
+    }
+    if (i >= NELEMS(sMaxEvByLevel))
+        return MAX_TOTAL_EVS;
+    else
+        return sMaxEvByLevel[i][1];
 }

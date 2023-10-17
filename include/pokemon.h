@@ -624,4 +624,6 @@ u8 CalculatePartyCount(struct Pokemon *party);
 u16 SanitizeSpeciesId(u16 species);
 bool32 IsSpeciesEnabled(u16 species);
 
+u32 GetMaxTotalEVs(u32 level);
+
 #endif // GUARD_POKEMON_H
