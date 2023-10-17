@@ -80,7 +80,7 @@ u32 GetItemStatus2Mask(u16 itemId);
 /* Expands to:
  * enum
  * {
- *   ITEM_TM_FOCUS_PUNCH,
+ *   ITEM_TM_REST,
  *   ...
  *   ITEM_HM_CUT,
  *   ...

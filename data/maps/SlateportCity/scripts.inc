@@ -566,8 +566,8 @@ SlateportCity_EventScript_PowerTMClerk::
 
 	.align 2
 SlateportCity_Pokemart_PowerTMs:
-	.2byte ITEM_TM_HIDDEN_POWER
-	.2byte ITEM_TM_SECRET_POWER
+	.2byte ITEM_TM_MIST
+	.2byte ITEM_TM_LOW_SWEEP
 	.2byte ITEM_NONE
 	release
 	end

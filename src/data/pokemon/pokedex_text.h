@@ -5529,7 +5529,7 @@ const u8 gFluffsirPokedexText[] = _(
 const u8 gFluffrearPokedexText[] = _(
     "Fluffrear constantly carry their children.\n"
     "When danger hits, Fluffrear put their\n"
-    "bodies between it and their children,\n"
+    "bodies between them and their children,\n"
     "ensuring the child's survival.");
 
 const u8 gSaintisowPokedexText[] = _(
