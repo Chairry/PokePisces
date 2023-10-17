@@ -447,7 +447,7 @@ static void SetPlayerAndOpponentParties(void)
                     count++;
             }
 
-            evs = MAX_TOTAL_EVS / count;
+            evs = GetMaxTotalEVs(monLevel) / count;
             bits = 1;
             for (j = 0; j < NUM_STATS; bits <<= 1, j++)
             {
@@ -488,7 +488,7 @@ static void SetPlayerAndOpponentParties(void)
                     count++;
             }
 
-            evs = MAX_TOTAL_EVS / count;
+            evs = GetMaxTotalEVs(monLevel) / count;
             bits = 1;
             for (j = 0; j < NUM_STATS; bits <<= 1, j++)
             {

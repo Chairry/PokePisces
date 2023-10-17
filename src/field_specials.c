@@ -1395,7 +1395,8 @@ void GiveLeadMonEffortRibbon(void)
 
 bool8 Special_AreLeadMonEVsMaxedOut(void)
 {
-    if (GetMonEVCount(&gPlayerParty[GetLeadMonIndex()]) >= MAX_TOTAL_EVS)
+    struct Pokemon *mon = &gPlayerParty[GetLeadMonIndex()];
+    if (GetMonEVCount(mon) >= GetMaxTotalEVs(GetMonData(mon, MON_DATA_LEVEL)))
         return TRUE;
 
     return FALSE;

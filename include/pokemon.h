@@ -100,6 +100,7 @@ enum {
     MON_DATA_SPEED2,
     MON_DATA_SPATK2,
     MON_DATA_SPDEF2,
+    MON_DATA_TOTAL_EVS,
 };
 
 struct PokemonSubstruct0
@@ -110,7 +111,8 @@ struct PokemonSubstruct0
     /*0x08*/ u8 ppBonuses;
     /*0x09*/ u8 friendship;
     /*0x0A*/ u16 pokeball:5; //31 balls
-             u16 filler:11;
+             u16 evTotal:9; // up to 510. Track total evs so we know how many we can redistribute
+             u16 filler:2;
 }; /* size = 12 */
 
 struct PokemonSubstruct1
@@ -621,5 +623,7 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality);
 u8 CalculatePartyCount(struct Pokemon *party);
 u16 SanitizeSpeciesId(u16 species);
 bool32 IsSpeciesEnabled(u16 species);
+
+u32 GetMaxTotalEVs(u32 level);
 
 #endif // GUARD_POKEMON_H
