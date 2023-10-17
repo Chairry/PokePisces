@@ -67,7 +67,7 @@ enum {
 #define PSS_LABEL_WINDOW_PROMPT_CANCEL 4
 #define PSS_LABEL_WINDOW_PROMPT_INFO 5
 #define PSS_LABEL_WINDOW_PROMPT_SWITCH 6
-#define PSS_LABEL_WINDOW_UNUSED1 7
+#define PSS_LABEL_WINDOW_PROMPT_EVS 7
 
 // Info screen
 #define PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL 8
@@ -167,6 +167,9 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 sanity; // 0x35
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
+        u16 evTotal;
+        u16 evMax;
+        u8 evs[NUM_STATS];
     } summary;
     u16 bgTilemapBuffers[PSS_PAGE_COUNT][2][0x400];
     u8 mode;
@@ -315,6 +318,12 @@ static void DestroyMoveSelectorSprites(u8);
 static void SetMainMoveSelectorColor(u8);
 static void KeepMoveSelectorVisible(u8);
 static void SummaryScreen_DestroyAnimDelayTask(void);
+// new
+static void PrintEditEVs(void);
+static void SwitchToEvEditor(u8 taskId);
+static void Task_HandleEvEditorInput(u8);
+static void Task_HandleChangeEV(u8 taskId);
+static void SaveMonEVs(u8 taskId);
 
 // const rom data
 #include "data/text/move_descriptions.h"
@@ -435,6 +444,15 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .paletteNum = 7,
         .baseBlock = 89,
     },
+    [PSS_LABEL_WINDOW_PROMPT_EVS] = {
+        .bg = 0,
+        .tilemapLeft = 22,
+        .tilemapTop = 0,
+        .width = 8,
+        .height = 2,
+        .paletteNum = 7,
+        .baseBlock = 817,
+    },
     [PSS_LABEL_WINDOW_PROMPT_INFO] = {
         .bg = 0,
         .tilemapLeft = 22,
@@ -453,7 +471,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .paletteNum = 7,
         .baseBlock = 121,
     },
-    [PSS_LABEL_WINDOW_UNUSED1] = {
+    /*[PSS_LABEL_WINDOW_UNUSED1] = {
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 4,
@@ -461,7 +479,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .height = 2,
         .paletteNum = 6,
         .baseBlock = 137,
-    },
+    },*/
     [PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL] = {
         .bg = 0,
         .tilemapLeft = 11,
@@ -1155,6 +1173,9 @@ static const struct SpriteTemplate sSpriteTemplate_StatusCondition =
 };
 static const u16 sMarkings_Pal[] = INCBIN_U16("graphics/summary_screen/markings.gbapal");
 
+// map summary screen stat ordering to stat ids
+static const u8 sStatIdMap[NUM_STATS] = {STAT_HP, STAT_ATK, STAT_DEF, STAT_SPATK, STAT_SPDEF, STAT_SPEED};
+
 // code
 static u8 ShowSplitIcon(u32 split)
 {
@@ -1541,6 +1562,8 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->metLevel = GetMonData(mon, MON_DATA_MET_LEVEL);
         sum->metGame = GetMonData(mon, MON_DATA_MET_GAME);
         sum->friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
+        sum->evMax = GetMonData(mon, MON_DATA_TOTAL_EVS); // max total EVs
+        sum->evTotal = 0; // summed up when we edit eVs
         break;
     default:
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
@@ -1630,19 +1653,25 @@ static void Task_HandleInput(u8 taskId)
         }
         else if (JOY_NEW(A_BUTTON))
         {
-            if (sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS)
+            switch (sMonSummaryScreen->currPageIndex)
             {
-                if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
-                {
-                    StopPokemonAnimations();
+            case PSS_PAGE_INFO:
+                StopPokemonAnimations();
+                PlaySE(SE_SELECT);
+                BeginCloseSummaryScreen(taskId);
+                break;
+            case PSS_PAGE_SKILLS:
+                if (!gMain.inBattle) {
+                    // can edit evs anytime outside of battle
                     PlaySE(SE_SELECT);
-                    BeginCloseSummaryScreen(taskId);
+                    SwitchToEvEditor(taskId);
                 }
-                else // Contest or Battle Moves
-                {
-                    PlaySE(SE_SELECT);
-                    SwitchToMoveSelection(taskId);
-                }
+                break;
+            default:
+                // Contest or Battle Moves
+                PlaySE(SE_SELECT);
+                SwitchToMoveSelection(taskId);
+                break;
             }
         }
         else if (JOY_NEW(B_BUTTON))
@@ -2938,6 +2967,8 @@ static void PrintPageNamesAndStats(void)
         iconXPos = 0;
     PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_SWITCH, FALSE, iconXPos);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_SWITCH, gText_Switch, stringXPos, 1, 0, 0);
+    
+    PrintEditEVs();
 
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL, gText_RentalPkmn, 0, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE, gText_TypeSlash, 0, 1, 0, 0);
@@ -2985,6 +3016,7 @@ static void PutPageWindowTilemaps(u8 page)
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
+        PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
         break;
     case PSS_PAGE_BATTLE_MOVES:
         PutWindowTilemap(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE);
@@ -3034,6 +3066,7 @@ static void ClearPageWindowTilemaps(u8 page)
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
+        ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
         break;
     case PSS_PAGE_BATTLE_MOVES:
         if (sMonSummaryScreen->mode == SUMMARY_MODE_SELECT_MOVE)
@@ -4254,3 +4287,281 @@ static void KeepMoveSelectorVisible(u8 firstSpriteId)
         gSprites[spriteIds[i]].invisible = FALSE;
     }
 }
+
+// EV EDITING
+#define NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES     4
+
+static const u8 sText_EditEVs[] = _("VIEW EVS");
+static const u8 sText_EditSingleEV[] = _("EDIT");
+static const u8 sText_EditEVsBack[] = _("BACK");
+static void PrintEditEVsOrViewStats(int caseId)
+{
+    const u8 *str;
+    bool32 bButton;
+    int stringXPos, iconXPos;
+    
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_EVS, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    
+    switch (caseId)
+    {
+    case 0: // edit evs
+        str = sText_EditEVs;
+        bButton = FALSE;
+        break;
+    case 1:
+        str = sText_EditSingleEV;
+        bButton = FALSE;
+        break;
+    case 2:
+    default:
+        str = sText_EditEVsBack;
+        bButton = TRUE;
+        break;
+    }
+    
+    stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, str, 62);
+    iconXPos = (stringXPos - 16);
+    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, bButton, iconXPos);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, str, stringXPos, 1, 0, 0);
+}
+
+static void PrintEditEVs(void)
+{
+    PrintEditEVsOrViewStats(0);
+}
+
+static void SpriteCB_StatSelector(struct Sprite *sprite)
+{
+    if (sprite->data[2]) {
+        sprite->invisible = FALSE;
+    } else {
+        if (sprite->animNum > 3 && sprite->animNum < 7) {
+            sprite->data[1] = (sprite->data[1] + 1) & 0x1F;
+            if (sprite->data[1] > 24)
+                sprite->invisible = TRUE;
+            else
+                sprite->invisible = FALSE;
+        } else {
+            sprite->data[1] = 0;
+            sprite->invisible = FALSE;
+        }
+    }
+    
+
+    sprite->x2 = sMonSummaryScreen->firstMoveIndex * 90;  // col 
+    sprite->y2 = sMonSummaryScreen->secondMoveIndex * 16; // row
+}
+
+static void SetStatSelectorFixedState(bool32 fixed)
+{
+    u32 i;
+    u8 *spriteIds = &sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MOVE_SELECTOR1];
+    for (i = 0; i < NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES; i++) {
+        gSprites[spriteIds[i]].data[2] = fixed;
+    }
+}
+
+static void CreateMoveSelectorSpritesForEvEditing(void)
+{
+    u32 i;
+    int idArrayStart = SPRITE_ARR_ID_MOVE_SELECTOR1;
+    u8 *spriteIds = &sMonSummaryScreen->spriteIds[idArrayStart];
+    u8 subpriority = 0;
+    
+    sMonSummaryScreen->firstMoveIndex = 0;
+    sMonSummaryScreen->secondMoveIndex = 0;
+    
+    if (idArrayStart == SPRITE_ARR_ID_MOVE_SELECTOR1)
+        subpriority = 1;
+
+    for (i = 0; i < NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES; i++) {
+        spriteIds[i] = CreateSprite(&sMoveSelectorSpriteTemplate, i * 16 + 89, 64, subpriority);
+        if (i == 0) {
+            StartSpriteAnim(&gSprites[spriteIds[i]], 4); // left
+        } else if (i == (NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES - 1)) {
+            StartSpriteAnim(&gSprites[spriteIds[i]], 5); // right, actually the same as left, but flipped
+            gSprites[spriteIds[i]].x -= 10;
+        } else {
+            StartSpriteAnim(&gSprites[spriteIds[i]], 6); // middle
+        }
+        
+        gSprites[spriteIds[i]].callback = SpriteCB_StatSelector;
+        gSprites[spriteIds[i]].data[0] = idArrayStart;
+        gSprites[spriteIds[i]].data[1] = 0;
+    }
+}
+
+static void DestroyMoveSelectorSpritesForEvEditing(void)
+{
+    u32 i;
+    for (i = 0; i < NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES; i++) {
+        DestroySpriteInArray(SPRITE_ARR_ID_MOVE_SELECTOR1 + i);
+    }
+    sMonSummaryScreen->firstMoveIndex = 0;
+    sMonSummaryScreen->secondMoveIndex = 0;
+}
+
+#define tWindow(n)      data[14 + n]
+#define tCurrTotal      data[3]
+
+static void PrintEvValue(u8 taskId, u8 row, u8 col)
+{
+    struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    s16 *data = gTasks[taskId].data;
+    ConvertIntToDecimalStringN(gStringVar1, sum->evs[row + 3 * col], STR_CONV_MODE_RIGHT_ALIGN, 7 - 4 * col);
+    PrintTextOnWindow(tWindow(col), gStringVar1, 2, 1 + 16 * row, 0, 0);
+}
+
+static void PrintEvValuesInCol(u8 taskId, u8 col)
+{
+    s16 *data = gTasks[taskId].data;
+    u32 i;
+    
+    FillWindowPixelBuffer(tWindow(col), PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    for (i = 0; i < 3; i++) {
+        PrintEvValue(taskId, i, col);
+    }
+    ScheduleBgCopyTilemapToVram(0);
+}
+
+static void SwitchToEvEditor(u8 taskId)
+{
+    u8 windowL = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_LEFT);
+    u8 windowR = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_RIGHT);
+    u32 j;
+    struct Pokemon *mon = &sMonSummaryScreen->monList.mons[sMonSummaryScreen->curMonIndex]; //&sMonSummaryScreen->currentMon;
+    u8 dataStart[2] = {MON_DATA_HP_EV, MON_DATA_SPEED_EV};
+    u8 windows[2] = {windowL, windowR};
+    s16 *data = gTasks[taskId].data;
+    struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    
+    // buffer current evs
+    sum->evTotal = 0;
+    for (j = 0; j < NUM_STATS; j++) {
+        sum->evs[j] = GetMonData(mon, MON_DATA_HP_EV + sStatIdMap[j]);
+        sum->evTotal += sum->evs[j];
+        //DebugPrintf("stat %d = %d", j, sum->evs[j]);
+    }
+    
+    // print view stats
+    PrintEditEVsOrViewStats(1);
+    
+    // print evs
+    for (j = 0; j < 2; j++) {
+        tWindow(j) = windows[j];
+        PrintEvValuesInCol(taskId, j);
+    }
+    
+    // selectors
+    CreateMoveSelectorSpritesForEvEditing();
+    
+    gTasks[taskId].func = Task_HandleEvEditorInput;
+}
+
+static void Task_HandleEvEditorInput(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    if (JOY_NEW(B_BUTTON)) {
+        PlaySE(SE_SELECT);
+        PrintEditEVs();
+        FillWindowPixelBuffer(data[14], PIXEL_FILL(0));
+        FillWindowPixelBuffer(data[15], PIXEL_FILL(0));
+        DestroyMoveSelectorSpritesForEvEditing();
+        BufferLeftColumnStats();
+        PrintLeftColumnStats();
+        BufferRightColumnStats();
+        PrintRightColumnStats();
+        gTasks[taskId].func = Task_HandleInput;
+    } else if (JOY_NEW(DPAD_RIGHT | DPAD_LEFT)) {
+        sMonSummaryScreen->firstMoveIndex ^= 1;
+    } else if (JOY_NEW(DPAD_UP)) {
+        if (sMonSummaryScreen->secondMoveIndex == 0) {
+            sMonSummaryScreen->secondMoveIndex = 2;
+        } else {
+            sMonSummaryScreen->secondMoveIndex--;
+        }
+    } else if (JOY_NEW(DPAD_DOWN)) {
+        if (sMonSummaryScreen->secondMoveIndex == 2) {
+            sMonSummaryScreen->secondMoveIndex = 0;
+        } else {
+            sMonSummaryScreen->secondMoveIndex++;
+        }
+    } else if (JOY_NEW(A_BUTTON)) {
+        // adjust EV values
+        PlaySE(SE_SELECT);
+        SetStatSelectorFixedState(TRUE);
+        PrintEditEVsOrViewStats(2);
+        gTasks[taskId].func = Task_HandleChangeEV;
+    }
+}
+
+static void Task_HandleChangeEV(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    
+    if (JOY_NEW(B_BUTTON)) {
+        SaveMonEVs(taskId);        
+        PlaySE(SE_SELECT);
+        SetStatSelectorFixedState(FALSE);
+        PrintEditEVsOrViewStats(1);
+        gTasks[taskId].func = Task_HandleEvEditorInput;
+    } else if (JOY_NEW(L_BUTTON | R_BUTTON)) {
+        sMonSummaryScreen->firstMoveIndex ^= 1;
+    } else if (JOY_NEW(DPAD_UP)) {
+        if (sMonSummaryScreen->secondMoveIndex == 0) {
+            sMonSummaryScreen->secondMoveIndex = 2;
+        } else {
+            sMonSummaryScreen->secondMoveIndex--;
+        }
+    } else if (JOY_NEW(DPAD_DOWN)) {
+        if (sMonSummaryScreen->secondMoveIndex == 2) {
+            sMonSummaryScreen->secondMoveIndex = 0;
+        } else {
+            sMonSummaryScreen->secondMoveIndex++;
+        }
+    } else {
+        u8 row = sMonSummaryScreen->secondMoveIndex;
+        u8 col = sMonSummaryScreen->firstMoveIndex;
+        u16 evMax = sum->evMax;
+        u8 *val = &sum->evs[row + 3*col];
+        if (JOY_NEW(DPAD_LEFT) || JOY_REPEAT(DPAD_LEFT)) {
+            // try to decrement
+            if (*val == 0) {
+                PlaySE(SE_FAILURE); 
+            } else {
+                (*val)--;
+                sum->evTotal--;
+                PrintEvValuesInCol(taskId, col);
+                ScheduleBgCopyTilemapToVram(0);
+            }
+        } else if (JOY_NEW(DPAD_RIGHT) || JOY_REPEAT(DPAD_RIGHT)) {
+            // try to increment
+            //DebugPrintf("val %d total %d max %d", *val, sum->evTotal, evMax);
+            if (*val >= MAX_PER_STAT_EVS || sum->evTotal == evMax) {
+                PlaySE(SE_FAILURE); 
+            } else {
+                (*val)++;
+                sum->evTotal++;
+                PrintEvValuesInCol(taskId, col);
+                ScheduleBgCopyTilemapToVram(0);
+            }
+        }
+    }
+}
+
+static void SaveMonEVs(u8 taskId)
+{
+    u32 i, val;
+    struct Pokemon *mon = &sMonSummaryScreen->monList.mons[sMonSummaryScreen->curMonIndex];
+    s16 *data = gTasks[taskId].data;
+    // save EVs
+    for (i = 0; i < NUM_STATS; i++) {
+        val = sMonSummaryScreen->summary.evs[i];
+        SetMonData(mon, MON_DATA_HP_EV + sStatIdMap[i], &val);
+        //DebugPrintf("stat %d = %d", i, val);
+    }
+}
+
+
+

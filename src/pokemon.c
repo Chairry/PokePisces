@@ -4621,6 +4621,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_POKEBALL:
             retVal = substruct0->pokeball;
             break;
+        case MON_DATA_TOTAL_EVS:
+            retVal = substruct0->evTotal;
+            break;
         case MON_DATA_OT_GENDER:
             retVal = substruct3->otGender;
             break;
@@ -5048,6 +5051,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct0->pokeball = pokeball;
             break;
         }
+        case MON_DATA_TOTAL_EVS:
+            SET16(substruct0->evTotal);
+            break;
         case MON_DATA_OT_GENDER:
             SET8(substruct3->otGender);
             break;
@@ -7002,6 +7008,7 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         evs[i] += evIncrease;
         totalEVs += evIncrease;
         SetMonData(mon, MON_DATA_HP_EV + i, &evs[i]);
+        SetMonData(mon, MON_DATA_TOTAL_EVS, &totalEVs); // track total EVs per mon so we don't always have to have total equipped
     }
 }
 
