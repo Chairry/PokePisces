@@ -8110,6 +8110,8 @@ u8 GetCurrentLevelCap(void)
         return 55;
     else if (!FlagGet(FLAG_BADGE08_GET))
         return 60;
+    else if (!FlagGet(FLAG_IS_CHAMPION))
+        return 70;
     else
         return 100;
 }
@@ -8437,15 +8439,14 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {10,  50}, // before level 10, can only get 50 EVs total
-    {20,  100},
-    {30,  150},
-    {40,  200},
-    {50,  250},
-    {60,  300},
-    {70,  350},
-    {80,  400},
-    {90,  450},
+    {15,  60}, // before level 15, can only get 50 EVs total
+    {20,  120},
+    {25,  180},
+    {30,  240},
+    {40,  300},
+    {50,  360},
+    {55,  420},
+    {60,  480},
     {100, MAX_TOTAL_EVS},
 };
 
