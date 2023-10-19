@@ -22,6 +22,11 @@
       "map": "MAP_RUSTBURG_WHARF",
       "offset": -31,
       "direction": "up"
+    },
+    {
+      "map": "MAP_PETALBURG_WOODS_NEW",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

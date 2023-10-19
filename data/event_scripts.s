@@ -1129,3 +1129,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/DetermaniteQuarry/scripts.inc"
 
 	.include "data/maps/DetermaniteQuarB1F/scripts.inc"
+
+	.include "data/maps/SkyPillarNew/scripts.inc"
+
+	.include "data/maps/PetalburgWoodsNew/scripts.inc"
+
+	.include "data/maps/OldaleNew/scripts.inc"
+
+	.include "data/maps/NoviceWalk/scripts.inc"
+
+	.include "data/maps/LittlerootNew/scripts.inc"
+
+	.include "data/maps/PendingDev/scripts.inc"
