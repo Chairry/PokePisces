@@ -3032,54 +3032,53 @@ static const u8 sEnigmaBerryEReaderDesc[] = _(
 
 // TMs/HMs
 static const u8 sTM01Desc[] = _(
-    "Powerful, but makes\n"
-    "the user flinch if\n"
-    "hit by the foe.");
+    "The user sleeps for\n"
+    "2 turns to restore\n"
+    "health and status.");
 
 static const u8 sTM02Desc[] = _(
-    "Hooks and slashes\n"
-    "the foe with long,\n"
-    "sharp claws.");
+    "Inflicts a burn on\n"
+    "the foe with intense\n"
+    "fire.");
 
 static const u8 sTM03Desc[] = _(
-    "Generates an\n"
-    "ultrasonic wave\n"
-    "that may confuse.");
-
-static const u8 sTM04Desc[] = _(
-    "Raises Sp. Atk and\n"
-    "Sp. Def by focusing\n"
-    "the mind.");
-
-static const u8 sTM05Desc[] = _(
-    "A savage roar that\n"
-    "makes the foe flee \n"
-    "to end the battle.");
-
-static const u8 sTM06Desc[] = _(
     "Poisons the foe\n"
     "with a toxin that\n"
     "gradually worsens.");
 
+static const u8 sTM04Desc[] = _(
+    "Spooks the foe and\n"
+    "ends the battle.");
+
+static const u8 sTM05Desc[] = _(
+    "Inflicts frostbite\n"
+    "on the foe with\n"
+    "chilling ice.");
+
+static const u8 sTM06Desc[] = _(
+    "A weak jolt of\n"
+    "electricity that\n"
+    "paralyzes the foe.");
+
 static const u8 sTM07Desc[] = _(
-    "Creates a hailstorm\n"
-    "that damages all\n"
-    "types except Ice.");
+    "Slower Pokémon get\n"
+    "to move first for 5\n"
+    "turns.");
 
 static const u8 sTM08Desc[] = _(
-    "Bulks up the body\n"
-    "to boost both\n"
-    "Attack & Defense.");
+    "Negates all damage,\n"
+    "but may fail if used\n"
+    "in succession.");
 
 static const u8 sTM09Desc[] = _(
-    "Shoots 2 to 5 seeds\n"
-    "in a row to strike\n"
-    "the foe.");
+    "Uses an available\n"
+    "move randomly while\n"
+    "asleep.");
 
 static const u8 sTM10Desc[] = _(
-    "The attack power\n"
-    "varies among\n"
-    "different Pokémon.");
+    "Creates a chilly\n"
+    "environment that\n"
+    "slows foes.");
 
 static const u8 sTM11Desc[] = _(
     "Raises the power of\n"
@@ -3288,7 +3287,9 @@ static const u8 sTM52Desc[] = _( // Todo
     "?????");
 
 static const u8 sTM53Desc[] = _( // Todo
-    "?????");
+    "Hooks and slashes\n"
+    "the foe with long,\n"
+    "sharp claws.");
 
 static const u8 sTM54Desc[] = _( // Todo
     "?????");
