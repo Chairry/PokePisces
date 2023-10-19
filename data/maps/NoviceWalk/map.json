@@ -1,9 +1,9 @@
 {
-  "id": "MAP_SEA_MAUVILLE",
-  "name": "SeaMauville",
-  "layout": "LAYOUT_SEA_MAUVILLE",
+  "id": "MAP_NOVICE_WALK",
+  "name": "NoviceWalk",
+  "layout": "LAYOUT_NOVICE_WALK",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_SLATEPORT_CITY",
+  "region_map_section": "MAPSEC_ROUTE_101",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",
@@ -14,19 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CYCLING_ROAD",
-      "offset": 26,
+      "map": "MAP_OLDALE_NEW",
+      "offset": -8,
       "direction": "up"
     },
     {
-      "map": "MAP_SLATEPORT_SHORE",
+      "map": "MAP_LITTLEROOT_NEW",
       "offset": 0,
       "direction": "down"
-    },
-    {
-      "map": "MAP_PENDING_DEV",
-      "offset": 26,
-      "direction": "left"
     }
   ],
   "object_events": [

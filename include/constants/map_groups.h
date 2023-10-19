@@ -98,6 +98,12 @@
 #define MAP_RUSTBORO_NEW             (89 | (0 << 8))
 #define MAP_DETERMANITE_QUARRY       (90 | (0 << 8))
 #define MAP_DETERMANITE_QUAR_B1F     (91 | (0 << 8))
+#define MAP_SKY_PILLAR_NEW           (92 | (0 << 8))
+#define MAP_PETALBURG_WOODS_NEW      (93 | (0 << 8))
+#define MAP_OLDALE_NEW               (94 | (0 << 8))
+#define MAP_NOVICE_WALK              (95 | (0 << 8))
+#define MAP_LITTLEROOT_NEW           (96 | (0 << 8))
+#define MAP_PENDING_DEV              (97 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
