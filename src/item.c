@@ -1026,9 +1026,9 @@ bool8 GetSetItemObtained(u16 item, u8 caseId)
     switch (caseId)
     {
     case FLAG_GET_OBTAINED:
-        return gSaveBlock2Ptr->itemFlags[index] & mask;
+        return gSaveBlock1Ptr->itemFlags[index] & mask;
     case FLAG_SET_OBTAINED:
-        gSaveBlock2Ptr->itemFlags[index] |= mask;
+        gSaveBlock1Ptr->itemFlags[index] |= mask;
         return TRUE;
     }
 
