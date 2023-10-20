@@ -127,7 +127,13 @@
     "RustburgWharf",
     "RustboroNew",
     "DetermaniteQuarry",
-    "DetermaniteQuarB1F"
+    "DetermaniteQuarB1F",
+    "SkyPillarNew",
+    "PetalburgWoodsNew",
+    "OldaleNew",
+    "NoviceWalk",
+    "LittlerootNew",
+    "PendingDev"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

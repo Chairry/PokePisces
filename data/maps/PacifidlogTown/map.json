@@ -22,6 +22,11 @@
       "map": "MAP_STRAE_SEAPATH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_SKY_PILLAR_NEW",
+      "offset": 7,
+      "direction": "up"
     }
   ],
   "object_events": [

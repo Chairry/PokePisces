@@ -4760,6 +4760,66 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/DetermaniteQuarB1F/border.bin",
       "blockdata_filepath": "data/layouts/DetermaniteQuarB1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_PILLAR_NEW",
+      "name": "SkyPillarNew_Layout",
+      "width": 40,
+      "height": 18,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/SkyPillarNew/border.bin",
+      "blockdata_filepath": "data/layouts/SkyPillarNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_NEW",
+      "name": "PetalburgWoodsNew_Layout",
+      "width": 68,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PetalburgWoodsNew/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoodsNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLDALE_NEW",
+      "name": "OldaleNew_Layout",
+      "width": 44,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/OldaleNew/border.bin",
+      "blockdata_filepath": "data/layouts/OldaleNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_NOVICE_WALK",
+      "name": "NoviceWalk_Layout",
+      "width": 36,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/NoviceWalk/border.bin",
+      "blockdata_filepath": "data/layouts/NoviceWalk/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_NEW",
+      "name": "LittlerootNew_Layout",
+      "width": 36,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/LittlerootNew/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_PENDING_DEV",
+      "name": "PendingDev_Layout",
+      "width": 44,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PendingDev/border.bin",
+      "blockdata_filepath": "data/layouts/PendingDev/map.bin"
     }
   ]
 }

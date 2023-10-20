@@ -22,6 +22,11 @@
       "map": "MAP_VERDANTURF_NEW",
       "offset": -25,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OLDALE_NEW",
+      "offset": -16,
+      "direction": "down"
     }
   ],
   "object_events": [

@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE123",
       "offset": 16,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OZONE_INSTITUTE",
+      "offset": -4,
+      "direction": "left"
     }
   ],
   "object_events": [

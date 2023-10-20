@@ -22,6 +22,11 @@
       "map": "MAP_SLATEPORT_SHORE",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_PENDING_DEV",
+      "offset": 26,
+      "direction": "left"
     }
   ],
   "object_events": [
