@@ -9393,7 +9393,7 @@ extern const u32 gItemIcon_BerryMic[];
 extern const u32 gItemIconPalette_BerryMic[];
 extern const u32 gItemIcon_BurntStick[];
 extern const u32 gItemIconPalette_BurntStick[];
-extern const u32 gItemIcon_CursedAmulet[]);
+extern const u32 gItemIcon_CursedAmulet[];
 extern const u32 gItemIconPalette_CursedAmulet[];
 extern const u32 gItemIcon_EerieMask[];
 extern const u32 gItemIconPalette_EerieMask[];
