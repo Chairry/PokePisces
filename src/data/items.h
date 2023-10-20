@@ -9649,4 +9649,80 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
+
+    // New Items
+    [ITEM_BERRY_MIC] =
+    {
+        .name = _("Berry Mic"),
+        .price = 2000,
+        .description = sBerryMic,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_BURNT_STICK] =
+    {
+        .name = _("Burnt Stick"),
+        .price = 2000,
+        .description = sBurntStick,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_CURSED_AMULET] =
+    {
+        .name = _("Cursed Amulet"),
+        .price = 2000,
+        .description = sCursedAmulet,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_EERIE_MASK] =
+    {
+        .name = _("Eerie Mask"),
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_BERSERK_GENE,
+        .description = sEerieMask,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_NEO_BATTERY] =
+    {
+        .name = _("Neo Battery"),
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_BERSERK_GENE,
+        .description = sNeoBattery,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SANDBAG] =
+    {
+        .name = _("Sandbag"),
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_BERSERK_GENE,
+        .description = sSandbag,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SANDSTONE] =
+    {
+        .name = _("Sandstone"),
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_BERSERK_GENE,
+        .description = sSandstone,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
 };

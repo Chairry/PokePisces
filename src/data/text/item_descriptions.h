@@ -3919,3 +3919,39 @@ static const u8 sBerserkGene[] = _(
     "Sharply boosts\n"
     "Attack, but causes\n"
     "lasting confusion.");
+
+// New items
+static const u8 sBerryMic[] = _(
+    "A peculiar berry used\n"
+    "to evolve Spitfax. A \n"
+    "this?");
+
+static const u8 sBurntStick[] = _(
+    "An item to be held by a\n"
+    "Pokémon. A burnt branch \n"
+    "moves to Burn.");
+
+static const u8 sCursedAmulet[] = _(
+    "An item to be held by a\n"
+    "Pokémon. An amulet infused\n"
+    "make contact.");
+
+static const u8 sEerieMask[] = _(
+    "An item to be held by the\n"
+    "Seedot line. An evil mask\n"
+    "conditions during Tailwind.");
+
+static const u8 sNeoBattery[] = _(
+    "A peculiar battery used to\n"
+    "evolve Retroroach. It is \n"
+    "but unknown energy.");
+
+static const u8 sSandbag[] = _(
+    "A peculiar sack of sand \n"
+    "used to evolve Pebbler. \n"
+    "sandstone.");
+    
+static const u8 sSandstone[] = _(
+    "A peculiar stone used\n"
+    "to evolve Pebbler. Its\n"
+    "raging storm.");

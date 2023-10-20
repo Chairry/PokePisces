@@ -2023,3 +2023,26 @@ const u32 gItemIconPalette_LustrousGlobe[] = INCBIN_U32("graphics/items/icon_pal
 
 const u32 gItemIcon_BerserkGene[] = INCBIN_U32("graphics/items/icons/berserk_gene.4bpp.lz");
 const u32 gItemIconPalette_BerserkGene[] = INCBIN_U32("graphics/items/icon_palettes/berserk_gene.gbapal.lz");
+
+// New items
+
+const u32 gItemIcon_BerryMic[] = INCBIN_U32("graphics/items/icons/berry_mic.4bpp.lz");
+const u32 gItemIconPalette_BerryMic[] = INCBIN_U32("graphics/items/icon_palettes/berry_mic.gbapal.lz");
+
+const u32 gItemIcon_BurntStick[] = INCBIN_U32("graphics/items/icons/burnt_stick.4bpp.lz");
+const u32 gItemIconPalette_BurntStick[] = INCBIN_U32("graphics/items/icon_palettes/burnt_stick.gbapal.lz");
+
+const u32 gItemIcon_CursedAmulet[] = INCBIN_U32("graphics/items/icons/cursed_amulet.4bpp.lz");
+const u32 gItemIconPalette_CursedAmulet[] = INCBIN_U32("graphics/items/icon_palettes/cursed_amulet.gbapal.lz");
+
+const u32 gItemIcon_EerieMask[] = INCBIN_U32("graphics/items/icons/eerie_mask.4bpp.lz");
+const u32 gItemIconPalette_EerieMask[] = INCBIN_U32("graphics/items/icon_palettes/eerie_mask.gbapal.lz");
+
+const u32 gItemIcon_NeoBattery[] = INCBIN_U32("graphics/items/icons/neo_battery.4bpp.lz");
+const u32 gItemIconPalette_NeoBattery[] = INCBIN_U32("graphics/items/icon_palettes/neo_battery.gbapal.lz");
+
+const u32 gItemIcon_Sandbag[] = INCBIN_U32("graphics/items/icons/sandbag.4bpp.lz");
+const u32 gItemIconPalette_Sandbag[] = INCBIN_U32("graphics/items/icon_palettes/sandbag.gbapal.lz");
+
+const u32 gItemIcon_Sandstone[] = INCBIN_U32("graphics/items/icons/sandstone.4bpp.lz");
+const u32 gItemIconPalette_Sandstone[] = INCBIN_U32("graphics/items/icon_palettes/sandstone.gbapal.lz");
