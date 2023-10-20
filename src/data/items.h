@@ -9663,7 +9663,7 @@ const struct Item gItems[] =
     },
     [ITEM_BURNT_STICK] =
     {
-        .name = _("Burnt Stick"),
+        .name = _("Burnt Branch"),
         .price = 2000,
         .description = sBurntStick,
         .pocket = POCKET_ITEMS,

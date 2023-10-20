@@ -3922,36 +3922,36 @@ static const u8 sBerserkGene[] = _(
 
 // New items
 static const u8 sBerryMic[] = _(
-    "A peculiar berry used\n"
-    "to evolve Spitfax. A \n"
-    "this?");
+    "A berry with a\n"
+    "stick poked in it.\n"
+    "Evolves Spitfax.");
 
 static const u8 sBurntStick[] = _(
-    "An item to be held by a\n"
-    "Pokémon. A burnt branch \n"
-    "moves to Burn.");
+    "A hold item of the\n"
+    "past. Grass-type\n"
+    "moves may burn.");
 
 static const u8 sCursedAmulet[] = _(
-    "An item to be held by a\n"
-    "Pokémon. An amulet infused\n"
-    "make contact.");
+    "A hold item made of\n"
+    "magic. May disable\n"
+    "moves on contact.");
 
 static const u8 sEerieMask[] = _(
-    "An item to be held by the\n"
-    "Seedot line. An evil mask\n"
-    "conditions during Tailwind.");
+    "A hold item for the\n"
+    "Seedot line. Guards\n"
+    "them in Tailwind.");
 
 static const u8 sNeoBattery[] = _(
-    "A peculiar battery used to\n"
-    "evolve Retroroach. It is \n"
-    "but unknown energy.");
+    "An unusual battery\n"
+    "with unknown power\n"
+    "Evolves Retroroach.");
 
 static const u8 sSandbag[] = _(
-    "A peculiar sack of sand \n"
-    "used to evolve Pebbler. \n"
-    "sandstone.");
-    
+    "A sack made of \n"
+    "pulverized sand.\n"
+    "Evolves Pebbler.");
+
 static const u8 sSandstone[] = _(
-    "A peculiar stone used\n"
-    "to evolve Pebbler. Its\n"
-    "raging storm.");
+    "A stone made of\n"
+    "sandstorms.\n"
+    "Evolves Pebbler.");
