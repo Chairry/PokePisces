@@ -7637,6 +7637,29 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
             }
             break;
+        case HOLD_EFFECT_BURNT_STICK:
+            {
+                u16 ability = GetBattlerAbility(gBattlerAttacker);
+            #if B_SERENE_GRACE_BOOST >= GEN_5
+                if (ability == ABILITY_SERENE_GRACE)
+                    atkHoldEffectParam *= 2;
+            #endif
+                if (gBattleMoveDamage != 0  // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && CanBeBurned(gBattlerTarget)
+                    && gBattleMons[gBattlerTarget].hp
+                    && RandomPercentage(RNG_FLAME_BODY, atkHoldEffectParam)
+                    && moveType == TYPE_GRASS)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ItemStatusEffect;
+                    effect++;
+                    SetMoveEffect(TRUE, 0);
+                    }
+            }
+            break;
         case HOLD_EFFECT_BLUNDER_POLICY:
             if (gBattleStruct->blunderPolicy
              && gBattleMons[gBattlerAttacker].hp != 0

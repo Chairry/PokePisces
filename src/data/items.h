@@ -9665,6 +9665,8 @@ const struct Item gItems[] =
     {
         .name = _("Burnt Stick"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_BURNT_STICK,
+        .holdEffectParam = 80,
         .description = sBurntStick,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

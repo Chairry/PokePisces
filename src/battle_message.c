@@ -512,6 +512,7 @@ static const u8 sText_PkmnsItemRestoredStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PRE
 static const u8 sText_PkmnsItemRestoredHPALittle[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nrestored its HP a little!");
 static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM} allows the\nuse of only {B_CURRENT_MOVE}!\p");
 static const u8 sText_PkmnHungOnWithX[] = _("{B_DEF_NAME_WITH_PREFIX} hung on\nusing its {B_LAST_ITEM}!");
+static const u8 sText_PkmnsItemCauseBurn[] = _("{B_LAST_ITEM}\ncaused a burn!");
 const u8 gText_EmptyString3[] = _("");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
 
@@ -1469,6 +1470,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ULTRABURSTREACTING - BATTLESTRINGS_TABLE_START] = sText_UltraBurstReacting,
     [STRINGID_ULTRABURSTCOMPLETED - BATTLESTRINGS_TABLE_START] = sText_UltraBurstCompleted,
     [STRINGID_TEAMGAINEDEXP - BATTLESTRINGS_TABLE_START] = sText_TeamGainedEXP,
+    [STRINGID_PKMNSITEMCAUSEBURN - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCauseBurn,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1770,7 +1772,8 @@ const u16 gFellAsleepStringIds[] =
 const u16 gGotBurnedStringIds[] =
 {
     [B_MSG_STATUSED]            = STRINGID_PKMNWASBURNED,
-    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNBURNEDBY
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNBURNEDBY,
+    [B_MSG_STATUSED_BY_ITEM]    = STRINGID_PKMNSITEMCAUSEBURN
 };
 
 const u16 gGotFrostbiteStringIds[] =

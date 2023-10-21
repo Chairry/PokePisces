@@ -9297,6 +9297,11 @@ BattleScript_AbilityStatusEffect::
 	seteffectsecondary
 	return
 
+BattleScript_ItemStatusEffect::
+	printstring STRINGID_PKMNSITEMCAUSEBURN
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_BattleBondActivatesOnMoveEndAttacker::
 	pause 5
 	copybyte gBattlerAbility, gBattlerAttacker
