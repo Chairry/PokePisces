@@ -9038,6 +9038,11 @@ BattleScript_CursedBodyActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_CursedAmuletActivates::
+	printstring STRINGID_CUSEDAMULETDISABLED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_MummyActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ATTACKERACQUIREDABILITY
@@ -9295,6 +9300,11 @@ BattleScript_AbilityStatusEffect::
 	waitstate
 	call BattleScript_AbilityPopUp
 	seteffectsecondary
+	return
+
+BattleScript_ItemStatusEffect::
+	printstring STRINGID_PKMNSITEMCAUSEBURN
+	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_BattleBondActivatesOnMoveEndAttacker::

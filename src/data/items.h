@@ -9665,6 +9665,8 @@ const struct Item gItems[] =
     {
         .name = _("Burnt Branch"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_BURNT_STICK,
+        .holdEffectParam = 20,
         .description = sBurntStick,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -9675,6 +9677,7 @@ const struct Item gItems[] =
     {
         .name = _("Cursed Amulet"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_CURSED_AMULET, 
         .description = sCursedAmulet,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

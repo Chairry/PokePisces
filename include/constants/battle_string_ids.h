@@ -670,8 +670,10 @@
 #define STRINGID_CURRENTMOVECANTSELECT                668
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
+#define STRINGID_PKMNSITEMCAUSEBURN                   671
+#define STRINGID_CUSEDAMULETDISABLED                  672
 
-#define BATTLESTRINGS_COUNT                           671
+#define BATTLESTRINGS_COUNT                           673
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -875,6 +877,7 @@
 // gGotBurnedStringIds / gGotFrozenStringIds / gAttractUsedStringIds
 #define B_MSG_STATUSED            0
 #define B_MSG_STATUSED_BY_ABILITY 1
+#define B_MSG_STATUSED_BY_ITEM    2
 
 // gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds
 #define B_MSG_ABILITY_PREVENTS_MOVE_STATUS    0

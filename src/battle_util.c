@@ -7637,6 +7637,29 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
             }
             break;
+        case HOLD_EFFECT_BURNT_STICK:
+            {
+                u16 ability = GetBattlerAbility(gBattlerAttacker);
+            #if B_SERENE_GRACE_BOOST >= GEN_5
+                if (ability == ABILITY_SERENE_GRACE)
+                    atkHoldEffectParam *= 2;
+            #endif
+                if (gBattleMoveDamage != 0  // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && CanBeBurned(gBattlerTarget)
+                    && gBattleMons[gBattlerTarget].hp
+                    && RandomPercentage(RNG_FLAME_BODY, atkHoldEffectParam)
+                    && moveType == TYPE_GRASS)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ItemStatusEffect;
+                    effect++;
+                    SetMoveEffect(TRUE, 0);
+                    }
+            }
+            break;
         case HOLD_EFFECT_BLUNDER_POLICY:
             if (gBattleStruct->blunderPolicy
              && gBattleMons[gBattlerAttacker].hp != 0
@@ -7707,7 +7730,8 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
             }
-            break;
+            break;  
+            
         }
         break;
     case ITEMEFFECT_TARGET:
@@ -7716,6 +7740,22 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             GET_MOVE_TYPE(gCurrentMove, moveType);
             switch (battlerHoldEffect)
             {
+                case HOLD_EFFECT_CURSED_AMULET:
+                    if (TARGET_TURN_DAMAGED
+                    && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
+                    && IsBattlerAlive(gBattlerAttacker)
+                    && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
+                    && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
+                    && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
+                    {
+                        gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
+                        gDisableStructs[gBattlerAttacker].disableTimer = 4;
+                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_CursedAmuletActivates;
+                        effect++;
+                    }
+                    break;  
             case HOLD_EFFECT_AIR_BALLOON:
                 if (TARGET_TURN_DAMAGED)
                 {
@@ -7739,7 +7779,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
                     RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
                 }
-                break;
+                break;            
             case HOLD_EFFECT_WEAKNESS_POLICY:
                 if (IsBattlerAlive(battler)
                     && TARGET_TURN_DAMAGED
