@@ -9677,6 +9677,7 @@ const struct Item gItems[] =
     {
         .name = _("Cursed Amulet"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_CURSED_AMULET, 
         .description = sCursedAmulet,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

@@ -9038,6 +9038,11 @@ BattleScript_CursedBodyActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_CursedAmuletActivates::
+	printstring STRINGID_CUSEDAMULETDISABLED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_MummyActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ATTACKERACQUIREDABILITY

@@ -7746,13 +7746,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     && IsBattlerAlive(gBattlerAttacker)
                     && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
                     && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
-                    && RandomPercentage(RNG_FLAME_BODY, atkHoldEffectParam))
+                    && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
                     {
                         gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                         gDisableStructs[gBattlerAttacker].disableTimer = 4;
                         PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
                         BattleScriptPushCursor();
-                        gBattlescriptCurrInstr = BattleScript_CursedBodyActivates;
+                        gBattlescriptCurrInstr = BattleScript_CursedAmuletActivates;
                         effect++;
                     }
                     break;  
