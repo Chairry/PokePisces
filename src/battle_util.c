@@ -7730,7 +7730,8 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
             }
-            break;
+            break;  
+            
         }
         break;
     case ITEMEFFECT_TARGET:
@@ -7739,6 +7740,22 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             GET_MOVE_TYPE(gCurrentMove, moveType);
             switch (battlerHoldEffect)
             {
+                case HOLD_EFFECT_CURSED_AMULET:
+                    if (TARGET_TURN_DAMAGED
+                    && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
+                    && IsBattlerAlive(gBattlerAttacker)
+                    && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
+                    && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
+                    && RandomPercentage(RNG_FLAME_BODY, atkHoldEffectParam))
+                    {
+                        gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
+                        gDisableStructs[gBattlerAttacker].disableTimer = 4;
+                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_CursedBodyActivates;
+                        effect++;
+                    }
+                    break;  
             case HOLD_EFFECT_AIR_BALLOON:
                 if (TARGET_TURN_DAMAGED)
                 {
@@ -7762,7 +7779,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
                     RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
                 }
-                break;
+                break;            
             case HOLD_EFFECT_WEAKNESS_POLICY:
                 if (IsBattlerAlive(battler)
                     && TARGET_TURN_DAMAGED
