@@ -9663,7 +9663,7 @@ const struct Item gItems[] =
     },
     [ITEM_BURNT_STICK] =
     {
-        .name = _("Burnt Stick"),
+        .name = _("Burnt Branch"),
         .price = 2000,
         .holdEffect = HOLD_EFFECT_BURNT_STICK,
         .holdEffectParam = 20,
