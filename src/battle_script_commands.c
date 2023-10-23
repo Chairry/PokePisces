@@ -3059,7 +3059,12 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             else
             {
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED;
+                if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_BURNT_STICK) {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED_BY_ITEM;
+                } else {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED;
+                }
+                
             }
 
             // for synchronize
@@ -14959,15 +14964,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pokémon's level) ÷ 10)× if Pokémon's level is between 1 and 29, 1× otherwise.
+                //((41 - Pokémon's level) ÷ 10)�? if Pokémon's level is between 1 and 29, 1�? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pokémon's level) ÷ 10)×, minimum 1×
+                //((41 - Pokémon's level) ÷ 10)�?, minimum 1�?
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pokémon's level) ÷ 10)×, minimum 1×
+                //((40 - Pokémon's level) ÷ 10)�?, minimum 1�?
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);
