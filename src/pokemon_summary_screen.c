@@ -3580,9 +3580,9 @@ static void BufferRightColumnStats(void)
     const s8 *natureMod = gNatureStatTable[sMonSummaryScreen->summary.nature];
 
     DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, natureMod[STAT_SPATK - 1], sMonSummaryScreen->summary.spatk, 0, 3);
-    BufferStat(gStringVar2, natureMod[STAT_SPDEF - 1], sMonSummaryScreen->summary.spdef, 1, 3);
-    BufferStat(gStringVar3, natureMod[STAT_SPEED - 1], sMonSummaryScreen->summary.speed, 2, 3);
+    BufferStat(gStringVar1, natureMod[STAT_SPATK - 1], sMonSummaryScreen->summary.spatk, 0, 4);
+    BufferStat(gStringVar2, natureMod[STAT_SPDEF - 1], sMonSummaryScreen->summary.spdef, 1, 4);
+    BufferStat(gStringVar3, natureMod[STAT_SPEED - 1], sMonSummaryScreen->summary.speed, 2, 4);
     DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);
 }
 
@@ -4332,8 +4332,8 @@ static void KeepMoveSelectorVisible(u8 firstSpriteId)
 // Summary screen show nature arrows on stat value
 static void BufferStat(u8 *dst, s8 natureMod, u32 stat, u32 strId, u32 n)
 {
-    static const u8 sTextNatureDown[] = _(" {COLOR}{05}{DOWN_ARROW}{COLOR}{01}");
-    static const u8 sTextNatureUp[] = _(" {COLOR}{08}{UP_ARROW}{COLOR}{01}");
+    static const u8 sTextNatureDown[] = _("{COLOR}{05}{DOWN_ARROW_2}{COLOR}{01} ");
+    static const u8 sTextNatureUp[] = _("{COLOR}{08}{UP_ARROW_2}{COLOR}{01} ");
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
     u8 *txtPtr;
     
@@ -4423,8 +4423,8 @@ static void SpriteCB_StatSelector(struct Sprite *sprite)
     }
     
 
-    sprite->x2 = sMonSummaryScreen->firstMoveIndex * 90;  // col 
-    sprite->y2 = sMonSummaryScreen->secondMoveIndex * 16; // row
+    sprite->x2 = sMonSummaryScreen->firstMoveIndex * 84;  // col 
+    sprite->y2 = sMonSummaryScreen->secondMoveIndex * 12; // row
 }
 
 static void SetStatSelectorFixedState(bool32 fixed)
@@ -4450,12 +4450,12 @@ static void CreateMoveSelectorSpritesForEvEditing(void)
         subpriority = 1;
 
     for (i = 0; i < NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES; i++) {
-        spriteIds[i] = CreateSprite(&sMoveSelectorSpriteTemplate, i * 16 + 89, 64, subpriority);
+        spriteIds[i] = CreateSprite(&sMoveSelectorSpriteTemplate, i * 9 + 89, 65, subpriority);
         if (i == 0) {
             StartSpriteAnim(&gSprites[spriteIds[i]], 4); // left
         } else if (i == (NUM_EV_EDITOR_MOVE_SELECTOR_SPRITES - 1)) {
             StartSpriteAnim(&gSprites[spriteIds[i]], 5); // right, actually the same as left, but flipped
-            gSprites[spriteIds[i]].x -= 10;
+            gSprites[spriteIds[i]].x += 2;
         } else {
             StartSpriteAnim(&gSprites[spriteIds[i]], 6); // middle
         }
@@ -4483,8 +4483,8 @@ static void PrintEvValue(u8 taskId, u8 row, u8 col)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
     s16 *data = gTasks[taskId].data;
-    ConvertIntToDecimalStringN(gStringVar1, sum->evs[row + 3 * col], STR_CONV_MODE_RIGHT_ALIGN, 7 - 4 * col);
-    PrintTextOnWindow(tWindow(col), gStringVar1, 2, 1 + 16 * row, 0, 0);
+    ConvertIntToDecimalStringN(gStringVar1, sum->evs[row + 3 * col], STR_CONV_MODE_RIGHT_ALIGN, 7 - 3 * col);
+    PrintTextOnWindowSmall(tWindow(col), gStringVar1, 2, 1 + 12 * row, 0, 0);
 }
 
 static void PrintEvValuesInCol(u8 taskId, u8 col)
