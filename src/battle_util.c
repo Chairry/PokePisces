@@ -10091,6 +10091,12 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
     }
 #endif
 
+    // Immunity
+    if (gBattleMoves[move].type == TYPE_POISON && gBattleMons[battlerDef].ability == ABILITY_IMMUNITY)
+    {
+        modifier = UQ_4_12(0.0);
+    }
+
     // Thousand Arrows ignores type modifiers for flying mons
     if (!IsBattlerGrounded(battlerDef) && (gBattleMoves[move].ignoreTypeIfFlyingAndUngrounded)
         && (gBattleMons[battlerDef].type1 == TYPE_FLYING || gBattleMons[battlerDef].type2 == TYPE_FLYING || gBattleMons[battlerDef].type3 == TYPE_FLYING))
