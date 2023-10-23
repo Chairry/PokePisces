@@ -5569,7 +5569,7 @@ const u8 gTerminytePokedexText[] = _(
     "Terminyte's abdomen is filled with\n"
     "extremely volatile chemicals. These\n"
     "chemicals release whenever it explodes\n"
-    "and eats through any type of metal.");
+    "and eat through any type of metal.");
 
 const u8 gSnotloudPokedexText[] = _(
     "Snotloud live in odd minerals that generate\n"
