@@ -9494,6 +9494,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         defStat /= 2;
     #endif
 
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
+        defStat /= 2;
+
     // critical hits ignore positive stat changes
     if (isCrit && defStage > DEFAULT_STAT_STAGE)
         defStage = DEFAULT_STAT_STAGE;
