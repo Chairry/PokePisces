@@ -3165,6 +3165,7 @@ bool32 HandleWishPerishSongOnTurnEnd(void)
                 gBattlerAttacker = gWishFutureKnock.futureSightAttacker[battler];
                 gSpecialStatuses[gBattlerTarget].dmg = 0xFFFF;
                 gCurrentMove = gWishFutureKnock.futureSightMove[battler];
+                gCurrentMove
                 SetTypeBeforeUsingMove(gCurrentMove, battler);
                 BattleScriptExecute(BattleScript_MonTookFutureAttack);
 
@@ -8678,6 +8679,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_PURSUIT:
         if (gActionsByTurnOrder[GetBattlerTurnOrderNum(battlerDef)] == B_ACTION_SWITCH)
             basePower *= 2;
+        break;
+    case EFFECT_FUTURE_SIGHT:
+        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN)
+            basePower = 180;
         break;
     case EFFECT_NATURAL_GIFT:
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
