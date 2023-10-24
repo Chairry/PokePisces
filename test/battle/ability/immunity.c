@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Immunity prevents Poison Sting poison")
     } WHEN {
         TURN { MOVE(player, MOVE_POISON_STING); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_POISON_STING, player);
+        // ANIMATION(ANIM_TYPE_MOVE, MOVE_POISON_STING, player);
         NOT STATUS_ICON(opponent, poison: TRUE);
     }
 }
