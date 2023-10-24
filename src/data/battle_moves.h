@@ -9239,17 +9239,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_GLACIATE] =
     {
-        .effect = EFFECT_SPEED_DOWN_HIT,
-        .power = 65,
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 85,
+        #else
+            .accuracy = 75,
+        #endif
+        .effect = EFFECT_GLACIATE,
+        .power = 0,
         .type = TYPE_ICE,
-        .accuracy = 95,
-        .pp = 10,
-        .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_BOTH,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .split = SPLIT_SPECIAL,
-        .zMoveEffect = Z_EFFECT_NONE,
-        .sheerForceBoost = TRUE,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPATK_UP_1,
+        .magicCoatAffected = TRUE,
     },
 
     [MOVE_BOLT_STRIKE] =
@@ -13820,6 +13824,27 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_SPOOK] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 0,
+        #else
+            .accuracy = 100,
+        #endif
+        .effect = EFFECT_ROAR,
+        .power = 0,
+        .type = TYPE_GHOST,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = -6,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
+        .ignoresProtect = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .magicCoatAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
+        .copycatBanned = TRUE,
     },
 
     // Z-Moves

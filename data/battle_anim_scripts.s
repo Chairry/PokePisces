@@ -856,6 +856,7 @@ gBattleAnims_Moves::
 	.4byte Move_MAGICAL_TORQUE
 	.4byte Move_PSYBLADE
 	.4byte Move_HYDRO_STEAM
+	.4byte Move_SPOOK
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -7529,13 +7530,10 @@ Move_SECRET_SWORD:
 	end
 
 Move_GLACIATE:
-	loadspritegfx ANIM_TAG_ICE_CRYSTALS @ice
 	loadspritegfx ANIM_TAG_BLACK_SMOKE @smoke
 	loadspritegfx ANIM_TAG_ICE_CHUNK @White Colour
 	monbg ANIM_DEF_PARTNER
-	setalpha 12, 8
-	fadetobg BG_ICE
-	waitbgfadeout
+	splitbgprio_foes ANIM_TARGET
 	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_TARGET
 	createsprite gGlaciateSmokeTemplate, ANIM_TARGET, 4, 0x0, 0xfff4, 0x68, 0x0, 0x4b
 	createsprite gGlaciateSmokeTemplate, ANIM_TARGET, 4, 0x0, 0xfff4, 0x48, 0x1, 0x4b
@@ -7550,13 +7548,8 @@ Move_GLACIATE:
 	createsprite gGlaciateSmokeTemplate, ANIM_TARGET, 4, 0x0, 0x12, 0x50, 0x0, 0x4b
 	createsprite gGlaciateSmokeTemplate, ANIM_TARGET, 4, 0x0, 0x12, 0x48, 0x1, 0x4b
 	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_DEF_SIDE, 0x2, 0x0, 0xA, 0x7FFF
-	call IceCrystalEffectLong
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_DEF_SIDE, 0x2, 0xA, 0x0, 0x7FFF
-	waitforvisualfinish
-	blendoff
+	splitbgprio_all
 	clearmonbg ANIM_DEF_PARTNER
-	call UnsetPsychicBg
 	end
 
 Move_BOLT_STRIKE::
@@ -16457,6 +16450,25 @@ Move_DOUBLE_SHOCK::
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	end
+
+Move_SPOOK:
+	loadspritegfx ANIM_TAG_EYE_SPARKLE
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, (F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_DEF_PARTNER), 3, 0, 16, RGB_BLACK
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_M_LEER, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaryFace, 5
+	delay 13
+	createsprite gEyeSparkleSpriteTemplate, ANIM_ATTACKER, 0, -16, -8
+	createsprite gEyeSparkleSpriteTemplate, ANIM_ATTACKER, 0, 16, -8
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeTargetInPattern, 3, 20, 1, FALSE
+	playsewithpan SE_M_STRING_SHOT2, SOUND_PAN_TARGET
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, (F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_DEF_PARTNER), 3, 16, 0, RGB_BLACK
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_TARGET, 8
+	waitforvisualfinish
 	end
 
 Move_TERA_BLAST::
