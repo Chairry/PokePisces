@@ -10104,9 +10104,17 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
 #endif
 
     // Immunity
-    if (gBattleMoves[move].type == TYPE_POISON && gBattleMons[battlerDef].ability == ABILITY_IMMUNITY)
+    if (gBattleMoves[move].type == TYPE_POISON && defAbility == ABILITY_IMMUNITY)
     {
         modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_IMMUNITY;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_POISON_MISS;
+            RecordAbilityBattle(battlerDef, ABILITY_IMMUNITY);
+        }
     }
 
     // Thousand Arrows ignores type modifiers for flying mons

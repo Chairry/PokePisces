@@ -672,8 +672,10 @@
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_PKMNSITEMCAUSEBURN                   671
 #define STRINGID_CUSEDAMULETDISABLED                  672
+// New strings
+#define STRINGID_PKMNMAKESPOISONMISS                  673
 
-#define BATTLESTRINGS_COUNT                           673
+#define BATTLESTRINGS_COUNT                           674
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -705,6 +707,7 @@
 #define B_MSG_AVOIDED_ATK  2
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
+#define B_MSG_POISON_MISS  5
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0
