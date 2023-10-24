@@ -4907,6 +4907,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
                 effect++;
                 break;
+            case ABILITY_MIASMA:
+                BattleScriptPushCursorAndCallback(BattleScript_MiasmaActivates);
+                effect++;
+                break;
             SOLAR_POWER_HP_DROP:
             case ABILITY_SOLAR_POWER:
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_SUN))

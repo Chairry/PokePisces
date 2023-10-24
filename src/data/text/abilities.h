@@ -23,7 +23,7 @@ static const u8 sSuctionCupsDescription[] = _("Firmly anchors the body.");
 static const u8 sIntimidateDescription[] = _("Lowers the foe's Attack.");
 static const u8 sShadowTagDescription[] = _("Prevents the foe's escape.");
 static const u8 sRoughSkinDescription[] = _("Hurts to touch.");
-static const u8 sWonderGuardDescription[] = _("“Supereffective” hits.");
+static const u8 sWonderGuardDescription[] = _("'Supereffective' hits.");
 static const u8 sLevitateDescription[] = _("Not hit by Ground attacks.");
 static const u8 sEffectSporeDescription[] = _("Leaves spores on contact.");
 static const u8 sSynchronizeDescription[] = _("Passes on status problems.");
@@ -40,7 +40,7 @@ static const u8 sPoisonPointDescription[] = _("Poisons foe on contact.");
 static const u8 sInnerFocusDescription[] = _("Prevents flinching.");
 static const u8 sMagmaArmorDescription[] = _("Prevents freezing.");
 static const u8 sWaterVeilDescription[] = _("Prevents burns/frostbite.");
-static const u8 sMagnetPullDescription[] = _("Traps Steel-type Pokémon.");
+static const u8 sMagnetPullDescription[] = _("Traps Steel-type Pok?mon.");
 static const u8 sSoundproofDescription[] = _("Avoids sound-based moves.");
 static const u8 sRainDishDescription[] = _("Slight HP recovery in rain.");
 static const u8 sSandStreamDescription[] = _("Summons a sandstorm.");
@@ -108,10 +108,10 @@ static const u8 sAftermathDescription[] = _("Fainting damages the foe.");
 static const u8 sAnticipationDescription[] = _("Senses dangerous moves.");
 static const u8 sForewarnDescription[] = _("The future creeps closer.");
 static const u8 sUnawareDescription[] = _("Ignores stat changes.");
-static const u8 sTintedLensDescription[] = _("Ups “not very effective”.");
-static const u8 sFilterDescription[] = _("Weakens “supereffective”.");
+static const u8 sTintedLensDescription[] = _("Ups 'not very effective'.");
+static const u8 sFilterDescription[] = _("Weakens 'supereffective'.");
 static const u8 sSlowStartDescription[] = _("Takes a while to get going.");
-static const u8 sScrappyDescription[] = _("Hits Ghost-type Pokémon.");
+static const u8 sScrappyDescription[] = _("Hits Ghost-type Pok?mon.");
 static const u8 sStormDrainDescription[] = _("Draws in Water moves.");
 static const u8 sIceBodyDescription[] = _("HP recovery in Hail or Snow.");
 #if B_SNOW_WARNING < GEN_9
@@ -124,7 +124,7 @@ static const u8 sFriskDescription[] = _("Checks a foe's item.");
 static const u8 sRecklessDescription[] = _("Boosts moves with recoil.");
 static const u8 sMultitypeDescription[] = _("Changes type to its Plate.");
 static const u8 sFlowerGiftDescription[] = _("Allies power up in sunshine.");
-static const u8 sBadDreamsDescription[] = _("Damages sleeping Pokémon.");
+static const u8 sBadDreamsDescription[] = _("Damages sleeping Pok?mon.");
 static const u8 sPickpocketDescription[] = _("Steals the foe's held item.");
 static const u8 sSheerForceDescription[] = _("Trades effects for power.");
 static const u8 sContraryDescription[] = _("Inverts stat changes.");
@@ -132,7 +132,7 @@ static const u8 sUnnerveDescription[] = _("Foes can't eat Berries.");
 static const u8 sDefiantDescription[] = _("Lowered stats up Attack.");
 static const u8 sDefeatistDescription[] = _("Gives up at half HP.");
 static const u8 sCursedBodyDescription[] = _("Disables moves on contact.");
-static const u8 sHealerDescription[] = _("Heals partner Pokémon.");
+static const u8 sHealerDescription[] = _("Heals partner Pok?mon.");
 static const u8 sFriendGuardDescription[] = _("Lowers damage to partner.");
 static const u8 sWeakArmorDescription[] = _("Its stats change when hit.");
 static const u8 sHeavyMetalDescription[] = _("Doubles weight.");
@@ -224,11 +224,11 @@ static const u8 sPsychicSurgeDescription[] = _("Field becomes weird.");
 static const u8 sMistySurgeDescription[] = _("Field becomes misty.");
 static const u8 sGrassySurgeDescription[] = _("Field becomes grassy.");
 static const u8 sFullMetalBodyDescription[] = _("Prevents stat reduction.");
-static const u8 sNeuroforceDescription[] = _("Ups “supereffective”.");
+static const u8 sNeuroforceDescription[] = _("Ups 'supereffective'.");
 static const u8 sIntrepidSwordDescription[] = _("Ups Attack on entry.");
 static const u8 sDauntlessShieldDescription[] = _("Ups Defense on entry.");
 static const u8 sLiberoDescription[] = _("Changes type to move's.");
-static const u8 sBallFetchDescription[] = _("Fetches failed Poké Ball.");
+static const u8 sBallFetchDescription[] = _("Fetches failed Pok? Ball.");
 static const u8 sCottonDownDescription[] = _("Lower Speed of all when hit.");
 static const u8 sPropellerTailDescription[] = _("Ignores foe's redirection.");
 static const u8 sMirrorArmorDescription[] = _("Reflect stat decreases.");
@@ -290,6 +290,7 @@ static const u8 sToxicDebrisDescription[] = _("Throws poison spikes if hit.");
 static const u8 sArmorTailDescription[] = _("Protects from priority.");
 static const u8 sEarthEaterDescription[] = _("Eats ground to heal HP.");
 static const u8 sMyceliumMightDescription[] = _("Status moves never fail.");
+static const u8 sMiasmaDescription[] = _("Poison does extra damage.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -593,6 +594,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_ARMOR_TAIL] = _("Armor Tail"),
     [ABILITY_EARTH_EATER] = _("Earth Eater"),
     [ABILITY_MYCELIUM_MIGHT] = _("Mycelium Might"),
+    [ABILITY_MIASMA] = _("Miasma")
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -896,6 +898,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_ARMOR_TAIL] = _("Armor Tail"),
     [ABILITY_EARTH_EATER] = _("Earth Eater"),
     [ABILITY_MYCELIUM_MIGHT] = _("MceliumMight"),
+    [ABILITY_MIASMA] = _("Miasma"),
 };
 #endif
 
@@ -1200,4 +1203,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_ARMOR_TAIL] = sArmorTailDescription,
     [ABILITY_EARTH_EATER] = sEarthEaterDescription,
     [ABILITY_MYCELIUM_MIGHT] = sMyceliumMightDescription,
+    [ABILITY_MIASMA] = sMiasmaDescription,
+
 };

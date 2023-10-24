@@ -456,13 +456,13 @@ static void (* const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_TELEPORTED]    = HandleEndTurn_FinishBattle,
 };
 
-const u8 gStatusConditionString_PoisonJpn[] = _("„Å©„Åè$$$$$");
-const u8 gStatusConditionString_SleepJpn[] = _("„Å≠„ÇÄ„Çä$$$$");
-const u8 gStatusConditionString_ParalysisJpn[] = _("„Åæ„Å≤$$$$$");
-const u8 gStatusConditionString_BurnJpn[] = _("„ÇÑ„Åë„Å©$$$$");
-const u8 gStatusConditionString_IceJpn[] = _("„Åì„Åä„Çä$$$$");
-const u8 gStatusConditionString_ConfusionJpn[] = _("„Åì„Çì„Çâ„Çì$$$");
-const u8 gStatusConditionString_LoveJpn[] = _("„É°„É≠„É°„É≠$$$");
+const u8 gStatusConditionString_PoisonJpn[] = _("Ç«Ç≠$$$$$");
+const u8 gStatusConditionString_SleepJpn[] = _("ÇÀÇﬁÇË$$$$");
+const u8 gStatusConditionString_ParalysisJpn[] = _("Ç‹Ç–$$$$$");
+const u8 gStatusConditionString_BurnJpn[] = _("Ç‚ÇØÇ«$$$$");
+const u8 gStatusConditionString_IceJpn[] = _("Ç±Ç®ÇË$$$$");
+const u8 gStatusConditionString_ConfusionJpn[] = _("Ç±ÇÒÇÁÇÒ$$$");
+const u8 gStatusConditionString_LoveJpn[] = _("ÉÅÉçÉÅÉç$$$");
 
 const u8 *const gStatusConditionStringsTable[][2] =
 {

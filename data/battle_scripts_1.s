@@ -8806,6 +8806,42 @@ BattleScript_BadDreams_HidePopUp:
 	tryfaintmon BS_TARGET
 	goto BattleScript_BadDreamsIncrement
 
+BattleScript_MiasmaActivates::
+	setbyte gBattlerTarget, 0
+BattleScript_MiasmaLoop:
+	jumpiftargetally BattleScript_MiasmaIncrement
+	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_MiasmaIncrement
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_Miasma_Dmg
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_Miasma_Dmg
+	goto BattleScript_MiasmaIncrement
+BattleScript_Miasma_Dmg:
+	jumpifbyteequal sFIXED_ABILITY_POPUP, sZero, BattleScript_Miasma_ShowPopUp
+BattleScript_Miasma_DmgAfterPopUp:
+	printstring STRINGID_MIASMADMG
+	waitmessage B_WAIT_TIME_LONG
+	dmg_1_8_targethp
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	jumpifhasnohp BS_TARGET, BattleScript_Miasma_HidePopUp
+BattleScript_MiasmaIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_MiasmaLoop
+	jumpifbyteequal sFIXED_ABILITY_POPUP, sZero, BattleScript_MiasmaEnd
+	destroyabilitypopup
+	pause 15
+BattleScript_MiasmaEnd:
+	end3
+BattleScript_Miasma_ShowPopUp:
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	setbyte sFIXED_ABILITY_POPUP, TRUE
+	goto BattleScript_Miasma_DmgAfterPopUp
+BattleScript_Miasma_HidePopUp:
+	destroyabilitypopup
+	tryfaintmon BS_TARGET
+	goto BattleScript_MiasmaIncrement
+
 BattleScript_TookAttack::
 	attackstring
 	pause B_WAIT_TIME_SHORT
