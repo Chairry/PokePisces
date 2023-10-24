@@ -8812,7 +8812,7 @@ BattleScript_MiasmaLoop:
 	jumpiftargetally BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_Miasma_Dmg
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_Miasma_Dmg
+	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_Miasma_Dmg
 	goto BattleScript_MiasmaIncrement
 BattleScript_Miasma_Dmg:
 	jumpifbyteequal sFIXED_ABILITY_POPUP, sZero, BattleScript_Miasma_ShowPopUp
