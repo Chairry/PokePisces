@@ -676,8 +676,9 @@
 #define STRINGID_PKMNMAKESPOISONMISS                  673
 #define STRINGID_WATERVEILPROTECTED                   674
 #define STRINGID_WATERVEILENTERS                      675
+#define STRINGID_PKMNSALLYXPREVENTSYSZ                676
 
-#define BATTLESTRINGS_COUNT                           676
+#define BATTLESTRINGS_COUNT                           677
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -885,9 +886,10 @@
 #define B_MSG_STATUSED_BY_ITEM    2
 
 // gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds
-#define B_MSG_ABILITY_PREVENTS_MOVE_STATUS    0
-#define B_MSG_ABILITY_PREVENTS_ABILITY_STATUS 1
-#define B_MSG_STATUS_HAD_NO_EFFECT            2
+#define B_MSG_ABILITY_PREVENTS_MOVE_STATUS          0
+#define B_MSG_ABILITY_PREVENTS_ABILITY_STATUS       1
+#define B_MSG_STATUS_HAD_NO_EFFECT                  2
+#define B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS  3
 
 // gGotDefrostedStringIds
 #define B_MSG_DEFROSTED         0
