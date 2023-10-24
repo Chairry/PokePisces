@@ -4566,7 +4566,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_SNOW_WARNING:
-            #if B_SNOW_WARNING >= GEN_9
+            #if B_USE_SNOW == TRUE
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_SNOW, TRUE))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_SnowWarningActivatesSnow);
@@ -5049,34 +5049,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 2, statId = STAT_ATK;
                 break;
             case ABILITY_FLASH_FIRE:
-                if (moveType == TYPE_FIRE
-                #if B_FLASH_FIRE_FROZEN <= GEN_4
-                    && !(gBattleMons[battler].status1 & STATUS1_FREEZE)
-                #endif
-                )
-                {
-                    if (!(gBattleResources->flags->flags[battler] & RESOURCE_FLAG_FLASH_FIRE))
-                    {
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FLASH_FIRE_BOOST;
-                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
-                            gBattlescriptCurrInstr = BattleScript_FlashFireBoost;
-                        else
-                            gBattlescriptCurrInstr = BattleScript_FlashFireBoost_PPLoss;
-
-                        gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_FLASH_FIRE;
-                        effect = 3;
-                    }
-                    else
-                    {
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FLASH_FIRE_NO_BOOST;
-                        if (gProtectStructs[gBattlerAttacker].notFirstStrike)
-                            gBattlescriptCurrInstr = BattleScript_FlashFireBoost;
-                        else
-                            gBattlescriptCurrInstr = BattleScript_FlashFireBoost_PPLoss;
-
-                        effect = 3;
-                    }
-                }
+                if (moveType == TYPE_FIRE)
+                    effect = 2, statId = STAT_ATK;                
                 break;
             case ABILITY_WELL_BAKED_BODY:
                 if (moveType == TYPE_FIRE)
@@ -8705,6 +8679,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gActionsByTurnOrder[GetBattlerTurnOrderNum(battlerDef)] == B_ACTION_SWITCH)
             basePower *= 2;
         break;
+    case EFFECT_FUTURE_SIGHT:
+        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN)
+            basePower = 180;
+        break;
     case EFFECT_NATURAL_GIFT:
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
         break;
@@ -9345,10 +9323,13 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
+    // Flash Fire now does not do this
+    /*
     case ABILITY_FLASH_FIRE:
         if (moveType == TYPE_FIRE && gBattleResources->flags->flags[battlerAtk] & RESOURCE_FLAG_FLASH_FIRE)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
+    */
     case ABILITY_SWARM:
         if (moveType == TYPE_BUG && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
@@ -9511,6 +9492,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defStat /= 2;
     #endif
+
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
+        defStat /= 2;
 
     // critical hits ignore positive stat changes
     if (isCrit && defStage > DEFAULT_STAT_STAGE)
@@ -9804,10 +9788,13 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (BATTLER_MAX_HP(battlerDef))
             return UQ_4_12(0.5);
         break;
+    case ABILITY_BATTLE_ARMOR:
+        if (typeEffectivenessModifier >= UQ_4_12(1.0))
+            return UQ_4_12(0.75);
+        break;
     case ABILITY_FILTER:
     case ABILITY_SOLID_ROCK:
     case ABILITY_PRISM_ARMOR:
-    case ABILITY_BATTLE_ARMOR:
         if (typeEffectivenessModifier >= UQ_4_12(2.0))
             return UQ_4_12(0.75);
         break;
@@ -11054,6 +11041,8 @@ bool32 IsBattlerAffectedByHazards(u32 battler, bool32 toxicSpikes)
     {
         ret = FALSE;
         RecordItemEffectBattle(battler, holdEffect);
+    } else if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST) {
+        ret = FALSE;
     }
     return ret;
 }

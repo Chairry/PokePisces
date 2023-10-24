@@ -13606,7 +13606,10 @@ static void Cmd_trysetfutureattack(void)
         gSideStatuses[GetBattlerSide(gBattlerTarget)] |= SIDE_STATUS_FUTUREATTACK;
         gWishFutureKnock.futureSightMove[gBattlerTarget] = gCurrentMove;
         gWishFutureKnock.futureSightAttacker[gBattlerTarget] = gBattlerAttacker;
-        gWishFutureKnock.futureSightCounter[gBattlerTarget] = 3;
+        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_FOREWARN)
+            gWishFutureKnock.futureSightCounter[gBattlerTarget] = 2;
+        else
+            gWishFutureKnock.futureSightCounter[gBattlerTarget] = 3;
 
         if (gCurrentMove == MOVE_DOOM_DESIRE)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;

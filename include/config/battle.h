@@ -226,4 +226,7 @@
 #define B_NEW_IMPACT_PALETTE            FALSE    // If set to TRUE, it updates the basic 'hit' palette.
 #define B_NEW_SURF_PARTICLE_PALETTE     FALSE    // If set to TRUE, it updates Surf's wave palette.
 
+// Extra settings
+#define B_USE_SNOW                      TRUE
+
 #endif // GUARD_CONFIG_BATTLE_H
