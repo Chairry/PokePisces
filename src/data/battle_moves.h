@@ -6054,7 +6054,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_DOOM_DESIRE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .power = 140,
+            .power = 120,
             .accuracy = 100,
         #else
             .power = 120,
