@@ -4387,6 +4387,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
             }
             break;
+        case ABILITY_WATER_VEIL:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerTarget = battler;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_WATER_VEIL;
+                BattleScriptPushCursorAndCallback(BattleScript_WaterVeilActivates);
+                effect++;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+            }
+            break;
         case ABILITY_ANTICIPATION:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {

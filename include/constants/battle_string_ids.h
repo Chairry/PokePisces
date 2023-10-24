@@ -674,8 +674,10 @@
 #define STRINGID_CUSEDAMULETDISABLED                  672
 // New strings
 #define STRINGID_PKMNMAKESPOISONMISS                  673
+#define STRINGID_WATERVEILPROTECTED                   674
+#define STRINGID_WATERVEILENTERS                      675
 
-#define BATTLESTRINGS_COUNT                           674
+#define BATTLESTRINGS_COUNT                           676
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -930,6 +932,7 @@
 #define B_MSG_SWITCHIN_CURIOUS_MEDICINE 14
 #define B_MSG_SWITCHIN_PASTEL_VEIL      15
 #define B_MSG_SWITCHIN_NEUTRALIZING_GAS 16
+#define B_MSG_SWITCHIN_WATER_VEIL      17
 
 // gMentalHerbCureStringIds
 #define B_MSG_MENTALHERBCURE_INFATUATION       0

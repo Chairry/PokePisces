@@ -10298,6 +10298,30 @@ BattleScript_PastelVeilLoopIncrement:
 BattleScript_PastelVeilEnd:
 	end3
 
+BattleScript_WaterVeilActivates::
+	setbyte gBattleCommunication, 0
+	setbyte gBattleCommunication + 1, 0
+BattleScript_WaterVeil_TryCure:
+	jumpifstatus BS_TARGET, STATUS1_BURN | STATUS1_FROSTBITE, BattleScript_WaterVeilCure
+	goto BattleScript_WaterVeilLoopIncrement
+BattleScript_WaterVeilCure:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication + 1, 0x0, BattleScript_WaterVeilCureNoPopUp
+	call BattleScript_AbilityPopUp
+	setbyte gBattleCommunication + 1, 1
+BattleScript_WaterVeilCureNoPopUp: @ Only show Pastel Veil pop up once if it cures two mons
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
+	curestatus BS_TARGET
+	updatestatusicon BS_TARGET
+BattleScript_WaterVeilLoopIncrement:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_WaterVeilEnd
+	addbyte gBattleCommunication, 1
+	jumpifnoally BS_TARGET, BattleScript_WaterVeilEnd
+	setallytonexttarget BattleScript_WaterVeil_TryCure
+	goto BattleScript_WaterVeilEnd
+BattleScript_WaterVeilEnd:
+	end3
+
 sByteFour:
 .byte MAX_BATTLERS_COUNT
 
