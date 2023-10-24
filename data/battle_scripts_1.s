@@ -9235,9 +9235,23 @@ BattleScript_HurtAttacker:
 	tryfaintmon BS_ATTACKER
 	return
 
+BattleScript_HurtDefender:
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNHURTSWITHINATTK
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	return
+
 BattleScript_RoughSkinActivates::
 	call BattleScript_AbilityPopUp
 	call BattleScript_HurtAttacker
+	return
+
+BattleScript_IronBarbsActivates::
+	call BattleScript_AbilityPopUp
+	call BattleScript_HurtDefender
 	return
 
 BattleScript_RockyHelmetActivates::
