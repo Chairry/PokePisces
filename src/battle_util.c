@@ -9781,10 +9781,13 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (BATTLER_MAX_HP(battlerDef))
             return UQ_4_12(0.5);
         break;
+    case ABILITY_BATTLE_ARMOR:
+        if (typeEffectivenessModifier >= UQ_4_12(1.0))
+            return UQ_4_12(0.75);
+        break;
     case ABILITY_FILTER:
     case ABILITY_SOLID_ROCK:
     case ABILITY_PRISM_ARMOR:
-    case ABILITY_BATTLE_ARMOR:
         if (typeEffectivenessModifier >= UQ_4_12(2.0))
             return UQ_4_12(0.75);
         break;
