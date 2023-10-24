@@ -2149,8 +2149,8 @@ static const u8 sSecretSwordDescription[] = _(
     "does physical damage.");
 
 static const u8 sGlaciateDescription[] = _(
-    "Blows very cold air at the\n"
-    "foe. It lowers their Speed.");
+    "Inflicts frostbite on the\n"
+    "foe with chilling smoke.");
 
 static const u8 sBoltStrikeDescription[] = _(
     "Strikes with a great amount\n"
@@ -3260,6 +3260,10 @@ static const u8 sHydroSteamDescription[] = _(
     "This move's power increases\n"
     "under harsh sunlight.");
 
+static const u8 sSpookDescription[] = _(
+    "Spooks the foe and ends the\n"
+    "battle.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4099,4 +4103,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MAGICAL_TORQUE - 1] = sMagicalTorqueDescription,
     [MOVE_PSYBLADE - 1] = sPsybladeDescription,
     [MOVE_HYDRO_STEAM - 1] = sHydroSteamDescription,
+    [MOVE_SPOOK - 1] = sSpookDescription,
 };
