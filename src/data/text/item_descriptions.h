@@ -3943,7 +3943,7 @@ static const u8 sEerieMask[] = _(
 
 static const u8 sNeoBattery[] = _(
     "An unusual battery\n"
-    "with unknown power\n"
+    "with unknown power.\n"
     "Evolves Retroroach.");
 
 static const u8 sSandbag[] = _(
