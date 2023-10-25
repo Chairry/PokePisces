@@ -5,7 +5,7 @@
     F(REST) \
     F(WILL_O_WISP) \
     F(TOXIC) \
-    F(DESTINY_BOND) \
+    F(SPOOK) \
     F(GLACIATE) \
     F(THUNDER_WAVE) \
     F(TRICK_ROOM) \
@@ -27,6 +27,7 @@
     F(POUNCE) \
     F(CHARGE_BEAM) \
     F(SNARL) \
+    F(ACROBATICS) \
     F(MUD_SHOT) \
     F(ROCK_TOMB) \
     F(BREAKING_SWIPE) \
@@ -98,7 +99,6 @@
     F(BLEAKWIND_STORM) \
     F(ZAP_CANNON) \
     F(FIRE_BLAST) \
-    F(ACROBATICS) \
     F(RAGING_FURY) \
     F(GUNK_SHOT) \
     F(IRON_TAIL)

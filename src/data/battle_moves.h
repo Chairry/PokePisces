@@ -213,19 +213,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAZOR_WIND] =
     {
-        .effect = EFFECT_TWO_TURNS_ATTACK,
-        .power = 80,
-        .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .effect = EFFECT_HIT,
+        .power = 50,
+        .type = TYPE_FLYING,
+        .accuracy = 90,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_BOTH,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        .highCritRatio = TRUE,
-        .sleepTalkBanned = TRUE,
-        .instructBanned = TRUE,
+        .makesContact = TRUE,
+        .strikeCount = 2,
     },
 
     [MOVE_SWORDS_DANCE] =
@@ -1080,11 +1079,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_AURORA_BEAM] =
     {
         .effect = EFFECT_ATTACK_DOWN_HIT,
-        .power = 65,
+        .power = 80,
         .type = TYPE_ICE,
         .accuracy = 100,
-        .pp = 20,
-        .secondaryEffectChance = 10,
+        .pp = 15,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -3314,13 +3313,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_ZAP_CANNON] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .power = 120,
+            .power = 110,
         #else
             .power = 100,
         #endif
         .effect = EFFECT_PARALYZE_HIT,
         .type = TYPE_ELECTRIC,
-        .accuracy = 50,
+        .accuracy = 75,
         .pp = 5,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -3577,7 +3576,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FALSE_SWIPE] =
     {
         .effect = EFFECT_FALSE_SWIPE,
-        .power = 40,
+        .power = 60,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 40,
@@ -3985,10 +3984,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_IRON_TAIL] =
     {
         .effect = EFFECT_DEFENSE_DOWN_HIT,
-        .power = 100,
+        .power = 120,
         .type = TYPE_STEEL,
-        .accuracy = 75,
-        .pp = 15,
+        .accuracy = 80,
+        .pp = 5,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -5889,7 +5888,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .pp = 40,
         #endif
         .effect = EFFECT_THIEF,
-        .type = TYPE_NORMAL,
+        .type = TYPE_FAIRY,
         .accuracy = 100,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -12378,7 +12377,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_DUAL_WINGBEAT] =
     {
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = 50,
         .type = TYPE_FLYING,
         .accuracy = 90,
         .pp = 10,
