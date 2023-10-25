@@ -3264,6 +3264,10 @@ static const u8 sSpookDescription[] = _(
     "Spooks the foe and ends the\n"
     "battle.");
 
+static const u8 sChillyAirDescription[] = _(
+    "Chills the foe, to sharply\n"
+    "cut Evasion and Speed.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4104,4 +4108,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PSYBLADE - 1] = sPsybladeDescription,
     [MOVE_HYDRO_STEAM - 1] = sHydroSteamDescription,
     [MOVE_SPOOK - 1] = sSpookDescription,
+    [MOVE_CHILLY_AIR - 1] = sChillyAirDescription,
 };

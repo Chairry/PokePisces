@@ -415,7 +415,8 @@
 #define EFFECT_GIGATON_HAMMER               409
 #define EFFECT_SALT_CURE                    410
 #define EFFECT_GLACIATE                     411
+#define EFFECT_CHILLY_AIR                   412
 
-#define NUM_BATTLE_MOVE_EFFECTS             412
+#define NUM_BATTLE_MOVE_EFFECTS             413
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

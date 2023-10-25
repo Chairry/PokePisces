@@ -13846,6 +13846,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .copycatBanned = TRUE,
     },
 
+    [MOVE_CHILLY_AIR] =
+    {
+        .effect = EFFECT_CHILLY_AIR,
+        .power = 0,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_DEF_UP_1,
+        .magicCoatAffected = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
