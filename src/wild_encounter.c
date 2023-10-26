@@ -801,6 +801,7 @@ bool8 SweetScentWildEncounter(void)
 {
     s16 x, y;
     u16 headerId;
+    struct Pokemon mon1;
 
     PlayerGetDestCoords(&x, &y);
     headerId = GetCurrentMapWildMonHeaderId();
@@ -839,13 +840,16 @@ bool8 SweetScentWildEncounter(void)
                 BattleSetup_StartRoamerBattle();
                 return TRUE;
             }
-
             if (DoMassOutbreakEncounterTest() == TRUE)
-                SetUpMassOutbreakEncounter(0);
+                    SetUpMassOutbreakEncounter(0);            
             else
+            {
                 TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0);
-
-            BattleSetup_StartWildBattle();
+                mon1 = gEnemyParty[0];
+                TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0);
+                gEnemyParty[1] = mon1;
+                BattleSetup_StartDoubleWildBattle();
+            }           
             return TRUE;
         }
         else if (MetatileBehavior_IsWaterWildEncounter(MapGridGetMetatileBehaviorAt(x, y)) == TRUE)
@@ -859,10 +863,12 @@ bool8 SweetScentWildEncounter(void)
             {
                 BattleSetup_StartRoamerBattle();
                 return TRUE;
-            }
-
+            }            
             TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, 0);
-            BattleSetup_StartWildBattle();
+            mon1 = gEnemyParty[0];
+            TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, 0);
+            gEnemyParty[1] = mon1;
+            BattleSetup_StartDoubleWildBattle();            
             return TRUE;
         }
     }
