@@ -242,11 +242,7 @@ static const u8 sSurfDescription[] = _(
 
 static const u8 sIceBeamDescription[] = _(
     "Blasts the foe with an icy\n"
-#if B_USE_FROSTBITE == TRUE
-    "beam. May cause frostbite.");
-#else
     "beam that may freeze it.");
-#endif
 
 static const u8 sBlizzardDescription[] = _(
     "Hits the foe with an icy\n"
@@ -805,8 +801,8 @@ static const u8 sIcyWindDescription[] = _(
     "lowers the foe's Speed.");
 
 static const u8 sDetectDescription[] = _(
-    "Evades attack, but may fail\n"
-    "if used in succession.");
+    "Evades damage, and raises\n"
+    "own Attack if struck.");
 
 static const u8 sBoneRushDescription[] = _(
     "Strikes the foe with a bone\n"
@@ -1142,7 +1138,7 @@ static const u8 sRevengeDescription[] = _(
 
 static const u8 sBrickBreakDescription[] = _(
     "Destroys barriers such as\n"
-    "REFLECT and causes damage.");
+    "Reflect and causes damage.");
 
 static const u8 sYawnDescription[] = _(
     "Lulls the foe into yawning,\n"
@@ -1721,8 +1717,8 @@ static const u8 sPsychoCutDescription[] = _(
     "High critical-hit ratio.");
 
 static const u8 sZenHeadbuttDescription[] = _(
-    "Hits with a strong head-\n"
-    "butt. May cause flinching.");
+    "Hits with a strong headbutt\n"
+    "May cause flinching.");
 
 static const u8 sMirrorShotDescription[] = _(
     "Emits a flash of energy to\n"
@@ -2205,8 +2201,8 @@ static const u8 sBelchDescription[] = _(
     "Must eat a Berry to use it.");
 
 static const u8 sRototillerDescription[] = _(
-    "Ups the Attack and Sp. Atk\n"
-    "of Grass-type Pokémon.");
+    "Gives Blooming and Ups Atk\n"
+    "and Sp. Atk of Grass-types.");
 
 static const u8 sStickyWebDescription[] = _(
     "Weaves a sticky net that\n"
@@ -2301,8 +2297,8 @@ static const u8 sFairyLockDescription[] = _(
     "preventing escape next turn.");
 
 static const u8 sKingsShieldDescription[] = _(
-    "Evades damage, and sharply\n"
-    "reduces Attack if struck.");
+    "Evades damage, and reduces\n"
+    "Attack if struck.");
 
 static const u8 sPlayNiceDescription[] = _(
     "Befriend the foe, lowering\n"
@@ -2385,7 +2381,7 @@ static const u8 sBabyDollEyesDescription[] = _(
     "before it can move.");
 
 static const u8 sNuzzleDescription[] = _(
-    "Rubs its cheecks against\n"
+    "Rubs its cheeks against\n"
     "the foe, paralyzing it.");
 
 static const u8 sInfestationDescription[] = _(
@@ -2922,8 +2918,8 @@ static const u8 sScorchingSandsDescription[] = _(
     "the target. May leave a burn.");
 
 static const u8 sJungleHealingDescription[] = _(
-    "Heals HP and status of\n"
-    "itself and allies in battle.");
+    "Heals status and gives\n"
+    "Blooming to user and ally.");
 
 static const u8 sWickedBlowDescription[] = _(
     "Mastering the Dark style,\n"
@@ -3047,7 +3043,7 @@ static const u8 sCeaselessEdgeDescription[] = _(
 
 static const u8 sBleakwindStormDescription[] = _(
     "Hits with brutal, cold winds.\n"
-    "May lower the foe's Speed.");
+    "May frostbite the foe.");
 
 static const u8 sWildboltStormDescription[] = _(
     "Hits with a brutal tempest.\n"

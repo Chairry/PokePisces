@@ -7266,7 +7266,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_SLEEP_TALK,
     },
 
-    [ITEM_TM_MIST] =
+    [ITEM_TM_CHILLY_AIR] =
     {
         .name = _("TM10"),
         .price = 3000,
@@ -7275,7 +7275,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_MIST,
+        .secondaryId = MOVE_CHILLY_AIR,
     },
 
     [ITEM_TM_PARTING_SHOT] =
@@ -7446,7 +7446,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_CHARGE_BEAM,
     },
 
-    [ITEM_TM_ACROBATICS] =
+    [ITEM_TM_SNARL] =
     {
         .name = _("TM25"),
         .price = 5500,
@@ -7455,10 +7455,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ACROBATICS,
+        .secondaryId = MOVE_SNARL,
     },
 
-    [ITEM_TM_SNARL] =
+    [ITEM_TM_ACROBATICS] =
     {
         .name = _("TM26"),
         .price = 5500,
@@ -7467,7 +7467,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SNARL,
+        .secondaryId = MOVE_ACROBATICS,
     },
 
     [ITEM_TM_MUD_SHOT] =

@@ -11,7 +11,7 @@
     F(TRICK_ROOM) \
     F(PROTECT) \
     F(SLEEP_TALK) \
-    F(MIST) \
+    F(CHILLY_AIR) \
     F(PARTING_SHOT) \
     F(DETECT) \
     F(STICKY_WEB) \

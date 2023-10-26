@@ -1004,13 +1004,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .power = 95,
         #endif
-        // The following effect is also relevant in battle_pike.c
-        // If you cherry-pick this to use something other than the config, make sure to update it there too
-        #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
-        #else
             .effect = EFFECT_FREEZE_HIT,
-        #endif
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 10,
@@ -12941,7 +12935,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 95,
             .pp = 5,
         #endif
-        .effect = EFFECT_SPEED_DOWN_HIT,
+        .effect = EFFECT_FROSTBITE_HIT,
         .type = TYPE_FLYING,
         .accuracy = 80,
         .secondaryEffectChance = 30,
