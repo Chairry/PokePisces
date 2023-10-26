@@ -3077,7 +3077,7 @@ static const u8 sTM11Desc[] = _(
 
 static const u8 sTM12Desc[] = _(
     "Evades damage, and raises\n"
-    "own Attack if struck.");
+    "own Accuracy if struck.");
 
 static const u8 sTM13Desc[] = _(
     "Weaves a sticky net that\n"
