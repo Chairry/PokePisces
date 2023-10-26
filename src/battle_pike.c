@@ -916,11 +916,9 @@ static bool8 TryInflictRandomStatus(void)
         if (rand < 35)
             sStatusFlags = STATUS1_TOXIC_POISON;
         else if (rand < 60)
-        #if B_USE_FROSTBITE == TRUE
             sStatusFlags = STATUS1_FROSTBITE;
-        #else
+        else if (rand < 60)
             sStatusFlags = STATUS1_FREEZE;
-        #endif
         else if (rand < 80)
             sStatusFlags = STATUS1_PARALYSIS;
         else if (rand < 90)
