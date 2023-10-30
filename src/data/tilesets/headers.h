@@ -880,3 +880,14 @@ const struct Tileset gTileset_mauvillenew =
     .metatileAttributes = gMetatileAttributes_mauvillenew,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Seaside =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Seaside,
+    .palettes = gTilesetPalettes_Seaside,
+    .metatiles = gMetatiles_Seaside,
+    .metatileAttributes = gMetatileAttributes_Seaside,
+    .callback = NULL,
+};
