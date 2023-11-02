@@ -275,7 +275,7 @@ const struct SpriteTemplate gUnusedBattleInitSprite =
     .callback = SpriteCB_UnusedBattleInit,
 };
 
-static const u8 sText_ShedinjaJpnName[] = _("„Éå„Ç±„Éã„É≥"); // Nukenin
+static const u8 sText_ShedinjaJpnName[] = _("ÉkÉPÉjÉì"); // Nukenin
 
 const struct OamData gOamData_BattleSpriteOpponentSide =
 {
@@ -456,13 +456,13 @@ static void (* const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_TELEPORTED]    = HandleEndTurn_FinishBattle,
 };
 
-const u8 gStatusConditionString_PoisonJpn[] = _("„Å©„Åè$$$$$");
-const u8 gStatusConditionString_SleepJpn[] = _("„Å≠„ÇÄ„Çä$$$$");
-const u8 gStatusConditionString_ParalysisJpn[] = _("„Åæ„Å≤$$$$$");
-const u8 gStatusConditionString_BurnJpn[] = _("„ÇÑ„Åë„Å©$$$$");
-const u8 gStatusConditionString_IceJpn[] = _("„Åì„Åä„Çä$$$$");
-const u8 gStatusConditionString_ConfusionJpn[] = _("„Åì„Çì„Çâ„Çì$$$");
-const u8 gStatusConditionString_LoveJpn[] = _("„É°„É≠„É°„É≠$$$");
+const u8 gStatusConditionString_PoisonJpn[] = _("Ç«Ç≠$$$$$");
+const u8 gStatusConditionString_SleepJpn[] = _("ÇÀÇﬁÇË$$$$");
+const u8 gStatusConditionString_ParalysisJpn[] = _("Ç‹Ç–$$$$$");
+const u8 gStatusConditionString_BurnJpn[] = _("Ç‚ÇØÇ«$$$$");
+const u8 gStatusConditionString_IceJpn[] = _("Ç±Ç®ÇË$$$$");
+const u8 gStatusConditionString_ConfusionJpn[] = _("Ç±ÇÒÇÁÇÒ$$$");
+const u8 gStatusConditionString_LoveJpn[] = _("ÉÅÉçÉÅÉç$$$");
 
 const u8 *const gStatusConditionStringsTable[][2] =
 {
@@ -944,10 +944,10 @@ static void CB2_HandleStartBattle(void)
         }
         break;
     case 3:
-        // Link battle, send/receive party Pok√©mon 2 at a time
+        // Link battle, send/receive party Pok?mon 2 at a time
         if (IsLinkTaskFinished())
         {
-            // Send Pok√©mon 1-2
+            // Send Pok?mon 1-2
             SendBlock(BitmaskAllOtherLinkPlayers(), gPlayerParty, sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -955,7 +955,7 @@ static void CB2_HandleStartBattle(void)
     case 4:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv Pok√©mon 1-2
+            // Recv Pok?mon 1-2
             ResetBlockReceivedFlags();
             memcpy(gEnemyParty, gBlockRecvBuffer[enemyMultiplayerId], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
@@ -964,7 +964,7 @@ static void CB2_HandleStartBattle(void)
     case 7:
         if (IsLinkTaskFinished())
         {
-            // Send Pok√©mon 3-4
+            // Send Pok?mon 3-4
             SendBlock(BitmaskAllOtherLinkPlayers(), &gPlayerParty[2], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -972,7 +972,7 @@ static void CB2_HandleStartBattle(void)
     case 8:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv Pok√©mon 3-4
+            // Recv Pok?mon 3-4
             ResetBlockReceivedFlags();
             memcpy(&gEnemyParty[2], gBlockRecvBuffer[enemyMultiplayerId], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
@@ -981,7 +981,7 @@ static void CB2_HandleStartBattle(void)
     case 11:
         if (IsLinkTaskFinished())
         {
-            // Send Pok√©mon 5-6
+            // Send Pok?mon 5-6
             SendBlock(BitmaskAllOtherLinkPlayers(), &gPlayerParty[4], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -989,7 +989,7 @@ static void CB2_HandleStartBattle(void)
     case 12:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv Pok√©mon 5-6
+            // Recv Pok?mon 5-6
             ResetBlockReceivedFlags();
             memcpy(&gEnemyParty[4], gBlockRecvBuffer[enemyMultiplayerId], sizeof(struct Pokemon) * 2);
 
@@ -1054,7 +1054,7 @@ static void CB2_HandleStartBattle(void)
                 gBattleTypeFlags |= BATTLE_TYPE_LINK_IN_BATTLE;
         }
         break;
-    // Introduce short delays between sending party Pok√©mon for link
+    // Introduce short delays between sending party Pok?mon for link
     case 5:
     case 9:
     case 13:
@@ -1156,10 +1156,10 @@ static void CB2_HandleStartMultiPartnerBattle(void)
         }
         break;
     case 3:
-        // Link battle, send/receive party Pok√©mon in groups
+        // Link battle, send/receive party Pok?mon in groups
         if (IsLinkTaskFinished())
         {
-            // Send Pok√©mon 1-2
+            // Send Pok?mon 1-2
             SendBlock(BitmaskAllOtherLinkPlayers(), gPlayerParty, sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -1167,7 +1167,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 4:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv partner's Pok√©mon 1-2, and copy partner's and own Pok√©mon into party positions
+            // Recv partner's Pok?mon 1-2, and copy partner's and own Pok?mon into party positions
             ResetBlockReceivedFlags();
             if (gLinkPlayers[playerMultiplayerId].id != 0)
             {
@@ -1185,7 +1185,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 5:
         if (IsLinkTaskFinished())
         {
-            // Send Pok√©mon 3
+            // Send Pok?mon 3
             SendBlock(BitmaskAllOtherLinkPlayers(), &gPlayerParty[2], sizeof(struct Pokemon));
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -1193,7 +1193,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 6:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv partner's Pok√©mon 3, and copy partner's and own Pok√©mon into party positions
+            // Recv partner's Pok?mon 3, and copy partner's and own Pok?mon into party positions
             ResetBlockReceivedFlags();
             if (gLinkPlayers[playerMultiplayerId].id != 0)
             {
@@ -1211,7 +1211,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 7:
         if (IsLinkTaskFinished())
         {
-            // Send enemy Pok√©mon 1-2 to partner
+            // Send enemy Pok?mon 1-2 to partner
             SendBlock(BitmaskAllOtherLinkPlayers(), gEnemyParty, sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -1219,7 +1219,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 8:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv enemy Pok√©mon 1-2 (if not master)
+            // Recv enemy Pok?mon 1-2 (if not master)
             ResetBlockReceivedFlags();
             if (GetMultiplayerId() != 0)
                 memcpy(gEnemyParty, gBlockRecvBuffer[0], sizeof(struct Pokemon) * 2);
@@ -1229,7 +1229,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 9:
         if (IsLinkTaskFinished())
         {
-            // Send enemy Pok√©mon 3-4 to partner
+            // Send enemy Pok?mon 3-4 to partner
             SendBlock(BitmaskAllOtherLinkPlayers(), &gEnemyParty[2], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -1237,7 +1237,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 10:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv enemy Pok√©mon 3-4 (if not master)
+            // Recv enemy Pok?mon 3-4 (if not master)
             ResetBlockReceivedFlags();
             if (GetMultiplayerId() != 0)
                 memcpy(&gEnemyParty[2], gBlockRecvBuffer[0], sizeof(struct Pokemon) * 2);
@@ -1247,7 +1247,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 11:
         if (IsLinkTaskFinished())
         {
-            // Send enemy Pok√©mon 5-6 to partner
+            // Send enemy Pok?mon 5-6 to partner
             SendBlock(BitmaskAllOtherLinkPlayers(), &gEnemyParty[4], sizeof(struct Pokemon) * 2);
             gBattleCommunication[MULTIUSE_STATE]++;
         }
@@ -1255,7 +1255,7 @@ static void CB2_HandleStartMultiPartnerBattle(void)
     case 12:
         if ((GetBlockReceivedStatus() & 3) == 3)
         {
-            // Recv enemy Pok√©mon 5-6 (if not master)
+            // Recv enemy Pok?mon 5-6 (if not master)
             ResetBlockReceivedFlags();
             if (GetMultiplayerId() != 0)
                 memcpy(&gEnemyParty[4], gBlockRecvBuffer[0], sizeof(struct Pokemon) * 2);
@@ -1975,9 +1975,9 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)
-                personalityValue = 0x78; // Use personality more likely to result in a female Pok√©mon
+                personalityValue = 0x78; // Use personality more likely to result in a female Pok?mon
             else
-                personalityValue = 0x88; // Use personality more likely to result in a male Pok√©mon
+                personalityValue = 0x88; // Use personality more likely to result in a male Pok?mon
 
             personalityValue += personalityHash << 8;
             if (partyData[i].gender == TRAINER_MON_MALE)
@@ -2957,7 +2957,7 @@ static void SpriteCB_TrainerThrowObject_Main(struct Sprite *sprite)
 }
 
 // Sprite callback for a trainer back pic to throw an object
-// (Wally throwing a ball, throwing Pok√©blocks/balls in the Safari Zone)
+// (Wally throwing a ball, throwing Pok?blocks/balls in the Safari Zone)
 void SpriteCB_TrainerThrowObject(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, 1);
@@ -3278,6 +3278,7 @@ void FaintClearSetData(u32 battler)
     gProtectStructs[battler].protected = FALSE;
     gProtectStructs[battler].spikyShielded = FALSE;
     gProtectStructs[battler].kingsShielded = FALSE;
+    gProtectStructs[battler].detectShielded = FALSE;
     gProtectStructs[battler].banefulBunkered = FALSE;
     gProtectStructs[battler].quash = FALSE;
     gProtectStructs[battler].obstructed = FALSE;
@@ -4955,6 +4956,7 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].protected = FALSE;
             gProtectStructs[i].spikyShielded = FALSE;
             gProtectStructs[i].kingsShielded = FALSE;
+            gProtectStructs[i].detectShielded = FALSE;
             gProtectStructs[i].banefulBunkered = FALSE;
             gProtectStructs[i].quash = FALSE;
         }
