@@ -222,3 +222,6 @@ const u16 gMetatileAttributes_Chimney[] = INCBIN_U16("data/tilesets/secondary/ch
 
 const u16 gMetatiles_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatiles.bin");
 const u16 gMetatileAttributes_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatile_attributes.bin");
+
+const u16 gMetatiles_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatiles.bin");
+const u16 gMetatileAttributes_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatile_attributes.bin");

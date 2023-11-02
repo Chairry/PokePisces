@@ -802,7 +802,7 @@ static const u8 sIcyWindDescription[] = _(
 
 static const u8 sDetectDescription[] = _(
     "Evades damage, and raises\n"
-    "own Attack if struck.");
+    "own Accuracy if struck.");
 
 static const u8 sBoneRushDescription[] = _(
     "Strikes the foe with a bone\n"
