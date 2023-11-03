@@ -4764,7 +4764,7 @@
     {
       "id": "LAYOUT_SKY_PILLAR_NEW",
       "name": "SkyPillarNew_Layout",
-      "width": 40,
+      "width": 47,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Seaside",

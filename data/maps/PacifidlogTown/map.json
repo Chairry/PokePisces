@@ -27,6 +27,11 @@
       "map": "MAP_SKY_PILLAR_NEW",
       "offset": 7,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE129",
+      "offset": 54,
+      "direction": "up"
     }
   ],
   "object_events": [
