@@ -4595,7 +4595,7 @@
       "id": "LAYOUT_SAILORS_PAUSE",
       "name": "SailorsPause_Layout",
       "width": 48,
-      "height": 34,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SailorsPause/border.bin",
@@ -4764,10 +4764,10 @@
     {
       "id": "LAYOUT_SKY_PILLAR_NEW",
       "name": "SkyPillarNew_Layout",
-      "width": 40,
-      "height": 18,
+      "width": 47,
+      "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/SkyPillarNew/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillarNew/map.bin"
     },
@@ -4787,7 +4787,7 @@
       "width": 44,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/OldaleNew/border.bin",
       "blockdata_filepath": "data/layouts/OldaleNew/map.bin"
     },
@@ -4797,7 +4797,7 @@
       "width": 36,
       "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/NoviceWalk/border.bin",
       "blockdata_filepath": "data/layouts/NoviceWalk/map.bin"
     },

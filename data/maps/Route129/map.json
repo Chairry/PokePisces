@@ -27,6 +27,11 @@
       "map": "MAP_SOOTOPOLIS_CITY",
       "offset": 8,
       "direction": "up"
+    },
+    {
+      "map": "MAP_PACIFIDLOG_TOWN",
+      "offset": -54,
+      "direction": "down"
     }
   ],
   "object_events": [
