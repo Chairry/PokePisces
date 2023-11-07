@@ -2123,7 +2123,7 @@ END:
     }
 
     // B_WEATHER_STRONG_WINDS prints a string when it's about to reduce the power
-    // of a move that is Super Effective against a Flying-type Pokémon.
+    // of a move that is Super Effective against a Flying-type Pok?mon.
     if (gBattleWeather & B_WEATHER_STRONG_WINDS)
     {
         if ((GetBattlerType(gBattlerTarget, 0) == TYPE_FLYING
@@ -3540,6 +3540,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_MAT_BLOCK;
                     gProtectStructs[gBattlerTarget].spikyShielded = FALSE;
                     gProtectStructs[gBattlerTarget].kingsShielded = FALSE;
+                    gProtectStructs[gBattlerTarget].detectShielded = FALSE;
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
@@ -3685,7 +3686,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattlescriptCurrInstr = BattleScript_DoubleShockRemoveType;
                 break;
             case MOVE_EFFECT_ROUND:
-                TryUpdateRoundTurnOrder(); // If another Pokémon uses Round before the user this turn, the user will use Round directly after it
+                TryUpdateRoundTurnOrder(); // If another Pok?mon uses Round before the user this turn, the user will use Round directly after it
                 gBattlescriptCurrInstr++;
                 break;
             case MOVE_EFFECT_DIRE_CLAW:
@@ -4423,7 +4424,7 @@ static bool32 NoAliveMonsForPlayer(void)
     // Get total HP for the player's party to determine if the player has lost
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && (gPartnerTrainerId == TRAINER_STEVEN_PARTNER || gPartnerTrainerId >= TRAINER_CUSTOM_PARTNER))
     {
-        // In multi battle with Steven, skip his Pokémon
+        // In multi battle with Steven, skip his Pok?mon
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
@@ -5310,6 +5311,14 @@ static void Cmd_moveend(void)
                 #else
                     gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_2;
                 #endif
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].detectShielded) {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    //gBattleScripting.moveEffect = MOVE_EFFECT_ACC_PLUS_1;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
@@ -6442,9 +6451,9 @@ static void Cmd_jumpifcantswitch(void)
     }
 }
 
-// Opens the party screen to choose a new Pokémon to send out.
-// slotId is the Pokémon to replace.
-// Note that this is not used by the Switch action, only replacing fainted Pokémon or Baton Pass
+// Opens the party screen to choose a new Pok?mon to send out.
+// slotId is the Pok?mon to replace.
+// Note that this is not used by the Switch action, only replacing fainted Pok?mon or Baton Pass
 static void ChooseMonToSendOut(u32 battler, u8 slotId)
 {
     gBattleStruct->battlerPartyIndexes[battler] = gBattlerPartyIndexes[battler];
@@ -7743,7 +7752,7 @@ static void Cmd_drawlvlupbox(void)
 
     if (gBattleScripting.drawlvlupboxState == 0)
     {
-        // If the Pokémon getting exp is not in-battle then
+        // If the Pok?mon getting exp is not in-battle then
         // slide out a banner with their name and icon on it.
         // Otherwise skip ahead.
         if (IsMonGettingExpSentOut())
@@ -10398,8 +10407,8 @@ static void Cmd_various(void)
     case VARIOUS_SET_ATTACKER_STICKY_WEB_USER:
     {
         VARIOUS_ARGS();
-        // For Mirror Armor: "If the Pokémon with this Ability is affected by Sticky Web, the effect is reflected back to the Pokémon which set it up.
-        //  If Pokémon which set up Sticky Web is not on the field, no Pokémon have their Speed lowered."
+        // For Mirror Armor: "If the Pok?mon with this Ability is affected by Sticky Web, the effect is reflected back to the Pok?mon which set it up.
+        //  If Pok?mon which set up Sticky Web is not on the field, no Pok?mon have their Speed lowered."
         gBattlerAttacker = gBattlerTarget;  // Initialize 'fail' condition
         SET_STATCHANGER(STAT_SPEED, 1, TRUE);
         if (gSideTimers[GetBattlerSide(battler)].stickyWebBattlerId != 0xFF)
@@ -10823,6 +10832,11 @@ static void Cmd_setprotectlike(void)
             else if (gCurrentMove == MOVE_KINGS_SHIELD)
             {
                 gProtectStructs[gBattlerAttacker].kingsShielded = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
+            else if (gCurrentMove == MOVE_DETECT)
+            {
+                gProtectStructs[gBattlerAttacker].detectShielded = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
             else if (gCurrentMove == MOVE_BANEFUL_BUNKER)
@@ -15007,15 +15021,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pokémon's level) ÷ 10)�? if Pokémon's level is between 1 and 29, 1�? otherwise.
+                //((41 - Pok?mon's level) �� 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pokémon's level) ÷ 10)�?, minimum 1�?
+                //((41 - Pok?mon's level) �� 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pokémon's level) ÷ 10)�?, minimum 1�?
+                //((40 - Pok?mon's level) �� 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);
