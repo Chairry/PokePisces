@@ -3164,10 +3164,10 @@ u8 FldEff_UseFly(void)
 }
 
 static void (*const sFlyOutFieldEffectFuncs[])(struct Task *) = {
-    FlyOutFieldEffect_FieldMovePose,
-    FlyOutFieldEffect_ShowMon,
+    //FlyOutFieldEffect_FieldMovePose,
+    //FlyOutFieldEffect_ShowMon,
     FlyOutFieldEffect_BirdLeaveBall,
-    FlyOutFieldEffect_WaitBirdLeave,
+    //FlyOutFieldEffect_WaitBirdLeave,
     FlyOutFieldEffect_BirdSwoopDown,
     FlyOutFieldEffect_JumpOnBird,
     FlyOutFieldEffect_FlyOffWithBird,
@@ -3457,9 +3457,9 @@ static void (*const sFlyInFieldEffectFuncs[])(struct Task *) = {
     FlyInFieldEffect_BirdSwoopDown,
     FlyInFieldEffect_FlyInWithBird,
     FlyInFieldEffect_JumpOffBird,
-    FlyInFieldEffect_FieldMovePose,
-    FlyInFieldEffect_BirdReturnToBall,
-    FlyInFieldEffect_WaitBirdReturn,
+    //FlyInFieldEffect_FieldMovePose,
+    //FlyInFieldEffect_BirdReturnToBall,
+    //FlyInFieldEffect_WaitBirdReturn,
     FlyInFieldEffect_End,
 };
 
@@ -3534,11 +3534,21 @@ static void FlyInFieldEffect_JumpOffBird(struct Task *task)
         4,
         8
     };
-    struct Sprite *sprite = &gSprites[gPlayerAvatar.spriteId];
-    sprite->y2 = sYPositions[task->tTimer];
-
+    struct ObjectEvent *objectEvent;
+    struct Sprite *sprite;
     if ((++task->tTimer) >= (int)ARRAY_COUNT(sYPositions))
         task->tState++;
+    if (GetFlyBirdAnimCompleted(task->tBirdSpriteId))
+    {   
+        DestroySprite(&gSprites[task->tBirdSpriteId]);
+        objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+        sprite = &gSprites[objectEvent->spriteId];
+        objectEvent->inanimate = FALSE;
+        MoveObjectEventToMapCoords(objectEvent, objectEvent->currentCoords.x, objectEvent->currentCoords.y);
+        sprite->x2 = 0;
+        sprite->y2 = 0;
+        sprite->coordOffsetEnabled = TRUE;
+    }
 }
 
 static void FlyInFieldEffect_FieldMovePose(struct Task *task)
