@@ -3456,13 +3456,15 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_TRUANT: // truant
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
             {
-                CancelMultiTurnMoves(gBattlerAttacker);
-                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
-                gBattlerAbility = gBattlerAttacker;
-                gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
-                gMoveResultFlags |= MOVE_RESULT_MISSED;
-                effect = 1;
+                if (gCurrentMove != MOVE_REST && gCurrentMove != MOVE_SLACK_OFF) {
+                    CancelMultiTurnMoves(gBattlerAttacker);
+                    gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
+                    gBattlerAbility = gBattlerAttacker;
+                    gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
+                    gMoveResultFlags |= MOVE_RESULT_MISSED;
+                    effect = 1;
+                }         
             }
             gBattleStruct->atkCancellerTracker++;
             break;
@@ -4909,7 +4911,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_TRUANT:
-                gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF))
+                    gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                 break;
             case ABILITY_BAD_DREAMS:
                 BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
