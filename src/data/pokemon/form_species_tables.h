@@ -1151,4 +1151,6 @@ static const u16 sBasculegionFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+// TODO for HUDDLE_UP: Missing the species that it affects 
+
 #endif
