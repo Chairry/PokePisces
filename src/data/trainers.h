@@ -134,7 +134,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MARCEL] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("MARCEL"),
@@ -350,7 +350,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FREDRICK] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("FREDRICK"),
@@ -458,7 +458,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FELIX] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("FELIX"),
@@ -854,7 +854,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RANDALL] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("RANDALL"),
@@ -866,7 +866,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PARKER] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("PARKER"),
@@ -878,7 +878,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GEORGE] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("GEORGE"),
@@ -890,7 +890,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BERKE] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("BERKE"),
@@ -902,7 +902,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BRAXTON] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("BRAXTON"),
@@ -914,7 +914,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_VINCENT] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("VINCENT"),
@@ -926,7 +926,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LEROY] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("LEROY"),
@@ -938,7 +938,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WILTON_1] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WILTON"),
@@ -950,7 +950,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_EDGAR] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("EDGAR"),
@@ -962,7 +962,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ALBERT] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("ALBERT"),
@@ -974,7 +974,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_SAMUEL] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("SAMUEL"),
@@ -986,7 +986,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_VITO] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("VITO"),
@@ -998,7 +998,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_OWEN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("OWEN"),
@@ -1010,7 +1010,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WILTON_2] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WILTON"),
@@ -1022,7 +1022,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WILTON_3] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WILTON"),
@@ -1034,7 +1034,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WILTON_4] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WILTON"),
@@ -1046,7 +1046,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WILTON_5] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WILTON"),
@@ -1058,7 +1058,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_WARREN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("WARREN"),
@@ -2918,7 +2918,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACLYN] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACLYN"),
@@ -2930,7 +2930,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HANNAH] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("HANNAH"),
@@ -2942,7 +2942,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_SAMANTHA] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("SAMANTHA"),
@@ -2954,7 +2954,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MAURA] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MAURA"),
@@ -2966,7 +2966,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KAYLA] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("KAYLA"),
@@ -2978,7 +2978,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ALEXIS] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("ALEXIS"),
@@ -2990,7 +2990,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACKI_1] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACKI"),
@@ -3002,7 +3002,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACKI_2] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACKI"),
@@ -3014,7 +3014,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACKI_3] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACKI"),
@@ -3026,7 +3026,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACKI_4] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACKI"),
@@ -3038,7 +3038,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JACKI_5] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("JACKI"),
@@ -3686,7 +3686,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TIMOTHY_1] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TIMOTHY"),
@@ -3698,7 +3698,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TIMOTHY_2] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TIMOTHY"),
@@ -3710,7 +3710,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TIMOTHY_3] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TIMOTHY"),
@@ -3722,7 +3722,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TIMOTHY_4] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TIMOTHY"),
@@ -3734,7 +3734,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TIMOTHY_5] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("TIMOTHY"),
@@ -3890,7 +3890,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_QUINCY] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("QUINCY"),
@@ -6074,7 +6074,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_AURON] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("AURON"),
@@ -6134,7 +6134,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_CONOR] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("CONOR"),
@@ -6458,7 +6458,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISAAC_1] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("ISAAC"),
@@ -6482,7 +6482,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MITCHELL] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("MITCHELL"),
@@ -6494,7 +6494,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISAAC_2] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("ISAAC"),
@@ -6506,7 +6506,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISAAC_3] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("ISAAC"),
@@ -6518,7 +6518,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISAAC_4] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("ISAAC"),
@@ -6530,7 +6530,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISAAC_5] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("ISAAC"),
@@ -6974,7 +6974,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TERRY] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("TERRY"),
@@ -7094,7 +7094,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MACEY] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MACEY"),
@@ -7130,7 +7130,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PAXTON] =
     {
-        .trainerClass = TRAINER_CLASS_EXPERT,
+        .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_EXPERT_M,
         .trainerName = _("PAXTON"),
@@ -7178,7 +7178,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JONATHAN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("JONATHAN"),
@@ -7778,7 +7778,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GERALD] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("GERALD"),
@@ -8054,7 +8054,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RUBEN] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("RUBEN"),
@@ -9002,7 +9002,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ALIX] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("ALIX"),
@@ -9026,7 +9026,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MARLENE] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MARLENE"),
@@ -9074,7 +9074,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BRANDI] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("BRANDI"),
@@ -9146,7 +9146,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LEONEL] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_ACE_TRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_M,
         .trainerName = _("LEONEL"),
@@ -9182,7 +9182,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MYLES] =
     {
-        .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_POKEMON_BREEDER_M,
         .trainerName = _("MYLES"),
@@ -10178,7 +10178,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MARIELA] =
     {
-        .trainerClass = TRAINER_CLASS_PSYCHIC,
+        .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
         .trainerName = _("MARIELA"),
