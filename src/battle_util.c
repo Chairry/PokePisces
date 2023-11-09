@@ -104,6 +104,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_ILLUSION,
     ABILITY_STANCE_CHANGE,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
@@ -130,6 +131,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
@@ -147,6 +149,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_ZEN_MODE,
     ABILITY_STANCE_CHANGE,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
@@ -162,6 +165,7 @@ static const u16 sWorrySeedBannedAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
@@ -186,6 +190,7 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_POWER_CONSTRUCT,
     ABILITY_RKS_SYSTEM,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_SHIELDS_DOWN,
     ABILITY_STANCE_CHANGE,
     ABILITY_ZEN_MODE,
@@ -215,6 +220,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
     ABILITY_SCHOOLING,
+    ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
@@ -988,6 +994,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_RECEIVER] = 1,
     [ABILITY_RKS_SYSTEM] = 1,
     [ABILITY_SCHOOLING] = 1,
+    [ABILITY_HUDDLE_UP] = 1,
     [ABILITY_SHIELDS_DOWN] = 1,
     [ABILITY_STANCE_CHANGE] = 1,
     [ABILITY_TRACE] = 1,
@@ -3449,13 +3456,15 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_TRUANT: // truant
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
             {
-                CancelMultiTurnMoves(gBattlerAttacker);
-                gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
-                gBattlerAbility = gBattlerAttacker;
-                gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
-                gMoveResultFlags |= MOVE_RESULT_MISSED;
-                effect = 1;
+                if (gCurrentMove != MOVE_REST && gCurrentMove != MOVE_SLACK_OFF) {
+                    CancelMultiTurnMoves(gBattlerAttacker);
+                    gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
+                    gBattlerAbility = gBattlerAttacker;
+                    gBattlescriptCurrInstr = BattleScript_TruantLoafingAround;
+                    gMoveResultFlags |= MOVE_RESULT_MISSED;
+                    effect = 1;
+                }         
             }
             gBattleStruct->atkCancellerTracker++;
             break;
@@ -4652,6 +4661,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_SCHOOLING:
+        case ABILITY_HUDDLE_UP:
             if (gBattleMons[battler].level < 20)
                 break;
         // Fallthrough
@@ -4901,7 +4911,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_TRUANT:
-                gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF))
+                    gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                 break;
             case ABILITY_BAD_DREAMS:
                 BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
@@ -4933,6 +4944,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_SCHOOLING:
+            case ABILITY_HUDDLE_UP:
                 if (gBattleMons[battler].level < 20)
                     break;
             // Fallthrough
@@ -5305,6 +5317,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_POWER_CONSTRUCT:
                 case ABILITY_RKS_SYSTEM:
                 case ABILITY_SCHOOLING:
+                case ABILITY_HUDDLE_UP:
                 case ABILITY_SHIELDS_DOWN:
                 case ABILITY_STANCE_CHANGE:
                     break;
@@ -5341,6 +5354,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_RECEIVER:
                 case ABILITY_RKS_SYSTEM:
                 case ABILITY_SCHOOLING:
+                case ABILITY_HUDDLE_UP:
                 case ABILITY_STANCE_CHANGE:
                 case ABILITY_WONDER_GUARD:
                 case ABILITY_ZEN_MODE:
@@ -6195,6 +6209,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_STANCE_CHANGE:
     case ABILITY_POWER_CONSTRUCT:
     case ABILITY_SCHOOLING:
+    case ABILITY_HUDDLE_UP:
     case ABILITY_RKS_SYSTEM:
     case ABILITY_SHIELDS_DOWN:
     case ABILITY_COMATOSE:
@@ -11062,7 +11077,10 @@ bool32 IsBattlerAffectedByHazards(u32 battler, bool32 toxicSpikes)
 {
     bool32 ret = TRUE;
     u32 holdEffect = GetBattlerHoldEffect(battler, TRUE);
-    if (toxicSpikes && holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS && !IS_BATTLER_OF_TYPE(battler, TYPE_POISON))
+    if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST || GetBattlerAbility(battler) == ABILITY_STURDY) {
+        ret = FALSE;
+    }
+    else if (toxicSpikes && holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS && !IS_BATTLER_OF_TYPE(battler, TYPE_POISON))
     {
         ret = FALSE;
         RecordItemEffectBattle(battler, holdEffect);
@@ -11071,9 +11089,7 @@ bool32 IsBattlerAffectedByHazards(u32 battler, bool32 toxicSpikes)
     {
         ret = FALSE;
         RecordItemEffectBattle(battler, holdEffect);
-    } else if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST) {
-        ret = FALSE;
-    }
+    } 
     return ret;
 }
 
