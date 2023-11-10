@@ -15,8 +15,18 @@
   "connections": [
     {
       "map": "MAP_RUSTBORO_NEW",
-      "offset": 0,
+      "offset": 24,
       "direction": "down"
+    },
+    {
+      "map": "MAP_WHISPER_CLIFF",
+      "offset": 64,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_JAGGRO_PASS",
+      "offset": -28,
+      "direction": "right"
     }
   ],
   "object_events": [

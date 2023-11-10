@@ -1143,3 +1143,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/PendingDev/scripts.inc"
 
 	.include "data/maps/MidneorFalls/scripts.inc"
+
+	.include "data/maps/WhisperCliff/scripts.inc"

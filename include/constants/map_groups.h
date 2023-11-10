@@ -105,6 +105,7 @@
 #define MAP_LITTLEROOT_NEW           (96 | (0 << 8))
 #define MAP_PENDING_DEV              (97 | (0 << 8))
 #define MAP_MIDNEOR_FALLS            (98 | (0 << 8))
+#define MAP_WHISPER_CLIFF            (99 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

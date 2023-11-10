@@ -1,9 +1,9 @@
 {
-  "id": "MAP_JAGGRO_PASS",
-  "name": "JaggroPass",
-  "layout": "LAYOUT_JAGGRO_PASS",
+  "id": "MAP_WHISPER_CLIFF",
+  "name": "WhisperCliff",
+  "layout": "LAYOUT_WHISPER_CLIFF",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -14,23 +14,18 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CRIMNEY_CLIMB",
-      "offset": 60,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_FALLARBOR_NEW",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_WHISPER_CLIFF",
-      "offset": 0,
+      "map": "MAP_RUSTBORO_NEW",
+      "offset": -36,
       "direction": "down"
     },
     {
+      "map": "MAP_JAGGRO_PASS",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
       "map": "MAP_MIDNEOR_FALLS",
-      "offset": 28,
+      "offset": -64,
       "direction": "left"
     }
   ],

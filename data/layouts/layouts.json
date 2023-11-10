@@ -4735,7 +4735,7 @@
       "id": "LAYOUT_RUSTBORO_NEW",
       "name": "RustboroNew_Layout",
       "width": 72,
-      "height": 40,
+      "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/RustboroNew/border.bin",
@@ -4824,12 +4824,22 @@
     {
       "id": "LAYOUT_MIDNEOR_FALLS",
       "name": "MidneorFalls_Layout",
-      "width": 40,
+      "width": 60,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFalls/border.bin",
       "blockdata_filepath": "data/layouts/MidneorFalls/map.bin"
+    },
+    {
+      "id": "LAYOUT_WHISPER_CLIFF",
+      "name": "WhisperCliff_Layout",
+      "width": 40,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/WhisperCliff/border.bin",
+      "blockdata_filepath": "data/layouts/WhisperCliff/map.bin"
     }
   ]
 }
