@@ -89,9 +89,6 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_RAYQUAZA] = sRayquazaFormChangeTable,
     [SPECIES_RAYQUAZA_MEGA] = sRayquazaFormChangeTable,
 #if P_GEN_4_POKEMON == TRUE
-    [SPECIES_BURMY] = sBurmyFormChangeTable,
-    [SPECIES_BURMY_SANDY_CLOAK] = sBurmyFormChangeTable,
-    [SPECIES_BURMY_TRASH_CLOAK] = sBurmyFormChangeTable,
     [SPECIES_CHERRIM] = sCherrimFormChangeTable,
     [SPECIES_CHERRIM_SUNSHINE] = sCherrimFormChangeTable,
     [SPECIES_LOPUNNY] = sLopunnyFormChangeTable,

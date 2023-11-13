@@ -388,39 +388,6 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(DEOXYS, gMonPalette_Deoxys),
     SPECIES_PAL(CHIMECHO, gMonPalette_Chimecho),
 #if P_GEN_4_POKEMON == TRUE
-    SPECIES_PAL(TURTWIG, gMonPalette_Turtwig),
-    SPECIES_PAL(GROTLE, gMonPalette_Grotle),
-    SPECIES_PAL(TORTERRA, gMonPalette_Torterra),
-    SPECIES_PAL(CHIMCHAR, gMonPalette_Chimchar),
-    SPECIES_PAL(MONFERNO, gMonPalette_Monferno),
-    SPECIES_PAL(INFERNAPE, gMonPalette_Infernape),
-    SPECIES_PAL(PIPLUP, gMonPalette_Piplup),
-    SPECIES_PAL(PRINPLUP, gMonPalette_Prinplup),
-    SPECIES_PAL(EMPOLEON, gMonPalette_Empoleon),
-    SPECIES_PAL(STARLY, gMonPalette_Starly),
-    SPECIES_PAL(STARAVIA, gMonPalette_Staravia),
-    SPECIES_PAL(STARAPTOR, gMonPalette_Staraptor),
-    SPECIES_PAL(BIDOOF, gMonPalette_Bidoof),
-    SPECIES_PAL(BIBAREL, gMonPalette_Bibarel),
-    SPECIES_PAL(KRICKETOT, gMonPalette_Kricketot),
-    SPECIES_PAL(KRICKETUNE, gMonPalette_Kricketune),
-    SPECIES_PAL(SHINX, gMonPalette_Shinx),
-    SPECIES_PAL(LUXIO, gMonPalette_Luxio),
-    SPECIES_PAL(LUXRAY, gMonPalette_Luxray),
-    SPECIES_PAL(BUDEW, gMonPalette_Budew),
-    SPECIES_PAL(ROSERADE, gMonPalette_Roserade),
-    SPECIES_PAL(CRANIDOS, gMonPalette_Cranidos),
-    SPECIES_PAL(RAMPARDOS, gMonPalette_Rampardos),
-    SPECIES_PAL(SHIELDON, gMonPalette_Shieldon),
-    SPECIES_PAL(BASTIODON, gMonPalette_Bastiodon),
-    SPECIES_PAL(BURMY, gMonPalette_Burmy),
-    SPECIES_PAL(WORMADAM, gMonPalette_Wormadam),
-    SPECIES_PAL(MOTHIM, gMonPalette_Mothim),
-    SPECIES_PAL(COMBEE, gMonPalette_Combee),
-    SPECIES_PAL(VESPIQUEN, gMonPalette_Vespiquen),
-    SPECIES_PAL(PACHIRISU, gMonPalette_Pachirisu),
-    SPECIES_PAL(BUIZEL, gMonPalette_Buizel),
-    SPECIES_PAL(FLOATZEL, gMonPalette_Floatzel),
     SPECIES_PAL(CHERUBI, gMonPalette_Cherubi),
     SPECIES_PAL(CHERRIM, gMonPalette_Cherrim),
     SPECIES_PAL(SHELLOS, gMonPalette_Shellos),
@@ -1148,11 +1115,6 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(DEOXYS_SPEED, gMonPalette_DeoxysSpeed),
 
 #if P_GEN_4_POKEMON == TRUE
-    SPECIES_PAL(BURMY_SANDY_CLOAK, gMonPalette_BurmySandyCloak),
-    SPECIES_PAL(BURMY_TRASH_CLOAK, gMonPalette_BurmyTrashCloak),
-
-    SPECIES_PAL(WORMADAM_SANDY_CLOAK, gMonPalette_WormadamSandyCloak),
-    SPECIES_PAL(WORMADAM_TRASH_CLOAK, gMonPalette_WormadamTrashCloak),
 
     SPECIES_PAL(CHERRIM_SUNSHINE, gMonPalette_CherrimSunshine),
 
@@ -1394,7 +1356,6 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
 const struct CompressedSpritePalette gMonPaletteTableFemale[NUM_SPECIES + 1] =
 {
 #if P_GEN_4_POKEMON == TRUE
-    SPECIES_PAL(COMBEE, gMonPalette_CombeeF),
     SPECIES_PAL(HIPPOPOTAS, gMonPalette_HippopotasF),
     SPECIES_PAL(HIPPOWDON, gMonPalette_HippowdonF),
 #endif

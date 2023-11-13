@@ -550,19 +550,6 @@ static const u16 sDeoxysFormSpeciesIdTable[] = {
 };
 
 #if P_GEN_4_POKEMON == TRUE
-static const u16 sBurmyFormSpeciesIdTable[] = {
-    SPECIES_BURMY,
-    SPECIES_BURMY_SANDY_CLOAK,
-    SPECIES_BURMY_TRASH_CLOAK,
-    FORM_SPECIES_END,
-};
-
-static const u16 sWormadamFormSpeciesIdTable[] = {
-    SPECIES_WORMADAM,
-    SPECIES_WORMADAM_SANDY_CLOAK,
-    SPECIES_WORMADAM_TRASH_CLOAK,
-    FORM_SPECIES_END,
-};
 
 static const u16 sCherrimFormSpeciesIdTable[] = {
     SPECIES_CHERRIM,

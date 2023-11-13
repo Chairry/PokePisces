@@ -85,8 +85,6 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_RAYQUAZA] = sRayquazaFormSpeciesIdTable,
     [SPECIES_DEOXYS] = sDeoxysFormSpeciesIdTable,
 #if P_GEN_4_POKEMON == TRUE
-    [SPECIES_BURMY] = sBurmyFormSpeciesIdTable,
-    [SPECIES_WORMADAM] = sWormadamFormSpeciesIdTable,
     [SPECIES_CHERRIM] = sCherrimFormSpeciesIdTable,
     [SPECIES_SHELLOS] = sShellosFormSpeciesIdTable,
     [SPECIES_GASTRODON] = sGastrodonFormSpeciesIdTable,
@@ -351,12 +349,6 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysFormSpeciesIdTable,
     [SPECIES_DEOXYS_SPEED] = sDeoxysFormSpeciesIdTable,
 #if P_GEN_4_POKEMON == TRUE
-    // Burmy
-    [SPECIES_BURMY_SANDY_CLOAK] = sBurmyFormSpeciesIdTable,
-    [SPECIES_BURMY_TRASH_CLOAK] = sBurmyFormSpeciesIdTable,
-    // Wormadam
-    [SPECIES_WORMADAM_SANDY_CLOAK] = sWormadamFormSpeciesIdTable,
-    [SPECIES_WORMADAM_TRASH_CLOAK] = sWormadamFormSpeciesIdTable,
     // Cherrim
     [SPECIES_CHERRIM_SUNSHINE] = sCherrimFormSpeciesIdTable,
     // Shellos

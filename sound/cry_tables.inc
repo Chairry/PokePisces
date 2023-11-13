@@ -387,39 +387,6 @@ gCryTable::
 	cry Cry_Jirachi
 	cry Cry_Deoxys
 .if P_GEN_4_POKEMON == TRUE
-	cry Cry_Turtwig
-	cry Cry_Grotle
-	cry Cry_Torterra
-	cry Cry_Chimchar
-	cry Cry_Monferno
-	cry Cry_Infernape
-	cry Cry_Piplup
-	cry Cry_Prinplup
-	cry Cry_Empoleon
-	cry Cry_Starly
-	cry Cry_Staravia
-	cry Cry_Staraptor
-	cry Cry_Bidoof
-	cry Cry_Bibarel
-	cry Cry_Kricketot
-	cry Cry_Kricketune
-	cry Cry_Shinx
-	cry Cry_Luxio
-	cry Cry_Luxray
-	cry Cry_Budew
-	cry Cry_Roserade
-	cry Cry_Cranidos
-	cry Cry_Rampardos
-	cry Cry_Shieldon
-	cry Cry_Bastiodon
-	cry Cry_Burmy
-	cry Cry_Wormadam
-	cry Cry_Mothim
-	cry Cry_Combee
-	cry Cry_Vespiquen
-	cry Cry_Pachirisu
-	cry Cry_Buizel
-	cry Cry_Floatzel
 	cry Cry_Cherubi
 	cry Cry_Cherrim
 	cry Cry_Shellos
@@ -1699,12 +1666,6 @@ gCryTable::
 	cry Cry_Deoxys
 	cry Cry_Deoxys
 .if P_GEN_4_POKEMON == TRUE
-	@ Burmy
-	cry Cry_Burmy
-	cry Cry_Burmy
-	@ Wormadam
-	cry Cry_Wormadam
-	cry Cry_Wormadam
 	@ Cherrim
 	cry Cry_Cherrim
 	@ Shellos
@@ -1742,12 +1703,6 @@ gCryTable::
 	cry Cry_Arceus
 	cry Cry_Arceus
 .else
-	@ Burmy
-	cry Cry_Unown
-	cry Cry_Unown
-	@ Wormadam
-	cry Cry_Unown
-	cry Cry_Unown
 	@ Cherrim
 	cry Cry_Unown
 	@ Shellos
@@ -2568,39 +2523,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Jirachi
 	cry_reverse Cry_Deoxys
 .if P_GEN_4_POKEMON == TRUE
-	cry_reverse Cry_Turtwig
-	cry_reverse Cry_Grotle
-	cry_reverse Cry_Torterra
-	cry_reverse Cry_Chimchar
-	cry_reverse Cry_Monferno
-	cry_reverse Cry_Infernape
-	cry_reverse Cry_Piplup
-	cry_reverse Cry_Prinplup
-	cry_reverse Cry_Empoleon
-	cry_reverse Cry_Starly
-	cry_reverse Cry_Staravia
-	cry_reverse Cry_Staraptor
-	cry_reverse Cry_Bidoof
-	cry_reverse Cry_Bibarel
-	cry_reverse Cry_Kricketot
-	cry_reverse Cry_Kricketune
-	cry_reverse Cry_Shinx
-	cry_reverse Cry_Luxio
-	cry_reverse Cry_Luxray
-	cry_reverse Cry_Budew
-	cry_reverse Cry_Roserade
-	cry_reverse Cry_Cranidos
-	cry_reverse Cry_Rampardos
-	cry_reverse Cry_Shieldon
-	cry_reverse Cry_Bastiodon
-	cry_reverse Cry_Burmy
-	cry_reverse Cry_Wormadam
-	cry_reverse Cry_Mothim
-	cry_reverse Cry_Combee
-	cry_reverse Cry_Vespiquen
-	cry_reverse Cry_Pachirisu
-	cry_reverse Cry_Buizel
-	cry_reverse Cry_Floatzel
 	cry_reverse Cry_Cherubi
 	cry_reverse Cry_Cherrim
 	cry_reverse Cry_Shellos
@@ -3880,12 +3802,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Deoxys
 	cry_reverse Cry_Deoxys
 .if P_GEN_4_POKEMON == TRUE
-	@ Burmy
-	cry_reverse Cry_Burmy
-	cry_reverse Cry_Burmy
-	@ Wormadam
-	cry_reverse Cry_Wormadam
-	cry_reverse Cry_Wormadam
 	@ Cherrim
 	cry_reverse Cry_Cherrim
 	@ Shellos
