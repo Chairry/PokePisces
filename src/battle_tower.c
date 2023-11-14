@@ -147,10 +147,6 @@ const u16 gBattleFrontierHeldItems[] =
     [BATTLE_FRONTIER_ITEM_GANLON_BERRY]   = ITEM_GANLON_BERRY,
 };
 
-#include "data/battle_frontier/battle_frontier_trainer_mons.h"
-#include "data/battle_frontier/battle_frontier_trainers.h"
-#include "data/battle_frontier/battle_frontier_mons.h"
-
 const u8 gTowerMaleFacilityClasses[30] =
 {
     FACILITY_CLASS_RUIN_MANIAC,
@@ -354,412 +350,18 @@ static const u8 sRubyFacilityClassToEmerald[RS_FACILITY_CLASSES_COUNT - 2][2] =
     BattleFrontier_BattleTowerMultiPartnerRoom_Text_##name##Accept,     \
     BattleFrontier_BattleTowerMultiPartnerRoom_Text_##name##Reject
 
-static const u8 *const sPartnerApprenticeTexts1[] =
-{
-    PARTNER_TEXTS(Apprentice1)
-};
-
-static const u8 *const sPartnerApprenticeTexts2[] =
-{
-    PARTNER_TEXTS(Apprentice2)
-};
-
-static const u8 *const sPartnerApprenticeTexts3[] =
-{
-    PARTNER_TEXTS(Apprentice3)
-};
-
-static const u8 *const sPartnerApprenticeTexts4[] =
-{
-    PARTNER_TEXTS(Apprentice4)
-};
-
-static const u8 *const sPartnerApprenticeTexts5[] =
-{
-    PARTNER_TEXTS(Apprentice5)
-};
-
-static const u8 *const sPartnerApprenticeTexts6[] =
-{
-     PARTNER_TEXTS(Apprentice6)
-};
-
-static const u8 *const sPartnerApprenticeTexts7[] =
-{
-     PARTNER_TEXTS(Apprentice7)
-};
-
-static const u8 *const sPartnerApprenticeTexts8[] =
-{
-     PARTNER_TEXTS(Apprentice8)
-};
-
-static const u8 *const sPartnerApprenticeTexts9[] =
-{
-     PARTNER_TEXTS(Apprentice9)
-};
-
-static const u8 *const sPartnerApprenticeTexts10[] =
-{
-     PARTNER_TEXTS(Apprentice10)
-};
-
-static const u8 *const sPartnerApprenticeTexts11[] =
-{
-     PARTNER_TEXTS(Apprentice11)
-};
-
-static const u8 *const sPartnerApprenticeTexts12[] =
-{
-     PARTNER_TEXTS(Apprentice12)
-};
-
-static const u8 *const sPartnerApprenticeTexts13[] =
-{
-     PARTNER_TEXTS(Apprentice13)
-};
-
-static const u8 *const sPartnerApprenticeTexts14[] =
-{
-     PARTNER_TEXTS(Apprentice14)
-};
-
-static const u8 *const sPartnerApprenticeTexts15[] =
-{
-     PARTNER_TEXTS(Apprentice15)
-};
-
-static const u8 *const sPartnerApprenticeTexts16[] =
-{
-     PARTNER_TEXTS(Apprentice16)
-};
-
-static const u8 *const sPartnerTextsLass[] =
-{
-    PARTNER_TEXTS(Lass)
-};
-
-static const u8 *const sPartnerTextsYoungster[] =
-{
-    PARTNER_TEXTS(Youngster)
-};
-
-static const u8 *const sPartnerTextsHiker[] =
-{
-    PARTNER_TEXTS(Hiker)
-};
-
-static const u8 *const sPartnerTextsBeauty[] =
-{
-    PARTNER_TEXTS(Beauty)
-};
-
-static const u8 *const sPartnerTextsFisherman[] =
-{
-    PARTNER_TEXTS(Fisherman)
-};
-
-static const u8 *const sPartnerTextsLady[] =
-{
-    PARTNER_TEXTS(Lady)
-};
-
-static const u8 *const sPartnerTextsCyclingTriathleteF[] =
-{
-    PARTNER_TEXTS(CyclingTriathleteF)
-};
-
-static const u8 *const sPartnerTextsBugCatcher[] =
-{
-    PARTNER_TEXTS(BugCatcher)
-};
-
-static const u8 *const sPartnerTextsSchoolKidM[] =
-{
-    PARTNER_TEXTS(SchoolKidM)
-};
-
-static const u8 *const sPartnerTextsRichBoy[] =
-{
-    PARTNER_TEXTS(RichBoy)
-};
-
-static const u8 *const sPartnerTextsBlackBelt[] =
-{
-    PARTNER_TEXTS(BlackBelt)
-};
-
-static const u8 *const sPartnerTextsTuberF[] =
-{
-    PARTNER_TEXTS(TuberF)
-};
-
-static const u8 *const sPartnerTextsHexManiac[] =
-{
-    PARTNER_TEXTS(HexManiac)
-};
-
-static const u8 *const sPartnerTextsPkmnBreederM[] =
-{
-    PARTNER_TEXTS(PkmnBreederM)
-};
-
-static const u8 *const sPartnerTextsRunningTriathleteF[] =
-{
-    PARTNER_TEXTS(RunningTriathleteF)
-};
-
-static const u8 *const sPartnerTextsRunningTriathleteM[] =
-{
-    PARTNER_TEXTS(RunningTriathleteM)
-};
-
-static const u8 *const sPartnerTextsBattleGirl[] =
-{
-    PARTNER_TEXTS(BattleGirl)
-};
-
-static const u8 *const sPartnerTextsCyclingTriathleteM[] =
-{
-    PARTNER_TEXTS(CyclingTriathleteM)
-};
-
-static const u8 *const sPartnerTextsTuberM[] =
-{
-    PARTNER_TEXTS(TuberM)
-};
-
-static const u8 *const sPartnerTextsGuitarist[] =
-{
-    PARTNER_TEXTS(Guitarist)
-};
-
-static const u8 *const sPartnerTextsGentleman[] =
-{
-    PARTNER_TEXTS(Gentleman)
-};
-
-static const u8 *const sPartnerTextsPokefanM[] =
-{
-    PARTNER_TEXTS(PokefanM)
-};
-
-static const u8 *const sPartnerTextsExpertM[] =
-{
-    PARTNER_TEXTS(ExpertM)
-};
-
-static const u8 *const sPartnerTextsExpertF[] =
-{
-    PARTNER_TEXTS(ExpertF)
-};
-
-static const u8 *const sPartnerTextsDragonTamer[] =
-{
-    PARTNER_TEXTS(DragonTamer)
-};
-
-static const u8 *const sPartnerTextsBirdKeeper[] =
-{
-    PARTNER_TEXTS(BirdKeeper)
-};
-
-static const u8 *const sPartnerTextsNinjaBoy[] =
-{
-    PARTNER_TEXTS(NinjaBoy)
-};
-
-static const u8 *const sPartnerTextsParasolLady[] =
-{
-    PARTNER_TEXTS(ParasolLady)
-};
-
-static const u8 *const sPartnerTextsBugManiac[] =
-{
-    PARTNER_TEXTS(BugManiac)
-};
-
-static const u8 *const sPartnerTextsSailor[] =
-{
-    PARTNER_TEXTS(Sailor)
-};
-
-static const u8 *const sPartnerTextsCollector[] =
-{
-    PARTNER_TEXTS(Collector)
-};
-
-static const u8 *const sPartnerTextsPkmnRangerM[] =
-{
-    PARTNER_TEXTS(PkmnRangerM)
-};
-
-static const u8 *const sPartnerTextsPkmnRangerF[] =
-{
-    PARTNER_TEXTS(PkmnRangerF)
-};
-
-static const u8 *const sPartnerTextsAromaLady[] =
-{
-    PARTNER_TEXTS(AromaLady)
-};
-
-static const u8 *const sPartnerTextsRuinManiac[] =
-{
-    PARTNER_TEXTS(RuinManiac)
-};
-
-static const u8 *const sPartnerTextsCoolTrainerM[] =
-{
-    PARTNER_TEXTS(CoolTrainerM)
-};
-
-static const u8 *const sPartnerTextsCoolTrainerF[] =
-{
-    PARTNER_TEXTS(CoolTrainerF)
-};
-
-static const u8 *const sPartnerTextsPokemaniac[] =
-{
-    PARTNER_TEXTS(Pokemaniac)
-};
-
-static const u8 *const sPartnerTextsKindler[] =
-{
-    PARTNER_TEXTS(Kindler)
-};
-
-static const u8 *const sPartnerTextsCamper[] =
-{
-    PARTNER_TEXTS(Camper)
-};
-
-static const u8 *const sPartnerTextsPicnicker[] =
-{
-    PARTNER_TEXTS(Picnicker)
-};
-
-static const u8 *const sPartnerTextsPsychicM[] =
-{
-    PARTNER_TEXTS(PsychicM)
-};
-
-static const u8 *const sPartnerTextsPsychicF[] =
-{
-    PARTNER_TEXTS(PsychicF)
-};
-
-static const u8 *const sPartnerTextsSchoolKidF[] =
-{
-    PARTNER_TEXTS(SchoolKidF)
-};
-
-static const u8 *const sPartnerTextsPkmnBreederF[] =
-{
-    PARTNER_TEXTS(PkmnBreederF)
-};
-
-static const u8 *const sPartnerTextsPokefanF[] =
-{
-    PARTNER_TEXTS(PokefanF)
-};
-
-static const u8 *const sPartnerTextsSwimmerF[] =
-{
-    PARTNER_TEXTS(SwimmerF)
-};
-
-static const u8 *const sPartnerTextsSwimmingTriathleteM[] =
-{
-    PARTNER_TEXTS(SwimmingTriathleteM)
-};
-
-static const u8 *const sPartnerTextsSwimmingTriathleteF[] =
-{
-    PARTNER_TEXTS(SwimmingTriathleteF)
-};
-
-static const u8 *const sPartnerTextsSwimmerM[] =
-{
-    PARTNER_TEXTS(SwimmerM)
-};
-
 struct
 {
     u32 facilityClass;
     const u8 *const *strings;
 } static const sPartnerTrainerTextTables[] =
 {
-    {FACILITY_CLASS_LASS,                  sPartnerTextsLass},
-    {FACILITY_CLASS_YOUNGSTER,             sPartnerTextsYoungster},
-    {FACILITY_CLASS_HIKER,                 sPartnerTextsHiker},
-    {FACILITY_CLASS_BEAUTY,                sPartnerTextsBeauty},
-    {FACILITY_CLASS_FISHERMAN,             sPartnerTextsFisherman},
-    {FACILITY_CLASS_LADY,                  sPartnerTextsLady},
-    {FACILITY_CLASS_CYCLING_TRIATHLETE_F,  sPartnerTextsCyclingTriathleteF},
-    {FACILITY_CLASS_BUG_CATCHER,           sPartnerTextsBugCatcher},
-    {FACILITY_CLASS_SCHOOL_KID_M,          sPartnerTextsSchoolKidM},
-    {FACILITY_CLASS_RICH_BOY,              sPartnerTextsRichBoy},
-    {FACILITY_CLASS_BLACK_BELT,            sPartnerTextsBlackBelt},
-    {FACILITY_CLASS_TUBER_F,               sPartnerTextsTuberF},
-    {FACILITY_CLASS_HEX_MANIAC,            sPartnerTextsHexManiac},
-    {FACILITY_CLASS_PKMN_BREEDER_M,        sPartnerTextsPkmnBreederM},
-    {FACILITY_CLASS_RUNNING_TRIATHLETE_F,  sPartnerTextsRunningTriathleteF},
-    {FACILITY_CLASS_RUNNING_TRIATHLETE_M,  sPartnerTextsRunningTriathleteM},
-    {FACILITY_CLASS_BATTLE_GIRL,           sPartnerTextsBattleGirl},
-    {FACILITY_CLASS_CYCLING_TRIATHLETE_M,  sPartnerTextsCyclingTriathleteM},
-    {FACILITY_CLASS_TUBER_M,               sPartnerTextsTuberM},
-    {FACILITY_CLASS_GUITARIST,             sPartnerTextsGuitarist},
-    {FACILITY_CLASS_GENTLEMAN,             sPartnerTextsGentleman},
-    {FACILITY_CLASS_POKEFAN_M,             sPartnerTextsPokefanM},
-    {FACILITY_CLASS_EXPERT_M,              sPartnerTextsExpertM},
-    {FACILITY_CLASS_EXPERT_F,              sPartnerTextsExpertF},
-    {FACILITY_CLASS_DRAGON_TAMER,          sPartnerTextsDragonTamer},
-    {FACILITY_CLASS_BIRD_KEEPER,           sPartnerTextsBirdKeeper},
-    {FACILITY_CLASS_NINJA_BOY,             sPartnerTextsNinjaBoy},
-    {FACILITY_CLASS_PARASOL_LADY,          sPartnerTextsParasolLady},
-    {FACILITY_CLASS_BUG_MANIAC,            sPartnerTextsBugManiac},
-    {FACILITY_CLASS_SAILOR,                sPartnerTextsSailor},
-    {FACILITY_CLASS_COLLECTOR,             sPartnerTextsCollector},
-    {FACILITY_CLASS_PKMN_RANGER_M,         sPartnerTextsPkmnRangerM},
-    {FACILITY_CLASS_PKMN_RANGER_F,         sPartnerTextsPkmnRangerF},
-    {FACILITY_CLASS_AROMA_LADY,            sPartnerTextsAromaLady},
-    {FACILITY_CLASS_RUIN_MANIAC,           sPartnerTextsRuinManiac},
-    {FACILITY_CLASS_COOLTRAINER_M,         sPartnerTextsCoolTrainerM},
-    {FACILITY_CLASS_COOLTRAINER_F,         sPartnerTextsCoolTrainerF},
-    {FACILITY_CLASS_POKEMANIAC,            sPartnerTextsPokemaniac},
-    {FACILITY_CLASS_KINDLER,               sPartnerTextsKindler},
-    {FACILITY_CLASS_CAMPER,                sPartnerTextsCamper},
-    {FACILITY_CLASS_PICNICKER,             sPartnerTextsPicnicker},
-    {FACILITY_CLASS_PSYCHIC_M,             sPartnerTextsPsychicM},
-    {FACILITY_CLASS_PSYCHIC_F,             sPartnerTextsPsychicF},
-    {FACILITY_CLASS_SCHOOL_KID_F,          sPartnerTextsSchoolKidF},
-    {FACILITY_CLASS_PKMN_BREEDER_F,        sPartnerTextsPkmnBreederF},
-    {FACILITY_CLASS_POKEFAN_F,             sPartnerTextsPokefanF},
-    {FACILITY_CLASS_SWIMMER_F,             sPartnerTextsSwimmerF},
-    {FACILITY_CLASS_SWIMMING_TRIATHLETE_M, sPartnerTextsSwimmingTriathleteM},
-    {FACILITY_CLASS_SWIMMING_TRIATHLETE_F, sPartnerTextsSwimmingTriathleteF},
-    {FACILITY_CLASS_SWIMMER_M,             sPartnerTextsSwimmerM}
+    
 };
 
-static const u8 *const *const sPartnerApprenticeTextTables[NUM_APPRENTICES] =
+static const u8 *const *const sPartnerApprenticeTextTables[] =
 {
-    sPartnerApprenticeTexts1,
-    sPartnerApprenticeTexts2,
-    sPartnerApprenticeTexts3,
-    sPartnerApprenticeTexts4,
-    sPartnerApprenticeTexts5,
-    sPartnerApprenticeTexts6,
-    sPartnerApprenticeTexts7,
-    sPartnerApprenticeTexts8,
-    sPartnerApprenticeTexts9,
-    sPartnerApprenticeTexts10,
-    sPartnerApprenticeTexts11,
-    sPartnerApprenticeTexts12,
-    sPartnerApprenticeTexts13,
-    sPartnerApprenticeTexts14,
-    sPartnerApprenticeTexts15,
-    sPartnerApprenticeTexts16
+
 };
 
 struct
@@ -773,7 +375,7 @@ struct
 } static const sStevenMons[MULTI_PARTY_SIZE] =
 {
     {
-        .species = SPECIES_METANG,
+        .species = SPECIES_AEGISLASH,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 42,
         .nature = NATURE_BRAVE,
@@ -781,7 +383,7 @@ struct
         .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_METAL_CLAW}
     },
     {
-        .species = SPECIES_SKARMORY,
+        .species = SPECIES_SHEDINJA,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 43,
         .nature = NATURE_IMPISH,
@@ -789,7 +391,7 @@ struct
         .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING}
     },
     {
-        .species = SPECIES_AGGRON,
+        .species = SPECIES_BLAZIKEN,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 44,
         .nature = NATURE_ADAMANT,
@@ -797,8 +399,6 @@ struct
         .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
     }
 };
-
-#include "data/battle_frontier/battle_tent.h"
 
 static void (* const sBattleTowerFuncs[])(void) =
 {
@@ -3353,12 +2953,6 @@ u8 SetFacilityPtrsGetLevel(void)
     {
         return SetTentPtrsGetLevel();
     }
-    else
-    {
-        gFacilityTrainers = gBattleFrontierTrainers;
-        gFacilityTrainerMons = gBattleFrontierMons;
-        return GetFrontierEnemyMonLevel(gSaveBlock2Ptr->frontier.lvlMode);
-    }
 }
 
 u8 GetFrontierEnemyMonLevel(u8 lvlMode)
@@ -3446,27 +3040,6 @@ static u8 SetTentPtrsGetLevel(void)
 {
     u8 level = TENT_MIN_LEVEL;
     u32 facility = VarGet(VAR_FRONTIER_FACILITY);
-
-    if (facility == FRONTIER_FACILITY_FACTORY)
-    {
-        gFacilityTrainers = gSlateportBattleTentTrainers;
-        gFacilityTrainerMons = gSlateportBattleTentMons;
-    }
-    else if (facility == FRONTIER_FACILITY_PALACE)
-    {
-        gFacilityTrainers = gVerdanturfBattleTentTrainers;
-        gFacilityTrainerMons = gVerdanturfBattleTentMons;
-    }
-    else if (facility == FRONTIER_FACILITY_ARENA)
-    {
-        gFacilityTrainers = gFallarborBattleTentTrainers;
-        gFacilityTrainerMons = gFallarborBattleTentMons;
-    }
-    else
-    {
-        gFacilityTrainers = gBattleFrontierTrainers;
-        gFacilityTrainerMons = gBattleFrontierMons;
-    }
 
     level = GetHighestLevelInPlayerParty();
     if (level < TENT_MIN_LEVEL)

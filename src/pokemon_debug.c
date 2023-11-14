@@ -686,18 +686,14 @@ static const struct CompressedSpritePalette *GetMonSpritePalStructCustom(u16 spe
 {
     if (isShiny)
     {
-        if (gMonShinyPaletteTableFemale[species].data != NULL && isFemale)
-            return &gMonShinyPaletteTableFemale[species];
-        else if (gMonShinyPaletteTable[species].data != NULL)
+        if (gMonShinyPaletteTable[species].data != NULL)
             return &gMonShinyPaletteTable[species];
         else
             return &gMonShinyPaletteTable[SPECIES_NONE];
     }
     else
     {
-        if (gMonPaletteTableFemale[species].data != NULL && isFemale)
-            return &gMonPaletteTableFemale[species];
-        else if (gMonPaletteTable[species].data != NULL)
+        if (gMonPaletteTable[species].data != NULL)
             return &gMonPaletteTable[species];
         else
             return &gMonPaletteTable[SPECIES_NONE];
@@ -716,18 +712,14 @@ static void BattleLoadOpponentMonSpriteGfxCustom(u16 species, bool8 isFemale, bo
 
     if (isShiny)
     {
-        if (gMonShinyPaletteTableFemale[species].data != NULL && isFemale)
-            lzPaletteData = gMonShinyPaletteTableFemale[species].data;
-        else if (gMonShinyPaletteTable[species].data != NULL)
+        if (gMonShinyPaletteTable[species].data != NULL)
             lzPaletteData = gMonShinyPaletteTable[species].data;
         else
             lzPaletteData = gMonShinyPaletteTable[SPECIES_NONE].data;
     }
     else
     {
-        if (gMonPaletteTableFemale[species].data != NULL && isFemale)
-            lzPaletteData = gMonPaletteTableFemale[species].data;
-        else if (gMonPaletteTable[species].data != NULL)
+        if (gMonPaletteTable[species].data != NULL)
             lzPaletteData = gMonPaletteTable[species].data;
         else
             lzPaletteData = gMonPaletteTable[SPECIES_NONE].data;
@@ -1443,8 +1435,6 @@ static void Handle_Input_Debug_Pokemon(u8 taskId)
     if (JOY_NEW(R_BUTTON) && (Frontsprite->callback == SpriteCallbackDummy))
     {
         PlayCryInternal(data->currentmonId, 0, 120, 10, 0);
-        if (HasTwoFramesAnimation(data->currentmonId))
-            StartSpriteAnim(Frontsprite, 1);
         LaunchAnimationTaskForFrontSprite(Frontsprite, data->animIdFront);
     }
 

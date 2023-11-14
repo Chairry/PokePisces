@@ -638,7 +638,6 @@ SecretBase_EventScript_Trainer9PostBattle::
 
 SecretBase_EventScript_BattleTrainer::
 	special PrepSecretBaseBattleFlags
-	setvar VAR_0x8004, SPECIAL_BATTLE_SECRET_BASE
 	setvar VAR_0x8005, 0
 	special DoSpecialTrainerBattle
 	waitstate

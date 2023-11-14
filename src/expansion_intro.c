@@ -407,7 +407,7 @@ static void SpriteCallback_PorygonFlying(struct Sprite* sprite)
             sprite->callback = SpriteCallback_PorygonHit;
             sprite->sTimer = 0;
             PlaySE(SE_M_DOUBLE_SLAP);
-            PlayCryInternal(SPECIES_PORYGON, 0, 120, 10, 0);
+            PlayCryInternal(SPECIES_SHUCKLE, 0, 120, 10, 0);
         }
     }
     sprite->sTimer++;

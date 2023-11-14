@@ -1141,19 +1141,6 @@ static void InitRouletteTableData(void)
     {
         RouletteFlash_Add(&sRoulette->flashUtil, i, &sFlashData_Colors[i]);
     }
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        switch (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG))
-        {
-        case SPECIES_SHROOMISH:
-            sRoulette->partySpeciesFlags |= HAS_SHROOMISH;
-            break;
-        case SPECIES_TAILLOW:
-            sRoulette->partySpeciesFlags |= HAS_TAILLOW;
-            break;
-        }
-    }
     RtcCalcLocalTime();
 }
 
@@ -4445,18 +4432,8 @@ static void SetBallStuck(struct Sprite *sprite)
         }
         angle += 90;
     }
-
-    if (sRoulette->useTaillow)
-    {
-        if (sprite->sStuckOnWheelLeft)
-            PlayCry_Normal(SPECIES_TAILLOW, -63);
-        else
-            PlayCry_Normal(SPECIES_TAILLOW, 63);
-    }
-    else
-    {
-        PlayCry_Normal(SPECIES_SHROOMISH, -63);
-    }
+    
+    PlayCry_Normal(SPECIES_SHUCKLE, -63);    
 
     slotsToSkip = 2;
     slotId = (sRoulette->stuckHitSlot + 2) % NUM_ROULETTE_SLOTS;
@@ -4718,10 +4695,7 @@ static void SpriteCB_Taillow_FlyIn(struct Sprite *sprite)
         else
         {
             m4aSongNumStartOrChange(SE_TAILLOW_WING_FLAP);
-            if (sRoulette->ball->sStuckOnWheelLeft == 0)
-                PlayCry_Normal(SPECIES_TAILLOW, 63);
-            else
-                PlayCry_Normal(SPECIES_TAILLOW, -63);
+            PlayCry_Normal(SPECIES_SHUCKLE, -63);
             StartSpriteAnim(sprite, sRoulette->ball->sStuckOnWheelLeft + 2);
             sprite->data[1] = 45;
             sprite->callback = SpriteCB_Taillow_PickUpBall;

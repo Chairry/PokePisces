@@ -3142,10 +3142,7 @@ static u8 CreateContestantSprite(u16 species, u32 otId, u32 personality, u32 ind
 
 bool8 IsSpeciesNotUnown(u16 species)
 {
-    if (species == SPECIES_UNOWN)
-        return FALSE;
-    else
-        return TRUE;
+    return TRUE;
 }
 
 // The contestant info windows and general-purpose text box are drawn on one half, while

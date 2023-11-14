@@ -71,18 +71,6 @@ static const u8 *const sGiddyQuestions[GIDDY_MAX_QUESTIONS] = {
     GiddyText_SecretBasesAreSoWonderful
 };
 
-static void SetupBard(void)
-{
-    u16 i;
-    struct MauvilleManBard *bard = &gSaveBlock1Ptr->oldMan.bard;
-
-    bard->id = MAUVILLE_MAN_BARD;
-    bard->hasChangedSong = FALSE;
-    bard->language = gGameLanguage;
-    for (i = 0; i < BARD_SONG_LENGTH; i++)
-        bard->songLyrics[i] = sDefaultBardSongLyrics[i];
-}
-
 static void SetupHipster(void)
 {
     struct MauvilleManHipster *hipster = &gSaveBlock1Ptr->oldMan.hipster;
@@ -120,8 +108,6 @@ void SetMauvilleOldMan(void)
     switch ((trainerId % 10) / 2)
     {
     case MAUVILLE_MAN_BARD:
-        SetupBard();
-        break;
     case MAUVILLE_MAN_HIPSTER:
         SetupHipster();
         break;
@@ -491,64 +477,6 @@ static void BardSing(struct Task *task, struct BardSong *song)
     }
     case BARD_STATE_HANDLE_WORD:
     case BARD_STATE_WAIT_WORD:
-    {
-        const struct BardSound *sound = &song->sound[song->currPhoneme];
-
-        switch (song->state)
-        {
-        case 0:
-            song->phonemeTimer = song->phonemes[song->currPhoneme].length;
-            if (sound->songLengthId <= 50)
-            {
-                u8 num = sound->songLengthId / 3;
-                m4aSongNumStart(PH_TRAP_HELD + 3 * num);
-            }
-            song->state = 2;
-            song->phonemeTimer--;
-            break;
-        case 2:
-            song->state = 1;
-            if (sound->songLengthId <= 50)
-            {
-                song->volume = 0x100 + sound->volume * 16;
-                m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, song->volume);
-                song->pitch = 0x200 + song->phonemes[song->currPhoneme].pitch;
-                m4aMPlayPitchControl(&gMPlayInfo_SE2, TRACKS_ALL, song->pitch);
-            }
-            break;
-        case 1:
-            if (song->voiceInflection > 10)
-                song->volume -= 2;
-            if (song->voiceInflection & 1)
-                song->pitch += 64;
-            else
-                song->pitch -= 64;
-            m4aMPlayVolumeControl(&gMPlayInfo_SE2, TRACKS_ALL, song->volume);
-            m4aMPlayPitchControl(&gMPlayInfo_SE2, TRACKS_ALL, song->pitch);
-            song->voiceInflection++;
-            song->phonemeTimer--;
-            if (song->phonemeTimer == 0)
-            {
-                song->currPhoneme++;
-                if (song->currPhoneme != 6 && song->sound[song->currPhoneme].songLengthId != 0xFF)
-                    song->state = 0;
-                else
-                {
-                    song->state = 3;
-                    song->phonemeTimer = 2;
-                }
-            }
-            break;
-        case 3:
-            song->phonemeTimer--;
-            if (song->phonemeTimer == 0)
-            {
-                m4aMPlayStop(&gMPlayInfo_SE2);
-                song->state = 4;
-            }
-            break;
-        }
-    }
         break;
     case BARD_STATE_PAUSE:
         break;

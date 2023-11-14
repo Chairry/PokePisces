@@ -1579,53 +1579,7 @@ static void Task_HandleFrontierMap(u8 taskId)
 
 static u8 MapNumToFrontierFacilityId(u16 mapNum) // id + 1, zero means not a frontier map number
 {
-    // In Battle Tower
-    if ((mapNum >= MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_LOBBY) && mapNum <= MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_BATTLE_ROOM))
-     || (mapNum >= MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_PARTNER_ROOM) && mapNum <= MAP_NUM(BATTLE_FRONTIER_BATTLE_TOWER_MULTI_BATTLE_ROOM)))
-        return FRONTIER_FACILITY_TOWER + 1;
-
-    // In Battle Dome
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_DOME_LOBBY)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_DOME_PRE_BATTLE_ROOM)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_DOME_BATTLE_ROOM))
-        return FRONTIER_FACILITY_DOME + 1;
-
-    // In Battle Palace
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PALACE_LOBBY)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PALACE_CORRIDOR)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PALACE_BATTLE_ROOM))
-        return FRONTIER_FACILITY_PALACE + 1;
-
-    // In Battle Arena
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_ARENA_LOBBY)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_ARENA_CORRIDOR)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_ARENA_BATTLE_ROOM))
-        return FRONTIER_FACILITY_ARENA + 1;
-
-    // In Battle Factory
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_FACTORY_PRE_BATTLE_ROOM)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_FACTORY_BATTLE_ROOM))
-        return FRONTIER_FACILITY_FACTORY + 1;
-
-    // In Battle Pike
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_LOBBY)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_CORRIDOR)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_THREE_PATH_ROOM)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_ROOM_NORMAL)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_ROOM_FINAL)
-             || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS))
-        return FRONTIER_FACILITY_PIKE + 1;
-
-    // In Battle Pyramid
-    else if (mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PYRAMID_LOBBY)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
-        || mapNum == MAP_NUM(BATTLE_FRONTIER_BATTLE_PYRAMID_TOP))
-        return FRONTIER_FACILITY_PYRAMID + 1;
-
-    else
-        return 0;
+    return 0;
 }
 
 static void InitFrontierMapSprites(void)
@@ -1656,40 +1610,23 @@ static void InitFrontierMapSprites(void)
     if (id == MAPSEC_BATTLE_FRONTIER || id == MAPSEC_ARTISAN_CAVE)
     {
         s8 mapNum = gSaveBlock1Ptr->location.mapNum;
-
-        if (mapNum == MAP_NUM(BATTLE_FRONTIER_OUTSIDE_WEST)
-            || (mapNum == MAP_NUM(BATTLE_FRONTIER_OUTSIDE_EAST) && (x = 55)))
+        
+        id = MapNumToFrontierFacilityId(mapNum);
+        if (id != 0)
         {
-            x += gSaveBlock1Ptr->pos.x;
-            y = gSaveBlock1Ptr->pos.y;
-
-            x /= 8;
-            y /= 8;
-
-            id = 0;
+            x = sMapLandmarks[id - 1].x;
+            y = sMapLandmarks[id - 1].y;
         }
         else
         {
-            id = MapNumToFrontierFacilityId(mapNum);
-            if (id != 0)
-            {
-                x = sMapLandmarks[id - 1].x;
-                y = sMapLandmarks[id - 1].y;
-            }
-            else
-            {
-                // Handle Artisan Cave.
-                if (gSaveBlock1Ptr->escapeWarp.mapNum == MAP_NUM(BATTLE_FRONTIER_OUTSIDE_EAST))
-                    x = gSaveBlock1Ptr->escapeWarp.x + 55;
-                else
-                    x = gSaveBlock1Ptr->escapeWarp.x;
+            x = gSaveBlock1Ptr->escapeWarp.x;
 
-                y = gSaveBlock1Ptr->escapeWarp.y;
+            y = gSaveBlock1Ptr->escapeWarp.y;
 
-                x /= 8;
-                y /= 8;
-            }
+            x /= 8;
+            y /= 8;
         }
+        
 
         LoadCompressedSpriteSheet(sHeadsSpriteSheet);
         sprite = sSpriteTemplate_PlayerHead;

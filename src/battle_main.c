@@ -2582,13 +2582,6 @@ static void AskRecordBattle(void)
             gBattleCommunication[1] = 128; // Delay
             gBattleCommunication[MULTIUSE_STATE]++;
         }
-        else
-        {
-            BattleStringExpandPlaceholdersToDisplayedString(BattleFrontier_BattleTowerBattleRoom_Text_RecordCouldntBeSaved);
-            BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-            gBattleCommunication[1] = 128; // Delay
-            gBattleCommunication[MULTIUSE_STATE]++;
-        }
         break;
     case STATE_RECORD_WAIT:
         if (IsLinkTaskFinished() == TRUE && !IsTextPrinterActive(B_WIN_MSG) && --gBattleCommunication[1] == 0)
@@ -2735,12 +2728,7 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
     else
         species = sprite->sSpeciesId;
 
-    if (species == SPECIES_UNOWN)
-    {
-        species = GetUnownSpeciesId(personality);
-        yOffset = gMonFrontPicCoords[species].y_offset;
-    }
-    else if (species > NUM_SPECIES)
+    if (species > NUM_SPECIES)
     {
         yOffset = gMonFrontPicCoords[SPECIES_NONE].y_offset;
     }

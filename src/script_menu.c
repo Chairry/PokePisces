@@ -491,19 +491,7 @@ static void CreateLilycoveSSTidalMultichoice(void)
     }
 
     GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_WIDTH);
-
-    if (gSpecialVar_0x8004 == 0)
-    {
-        sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_SLATEPORT;
-        selectionCount++;
-
-        if (FlagGet(FLAG_MET_SCOTT_ON_SS_TIDAL) == TRUE)
-        {
-            sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_BATTLE_FRONTIER;
-            selectionCount++;
-        }
-    }
-
+    
     if (CheckBagHasItem(ITEM_EON_TICKET, 1) == TRUE && FlagGet(FLAG_ENABLE_SHIP_SOUTHERN_ISLAND) == TRUE)
     {
         if (gSpecialVar_0x8004 == 0)

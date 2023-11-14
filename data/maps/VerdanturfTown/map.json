@@ -80,13 +80,6 @@
   ],
   "warp_events": [
     {
-      "x": 3,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 12,
       "y": 3,
       "elevation": 0,

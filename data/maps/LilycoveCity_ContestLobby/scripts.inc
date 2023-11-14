@@ -558,8 +558,6 @@ LilycoveCity_ContestLobby_EventScript_BerryBlenderSpeedRecords::
 
 LilycoveCity_ContestLobby_EventScript_LinkContestResults::
 	lockall
-	frontier_results FACILITY_LINK_CONTEST
-	waitbuttonpress
 	special RemoveRecordsWindow
 	releaseall
 	end

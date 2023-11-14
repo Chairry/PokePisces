@@ -93,17 +93,17 @@ static bool8 StatusInflictionFadeIn(struct Task *task);
 static const struct PikeWildMon sLvl50_Mons1[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =   SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_BODY_SLAM, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =   SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
-        .species = SPECIES_DUSCLOPS,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_WILL_O_WISP, MOVE_MEAN_LOOK, MOVE_TOXIC, MOVE_SHADOW_PUNCH}
     }
@@ -112,17 +112,17 @@ static const struct PikeWildMon sLvl50_Mons1[] =
 static const struct PikeWildMon sLvl50_Mons2[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_BODY_SLAM, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
-        .species = SPECIES_ELECTRODE,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_EXPLOSION, MOVE_SELF_DESTRUCT, MOVE_THUNDER, MOVE_TOXIC}
     }
@@ -131,17 +131,17 @@ static const struct PikeWildMon sLvl50_Mons2[] =
 static const struct PikeWildMon sLvl50_Mons3[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_BODY_SLAM, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
-        .species = SPECIES_BRELOOM,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_SPORE, MOVE_STUN_SPORE, MOVE_POISON_POWDER, MOVE_HIDDEN_POWER}
     }
@@ -150,17 +150,17 @@ static const struct PikeWildMon sLvl50_Mons3[] =
 static const struct PikeWildMon sLvl50_Mons4[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_BODY_SLAM, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_SURF}
     },
     {
-        .species = SPECIES_WOBBUFFET,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_SAFEGUARD, MOVE_DESTINY_BOND}
     }
@@ -177,17 +177,17 @@ static const struct PikeWildMon *const sLvl50Mons[] =
 static const struct PikeWildMon sLvlOpen_Mons1[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_POISON_FANG, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_ICE_BEAM}
     },
     {
-        .species = SPECIES_DUSCLOPS,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_WILL_O_WISP, MOVE_MEAN_LOOK, MOVE_TOXIC, MOVE_ICE_BEAM}
     }
@@ -196,17 +196,17 @@ static const struct PikeWildMon sLvlOpen_Mons1[] =
 static const struct PikeWildMon sLvlOpen_Mons2[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_POISON_FANG, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_ICE_BEAM}
     },
     {
-        .species = SPECIES_ELECTRODE,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_EXPLOSION, MOVE_SELF_DESTRUCT, MOVE_THUNDER, MOVE_TOXIC}
     }
@@ -215,17 +215,17 @@ static const struct PikeWildMon sLvlOpen_Mons2[] =
 static const struct PikeWildMon sLvlOpen_Mons3[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_POISON_FANG, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_ICE_BEAM}
     },
     {
-        .species = SPECIES_BRELOOM,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_SPORE, MOVE_STUN_SPORE, MOVE_POISON_POWDER, MOVE_HIDDEN_POWER}
     }
@@ -234,17 +234,17 @@ static const struct PikeWildMon sLvlOpen_Mons3[] =
 static const struct PikeWildMon sLvlOpen_Mons4[] =
 {
     {
-        .species = SPECIES_SEVIPER,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_GLARE, MOVE_POISON_FANG, MOVE_SLUDGE_BOMB}
     },
     {
-        .species = SPECIES_MILOTIC,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 4,
         .moves = {MOVE_TOXIC, MOVE_HYPNOSIS, MOVE_BODY_SLAM, MOVE_ICE_BEAM}
     },
     {
-        .species = SPECIES_WOBBUFFET,
+        .species =  SPECIES_ARCEUS,
         .levelDelta = 5,
         .moves = {MOVE_COUNTER, MOVE_MIRROR_COAT, MOVE_SAFEGUARD, MOVE_ENCORE}
     }
@@ -1338,10 +1338,7 @@ static void GetInBattlePike(void)
 
 bool8 InBattlePike(void)
 {
-    return gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_THREE_PATH_ROOM
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_NORMAL
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS
-        || gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_UNUSED;
+    return FALSE;
 }
 
 static void SetHintedRoom(void)
@@ -1405,28 +1402,6 @@ static void PrepareOneTrainer(bool8 difficult)
     u16 challengeNum;
     u16 trainerId;
 
-    if (!difficult)
-        battleNum = 1;
-    else
-        battleNum = FRONTIER_STAGES_PER_CHALLENGE - 1;
-
-    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
-    challengeNum = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] / NUM_PIKE_ROOMS;
-    do
-    {
-        trainerId = GetRandomScaledFrontierTrainerId(challengeNum, battleNum);
-        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1; i++)
-        {
-            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
-                break;
-        }
-    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1);
-
-    gTrainerBattleOpponent_A = trainerId;
-    gFacilityTrainers = gBattleFrontierTrainers;
-    SetBattleFacilityTrainerGfxId(gTrainerBattleOpponent_A, 0);
-    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < NUM_PIKE_ROOMS)
-        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1] = gTrainerBattleOpponent_A;
 }
 
 static void PrepareTwoTrainers(void)
@@ -1436,38 +1411,6 @@ static void PrepareTwoTrainers(void)
     u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
     u16 challengeNum = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] / NUM_PIKE_ROOMS;
 
-    gFacilityTrainers = gBattleFrontierTrainers;
-    do
-    {
-        // Pick the 1st trainer, making sure it's not one that's been encountered yet in this challenge.
-        trainerId = GetRandomScaledFrontierTrainerId(challengeNum, 1);
-        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1; i++)
-        {
-            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
-                break;
-        }
-    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1);
-
-    gTrainerBattleOpponent_A = trainerId;
-    SetBattleFacilityTrainerGfxId(gTrainerBattleOpponent_A, 0);
-    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= NUM_PIKE_ROOMS)
-        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1] = gTrainerBattleOpponent_A;
-
-    do
-    {
-        // Pick the 2nd trainer, making sure it's not one that's been encountered yet in this challenge.
-        trainerId = GetRandomScaledFrontierTrainerId(challengeNum, 1);
-        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
-        {
-            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
-                break;
-        }
-    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
-
-    gTrainerBattleOpponent_B = trainerId;
-    SetBattleFacilityTrainerGfxId(gTrainerBattleOpponent_B, 1);
-    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < NUM_PIKE_ROOMS)
-        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 2] = gTrainerBattleOpponent_B;
 }
 
 static void ClearPikeTrainerIds(void)
@@ -1480,16 +1423,7 @@ static void ClearPikeTrainerIds(void)
 
 static void BufferTrainerIntro(void)
 {
-    if (gSpecialVar_0x8005 == 0)
-    {
-        if (gTrainerBattleOpponent_A < FRONTIER_TRAINERS_COUNT)
-            FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_A].speechBefore);
-    }
-    else if (gSpecialVar_0x8005 == 1)
-    {
-        if (gTrainerBattleOpponent_B < FRONTIER_TRAINERS_COUNT)
-            FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_B].speechBefore);
-    }
+
 }
 
 static bool8 AtLeastTwoAliveMons(void)
@@ -1657,13 +1591,6 @@ static bool8 CanEncounterWildMon(u8 enemyMonLevel)
 static u8 SpeciesToPikeMonId(u16 species)
 {
     u8 ret;
-
-    if (species == SPECIES_SEVIPER)
-        ret = 0;
-    else if (species == SPECIES_MILOTIC)
-        ret = 1;
-    else
-        ret = 2;
-
+    ret = 2;
     return ret;
 }

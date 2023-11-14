@@ -291,7 +291,6 @@ static const struct MenuAction MultichoiceList_HowsFishing[] =
 static const struct MenuAction MultichoiceList_SSTidalSlateportWithBF[] =
 {
     {gText_LilycoveCity},
-    {gText_BattleFrontier},
     {gText_Exit},
 };
 

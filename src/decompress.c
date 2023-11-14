@@ -102,8 +102,6 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
 {
     if (species > NUM_SPECIES)
         species = SPECIES_NONE;
-    else if (species == SPECIES_UNOWN)
-        species = GetUnownSpeciesId(personality);
 
     if (isFrontPic)
     {
@@ -124,11 +122,6 @@ void LoadSpecialPokePic(void *dest, s32 species, u32 personality, bool8 isFrontP
             LZ77UnCompWram(gMonBackPicTable[SPECIES_NONE].data, dest);
     }
 
-    if (species == SPECIES_SPINDA && isFrontPic)
-    {
-        DrawSpindaSpots(personality, dest, FALSE);
-        DrawSpindaSpots(personality, dest, TRUE);
-    }
 }
 
 void Unused_LZDecompressWramIndirect(const void **src, void *dest)

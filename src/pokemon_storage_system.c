@@ -5123,10 +5123,6 @@ static u16 TryLoadMonIconTiles(u16 species, u32 personality)
 {
     u16 i, offset;
 
-    // Treat female mons as a seperate species as they may have a different icon than males
-    if (gMonIconTableFemale[species] != NULL && IsPersonalityFemale(species, personality))
-        species |= 0x8000; // 1 << 15
-
     // Search icon list for this species
     for (i = 0; i < MAX_MON_ICONS; i++)
     {
@@ -5191,14 +5187,7 @@ static struct Sprite *CreateMonIconSprite(u16 species, u32 personality, s16 x, s
     struct SpriteTemplate template = sSpriteTemplate_MonIcon;
 
     species = GetIconSpecies(species, personality);
-    if (gMonIconTableFemale[species] != NULL && IsPersonalityFemale(species, personality))
-    {
-        template.paletteTag = PALTAG_MON_ICON_0 + gMonIconPaletteIndicesFemale[species];
-    }
-    else
-    {
-        template.paletteTag = PALTAG_MON_ICON_0 + gMonIconPaletteIndices[species];
-    }
+    template.paletteTag = PALTAG_MON_ICON_0 + gMonIconPaletteIndices[species];
 
     tileNum = TryLoadMonIconTiles(species, personality);
     if (tileNum == 0xFFFF)
@@ -7014,9 +7003,6 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
     }
     else
     {
-        if (sStorage->displayMonSpecies == SPECIES_NIDORAN_F || sStorage->displayMonSpecies == SPECIES_NIDORAN_M)
-            gender = MON_GENDERLESS;
-
         StringCopyPadded(sStorage->displayMonNameText, sStorage->displayMonName, CHAR_SPACE, 5);
 
         txtPtr = sStorage->displayMonSpeciesName;
