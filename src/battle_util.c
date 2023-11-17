@@ -4018,13 +4018,22 @@ static void ShouldChangeFormInWeather(u32 battler)
 bool32 TryChangeBattleWeather(u32 battler, u32 weatherEnumId, bool32 viaAbility)
 {
     u16 battlerAbility = GetBattlerAbility(battler);
+    u16 i;
+
+    if (weatherEnumId != WEATHER_NONE) {
+        if(IsAbilityOnField(ABILITY_AIR_LOCK)) {
+            return FALSE;
+        }
+    }
+
     if (gBattleWeather & B_WEATHER_PRIMAL_ANY
         && battlerAbility != ABILITY_DESOLATE_LAND
         && battlerAbility != ABILITY_PRIMORDIAL_SEA
         && battlerAbility != ABILITY_DELTA_STREAM)
     {
         return FALSE;
-    }
+    }    
+
 #if B_ABILITY_WEATHER <= GEN_5
     else if (viaAbility && !(gBattleWeather & sWeatherFlagsInfo[weatherEnumId][1]))
     {
@@ -4651,6 +4660,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_AnnounceAirLockCloudNine);
                 effect++;
+                TryChangeBattleWeather(battler, WEATHER_NONE, TRUE);
             }
             break;
         case ABILITY_HUDDLE_UP:
