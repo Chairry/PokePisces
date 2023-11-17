@@ -933,7 +933,6 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_WATER_VEIL] = 1,
     [ABILITY_WHITE_SMOKE] = 1,
     [ABILITY_WONDER_GUARD] = 1,
-    [ABILITY_BIG_PECKS] = 1,
     [ABILITY_CONTRARY] = 1,
     [ABILITY_FRIEND_GUARD] = 1,
     [ABILITY_HEAVY_METAL] = 1,
@@ -9086,6 +9085,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break;
     case ABILITY_STEELWORKER:
         if (moveType == TYPE_STEEL)
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_BIG_PECKS:
+        if (moveType == TYPE_FLYING)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PIXILATE:

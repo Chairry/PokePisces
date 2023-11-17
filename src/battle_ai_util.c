@@ -53,7 +53,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_BATTLE_BOND] = 6,
     [ABILITY_BEAST_BOOST] = 7,
     [ABILITY_BERSERK] = 5,
-    [ABILITY_BIG_PECKS] = 1,
+    [ABILITY_BIG_PECKS] = 6,
     [ABILITY_BLAZE] = 5,
     [ABILITY_BULLETPROOF] = 7,
     [ABILITY_CHEEK_POUCH] = 4,
@@ -1810,7 +1810,6 @@ bool32 ShouldLowerDefense(u32 battlerAtk, u32 battlerDef, u32 defAbility)
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_WHITE_SMOKE
       && defAbility != ABILITY_FULL_METAL_BODY
-      && defAbility != ABILITY_BIG_PECKS
       && AI_DATA->holdEffects[battlerDef] != HOLD_EFFECT_CLEAR_AMULET)
         return TRUE;
     return FALSE;
