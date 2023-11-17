@@ -11127,7 +11127,8 @@ bool32 IsBattlerAffectedByHazards(u32 battler, bool32 toxicSpikes)
 {
     bool32 ret = TRUE;
     u32 holdEffect = GetBattlerHoldEffect(battler, TRUE);
-    if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST || GetBattlerAbility(battler) == ABILITY_STURDY) {
+    if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST || GetBattlerAbility(battler) == ABILITY_STURDY 
+    || ((gBattleWeather & B_WEATHER_HAIL || gBattleWeather & B_WEATHER_SNOW) && GetBattlerAbility(battler) == ABILITY_SNOW_CLOAK)) {
         ret = FALSE;
     }
     else if (toxicSpikes && holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS && !IS_BATTLER_OF_TYPE(battler, TYPE_POISON))
