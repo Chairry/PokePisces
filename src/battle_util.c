@@ -9919,6 +9919,10 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
     case ABILITY_FRIEND_GUARD:
         return UQ_4_12(0.75);
         break;
+    case ABILITY_MINUS:
+        if (moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC)
+            return UQ_4_12(0.6);
+        break;
     }
     return UQ_4_12(1.0);
 }
