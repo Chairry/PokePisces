@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Seaside",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4777,7 +4777,7 @@
       "width": 68,
       "height": 44,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_heypeta",
       "border_filepath": "data/layouts/PetalburgWoodsNew/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoodsNew/map.bin"
     },
@@ -4840,6 +4840,26 @@
       "secondary_tileset": "gTileset_Chimney",
       "border_filepath": "data/layouts/WhisperCliff/border.bin",
       "blockdata_filepath": "data/layouts/WhisperCliff/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_ROAD",
+      "name": "EverGrandeRoad_Layout",
+      "width": 120,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Golden",
+      "border_filepath": "data/layouts/EverGrandeRoad/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeRoad/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_PEAK",
+      "name": "EverGrandePeak_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Golden",
+      "border_filepath": "data/layouts/EverGrandePeak/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandePeak/map.bin"
     }
   ]
 }

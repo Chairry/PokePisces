@@ -225,3 +225,9 @@ const u16 gMetatileAttributes_mauvillenew[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatiles.bin");
 const u16 gMetatileAttributes_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatile_attributes.bin");
+
+const u16 gMetatiles_heypeta[] = INCBIN_U16("data/tilesets/secondary/heypeta/metatiles.bin");
+const u16 gMetatileAttributes_heypeta[] = INCBIN_U16("data/tilesets/secondary/heypeta/metatile_attributes.bin");
+
+const u16 gMetatiles_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatiles.bin");
+const u16 gMetatileAttributes_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatile_attributes.bin");

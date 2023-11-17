@@ -1,12 +1,12 @@
 {
-  "id": "MAP_PETALBURG_WOODS_NEW",
-  "name": "PetalburgWoodsNew",
-  "layout": "LAYOUT_PETALBURG_WOODS_NEW",
+  "id": "MAP_EVER_GRANDE_PEAK",
+  "name": "EverGrandePeak",
+  "layout": "LAYOUT_EVER_GRANDE_PEAK",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -14,9 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_OLDALE_NEW",
-      "offset": 2,
-      "direction": "right"
+      "map": "MAP_EVER_GRANDE_ROAD",
+      "offset": 28,
+      "direction": "left"
     }
   ],
   "object_events": [
