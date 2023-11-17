@@ -103,7 +103,6 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_ILLUSION,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -130,7 +129,6 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_STANCE_CHANGE,
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -148,7 +146,6 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_ZEN_MODE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -164,7 +161,6 @@ static const u16 sWorrySeedBannedAbilities[] =
 {
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -189,7 +185,6 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_DORMANT,
     ABILITY_RKS_SYSTEM,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_SHIELDS_DOWN,
     ABILITY_STANCE_CHANGE,
@@ -219,7 +214,6 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_TRUANT,
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -993,7 +987,6 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_POWER_OF_ALCHEMY] = 1,
     [ABILITY_RECEIVER] = 1,
     [ABILITY_RKS_SYSTEM] = 1,
-    [ABILITY_SCHOOLING] = 1,
     [ABILITY_HUDDLE_UP] = 1,
     [ABILITY_SHIELDS_DOWN] = 1,
     [ABILITY_STANCE_CHANGE] = 1,
@@ -4660,7 +4653,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
-        case ABILITY_SCHOOLING:
         case ABILITY_HUDDLE_UP:
             if (gBattleMons[battler].level < 20)
                 break;
@@ -4943,7 +4935,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
-            case ABILITY_SCHOOLING:
             case ABILITY_HUDDLE_UP:
                 if (gBattleMons[battler].level < 20)
                     break;
@@ -5316,7 +5307,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_MULTITYPE:
                 case ABILITY_DORMANT:
                 case ABILITY_RKS_SYSTEM:
-                case ABILITY_SCHOOLING:
                 case ABILITY_HUDDLE_UP:
                 case ABILITY_SHIELDS_DOWN:
                 case ABILITY_STANCE_CHANGE:
@@ -5353,7 +5343,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_IMPOSTER:
                 case ABILITY_RECEIVER:
                 case ABILITY_RKS_SYSTEM:
-                case ABILITY_SCHOOLING:
                 case ABILITY_HUDDLE_UP:
                 case ABILITY_STANCE_CHANGE:
                 case ABILITY_WONDER_GUARD:
@@ -6208,7 +6197,6 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_ZEN_MODE:
     case ABILITY_STANCE_CHANGE:
     case ABILITY_DORMANT:
-    case ABILITY_SCHOOLING:
     case ABILITY_HUDDLE_UP:
     case ABILITY_RKS_SYSTEM:
     case ABILITY_SHIELDS_DOWN:
@@ -10075,6 +10063,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
+        mod = UQ_4_12(2.0);
+    if(moveType == TYPE_POISON && defType == TYPE_STEEL && GetBattlerAbility(battlerAtk) == ABILITY_CORROSION)
         mod = UQ_4_12(2.0);
 
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pok?mon
