@@ -1250,8 +1250,8 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(XERNEAS_ACTIVE, gMonPalette_XerneasActive),
 
     SPECIES_PAL(ZYGARDE_10, gMonPalette_Zygarde10),
-    SPECIES_PAL(ZYGARDE_10_POWER_CONSTRUCT, gMonPalette_Zygarde10),
-    SPECIES_PAL(ZYGARDE_50_POWER_CONSTRUCT, gMonPalette_Zygarde),
+    SPECIES_PAL(ZYGARDE_10_DORMANT, gMonPalette_Zygarde10),
+    SPECIES_PAL(ZYGARDE_50_DORMANT, gMonPalette_Zygarde),
     SPECIES_PAL(ZYGARDE_COMPLETE, gMonPalette_ZygardeComplete),
 
     SPECIES_PAL(HOOPA_UNBOUND, gMonPalette_HoopaUnbound),

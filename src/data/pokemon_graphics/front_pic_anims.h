@@ -12874,8 +12874,8 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_GOURGEIST_SUPER] = sAnims_Gourgeist,
     [SPECIES_XERNEAS_ACTIVE] = sAnims_Xerneas,
     [SPECIES_ZYGARDE_10] = sAnims_Zygarde10,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = sAnims_Zygarde10,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = sAnims_Zygarde,
+    [SPECIES_ZYGARDE_10_DORMANT] = sAnims_Zygarde10,
+    [SPECIES_ZYGARDE_50_DORMANT] = sAnims_Zygarde,
     [SPECIES_ZYGARDE_COMPLETE] = sAnims_ZygardeComplete,
     [SPECIES_HOOPA_UNBOUND] = sAnims_HoopaUnbound,
 #endif

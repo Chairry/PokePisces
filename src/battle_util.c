@@ -110,7 +110,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
@@ -137,7 +137,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
@@ -155,7 +155,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
 };
@@ -171,7 +171,7 @@ static const u16 sWorrySeedBannedAbilities[] =
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_TRUANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
@@ -187,7 +187,7 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ICE_FACE,
     ABILITY_MULTITYPE,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_RKS_SYSTEM,
     ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
@@ -207,7 +207,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
     ABILITY_DISGUISE,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
@@ -989,7 +989,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_MULTITYPE] = 1,
     [ABILITY_NEUTRALIZING_GAS] = 1,
     [ABILITY_NONE] = 1,
-    [ABILITY_POWER_CONSTRUCT] = 1,
+    [ABILITY_DORMANT] = 1,
     [ABILITY_POWER_OF_ALCHEMY] = 1,
     [ABILITY_RECEIVER] = 1,
     [ABILITY_RKS_SYSTEM] = 1,
@@ -4950,7 +4950,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             // Fallthrough
             case ABILITY_ZEN_MODE:
             case ABILITY_SHIELDS_DOWN:
-            case ABILITY_POWER_CONSTRUCT:
+            case ABILITY_DORMANT:
                 if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_HP_PERCENT))
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
@@ -5314,7 +5314,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_COMATOSE:
                 case ABILITY_DISGUISE:
                 case ABILITY_MULTITYPE:
-                case ABILITY_POWER_CONSTRUCT:
+                case ABILITY_DORMANT:
                 case ABILITY_RKS_SYSTEM:
                 case ABILITY_SCHOOLING:
                 case ABILITY_HUDDLE_UP:
@@ -6207,7 +6207,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_MULTITYPE:
     case ABILITY_ZEN_MODE:
     case ABILITY_STANCE_CHANGE:
-    case ABILITY_POWER_CONSTRUCT:
+    case ABILITY_DORMANT:
     case ABILITY_SCHOOLING:
     case ABILITY_HUDDLE_UP:
     case ABILITY_RKS_SYSTEM:

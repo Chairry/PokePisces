@@ -1249,8 +1249,8 @@ const struct CompressedSpriteSheet gMonFrontPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(XERNEAS_ACTIVE, gMonFrontPic_XerneasActive),
 
     SPECIES_SPRITE(ZYGARDE_10, gMonFrontPic_Zygarde10),
-    SPECIES_SPRITE(ZYGARDE_10_POWER_CONSTRUCT, gMonFrontPic_Zygarde10),
-    SPECIES_SPRITE(ZYGARDE_50_POWER_CONSTRUCT, gMonFrontPic_Zygarde),
+    SPECIES_SPRITE(ZYGARDE_10_DORMANT, gMonFrontPic_Zygarde10),
+    SPECIES_SPRITE(ZYGARDE_50_DORMANT, gMonFrontPic_Zygarde),
     SPECIES_SPRITE(ZYGARDE_COMPLETE, gMonFrontPic_ZygardeComplete),
 
     SPECIES_SPRITE(HOOPA_UNBOUND, gMonFrontPic_HoopaUnbound),

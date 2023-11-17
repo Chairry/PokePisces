@@ -417,8 +417,8 @@ static const struct FormChange sXerneasFormChangeTable[] = {
     {FORM_CHANGE_TERMINATOR},
 };
 
-static const struct FormChange sZygardePowerConstructFormChangeTable[] = {
-    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_ZYGARDE_COMPLETE, ABILITY_POWER_CONSTRUCT, HP_LOWER_EQ_THAN, 50},
+static const struct FormChange sZygardeDormantFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_ZYGARDE_COMPLETE, ABILITY_DORMANT, HP_LOWER_EQ_THAN, 50},
     {FORM_CHANGE_FAINT},
     {FORM_CHANGE_END_BATTLE},
     {FORM_CHANGE_TERMINATOR},

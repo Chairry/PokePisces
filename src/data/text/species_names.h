@@ -1255,8 +1255,8 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_XERNEAS_ACTIVE] = _("Xerneas"),
     // Zygarde
     [SPECIES_ZYGARDE_10] = _("Zygarde"),
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = _("Zygarde"),
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = _("Zygarde"),
+    [SPECIES_ZYGARDE_10_DORMANT] = _("Zygarde"),
+    [SPECIES_ZYGARDE_50_DORMANT] = _("Zygarde"),
     [SPECIES_ZYGARDE_COMPLETE] = _("Zygarde"),
     // Hoopa
     [SPECIES_HOOPA_UNBOUND] = _("Hoopa"),

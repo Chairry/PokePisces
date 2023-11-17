@@ -1237,8 +1237,8 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_GOURGEIST_SUPER] = gMonIcon_Gourgeist,
     [SPECIES_XERNEAS_ACTIVE] = gMonIcon_XerneasActive,
     [SPECIES_ZYGARDE_10] = gMonIcon_Zygarde10,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = gMonIcon_Zygarde10,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = gMonIcon_Zygarde,
+    [SPECIES_ZYGARDE_10_DORMANT] = gMonIcon_Zygarde10,
+    [SPECIES_ZYGARDE_50_DORMANT] = gMonIcon_Zygarde,
     [SPECIES_ZYGARDE_COMPLETE] = gMonIcon_ZygardeComplete,
     [SPECIES_HOOPA_UNBOUND] = gMonIcon_HoopaUnbound,
 #endif
@@ -2495,8 +2495,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_GOURGEIST_SUPER] = 2,
     [SPECIES_XERNEAS_ACTIVE] = 0,
     [SPECIES_ZYGARDE_10] = 1,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = 1,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = 1,
+    [SPECIES_ZYGARDE_10_DORMANT] = 1,
+    [SPECIES_ZYGARDE_50_DORMANT] = 1,
     [SPECIES_ZYGARDE_COMPLETE] = 1,
     [SPECIES_HOOPA_UNBOUND] = 0,
 #endif
