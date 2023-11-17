@@ -2822,8 +2822,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
     if ((battlerAbility == ABILITY_SHIELD_DUST
      || GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_COVERT_CLOAK)
       && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
-      && !primary
-      && (gBattleScripting.moveEffect <= MOVE_EFFECT_TRI_ATTACK || gBattleScripting.moveEffect >= MOVE_EFFECT_SMACK_DOWN)) // Exclude stat lowering effects
+      && !primary) 
     {
         if (battlerAbility == ABILITY_SHIELD_DUST)
             RecordAbilityBattle(gEffectBattler, battlerAbility);
@@ -2831,6 +2830,14 @@ void SetMoveEffect(bool32 primary, u32 certain)
             RecordItemEffectBattle(gEffectBattler, HOLD_EFFECT_COVERT_CLOAK);
         INCREMENT_RESET_RETURN
     }
+
+    if (gBattleWeather & B_WEATHER_SANDSTORM 
+        && battlerAbility == ABILITY_SAND_VEIL 
+        && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary) {
+            RecordAbilityBattle(gEffectBattler, battlerAbility);            
+            INCREMENT_RESET_RETURN
+        }
 
     if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
         && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_CONFUSION)
