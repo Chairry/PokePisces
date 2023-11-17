@@ -1250,8 +1250,8 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(XERNEAS_ACTIVE, gMonBackPic_XerneasActive),
 
     SPECIES_SPRITE(ZYGARDE_10, gMonBackPic_Zygarde10),
-    SPECIES_SPRITE(ZYGARDE_10_POWER_CONSTRUCT, gMonBackPic_Zygarde10),
-    SPECIES_SPRITE(ZYGARDE_50_POWER_CONSTRUCT, gMonBackPic_Zygarde),
+    SPECIES_SPRITE(ZYGARDE_10_DORMANT, gMonBackPic_Zygarde10),
+    SPECIES_SPRITE(ZYGARDE_50_DORMANT, gMonBackPic_Zygarde),
     SPECIES_SPRITE(ZYGARDE_COMPLETE, gMonBackPic_ZygardeComplete),
 
     SPECIES_SPRITE(HOOPA_UNBOUND, gMonBackPic_HoopaUnbound),

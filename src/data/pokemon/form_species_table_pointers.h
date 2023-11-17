@@ -484,8 +484,8 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_XERNEAS_ACTIVE] = sXerneasFormSpeciesIdTable,
     // Zygarde
     [SPECIES_ZYGARDE_10] = sZygardeFormSpeciesIdTable,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = sZygardeFormSpeciesIdTable,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = sZygardeFormSpeciesIdTable,
+    [SPECIES_ZYGARDE_10_DORMANT] = sZygardeFormSpeciesIdTable,
+    [SPECIES_ZYGARDE_50_DORMANT] = sZygardeFormSpeciesIdTable,
     [SPECIES_ZYGARDE_COMPLETE] = sZygardeFormSpeciesIdTable,
     // Hoopa
     [SPECIES_HOOPA_UNBOUND] = sHoopaFormSpeciesIdTable,

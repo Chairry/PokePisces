@@ -103,14 +103,13 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_ILLUSION,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
@@ -130,14 +129,13 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_STANCE_CHANGE,
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
@@ -148,14 +146,13 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_MULTITYPE,
     ABILITY_ZEN_MODE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
 };
@@ -164,14 +161,13 @@ static const u16 sWorrySeedBannedAbilities[] =
 {
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
     ABILITY_DISGUISE,
     ABILITY_RKS_SYSTEM,
     ABILITY_BATTLE_BOND,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_TRUANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
@@ -187,9 +183,8 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ICE_FACE,
     ABILITY_MULTITYPE,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_RKS_SYSTEM,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_SHIELDS_DOWN,
     ABILITY_STANCE_CHANGE,
@@ -207,7 +202,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_POWER_OF_ALCHEMY,
     ABILITY_RECEIVER,
     ABILITY_DISGUISE,
-    ABILITY_POWER_CONSTRUCT,
+    ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
@@ -219,7 +214,6 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_TRUANT,
     ABILITY_MULTITYPE,
     ABILITY_STANCE_CHANGE,
-    ABILITY_SCHOOLING,
     ABILITY_HUDDLE_UP,
     ABILITY_COMATOSE,
     ABILITY_SHIELDS_DOWN,
@@ -355,15 +349,16 @@ void HandleAction_UseMove(void)
            && gSideTimers[side].followmeTimer == 0
            && (gBattleMoves[gCurrentMove].power != 0 || (moveTarget != MOVE_TARGET_USER && moveTarget != MOVE_TARGET_ALL_BATTLERS))
            && ((GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
-            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)))
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)))
     {
         side = GetBattlerSide(gBattlerAttacker);
         for (battler = 0; battler < gBattlersCount; battler++)
         {
-            if (side != GetBattlerSide(battler)
-                && *(gBattleStruct->moveTarget + gBattlerAttacker) != battler
+            if ( *(gBattleStruct->moveTarget + gBattlerAttacker) != battler
                 && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
-                 || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER))
+                 || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
+                 || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL))
                 && GetBattlerTurnOrderNum(battler) < var
                 && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT
                 && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL
@@ -431,6 +426,8 @@ void HandleAction_UseMove(void)
                 gSpecialStatuses[battler].lightningRodRedirected = TRUE;
             else if (battlerAbility == ABILITY_STORM_DRAIN)
                 gSpecialStatuses[battler].stormDrainRedirected = TRUE;
+            else if (battlerAbility == ABILITY_MAGNET_PULL)
+                gSpecialStatuses[battler].magnetPullRedirected = TRUE;
             gBattlerTarget = battler;
         }
     }
@@ -913,6 +910,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_LEAF_GUARD] = 1,
     [ABILITY_LEVITATE] = 1,
     [ABILITY_LIGHTNING_ROD] = 1,
+    [ABILITY_MAGNET_PULL] = 1,
     [ABILITY_LIMBER] = 1,
     [ABILITY_MAGMA_ARMOR] = 1,
     [ABILITY_MARVEL_SCALE] = 1,
@@ -939,7 +937,6 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_WATER_VEIL] = 1,
     [ABILITY_WHITE_SMOKE] = 1,
     [ABILITY_WONDER_GUARD] = 1,
-    [ABILITY_BIG_PECKS] = 1,
     [ABILITY_CONTRARY] = 1,
     [ABILITY_FRIEND_GUARD] = 1,
     [ABILITY_HEAVY_METAL] = 1,
@@ -989,11 +986,10 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_MULTITYPE] = 1,
     [ABILITY_NEUTRALIZING_GAS] = 1,
     [ABILITY_NONE] = 1,
-    [ABILITY_POWER_CONSTRUCT] = 1,
+    [ABILITY_DORMANT] = 1,
     [ABILITY_POWER_OF_ALCHEMY] = 1,
     [ABILITY_RECEIVER] = 1,
     [ABILITY_RKS_SYSTEM] = 1,
-    [ABILITY_SCHOOLING] = 1,
     [ABILITY_HUDDLE_UP] = 1,
     [ABILITY_SHIELDS_DOWN] = 1,
     [ABILITY_STANCE_CHANGE] = 1,
@@ -4025,13 +4021,22 @@ static void ShouldChangeFormInWeather(u32 battler)
 bool32 TryChangeBattleWeather(u32 battler, u32 weatherEnumId, bool32 viaAbility)
 {
     u16 battlerAbility = GetBattlerAbility(battler);
+    u16 i;
+
+    if (weatherEnumId != WEATHER_NONE) {
+        if(IsAbilityOnField(ABILITY_AIR_LOCK)) {
+            return FALSE;
+        }
+    }
+
     if (gBattleWeather & B_WEATHER_PRIMAL_ANY
         && battlerAbility != ABILITY_DESOLATE_LAND
         && battlerAbility != ABILITY_PRIMORDIAL_SEA
         && battlerAbility != ABILITY_DELTA_STREAM)
     {
         return FALSE;
-    }
+    }    
+
 #if B_ABILITY_WEATHER <= GEN_5
     else if (viaAbility && !(gBattleWeather & sWeatherFlagsInfo[weatherEnumId][1]))
     {
@@ -4430,10 +4435,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
 
                 if (effect != 0)
                 {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_ANTICIPATION;
-                    gSpecialStatuses[battler].switchInAbilityDone = TRUE;
-                    BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_ANTICIPATION;                    
+                } else {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_ANTICIPATION_EVADE; 
+                    effect++;
                 }
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
             }
             break;
         case ABILITY_FRISK:
@@ -4652,7 +4660,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_CLOUD_NINE:
-        case ABILITY_AIR_LOCK:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
@@ -4660,7 +4667,15 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
-        case ABILITY_SCHOOLING:
+        case ABILITY_AIR_LOCK:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_AnnounceAirLockCloudNine);
+                effect++;
+                TryChangeBattleWeather(battler, WEATHER_NONE, TRUE);
+            }
+            break;
         case ABILITY_HUDDLE_UP:
             if (gBattleMons[battler].level < 20)
                 break;
@@ -4943,14 +4958,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
-            case ABILITY_SCHOOLING:
             case ABILITY_HUDDLE_UP:
                 if (gBattleMons[battler].level < 20)
                     break;
             // Fallthrough
             case ABILITY_ZEN_MODE:
             case ABILITY_SHIELDS_DOWN:
-            case ABILITY_POWER_CONSTRUCT:
+            case ABILITY_DORMANT:
                 if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_HP_PERCENT))
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
@@ -5065,6 +5079,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             case ABILITY_LIGHTNING_ROD:
                 if (moveType == TYPE_ELECTRIC)
                     effect = 2, statId = STAT_SPATK;
+                break;
+            case ABILITY_MAGNET_PULL:
+                if (moveType == TYPE_STEEL)
+                    effect = 2, statId = STAT_ATK;
                 break;
             case ABILITY_STORM_DRAIN:
                 if (moveType == TYPE_WATER)
@@ -5314,9 +5332,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_COMATOSE:
                 case ABILITY_DISGUISE:
                 case ABILITY_MULTITYPE:
-                case ABILITY_POWER_CONSTRUCT:
+                case ABILITY_DORMANT:
                 case ABILITY_RKS_SYSTEM:
-                case ABILITY_SCHOOLING:
                 case ABILITY_HUDDLE_UP:
                 case ABILITY_SHIELDS_DOWN:
                 case ABILITY_STANCE_CHANGE:
@@ -5353,7 +5370,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_IMPOSTER:
                 case ABILITY_RECEIVER:
                 case ABILITY_RKS_SYSTEM:
-                case ABILITY_SCHOOLING:
                 case ABILITY_HUDDLE_UP:
                 case ABILITY_STANCE_CHANGE:
                 case ABILITY_WONDER_GUARD:
@@ -5790,6 +5806,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_CUTE_CHARM:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && gBattleMons[gBattlerAttacker].hp != 0
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && TARGET_TURN_DAMAGED
+             && gBattleMons[gBattlerTarget].hp != 0
+             && RandomWeighted(RNG_CUTE_CHARM, 2, 1)
+             && !(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
+             && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+             && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS
+             && IsMoveMakingContact(move, gBattlerAttacker)
+             && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
+            {
+                gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_CuteCharmActivates;
+                effect++;
+            }
+            break;
         case ABILITY_IRON_BARBS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && gBattleMons[gBattlerTarget].hp != 0
@@ -6207,8 +6242,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_MULTITYPE:
     case ABILITY_ZEN_MODE:
     case ABILITY_STANCE_CHANGE:
-    case ABILITY_POWER_CONSTRUCT:
-    case ABILITY_SCHOOLING:
+    case ABILITY_DORMANT:
     case ABILITY_HUDDLE_UP:
     case ABILITY_RKS_SYSTEM:
     case ABILITY_SHIELDS_DOWN:
@@ -8117,6 +8151,14 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
                 RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
                 gSpecialStatuses[targetBattler].stormDrainRedirected = TRUE;
             }
+            else if (gBattleMoves[move].type == TYPE_STEEL
+                && IsAbilityOnOpposingSide(gBattlerAttacker, ABILITY_MAGNET_PULL)
+                && GetBattlerAbility(targetBattler) != ABILITY_MAGNET_PULL)
+            {
+                targetBattler ^= BIT_FLANK;
+                RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
+                gSpecialStatuses[targetBattler].magnetPullRedirected = TRUE;
+            }
         }
         break;
     case MOVE_TARGET_DEPENDS:
@@ -9059,6 +9101,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break;
     case ABILITY_STEELWORKER:
         if (moveType == TYPE_STEEL)
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_BIG_PECKS:
+        if (moveType == TYPE_FLYING)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PIXILATE:
@@ -10076,6 +10122,10 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
         mod = UQ_4_12(2.0);
+    if(moveType == TYPE_POISON && defType == TYPE_STEEL && GetBattlerAbility(battlerAtk) == ABILITY_CORROSION)
+        mod = UQ_4_12(2.0);
+    if(moveType == TYPE_WATER && GetBattlerAbility(battlerDef) == ABILITY_MAGMA_ARMOR)
+        mod = UQ_4_12(1.0);
 
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pok?mon
     if (gBattleWeather & B_WEATHER_STRONG_WINDS && WEATHER_HAS_EFFECT)
@@ -11077,7 +11127,8 @@ bool32 IsBattlerAffectedByHazards(u32 battler, bool32 toxicSpikes)
 {
     bool32 ret = TRUE;
     u32 holdEffect = GetBattlerHoldEffect(battler, TRUE);
-    if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST || GetBattlerAbility(battler) == ABILITY_STURDY) {
+    if (GetBattlerAbility(battler) == ABILITY_SHIELD_DUST || GetBattlerAbility(battler) == ABILITY_STURDY 
+    || ((gBattleWeather & B_WEATHER_HAIL || gBattleWeather & B_WEATHER_SNOW) && GetBattlerAbility(battler) == ABILITY_SNOW_CLOAK)) {
         ret = FALSE;
     }
     else if (toxicSpikes && holdEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS && !IS_BATTLER_OF_TYPE(battler, TYPE_POISON))

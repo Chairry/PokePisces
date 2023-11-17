@@ -1252,8 +1252,8 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_XERNEAS_ACTIVE] = sXerneasTeachableLearnset,
     // Zygarde
     [SPECIES_ZYGARDE_10] = sZygardeTeachableLearnset,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = sZygardeTeachableLearnset,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = sZygardeTeachableLearnset,
+    [SPECIES_ZYGARDE_10_DORMANT] = sZygardeTeachableLearnset,
+    [SPECIES_ZYGARDE_50_DORMANT] = sZygardeTeachableLearnset,
     [SPECIES_ZYGARDE_COMPLETE] = sZygardeTeachableLearnset,
     // Hoopa
     [SPECIES_HOOPA_UNBOUND] = sHoopaUnboundTeachableLearnset,

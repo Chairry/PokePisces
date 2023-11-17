@@ -1255,8 +1255,8 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_XERNEAS_ACTIVE]               = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     // Zygarde
     [SPECIES_ZYGARDE_10]                   = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  2 },
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT]   = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  2 },
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT]   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_ZYGARDE_10_DORMANT]   = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  2 },
+    [SPECIES_ZYGARDE_50_DORMANT]   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_ZYGARDE_COMPLETE]             = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     // Hoopa
     [SPECIES_HOOPA_UNBOUND]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },

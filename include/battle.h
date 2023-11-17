@@ -198,6 +198,7 @@ struct SpecialStatus
     u8 terrainAbilityDone:1;
     u8 emergencyExited:1;
     u8 afterYou:1;
+    u8 magnetPullRedirected:1;
 };
 
 struct SideTimer

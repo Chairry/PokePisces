@@ -1251,8 +1251,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_XERNEAS_ACTIVE] = sXerneasLevelUpLearnset,
     // Zygarde
     [SPECIES_ZYGARDE_10] = sZygardeLevelUpLearnset,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = sZygardeLevelUpLearnset,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = sZygardeLevelUpLearnset,
+    [SPECIES_ZYGARDE_10_DORMANT] = sZygardeLevelUpLearnset,
+    [SPECIES_ZYGARDE_50_DORMANT] = sZygardeLevelUpLearnset,
     [SPECIES_ZYGARDE_COMPLETE] = sZygardeLevelUpLearnset,
     // Hoopa
     [SPECIES_HOOPA_UNBOUND] = sHoopaUnboundLevelUpLearnset,
