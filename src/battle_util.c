@@ -928,6 +928,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_STORM_DRAIN] = 1,
     [ABILITY_STURDY] = 1,
     [ABILITY_SUCTION_CUPS] = 1,
+    [ABILITY_STALWART] = 1,
     [ABILITY_TANGLED_FEET] = 1,
     [ABILITY_THICK_FAT] = 1,
     [ABILITY_UNAWARE] = 1,
@@ -9909,7 +9910,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef)
+static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef, u32 moveType)
 {
     if (!IsBattlerAlive(battlerPartnerDef))
         return UQ_4_12(1.0);
@@ -9997,14 +9998,14 @@ static inline uq4_12_t GetOtherModifiers(u32 move, u32 moveType, u32 battlerAtk,
     {
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(battlerAtk, typeEffectivenessModifier, isCrit, abilityAtk));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderAbilitiesModifier(move, moveType, battlerAtk, battlerDef, typeEffectivenessModifier, abilityDef));
-        DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(battlerDefPartner));
+        DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(battlerDefPartner, moveType));
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerItemsModifier(battlerAtk, typeEffectivenessModifier, holdEffectAtk));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderItemsModifier(moveType, battlerDef, typeEffectivenessModifier, updateFlags, abilityDef, holdEffectDef));
     }
     else
     {
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderAbilitiesModifier(move, moveType, battlerAtk, battlerDef, typeEffectivenessModifier, abilityDef));
-        DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(battlerDefPartner));
+        DAMAGE_MULTIPLY_MODIFIER(GetDefenderPartnerAbilitiesModifier(battlerDefPartner, moveType));
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerAbilitiesModifier(battlerAtk, typeEffectivenessModifier, isCrit, abilityAtk));
         DAMAGE_MULTIPLY_MODIFIER(GetDefenderItemsModifier(moveType, battlerDef, typeEffectivenessModifier, updateFlags, abilityDef, holdEffectDef));
         DAMAGE_MULTIPLY_MODIFIER(GetAttackerItemsModifier(battlerAtk, typeEffectivenessModifier, holdEffectAtk));

@@ -2154,7 +2154,8 @@ BattleScript_EffectHitSwitchTarget:
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
 	moveendall
-	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
+	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut 
+	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut 
 	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
 	tryhitswitchtarget BattleScript_MoveEnd
 	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
@@ -3743,6 +3744,7 @@ BattleScript_EffectRoar::
 	jumpifroarfails BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
+	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut
 	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
@@ -10291,6 +10293,7 @@ BattleScript_RedCardActivates::
 	swapattackerwithtarget
 	jumpifstatus3 BS_EFFECT_BATTLER, STATUS3_ROOTED, BattleScript_RedCardIngrain
 	jumpifability BS_EFFECT_BATTLER, ABILITY_SUCTION_CUPS, BattleScript_RedCardSuctionCups
+	jumpifability BS_EFFECT_BATTLER, ABILITY_STALWART, BattleScript_RedCardIngrain
 	removeitem BS_SCRIPTING
 	setbyte sSWITCH_CASE, B_SWITCH_RED_CARD
 	forcerandomswitch BattleScript_RedCardEnd
