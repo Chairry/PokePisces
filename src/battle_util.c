@@ -6355,15 +6355,11 @@ u32 IsAbilityOnFieldExcept(u32 battler, u32 ability)
 u32 IsAbilityPreventingEscape(u32 battler)
 {
     u32 id;
-#if B_GHOSTS_ESCAPE >= GEN_6
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return 0;
-#endif
-#if B_SHADOW_TAG_ESCAPE >= GEN_4
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_DARK) && IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG) == 1)
+        return 0;
     if ((id = IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG)) && GetBattlerAbility(battler) != ABILITY_SHADOW_TAG)
-#else
-    if ((id = IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG)))
-#endif
         return id;
     if ((id = IsAbilityOnOpposingSide(battler, ABILITY_ARENA_TRAP)) && IsBattlerGrounded(battler))
         return id;
