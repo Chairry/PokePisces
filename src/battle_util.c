@@ -9350,6 +9350,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     u32 atkStat;
     uq4_12_t modifier;
     u16 atkBaseSpeciesId;
+    u8 formNum;
 
     atkBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species);
 
@@ -9401,6 +9402,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     // attacker's abilities
     switch (atkAbility)
     {
+    case ABILITY_DORMANT:
+        if (IS_MOVE_PHYSICAL(move)) // && gBattleMons[battlerAtk].species == SPECIES_BISHOUCHA_WARMONGER
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
         if (IS_MOVE_PHYSICAL(move))
