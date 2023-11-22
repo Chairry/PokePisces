@@ -123,6 +123,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_INFILTRATOR] = 6,
     [ABILITY_INNARDS_OUT] = 5,
     [ABILITY_INNER_FOCUS] = 2,
+    [ABILITY_PROPELLER_TAIL] = 2,
     [ABILITY_INSOMNIA] = 4,
     [ABILITY_INTIMIDATE] = 7,
     [ABILITY_IRON_BARBS] = 6,
@@ -277,7 +278,6 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_MIRROR_ARMOR] = 6,
     [ABILITY_GULP_MISSILE] = 3,
     [ABILITY_STALWART] = 2,
-    [ABILITY_PROPELLER_TAIL] = 2,
     [ABILITY_STEAM_ENGINE] = 3,
     [ABILITY_PUNK_ROCK] = 2,
     [ABILITY_SAND_SPIT] = 5,
@@ -2961,7 +2961,8 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
 u32 ShouldTryToFlinch(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbility, u32 move)
 {
-    if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER && (defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS))
+    if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER 
+      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS))
       || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
       || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
       || AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_SLOWER)) // Opponent goes first
@@ -3002,7 +3003,9 @@ bool32 ShouldFakeOut(u32 battlerAtk, u32 battlerDef, u32 move)
     || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
     || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
     || (AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER
-    && (AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS)))
+    && (AI_DATA->abilities[battlerDef]  == ABILITY_PROPELLER_TAIL 
+        || AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST 
+        || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS)))
         return FALSE;
 
     return TRUE;
