@@ -10526,3 +10526,56 @@ BattleScript_EffectSnow::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
 	setsnow
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_IlluminateActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+	printstring STRINGID_PKMNINCREASEACCWITH
+BattleScript_IlluminateLoop:
+	jumpifabsent BS_TARGET, BattleScript_IlluminateLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_IlluminateLoopIncrement
+BattleScript_IlluminateEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	setstatchanger STAT_ACC, 1, FALSE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_IlluminateLoopIncrement
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_IlluminateContrary
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1	
+BattleScript_IlluminateEffect_WaitString:
+	copybyte sBATTLER, gBattlerTarget
+BattleScript_IlluminateLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_IlluminateLoop
+BattleScript_IlluminateEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
+BattleScript_IlluminateContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_IlluminateContrary_WontDecrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatDownStringIds
+	goto BattleScript_IlluminateEffect_WaitString
+BattleScript_IlluminateContrary_WontDecrease:
+	printstring STRINGID_STATSWONTDECREASE2
+	goto BattleScript_IlluminateEffect_WaitString
+
+BattleScript_IlluminatePrevented:
+	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_LONG
+	setbyte gBattleCommunication STAT_ACC
+	stattextbuffer BS_TARGET
+	printstring STRINGID_STATSWONTINCREASE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_IlluminateLoopIncrement
+
+BattleScript_IlluminateInReverse:
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_AbilityPopUpTarget
+	pause B_WAIT_TIME_SHORT
+	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_IlluminateLoopIncrement, ANIM_ON
+	goto BattleScript_IlluminateLoopIncrement

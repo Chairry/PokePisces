@@ -4690,6 +4690,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_ILLUMINATE:
+            if (!gSpecialStatuses[battler].switchInAbilityDone && CompareStat(battler, STAT_ACC, MAX_STAT_STAGE, CMP_LESS_THAN))
+            {
+                gBattlerAttacker = battler;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                SET_STATCHANGER(STAT_ACC, 1, FALSE);
+                BattleScriptPushCursorAndCallback(BattleScript_IlluminateActivates);
+                effect++;
+            }
+            break;
         case ABILITY_INTREPID_SWORD:
             if (!gSpecialStatuses[battler].switchInAbilityDone && CompareStat(battler, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN))
             {
