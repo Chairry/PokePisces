@@ -5071,8 +5071,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_ABSORBING: // 3
         if (move != MOVE_NONE)
         {
-            u8 statId;
-            u8 statAmount = 1;
+            u8 statId, statId2;
+            u8 statAmount = 1, statAmount2;
             switch (gLastUsedAbility)
             {
             case ABILITY_VOLT_ABSORB:
@@ -5114,7 +5114,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 break;
             case ABILITY_WIND_RIDER:
                 if (gBattleMoves[gCurrentMove].windMove && !(GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove) & MOVE_TARGET_USER))
-                    effect = 2, statId = STAT_ATK;
+                    effect = 3;
                 break;
             case ABILITY_EARTH_EATER:
                 if (moveType == TYPE_GROUND)
@@ -5165,9 +5165,23 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gBattlescriptCurrInstr = BattleScript_MoveStatDrain_PPLoss;
 
                     SET_STATCHANGER(statId, statAmount, FALSE);
-                #if B_ABSORBING_ABILITY_STRING < GEN_5
-                    PREPARE_STAT_BUFFER(gBattleTextBuff1, statId);
-                #endif
+                }
+            }
+            else if (effect == 3) // Boost 2 Stat ability;
+            {
+                if (!CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN) && !CompareStat(battler, statId2, MAX_STAT_STAGE, CMP_LESS_THAN))
+                {
+                    if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
+                }
+                else
+                {
+                    if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain2;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MoveStatDrain2_PPLoss;
                 }
             }
         }
@@ -6365,11 +6379,13 @@ u32 IsAbilityOnFieldExcept(u32 battler, u32 ability)
 u32 IsAbilityPreventingEscape(u32 battler)
 {
     u32 id;
+    if(IsAbilityOnField(ABILITY_ILLUMINATE))
+        return 0;
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return 0;
     if (IS_BATTLER_OF_TYPE(battler, TYPE_DARK) && IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG) == 1)
         return 0;
-    if ((id = IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG)) && GetBattlerAbility(battler) != ABILITY_SHADOW_TAG && GetBattlerAbility(battler) != ABILITY_ILLUMINATE)
+    if ((id = IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG)) && GetBattlerAbility(battler) != ABILITY_SHADOW_TAG)
         return id;
     if ((id = IsAbilityOnOpposingSide(battler, ABILITY_ARENA_TRAP)) && IsBattlerGrounded(battler))
         return id;

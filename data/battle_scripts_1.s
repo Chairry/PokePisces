@@ -3031,7 +3031,9 @@ BattleScript_TryTailwindAbilitiesLoop_Ret:
 
 BattleScript_TryTailwindAbilitiesLoop_WindRider:
 	call BattleScript_AbilityPopUp
-	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_TryTailwindAbilitiesLoop_Increment, ANIM_ON
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_TryTailwindAbilitiesLoop_WindRiderAtkEnd, ANIM_ON
+BattleScript_TryTailwindAbilitiesLoop_WindRiderAtkEnd:
+	modifybattlerstatstage BS_TARGET, STAT_SPATK, INCREASE, 1, BattleScript_TryTailwindAbilitiesLoop_Increment, ANIM_ON
 	goto BattleScript_TryTailwindAbilitiesLoop_Increment
 
 BattleScript_TryTailwindAbilitiesLoop_WindPower:
@@ -8960,6 +8962,37 @@ BattleScript_MoveStatDrain::
 	waitmessage B_WAIT_TIME_LONG
 .endif
 BattleScript_MoveStatDrain_Cont:
+	clearsemiinvulnerablebit
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
+BattleScript_MoveStatDrain2_PPLoss::
+	ppreduce
+BattleScript_MoveStatDrain2::
+	attackstring
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_MoveStatDrain2Atk
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_MoveStatDrain2Atk::
+	setstatchanger STAT_ATK, 1, FALSE
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	statbuffchange MOVE_EFFECT_ATK_PLUS_1 | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveStatDrain2TrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MoveStatDrain2TrySpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MoveStatDrain2TrySpAtk::
+	setstatchanger STAT_SPATK, 1, FALSE
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	statbuffchange MOVE_EFFECT_SP_ATK_PLUS_1 | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveStatDrain2End
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MoveStatDrain2End
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MoveStatDrain2End:
 	clearsemiinvulnerablebit
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
