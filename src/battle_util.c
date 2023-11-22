@@ -6379,7 +6379,7 @@ u32 IsAbilityOnFieldExcept(u32 battler, u32 ability)
 u32 IsAbilityPreventingEscape(u32 battler)
 {
     u32 id;
-    if(IsAbilityOnField(ABILITY_ILLUMINATE))
+    if(IsAbilityOnField(ABILITY_ILLUMINATE) && IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG) == 1)
         return 0;
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return 0;
@@ -9468,26 +9468,26 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
-    #if B_PLUS_MINUS_INTERACTION >= GEN_5
-    case ABILITY_PLUS:
-    case ABILITY_MINUS:
-        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
-        {
-            u32 partnerAbility = GetBattlerAbility(BATTLE_PARTNER(battlerAtk));
-            if (partnerAbility == ABILITY_PLUS || partnerAbility == ABILITY_MINUS)
-                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-        }
-        break;
-    #else
-    case ABILITY_PLUS:
-        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_MINUS)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-        break;
-    case ABILITY_MINUS:
-        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_PLUS)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-        break;
-    #endif
+//    #if B_PLUS_MINUS_INTERACTION >= GEN_5
+//    case ABILITY_PLUS:
+//    case ABILITY_MINUS:
+//        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+//        {
+//            u32 partnerAbility = GetBattlerAbility(BATTLE_PARTNER(battlerAtk));
+//            if (partnerAbility == ABILITY_PLUS || partnerAbility == ABILITY_MINUS)
+//                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+//        }
+//        break;
+//    #else
+//    case ABILITY_PLUS:
+//        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_MINUS)
+//            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+//        break;
+//    case ABILITY_MINUS:
+//        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_PLUS)
+//            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+//        break;
+//    #endif
     case ABILITY_FLOWER_GIFT:
         if (gBattleMons[battlerAtk].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
@@ -9950,7 +9950,7 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
         break;
     case ABILITY_MINUS:
         if (moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC)
-            return UQ_4_12(0.6);
+            return UQ_4_12(0.7);
         break;
     }
     return UQ_4_12(1.0);
