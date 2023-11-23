@@ -9940,6 +9940,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
 
 static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef, u32 moveType)
 {
+    u32 battlerDef = BATTLE_PARTNER(battlerPartnerDef);
     if (!IsBattlerAlive(battlerPartnerDef))
         return UQ_4_12(1.0);
 
@@ -9949,8 +9950,8 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
         return UQ_4_12(0.75);
         break;
     case ABILITY_MINUS:
-        if (moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC)
-            return UQ_4_12(0.6);
+        if (GetBattlerType(battlerDef) == TYPE_STEEL || GetBattlerType(battlerDef) == TYPE_ELECTRIC)
+            return UQ_4_12(0.7);
         break;
     }
     return UQ_4_12(1.0);
