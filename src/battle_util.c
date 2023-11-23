@@ -915,6 +915,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_LIMBER] = 1,
     [ABILITY_MAGMA_ARMOR] = 1,
     [ABILITY_MARVEL_SCALE] = 1,
+    [ABILITY_EXTREMO] = 1,
     [ABILITY_MOTOR_DRIVE] = 1,
     [ABILITY_OBLIVIOUS] = 1,
     [ABILITY_OWN_TEMPO] = 1,
@@ -9629,6 +9630,14 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             if (updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_MARVEL_SCALE);
+        }
+        break;
+    case ABILITY_EXTREMO:
+        if (gBattleMons[battlerDef].status1 & STATUS1_ANY)
+        {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2));
+            if (updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_EXTREMO);
         }
         break;
     case ABILITY_FUR_COAT:
