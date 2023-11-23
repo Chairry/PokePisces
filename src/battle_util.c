@@ -9941,7 +9941,7 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
         // Fall through if partner ability is minus
     case ABILITY_MINUS:
         if (GetBattlerType(battlerDef) == TYPE_STEEL || GetBattlerType(battlerDef) == TYPE_ELECTRIC)
-            return UQ_4_12(0.7);
+            return UQ_4_12(0.8);
         break;
     }
     return UQ_4_12(1.0);
