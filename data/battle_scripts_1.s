@@ -8716,6 +8716,12 @@ BattleScript_RuinAbilityActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_FallingAbilityActivates::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTATS
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_SupremeOverlordActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
