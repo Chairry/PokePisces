@@ -6388,6 +6388,8 @@ u32 IsAbilityOnFieldExcept(u32 battler, u32 ability)
 u32 IsAbilityPreventingEscape(u32 battler)
 {
     u32 id;
+    if (GetBattlerAbility(battler) == ABILITY_LUMBERING)
+        return 1;
     if(IsAbilityOnField(ABILITY_ILLUMINATE) && IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG) == 1)
         return 0;
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
