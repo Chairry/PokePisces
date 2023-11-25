@@ -9106,7 +9106,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     case ABILITY_SAND_FORCE:
         if ((moveType == TYPE_STEEL || moveType == TYPE_ROCK || moveType == TYPE_GROUND)
             && weather & B_WEATHER_SANDSTORM)
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_RIVALRY:
         if (AreBattlersOfSameGender(battlerAtk, battlerDef))
