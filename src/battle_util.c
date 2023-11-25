@@ -2546,6 +2546,7 @@ enum
     ENDTURN_POWDER,
     ENDTURN_THROAT_CHOP,
     ENDTURN_SLOW_START,
+    ENDTURN_STARS_GRACE,
     ENDTURN_PLASMA_FISTS,
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
@@ -3095,6 +3096,16 @@ u8 DoBattlerEndTurnEffects(void)
                 && ability == ABILITY_SLOW_START)
             {
                 BattleScriptExecute(BattleScript_SlowStartEnds);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_STARS_GRACE:
+            if (gDisableStructs[battler].slowStartTimer
+                && ++gDisableStructs[battler].slowStartTimer == 3
+                && ability == ABILITY_STARS_GRACE)
+            {
+                BattleScriptExecute(BattleScript_StarsGraceStarts);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -4357,6 +4368,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
                 gDisableStructs[battler].slowStartTimer = 5;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
+        case ABILITY_STARS_GRACE:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gDisableStructs[battler].slowStartTimer = 0;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
@@ -9451,6 +9472,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     case ABILITY_SLOW_START:
         if (gDisableStructs[battlerAtk].slowStartTimer != 0)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
+    case ABILITY_STARS_GRACE:
+        if (gDisableStructs[battlerAtk].slowStartTimer >= 3 && IS_MOVE_SPECIAL(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_SOLAR_POWER:
         if (IS_MOVE_SPECIAL(move) && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN))

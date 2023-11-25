@@ -683,8 +683,9 @@
 #define STRINGID_ANTICIPATIONEVADEACTIVATES           680
 #define STRINGID_PKMNINCREASEACCWITH                  681    
 #define STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTATS 682
+#define STRINGID_STARSGRACESTART                      683  
 
-#define BATTLESTRINGS_COUNT                           683
+#define BATTLESTRINGS_COUNT                           684
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
