@@ -9521,6 +9521,12 @@ static const union AnimCmd sAnim_Spiritoast_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Happea_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11491,6 +11497,7 @@ SINGLE_ANIMATION(Kodough);
 SINGLE_ANIMATION(Slickslice);
 SINGLE_ANIMATION(Loafoof);
 SINGLE_ANIMATION(Spiritoast);
+SINGLE_ANIMATION(Happea);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12600,6 +12607,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SLICKSLICE] = sAnims_Slickslice,
     [SPECIES_LOAFOOF] = sAnims_Loafoof,
     [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
+    [SPECIES_HAPPEA] = sAnims_Happea,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

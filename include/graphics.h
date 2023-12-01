@@ -7327,6 +7327,12 @@ extern const u32 gMonBackPic_Spiritoast[];
 extern const u32 gMonShinyPalette_Spiritoast[];
 extern const u8 gMonIcon_Spiritoast[];
 extern const u8 gMonFootprint_Spiritoast[];
+extern const u32 gMonFrontPic_Happea[];
+extern const u32 gMonPalette_Happea[];
+extern const u32 gMonBackPic_Happea[];
+extern const u32 gMonShinyPalette_Happea[];
+extern const u8 gMonIcon_Happea[];
+extern const u8 gMonFootprint_Happea[];
 #endif
 
 // trainer sprites

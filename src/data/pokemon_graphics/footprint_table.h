@@ -930,6 +930,7 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_SLICKSLICE] = gMonFootprint_Slickslice,
     [SPECIES_LOAFOOF] = gMonFootprint_Loafoof,
     [SPECIES_SPIRITOAST] = gMonFootprint_Spiritoast,
+    [SPECIES_HAPPEA] = gMonFootprint_Happea,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

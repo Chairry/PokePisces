@@ -5518,4 +5518,10 @@ const u8 gSpiritoastPokedexText[] = _(
     "Slickslice live. They are resentful\n"
     "spirits, eternally haunting the one who\n"
     "caused the fire.");
+
+const u8 gHappeaPokedexText[] = _(
+    "Found in the coldest of places, their\n"
+    "smiles bring warmth to anyone near them.\n"
+    "They also like getting shot, so it's\n"
+    "advised to stay away from them.");
 #endif

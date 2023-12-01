@@ -963,6 +963,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SLICKSLICE] = gMonIcon_Slickslice,
     [SPECIES_LOAFOOF] = gMonIcon_Loafoof,
     [SPECIES_SPIRITOAST] = gMonIcon_Spiritoast,
+    [SPECIES_HAPPEA] = gMonIcon_Happea,
 #endif
     [SPECIES_VENUSAUR_MEGA] = gMonIcon_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = gMonIcon_CharizardMegaX,
@@ -2262,6 +2263,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SLICKSLICE] = 2,
     [SPECIES_LOAFOOF] = 2,
     [SPECIES_SPIRITOAST] = 2,
+    [SPECIES_HAPPEA] = 0,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
