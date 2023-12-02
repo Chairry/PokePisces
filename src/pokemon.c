@@ -166,6 +166,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(SLICKSLICE),
     SPECIES_TO_HOENN(LOAFOOF),
     SPECIES_TO_HOENN(SPIRITOAST),
+    SPECIES_TO_HOENN(HAPPEA),
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1107,6 +1108,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SLICKSLICE),
     SPECIES_TO_NATIONAL(LOAFOOF),
     SPECIES_TO_NATIONAL(SPIRITOAST),
+    SPECIES_TO_NATIONAL(HAPPEA),
 #endif
 
     // Megas
@@ -1588,6 +1590,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(SLICKSLICE),
     HOENN_TO_NATIONAL(LOAFOOF),
     HOENN_TO_NATIONAL(SPIRITOAST),
+    HOENN_TO_NATIONAL(HAPPEA),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -2581,6 +2584,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SLICKSLICE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_LOAFOOF - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPIRITOAST - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_HAPPEA - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]   = ANIM_GROW_VIBRATE,
