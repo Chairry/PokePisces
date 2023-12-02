@@ -4854,8 +4854,8 @@
     {
       "id": "LAYOUT_EVER_GRANDE_PEAK",
       "name": "EverGrandePeak_Layout",
-      "width": 60,
-      "height": 60,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Golden",
       "border_filepath": "data/layouts/EverGrandePeak/border.bin",
