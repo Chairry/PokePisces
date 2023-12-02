@@ -11150,12 +11150,12 @@ const struct PokedexEntry gPokedexEntries[] =
     {
         .categoryName = _("Happy"),
         .height = 9,
-        .weight = 200,
+        .weight = 125,
         .description = gHappeaPokedexText,
-        .pokemonScale = 256,
-        .pokemonOffset = 3,
-        .trainerScale = 257,
-        .trainerOffset = -1,
+        .pokemonScale = 338,
+        .pokemonOffset = 8,
+        .trainerScale = 256,
+        .trainerOffset = 0,
     },
 #endif
 };

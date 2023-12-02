@@ -5522,6 +5522,7 @@ const u8 gSpiritoastPokedexText[] = _(
 const u8 gHappeaPokedexText[] = _(
     "Found in the coldest of places, their\n"
     "smiles bring warmth to anyone near them.\n"
-    "They also like getting shot, so it's\n"
-    "advised to stay away from them.");
+    "They also like lobbing themselves at\n"
+    "others, therefore it's best to avoid them.");
+
 #endif
