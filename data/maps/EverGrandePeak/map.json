@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_EVER_GRANDE_ROAD",
-      "offset": 28,
+      "offset": 48,
       "direction": "left"
     }
   ],
@@ -23,7 +23,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 18,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_PEAK",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

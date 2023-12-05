@@ -936,6 +936,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SLICKSLICE] = _("Slickslice"),
     [SPECIES_LOAFOOF] = _("Loafoof"),
     [SPECIES_SPIRITOAST] = _("Spiritoast"),
+    [SPECIES_HAPPEA] = _("Happea"),
 #endif
 
     // Megas

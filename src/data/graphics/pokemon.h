@@ -7258,4 +7258,10 @@ const u32 gMonBackPic_Spiritoast[] = INCBIN_U32("graphics/pokemon/62spiritoast/b
 const u32 gMonShinyPalette_Spiritoast[] = INCBIN_U32("graphics/pokemon/62spiritoast/shiny.gbapal.lz");
 const u8 gMonIcon_Spiritoast[] = INCBIN_U8("graphics/pokemon/62spiritoast/icon.4bpp");
 const u8 gMonFootprint_Spiritoast[] = INCBIN_U8("graphics/pokemon/62spiritoast/footprint.1bpp");
+const u32 gMonFrontPic_Happea[] = INCBIN_U32("graphics/pokemon/65happea/front.4bpp.lz");
+const u32 gMonPalette_Happea[] = INCBIN_U32("graphics/pokemon/65happea/normal.gbapal.lz");
+const u32 gMonBackPic_Happea[] = INCBIN_U32("graphics/pokemon/65happea/back.4bpp.lz");
+const u32 gMonShinyPalette_Happea[] = INCBIN_U32("graphics/pokemon/65happea/shiny.gbapal.lz");
+const u8 gMonIcon_Happea[] = INCBIN_U8("graphics/pokemon/65happea/icon.4bpp");
+const u8 gMonFootprint_Happea[] = INCBIN_U8("graphics/pokemon/65happea/footprint.1bpp");
 #endif

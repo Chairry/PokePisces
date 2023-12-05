@@ -31187,6 +31187,10 @@ static const u16 sLoafoofTeachableLearnset[] = {
 static const u16 sSpiritoastTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sHappeaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {

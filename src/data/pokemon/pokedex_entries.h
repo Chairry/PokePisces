@@ -11145,5 +11145,17 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+
+    [NATIONAL_DEX_HAPPEA] =
+    {
+        .categoryName = _("Happy"),
+        .height = 9,
+        .weight = 125,
+        .description = gHappeaPokedexText,
+        .pokemonScale = 338,
+        .pokemonOffset = 8,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 #endif
 };
