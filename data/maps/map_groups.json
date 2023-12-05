@@ -137,7 +137,13 @@
     "MidneorFalls",
     "WhisperCliff",
     "EverGrandeRoad",
-    "EverGrandePeak"
+    "EverGrandePeak",
+    "CaveOfOrigin",
+    "UnduraTunnels",
+    "UnduraTunnelsDeep",
+    "MidneorFallsCave",
+    "MeteorNadir",
+    "EverGrandeTransitionCave"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
