@@ -9250,7 +9250,13 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             break;
         case ABILITY_PLUS:
             if (moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC)
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+            break;
+        case ABILITY_MINUS:
+            if ((moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC) 
+            && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) 
+            && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_PLUS)
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.3));
             break;
         }
     }
@@ -9469,12 +9475,6 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
-    case ABILITY_MINUS:
-        if ((moveType == TYPE_STEEL || moveType == TYPE_ELECTRIC) 
-            && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)) 
-            && GetBattlerAbility(BATTLE_PARTNER(battlerAtk)) == ABILITY_PLUS)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-        break;
     case ABILITY_FLOWER_GIFT:
         if (gBattleMons[battlerAtk].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
@@ -9635,7 +9635,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     case ABILITY_EXTREMO:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY)
         {
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
             if (updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_EXTREMO);
         }
@@ -9945,13 +9945,17 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
         return UQ_4_12(0.75);
         break;
     case ABILITY_PLUS:
-        if (GetBattlerAbility(battlerDef) != ABILITY_MINUS)
-            break;
+        if (GetBattlerType(battlerDef, 0) == TYPE_STEEL || GetBattlerType(battlerDef, 0) == TYPE_ELECTRIC
+            || GetBattlerType(battlerDef, 1) == TYPE_STEEL || GetBattlerType(battlerDef, 1) == TYPE_ELECTRIC
+            || IsBattlerAlive(BATTLE_PARTNER(battlerPartnerDef)) 
+            || GetBattlerAbility(BATTLE_PARTNER(battlerPartnerDef)) == ABILITY_MINUS)
+            return UQ_4_12(0.85);
+        break;
         // Fall through if partner ability is minus
     case ABILITY_MINUS:
         if (GetBattlerType(battlerDef, 0) == TYPE_STEEL || GetBattlerType(battlerDef, 0) == TYPE_ELECTRIC
             || GetBattlerType(battlerDef, 1) == TYPE_STEEL || GetBattlerType(battlerDef, 1) == TYPE_ELECTRIC)
-            return UQ_4_12(0.8);
+            return UQ_4_12(0.85);
         break;
     }
     return UQ_4_12(1.0);
