@@ -4860,6 +4860,66 @@
       "secondary_tileset": "gTileset_Golden",
       "border_filepath": "data/layouts/EverGrandePeak/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandePeak/map.bin"
+    },
+    {
+      "id": "LAYOUT_CAVE_OF_ORIGIN",
+      "name": "CaveOfOrigin_Layout",
+      "width": 40,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Golden",
+      "border_filepath": "data/layouts/CaveOfOrigin/border.bin",
+      "blockdata_filepath": "data/layouts/CaveOfOrigin/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDURA_TUNNELS",
+      "name": "UnduraTunnels_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/UnduraTunnels/border.bin",
+      "blockdata_filepath": "data/layouts/UnduraTunnels/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDURA_TUNNELS_DEEP",
+      "name": "UnduraTunnelsDeep_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/UnduraTunnelsDeep/border.bin",
+      "blockdata_filepath": "data/layouts/UnduraTunnelsDeep/map.bin"
+    },
+    {
+      "id": "LAYOUT_MIDNEOR_FALLS_CAVE",
+      "name": "MidneorFallsCave_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/MidneorFallsCave/border.bin",
+      "blockdata_filepath": "data/layouts/MidneorFallsCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_NADIR",
+      "name": "MeteorNadir_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/MeteorNadir/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorNadir/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_TRANSITION_CAVE",
+      "name": "EverGrandeTransitionCave_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Golden",
+      "border_filepath": "data/layouts/EverGrandeTransitionCave/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeTransitionCave/map.bin"
     }
   ]
 }
