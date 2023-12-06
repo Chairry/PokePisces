@@ -3278,6 +3278,7 @@ void FaintClearSetData(u32 battler)
     gProtectStructs[battler].protected = FALSE;
     gProtectStructs[battler].spikyShielded = FALSE;
     gProtectStructs[battler].kingsShielded = FALSE;
+    gProtectStructs[battler].detectShielded = FALSE;
     gProtectStructs[battler].banefulBunkered = FALSE;
     gProtectStructs[battler].quash = FALSE;
     gProtectStructs[battler].obstructed = FALSE;
@@ -4955,6 +4956,7 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].protected = FALSE;
             gProtectStructs[i].spikyShielded = FALSE;
             gProtectStructs[i].kingsShielded = FALSE;
+            gProtectStructs[i].detectShielded = FALSE;
             gProtectStructs[i].banefulBunkered = FALSE;
             gProtectStructs[i].quash = FALSE;
         }

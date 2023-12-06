@@ -8375,7 +8375,7 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return TRUE;
     else if ((gProtectStructs[battler].obstructed || gProtectStructs[battler].silkTrapped) && !IS_MOVE_STATUS(move))
         return TRUE;
-    else if (gProtectStructs[battler].spikyShielded)
+    else if (gProtectStructs[battler].spikyShielded || gProtectStructs[battler].detectShielded)
         return TRUE;
     else if (gProtectStructs[battler].kingsShielded && gBattleMoves[move].power != 0)
         return TRUE;
