@@ -939,6 +939,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_LOAFOOF] = sLoafoofTeachableLearnset,
     [SPECIES_SPIRITOAST] = sSpiritoastTeachableLearnset,
     [SPECIES_HAPPEA] = sHappeaTeachableLearnset,
+    [SPECIES_COFFIDDLE] = sCoffiddleTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,

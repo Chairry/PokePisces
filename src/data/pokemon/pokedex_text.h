@@ -5525,4 +5525,10 @@ const u8 gHappeaPokedexText[] = _(
     "They also like lobbing themselves at\n"
     "others, therefore it's best to avoid them.");
 
+const u8 gCoffiddlePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
 #endif

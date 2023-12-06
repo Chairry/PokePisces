@@ -4106,6 +4106,10 @@ Cry_Spiritoast::
 	.align 2
 Cry_Happea::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Coffiddle::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2

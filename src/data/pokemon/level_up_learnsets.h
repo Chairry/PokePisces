@@ -18913,6 +18913,11 @@ static const struct LevelUpMove sHappeaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(60, MOVE_REVERSAL),
     LEVEL_UP_END
 };
+
+static const struct LevelUpMove sCoffiddleLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
 #endif
 
 static const struct LevelUpMove sRattataAlolanLevelUpLearnset[] = {

@@ -1364,6 +1364,7 @@ gCryTable::
 	cry Cry_Loafoof
 	cry Cry_Spiritoast
 	cry Cry_Happea
+	cry Cry_Coffiddle
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3501,6 +3502,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Loafoof
 	cry_reverse Cry_Spiritoast
 	cry_reverse Cry_Happea
+	cry_reverse Cry_Coffiddle
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

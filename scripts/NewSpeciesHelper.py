@@ -1,11 +1,13 @@
 import os
 import re
 
+#First character capitalized, the rest should be lowercase
 prevMon = "Happea"
-newMon = "Dudunspars"
+newMon = "Coffiddle"
 #Set to True to update all DEX_COUNT defines to newMon
 #If False, use FixSpeciesNums.py to update species nums to correct values
-newMonIsEndOfList = False
+newMonIsEndOfList = True
+addToPokeDexH = False
 
 with open("../include/constants/species.h", "r+") as speciesHeader:
     data = speciesHeader.readlines()
@@ -204,7 +206,7 @@ with open("../src/data/pokemon_graphics/footprint_table.h", "r+") as footPrintTa
     for line in data:
         newLine = line.split()
         if "[SPECIES_"+prevMon.upper() in line:
-            line += "    [SPECIES_"+newMon.upper()+"] = gMonFootprint_"+newMon.upper()+",\n"
+            line += "    [SPECIES_"+newMon.upper()+"] = gMonFootprint_"+newMon+",\n"
             newData.append(line)
         else:
             newData.append(line)
@@ -252,7 +254,7 @@ with open("../src/pokemon_icon.c", "r+") as pokemonIconCFile:
     for line in data:
         newLine = line.split()
         if "[SPECIES_"+prevMon.upper()+"] = gMonIcon_" in line:
-            line += "    [SPECIES_"+newMon.upper()+"] = gMonIcon_"+newMon.upper()+",\n"
+            line += "    [SPECIES_"+newMon.upper()+"] = gMonIcon_"+newMon+",\n"
             newData.append(line)
         elif m := re.search(r"\[SPECIES_"+prevMon.upper()+r"\] = \d", line): #use regex to prevent matching previous set
             line += "    [SPECIES_"+newMon.upper()+"] = 0,\n"
@@ -279,31 +281,32 @@ with open("../src/data/text/species_names.h", "r+") as speciesNamesHeader:
     speciesNamesHeader.seek(0)
     speciesNamesHeader.write("".join(newData))
     speciesNamesHeader.truncate()
+
+if addToPokeDexH:
+    with open("../include/constants/pokedex.h", "r+") as pokedexHeader:
+        data = pokedexHeader.readlines()
+        newData = []
     
-with open("../include/constants/pokedex.h", "r+") as pokedexHeader:
-    data = pokedexHeader.readlines()
-    newData = []
-    
-    for line in data:
-        newLine = line.split()
-        if "    NATIONAL_DEX_"+prevMon.upper() in line:
-            line += "    NATIONAL_DEX_"+newMon.upper()+",\n"
-            newData.append(line)
-        elif newMonIsEndOfList and "#define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+prevMon.upper() in line:
-            line = "    #define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+newMon.upper()+"\n"
-            newData.append(line)
-        elif "HOENN_DEX_"+prevMon.upper()+"," in line:
-            line += "    HOENN_DEX_"+newMon.upper()+",\n"
-            newData.append(line)
-        elif newMonIsEndOfList and "#define HOENN_DEX_COUNT" in line:
-            line = "#define HOENN_DEX_COUNT (HOENN_DEX_"+newMon.upper()+" + 1)\n"
-            newData.append(line)
-        else:
-            newData.append(line)
-    #seek and truncate to overwrite file's content
-    pokedexHeader.seek(0)
-    pokedexHeader.write("".join(newData))
-    pokedexHeader.truncate()
+        for line in data:
+            newLine = line.split()
+            if "    NATIONAL_DEX_"+prevMon.upper() in line:
+                line += "    NATIONAL_DEX_"+newMon.upper()+",\n"
+                newData.append(line)
+            elif newMonIsEndOfList and "#define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+prevMon.upper() in line:
+                line = "    #define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+newMon.upper()+"\n"
+                newData.append(line)
+            elif "HOENN_DEX_"+prevMon.upper()+"," in line:
+                line += "    HOENN_DEX_"+newMon.upper()+",\n"
+                newData.append(line)
+            elif newMonIsEndOfList and "#define HOENN_DEX_COUNT" in line:
+                line = "#define HOENN_DEX_COUNT (HOENN_DEX_"+newMon.upper()+" + 1)\n"
+                newData.append(line)
+            else:
+                newData.append(line)
+        #seek and truncate to overwrite file's content
+        pokedexHeader.seek(0)
+        pokedexHeader.write("".join(newData))
+        pokedexHeader.truncate()
     
 with open("../src/data/pokemon/pokedex_text.h", "r+", encoding="utf8") as pokedexTextHeader:
     data = pokedexTextHeader.readlines()
@@ -457,6 +460,7 @@ with open("../src/data/pokemon/teachable_learnsets.h", "r+") as teachableLearnse
             matchFound = True
             newData.append(line)
         elif matchFound and "};" in line:
+            matchFound = False
             line += "\n"
             line += "static const u16 s"+newMon+"TeachableLearnset[] = {\n"
             line += "    MOVE_UNAVAILABLE,\n"
@@ -497,7 +501,7 @@ with open("../sound/direct_sound_data.inc", "r+") as directSoundDataInc:
             newData.append(line)
         elif matchFound and ".endif" in line:
             matchFound = False
-            line += "\n"
+            line = "\n"
             line += "	.align 2\n"
             line += "Cry_"+newMon+"::\n"
             line += "	.incbin \"sound/direct_sound_samples/cries/bulbasaur.bin\"\n"

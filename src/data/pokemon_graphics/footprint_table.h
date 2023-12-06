@@ -931,6 +931,7 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_LOAFOOF] = gMonFootprint_Loafoof,
     [SPECIES_SPIRITOAST] = gMonFootprint_Spiritoast,
     [SPECIES_HAPPEA] = gMonFootprint_Happea,
+    [SPECIES_COFFIDDLE] = gMonFootprint_Coffiddle,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };
