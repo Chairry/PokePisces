@@ -550,19 +550,6 @@ static const u16 sDeoxysFormSpeciesIdTable[] = {
 };
 
 #if P_GEN_4_POKEMON == TRUE
-static const u16 sBurmyFormSpeciesIdTable[] = {
-    SPECIES_BURMY,
-    SPECIES_BURMY_SANDY_CLOAK,
-    SPECIES_BURMY_TRASH_CLOAK,
-    FORM_SPECIES_END,
-};
-
-static const u16 sWormadamFormSpeciesIdTable[] = {
-    SPECIES_WORMADAM,
-    SPECIES_WORMADAM_SANDY_CLOAK,
-    SPECIES_WORMADAM_TRASH_CLOAK,
-    FORM_SPECIES_END,
-};
 
 static const u16 sCherrimFormSpeciesIdTable[] = {
     SPECIES_CHERRIM,
@@ -931,8 +918,8 @@ static const u16 sXerneasFormSpeciesIdTable[] = {
 static const u16 sZygardeFormSpeciesIdTable[] = {
     SPECIES_ZYGARDE,
     SPECIES_ZYGARDE_10,
-    SPECIES_ZYGARDE_10_POWER_CONSTRUCT,
-    SPECIES_ZYGARDE_50_POWER_CONSTRUCT,
+    SPECIES_ZYGARDE_10_DORMANT,
+    SPECIES_ZYGARDE_50_DORMANT,
     SPECIES_ZYGARDE_COMPLETE,
     FORM_SPECIES_END,
 };
@@ -1150,5 +1137,7 @@ static const u16 sBasculegionFormSpeciesIdTable[] = {
     SPECIES_BASCULEGION_FEMALE,
     FORM_SPECIES_END,
 };
+
+// TODO for HUDDLE_UP: Missing the species that it affects 
 
 #endif

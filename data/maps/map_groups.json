@@ -134,7 +134,10 @@
     "NoviceWalk",
     "LittlerootNew",
     "PendingDev",
-    "MidneorFalls"
+    "MidneorFalls",
+    "WhisperCliff",
+    "EverGrandeRoad",
+    "EverGrandePeak"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

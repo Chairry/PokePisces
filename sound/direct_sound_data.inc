@@ -1932,138 +1932,6 @@ Cry_Deoxys::
 
 .if P_GEN_4_POKEMON == TRUE
 	.align 2
-Cry_Turtwig::
-	.incbin "sound/direct_sound_samples/cries/turtwig.bin"
-
-	.align 2
-Cry_Grotle::
-	.incbin "sound/direct_sound_samples/cries/grotle.bin"
-
-	.align 2
-Cry_Torterra::
-	.incbin "sound/direct_sound_samples/cries/torterra.bin"
-
-	.align 2
-Cry_Chimchar::
-	.incbin "sound/direct_sound_samples/cries/chimchar.bin"
-
-	.align 2
-Cry_Monferno::
-	.incbin "sound/direct_sound_samples/cries/monferno.bin"
-
-	.align 2
-Cry_Infernape::
-	.incbin "sound/direct_sound_samples/cries/infernape.bin"
-
-	.align 2
-Cry_Piplup::
-	.incbin "sound/direct_sound_samples/cries/piplup.bin"
-
-	.align 2
-Cry_Prinplup::
-	.incbin "sound/direct_sound_samples/cries/prinplup.bin"
-
-	.align 2
-Cry_Empoleon::
-	.incbin "sound/direct_sound_samples/cries/empoleon.bin"
-
-	.align 2
-Cry_Starly::
-	.incbin "sound/direct_sound_samples/cries/starly.bin"
-
-	.align 2
-Cry_Staravia::
-	.incbin "sound/direct_sound_samples/cries/staravia.bin"
-
-	.align 2
-Cry_Staraptor::
-	.incbin "sound/direct_sound_samples/cries/staraptor.bin"
-
-	.align 2
-Cry_Bidoof::
-	.incbin "sound/direct_sound_samples/cries/bidoof.bin"
-
-	.align 2
-Cry_Bibarel::
-	.incbin "sound/direct_sound_samples/cries/bibarel.bin"
-
-	.align 2
-Cry_Kricketot::
-	.incbin "sound/direct_sound_samples/cries/kricketot.bin"
-
-	.align 2
-Cry_Kricketune::
-	.incbin "sound/direct_sound_samples/cries/kricketune.bin"
-
-	.align 2
-Cry_Shinx::
-	.incbin "sound/direct_sound_samples/cries/shinx.bin"
-
-	.align 2
-Cry_Luxio::
-	.incbin "sound/direct_sound_samples/cries/luxio.bin"
-
-	.align 2
-Cry_Luxray::
-	.incbin "sound/direct_sound_samples/cries/luxray.bin"
-
-	.align 2
-Cry_Budew::
-	.incbin "sound/direct_sound_samples/cries/budew.bin"
-
-	.align 2
-Cry_Roserade::
-	.incbin "sound/direct_sound_samples/cries/roserade.bin"
-
-	.align 2
-Cry_Cranidos::
-	.incbin "sound/direct_sound_samples/cries/cranidos.bin"
-
-	.align 2
-Cry_Rampardos::
-	.incbin "sound/direct_sound_samples/cries/rampardos.bin"
-
-	.align 2
-Cry_Shieldon::
-	.incbin "sound/direct_sound_samples/cries/shieldon.bin"
-
-	.align 2
-Cry_Bastiodon::
-	.incbin "sound/direct_sound_samples/cries/bastiodon.bin"
-
-	.align 2
-Cry_Burmy::
-	.incbin "sound/direct_sound_samples/cries/burmy.bin"
-
-	.align 2
-Cry_Wormadam::
-	.incbin "sound/direct_sound_samples/cries/wormadam.bin"
-
-	.align 2
-Cry_Mothim::
-	.incbin "sound/direct_sound_samples/cries/mothim.bin"
-
-	.align 2
-Cry_Combee::
-	.incbin "sound/direct_sound_samples/cries/combee.bin"
-
-	.align 2
-Cry_Vespiquen::
-	.incbin "sound/direct_sound_samples/cries/vespiquen.bin"
-
-	.align 2
-Cry_Pachirisu::
-	.incbin "sound/direct_sound_samples/cries/pachirisu.bin"
-
-	.align 2
-Cry_Buizel::
-	.incbin "sound/direct_sound_samples/cries/buizel.bin"
-
-	.align 2
-Cry_Floatzel::
-	.incbin "sound/direct_sound_samples/cries/floatzel.bin"
-
-	.align 2
 Cry_Cherubi::
 	.incbin "sound/direct_sound_samples/cries/cherubi.bin"
 
@@ -4233,6 +4101,10 @@ Cry_Loafoof::
 
 	.align 2
 Cry_Spiritoast::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Happea::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 

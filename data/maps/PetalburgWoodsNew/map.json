@@ -5,7 +5,7 @@
   "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_PETALBURG_WOODS",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_NONE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -13,11 +13,6 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
-    {
-      "map": "MAP_PETALBURG_NEW",
-      "offset": 0,
-      "direction": "left"
-    },
     {
       "map": "MAP_OLDALE_NEW",
       "offset": 2,
@@ -28,7 +23,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_WOODS_NEW",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

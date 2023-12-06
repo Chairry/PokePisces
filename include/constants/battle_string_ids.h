@@ -680,8 +680,10 @@
 #define STRINGID_PKMNALREADYHASFROSTBITE              677
 #define STRINGID_PKMNHURTSWITHINATTK                  678
 #define STRINGID_MIASMADMG                            679
+#define STRINGID_ANTICIPATIONEVADEACTIVATES           680
+#define STRINGID_PKMNINCREASEACCWITH                  681    
 
-#define BATTLESTRINGS_COUNT                           680
+#define BATTLESTRINGS_COUNT                           682
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -920,24 +922,25 @@
 #define B_MSG_REF_COMMENCE_BATTLE    8
 
 // gSwitchInAbilityStringIds
-#define B_MSG_SWITCHIN_MOLDBREAKER      0
-#define B_MSG_SWITCHIN_TERAVOLT         1
-#define B_MSG_SWITCHIN_TURBOBLAZE       2
-#define B_MSG_SWITCHIN_SLOWSTART        3
-#define B_MSG_SWITCHIN_UNNERVE          4
-#define B_MSG_SWITCHIN_ANTICIPATION     5
-#define B_MSG_SWITCHIN_FOREWARN         6
-#define B_MSG_SWITCHIN_PRESSURE         7
-#define B_MSG_SWITCHIN_DARKAURA         8
-#define B_MSG_SWITCHIN_FAIRYAURA        9
-#define B_MSG_SWITCHIN_AURABREAK        10
-#define B_MSG_SWITCHIN_COMATOSE         11
-#define B_MSG_SWITCHIN_SCREENCLEANER    12
-#define B_MSG_SWITCHIN_ASONE            13
-#define B_MSG_SWITCHIN_CURIOUS_MEDICINE 14
-#define B_MSG_SWITCHIN_PASTEL_VEIL      15
-#define B_MSG_SWITCHIN_NEUTRALIZING_GAS 16
-#define B_MSG_SWITCHIN_WATER_VEIL       17
+#define B_MSG_SWITCHIN_MOLDBREAKER          0
+#define B_MSG_SWITCHIN_TERAVOLT             1
+#define B_MSG_SWITCHIN_TURBOBLAZE           2
+#define B_MSG_SWITCHIN_SLOWSTART            3
+#define B_MSG_SWITCHIN_UNNERVE              4
+#define B_MSG_SWITCHIN_ANTICIPATION         5
+#define B_MSG_SWITCHIN_FOREWARN             6
+#define B_MSG_SWITCHIN_PRESSURE             7
+#define B_MSG_SWITCHIN_DARKAURA             8
+#define B_MSG_SWITCHIN_FAIRYAURA            9
+#define B_MSG_SWITCHIN_AURABREAK            10
+#define B_MSG_SWITCHIN_COMATOSE             11
+#define B_MSG_SWITCHIN_SCREENCLEANER        12
+#define B_MSG_SWITCHIN_ASONE                13
+#define B_MSG_SWITCHIN_CURIOUS_MEDICINE     14
+#define B_MSG_SWITCHIN_PASTEL_VEIL          15
+#define B_MSG_SWITCHIN_NEUTRALIZING_GAS     16
+#define B_MSG_SWITCHIN_WATER_VEIL           17
+#define B_MSG_SWITCHIN_ANTICIPATION_EVADE   18
 
 // gMentalHerbCureStringIds
 #define B_MSG_MENTALHERBCURE_INFATUATION       0

@@ -1,0 +1,65 @@
+Falling, Lowers foe's stats.
+Golden Mean, Changes form each turn.
+Heartstrings, Infatuates upon switch in.
+Lovesick, Becomes infatuated.
+Lumbering, Unable to switch.
+Melancholia, Spreads Sadness when hit.
+Milky Way, May gather Moomoo Milk.
+Mocking, Lowers foe's defensive stats.
+Prodigy, Always crits with contact.
+Punisher, Damage changes form.
+Star's Grace, Blessed after 3 turns
+Reset, Heals all HP every turn.
+Reversi, Summons Inverse Room.
+Rising, Raises user's stats.
+Risktaker, All critical-hit often.
+Saddened, Lowers stats every turn.
+Shambles, Rooms boost switching moves.
+Stellar Body, Transforms as it battles.
+Sugar Coat, No weakness at full HP.
+Time Turn, Summons Trick Room.
+Titanic, Too big to care.
+Witchcraft, Fairy magic goes into HP.
+Fast Talker, 
+Serene Aura, Promotes added effects.
+Ambusher, Stronger Physical on 1st turn.
+Cacophony, Reduces sound-based moves.
+Cruelty, Powers up Dark moves.
+Friendly Aura, Raises speed of partner.
+Frost Jaw, Biting moves may Freeze.
+Fuddle Point, Making contact confuses foe
+Madness, All attacks can confuse.
+One-Way Trip, Ups Speed but locks move.
+Purple Haze, Boosts when using Haze.
+Rapid Fire, Stronger moves but more PP.
+Soul Locker, Draws in ghost moves.
+Spiralysis, Halves Speed of foe.
+Zen Incense, Not hit by Psychic attacks.
+Aqua Heart, Normal moves become Water.
+Brand Claws, Boost against burn. May burn.
+Disdain, KOs raise Special Attack.
+Disturb, Lowers the foe's Sp. Attack.
+Draco Force, Normal moves become Dragon.
+Drainage, Ups draining moves at 1/2 HP.
+Dread Veil, Contact may cause panic.
+Empty, Gains Ghost Immunities.
+Endless, Field effects last forever.
+Entrancing, The user is targeted first.
+Evil Eye, Lowers the foe's Speed.
+Free Love, Infatuation always works.
+Ghoulish, Recovers after taking damage.
+Glaring Stagger, Damages upon switch in.
+Gusty, Summons Tailwind in battle.
+Hibernal, Ups and resists Ice.
+Mystic One, Raises Special Attack.
+Permafrost, Removes weaknesses in hail.
+Potency, Powers up Poison moves.
+Power Spike, Boosts horn moves at 50% HP.
+Verdict, 
+Seafarer, Powers up Water moves.
+Star Screen, Extends screens.
+Stronghold, Ups Defenses and locks moves.
+Transfusion, Draining moves copy abilities.
+White Out, Powers up in hail.
+Whip Waltz, Strikes back against foes.
+Ignorant Bliss, Ignores a lot.

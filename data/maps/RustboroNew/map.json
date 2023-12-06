@@ -20,7 +20,12 @@
     },
     {
       "map": "MAP_MIDNEOR_FALLS",
-      "offset": 0,
+      "offset": -24,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_WHISPER_CLIFF",
+      "offset": 36,
       "direction": "up"
     }
   ],

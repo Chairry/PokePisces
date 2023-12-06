@@ -1,0 +1,44 @@
+{
+  "id": "MAP_WHISPER_CLIFF",
+  "name": "WhisperCliff",
+  "layout": "LAYOUT_WHISPER_CLIFF",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_RUSTBORO_NEW",
+      "offset": -36,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_JAGGRO_PASS",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_MIDNEOR_FALLS",
+      "offset": -64,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

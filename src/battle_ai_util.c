@@ -53,7 +53,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_BATTLE_BOND] = 6,
     [ABILITY_BEAST_BOOST] = 7,
     [ABILITY_BERSERK] = 5,
-    [ABILITY_BIG_PECKS] = 1,
+    [ABILITY_BIG_PECKS] = 6,
     [ABILITY_BLAZE] = 5,
     [ABILITY_BULLETPROOF] = 7,
     [ABILITY_CHEEK_POUCH] = 4,
@@ -123,6 +123,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_INFILTRATOR] = 6,
     [ABILITY_INNARDS_OUT] = 5,
     [ABILITY_INNER_FOCUS] = 2,
+    [ABILITY_PROPELLER_TAIL] = 2,
     [ABILITY_INSOMNIA] = 4,
     [ABILITY_INTIMIDATE] = 7,
     [ABILITY_IRON_BARBS] = 6,
@@ -142,7 +143,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_MAGIC_GUARD] = 9,
     [ABILITY_MAGICIAN] = 3,
     [ABILITY_MAGMA_ARMOR] = 1,
-    [ABILITY_MAGNET_PULL] = 9,
+    [ABILITY_MAGNET_PULL] = 7,
     [ABILITY_MARVEL_SCALE] = 5,
     [ABILITY_MEGA_LAUNCHER] = 7,
     [ABILITY_MERCILESS] = 4,
@@ -171,7 +172,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_POISON_HEAL] = 8,
     [ABILITY_POISON_POINT] = 4,
     [ABILITY_POISON_TOUCH] = 4,
-    [ABILITY_POWER_CONSTRUCT] = 10,
+    [ABILITY_DORMANT] = 10,
     [ABILITY_POWER_OF_ALCHEMY] = 0,
     [ABILITY_PRANKSTER] = 8,
     [ABILITY_PRESSURE] = 5,
@@ -198,7 +199,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_SAND_STREAM] = 9,
     [ABILITY_SAND_VEIL] = 3,
     [ABILITY_SAP_SIPPER] = 7,
-    [ABILITY_SCHOOLING] = 6,
+    [ABILITY_HUDDLE_UP] = 6,
     [ABILITY_SCRAPPY] = 6,
     [ABILITY_SERENE_GRACE] = 8,
     [ABILITY_SHADOW_SHIELD] = 8,
@@ -277,7 +278,6 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_MIRROR_ARMOR] = 6,
     [ABILITY_GULP_MISSILE] = 3,
     [ABILITY_STALWART] = 2,
-    [ABILITY_PROPELLER_TAIL] = 2,
     [ABILITY_STEAM_ENGINE] = 3,
     [ABILITY_PUNK_ROCK] = 2,
     [ABILITY_SAND_SPIT] = 5,
@@ -1810,7 +1810,6 @@ bool32 ShouldLowerDefense(u32 battlerAtk, u32 battlerDef, u32 defAbility)
       && defAbility != ABILITY_CLEAR_BODY
       && defAbility != ABILITY_WHITE_SMOKE
       && defAbility != ABILITY_FULL_METAL_BODY
-      && defAbility != ABILITY_BIG_PECKS
       && AI_DATA->holdEffects[battlerDef] != HOLD_EFFECT_CLEAR_AMULET)
         return TRUE;
     return FALSE;
@@ -2962,7 +2961,8 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 
 u32 ShouldTryToFlinch(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbility, u32 move)
 {
-    if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER && (defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS))
+    if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER 
+      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS))
       || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
       || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
       || AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_SLOWER)) // Opponent goes first
@@ -3003,7 +3003,9 @@ bool32 ShouldFakeOut(u32 battlerAtk, u32 battlerDef, u32 move)
     || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
     || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
     || (AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER
-    && (AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS)))
+    && (AI_DATA->abilities[battlerDef]  == ABILITY_PROPELLER_TAIL 
+        || AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST 
+        || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS)))
         return FALSE;
 
     return TRUE;

@@ -22,6 +22,11 @@
       "map": "MAP_PACIFIDLOG_TOWN",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_EVER_GRANDE_ROAD",
+      "offset": 26,
+      "direction": "down"
     }
   ],
   "object_events": [

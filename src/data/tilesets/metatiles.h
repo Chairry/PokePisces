@@ -222,3 +222,12 @@ const u16 gMetatileAttributes_Chimney[] = INCBIN_U16("data/tilesets/secondary/ch
 
 const u16 gMetatiles_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatiles.bin");
 const u16 gMetatileAttributes_mauvillenew[] = INCBIN_U16("data/tilesets/secondary/mauvillenew/metatile_attributes.bin");
+
+const u16 gMetatiles_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatiles.bin");
+const u16 gMetatileAttributes_Seaside[] = INCBIN_U16("data/tilesets/secondary/seaside/metatile_attributes.bin");
+
+const u16 gMetatiles_heypeta[] = INCBIN_U16("data/tilesets/secondary/heypeta/metatiles.bin");
+const u16 gMetatileAttributes_heypeta[] = INCBIN_U16("data/tilesets/secondary/heypeta/metatile_attributes.bin");
+
+const u16 gMetatiles_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatiles.bin");
+const u16 gMetatileAttributes_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatile_attributes.bin");

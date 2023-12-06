@@ -388,39 +388,6 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DEOXYS] = sDeoxysLevelUpLearnset,
     [SPECIES_CHIMECHO] = sChimechoLevelUpLearnset,
 #if P_GEN_4_POKEMON == TRUE
-    [SPECIES_TURTWIG] = sTurtwigLevelUpLearnset,
-    [SPECIES_GROTLE] = sGrotleLevelUpLearnset,
-    [SPECIES_TORTERRA] = sTorterraLevelUpLearnset,
-    [SPECIES_CHIMCHAR] = sChimcharLevelUpLearnset,
-    [SPECIES_MONFERNO] = sMonfernoLevelUpLearnset,
-    [SPECIES_INFERNAPE] = sInfernapeLevelUpLearnset,
-    [SPECIES_PIPLUP] = sPiplupLevelUpLearnset,
-    [SPECIES_PRINPLUP] = sPrinplupLevelUpLearnset,
-    [SPECIES_EMPOLEON] = sEmpoleonLevelUpLearnset,
-    [SPECIES_STARLY] = sStarlyLevelUpLearnset,
-    [SPECIES_STARAVIA] = sStaraviaLevelUpLearnset,
-    [SPECIES_STARAPTOR] = sStaraptorLevelUpLearnset,
-    [SPECIES_BIDOOF] = sBidoofLevelUpLearnset,
-    [SPECIES_BIBAREL] = sBibarelLevelUpLearnset,
-    [SPECIES_KRICKETOT] = sKricketotLevelUpLearnset,
-    [SPECIES_KRICKETUNE] = sKricketuneLevelUpLearnset,
-    [SPECIES_SHINX] = sShinxLevelUpLearnset,
-    [SPECIES_LUXIO] = sLuxioLevelUpLearnset,
-    [SPECIES_LUXRAY] = sLuxrayLevelUpLearnset,
-    [SPECIES_BUDEW] = sBudewLevelUpLearnset,
-    [SPECIES_ROSERADE] = sRoseradeLevelUpLearnset,
-    [SPECIES_CRANIDOS] = sCranidosLevelUpLearnset,
-    [SPECIES_RAMPARDOS] = sRampardosLevelUpLearnset,
-    [SPECIES_SHIELDON] = sShieldonLevelUpLearnset,
-    [SPECIES_BASTIODON] = sBastiodonLevelUpLearnset,
-    [SPECIES_BURMY] = sBurmyLevelUpLearnset,
-    [SPECIES_WORMADAM] = sWormadamLevelUpLearnset,
-    [SPECIES_MOTHIM] = sMothimLevelUpLearnset,
-    [SPECIES_COMBEE] = sCombeeLevelUpLearnset,
-    [SPECIES_VESPIQUEN] = sVespiquenLevelUpLearnset,
-    [SPECIES_PACHIRISU] = sPachirisuLevelUpLearnset,
-    [SPECIES_BUIZEL] = sBuizelLevelUpLearnset,
-    [SPECIES_FLOATZEL] = sFloatzelLevelUpLearnset,
     [SPECIES_CHERUBI] = sCherubiLevelUpLearnset,
     [SPECIES_CHERRIM] = sCherrimLevelUpLearnset,
     [SPECIES_SHELLOS] = sShellosLevelUpLearnset,
@@ -970,6 +937,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SLICKSLICE] = sSlicksliceLevelUpLearnset,
     [SPECIES_LOAFOOF] = sLoafoofLevelUpLearnset,
     [SPECIES_SPIRITOAST] = sSpiritoastLevelUpLearnset,
+    [SPECIES_HAPPEA] = sHappeaLevelUpLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,
@@ -1149,12 +1117,6 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysDefenseLevelUpLearnset,
     [SPECIES_DEOXYS_SPEED] = sDeoxysSpeedLevelUpLearnset,
 #if P_GEN_4_POKEMON == TRUE
-    // Burmy
-    [SPECIES_BURMY_SANDY_CLOAK] = sBurmyLevelUpLearnset,
-    [SPECIES_BURMY_TRASH_CLOAK] = sBurmyLevelUpLearnset,
-    // Wormadam
-    [SPECIES_WORMADAM_SANDY_CLOAK] = sWormadamSandyCloakLevelUpLearnset,
-    [SPECIES_WORMADAM_TRASH_CLOAK] = sWormadamTrashCloakLevelUpLearnset,
     // Cherrim
     [SPECIES_CHERRIM_SUNSHINE] = sCherrimLevelUpLearnset,
     // Shellos
@@ -1290,8 +1252,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_XERNEAS_ACTIVE] = sXerneasLevelUpLearnset,
     // Zygarde
     [SPECIES_ZYGARDE_10] = sZygardeLevelUpLearnset,
-    [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = sZygardeLevelUpLearnset,
-    [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = sZygardeLevelUpLearnset,
+    [SPECIES_ZYGARDE_10_DORMANT] = sZygardeLevelUpLearnset,
+    [SPECIES_ZYGARDE_50_DORMANT] = sZygardeLevelUpLearnset,
     [SPECIES_ZYGARDE_COMPLETE] = sZygardeLevelUpLearnset,
     // Hoopa
     [SPECIES_HOOPA_UNBOUND] = sHoopaUnboundLevelUpLearnset,

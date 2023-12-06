@@ -22,6 +22,16 @@
       "map": "MAP_FALLARBOR_NEW",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_WHISPER_CLIFF",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_MIDNEOR_FALLS",
+      "offset": 28,
+      "direction": "left"
     }
   ],
   "object_events": [

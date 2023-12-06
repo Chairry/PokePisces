@@ -1459,6 +1459,14 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_TookAttack;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+    else if (gSpecialStatuses[gBattlerTarget].magnetPullRedirected)
+    {
+        gSpecialStatuses[gBattlerTarget].magnetPullRedirected = FALSE;
+        gLastUsedAbility = ABILITY_MAGNET_PULL;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TookAttack;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
     else if (IsBattlerProtected(gBattlerTarget, gCurrentMove)
      && (gCurrentMove != MOVE_CURSE || IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_GHOST))
      && ((!IsTwoTurnsMove(gCurrentMove) || (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)))
@@ -1696,6 +1704,10 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
             calc = (calc * 50) / 100; // 1.5 tangled feet loss
         break;
+    case ABILITY_ANTICIPATION:
+        if(gDisableStructs[battlerAtk].isFirstTurn) {
+            calc = 0;                 // all moves fail unless 100% anticipation
+        }
     }
 
     // Attacker's ally's ability
@@ -2123,7 +2135,7 @@ END:
     }
 
     // B_WEATHER_STRONG_WINDS prints a string when it's about to reduce the power
-    // of a move that is Super Effective against a Flying-type Pok√©mon.
+    // of a move that is Super Effective against a Flying-type Pok?mon.
     if (gBattleWeather & B_WEATHER_STRONG_WINDS)
     {
         if ((GetBattlerType(gBattlerTarget, 0) == TYPE_FLYING
@@ -2810,8 +2822,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
     if ((battlerAbility == ABILITY_SHIELD_DUST
      || GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_COVERT_CLOAK)
       && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
-      && !primary
-      && (gBattleScripting.moveEffect <= MOVE_EFFECT_TRI_ATTACK || gBattleScripting.moveEffect >= MOVE_EFFECT_SMACK_DOWN)) // Exclude stat lowering effects
+      && !primary) 
     {
         if (battlerAbility == ABILITY_SHIELD_DUST)
             RecordAbilityBattle(gEffectBattler, battlerAbility);
@@ -2819,6 +2830,14 @@ void SetMoveEffect(bool32 primary, u32 certain)
             RecordItemEffectBattle(gEffectBattler, HOLD_EFFECT_COVERT_CLOAK);
         INCREMENT_RESET_RETURN
     }
+
+    if (gBattleWeather & B_WEATHER_SANDSTORM 
+        && battlerAbility == ABILITY_SAND_VEIL 
+        && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary) {
+            RecordAbilityBattle(gEffectBattler, battlerAbility);            
+            INCREMENT_RESET_RETURN
+        }
 
     if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
         && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_CONFUSION)
@@ -3170,6 +3189,20 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gLastUsedAbility = ABILITY_INNER_FOCUS;
                         gBattlerAbility = gEffectBattler;
                         RecordAbilityBattle(gEffectBattler, ABILITY_INNER_FOCUS);
+                        gBattlescriptCurrInstr = BattleScript_FlinchPrevention;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                } 
+                else if (battlerAbility == ABILITY_PROPELLER_TAIL)
+                {
+                    if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
+                    {
+                        gLastUsedAbility = ABILITY_PROPELLER_TAIL;
+                        gBattlerAbility = gEffectBattler;
+                        RecordAbilityBattle(gEffectBattler, ABILITY_PROPELLER_TAIL);
                         gBattlescriptCurrInstr = BattleScript_FlinchPrevention;
                     }
                     else
@@ -3686,7 +3719,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattlescriptCurrInstr = BattleScript_DoubleShockRemoveType;
                 break;
             case MOVE_EFFECT_ROUND:
-                TryUpdateRoundTurnOrder(); // If another Pok√©mon uses Round before the user this turn, the user will use Round directly after it
+                TryUpdateRoundTurnOrder(); // If another Pok?mon uses Round before the user this turn, the user will use Round directly after it
                 gBattlescriptCurrInstr++;
                 break;
             case MOVE_EFFECT_DIRE_CLAW:
@@ -3718,7 +3751,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     u8 randomLowerDefenseChance = RandomPercentage(RNG_TRIPLE_ARROWS_DEFENSE_DOWN, CalcSecondaryEffectChance(gBattlerAttacker, 50));
                     u8 randomFlinchChance = RandomPercentage(RNG_TRIPLE_ARROWS_FLINCH, CalcSecondaryEffectChance(gBattlerAttacker, 30));
 
-                    if (randomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
+                    if (randomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
+                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
                         gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
 
                     if (randomLowerDefenseChance)
@@ -4424,7 +4458,7 @@ static bool32 NoAliveMonsForPlayer(void)
     // Get total HP for the player's party to determine if the player has lost
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && (gPartnerTrainerId == TRAINER_STEVEN_PARTNER || gPartnerTrainerId >= TRAINER_CUSTOM_PARTNER))
     {
-        // In multi battle with Steven, skip his Pok√©mon
+        // In multi battle with Steven, skip his Pok?mon
         for (i = 0; i < MULTI_PARTY_SIZE; i++)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
@@ -5135,8 +5169,7 @@ static void Cmd_playstatchangeanimation(void)
                         && ability != ABILITY_FULL_METAL_BODY
                         && ability != ABILITY_WHITE_SMOKE
                         && !(ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
-                        && !(ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK)
-                        && !(ability == ABILITY_BIG_PECKS && currStat == STAT_DEF))
+                        && !(ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK))
                 {
                     if (gBattleMons[battler].statStages[currStat] > MIN_STAT_STAGE)
                     {
@@ -5311,6 +5344,14 @@ static void Cmd_moveend(void)
                 #else
                     gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_2;
                 #endif
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].detectShielded) {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    //gBattleScripting.moveEffect = MOVE_EFFECT_ACC_PLUS_1;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
@@ -6443,9 +6484,9 @@ static void Cmd_jumpifcantswitch(void)
     }
 }
 
-// Opens the party screen to choose a new Pok√©mon to send out.
-// slotId is the Pok√©mon to replace.
-// Note that this is not used by the Switch action, only replacing fainted Pok√©mon or Baton Pass
+// Opens the party screen to choose a new Pok?mon to send out.
+// slotId is the Pok?mon to replace.
+// Note that this is not used by the Switch action, only replacing fainted Pok?mon or Baton Pass
 static void ChooseMonToSendOut(u32 battler, u8 slotId)
 {
     gBattleStruct->battlerPartyIndexes[battler] = gBattlerPartyIndexes[battler];
@@ -7744,7 +7785,7 @@ static void Cmd_drawlvlupbox(void)
 
     if (gBattleScripting.drawlvlupboxState == 0)
     {
-        // If the Pok√©mon getting exp is not in-battle then
+        // If the Pok?mon getting exp is not in-battle then
         // slide out a banner with their name and icon on it.
         // Otherwise skip ahead.
         if (IsMonGettingExpSentOut())
@@ -9201,10 +9242,10 @@ static void Cmd_various(void)
             case ABILITY_FLOWER_GIFT:       case ABILITY_ILLUSION:
             case ABILITY_WONDER_GUARD:      case ABILITY_ZEN_MODE:
             case ABILITY_STANCE_CHANGE:     case ABILITY_IMPOSTER:
-            case ABILITY_POWER_CONSTRUCT:   case ABILITY_BATTLE_BOND:
-            case ABILITY_SCHOOLING:         case ABILITY_COMATOSE:
+            case ABILITY_DORMANT:   case ABILITY_BATTLE_BOND:
+            case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
-            case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:
+            case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
@@ -10399,8 +10440,8 @@ static void Cmd_various(void)
     case VARIOUS_SET_ATTACKER_STICKY_WEB_USER:
     {
         VARIOUS_ARGS();
-        // For Mirror Armor: "If the Pok√©mon with this Ability is affected by Sticky Web, the effect is reflected back to the Pok√©mon which set it up.
-        //  If Pok√©mon which set up Sticky Web is not on the field, no Pok√©mon have their Speed lowered."
+        // For Mirror Armor: "If the Pok?mon with this Ability is affected by Sticky Web, the effect is reflected back to the Pok?mon which set it up.
+        //  If Pok?mon which set up Sticky Web is not on the field, no Pok?mon have their Speed lowered."
         gBattlerAttacker = gBattlerTarget;  // Initialize 'fail' condition
         SET_STATCHANGER(STAT_SPEED, 1, TRUE);
         if (gSideTimers[GetBattlerSide(battler)].stickyWebBattlerId != 0xFF)
@@ -11537,8 +11578,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
         }
         else if (!certain
                 && ((battlerAbility == ABILITY_KEEN_EYE && statId == STAT_ACC)
-                || (battlerAbility == ABILITY_HYPER_CUTTER && statId == STAT_ATK)
-                || (battlerAbility == ABILITY_BIG_PECKS && statId == STAT_DEF)))
+                || (battlerAbility == ABILITY_HYPER_CUTTER && statId == STAT_ATK)))
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
             {
@@ -12276,6 +12316,7 @@ static void Cmd_weatherdamage(void)
                 && ability != ABILITY_SNOW_CLOAK
                 && ability != ABILITY_OVERCOAT
                 && ability != ABILITY_ICE_BODY
+                && ability != ABILITY_SLUSH_RUSH
                 && !(gStatuses3[gBattlerAttacker] & (STATUS3_UNDERGROUND | STATUS3_UNDERWATER))
                 && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
             {
@@ -15013,15 +15054,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok√©mon's level) √∑ 10)ÔøΩ? if Pok√©mon's level is between 1 and 29, 1ÔøΩ? otherwise.
+                //((41 - Pok?mon's level) ?øΩ?øΩ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok√©mon's level) √∑ 10)ÔøΩ?, minimum 1ÔøΩ?
+                //((41 - Pok?mon's level) ?øΩ?øΩ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok√©mon's level) √∑ 10)ÔøΩ?, minimum 1ÔøΩ?
+                //((40 - Pok?mon's level) ?øΩ?øΩ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);
