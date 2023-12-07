@@ -286,20 +286,57 @@ if addToPokeDexH:
     with open("../include/constants/pokedex.h", "r+") as pokedexHeader:
         data = pokedexHeader.readlines()
         newData = []
+        inNationalDexEntries = False
+        inHoennDexEntries = False
+        nationalDexLocationFound = False
+        hoennDexLocationFound = False
+        nationalDexEndFound = False
+        hoennDexEndFound = False
     
         for line in data:
             newLine = line.split()
-            if "    NATIONAL_DEX_"+prevMon.upper() in line:
+            if "NATIONAL_DEX_" in line and "NATIONAL_DEX_COUNT" not in line and "NATIONAL_DEX_"+prevMon.upper() not in line and not inNationalDexEntries:
+                inNationalDexEntries = True
+                newData.append(line)
+            elif "NATIONAL_DEX_"+prevMon.upper() in line:
+                nationalDexLocationFound = True
                 line += "    NATIONAL_DEX_"+newMon.upper()+",\n"
                 newData.append(line)
-            elif newMonIsEndOfList and "#define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+prevMon.upper() in line:
+            #Reached the end of the national dex entries, but never found prevMon entry
+            elif inNationalDexEntries and not nationalDexLocationFound and "};" in line:
+                nationalDexEndFound = True
+                nationalDexLocationFound = True
+                line = "    NATIONAL_DEX_"+newMon.upper()+",\n"
+                line += "};\n"
+                newData.append(line)
+            elif "#define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+prevMon.upper() in line:
                 line = "    #define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+newMon.upper()+"\n"
                 newData.append(line)
-            elif "HOENN_DEX_"+prevMon.upper()+"," in line:
+            elif nationalDexEndFound and "NATIONAL_DEX_COUNT" in line:
+                nationalDexEndFound = False
+                line = "    #define NATIONAL_DEX_COUNT  NATIONAL_DEX_"+newMon.upper()+"\n"
+                newData.append(line)
+            elif "HOENN_DEX_" in line and "HOENN_DEX_COUNT" not in line and "HOENN_DEX_"+prevMon.upper() not in line and not inHoennDexEntries:
+                inNationalDexEntries = False
+                inHoennDexEntries = True
+                newData.append(line)
+            elif "HOENN_DEX_"+prevMon.upper() in line:
+                hoennDexLocationFound = True
                 line += "    HOENN_DEX_"+newMon.upper()+",\n"
                 newData.append(line)
-            elif newMonIsEndOfList and "#define HOENN_DEX_COUNT" in line:
-                line = "#define HOENN_DEX_COUNT (HOENN_DEX_"+newMon.upper()+" + 1)\n"
+            #Reached the end of the hoenn dex entries, but never found prevMon entry
+            elif inHoennDexEntries and not hoennDexLocationFound and "};" in line:
+                hoennDexEndFound = True
+                hoennDexLocationFound = True
+                line = "    HOENN_DEX_"+newMon.upper()+",\n"
+                line += "};\n"
+                newData.append(line)
+            elif "#define HOENN_DEX_COUNT  HOENN_DEX_"+prevMon.upper() in line:
+                line = "    #define HOENN_DEX_COUNT  (HOENN_DEX_"+newMon.upper()+" + 1)\n"
+                newData.append(line)
+            elif hoennDexEndFound and "HOENN_DEX_COUNT" in line:
+                hoennDexEndFound = False
+                line = "    #define HOENN_DEX_COUNT (HOENN_DEX_"+newMon.upper()+" + 1)\n"
                 newData.append(line)
             else:
                 newData.append(line)
@@ -493,19 +530,30 @@ with open("../sound/direct_sound_data.inc", "r+") as directSoundDataInc:
     data = directSoundDataInc.readlines()
     newData = []
     matchFound = False
+    lineAfterMatch = False
+    endIfFound = False
     
     for line in data:
         newLine = line.split()
         if "Cry_"+prevMon in line:
             matchFound = True
             newData.append(line)
-        elif matchFound and ".endif" in line:
+        elif matchFound:
+            lineAfterMatch = True
             matchFound = False
+            newData.append(line)
+        elif lineAfterMatch:
+            lineAfterMatch = False
+            if "endif" in line:
+                endIfFound = True
             line = "\n"
             line += "	.align 2\n"
             line += "Cry_"+newMon+"::\n"
             line += "	.incbin \"sound/direct_sound_samples/cries/bulbasaur.bin\"\n"
-            line += ".endif\n"
+            if endIfFound:
+                line += ".endif\n"
+            else:
+                line += "\n"
             newData.append(line)
         else:
             newData.append(line)
