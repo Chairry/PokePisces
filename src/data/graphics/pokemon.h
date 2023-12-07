@@ -7264,4 +7264,10 @@ const u32 gMonBackPic_Happea[] = INCBIN_U32("graphics/pokemon/65happea/back.4bpp
 const u32 gMonShinyPalette_Happea[] = INCBIN_U32("graphics/pokemon/65happea/shiny.gbapal.lz");
 const u8 gMonIcon_Happea[] = INCBIN_U8("graphics/pokemon/65happea/icon.4bpp");
 const u8 gMonFootprint_Happea[] = INCBIN_U8("graphics/pokemon/65happea/footprint.1bpp");
+const u32 gMonFrontPic_Coffiddle[] = INCBIN_U32("graphics/pokemon/66coffiddle/front.4bpp.lz");
+const u32 gMonPalette_Coffiddle[] = INCBIN_U32("graphics/pokemon/66coffiddle/normal.gbapal.lz");
+const u32 gMonBackPic_Coffiddle[] = INCBIN_U32("graphics/pokemon/66coffiddle/back.4bpp.lz");
+const u32 gMonShinyPalette_Coffiddle[] = INCBIN_U32("graphics/pokemon/66coffiddle/shiny.gbapal.lz");
+const u8 gMonIcon_Coffiddle[] = INCBIN_U8("graphics/pokemon/66coffiddle/icon.4bpp");
+const u8 gMonFootprint_Coffiddle[] = INCBIN_U8("graphics/pokemon/66coffiddle/footprint.1bpp");
 #endif

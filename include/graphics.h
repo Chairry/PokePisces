@@ -7333,6 +7333,12 @@ extern const u32 gMonBackPic_Happea[];
 extern const u32 gMonShinyPalette_Happea[];
 extern const u8 gMonIcon_Happea[];
 extern const u8 gMonFootprint_Happea[];
+extern const u32 gMonFrontPic_Coffiddle[];
+extern const u32 gMonPalette_Coffiddle[];
+extern const u32 gMonBackPic_Coffiddle[];
+extern const u32 gMonShinyPalette_Coffiddle[];
+extern const u8 gMonIcon_Coffiddle[];
+extern const u8 gMonFootprint_Coffiddle[];
 #endif
 
 // trainer sprites

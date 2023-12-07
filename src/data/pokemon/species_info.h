@@ -21521,6 +21521,28 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
+
+    [SPECIES_COFFIDDLE] =
+    {
+        .baseHP        = 10,
+        .baseAttack    = 10,
+        .baseDefense   = 10,
+        .baseSpeed     = 10,
+        .baseSpAttack  = 10,
+        .baseSpDefense = 10,
+        .types = { TYPE_NORMAL, TYPE_NORMAL },
+        .catchRate = 100,
+        .expYield = 100,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 100,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
+        .abilities = {ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BLACK,
+        .noFlip = FALSE,
+    },
 #endif
 
     [SPECIES_VENUSAUR_MEGA] =
