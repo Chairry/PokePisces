@@ -2,8 +2,8 @@ import os
 import re
 
 #First character capitalized, the rest should be lowercase
-prevMon = "Moskopo"
-newMon = "Absolaria"
+prevMon = ""
+newMon = ""
 #Set to True to update all DEX_COUNT defines to newMon
 #If False, use FixSpeciesNums.py to update species nums to correct values
 newMonIsEndOfList = False
