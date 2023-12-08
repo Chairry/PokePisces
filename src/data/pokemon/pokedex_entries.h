@@ -10666,6 +10666,78 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 10,
     },
 
+    [NATIONAL_DEX_QUILWARD] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gQuilwardPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BONFEU] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gBonfeuPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_INFRAREC] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gInfrarecPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BERM] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gBermPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MOODA] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gMoodaPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BERMUDON] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gBermudonPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_ICKSQUEEK] =
     {
         .categoryName = _("Infection"),
@@ -10686,6 +10758,90 @@ const struct PokedexEntry gPokedexEntries[] =
         .description = gKomorodePokedexText,
         .pokemonScale = 320,
         .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ANNIHILAPE] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gAnnihilapePokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_EBIBI] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gEbibiPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MAKIBI] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gMakibiPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_EBIROSASHI] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gEbirosashiPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KITIKITI] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gKitikitiPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MOSKOPO] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gMoskopoPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ABSOLARIA] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gAbsolariaPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
         .trainerScale = 256,
         .trainerOffset = 0,
     },
