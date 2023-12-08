@@ -2,12 +2,12 @@ import os
 import re
 
 #First character capitalized, the rest should be lowercase
-prevMon = "Happea"
-newMon = "Coffiddle"
+prevMon = ""
+newMon = ""
 #Set to True to update all DEX_COUNT defines to newMon
 #If False, use FixSpeciesNums.py to update species nums to correct values
-newMonIsEndOfList = True
-addToPokeDexH = False
+newMonIsEndOfList = False
+addToPokeDexH = True
 
 with open("../include/constants/species.h", "r+") as speciesHeader:
     data = speciesHeader.readlines()

@@ -5287,6 +5287,42 @@ const u8 gGhaerialPokedexText[] = _(
     "air. They are often sighted in groups\n"
     "guarding “The Princess of the Sea.”");
 
+const u8 gQuilwardPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gBonfeuPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gInfrarecPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gBermPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gMoodaPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gBermudonPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
 const u8 gMarinarocPokedexText[] = _(
     "Marinaroc travel down deep, filtering water\n"
     "as they go. Eating mineral-rich rocks help\n"
@@ -5309,6 +5345,48 @@ const u8 gKomorodePokedexText[] = _(
     "their prey with a quick bite. They then let\n"
     "their prey run and wait for them to be\n"
     "knocked out.");
+
+const u8 gAnnihilapePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gEbibiPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gMakibiPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gEbirosashiPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gKitikitiPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gMoskopoPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gAbsolariaPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
 
 const u8 gKyudiPokedexText[] = _(
     "A primarily nocturnal scavenger, Kyudi uses\n"

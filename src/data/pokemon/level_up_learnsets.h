@@ -17962,6 +17962,36 @@ static const struct LevelUpMove sGhaerialLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sQuilwardLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBonfeuLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sInfrarecLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBermLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMoodaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBermudonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sMarinarocLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_HARDEN),
@@ -18052,6 +18082,41 @@ static const struct LevelUpMove sKomorodeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(48, MOVE_JAW_LOCK),
     LEVEL_UP_MOVE(52, MOVE_GUNK_SHOT),
     LEVEL_UP_MOVE(56, MOVE_BELCH),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sAnnihilapeLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sEbibiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMakibiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sEbirosashiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sKitikitiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMoskopoLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sAbsolariaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
     LEVEL_UP_END
 };
 
