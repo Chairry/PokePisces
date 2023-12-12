@@ -59,6 +59,7 @@
 #define MAP_METEOR_NADIR                (15 | (1 << 8))
 #define MAP_EVER_GRANDE_TRANSITION_CAVE (16 | (1 << 8))
 #define MAP_TEST_MAP                    (17 | (1 << 8))
+#define MAP_CRIMNEY_CALDERA             (18 | (1 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (2 << 8))
