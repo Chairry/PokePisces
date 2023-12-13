@@ -14703,6 +14703,17 @@ static void Cmd_pickup(void)
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
             }
+            else if (ability == ABILITY_MILKY_WAY
+                && species != 0
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE)
+            {
+                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
+                {
+                    heldItem = ITEM_MOOMOO_MILK;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+                }
+            }
             #if P_SHUCKLE_BERRY_JUICE == TRUE
             else if (species == SPECIES_SHUCKLE
                 && heldItem == ITEM_ORAN_BERRY

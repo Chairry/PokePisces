@@ -2546,6 +2546,7 @@ enum
     ENDTURN_POWDER,
     ENDTURN_THROAT_CHOP,
     ENDTURN_SLOW_START,
+    ENDTURN_STARS_GRACE,
     ENDTURN_PLASMA_FISTS,
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
@@ -3095,6 +3096,16 @@ u8 DoBattlerEndTurnEffects(void)
                 && ability == ABILITY_SLOW_START)
             {
                 BattleScriptExecute(BattleScript_SlowStartEnds);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_STARS_GRACE:
+            if (gDisableStructs[battler].slowStartTimer
+                && ++gDisableStructs[battler].slowStartTimer == 3
+                && ability == ABILITY_STARS_GRACE)
+            {
+                BattleScriptExecute(BattleScript_StarsGraceStarts);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -4363,6 +4374,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_STARS_GRACE:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gDisableStructs[battler].slowStartTimer = 0;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                effect++;
+            }
+            break;
         case ABILITY_UNNERVE:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
@@ -4739,6 +4760,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_STRONG_WINDS, TRUE))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_DeltaStreamActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_FALLING:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_FallingAbilityActivates);
                 effect++;
             }
             break;
@@ -6380,6 +6409,8 @@ u32 IsAbilityOnFieldExcept(u32 battler, u32 ability)
 u32 IsAbilityPreventingEscape(u32 battler)
 {
     u32 id;
+    if (GetBattlerAbility(battler) == ABILITY_LUMBERING)
+        return 1;
     if(IsAbilityOnField(ABILITY_ILLUMINATE) && IsAbilityOnOpposingSide(battler, ABILITY_SHADOW_TAG) == 1)
         return 0;
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
@@ -8457,7 +8488,7 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return TRUE;
     else if ((gProtectStructs[battler].obstructed || gProtectStructs[battler].silkTrapped) && !IS_MOVE_STATUS(move))
         return TRUE;
-    else if (gProtectStructs[battler].spikyShielded)
+    else if (gProtectStructs[battler].spikyShielded || gProtectStructs[battler].detectShielded)
         return TRUE;
     else if (gProtectStructs[battler].kingsShielded && gBattleMoves[move].power != 0)
         return TRUE;
@@ -9096,7 +9127,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
     case ABILITY_SAND_FORCE:
         if ((moveType == TYPE_STEEL || moveType == TYPE_ROCK || moveType == TYPE_GROUND)
             && weather & B_WEATHER_SANDSTORM)
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_RIVALRY:
         if (AreBattlersOfSameGender(battlerAtk, battlerDef))
@@ -9219,6 +9250,10 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.33));
     }
 
+    if (IsAbilityOnField(ABILITY_FALLING) && atkAbility != ABILITY_FALLING 
+        && (IS_MOVE_SPECIAL(gCurrentMove) || IS_MOVE_PHYSICAL(gCurrentMove) ))
+        modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+    
     if (IsAbilityOnField(ABILITY_VESSEL_OF_RUIN) && atkAbility != ABILITY_VESSEL_OF_RUIN && IS_MOVE_SPECIAL(gCurrentMove))
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
 
@@ -9443,6 +9478,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     case ABILITY_SLOW_START:
         if (gDisableStructs[battlerAtk].slowStartTimer != 0)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
+    case ABILITY_STARS_GRACE:
+        if (gDisableStructs[battlerAtk].slowStartTimer >= 3 && IS_MOVE_SPECIAL(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_SOLAR_POWER:
         if (IS_MOVE_SPECIAL(move) && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN))
