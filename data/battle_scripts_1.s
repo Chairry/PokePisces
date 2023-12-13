@@ -7518,6 +7518,14 @@ BattleScript_SlowStartEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_StarsGraceStarts::
+	pause 5
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_STARSGRACESTART
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_SelectingNotAllowedMoveGravity::
 	printselectionstring STRINGID_GRAVITYPREVENTSUSAGE
 	endselectionscript
@@ -8712,6 +8720,12 @@ BattleScript_QuarkDriveActivates::
 BattleScript_RuinAbilityActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTAT
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_FallingAbilityActivates::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTATS
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
