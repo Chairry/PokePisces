@@ -171,6 +171,7 @@ const u8 gEnemyMonElevation[NUM_SPECIES + 1] =
     [SPECIES_SLICKSLICE] = 4,
     [SPECIES_LOAFOOF] = 4,
     [SPECIES_SPIRITOAST] = 4,
+    [SPECIES_ABSOLARIA] = 10,
     // Megas
     [SPECIES_BEEDRILL_MEGA] = 5,
     [SPECIES_PIDGEOT_MEGA] = 8,

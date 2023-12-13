@@ -10666,28 +10666,76 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 10,
     },
 
-    [NATIONAL_DEX_MARINAROC] =
+    [NATIONAL_DEX_QUILWARD] =
     {
-        .categoryName = _("Submerging"),
-        .height = 19,
-        .weight = 452,
-        .description = gMarinarocPokedexText,
-        .pokemonScale = 256,
-        .pokemonOffset = 1,
-        .trainerScale = 326,
-        .trainerOffset = 4,
+        .categoryName = _("Hot"),
+        .height = 2,
+        .weight = 7,
+        .description = gQuilwardPokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
     },
 
-    [NATIONAL_DEX_METTATOLL] =
+    [NATIONAL_DEX_BONFEU] =
     {
-        .categoryName = _("Deep Sea"),
-        .height = 34,
-        .weight = 2300,
-        .description = gMettatollPokedexText,
+        .categoryName = _("Heat"),
+        .height = 4,
+        .weight = 175,
+        .description = gBonfeuPokedexText,
+        .pokemonScale = 560,
+        .pokemonOffset = 22,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_INFRAREC] =
+    {
+        .categoryName = _("Blazing"),
+        .height = 13,
+        .weight = 403,
+        .description = gInfrarecPokedexText,
         .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 405,
-        .trainerOffset = 8,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BERM] =
+    {
+        .categoryName = _("Grass"),
+        .height = 2,
+        .weight = 21,
+        .description = gBermPokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MOODA] =
+    {
+        .categoryName = _("Grass"),
+        .height = 6,
+        .weight = 188,
+        .description = gMoodaPokedexText,
+        .pokemonScale = 422,
+        .pokemonOffset = 14,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_BERMUDON] =
+    {
+        .categoryName = _("Grass"),
+        .height = 15,
+        .weight = 710,
+        .description = gBermudonPokedexText,
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
     },
 
     [NATIONAL_DEX_ICKSQUEEK] =
@@ -10712,6 +10760,90 @@ const struct PokedexEntry gPokedexEntries[] =
         .pokemonOffset = 7,
         .trainerScale = 256,
         .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ANNIHILAPE] =
+    {
+        .categoryName = _("Rage Monkey"),
+        .height = 12,
+        .weight = 560,
+        .description = gAnnihilapePokedexText,
+        .pokemonScale = 282,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_EBIBI] =
+    {
+        .categoryName = _("Flaky"),
+        .height = 3,
+        .weight = 80,
+        .description = gEbibiPokedexText,
+        .pokemonScale = 530,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MAKIBI] =
+    {
+        .categoryName = _("Flaky"),
+        .height = 13,
+        .weight = 390,
+        .description = gMakibiPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_EBIROSASHI] =
+    {
+        .categoryName = _("Flaky"),
+        .height = 120,
+        .weight = 2200,
+        .description = gEbirosashiPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 1118,
+        .trainerOffset = 18,
+    },
+
+    [NATIONAL_DEX_KITIKITI] =
+    {
+        .categoryName = _("Carrier"),
+        .height = 1,
+        .weight = 2,
+        .description = gKitikitiPokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MOSKOPO] =
+    {
+        .categoryName = _("Collector"),
+        .height = 4,
+        .weight = 408,
+        .description = gMoskopoPokedexText,
+        .pokemonScale = 491,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_ABSOLARIA] =
+    {
+        .categoryName = _("Genome"),
+        .height = 19,
+        .weight = 515,
+        .description = gAbsolariaPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
     },
 
     [NATIONAL_DEX_KYUDI] =
@@ -11144,6 +11276,42 @@ const struct PokedexEntry gPokedexEntries[] =
         .pokemonOffset = 24,
         .trainerScale = 256,
         .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_HAPPEA] =
+    {
+        .categoryName = _("Happy"),
+        .height = 9,
+        .weight = 125,
+        .description = gHappeaPokedexText,
+        .pokemonScale = 338,
+        .pokemonOffset = 8,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MARINAROC] =
+    {
+        .categoryName = _("Submerging"),
+        .height = 19,
+        .weight = 452,
+        .description = gMarinarocPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+    },
+
+    [NATIONAL_DEX_METTATOLL] =
+    {
+        .categoryName = _("Deep Sea"),
+        .height = 34,
+        .weight = 2300,
+        .description = gMettatollPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 405,
+        .trainerOffset = 8,
     },
 #endif
 };

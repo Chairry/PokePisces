@@ -1149,3 +1149,17 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EverGrandeRoad/scripts.inc"
 
 	.include "data/maps/EverGrandePeak/scripts.inc"
+
+	.include "data/maps/CaveOfOrigin/scripts.inc"
+
+	.include "data/maps/UnduraTunnels/scripts.inc"
+
+	.include "data/maps/UnduraTunnelsDeep/scripts.inc"
+
+	.include "data/maps/MidneorFallsCave/scripts.inc"
+
+	.include "data/maps/MeteorNadir/scripts.inc"
+
+	.include "data/maps/EverGrandeTransitionCave/scripts.inc"
+
+	.include "data/maps/CrimneyCaldera/scripts.inc"

@@ -1102,7 +1102,6 @@ BattleScript_OctolockEndTurn::
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPDEF, MIN_STAT_STAGE, BattleScript_OctolockTryLowerSpDef
 	goto BattleScript_OctolockEnd2
 BattleScript_OctolockLowerDef:
-	jumpifability BS_TARGET, ABILITY_BIG_PECKS, BattleScript_OctolockTryLowerSpDef
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE
 	setbyte sSTAT_ANIM_PLAYED, TRUE
 	setstatchanger STAT_DEF, 1, TRUE
