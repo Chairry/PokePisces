@@ -1323,10 +1323,23 @@ gCryTable::
 	cry Cry_Gupspar
 	cry Cry_Vangar
 	cry Cry_Ghaerial
+	cry Cry_Quilward
+	cry Cry_Bonfeu
+	cry Cry_Infrarec
+	cry Cry_Berm
+	cry Cry_Mooda
+	cry Cry_Bermudon
 	cry Cry_Marinaroc
 	cry Cry_Mettatoll
 	cry Cry_Icksqueek
 	cry Cry_Komorode
+	cry Cry_Annihilape
+	cry Cry_Ebibi
+	cry Cry_Makibi
+	cry Cry_Ebirosashi
+	cry Cry_Kitikiti
+	cry Cry_Moskopo
+	cry Cry_Absolaria
 	cry Cry_Kyudi
 	cry Cry_Kombakyu
 	cry Cry_Fluffsir
@@ -1364,6 +1377,7 @@ gCryTable::
 	cry Cry_Loafoof
 	cry Cry_Spiritoast
 	cry Cry_Happea
+	cry Cry_Coffiddle
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3460,10 +3474,23 @@ gCryTable_Reverse::
 	cry_reverse Cry_Gupspar
 	cry_reverse Cry_Vangar
 	cry_reverse Cry_Ghaerial
+	cry_reverse Cry_Quilward
+	cry_reverse Cry_Bonfeu
+	cry_reverse Cry_Infrarec
+	cry_reverse Cry_Berm
+	cry_reverse Cry_Mooda
+	cry_reverse Cry_Bermudon
 	cry_reverse Cry_Marinaroc
 	cry_reverse Cry_Mettatoll
 	cry_reverse Cry_Icksqueek
 	cry_reverse Cry_Komorode
+	cry_reverse Cry_Annihilape
+	cry_reverse Cry_Ebibi
+	cry_reverse Cry_Makibi
+	cry_reverse Cry_Ebirosashi
+	cry_reverse Cry_Kitikiti
+	cry_reverse Cry_Moskopo
+	cry_reverse Cry_Absolaria
 	cry_reverse Cry_Kyudi
 	cry_reverse Cry_Kombakyu
 	cry_reverse Cry_Fluffsir
@@ -3501,6 +3528,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Loafoof
 	cry_reverse Cry_Spiritoast
 	cry_reverse Cry_Happea
+	cry_reverse Cry_Coffiddle
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

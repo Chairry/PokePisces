@@ -27,6 +27,11 @@
       "map": "MAP_JAGGRO_PASS",
       "offset": -28,
       "direction": "right"
+    },
+    {
+      "map": "MAP_METEOR_NADIR",
+      "offset": 0,
+      "direction": "dive"
     }
   ],
   "object_events": [

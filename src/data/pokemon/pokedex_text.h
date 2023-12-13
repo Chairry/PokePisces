@@ -335,16 +335,15 @@ const u8 gGolduckPokedexText[] = _(
     "its forehead shimmers with light.");
 
 const u8 gMankeyPokedexText[] = _(
-    "When it starts shaking and its nasal\n"
-    "breathing turns rough, it's a sure sign\n"
-    "of anger. However, since this happens\n"
-    "instantly, there is no time to flee.");
+    "Even the sound of snapping a branch sets\n"
+    "off Mankey. Its tolerance of irritants\n"
+    "shows how close Mankey is to its trainer.");
 
 const u8 gPrimeapePokedexText[] = _(
-    "When it becomes furious, its blood\n"
-    "circulation becomes more robust, and\n"
-    "its muscles are made stronger. But it\n"
-    "also becomes much less intelligent.");
+    "Said to be the manifestation of rage,\n"
+    "Primeape blazes with anger at the\n"
+    "slightest movement. Even the strongest of\n"
+    "Pokémon avoid it due to its tenaciousness.");
 
 const u8 gGrowlithePokedexText[] = _(
     "Its superb sense of smell ensures that\n"
@@ -5287,6 +5286,42 @@ const u8 gGhaerialPokedexText[] = _(
     "air. They are often sighted in groups\n"
     "guarding “The Princess of the Sea.”");
 
+const u8 gQuilwardPokedexText[] = _(
+    "Their quills feel warm to the touch. When\n"
+    "agitated, those that are pricked by their\n"
+    "quills experience a severe burning\n"
+    "sensation.");
+
+const u8 gBonfeuPokedexText[] = _(
+    "The quills of this Pokémon constantly\n"
+    "radiate heat. Pokémon gather around them\n"
+    "as a source of comfort during frosty\n"
+    "nights.");
+
+const u8 gInfrarecPokedexText[] = _(
+    "Infrarec's quills can generate so much\n"
+    "excessive heat that they erupt into a\n"
+    "violent blast. They rarely do so to prevent\n"
+    "forest fires from occurring.");
+
+const u8 gBermPokedexText[] = _(
+    "Berm are frequently mistaken for regular\n"
+    "grass and stepped on. They also mistake\n"
+    "other Berm for grass and sometimes eat\n"
+    "them.");
+
+const u8 gMoodaPokedexText[] = _(
+    "Mooda are known to be very docile and\n"
+    "friendly. Overly friendly, this makes them\n"
+    "easy targets for predators since they\n"
+    "don't possess any sense of danger.");
+
+const u8 gBermudonPokedexText[] = _(
+    "Groups of Berm and Mooda are well guarded\n"
+    "by Bermudon. They are more wary and\n"
+    "Bull Rush anything they perceive as a\n"
+    "danger to their herd.");
+
 const u8 gMarinarocPokedexText[] = _(
     "Marinaroc travel down deep, filtering water\n"
     "as they go. Eating mineral-rich rocks help\n"
@@ -5309,6 +5344,46 @@ const u8 gKomorodePokedexText[] = _(
     "their prey with a quick bite. They then let\n"
     "their prey run and wait for them to be\n"
     "knocked out.");
+
+const u8 gAnnihilapePokedexText[] = _(
+    "Its rage? Tempered. Fury? Tamed. It has\n"
+    "mastery over its anger, becoming one that\n"
+    "is enraged like a stormy sea, yet calm as a\n"
+    "still pond.");
+
+const u8 gEbibiPokedexText[] = _(
+    "Its furry shell is coated with hydrophobic\n"
+    "oil, allowing it to glide through the water\n"
+    "with minimal friction.");
+
+const u8 gMakibiPokedexText[] = _(
+    "While not as fast as Ebibi, it has enough\n"
+    "speed to brutally impale prey with its\n"
+    "sharp horn.");
+
+const u8 gEbirosashiPokedexText[] = _(
+    "Their meat is described as comparable to\n"
+    "the food of the gods. However, due to how\n"
+    "powerful these dragons are, obtaining\n"
+    "their meat is very difficult.");
+
+const u8 gKitikitiPokedexText[] = _(
+    "Kitikiti are pests that populate the pond\n"
+    "waters of Hoenn. They tend to overcrowd\n"
+    "waters, causing other Water-type Pokémon\n"
+    "to become sickly.");
+
+const u8 gMoskopoPokedexText[] = _(
+    "Hordes of them swarm people and Pokémon,\n"
+    "absorbing as much fluids as they can. They\n"
+    "seem to grow more ravenous with each\n"
+    "generation.");
+
+const u8 gAbsolariaPokedexText[] = _(
+    "They inherit the genetic traits of all\n"
+    "beings, generations of Moskopo have fed\n"
+    "on. Each generation grows exponentially\n"
+    "more supreme.");
 
 const u8 gKyudiPokedexText[] = _(
     "A primarily nocturnal scavenger, Kyudi uses\n"
@@ -5524,5 +5599,11 @@ const u8 gHappeaPokedexText[] = _(
     "smiles bring warmth to anyone near them.\n"
     "They also like lobbing themselves at\n"
     "others, therefore it's best to avoid them.");
+
+const u8 gCoffiddlePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
 
 #endif

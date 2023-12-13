@@ -1161,3 +1161,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MeteorNadir/scripts.inc"
 
 	.include "data/maps/EverGrandeTransitionCave/scripts.inc"
+
+	.include "data/maps/CrimneyCaldera/scripts.inc"

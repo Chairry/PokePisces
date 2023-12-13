@@ -9282,6 +9282,42 @@ static const union AnimCmd sAnim_Ghaerial_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Quilward_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Bonfeu_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Infrarec_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Berm_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Mooda_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Bermudon_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Marinaroc_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -9301,6 +9337,48 @@ static const union AnimCmd sAnim_Icksqueek_1[] =
 };
 
 static const union AnimCmd sAnim_Komorode_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Annihilape_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Ebibi_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Makibi_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Ebirosashi_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Kitikiti_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Moskopo_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Absolaria_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -9523,6 +9601,12 @@ static const union AnimCmd sAnim_Spiritoast_1[] =
 };
 
 static const union AnimCmd sAnim_Happea_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Coffiddle_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -11457,10 +11541,23 @@ SINGLE_ANIMATION(Sycostrom);
 SINGLE_ANIMATION(Gupspar);
 SINGLE_ANIMATION(Vangar);
 SINGLE_ANIMATION(Ghaerial);
+SINGLE_ANIMATION(Quilward);
+SINGLE_ANIMATION(Bonfeu);
+SINGLE_ANIMATION(Infrarec);
+SINGLE_ANIMATION(Berm);
+SINGLE_ANIMATION(Mooda);
+SINGLE_ANIMATION(Bermudon);
 SINGLE_ANIMATION(Marinaroc);
 SINGLE_ANIMATION(Mettatoll);
 SINGLE_ANIMATION(Icksqueek);
 SINGLE_ANIMATION(Komorode);
+SINGLE_ANIMATION(Annihilape);
+SINGLE_ANIMATION(Ebibi);
+SINGLE_ANIMATION(Makibi);
+SINGLE_ANIMATION(Ebirosashi);
+SINGLE_ANIMATION(Kitikiti);
+SINGLE_ANIMATION(Moskopo);
+SINGLE_ANIMATION(Absolaria);
 SINGLE_ANIMATION(Kyudi);
 SINGLE_ANIMATION(Kombakyu);
 SINGLE_ANIMATION(Fluffsir);
@@ -11498,6 +11595,7 @@ SINGLE_ANIMATION(Slickslice);
 SINGLE_ANIMATION(Loafoof);
 SINGLE_ANIMATION(Spiritoast);
 SINGLE_ANIMATION(Happea);
+SINGLE_ANIMATION(Coffiddle);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12567,10 +12665,23 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_GUPSPAR] = sAnims_Gupspar,
     [SPECIES_VANGAR] = sAnims_Vangar,
     [SPECIES_GHAERIAL] = sAnims_Ghaerial,
+    [SPECIES_QUILWARD] = sAnims_Quilward,
+    [SPECIES_BONFEU] = sAnims_Bonfeu,
+    [SPECIES_INFRAREC] = sAnims_Infrarec,
+    [SPECIES_BERM] = sAnims_Berm,
+    [SPECIES_MOODA] = sAnims_Mooda,
+    [SPECIES_BERMUDON] = sAnims_Bermudon,
     [SPECIES_MARINAROC] = sAnims_Marinaroc,
     [SPECIES_METTATOLL] = sAnims_Mettatoll,
     [SPECIES_ICKSQUEEK] = sAnims_Icksqueek,
     [SPECIES_KOMORODE] = sAnims_Komorode,
+    [SPECIES_ANNIHILAPE] = sAnims_Annihilape,
+    [SPECIES_EBIBI] = sAnims_Ebibi,
+    [SPECIES_MAKIBI] = sAnims_Makibi,
+    [SPECIES_EBIROSASHI] = sAnims_Ebirosashi,
+    [SPECIES_KITIKITI] = sAnims_Kitikiti,
+    [SPECIES_MOSKOPO] = sAnims_Moskopo,
+    [SPECIES_ABSOLARIA] = sAnims_Absolaria,
     [SPECIES_KYUDI] = sAnims_Kyudi,
     [SPECIES_KOMBAKYU] = sAnims_Kombakyu,
     [SPECIES_FLUFFSIR] = sAnims_Fluffsir,
@@ -12608,6 +12719,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_LOAFOOF] = sAnims_Loafoof,
     [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
     [SPECIES_HAPPEA] = sAnims_Happea,
+    [SPECIES_COFFIDDLE] = sAnims_Coffiddle,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

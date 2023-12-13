@@ -4874,18 +4874,18 @@
     {
       "id": "LAYOUT_UNDURA_TUNNELS",
       "name": "UnduraTunnels_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 32,
+      "height": 64,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Underwater",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/UnduraTunnels/border.bin",
       "blockdata_filepath": "data/layouts/UnduraTunnels/map.bin"
     },
     {
       "id": "LAYOUT_UNDURA_TUNNELS_DEEP",
       "name": "UnduraTunnelsDeep_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 32,
+      "height": 64,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/UnduraTunnelsDeep/border.bin",
@@ -4894,8 +4894,8 @@
     {
       "id": "LAYOUT_MIDNEOR_FALLS_CAVE",
       "name": "MidneorFallsCave_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 20,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFallsCave/border.bin",
@@ -4904,8 +4904,8 @@
     {
       "id": "LAYOUT_METEOR_NADIR",
       "name": "MeteorNadir_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 60,
+      "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/MeteorNadir/border.bin",
@@ -4915,11 +4915,21 @@
       "id": "LAYOUT_EVER_GRANDE_TRANSITION_CAVE",
       "name": "EverGrandeTransitionCave_Layout",
       "width": 40,
-      "height": 40,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Golden",
       "border_filepath": "data/layouts/EverGrandeTransitionCave/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeTransitionCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRIMNEY_CALDERA",
+      "name": "CrimneyCaldera_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/CrimneyCaldera/border.bin",
+      "blockdata_filepath": "data/layouts/CrimneyCaldera/map.bin"
     }
   ]
 }
