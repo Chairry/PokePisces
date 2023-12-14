@@ -396,6 +396,7 @@ static void WallyHandleChooseItem(u32 battler)
     gBattlerInMenuId = battler;
 }
 
+// We all hate wally
 static void WallyHandleHealthBarUpdate(u32 battler)
 {
     BtlController_HandleHealthBarUpdate(battler, TRUE);
