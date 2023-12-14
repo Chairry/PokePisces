@@ -114,6 +114,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
+    ABILITY_GRIM_NEIGH,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -155,6 +156,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
+    ABILITY_HUNGER_SWITCH,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
