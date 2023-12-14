@@ -155,6 +155,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
+    ABILITY_HUNGER_SWITCH,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
