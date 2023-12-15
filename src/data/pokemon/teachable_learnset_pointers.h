@@ -953,6 +953,13 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SPIRITOAST] = sSpiritoastTeachableLearnset,
     [SPECIES_HAPPEA] = sHappeaTeachableLearnset,
     [SPECIES_COFFIDDLE] = sCoffiddleTeachableLearnset,
+    [SPECIES_CRAVERAVE] = sCraveraveTeachableLearnset,
+    [SPECIES_FUZKY] = sFuzkyTeachableLearnset,
+    [SPECIES_COOLMUTTE] = sCoolmutteTeachableLearnset,
+    [SPECIES_CREAM] = sCreamTeachableLearnset,
+    [SPECIES_CREMELETTS] = sCremelettsTeachableLearnset,
+    [SPECIES_SNURROWL] = sSnurrowlTeachableLearnset,
+    [SPECIES_STOLYCE] = sStolyceTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,
