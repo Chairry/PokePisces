@@ -16459,11 +16459,7 @@ void BS_TryCopycat(void)
     }
     else
     {
-        if (IsMaxMove(gLastUsedMove))
-            gCalledMove = gBattleStruct->dynamax.lastUsedBaseMove;
-        else
-            gCalledMove = gLastUsedMove;
-
+        gCalledMove = gLastUsedMove;
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = cmd->nextInstr;
