@@ -5,6 +5,7 @@
 #include "battle_controllers.h"
 #include "battle_dome.h"
 #include "battle_interface.h"
+#include "battle_main.h"
 #include "battle_message.h"
 #include "battle_setup.h"
 #include "battle_tv.h"
@@ -246,6 +247,9 @@ static void HandleInputChooseAction(u32 battler)
 {
     u16 itemId = gBattleResources->bufferA[battler][2] | (gBattleResources->bufferA[battler][3] << 8);
 
+    if (gBattleMoveTypeSpriteId != MAX_SPRITES)
+        gSprites[gBattleMoveTypeSpriteId].invisible = TRUE;
+
     DoBounceEffect(battler, BOUNCE_HEALTHBOX, 7, 1);
     DoBounceEffect(battler, BOUNCE_MON, 7, 1);
 
@@ -304,6 +308,7 @@ static void HandleInputChooseAction(u32 battler)
             ArrowsChangeColorLastBallCycle(FALSE);
             TryHideLastUsedBall();
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_THROW_BALL, 0);
+            DestroyTypeIcon();
             PlayerBufferExecCompleted(battler);
         }
         return;
@@ -1553,6 +1558,7 @@ static void OpenPartyMenuToChooseMon(u32 battler)
 
 static void WaitForMonSelection(u32 battler)
 {
+    DestroyTypeIcon();
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
         if (gPartyMenuUseExitCallback == TRUE)
@@ -1668,13 +1674,10 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     u8 *txtPtr;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
 
-    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-    *(txtPtr)++ = EXT_CTRL_CODE_FONT;
-    *(txtPtr)++ = FONT_NORMAL;
-
-    StringCopy(txtPtr, gTypeNames[gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type]);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
+    if (gBattleMoveTypeSpriteId == MAX_SPRITES)
+        LoadTypeIcon(gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type);
+    else
+        SetTypeIconPal(gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type, gBattleMoveTypeSpriteId);
 }
 
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
@@ -1683,7 +1686,7 @@ void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
     src[0] = baseTileNum + 1;
     src[1] = baseTileNum + 2;
 
-    CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
+    CopyToBgTilemapBufferRect_ChangePalette(0, src, 11 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
 
@@ -1693,7 +1696,7 @@ void MoveSelectionDestroyCursorAt(u8 cursorPosition)
     src[0] = 0x1016;
     src[1] = 0x1016;
 
-    CopyToBgTilemapBufferRect_ChangePalette(0, src, 9 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
+    CopyToBgTilemapBufferRect_ChangePalette(0, src, 11 * (cursorPosition & 1) + 1, 55 + (cursorPosition & 2), 1, 2, 0x11);
     CopyBgTilemapBufferToVram(0);
 }
 
@@ -2008,6 +2011,7 @@ static void PlayerHandleChooseItem(u32 battler)
 {
     s32 i;
 
+    DestroyTypeIcon();
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
     gBattlerControllerFuncs[battler] = OpenBagAndChooseItem;
     gBattlerInMenuId = battler;

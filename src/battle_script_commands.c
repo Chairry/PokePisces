@@ -2039,7 +2039,10 @@ static void Cmd_adjustdamage(void)
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         goto END;
     if (DoesDisguiseBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+    {
+        gBattleStruct->enduredDamage |= gBitTable[gBattlerTarget];
         goto END;
+    }
     if (gBattleMons[gBattlerTarget].hp > gBattleMoveDamage)
         goto END;
 
@@ -2088,6 +2091,7 @@ static void Cmd_adjustdamage(void)
 
     // Handle reducing the dmg to 1 hp.
     gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
+    gBattleStruct->enduredDamage |= gBitTable[gBattlerTarget];
 
     if (gProtectStructs[gBattlerTarget].endured)
     {
@@ -5658,6 +5662,16 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_NUM_HITS:
+            if (gBattlerAttacker != gBattlerTarget
+                && gBattleMoves[gCurrentMove].split != SPLIT_STATUS
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                && TARGET_TURN_DAMAGED)
+            {
+                gBattleStruct->timesGotHit[GetBattlerSide(gBattlerTarget)][gBattlerPartyIndexes[gBattlerTarget]]++;
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_SUBSTITUTE: // update substitute
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -6176,6 +6190,7 @@ static void Cmd_moveend(void)
             gBattleStruct->zmove.effect = EFFECT_HIT;
             gBattleStruct->hitSwitchTargetFailed = FALSE;
             gBattleStruct->isAtkCancelerForCalledMove = FALSE;
+            gBattleStruct->enduredDamage = 0;
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_COUNT:
@@ -9651,22 +9666,6 @@ static void Cmd_various(void)
         }
         return;
     }
-    case VARIOUS_TRY_COPYCAT:
-    {
-        VARIOUS_ARGS(const u8 *failInstr);
-        if (gLastUsedMove == MOVE_UNAVAILABLE || gBattleMoves[gLastUsedMove].copycatBanned)
-        {
-            gBattlescriptCurrInstr = cmd->failInstr;
-        }
-        else
-        {
-            gCalledMove = gLastUsedMove;
-            gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-            gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        }
-        return;
-    }
     case VARIOUS_TRY_INSTRUCT:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -12458,6 +12457,7 @@ static void Cmd_transformdataexecution(void)
     {
         s32 i;
         u8 *battleMonAttacker, *battleMonTarget;
+        u8 timesGotHit;
 
         gBattleMons[gBattlerAttacker].status2 |= STATUS2_TRANSFORMED;
         gDisableStructs[gBattlerAttacker].disabledMove = MOVE_NONE;
@@ -12466,6 +12466,9 @@ static void Cmd_transformdataexecution(void)
         gDisableStructs[gBattlerAttacker].transformedMonOtId = gBattleMons[gBattlerTarget].otId;
         gDisableStructs[gBattlerAttacker].mimickedMoves = 0;
         gDisableStructs[gBattlerAttacker].usedMoves = 0;
+
+        timesGotHit = gBattleStruct->timesGotHit[GetBattlerSide(gBattlerTarget)][gBattlerPartyIndexes[gBattlerTarget]];
+        gBattleStruct->timesGotHit[GetBattlerSide(gBattlerAttacker)][gBattlerPartyIndexes[gBattlerAttacker]] = timesGotHit;
 
         PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[gBattlerTarget].species)
 
@@ -15065,15 +15068,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ?¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ?¿½?¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ?¿½?¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);
@@ -16444,4 +16447,25 @@ void BS_JumpIfTerrainAffected(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_TryCopycat(void)
+{
+    NATIVE_ARGS(const u8 *failInstr);
+
+    if (gLastUsedMove == MOVE_NONE || gLastUsedMove == MOVE_UNAVAILABLE || gBattleMoves[gLastUsedMove].copycatBanned)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        if (IsMaxMove(gLastUsedMove))
+            gCalledMove = gBattleStruct->dynamax.lastUsedBaseMove;
+        else
+            gCalledMove = gLastUsedMove;
+
+        gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+        gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
