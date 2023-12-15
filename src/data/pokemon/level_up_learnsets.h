@@ -18381,8 +18381,8 @@ static const struct LevelUpMove sKyudiLevelUpLearnset[] = {
 
 static const struct LevelUpMove sKombakyuLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_ROLLING_KICK),
-    LEVEL_UP_MOVE( 1, MOVE_UPPER_HAND),
-    LEVEL_UP_MOVE( 1, MOVE_GRAND_SLAM),
+    //LEVEL_UP_MOVE( 1, MOVE_UPPER_HAND),
+    //LEVEL_UP_MOVE( 1, MOVE_GRAND_SLAM),
     LEVEL_UP_MOVE( 1, MOVE_STEEL_ROLLER),
     LEVEL_UP_MOVE( 1, MOVE_NIGHT_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_CRUSH_CLAW),
