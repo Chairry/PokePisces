@@ -8,6 +8,9 @@ extern u8 gLastViewedMonIndex;
 extern const u8 *const gMoveDescriptionPointers[];
 extern const u8 gNotDoneYetDescription[];
 extern const u8 *const gNatureNamePointers[];
+extern const struct SpriteTemplate gSpriteTemplate_MoveTypes;
+extern const struct CompressedSpriteSheet gSpriteSheet_MoveTypes;
+extern const u8 gMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT];
 
 void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void));
 void ShowSelectMovePokemonSummaryScreen(struct Pokemon *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void), u16 newMove);
