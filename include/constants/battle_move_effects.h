@@ -416,7 +416,9 @@
 #define EFFECT_SALT_CURE                    410
 #define EFFECT_GLACIATE                     411
 #define EFFECT_CHILLY_AIR                   412
+#define EFFECT_LAST_RESPECTS                413
+#define EFFECT_RAGE_FIST                    414
 
-#define NUM_BATTLE_MOVE_EFFECTS             413
+#define NUM_BATTLE_MOVE_EFFECTS             415
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
