@@ -104,8 +104,8 @@ enum {
 #define PSS_DATA_WINDOW_EXP 4 // Exp, next level
 
 // Dynamic fields for the Battle Moves and Contest Moves pages.
-#define PSS_DATA_WINDOW_MOVE_NAMES 0
-#define PSS_DATA_WINDOW_MOVE_PP 1
+#define PSS_DATA_WINDOW_MOVE_NAMES 1
+#define PSS_DATA_WINDOW_MOVE_PP 0
 #define PSS_DATA_WINDOW_MOVE_DESCRIPTION 2
 
 #define MOVE_SELECTOR_SPRITES_COUNT 10
@@ -685,7 +685,7 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
         .bg = 0,
         .tilemapLeft = 15,
         .tilemapTop = 4,
-        .width = 9,
+        .width = 11,
         .height = 10,
         .paletteNum = 6,
         .baseBlock = 449,
@@ -697,7 +697,7 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
         .width = 6,
         .height = 10,
         .paletteNum = 8,
-        .baseBlock = 539,
+        .baseBlock = 559,
     },
     [PSS_DATA_WINDOW_MOVE_DESCRIPTION] = {
         .bg = 0,
@@ -706,7 +706,7 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
         .width = 20,
         .height = 4,
         .paletteNum = 6,
-        .baseBlock = 599,
+        .baseBlock = 619,
     },
 };
 static const u8 sTextColors[][3] =
@@ -3701,14 +3701,14 @@ static void PrintMoveNameAndPP(u8 moveIndex)
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sMovesPPLayout);
         text = gStringVar4;
         ppState = GetCurrentPpToMaxPpState(summary->pp[moveIndex], pp) + 9;
-        x = GetStringRightAlignXOffset(FONT_NORMAL, text, 44);
+        x = GetStringRightAlignXOffset(FONT_SMALL, text, 41);
     }
     else
     {
         PrintTextOnWindow(moveNameWindowId, gText_OneDash, 0, moveIndex * 16 + 1, 0, 1);
         text = gText_TwoDashes;
         ppState = 12;
-        x = GetStringCenterAlignXOffset(FONT_NORMAL, text, 44);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, text, 41);
     }
 
     PrintTextOnWindow(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, ppState);
