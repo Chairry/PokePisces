@@ -439,6 +439,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSaltCure                @ EFFECT_SALT_CURE
 	.4byte BattleScript_EffectGlaciate                @ EFFECT_GLACIATE
 	.4byte BattleScript_EffectChillyAir               @ EFFECT_CHILLY_AIR
+	.4byte BattleScript_EffectHit                     @ EFFECT_LAST_RESPECTS
+	.4byte BattleScript_EffectHit                     @ EFFECT_RAGE_FIST
 
 BattleScript_EffectChillyAir:
 	attackcanceler

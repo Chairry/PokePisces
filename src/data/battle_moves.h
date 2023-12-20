@@ -13067,7 +13067,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_LAST_RESPECTS] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_LAST_RESPECTS
+        .effect = EFFECT_LAST_RESPECTS,
         .power = 50,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -13582,7 +13582,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAGE_FIST] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_RAGE_FIST
+        .effect = EFFECT_RAGE_FIST,
         .power = 50,
         .type = TYPE_GHOST,
         .accuracy = 100,
