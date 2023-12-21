@@ -4930,6 +4930,16 @@
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/CrimneyCaldera/border.bin",
       "blockdata_filepath": "data/layouts/CrimneyCaldera/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAINTENANCE",
+      "name": "Maintenance_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFactory",
+      "border_filepath": "data/layouts/Maintenance/border.bin",
+      "blockdata_filepath": "data/layouts/Maintenance/map.bin"
     }
   ]
 }

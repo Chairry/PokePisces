@@ -1163,3 +1163,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EverGrandeTransitionCave/scripts.inc"
 
 	.include "data/maps/CrimneyCaldera/scripts.inc"
+
+	.include "data/maps/Maintenance/scripts.inc"
