@@ -9611,6 +9611,48 @@ static const union AnimCmd sAnim_Coffiddle_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Craverave_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fuzky_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Coolmutte_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Cream_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Cremeletts_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Snurrowl_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Stolyce_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11596,6 +11638,13 @@ SINGLE_ANIMATION(Loafoof);
 SINGLE_ANIMATION(Spiritoast);
 SINGLE_ANIMATION(Happea);
 SINGLE_ANIMATION(Coffiddle);
+SINGLE_ANIMATION(Craverave);
+SINGLE_ANIMATION(Fuzky);
+SINGLE_ANIMATION(Coolmutte);
+SINGLE_ANIMATION(Cream);
+SINGLE_ANIMATION(Cremeletts);
+SINGLE_ANIMATION(Snurrowl);
+SINGLE_ANIMATION(Stolyce);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12720,6 +12769,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
     [SPECIES_HAPPEA] = sAnims_Happea,
     [SPECIES_COFFIDDLE] = sAnims_Coffiddle,
+    [SPECIES_CRAVERAVE] = sAnims_Craverave,
+    [SPECIES_FUZKY] = sAnims_Fuzky,
+    [SPECIES_COOLMUTTE] = sAnims_Coolmutte,
+    [SPECIES_CREAM] = sAnims_Cream,
+    [SPECIES_CREMELETTS] = sAnims_Cremeletts,
+    [SPECIES_SNURROWL] = sAnims_Snurrowl,
+    [SPECIES_STOLYCE] = sAnims_Stolyce,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

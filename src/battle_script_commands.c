@@ -9919,7 +9919,7 @@ static void Cmd_various(void)
         else
         {
             gSideStatuses[GetBattlerSide(battler)] |= SIDE_STATUS_AURORA_VEIL;
-            if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LIGHT_CLAY)
+            if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LIGHT_CLAY || GetBattlerAbility(battler) == ABILITY_STAR_SCREEN)
                 gSideTimers[GetBattlerSide(battler)].auroraVeilTimer = 8;
             else
                 gSideTimers[GetBattlerSide(battler)].auroraVeilTimer = 5;
@@ -11084,7 +11084,7 @@ static void Cmd_setreflect(void)
     else
     {
         gSideStatuses[GetBattlerSide(gBattlerAttacker)] |= SIDE_STATUS_REFLECT;
-        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LIGHT_CLAY)
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LIGHT_CLAY || GetBattlerAbility(gBattlerAttacker) == ABILITY_STAR_SCREEN)
             gSideTimers[GetBattlerSide(gBattlerAttacker)].reflectTimer = 8;
         else
             gSideTimers[GetBattlerSide(gBattlerAttacker)].reflectTimer = 5;
@@ -12141,7 +12141,7 @@ static void Cmd_setlightscreen(void)
     else
     {
         gSideStatuses[GetBattlerSide(gBattlerAttacker)] |= SIDE_STATUS_LIGHTSCREEN;
-        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LIGHT_CLAY)
+        if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LIGHT_CLAY || GetBattlerAbility(gBattlerAttacker) == ABILITY_STAR_SCREEN)
             gSideTimers[GetBattlerSide(gBattlerAttacker)].lightscreenTimer = 8;
         else
             gSideTimers[GetBattlerSide(gBattlerAttacker)].lightscreenTimer = 5;
@@ -15070,15 +15070,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ?ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);

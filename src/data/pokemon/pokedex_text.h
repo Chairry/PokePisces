@@ -5606,4 +5606,46 @@ const u8 gCoffiddlePokedexText[] = _(
     "\n"
     "");
 
+const u8 gCraveravePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gFuzkyPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gCoolmuttePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gCreamPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gCremelettsPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gSnurrowlPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gStolycePokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
 #endif
