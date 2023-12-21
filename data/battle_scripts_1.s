@@ -544,7 +544,7 @@ BattleScript_EffectFilletAway:
 	attackcanceler
 	attackstring
 	ppreduce
-	halvehp BattleScript_ButItFailed
+	cutonethirdhpraisestats BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
