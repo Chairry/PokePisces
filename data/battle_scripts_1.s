@@ -441,6 +441,118 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectChillyAir               @ EFFECT_CHILLY_AIR
 	.4byte BattleScript_EffectHit                     @ EFFECT_LAST_RESPECTS
 	.4byte BattleScript_EffectHit                     @ EFFECT_RAGE_FIST
+	.4byte BattleScript_EffectFilletAway              @ EFFECT_FILLET_AWAY
+	.4byte BattleScript_EffectChillyReception         @ EFFECT_CHILLY_RECEPTION
+	.4byte BattleScript_EffectShedTail                @ EFFECT_SHED_TAIL
+
+BattleScript_EffectShedTail:
+	attackcanceler
+	attackstring
+	ppreduce
+	waitstate
+	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
+	setsubstitute TRUE
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_SHEDITSTAIL
+	waitmessage B_WAIT_TIME_LONG
+	moveendto MOVEEND_ATTACKER_VISIBLE
+	moveendfrom MOVEEND_TARGET_VISIBLE
+	openpartyscreen BS_ATTACKER, BattleScript_ButItFailed
+	switchoutabilities BS_ATTACKER
+	waitstate
+	switchhandleorder BS_ATTACKER, 2
+	returntoball BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	trytoclearprimalweather
+	printstring STRINGID_SWITCHINMON
+	switchinanim BS_ATTACKER, TRUE
+	waitstate
+	switchineffects BS_ATTACKER
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectChillyReception::
+	printstring STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE
+	waitmessage B_WAIT_TIME_LONG
+	attackcanceler
+	ppreduce
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalSun
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_EffectChillyReceptionBlockedByStrongWinds
+	call BattleScript_EffectChillyReceptionPlayAnimation
+	sethail
+	call BattleScript_MoveWeatherChangeRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionPlayAnimation:
+	attackstring
+	attackanimation
+	waitanimation
+	return
+BattleScript_EffectChillyReceptionBlockedByPrimalSun:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_ExtremelyHarshSunlightWasNotLessenedRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByPrimalRain:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_NoReliefFromHeavyRainRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionBlockedByStrongWinds:
+	call BattleScript_EffectChillyReceptionTrySwitchWeatherFailed
+	call BattleScript_MysteriousAirCurrentBlowsOnRet
+	goto BattleScript_MoveSwitch
+BattleScript_EffectChillyReceptionTrySwitchWeatherFailed:
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_FailedFromAtkString
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_FailedFromAtkString
+	call BattleScript_EffectChillyReceptionPlayAnimation
+	return
+
+BattleScript_CheckPrimalWeather:
+	call BattleScript_CheckPrimalWeather
+	return
+
+BattleScript_MoveSwitch:
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_MoveSwitchEnd
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_MoveSwitchEnd
+	printstring STRINGID_PKMNWENTBACK
+	waitmessage B_WAIT_TIME_SHORT
+	openpartyscreen BS_ATTACKER, BattleScript_MoveSwitchEnd
+	switchoutabilities BS_ATTACKER
+	waitstate
+	switchhandleorder BS_ATTACKER, 2
+	returntoball BS_ATTACKER
+	getswitchedmondata BS_ATTACKER
+	switchindataupdate BS_ATTACKER
+	hpthresholds BS_ATTACKER
+	trytoclearprimalweather
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	printstring STRINGID_SWITCHINMON
+	switchinanim BS_ATTACKER, TRUE
+	waitstate
+	switchineffects BS_ATTACKER
+BattleScript_MoveSwitchEnd:
+	end
+
+BattleScript_EffectFilletAway:
+	attackcanceler
+	attackstring
+	ppreduce
+	halvehp BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_ShellSmashTryAttack
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_ShellSmashTryAttack
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_ButItFailed
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectChillyAir:
 	attackcanceler
@@ -1640,23 +1752,7 @@ BattleScript_EffectPartingShotTrySpAtk:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EffectPartingShotSwitch:
 	moveendall
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_PartingShotEnd
-	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_PartingShotEnd
-	openpartyscreen BS_ATTACKER, BattleScript_PartingShotEnd
-	switchoutabilities BS_ATTACKER
-	waitstate
-	switchhandleorder BS_ATTACKER, 2
-	returntoball BS_ATTACKER
-	getswitchedmondata BS_ATTACKER
-	switchindataupdate BS_ATTACKER
-	hpthresholds BS_ATTACKER
-	trytoclearprimalweather
-	printstring STRINGID_EMPTYSTRING3
-	waitmessage 1
-	printstring STRINGID_SWITCHINMON
-	switchinanim BS_ATTACKER, TRUE
-	waitstate
-	switchineffects BS_ATTACKER
+	goto BattleScript_MoveSwitch
 BattleScript_PartingShotEnd:
 	end
 
@@ -3121,24 +3217,8 @@ BattleScript_EffectHitEscape:
 	moveendfrom MOVEEND_TARGET_VISIBLE
 	jumpifbattleend BattleScript_HitEscapeEnd
 	jumpifbyte CMP_NOT_EQUAL gBattleOutcome 0, BattleScript_HitEscapeEnd
-	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_HitEscapeEnd
-	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_HitEscapeEnd
 	jumpifemergencyexited BS_TARGET, BattleScript_HitEscapeEnd
-	openpartyscreen BS_ATTACKER, BattleScript_HitEscapeEnd
-	switchoutabilities BS_ATTACKER
-	waitstate
-	switchhandleorder BS_ATTACKER, 2
-	returntoball BS_ATTACKER
-	getswitchedmondata BS_ATTACKER
-	switchindataupdate BS_ATTACKER
-	hpthresholds BS_ATTACKER
-	trytoclearprimalweather
-	printstring STRINGID_EMPTYSTRING3
-	waitmessage 1
-	printstring STRINGID_SWITCHINMON
-	switchinanim BS_ATTACKER, TRUE
-	waitstate
-	switchineffects BS_ATTACKER
+	goto BattleScript_MoveSwitch
 BattleScript_HitEscapeEnd:
 	end
 
@@ -4387,7 +4467,7 @@ BattleScript_EffectSubstitute::
 	attackstring
 	waitstate
 	jumpifstatus2 BS_ATTACKER, STATUS2_SUBSTITUTE, BattleScript_AlreadyHasSubstitute
-	setsubstitute
+	setsubstitute FALSE
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_SubstituteAnim
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_SubstituteString
@@ -4914,9 +4994,7 @@ BattleScript_EffectSandstorm::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	call BattleScript_CheckPrimalWeather
 	setsandstorm
 	goto BattleScript_MoveWeatherChange
 
@@ -5106,25 +5184,25 @@ BattleScript_EffectRainDance::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	call BattleScript_CheckPrimalWeather
 	setrain
 BattleScript_MoveWeatherChange::
 	attackanimation
 	waitanimation
+	call BattleScript_MoveWeatherChangeRet
+	goto BattleScript_MoveEnd
+
+BattleScript_MoveWeatherChangeRet::
 	printfromtable gMoveWeatherChangeStringIds
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_ActivateWeatherAbilities
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_EffectSunnyDay::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	call BattleScript_CheckPrimalWeather
 	setsunny
 	goto BattleScript_MoveWeatherChange
 
@@ -5216,12 +5294,16 @@ BattleScript_EffectBellyDrum::
 	attackcanceler
 	attackstring
 	ppreduce
-	maxattackhalvehp BattleScript_ButItFailed
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_ButItFailed
+	halvehp BattleScript_ButItFailed
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_ATK, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
 	printstring STRINGID_PKMNCUTHPMAXEDATTACK
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -5588,9 +5670,7 @@ BattleScript_EffectHail::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	call BattleScript_CheckPrimalWeather
 	sethail
 	goto BattleScript_MoveWeatherChange
 
@@ -10569,9 +10649,7 @@ BattleScript_EffectSnow::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	call BattleScript_CheckPrimalWeather
 	setsnow
 	goto BattleScript_MoveWeatherChange
 

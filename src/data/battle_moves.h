@@ -13286,7 +13286,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FILLET_AWAY] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_FILLET_AWAY
+        .effect = EFFECT_FILLET_AWAY,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -13443,7 +13443,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_SHED_TAIL] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_SHED_TAIL
+        .effect = EFFECT_SHED_TAIL,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -13458,7 +13458,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_CHILLY_RECEPTION] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_CHILLY_RECEPTION
+        .effect = EFFECT_CHILLY_RECEPTION,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,

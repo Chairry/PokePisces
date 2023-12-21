@@ -545,7 +545,7 @@ static void Cmd_setsafeguard(void);
 static void Cmd_magnitudedamagecalculation(void);
 static void Cmd_jumpifnopursuitswitchdmg(void);
 static void Cmd_setsunny(void);
-static void Cmd_maxattackhalvehp(void);
+static void Cmd_halvehp(void);
 static void Cmd_copyfoestats(void);
 static void Cmd_rapidspinfree(void);
 static void Cmd_setdefensecurlbit(void);
@@ -804,7 +804,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_magnitudedamagecalculation,              //0xB9
     Cmd_jumpifnopursuitswitchdmg,                //0xBA
     Cmd_setsunny,                                //0xBB
-    Cmd_maxattackhalvehp,                        //0xBC
+    Cmd_halvehp,                                 //0xBC
     Cmd_copyfoestats,                            //0xBD
     Cmd_rapidspinfree,                           //0xBE
     Cmd_setdefensecurlbit,                       //0xBF
@@ -12499,10 +12499,17 @@ static void Cmd_transformdataexecution(void)
 
 static void Cmd_setsubstitute(void)
 {
-    CMD_ARGS();
+    CMD_ARGS(bool8 half);
 
-    u32 hp = gBattleMons[gBattlerAttacker].maxHP / 4;
-    if (gBattleMons[gBattlerAttacker].maxHP / 4 == 0)
+    u8 divisor;
+    u32 hp;
+
+    divisor = 4;
+    if (cmd->half)
+        divisor = 2;
+
+    hp = gBattleMons[gBattlerAttacker].maxHP / divisor;
+    if (hp == 0)
         hp = 1;
 
     if (gBattleMons[gBattlerAttacker].hp <= hp)
@@ -12512,13 +12519,11 @@ static void Cmd_setsubstitute(void)
     }
     else
     {
-        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 4; // one bit value will only work for pokemon which max hp can go to 1020(which is more than possible in games)
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
+        gBattleMoveDamage = hp;
 
         gBattleMons[gBattlerAttacker].status2 |= STATUS2_SUBSTITUTE;
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_WRAPPED;
-        gDisableStructs[gBattlerAttacker].substituteHP = gBattleMoveDamage;
+        gDisableStructs[gBattlerAttacker].substituteHP = gBattleMons[gBattlerAttacker].maxHP / 4;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
         gHitMarker |= HITMARKER_IGNORE_SUBSTITUTE;
     }
@@ -13507,8 +13512,8 @@ static void Cmd_setsunny(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-// Belly Drum
-static void Cmd_maxattackhalvehp(void)
+// Belly Drum, Fillet Away
+static void Cmd_halvehp(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
@@ -13517,11 +13522,8 @@ static void Cmd_maxattackhalvehp(void)
     if (!(gBattleMons[gBattlerAttacker].maxHP / 2))
         halfHp = 1;
 
-    // Belly Drum fails if the user's current HP is less than half its maximum, or if the user's Attack is already at +6 (even if the user has Contrary).
-    if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] < MAX_STAT_STAGE
-        && gBattleMons[gBattlerAttacker].hp > halfHp)
+    if (gBattleMons[gBattlerAttacker].hp > halfHp)
     {
-        gBattleMons[gBattlerAttacker].statStages[STAT_ATK] = MAX_STAT_STAGE;
         gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
