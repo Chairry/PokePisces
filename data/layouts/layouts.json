@@ -4934,9 +4934,9 @@
     {
       "id": "LAYOUT_MAINTENANCE",
       "name": "Maintenance_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
+      "width": 56,
+      "height": 80,
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleFactory",
       "border_filepath": "data/layouts/Maintenance/border.bin",
       "blockdata_filepath": "data/layouts/Maintenance/map.bin"
