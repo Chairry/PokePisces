@@ -945,6 +945,13 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_SPIRITOAST] = gMonFootprint_Spiritoast,
     [SPECIES_HAPPEA] = gMonFootprint_Happea,
     [SPECIES_COFFIDDLE] = gMonFootprint_Coffiddle,
+    [SPECIES_CRAVERAVE] = gMonFootprint_Craverave,
+    [SPECIES_FUZKY] = gMonFootprint_Fuzky,
+    [SPECIES_COOLMUTTE] = gMonFootprint_Coolmutte,
+    [SPECIES_CREAM] = gMonFootprint_Cream,
+    [SPECIES_CREMELETTS] = gMonFootprint_Cremeletts,
+    [SPECIES_SNURROWL] = gMonFootprint_Snurrowl,
+    [SPECIES_STOLYCE] = gMonFootprint_Stolyce,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };
