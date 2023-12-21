@@ -16493,6 +16493,105 @@ Move_CHILLY_AIR:
 	waitbgfadein
 	end
 
+Move_CHILLY_RECEPTION::
+	loadspritegfx ANIM_TAG_CONFETTI
+	loadspritegfx ANIM_TAG_PINK_CLOUD
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 16, 96, ANIM_ATTACKER, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 1, 0, 13, RGB_BLACK
+	delay 60
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 1, 13, 0, RGB_BLACK
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_ROAR
+	setalpha 12, 4
+	monbg ANIM_ATTACKER
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 122, 3, -14, 18, 24
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 121, 3, 14, 6, 24
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 120, 3, -12, 12, 24
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 119, 3, 14, 18, 24
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 118, 3, 0, 0, 24
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	delay 10
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 3, RGB_WHITE
+	playsewithpan SE_M_GUST, SOUND_PAN_ATTACKER
+	call ChillyReceptionSnowballs
+	call ChillyReceptionSnowballs
+	call ChillyReceptionSnowballs
+	call ChillyReceptionSnowballs
+	playsewithpan SE_M_GUST2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	waitsound
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 3, 0, RGB_WHITE
+	end
+ChillyReceptionSnowballs:
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -150, 24, 0, 56, 4, 4, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -100, 24, -10, 56, 4, 4, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -100, 24, 10, 56, -4, 3, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -200, 24, -20, 56, -4, 5, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -150, 24, 15, 56, 4, 4, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -200, 24, -20, 56, 4, 4, 0
+	delay 3
+	createsprite gPowderSnowSnowballSpriteTemplate, ANIM_ATTACKER, 40, 200, -200, 24, 20, 56, 4, 4, 0
+	delay 3
+	return
+
+Move_SHED_TAIL:
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 24, 3
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 12, 4, 2, 3
+	waitforvisualfinish
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MonToSubstitute, 2
+	end
+
+Move_FILLET_AWAY:
+	loadspritegfx ANIM_TAG_CUT
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 0
+	playsewithpan SE_M_CUT, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 20, -27, 0
+	playsewithpan SE_M_CUT, SOUND_PAN_ATTACKER
+	delay 5
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 60, -37, 0
+	playsewithpan SE_M_CUT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0x9, 0x7FFF
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 8, 8
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x9, 0x0, 0x7FFF
+	waitforvisualfinish
+	blendoff
+	end
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_LAST_RESPECTS::
@@ -16509,7 +16608,6 @@ Move_SALT_CURE::
 Move_TRIPLE_DIVE::
 Move_MORTAL_SPIN::
 Move_DOODLE::
-Move_FILLET_AWAY::
 Move_KOWTOW_CLEAVE::
 Move_FLOWER_TRICK::
 Move_TORCH_SONG::
@@ -16519,8 +16617,6 @@ Move_MAKE_IT_RAIN::
 Move_RUINATION::
 Move_COLLISION_COURSE::
 Move_ELECTRO_DRIFT::
-Move_SHED_TAIL::
-Move_CHILLY_RECEPTION::
 Move_TIDY_UP::
 Move_POUNCE::
 Move_TRAILBLAZE::

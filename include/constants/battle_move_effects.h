@@ -418,7 +418,10 @@
 #define EFFECT_CHILLY_AIR                   412
 #define EFFECT_LAST_RESPECTS                413
 #define EFFECT_RAGE_FIST                    414
+#define EFFECT_FILLET_AWAY                  415
+#define EFFECT_CHILLY_RECEPTION             416
+#define EFFECT_SHED_TAIL                    417
 
-#define NUM_BATTLE_MOVE_EFFECTS             415
+#define NUM_BATTLE_MOVE_EFFECTS             418
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
