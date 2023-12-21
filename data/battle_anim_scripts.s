@@ -16585,7 +16585,7 @@ Move_FILLET_AWAY:
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0x9, 0x7FFF
 	waitforvisualfinish
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 8, 8
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 2, 4, 4
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x9, 0x0, 0x7FFF
 	waitforvisualfinish
