@@ -1378,6 +1378,13 @@ gCryTable::
 	cry Cry_Spiritoast
 	cry Cry_Happea
 	cry Cry_Coffiddle
+	cry Cry_Craverave
+	cry Cry_Fuzky
+	cry Cry_Coolmutte
+	cry Cry_Cream
+	cry Cry_Cremeletts
+	cry Cry_Snurrowl
+	cry Cry_Stolyce
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3529,6 +3536,13 @@ gCryTable_Reverse::
 	cry_reverse Cry_Spiritoast
 	cry_reverse Cry_Happea
 	cry_reverse Cry_Coffiddle
+	cry_reverse Cry_Craverave
+	cry_reverse Cry_Fuzky
+	cry_reverse Cry_Coolmutte
+	cry_reverse Cry_Cream
+	cry_reverse Cry_Cremeletts
+	cry_reverse Cry_Snurrowl
+	cry_reverse Cry_Stolyce
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

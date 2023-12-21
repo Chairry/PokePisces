@@ -31247,6 +31247,34 @@ static const u16 sHappeaTeachableLearnset[] = {
 static const u16 sCoffiddleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sCraveraveTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sFuzkyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCoolmutteTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCreamTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCremelettsTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSnurrowlTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sStolyceTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {
