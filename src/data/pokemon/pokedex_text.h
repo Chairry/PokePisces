@@ -1233,10 +1233,10 @@ const u8 gForretressPokedexText[] = _(
     "inside cannot be seen.");
 
 const u8 gDunsparcePokedexText[] = _(
-    "Its drill-tipped tail is used to burrow into\n"
-    "the ground backwards. This Pokémon is\n"
-    "known to make its nest in complex shapes\n"
-    "deep under the ground.");
+    "Collectors obsess over Dunsparce due to\n"
+    "its rarity. It is quite difficult to\n"
+    "catch however, often drilling away\n"
+    "underground the moment they see danger.");
 
 const u8 gGligarPokedexText[] = _(
     "It glides without making a single sound.\n"
@@ -5601,51 +5601,50 @@ const u8 gHappeaPokedexText[] = _(
     "others, therefore it's best to avoid them.");
 
 const u8 gCoffiddlePokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Coffiddle can frequently be found on\n"
+    "beaches in groups dancing to nothing.\n"
+    "Scientists speculate it's them\n"
+    "communicating with the dead.");
 
 const u8 gCraveravePokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Craverave can not only dance well but\n"
+    "also produce music. They tap their legs\n"
+    "together in rhythm, often when a life\n"
+    "passes away in the area.");
 
 const u8 gFuzkyPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Packs of them can be seen foraging and\n"
+    "hunting for food. They can’t live without\n"
+    "eating every hour since their metabolism\n"
+    "is so fast.");
 
 const u8 gCoolmuttePokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Coolmutte is a massive lazy dog Pokémon\n"
+    "that spends most of its time eating and\n"
+    "lazing around. It can turn snow into fluffy\n"
+    "beds and blankets in a matter of seconds.");
 
 const u8 gCreamPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Cream's wool is a delicacy in Hoenn. If you\n"
+    "take too much, they lose the ability to\n"
+    "grow their unique wool and become ordinary\n"
+    "sheep.");
 
 const u8 gCremelettsPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Cremeletts are especially scarce as\n"
+    "their remarkable wool typically needs\n"
+    "the care of a professional. The taste of\n"
+    "their wool is said to be unexplainable.");
 
 const u8 gSnurrowlPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "They're very adaptive, and able to live\n"
+    "in most conditions. One can often\n"
+    "identify its burrows via the surrounding\n"
+    "snow, which it constantly produces.");
 
 const u8 gStolycePokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
-
+    "Stolyce are completely nomadic and never\n"
+    "stay in one place. They tend to only\n"
+    "turn right and make brief stops when\n"
+    "resting and laying eggs.");
 #endif

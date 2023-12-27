@@ -3470,7 +3470,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_TRUANT: // truant
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
             {
-                if (gCurrentMove != MOVE_REST && gCurrentMove != MOVE_SLACK_OFF) {
+                if (gCurrentMove != MOVE_REST && gCurrentMove != MOVE_SLACK_OFF && gCurrentMove != MOVE_YAWN && gCurrentMove != MOVE_SLEEP_TALK && gCurrentMove != MOVE_SNORE) {
                     CancelMultiTurnMoves(gBattlerAttacker);
                     gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
@@ -4963,7 +4963,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_TRUANT:
-                if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF))
+                if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF || gCurrentMove != MOVE_YAWN || gCurrentMove != MOVE_SLEEP_TALK || gCurrentMove != MOVE_SNORE))
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                 break;
             case ABILITY_BAD_DREAMS:
