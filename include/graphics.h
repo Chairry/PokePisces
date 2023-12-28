@@ -7459,6 +7459,18 @@ extern const u32 gMonBackPic_Stolyce[];
 extern const u32 gMonShinyPalette_Stolyce[];
 extern const u8 gMonIcon_Stolyce[];
 extern const u8 gMonFootprint_Stolyce[];
+extern const u32 gMonFrontPic_Dudunspars[];
+extern const u32 gMonPalette_Dudunspars[];
+extern const u32 gMonBackPic_Dudunspars[];
+extern const u32 gMonShinyPalette_Dudunspars[];
+extern const u8 gMonIcon_Dudunspars[];
+extern const u8 gMonFootprint_Dudunspars[];
+extern const u32 gMonFrontPic_DudunsparsThreeSegment[];
+extern const u32 gMonPalette_DudunsparsThreeSegment[];
+extern const u32 gMonBackPic_DudunsparsThreeSegment[];
+extern const u32 gMonShinyPalette_DudunsparsThreeSegment[];
+extern const u8 gMonIcon_DudunsparsThreeSegment[];
+extern const u8 gMonFootprint_DudunsparsThreeSegment[];
 #endif
 
 // trainer sprites

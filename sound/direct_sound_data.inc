@@ -4190,6 +4190,10 @@ Cry_Snurrowl::
 	.align 2
 Cry_Stolyce::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Dudunspars::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2

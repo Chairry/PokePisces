@@ -179,6 +179,16 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(SLICKSLICE),
     SPECIES_TO_HOENN(LOAFOOF),
     SPECIES_TO_HOENN(SPIRITOAST),
+    SPECIES_TO_HOENN(DUNSPARCE),
+    SPECIES_TO_HOENN(DUDUNSPARS),
+    SPECIES_TO_HOENN(COFFIDDLE),
+    SPECIES_TO_HOENN(CRAVERAVE),
+    SPECIES_TO_HOENN(FUZKY),
+    SPECIES_TO_HOENN(COOLMUTTE),
+    SPECIES_TO_HOENN(CREAM),
+    SPECIES_TO_HOENN(CREMELETTS),
+    SPECIES_TO_HOENN(SNURROWL),
+    SPECIES_TO_HOENN(STOLYCE),
     SPECIES_TO_HOENN(HAPPEA),
     SPECIES_TO_HOENN(MARINAROC),
     SPECIES_TO_HOENN(METTATOLL),
@@ -1134,6 +1144,15 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SLICKSLICE),
     SPECIES_TO_NATIONAL(LOAFOOF),
     SPECIES_TO_NATIONAL(SPIRITOAST),
+    SPECIES_TO_NATIONAL(DUDUNSPARS),
+    SPECIES_TO_NATIONAL(COFFIDDLE),
+    SPECIES_TO_NATIONAL(CRAVERAVE),
+    SPECIES_TO_NATIONAL(FUZKY),
+    SPECIES_TO_NATIONAL(COOLMUTTE),
+    SPECIES_TO_NATIONAL(CREAM),
+    SPECIES_TO_NATIONAL(CREMELETTS),
+    SPECIES_TO_NATIONAL(SNURROWL),
+    SPECIES_TO_NATIONAL(STOLYCE),
     SPECIES_TO_NATIONAL(HAPPEA),
     SPECIES_TO_NATIONAL(MARINAROC),
     SPECIES_TO_NATIONAL(METTATOLL),
@@ -1550,6 +1569,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_CALYREX_SHADOW_RIDER - 1] = NATIONAL_DEX_CALYREX,
     [SPECIES_ENAMORUS_THERIAN - 1] = NATIONAL_DEX_ENAMORUS,
     [SPECIES_BASCULEGION_FEMALE - 1] = NATIONAL_DEX_BASCULEGION,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT - 1] = NATIONAL_DEX_DUDUNSPARS,
 #endif
 };
 
@@ -1631,6 +1651,16 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(SLICKSLICE),
     HOENN_TO_NATIONAL(LOAFOOF),
     HOENN_TO_NATIONAL(SPIRITOAST),
+    HOENN_TO_NATIONAL(DUNSPARCE),
+    HOENN_TO_NATIONAL(DUDUNSPARS),
+    HOENN_TO_NATIONAL(COFFIDDLE),
+    HOENN_TO_NATIONAL(CRAVERAVE),
+    HOENN_TO_NATIONAL(FUZKY),
+    HOENN_TO_NATIONAL(COOLMUTTE),
+    HOENN_TO_NATIONAL(CREAM),
+    HOENN_TO_NATIONAL(CREMELETTS),
+    HOENN_TO_NATIONAL(SNURROWL),
+    HOENN_TO_NATIONAL(STOLYCE),
     HOENN_TO_NATIONAL(HAPPEA),
     HOENN_TO_NATIONAL(MARINAROC),
     HOENN_TO_NATIONAL(METTATOLL),
@@ -2649,6 +2679,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_CREMELETTS - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SNURROWL - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_STOLYCE - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DUDUNSPARS - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]   = ANIM_GROW_VIBRATE,
@@ -6332,6 +6363,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_MOVE:
                 if (MonKnowsMove(mon, gEvolutionTable[species][i].param))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE_TWO_SEGMENT:
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) != 0)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE_THREE_SEGMENT:
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) == 0)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
