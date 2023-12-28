@@ -815,6 +815,28 @@
         .flags = SPECIES_FLAG_MYTHICAL,                 \
     }
 
+#define DUDUNSPARS_SPECIES_INFO                                                \
+    {                                                                           \
+        .baseHP        = 135,                                                   \
+        .baseAttack    = 110,                                                   \
+        .baseDefense   = 80,                                                    \
+        .baseSpeed     = 55,                                                    \
+        .baseSpAttack  = 85,                                                    \
+        .baseSpDefense = 80,                                                    \
+        .types = { TYPE_NORMAL, TYPE_NORMAL },                                  \
+        .catchRate = 45,                                                        \
+        .expYield = 182,                                                        \
+        .evYield_HP = 2,                                                        \
+        .genderRatio = PERCENT_FEMALE(50),                                      \
+        .eggCycles = 20,                                                        \
+        .friendship = STANDARD_FRIENDSHIP,                                      \
+        .growthRate = GROWTH_MEDIUM_FAST,                                       \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},                       \
+        .abilities = {ABILITY_SERENE_GRACE, ABILITY_UNAWARE, ABILITY_OBLIVIOUS}, \
+        .bodyColor = BODY_COLOR_YELLOW,                                         \
+        .noFlip = FALSE,                                                        \
+    }
+
 const struct SpeciesInfo gSpeciesInfo[] =
 {
     [SPECIES_NONE] = {0},
@@ -21984,6 +22006,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
+
+    [SPECIES_DUDUNSPARS] = DUDUNSPARS_SPECIES_INFO,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = DUDUNSPARS_SPECIES_INFO,
 #endif
 
     [SPECIES_VENUSAUR_MEGA] =

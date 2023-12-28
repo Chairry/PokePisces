@@ -31244,6 +31244,10 @@ static const u16 sHappeaTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sDudunsparsTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sCoffiddleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

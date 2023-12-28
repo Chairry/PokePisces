@@ -7390,4 +7390,15 @@ const u32 gMonBackPic_Absolaria[] = INCBIN_U32("graphics/pokemon/32absolaria/bac
 const u32 gMonShinyPalette_Absolaria[] = INCBIN_U32("graphics/pokemon/32absolaria/shiny.gbapal.lz");
 const u8 gMonIcon_Absolaria[] = INCBIN_U8("graphics/pokemon/32absolaria/icon.4bpp");
 const u8 gMonFootprint_Absolaria[] = INCBIN_U8("graphics/pokemon/32absolaria/footprint.1bpp");
+const u32 gMonFrontPic_Dudunspars[] = INCBIN_U32("graphics/pokemon/77dudunspars/front.4bpp.lz");
+const u32 gMonPalette_Dudunspars[] = INCBIN_U32("graphics/pokemon/77dudunspars/normal.gbapal.lz");
+const u32 gMonBackPic_Dudunspars[] = INCBIN_U32("graphics/pokemon/77dudunspars/back.4bpp.lz");
+const u32 gMonShinyPalette_Dudunspars[] = INCBIN_U32("graphics/pokemon/77dudunspars/shiny.gbapal.lz");
+const u8 gMonIcon_Dudunspars[] = INCBIN_U8("graphics/pokemon/77dudunspars/icon.4bpp");
+const u8 gMonFootprint_Dudunspars[] = INCBIN_U8("graphics/pokemon/77dudunspars/footprint.1bpp");
+const u32 gMonFrontPic_DudunsparsThreeSegment[] = INCBIN_U32("graphics/pokemon/77dudunspars/threesegment/front.4bpp.lz");
+const u32 gMonPalette_DudunsparsThreeSegment[] = INCBIN_U32("graphics/pokemon/77dudunspars/threesegment/normal.gbapal.lz");
+const u32 gMonBackPic_DudunsparsThreeSegment[] = INCBIN_U32("graphics/pokemon/77dudunspars/threesegment/back.4bpp.lz");
+const u32 gMonShinyPalette_DudunsparsThreeSegment[] = INCBIN_U32("graphics/pokemon/77dudunspars/threesegment/shiny.gbapal.lz");
+const u8 gMonIcon_DudunsparsThreeSegment[] = INCBIN_U8("graphics/pokemon/77dudunspars/threesegment/icon.4bpp");
 #endif

@@ -11278,6 +11278,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_DUDUNSPARS] =
+    {
+        .description = gDudunsparsPokedexText,
+        .categoryName = _("Land Snake"),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .height = 36,
+        .weight = 392,
+    },
+
     [NATIONAL_DEX_COFFIDDLE] =
     {
         .categoryName = _("Sand Digger"),

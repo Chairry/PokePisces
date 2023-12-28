@@ -955,6 +955,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_LOAFOOF]                      = { .size = MON_COORDS_SIZE(65, 48), .y_offset =  9 },
     [SPECIES_SPIRITOAST]                   = { .size = MON_COORDS_SIZE(56, 48), .y_offset =  7 },
     [SPECIES_HAPPEA]                       = { .size = MON_COORDS_SIZE(32, 64), .y_offset =  1 },
+    [SPECIES_DUDUNSPARS]                   = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  0 },
     [SPECIES_COFFIDDLE]                    = { .size = MON_COORDS_SIZE(32, 40), .y_offset =  9 },
     [SPECIES_CRAVERAVE]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_FUZKY]                        = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 10 },
@@ -1377,6 +1378,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_ENAMORUS_THERIAN]             = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     // Basculegion
     [SPECIES_BASCULEGION_FEMALE]           = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT]     = { .size = MON_COORDS_SIZE(56, 56), .y_offset =  2 },
 #endif
     // Egg
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },
