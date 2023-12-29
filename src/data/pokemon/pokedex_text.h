@@ -5615,6 +5615,48 @@ const u8 gDudunsparsPokedexText[] = _(
     "always believed that Dunsparce never\n"
     "evolved and was its mature form.");
 
+const u8 gPomelonianPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gGourdougPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gFogglehindPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gMatchlitPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gYagangranPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gPidiumPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
+const u8 gMedgeonPokedexText[] = _(
+    "\n"
+    "\n"
+    "\n"
+    "");
+
 const u8 gCoffiddlePokedexText[] = _(
     "Coffiddle can frequently be found on\n"
     "beaches in groups dancing to nothing.\n"

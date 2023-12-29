@@ -2,8 +2,8 @@ import os
 import re
 
 #First character capitalized, the rest should be lowercase
-prevMon = "Snurrowl"
-newMon = "Stolyce"
+prevMon = "Pidium"
+newMon = "Medgeon"
 #Set to True to update all DEX_COUNT defines to newMon
 #If False, use FixSpeciesNums.py to update species nums to correct values
 newMonIsEndOfList = True
@@ -15,7 +15,7 @@ with open("../include/constants/species.h", "r+") as speciesHeader:
     
     for line in data:
         newLine = line.split()
-        if "#define SPECIES_"+prevMon.upper() in line:
+        if "#define SPECIES_"+prevMon.upper() in line and "FORMS_START" not in line:
             speciesNum = int(newLine[2]) + 1 
             line += "#define SPECIES_" + newMon.upper() + " " + str(speciesNum) + "\n"
             newData.append(line)
