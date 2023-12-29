@@ -19231,6 +19231,41 @@ static const struct LevelUpMove sDudunsparsLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sPomelonianLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sGourdougLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sFogglehindLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMatchlitLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sYagangranLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPidiumLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMedgeonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sHappeaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_MAGIC_COAT),
     LEVEL_UP_MOVE(1, MOVE_MIRROR_COAT),

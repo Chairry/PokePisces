@@ -11290,6 +11290,90 @@ const struct PokedexEntry gPokedexEntries[] =
         .weight = 392,
     },
 
+    [NATIONAL_DEX_POMELONIAN] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gPomelonianPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_GOURDOUG] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gGourdougPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_FOGGLEHIND] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gFogglehindPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MATCHLIT] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gMatchlitPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_YAGANGRAN] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gYagangranPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_PIDIUM] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gPidiumPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_MEDGEON] =
+    {
+        .categoryName = _("REPLACE ME"),
+        .height = 999,
+        .weight = 999,
+        .description = gMedgeonPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_COFFIDDLE] =
     {
         .categoryName = _("Sand Digger"),
