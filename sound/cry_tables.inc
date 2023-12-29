@@ -1385,6 +1385,14 @@ gCryTable::
 	cry Cry_Cremeletts
 	cry Cry_Snurrowl
 	cry Cry_Stolyce
+	cry Cry_Dudunspars
+	cry Cry_Pomelonian
+	cry Cry_Gourdoug
+	cry Cry_Fogglehind
+	cry Cry_Matchlit
+	cry Cry_Yagangran
+	cry Cry_Pidium
+	cry Cry_Medgeon
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2114,6 +2122,8 @@ gCryTable::
 	cry Cry_CalyrexShadowRider
 	@ Basculegion
 	cry Cry_Basculegion
+	@ Dudunspars
+	cry Cry_Dudunspars
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2153,6 +2163,8 @@ gCryTable::
 	cry Cry_Unown
 	cry Cry_Unown
 	@ Basculegion
+	cry Cry_Unown
+	@ Dudunspars
 	cry Cry_Unown
 .endif
 
@@ -3543,6 +3555,14 @@ gCryTable_Reverse::
 	cry_reverse Cry_Cremeletts
 	cry_reverse Cry_Snurrowl
 	cry_reverse Cry_Stolyce
+	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Pomelonian
+	cry_reverse Cry_Gourdoug
+	cry_reverse Cry_Fogglehind
+	cry_reverse Cry_Matchlit
+	cry_reverse Cry_Yagangran
+	cry_reverse Cry_Pidium
+	cry_reverse Cry_Medgeon
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4239,7 +4259,10 @@ gCryTable_Reverse::
 	cry_reverse Cry_CalyrexShadowRider
 	@ Basculegion
 	cry_reverse Cry_Basculegion
+	@ Dudunspars
+	cry_reverse Cry_Dudunspars
 .else
+	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
