@@ -31248,6 +31248,34 @@ static const u16 sDudunsparsTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sPomelonianTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGourdougTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sFogglehindTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMatchlitTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sYagangranTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sPidiumTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMedgeonTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sCoffiddleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

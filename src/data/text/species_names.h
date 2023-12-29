@@ -959,6 +959,13 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SNURROWL] = _("Snurrowl"),
     [SPECIES_STOLYCE] = _("Stolyce"),
     [SPECIES_DUDUNSPARS] = _("Dudunspars"),
+    [SPECIES_POMELONIAN] = _("Pomelonian"),
+    [SPECIES_GOURDOUG] = _("Gourdoug"),
+    [SPECIES_FOGGLEHIND] = _("Fogglehind"),
+    [SPECIES_MATCHLIT] = _("Matchlit"),
+    [SPECIES_YAGANGRAN] = _("Yagangran"),
+    [SPECIES_PIDIUM] = _("Pidium"),
+    [SPECIES_MEDGEON] = _("Medgeon"),
 #endif
 
     // Megas

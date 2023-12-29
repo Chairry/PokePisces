@@ -9612,6 +9612,48 @@ static const union AnimCmd sAnim_Dudunspars_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Pomelonian_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Gourdoug_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Fogglehind_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Matchlit_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Yagangran_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Pidium_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Medgeon_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Coffiddle_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -11644,6 +11686,13 @@ SINGLE_ANIMATION(Loafoof);
 SINGLE_ANIMATION(Spiritoast);
 SINGLE_ANIMATION(Happea);
 SINGLE_ANIMATION(Dudunspars);
+SINGLE_ANIMATION(Pomelonian);
+SINGLE_ANIMATION(Gourdoug);
+SINGLE_ANIMATION(Fogglehind);
+SINGLE_ANIMATION(Matchlit);
+SINGLE_ANIMATION(Yagangran);
+SINGLE_ANIMATION(Pidium);
+SINGLE_ANIMATION(Medgeon);
 SINGLE_ANIMATION(Coffiddle);
 SINGLE_ANIMATION(Craverave);
 SINGLE_ANIMATION(Fuzky);
@@ -12776,6 +12825,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
     [SPECIES_HAPPEA] = sAnims_Happea,
     [SPECIES_DUDUNSPARS] = sAnims_Dudunspars,
+    [SPECIES_POMELONIAN] = sAnims_Pomelonian,
+    [SPECIES_GOURDOUG] = sAnims_Gourdoug,
+    [SPECIES_FOGGLEHIND] = sAnims_Fogglehind,
+    [SPECIES_MATCHLIT] = sAnims_Matchlit,
+    [SPECIES_YAGANGRAN] = sAnims_Yagangran,
+    [SPECIES_PIDIUM] = sAnims_Pidium,
+    [SPECIES_MEDGEON] = sAnims_Medgeon,
     [SPECIES_COFFIDDLE] = sAnims_Coffiddle,
     [SPECIES_CRAVERAVE] = sAnims_Craverave,
     [SPECIES_FUZKY] = sAnims_Fuzky,
