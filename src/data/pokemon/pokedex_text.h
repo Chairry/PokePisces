@@ -5682,10 +5682,10 @@ const u8 gCoolmuttePokedexText[] = _(
     "beds and blankets in a matter of seconds.");
 
 const u8 gCreamPokedexText[] = _(
-    "Cream's wool is a delicacy in Hoenn. If you\n"
-    "take too much, they lose the ability to\n"
-    "grow their unique wool and become ordinary\n"
-    "sheep.");
+    "Cream's wool is a delicacy in Hoenn. If\n"
+    "you take too much, they lose the ability\n"
+    "to grow their unique wool and become\n"
+    "ordinary sheep.");
 
 const u8 gCremelettsPokedexText[] = _(
     "Cremeletts are especially scarce as\n"
