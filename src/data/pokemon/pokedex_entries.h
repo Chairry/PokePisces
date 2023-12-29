@@ -11278,6 +11278,114 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_DUDUNSPARS] =
+    {
+        .description = gDudunsparsPokedexText,
+        .categoryName = _("Land Snake"),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .height = 36,
+        .weight = 392,
+    },
+
+    [NATIONAL_DEX_COFFIDDLE] =
+    {
+        .categoryName = _("Sand Digger"),
+        .height = 2,
+        .weight = 4,
+        .description = gCoffiddlePokedexText,
+        .pokemonScale = 682,
+        .pokemonOffset = 24,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_CRAVERAVE] =
+    {
+        .categoryName = _("Sand Digger"),
+        .height = 27,
+        .weight = 525,
+        .description = gCraveravePokedexText,
+        .pokemonScale = 275,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_FUZKY] =
+    {
+        .categoryName = _("Fussy"),
+        .height = 5,
+        .weight = 136,
+        .description = gFuzkyPokedexText,
+        .pokemonScale = 481,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_COOLMUTTE] =
+    {
+        .categoryName = _("Cozy"),
+        .height = 20,
+        .weight = 1305,
+        .description = gCoolmuttePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 2,
+        .trainerScale = 300,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_CREAM] =
+    {
+        .categoryName = _("Cream"),
+        .height = 4,
+        .weight = 57,
+        .description = gCreamPokedexText,
+        .pokemonScale = 491,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_CREMELETTS] =
+    {
+        .categoryName = _("Triple Cream"),
+        .height = 8,
+        .weight = 171,
+        .description = gCremelettsPokedexText,
+        .pokemonScale = 439,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SNURROWL] =
+    {
+        .categoryName = _("Hiding"),
+        .height = 12,
+        .weight = 380,
+        .description = gSnurrowlPokedexText,
+        .pokemonScale = 274,
+        .pokemonOffset = -1,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_STOLYCE] =
+    {
+        .categoryName = _("Right"),
+        .height = 19,
+        .weight = 515,
+        .description = gStolycePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+    },
+
     [NATIONAL_DEX_HAPPEA] =
     {
         .categoryName = _("Happy"),

@@ -960,6 +960,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_CREMELETTS] = sCremelettsTeachableLearnset,
     [SPECIES_SNURROWL] = sSnurrowlTeachableLearnset,
     [SPECIES_STOLYCE] = sStolyceTeachableLearnset,
+    [SPECIES_DUDUNSPARS] = sDudunsparsTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,
@@ -1374,5 +1375,6 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     // Enamorus
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusTeachableLearnset,
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionTeachableLearnset,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsTeachableLearnset,
 #endif
 };

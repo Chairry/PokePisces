@@ -985,6 +985,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_CREMELETTS] = gMonIcon_Cremeletts,
     [SPECIES_SNURROWL] = gMonIcon_Snurrowl,
     [SPECIES_STOLYCE] = gMonIcon_Stolyce,
+    [SPECIES_DUDUNSPARS] = gMonIcon_Dudunspars,
 #endif
     [SPECIES_VENUSAUR_MEGA] = gMonIcon_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = gMonIcon_CharizardMegaX,
@@ -1334,6 +1335,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_CALYREX_SHADOW_RIDER] = gMonIcon_CalyrexShadowRider,
     [SPECIES_ENAMORUS_THERIAN] = gMonIcon_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = gMonIcon_BasculegionFemale,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = gMonIcon_DudunsparsThreeSegment,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -1562,7 +1564,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_GIRAFARIG] = 1,
     [SPECIES_PINECO] = 0,
     [SPECIES_FORRETRESS] = 2,
-    [SPECIES_DUNSPARCE] = 0,
+    [SPECIES_DUNSPARCE] = 2,
     [SPECIES_GLIGAR] = 0,
     [SPECIES_STEELIX] = 0,
     [SPECIES_SNUBBULL] = 0,
@@ -2298,14 +2300,15 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_LOAFOOF] = 2,
     [SPECIES_SPIRITOAST] = 2,
     [SPECIES_HAPPEA] = 0,
-    [SPECIES_COFFIDDLE] = 0,
-    [SPECIES_CRAVERAVE] = 0,
-    [SPECIES_FUZKY] = 0,
+    [SPECIES_COFFIDDLE] = 1,
+    [SPECIES_CRAVERAVE] = 1,
+    [SPECIES_FUZKY] = 2,
     [SPECIES_COOLMUTTE] = 0,
     [SPECIES_CREAM] = 0,
     [SPECIES_CREMELETTS] = 0,
     [SPECIES_SNURROWL] = 0,
     [SPECIES_STOLYCE] = 0,
+    [SPECIES_DUDUNSPARS] = 0,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
@@ -2608,6 +2611,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_CALYREX_SHADOW_RIDER] = 0,
     [SPECIES_ENAMORUS_THERIAN] = 1,
     [SPECIES_BASCULEGION_FEMALE] = 0,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = 0,
 #endif
     [SPECIES_EGG] = 1,
 };
