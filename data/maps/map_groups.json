@@ -93,7 +93,9 @@
     "TestMap",
     "CrimneyCaldera",
     "Maintenance",
-    "MaintenanceBondingArena"
+    "MaintenanceBondingArena",
+    "NewMauvilleFloor1",
+    "NewMauvilleFloor2"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

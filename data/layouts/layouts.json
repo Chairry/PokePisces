@@ -4950,6 +4950,26 @@
       "secondary_tileset": "gTileset_BattleFactory",
       "border_filepath": "data/layouts/MaintenanceBondingArena/border.bin",
       "blockdata_filepath": "data/layouts/MaintenanceBondingArena/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAUVILLE_FLOOR1",
+      "name": "NewMauvilleFloor1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/NewMauvilleFloor1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMauvilleFloor1/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAUVILLE_FLOOR2",
+      "name": "NewMauvilleFloor2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/NewMauvilleFloor2/border.bin",
+      "blockdata_filepath": "data/layouts/NewMauvilleFloor2/map.bin"
     }
   ]
 }
