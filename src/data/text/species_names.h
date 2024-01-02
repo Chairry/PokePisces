@@ -958,6 +958,14 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CREMELETTS] = _("Cremeletts"),
     [SPECIES_SNURROWL] = _("Snurrowl"),
     [SPECIES_STOLYCE] = _("Stolyce"),
+    [SPECIES_DUDUNSPARS] = _("Dudunspars"),
+    [SPECIES_POMELONIAN] = _("Pomelonian"),
+    [SPECIES_GOURDOUG] = _("Gourdoug"),
+    [SPECIES_FOGGLEHIND] = _("Fogglehind"),
+    [SPECIES_MATCHLIT] = _("Matchlit"),
+    [SPECIES_YAGANGRAN] = _("Yagangran"),
+    [SPECIES_PIDIUM] = _("Pidium"),
+    [SPECIES_MEDGEON] = _("Medgeon"),
 #endif
 
     // Megas
@@ -1375,5 +1383,6 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CALYREX_ICE_RIDER] = _("Calyrex"),
     [SPECIES_CALYREX_SHADOW_RIDER] = _("Calyrex"),
     [SPECIES_BASCULEGION_FEMALE] = _("Bsculegion"),
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = _("Dudunspars"),
 #endif
 };

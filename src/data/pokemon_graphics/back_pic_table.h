@@ -951,6 +951,8 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(LOAFOOF, gMonBackPic_Loafoof),
     SPECIES_SPRITE(SPIRITOAST, gMonBackPic_Spiritoast),
     SPECIES_SPRITE(HAPPEA, gMonBackPic_Happea),
+    SPECIES_SPRITE(DUDUNSPARS, gMonBackPic_Dudunspars),
+    SPECIES_SPRITE(DUDUNSPARS_THREE_SEGMENT, gMonBackPic_DudunsparsThreeSegment),
     SPECIES_SPRITE(COFFIDDLE, gMonBackPic_Coffiddle),
     SPECIES_SPRITE(CRAVERAVE, gMonBackPic_Craverave),
     SPECIES_SPRITE(FUZKY, gMonBackPic_Fuzky),
@@ -959,6 +961,13 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(CREMELETTS, gMonBackPic_Cremeletts),
     SPECIES_SPRITE(SNURROWL, gMonBackPic_Snurrowl),
     SPECIES_SPRITE(STOLYCE, gMonBackPic_Stolyce),
+    SPECIES_SPRITE(POMELONIAN, gMonBackPic_Pomelonian),
+    SPECIES_SPRITE(GOURDOUG, gMonBackPic_Gourdoug),
+    SPECIES_SPRITE(FOGGLEHIND, gMonBackPic_Fogglehind),
+    SPECIES_SPRITE(MATCHLIT, gMonBackPic_Matchlit),
+    SPECIES_SPRITE(YAGANGRAN, gMonBackPic_Yagangran),
+    SPECIES_SPRITE(PIDIUM, gMonBackPic_Pidium),
+    SPECIES_SPRITE(MEDGEON, gMonBackPic_Medgeon),
 #endif
 
     SPECIES_SPRITE(VENUSAUR_MEGA, gMonBackPic_VenusaurMega),

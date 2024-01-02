@@ -287,6 +287,8 @@
 #define EVO_LEVEL_FOG                     42     // Pokémon reaches the specified level during fog in the overworld
 #define EVO_LEVEL_FEMALE_BERSERK_GENE     43     // Pokémon reaches the specified level, is female, and is holding berserk gene
 #define EVO_LOW_FRIENDSHIP                44     // Pokémon levels up with friendship less than or equal to 95
+#define EVO_MOVE_TWO_SEGMENT              45     // Pokémon levels up, knows specified move, has a personality value with a modulus of 0
+#define EVO_MOVE_THREE_SEGMENT            46     // Pokémon levels up, knows specified move, has a personality value with a modulus of 1-9
 
 #define EVOS_PER_MON 10
 

@@ -1138,6 +1138,12 @@ static const u16 sBasculegionFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sDudunsparsFormSpeciesIdTable[] = {
+    SPECIES_DUDUNSPARS,
+    SPECIES_DUDUNSPARS_THREE_SEGMENT,
+    FORM_SPECIES_END,
+};
+
 // TODO for HUDDLE_UP: Missing the species that it affects 
 
 #endif
