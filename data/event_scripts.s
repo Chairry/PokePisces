@@ -1165,3 +1165,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/CrimneyCaldera/scripts.inc"
 
 	.include "data/maps/Maintenance/scripts.inc"
+
+	.include "data/maps/MaintenanceBondingArena/scripts.inc"

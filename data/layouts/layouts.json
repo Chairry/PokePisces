@@ -4940,6 +4940,16 @@
       "secondary_tileset": "gTileset_BattleFactory",
       "border_filepath": "data/layouts/Maintenance/border.bin",
       "blockdata_filepath": "data/layouts/Maintenance/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAINTENANCE_BONDING_ARENA",
+      "name": "MaintenanceBondingArena_Layout",
+      "width": 13,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFactory",
+      "border_filepath": "data/layouts/MaintenanceBondingArena/border.bin",
+      "blockdata_filepath": "data/layouts/MaintenanceBondingArena/map.bin"
     }
   ]
 }
