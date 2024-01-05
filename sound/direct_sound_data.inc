@@ -4196,6 +4196,10 @@ Cry_Dudunspars::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 
 	.align 2
+Cry_Lottabats::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
 Cry_Pomelonian::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 
@@ -4571,6 +4575,9 @@ Cry_CalyrexIceRider::
 Cry_CalyrexShadowRider::
 	.incbin "sound/direct_sound_samples/cries/calyrex_shadow_rider.bin"
 
+	.align 2
+Cry_LottabatsHuddled::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2

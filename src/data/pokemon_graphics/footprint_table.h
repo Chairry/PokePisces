@@ -945,6 +945,7 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_SPIRITOAST] = gMonFootprint_Spiritoast,
     [SPECIES_HAPPEA] = gMonFootprint_Happea,
     [SPECIES_DUDUNSPARS] = gMonFootprint_Dudunspars,
+    [SPECIES_LOTTABATS] = gMonFootprint_Lottabats,
     [SPECIES_POMELONIAN] = gMonFootprint_Pomelonian,
     [SPECIES_GOURDOUG] = gMonFootprint_Gourdoug,
     [SPECIES_FOGGLEHIND] = gMonFootprint_Fogglehind,

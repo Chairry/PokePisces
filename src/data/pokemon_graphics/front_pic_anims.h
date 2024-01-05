@@ -9612,6 +9612,12 @@ static const union AnimCmd sAnim_Dudunspars_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Lottabats_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Pomelonian_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -10672,6 +10678,12 @@ static const union AnimCmd sAnim_EnamorusTherian_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_LottabatsHuddled_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 #define SINGLE_ANIMATION(name)                      \
@@ -11686,6 +11698,7 @@ SINGLE_ANIMATION(Loafoof);
 SINGLE_ANIMATION(Spiritoast);
 SINGLE_ANIMATION(Happea);
 SINGLE_ANIMATION(Dudunspars);
+SINGLE_ANIMATION(Lottabats);
 SINGLE_ANIMATION(Pomelonian);
 SINGLE_ANIMATION(Gourdoug);
 SINGLE_ANIMATION(Fogglehind);
@@ -11869,6 +11882,7 @@ SINGLE_ANIMATION(LycanrocDusk);
 #endif
 #if P_GEN_8_POKEMON == TRUE
 SINGLE_ANIMATION(EnamorusTherian);
+SINGLE_ANIMATION(LottabatsHuddled);
 #endif
 
 const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
@@ -12825,6 +12839,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SPIRITOAST] = sAnims_Spiritoast,
     [SPECIES_HAPPEA] = sAnims_Happea,
     [SPECIES_DUDUNSPARS] = sAnims_Dudunspars,
+    [SPECIES_LOTTABATS] = sAnims_Lottabats,
     [SPECIES_POMELONIAN] = sAnims_Pomelonian,
     [SPECIES_GOURDOUG] = sAnims_Gourdoug,
     [SPECIES_FOGGLEHIND] = sAnims_Fogglehind,
@@ -13190,6 +13205,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_ENAMORUS_THERIAN] = sAnims_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = sAnims_Basculegion,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sAnims_Dudunspars,
+    [SPECIES_LOTTABATS_HUDDLED] = sAnims_Lottabats,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
 };

@@ -986,6 +986,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SNURROWL] = gMonIcon_Snurrowl,
     [SPECIES_STOLYCE] = gMonIcon_Stolyce,
     [SPECIES_DUDUNSPARS] = gMonIcon_Dudunspars,
+    [SPECIES_LOTTABATS] = gMonIcon_Lottabats,
     [SPECIES_POMELONIAN] = gMonIcon_Pomelonian,
     [SPECIES_GOURDOUG] = gMonIcon_Gourdoug,
     [SPECIES_FOGGLEHIND] = gMonIcon_Fogglehind,
@@ -1343,6 +1344,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_ENAMORUS_THERIAN] = gMonIcon_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = gMonIcon_BasculegionFemale,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = gMonIcon_DudunsparsThreeSegment,
+    [SPECIES_LOTTABATS_HUDDLED] = gMonIcon_LottabatsHuddled,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2316,6 +2318,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SNURROWL] = 0,
     [SPECIES_STOLYCE] = 0,
     [SPECIES_DUDUNSPARS] = 0,
+    [SPECIES_LOTTABATS] = 0,
     [SPECIES_POMELONIAN] = 0,
     [SPECIES_GOURDOUG] = 0,
     [SPECIES_FOGGLEHIND] = 0,
@@ -2626,6 +2629,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_ENAMORUS_THERIAN] = 1,
     [SPECIES_BASCULEGION_FEMALE] = 0,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = 0,
+    [SPECIES_LOTTABATS_HUDDLED] = 0,
 #endif
     [SPECIES_EGG] = 1,
 };

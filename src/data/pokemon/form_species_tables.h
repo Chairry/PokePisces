@@ -1144,6 +1144,10 @@ static const u16 sDudunsparsFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
-// TODO for HUDDLE_UP: Missing the species that it affects 
+static const u16 sLottabatsFormSpeciesIdTable[] = {
+    SPECIES_LOTTABATS,
+    SPECIES_LOTTABATS_HUDDLED,
+    FORM_SPECIES_END,
+};
 
 #endif
