@@ -5615,6 +5615,12 @@ const u8 gDudunsparsPokedexText[] = _(
     "always believed that Dunsparce never\n"
     "evolved and was its mature form.");
 
+const u8 gLottabatsPokedexText[] = _(
+    "Even though Lottabats are quite weak,\n"
+    "they have great camouflage in the snow.\n"
+    "Their true power shows when enough of\n"
+    "them come together to become a beast.");
+
 const u8 gPomelonianPokedexText[] = _(
     "\n"
     "\n"
