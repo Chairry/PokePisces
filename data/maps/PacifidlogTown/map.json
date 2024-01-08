@@ -37,7 +37,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 20,
+      "x": 5,
       "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -50,7 +50,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 18,
+      "x": 3,
       "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -63,7 +63,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 19,
+      "x": 4,
       "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -77,43 +77,43 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 11,
+      "x": 25,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 28,
-      "y": 12,
+      "x": 5,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 20,
+      "x": 4,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
-      "x": 20,
-      "y": 20,
+      "x": 3,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE3",
       "dest_warp_id": "0"
     },
     {
-      "x": 11,
-      "y": 27,
+      "x": 2,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE4",
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
-      "y": 24,
+      "x": 7,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE5",
       "dest_warp_id": "0"
@@ -125,24 +125,24 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 22,
-      "y": 3,
+      "x": 5,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 2,
+      "x": 6,
+      "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PacifidlogTown_EventScript_TownSign"
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 3,
+      "x": 6,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
