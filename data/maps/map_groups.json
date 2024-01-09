@@ -95,7 +95,8 @@
     "Maintenance",
     "MaintenanceBondingArena",
     "NewMauvilleFloor1",
-    "NewMauvilleFloor2"
+    "NewMauvilleFloor2",
+    "NewMauvilleCenter1"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",

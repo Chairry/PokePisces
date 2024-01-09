@@ -4970,6 +4970,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/NewMauvilleFloor2/border.bin",
       "blockdata_filepath": "data/layouts/NewMauvilleFloor2/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAUVILLE_CENTER1",
+      "name": "NewMauvilleCenter1_Layout",
+      "width": 23,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/NewMauvilleCenter1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMauvilleCenter1/map.bin"
     }
   ]
 }

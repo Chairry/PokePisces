@@ -1171,3 +1171,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/NewMauvilleFloor1/scripts.inc"
 
 	.include "data/maps/NewMauvilleFloor2/scripts.inc"
+
+	.include "data/maps/NewMauvilleCenter1/scripts.inc"
