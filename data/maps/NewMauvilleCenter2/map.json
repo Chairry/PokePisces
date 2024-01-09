@@ -1,7 +1,7 @@
 {
-  "id": "MAP_NEW_MAUVILLE_CENTER1",
-  "name": "NewMauvilleCenter1",
-  "layout": "LAYOUT_NEW_MAUVILLE_CENTER1",
+  "id": "MAP_NEW_MAUVILLE_CENTER2",
+  "name": "NewMauvilleCenter2",
+  "layout": "LAYOUT_NEW_MAUVILLE_CENTER2",
   "music": "MUS_RG_NET_CENTER",
   "region_map_section": "MAPSEC_MAUVILLE_CITY",
   "requires_flash": false,
@@ -18,17 +18,17 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 6,
+      "x": 1,
+      "y": 5,
       "elevation": 4,
-      "dest_map": "MAP_NEW_MAUVILLE_CENTER2",
+      "dest_map": "MAP_NEW_MAUVILLE_CENTER1",
       "dest_warp_id": "0"
     },
     {
-      "x": 11,
-      "y": 9,
+      "x": 6,
+      "y": 1,
       "elevation": 3,
-      "dest_map": "MAP_MAUVILLE_NEW",
+      "dest_map": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
       "dest_warp_id": "0"
     }
   ],

@@ -17,7 +17,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 27,
+      "y": 19,
+      "elevation": 3,
+      "dest_map": "MAP_MAUVILLE_NEW",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 28,
+      "y": 19,
+      "elevation": 3,
+      "dest_map": "MAP_MAUVILLE_NEW",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
 
