@@ -19,7 +19,7 @@
       "direction": "dive"
     },
     {
-      "map": "MAP_ROUTE131",
+      "map": "MAP_FLOTSHORE_TEST",
       "offset": 7,
       "direction": "down"
     },
@@ -37,8 +37,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 28,
-      "y": 16,
+      "x": 1,
+      "y": 1,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
       "movement_range_x": 3,
@@ -50,8 +50,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 10,
-      "y": 14,
+      "x": 2,
+      "y": 1,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 5,
@@ -63,8 +63,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 13,
-      "y": 22,
+      "x": 0,
+      "y": 1,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 1,
@@ -76,8 +76,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 35,
-      "y": 9,
+      "x": 2,
+      "y": 3,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 1,
@@ -89,8 +89,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 13,
-      "y": 27,
+      "x": 0,
+      "y": 3,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
       "movement_range_x": 1,
@@ -102,7 +102,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 34,
+      "y": 45,
+      "elevation": 3,
+      "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

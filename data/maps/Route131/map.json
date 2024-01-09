@@ -3,26 +3,16 @@
   "name": "Route131",
   "layout": "LAYOUT_ROUTE131",
   "music": "MUS_ROUTE119",
-  "region_map_section": "MAPSEC_FLOTSHORE_TRAIL",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
-  "map_type": "MAP_TYPE_OCEAN_ROUTE",
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
-    {
-      "map": "MAP_PACIFIDLOG_TOWN",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE129",
-      "offset": -7,
-      "direction": "up"
-    },
     {
       "map": "MAP_SAILORS_PAUSE",
       "offset": 32,

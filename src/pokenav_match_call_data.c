@@ -327,7 +327,7 @@ static const match_call_text_data_t sWallyTextScripts[] = {
 static const struct MatchCallLocationOverride sWallyLocationData[] = {
     { FLAG_HIDE_MAUVILLE_CITY_WALLY,          MAPSEC_VERDANTURF_TOWN },
     { FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT,    MAPSEC_NONE },
-    { FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY,  MAPSEC_VICTORY_ROAD },
+    { FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY,  MAPSEC_EVER_GRANDE_ROAD },
     { 0xFFFF,                                 MAPSEC_NONE }
 };
 
