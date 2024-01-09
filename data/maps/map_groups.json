@@ -80,7 +80,6 @@
   "gMapGroup_PiscesPart2Major": [
     "CaveOfOrigin",
     "MangrottoTunnel",
-    "Route126",
     "MossdeepCity",
     "MossdeepCity_Gym"
   ],
@@ -262,6 +261,7 @@
     "Route117",
     "Route118",
     "Route119",
+    "Route126",
     "Route127",
     "Route128",
     "Route130",
