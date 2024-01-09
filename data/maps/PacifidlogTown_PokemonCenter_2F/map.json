@@ -2,7 +2,7 @@
   "id": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F",
   "name": "PacifidlogTown_PokemonCenter_2F",
   "layout": "LAYOUT_POKEMON_CENTER_2F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_RG_POKE_CENTER",
   "region_map_section": "MAPSEC_PACIFIDLOG_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -71,7 +71,7 @@
     {
       "x": 8,
       "y": 9,
-      "elevation": 4,
+      "elevation": 3,
       "dest_map": "MAP_DETERMANITE_BEACH",
       "dest_warp_id": "0"
     },
