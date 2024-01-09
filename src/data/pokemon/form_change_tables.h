@@ -453,8 +453,6 @@ static const struct FormChange sWishiwashiFormChangeTable[] = {
     {FORM_CHANGE_TERMINATOR},
 };
 
-// TODO for HUDDLE_UP: Missing the species defs to add it here
-
 static const struct FormChange sSilvallyFormChangeTable[] = {
     {FORM_CHANGE_ITEM_HOLD, SPECIES_SILVALLY,          ITEM_NONE,            ABILITY_RKS_SYSTEM},
     {FORM_CHANGE_ITEM_HOLD, SPECIES_SILVALLY_FIGHTING, ITEM_FIGHTING_MEMORY, ABILITY_RKS_SYSTEM},
@@ -589,6 +587,15 @@ static const struct FormChange sZamazentaFormChangeTable[] = {
 static const struct FormChange sEnamorusFormChangeTable[] = {
     {FORM_CHANGE_ITEM_USE, SPECIES_ENAMORUS, ITEM_REVEAL_GLASS},
     {FORM_CHANGE_ITEM_USE, SPECIES_ENAMORUS_THERIAN, ITEM_REVEAL_GLASS},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sLottabatsFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_LOTTABATS_HUDDLED, ABILITY_HUDDLE_UP, HP_HIGHER_THAN,   25},
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_LOTTABATS,        ABILITY_HUDDLE_UP, HP_LOWER_EQ_THAN, 25},
+    {FORM_CHANGE_BATTLE_SWITCH,     SPECIES_LOTTABATS},
+    {FORM_CHANGE_FAINT,             SPECIES_LOTTABATS},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_LOTTABATS},
     {FORM_CHANGE_TERMINATOR},
 };
 #endif

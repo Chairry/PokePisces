@@ -31248,6 +31248,10 @@ static const u16 sDudunsparsTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sLottabatsTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sPomelonianTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

@@ -171,6 +171,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_ENAMORUS] = sEnamorusFormSpeciesIdTable,
     [SPECIES_BASCULEGION] = sBasculegionFormSpeciesIdTable,
     [SPECIES_DUDUNSPARS] = sDudunsparsFormSpeciesIdTable,
+    [SPECIES_LOTTABATS] = sLottabatsFormSpeciesIdTable,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurFormSpeciesIdTable,
@@ -587,5 +588,6 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     // Basculegion
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionFormSpeciesIdTable,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsFormSpeciesIdTable,
+    [SPECIES_LOTTABATS_HUDDLED] = sLottabatsFormSpeciesIdTable,
 #endif
 };

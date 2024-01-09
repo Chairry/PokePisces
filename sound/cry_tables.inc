@@ -1386,6 +1386,7 @@ gCryTable::
 	cry Cry_Snurrowl
 	cry Cry_Stolyce
 	cry Cry_Dudunspars
+	cry Cry_Lottabats
 	cry Cry_Pomelonian
 	cry Cry_Gourdoug
 	cry Cry_Fogglehind
@@ -2124,6 +2125,8 @@ gCryTable::
 	cry Cry_Basculegion
 	@ Dudunspars
 	cry Cry_Dudunspars
+	@ Lottabats
+	cry Cry_LottabatsHuddled
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2165,6 +2168,8 @@ gCryTable::
 	@ Basculegion
 	cry Cry_Unown
 	@ Dudunspars
+	cry Cry_Unown
+	@ Lottabats
 	cry Cry_Unown
 .endif
 
@@ -3556,6 +3561,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Snurrowl
 	cry_reverse Cry_Stolyce
 	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Lottabats
 	cry_reverse Cry_Pomelonian
 	cry_reverse Cry_Gourdoug
 	cry_reverse Cry_Fogglehind
@@ -4261,6 +4267,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
+	@ Lottabats
+	cry_reverse Cry_LottabatsHuddled
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

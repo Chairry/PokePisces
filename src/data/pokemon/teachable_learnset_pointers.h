@@ -961,6 +961,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SNURROWL] = sSnurrowlTeachableLearnset,
     [SPECIES_STOLYCE] = sStolyceTeachableLearnset,
     [SPECIES_DUDUNSPARS] = sDudunsparsTeachableLearnset,
+    [SPECIES_LOTTABATS] = sLottabatsTeachableLearnset,
     [SPECIES_POMELONIAN] = sPomelonianTeachableLearnset,
     [SPECIES_GOURDOUG] = sGourdougTeachableLearnset,
     [SPECIES_FOGGLEHIND] = sFogglehindTeachableLearnset,
@@ -1383,5 +1384,6 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusTeachableLearnset,
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionTeachableLearnset,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsTeachableLearnset,
+    [SPECIES_LOTTABATS_HUDDLED] = sLottabatsTeachableLearnset,
 #endif
 };

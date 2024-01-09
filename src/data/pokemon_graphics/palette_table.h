@@ -968,6 +968,8 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(YAGANGRAN, gMonPalette_Yagangran),
     SPECIES_PAL(PIDIUM, gMonPalette_Pidium),
     SPECIES_PAL(MEDGEON, gMonPalette_Medgeon),
+    SPECIES_PAL(LOTTABATS, gMonPalette_Lottabats),
+    SPECIES_PAL(LOTTABATS_HUDDLED, gMonPalette_LottabatsHuddled),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),

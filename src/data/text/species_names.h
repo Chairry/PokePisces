@@ -959,6 +959,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SNURROWL] = _("Snurrowl"),
     [SPECIES_STOLYCE] = _("Stolyce"),
     [SPECIES_DUDUNSPARS] = _("Dudunspars"),
+    [SPECIES_LOTTABATS] = _("Lottabats"),
     [SPECIES_POMELONIAN] = _("Pomelonian"),
     [SPECIES_GOURDOUG] = _("Gourdoug"),
     [SPECIES_FOGGLEHIND] = _("Fogglehind"),
@@ -1384,5 +1385,6 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CALYREX_SHADOW_RIDER] = _("Calyrex"),
     [SPECIES_BASCULEGION_FEMALE] = _("Bsculegion"),
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = _("Dudunspars"),
+    [SPECIES_LOTTABATS_HUDDLED] = _("Lottabats"),
 #endif
 };
