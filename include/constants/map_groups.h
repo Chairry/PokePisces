@@ -64,6 +64,8 @@
 #define MAP_MAINTENANCE_BONDING_ARENA   (20 | (1 << 8))
 #define MAP_NEW_MAUVILLE_FLOOR1         (21 | (1 << 8))
 #define MAP_NEW_MAUVILLE_FLOOR2         (22 | (1 << 8))
+#define MAP_NEW_MAUVILLE_CENTER1        (23 | (1 << 8))
+#define MAP_NEW_MAUVILLE_CENTER2        (24 | (1 << 8))
 
 // gMapGroup_TownsAndRoutes
 #define MAP_PETALBURG_CITY      (0 | (2 << 8))

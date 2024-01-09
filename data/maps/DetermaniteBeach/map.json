@@ -28,7 +28,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 45,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
