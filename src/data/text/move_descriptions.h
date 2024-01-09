@@ -3264,6 +3264,38 @@ static const u8 sChillyAirDescription[] = _(
     "Chills the foe, to sharply\n"
     "cut Evasion and Speed.");
 
+static const u8 sFickleBeamDescription[] = _(
+    "The user shoots a beam.\n"
+    "May do double damage.");
+
+static const u8 sBurningBulwarkDescription[] = _(
+    "Protects user and burns\n"
+    "foes on contact.");
+
+static const u8 sDragonCheerDescription[] = _(
+    "Lets out a cry to raise the\n"
+    "ally's critical-hit ratio.");
+
+static const u8 sAlluringVoiceDescription[] = _(
+    "Foes that have stats upped\n"
+    "this turn get confused.");
+
+static const u8 sTemperFlareDescription[] = _(
+    "Desperately attacks foe.\n"
+    "Stronger after a failure.");
+
+static const u8 sPsychicNoiseDescription[] = _(
+    "Uses Sound waves to prevent\n"
+    "the foe from recovering HP.");
+
+static const u8 sUpperHandDescription[] = _(
+    "Flinches foe if they are\n"
+    "readying a priority move.");
+
+static const u8 sMalignantChainDescription[] = _(
+    "Corrosive chains wrap around\n"
+    "the foe and may badly poison.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4105,4 +4137,15 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HYDRO_STEAM - 1] = sHydroSteamDescription,
     [MOVE_SPOOK - 1] = sSpookDescription,
     [MOVE_CHILLY_AIR - 1] = sChillyAirDescription,
+    [MOVE_ELECTRO_SHOT - 1] = sMeteorBeamDescription,
+    [MOVE_FICKLE_BEAM - 1] = sFickleBeamDescription,
+    [MOVE_BURNING_BULWARK - 1] = sBurningBulwarkDescription,
+    [MOVE_THUNDERCLAP - 1] = sSuckerPunchDescription,
+    [MOVE_HARD_PRESS - 1] = sWringOutDescription,
+    [MOVE_DRAGON_CHEER - 1] = sDragonCheerDescription,
+    [MOVE_ALLURING_VOICE - 1] = sAlluringVoiceDescription,
+    [MOVE_TEMPER_FLARE - 1] = sTemperFlareDescription,
+    [MOVE_PSYCHIC_NOISE - 1] = sPsychicNoiseDescription,
+    [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
+    [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
 };

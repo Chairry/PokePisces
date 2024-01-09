@@ -833,6 +833,17 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_HYDRO_STEAM] = _("Hydro Steam"),
     [MOVE_SPOOK] = _("Spook"),
     [MOVE_CHILLY_AIR] = _("Chilly Air"),
+    [MOVE_ELECTRO_SHOT] = _("Electro Shot"),
+    [MOVE_FICKLE_BEAM] = _("Hydra Beam"),
+    [MOVE_BURNING_BULWARK] = _("Red Guard"),
+    [MOVE_THUNDERCLAP] = _("Thunderclap"),
+    [MOVE_HARD_PRESS] = _("Hard Press"),
+    [MOVE_DRAGON_CHEER] = _("Draco Cry"),
+    [MOVE_ALLURING_VOICE] = _("Alluring Voice"),
+    [MOVE_TEMPER_FLARE] = _("Temper Flare"),
+    [MOVE_PSYCHIC_NOISE] = _("Psycholarm"),
+    [MOVE_UPPER_HAND] = _("Upper Hand"),
+    [MOVE_MALIGNANT_CHAIN] = _("Toxic Chain"),
 };
 #else
 // 12 letters
@@ -1669,6 +1680,17 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_HYDRO_STEAM] = _("Hydro Steam"),
     [MOVE_SPOOK] = _("Spook"),
     [MOVE_CHILLY_AIR] = _("Chilly Air"),
+    [MOVE_ELECTRO_SHOT] = _("Electro Shot"),
+    [MOVE_FICKLE_BEAM] = _("Hydra Beam"),
+    [MOVE_BURNING_BULWARK] = _("Red Guard"),
+    [MOVE_THUNDERCLAP] = _("Thunderclap"),
+    [MOVE_HARD_PRESS] = _("Hard Press"),
+    [MOVE_DRAGON_CHEER] = _("Draco Cry"),
+    [MOVE_ALLURING_VOICE] = _("Alluring Voice"),
+    [MOVE_TEMPER_FLARE] = _("Temper Flare"),
+    [MOVE_PSYCHIC_NOISE] = _("Psycholarm"),
+    [MOVE_UPPER_HAND] = _("Upper Hand"),
+    [MOVE_MALIGNANT_CHAIN] = _("Toxic Chain"),
 };
 #endif
 

@@ -444,6 +444,52 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFilletAway              @ EFFECT_FILLET_AWAY
 	.4byte BattleScript_EffectChillyReception         @ EFFECT_CHILLY_RECEPTION
 	.4byte BattleScript_EffectShedTail                @ EFFECT_SHED_TAIL
+	.4byte BattleScript_EffectHit                     @ EFFECT_FICKLE_BEAM
+	.4byte BattleScript_EffectDragonCheer             @ EFFECT_DRAGON_CHEER
+	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
+
+BattleScript_EffectPsychicNoise:
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
+	sethealblock BattleScript_ButItFailed
+	printstring STRINGID_PKMNPREVENTEDFROMHEALING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectDragonCheer:
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstatus2 BS_TARGET, STATUS2_FOCUS_ENERGY, BattleScript_ButItFailed
+	jumpifnoally BS_TARGET, BattleScript_ButItFailed
+	copybyte gBattlerAttacker, gBattlerTarget
+	setfocusenergy
+	printfromtable gFocusEnergyUsedStringIds
+	jumpiftype BS_TARGET, TYPE_DRAGON, BattleScript_EffectGearUpCheckStats
+	attackanimation
+	waitanimation
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectShedTail:
 	attackcanceler
@@ -981,11 +1027,24 @@ BattleScript_EffectMeteorBeam::
 	@ DecideTurn
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurn
-	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_METEOR_BEAM
+	jumpifmove MOVE_METEOR_BEAM, BattleScript_SetStringMeteorBeam
+	jumpifmove MOVE_ELECTRO_SHOT, BattleScript_SetStringElectroShock
+BattleScript_TryCharging:
 	call BattleScript_FirstChargingTurnMeteorBeam
+	jumpifmove MOVE_METEOR_BEAM, BattleScript_TryMeteorBeam
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_TwoTurnMovesSecondTurn @ Check for move Electro Shot
+BattleScript_TryMeteorBeam:
 	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
 	call BattleScript_PowerHerbActivation
 	goto BattleScript_TwoTurnMovesSecondTurn
+
+BattleScript_SetStringMeteorBeam:
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_METEOR_BEAM
+	goto BattleScript_TryCharging
+
+BattleScript_SetStringElectroShock:
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_ELECTRO_SHOCK
+	goto BattleScript_TryCharging
 
 BattleScript_FirstChargingTurnMeteorBeam::
 	attackcanceler
@@ -2794,6 +2853,7 @@ BattleScript_EffectSuckerPunch:
 	attackcanceler
 	suckerpunchcheck BattleScript_FailedFromAtkString
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	jumpifmove MOVE_UPPER_HAND, BattleScript_EffectFlinchHit
 	goto BattleScript_HitFromAtkString
 
 BattleScript_EffectLuckyChant:

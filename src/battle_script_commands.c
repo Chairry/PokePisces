@@ -3162,6 +3162,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
             switch (gBattleScripting.moveEffect)
             {
             case MOVE_EFFECT_CONFUSION:
+                if (gCurrentMove == MOVE_ALLURING_VOICE && !gProtectStructs[gEffectBattler].statRaised)
+                    break;
+
                 if (!CanBeConfused(gEffectBattler))
                 {
                     gBattlescriptCurrInstr++;
@@ -3581,6 +3584,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
+                    gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     if (gCurrentMove == MOVE_HYPERSPACE_FURY)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
@@ -5350,6 +5354,15 @@ static void Cmd_moveend(void)
                 #endif
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].burningBulwarked)
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_BURN | MOVE_EFFECT_AFFECTS_USER;
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BURNING_BULWARK);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
                     effect = 1;
                 }
                 else if (gProtectStructs[gBattlerTarget].detectShielded) {
@@ -9363,6 +9376,8 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->failInstr;
         else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
             gBattlescriptCurrInstr = cmd->failInstr;
+        else if (gCurrentMove == MOVE_UPPER_HAND && GetChosenMovePriority(gBattlerTarget) <= 0)
+            gBattlescriptCurrInstr = cmd->failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
         return;
@@ -10885,6 +10900,11 @@ static void Cmd_setprotectlike(void)
             {
                 gProtectStructs[gBattlerAttacker].silkTrapped = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+            }
+            else if (gCurrentMove == MOVE_BURNING_BULWARK)
+            {
+                gProtectStructs[gBattlerAttacker].burningBulwarked = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
 
             gDisableStructs[gBattlerAttacker].protectUses++;
@@ -15070,15 +15090,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ??¿½?¿½??¿½?¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);

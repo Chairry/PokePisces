@@ -858,6 +858,17 @@ gBattleAnims_Moves::
 	.4byte Move_HYDRO_STEAM
 	.4byte Move_SPOOK
 	.4byte Move_CHILLY_AIR
+	.4byte Move_ELECTRO_SHOT
+	.4byte Move_FICKLE_BEAM
+	.4byte Move_BURNING_BULWARK
+	.4byte Move_THUNDERCLAP
+	.4byte Move_HARD_PRESS
+	.4byte Move_DRAGON_CHEER
+	.4byte Move_ALLURING_VOICE
+	.4byte Move_TEMPER_FLARE
+	.4byte Move_PSYCHIC_NOISE
+	.4byte Move_UPPER_HAND
+    .4byte Move_MALIGNANT_CHAIN
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16592,6 +16603,29 @@ Move_FILLET_AWAY:
 	blendoff
 	end
 
+Move_BURNING_BULWARK::
+	goto Move_PROTECT
+
+Move_ALLURING_VOICE::
+	loadspritegfx ANIM_TAG_THIN_RING
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayCryWithEcho, 5, FALSE
+	createsprite gHyperVoiceRingSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	delay 0xA
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 26, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 26, 1
+	waitforvisualfinish
+	createvisualtask SoundTask_WaitForCry, 0x5
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x8, 0x0, 0x6e7d
+	waitforvisualfinish
+	end
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_LAST_RESPECTS::
@@ -16635,6 +16669,15 @@ Move_COMBAT_TORQUE::
 Move_MAGICAL_TORQUE::
 Move_PSYBLADE::
 Move_HYDRO_STEAM::
+Move_ELECTRO_SHOT::
+Move_FICKLE_BEAM::
+Move_THUNDERCLAP::
+Move_HARD_PRESS::
+Move_DRAGON_CHEER::
+Move_TEMPER_FLARE::
+Move_PSYCHIC_NOISE::
+Move_UPPER_HAND::
+Move_MALIGNANT_CHAIN::
 	end @to do
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@

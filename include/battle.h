@@ -149,6 +149,7 @@ struct ProtectStruct
     u16 quash:1;
     u16 shellTrap:1;
     u16 silkTrapped:1;
+    u16 burningBulwarked:1;
     u16 eatMirrorHerb:1;
     u32 physicalDmg;
     u32 specialDmg;
@@ -751,6 +752,7 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                                         || gProtectStructs[battlerId].kingsShielded                                    \
                                         || gProtectStructs[battlerId].detectShielded                                   \
                                         || gProtectStructs[battlerId].banefulBunkered                                  \
+                                        || gProtectStructs[battlerId].burningBulwarked                                 \
                                         || gProtectStructs[battlerId].obstructed                                       \
                                         || gProtectStructs[battlerId].silkTrapped)
 
