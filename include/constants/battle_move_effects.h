@@ -421,7 +421,10 @@
 #define EFFECT_FILLET_AWAY                  415
 #define EFFECT_CHILLY_RECEPTION             416
 #define EFFECT_SHED_TAIL                    417
+#define EFFECT_FICKLE_BEAM                  418
+#define EFFECT_DRAGON_CHEER                 419
+#define EFFECT_PSYCHIC_NOISE                420
 
-#define NUM_BATTLE_MOVE_EFFECTS             418
+#define NUM_BATTLE_MOVE_EFFECTS             421
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

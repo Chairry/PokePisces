@@ -3292,6 +3292,7 @@ void FaintClearSetData(u32 battler)
     gProtectStructs[battler].quash = FALSE;
     gProtectStructs[battler].obstructed = FALSE;
     gProtectStructs[battler].silkTrapped = FALSE;
+    gProtectStructs[battler].burningBulwarked = FALSE;
     gProtectStructs[battler].endured = FALSE;
     gProtectStructs[battler].noValidMoves = FALSE;
     gProtectStructs[battler].helpingHand = FALSE;
