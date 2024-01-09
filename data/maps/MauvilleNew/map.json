@@ -2,7 +2,7 @@
   "id": "MAP_MAUVILLE_NEW",
   "name": "MauvilleNew",
   "layout": "LAYOUT_MAUVILLE_NEW",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_POKE_MART",
   "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -45,14 +45,14 @@
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAUVILLE_FLOOR1",
-      "dest_warp_id": "1"
+      "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAUVILLE_FLOOR1",
-      "dest_warp_id": "2"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
