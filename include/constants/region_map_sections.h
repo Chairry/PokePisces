@@ -93,7 +93,7 @@
 #define MAPSEC_VIRIDIAN_CITY                0x59
 #define MAPSEC_PEWTER_CITY                  0x5A
 #define MAPSEC_CERULEAN_CITY                0x5B
-#define MAPSEC_LAVENDER_TOWN                0x5C
+#define MAPSEC_FLOTSHORE_TRAIL              0x5C
 #define MAPSEC_VERMILION_CITY               0x5D
 #define MAPSEC_CELADON_CITY                 0x5E
 #define MAPSEC_FUCHSIA_CITY                 0x5F
@@ -221,7 +221,7 @@
 #define METLOC_FATEFUL_ENCOUNTER            0xFF
 
 #define KANTO_MAPSEC_START  MAPSEC_PALLET_TOWN
-#define KANTO_MAPSEC_END    MAPSEC_SPECIAL_AREA
+#define KANTO_MAPSEC_END    MAPSEC_CERULEAN_CITY
 #define KANTO_MAPSEC_COUNT (KANTO_MAPSEC_END - KANTO_MAPSEC_START + 1)
 
 #endif //GUARD_REGIONMAPSEC_H
