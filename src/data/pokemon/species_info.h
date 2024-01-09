@@ -22009,30 +22009,27 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DUDUNSPARS] = DUDUNSPARS_SPECIES_INFO,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = DUDUNSPARS_SPECIES_INFO,
-#endif
 
-    [SPECIES_VENUSAUR_MEGA] =
+    [SPECIES_LOTTABATS] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 100,
-        .baseDefense   = 123,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 122,
-        .baseSpDefense = 120,
-        .types = { TYPE_GRASS, TYPE_POISON},
-        .catchRate = 45,
-        .expYield = 281,
-        .evYield_SpAttack  = 2,
-        .evYield_SpDefense = 1,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
+        .baseHP        = 55,
+        .baseAttack    = 15,
+        .baseDefense   = 5,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 15,
+        .baseSpDefense = 10,
+        .types = { TYPE_ICE, TYPE_FLYING },
+        .catchRate = 60,
+        .expYield = 61,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
-        .abilities = {ABILITY_THICK_FAT, ABILITY_THICK_FAT},
-        .bodyColor = BODY_COLOR_GREEN,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FLYING},
+        .abilities = {ABILITY_HUDDLE_UP, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
-        .flags = SPECIES_FLAG_MEGA_EVOLUTION,
     },
 
     [SPECIES_POMELONIAN] =
@@ -22187,6 +22184,31 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+    },
+#endif
+
+    [SPECIES_VENUSAUR_MEGA] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 100,
+        .baseDefense   = 123,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 122,
+        .baseSpDefense = 120,
+        .types = { TYPE_GRASS, TYPE_POISON},
+        .catchRate = 45,
+        .expYield = 281,
+        .evYield_SpAttack  = 2,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_GRASS},
+        .abilities = {ABILITY_THICK_FAT, ABILITY_THICK_FAT},
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+        .flags = SPECIES_FLAG_MEGA_EVOLUTION,
     },
 
     [SPECIES_CHARIZARD_MEGA_X] =
@@ -25798,6 +25820,28 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
         .flags = SPECIES_FLAG_LEGENDARY,
+    },
+
+    [SPECIES_LOTTABATS_HUDDLED] =
+    {
+        .baseHP        = 55,
+        .baseAttack    = 145,
+        .baseDefense   = 85,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 145,
+        .baseSpDefense = 100,
+        .types = { TYPE_ICE, TYPE_FLYING },
+        .catchRate = 60,
+        .expYield = 61,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FLYING},
+        .abilities = {ABILITY_HUDDLE_UP, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
     },
 #endif
 };

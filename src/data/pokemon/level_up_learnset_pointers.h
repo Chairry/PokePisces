@@ -960,6 +960,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SNURROWL] = sSnurrowlLevelUpLearnset,
     [SPECIES_STOLYCE] = sStolyceLevelUpLearnset,
     [SPECIES_DUDUNSPARS] = sDudunsparsLevelUpLearnset,
+    [SPECIES_LOTTABATS] = sLottabatsLevelUpLearnset,
     [SPECIES_POMELONIAN] = sPomelonianLevelUpLearnset,
     [SPECIES_GOURDOUG] = sGourdougLevelUpLearnset,
     [SPECIES_FOGGLEHIND] = sFogglehindLevelUpLearnset,
@@ -1382,5 +1383,6 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusLevelUpLearnset,
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionLevelUpLearnset,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsLevelUpLearnset,
+    [SPECIES_LOTTABATS_HUDDLED] = sLottabatsLevelUpLearnset,
 #endif
 };

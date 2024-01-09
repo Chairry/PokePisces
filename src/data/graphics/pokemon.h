@@ -7443,4 +7443,15 @@ const u32 gMonBackPic_Medgeon[] = INCBIN_U32("graphics/pokemon/96medgeon/back.4b
 const u32 gMonShinyPalette_Medgeon[] = INCBIN_U32("graphics/pokemon/96medgeon/shiny.gbapal.lz");
 const u8 gMonIcon_Medgeon[] = INCBIN_U8("graphics/pokemon/96medgeon/icon.4bpp");
 const u8 gMonFootprint_Medgeon[] = INCBIN_U8("graphics/pokemon/96medgeon/footprint.1bpp");
+const u32 gMonFrontPic_Lottabats[] = INCBIN_U32("graphics/pokemon/86lottabats/front.4bpp.lz");
+const u32 gMonPalette_Lottabats[] = INCBIN_U32("graphics/pokemon/86lottabats/normal.gbapal.lz");
+const u32 gMonBackPic_Lottabats[] = INCBIN_U32("graphics/pokemon/86lottabats/back.4bpp.lz");
+const u32 gMonShinyPalette_Lottabats[] = INCBIN_U32("graphics/pokemon/86lottabats/shiny.gbapal.lz");
+const u8 gMonIcon_Lottabats[] = INCBIN_U8("graphics/pokemon/86lottabats/icon.4bpp");
+const u8 gMonFootprint_Lottabats[] = INCBIN_U8("graphics/pokemon/86lottabats/footprint.1bpp");
+const u32 gMonFrontPic_LottabatsHuddled[] = INCBIN_U32("graphics/pokemon/86lottabats/huddled/front.4bpp.lz");
+const u32 gMonPalette_LottabatsHuddled[] = INCBIN_U32("graphics/pokemon/86lottabats/huddled/normal.gbapal.lz");
+const u32 gMonBackPic_LottabatsHuddled[] = INCBIN_U32("graphics/pokemon/86lottabats/huddled/back.4bpp.lz");
+const u32 gMonShinyPalette_LottabatsHuddled[] = INCBIN_U32("graphics/pokemon/86lottabats/huddled/shiny.gbapal.lz");
+const u8 gMonIcon_LottabatsHuddled[] = INCBIN_U8("graphics/pokemon/86lottabats/huddled/icon.4bpp");
 #endif
