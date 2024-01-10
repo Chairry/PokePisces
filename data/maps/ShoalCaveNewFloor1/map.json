@@ -2,7 +2,7 @@
   "id": "MAP_SHOAL_CAVE_NEW_FLOOR1",
   "name": "ShoalCaveNewFloor1",
   "layout": "LAYOUT_SHOAL_CAVE_NEW_FLOOR1",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_ABNORMAL_WEATHER",
   "region_map_section": "MAPSEC_SHOAL_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

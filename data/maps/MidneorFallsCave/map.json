@@ -2,7 +2,7 @@
   "id": "MAP_MIDNEOR_FALLS_CAVE",
   "name": "MidneorFallsCave",
   "layout": "LAYOUT_MIDNEOR_FALLS_CAVE",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_CAVE_OF_ORIGIN",
   "region_map_section": "MAPSEC_METEOR_FALLS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

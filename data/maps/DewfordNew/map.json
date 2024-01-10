@@ -2,7 +2,7 @@
   "id": "MAP_DEWFORD_NEW",
   "name": "DewfordNew",
   "layout": "LAYOUT_DEWFORD_NEW",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_DEWFORD",
   "region_map_section": "MAPSEC_DEWFORD_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
