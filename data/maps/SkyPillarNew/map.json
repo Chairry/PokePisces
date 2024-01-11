@@ -23,7 +23,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 20,
+      "y": 26,
+      "elevation": 3,
+      "dest_map": "MAP_SKY_PILLAR_NEW",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 20,
+      "y": 7,
+      "elevation": 5,
+      "dest_map": "MAP_SKY_PILLAR_NEW",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
