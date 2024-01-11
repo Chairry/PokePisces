@@ -424,7 +424,10 @@
 #define EFFECT_FICKLE_BEAM                  418
 #define EFFECT_DRAGON_CHEER                 419
 #define EFFECT_PSYCHIC_NOISE                420
+#define EFFECT_SNUFF_OUT                    421
+#define EFFECT_COLD_MEND                    422
+#define EFFECT_VIPER_STRIKE                 423
 
-#define NUM_BATTLE_MOVE_EFFECTS             421
+#define NUM_BATTLE_MOVE_EFFECTS             424
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

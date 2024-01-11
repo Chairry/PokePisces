@@ -3284,6 +3284,18 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
+            case MOVE_EFFECT_VIPER_STRIKE:
+                if (gBattleMons[gEffectBattler].status1)
+                {
+                    gBattlescriptCurrInstr++;
+                }
+                else
+                {
+                    static const u8 sViperStrikeEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_PARALYSIS };
+                    gBattleScripting.moveEffect = RandomElement(RNG_VIPER_STRIKE, sViperStrikeEffects);
+                    SetMoveEffect(FALSE, 0);
+                }
+                break;
             case MOVE_EFFECT_CHARGING:
                 gBattleMons[gEffectBattler].status2 |= STATUS2_MULTIPLETURNS;
                 gLockedMoves[gEffectBattler] = gCurrentMove;
@@ -13649,6 +13661,17 @@ static void Cmd_recoverbasedonsunlight(void)
                 gBattleMoveDamage = 20 * gBattleMons[gBattlerAttacker].maxHP / 30;
             else
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+        }
+        else if (gCurrentMove == MOVE_COLD_MEND)
+        {
+            if (!(gBattleWeather & B_WEATHER_ANY) || !WEATHER_HAS_EFFECT || GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_UTILITY_UMBRELLA)
+                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+            else if (gBattleWeather & B_WEATHER_HAIL)
+                gBattleMoveDamage = 20 * gBattleMons[gBattlerAttacker].maxHP / 30;
+            else if (gBattleWeather & B_WEATHER_RAIN)
+                gBattleMoveDamage = 20 * gBattleMons[gBattlerAttacker].maxHP / 30;
+            else // not sunny weather
+                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 4;
         }
         else
         {
