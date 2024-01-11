@@ -267,6 +267,29 @@ const struct SpriteTemplate gFlameChargeEmberTemplate =
     .callback = AnimPetalDanceBigFlower
 };
 
+//ice spinner
+const struct SpriteTemplate gIceSpinnerSpinTemplate =
+{
+    .tileTag = ANIM_TAG_ICE_CRYSTALS,
+    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
+    .oam = &gOamData_AffineOff_ObjBlend_8x8,
+    .anims = gAnims_IceCrystalSmall,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPetalDanceBigFlower
+};
+
+const struct SpriteTemplate gIceSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICE_CRYSTALS,
+    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
+    .oam = &gOamData_AffineNormal_ObjBlend_8x16,
+    .anims = gAnims_IceCrystalLarge,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 //final gambit
 const struct SpriteTemplate gFinalGambitBlueYawnTemplate =
 {

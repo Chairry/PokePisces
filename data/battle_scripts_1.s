@@ -447,6 +447,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectDragonCheer             @ EFFECT_DRAGON_CHEER
 	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
+	.4byte BattleScript_EffectColdMend                @ EFFECT_COLD_MEND
+	.4byte BattleScript_EffectViperStrike             @ EFFECT_VIPER_STRIKE
 
 BattleScript_EffectPsychicNoise:
 	attackcanceler
@@ -4049,6 +4051,10 @@ BattleScript_EffectTriAttack::
 	setmoveeffect MOVE_EFFECT_TRI_ATTACK
 	goto BattleScript_EffectHit
 
+BattleScript_EffectViperStrike::
+	setmoveeffect MOVE_EFFECT_VIPER_STRIKE
+	goto BattleScript_EffectHit
+
 BattleScript_EffectRest::
 	attackcanceler
 	attackstring
@@ -5234,6 +5240,7 @@ BattleScript_EffectMorningSun::
 BattleScript_EffectSynthesis::
 BattleScript_EffectMoonlight::
 BattleScript_EffectShoreUp::
+BattleScript_EffectColdMend::
 	attackcanceler
 	attackstring
 	ppreduce
@@ -7816,6 +7823,9 @@ BattleScript_DefDownSpeedUpTrySpeed:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DefDownSpeedUpRet::
 	return
+
+BattleScript_SpecialDefenseUp::
+goto BattleScript_EffectSpecialDefenseUp
 
 BattleScript_KnockedOff::
 	playanimation BS_TARGET, B_ANIM_ITEM_KNOCKOFF

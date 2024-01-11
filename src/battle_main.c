@@ -4732,6 +4732,7 @@ s8 GetMovePriority(u32 battler, u16 move)
         case EFFECT_MORNING_SUN:
         case EFFECT_MOONLIGHT:
         case EFFECT_SYNTHESIS:
+        case EFFECT_COLD_MEND:
         case EFFECT_HEAL_PULSE:
         case EFFECT_HEALING_WISH:
         case EFFECT_SWALLOW:
