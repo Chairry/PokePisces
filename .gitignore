@@ -41,3 +41,4 @@ prefabs.json
 *.js
 *.toml
 .vs/
+/scripts/sheets_url.txt
