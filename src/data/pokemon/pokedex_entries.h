@@ -11508,7 +11508,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_STRAWNGMAN] =
     {
-        .categoryName = _("Wicked"),
+        .categoryName = _("Wicker"),
         .height = 999,
         .weight = 999,
         .description = gStrawngmanPokedexText,

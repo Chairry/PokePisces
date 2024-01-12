@@ -1109,6 +1109,8 @@
 #define SPECIES_LUOSHAN 1101 
 #define SPECIES_LOTTABATS 1102 
 
+//Mons that aren't added: Bishoucha, Papypus, Cindrillon, Shishima, Gaoterra, Shunyong
+
 #define NEW_MONS_END (SPECIES_LOTTABATS)
 #define NUM_NEW_MONS (NEW_MONS_END - NEW_MONS_START)
 // Megas
