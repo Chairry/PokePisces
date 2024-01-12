@@ -2,7 +2,7 @@
   "id": "MAP_DETERMANITE_BEACH",
   "name": "DetermaniteBeach",
   "layout": "LAYOUT_DETERMANITE_BEACH",
-  "music": "MUS_RG_SEVII_123",
+  "music": "MUS_RG_SEVII_ROUTE",
   "region_map_section": "MAPSEC_ROUTE_126",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
