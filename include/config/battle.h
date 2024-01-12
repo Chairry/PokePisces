@@ -229,4 +229,10 @@
 // Extra settings
 #define B_USE_SNOW                      FALSE
 
+// Battle Move Info
+#define B_BATTLE_MOVE_INFO             TRUE      // If set to TRUE, adds a battle info menu while pressing L in the move selection menu.
+#define B_BATTLE_MOVE_INFO_BUTTON      L_BUTTON  // Interchangeable with L_BUTTON or R_BUTTON only since all other buttons are used in the move selection menu.
+#define B_UPDATED_BATTLE_MOVE_INFO     TRUE      // If set to TRUE, battle move info will show the real base power and accuracy of moves after ability, stat and item modifier.
+#define B_PSS_SPLIT_ICONS              FALSE     // If set to TRUE, adds Physical/Special/Status split icons to the PP window of the move selection menu.
+
 #endif // GUARD_CONFIG_BATTLE_H
