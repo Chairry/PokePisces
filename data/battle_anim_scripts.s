@@ -868,6 +868,7 @@ gBattleAnims_Moves::
 	.4byte Move_TEMPER_FLARE
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
+	.4byte Move_MALIGNANT_CHAIN
     .4byte Move_BUG_SNACK
     .4byte Move_HIT_N_RUN
     .4byte Move_WYVERN_WAVE
