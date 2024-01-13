@@ -562,7 +562,9 @@ BattleScript_EffectChillyReceptionTrySwitchWeatherFailed:
 	return
 
 BattleScript_CheckPrimalWeather:
-	call BattleScript_CheckPrimalWeather
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
 	return
 
 BattleScript_MoveSwitch:
