@@ -177,8 +177,6 @@ static const u8 sText_SingleSpace[] = _(" ");
 const u8 gItemDescription_ITEM_TM_CASE[] = _("A case that holds TMs and HMs.\nIt is attached to the BAG's\ncompartment for important items.");
 //const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
 
-static ALIGNED(4) const u16 sPal3Override[] = {RGB(8, 8, 8), RGB(30, 16, 6)};
-
 static const u8 sTMCaseTextColors[][3] = {
     {0, 1, 2},
     {0, 2, 3},
@@ -948,8 +946,6 @@ static void InitWindowTemplatesAndPals(void)
     LoadUserWindowBorderGfx(0, 0x78, 0xD0);
     LoadPalette(gTMCaseMainWindowPalette, 0xF0, 0x20);
     LoadPalette(gTMCaseMainWindowPalette, 0xA0, 0x20);
-    LoadPalette(sPal3Override, 0xF6, 0x04);
-    LoadPalette(sPal3Override, 0xD6, 0x04);
     ListMenuLoadStdPalAt(0xc0, 0x01);
     for (i = 0; i < 9; i++)
         FillWindowPixelBuffer(i, 0x00);
