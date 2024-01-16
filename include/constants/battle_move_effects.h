@@ -427,7 +427,7 @@
 #define EFFECT_SNUFF_OUT                    421
 #define EFFECT_COLD_MEND                    422
 #define EFFECT_VIPER_STRIKE                 423
-
-#define NUM_BATTLE_MOVE_EFFECTS             424
+#define EFFECT_ALL_STATS_UP_2_HIT           424
+#define NUM_BATTLE_MOVE_EFFECTS             425
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

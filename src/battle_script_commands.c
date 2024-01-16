@@ -3509,6 +3509,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp;
                 }
                 break;
+            case MOVE_EFFECT_ALL_STATS_UP_2:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
+                }
+                break;
             case MOVE_EFFECT_RAPIDSPIN:
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_RapidSpinAway;

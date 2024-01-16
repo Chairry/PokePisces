@@ -861,6 +861,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_THINK_FAST] = _("Think Fast"),
     [MOVE_PINPOINT] = _("Pinpoint"),
     [MOVE_WATER_FLOG] = _("Water Flog"),
+    [MOVE_FEAR_FACTOR] = _("Fear Factor"),
+    [MOVE_GEO_PULSE] = _("Geo Pulse"),
+    [MOVE_DEMOLISHER] = _("Demolisher"),
+    [MOVE_ARCANE_POWER] = _("Arcane Power"),
 };
 #else
 // 12 letters
@@ -1725,6 +1729,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_THINK_FAST] = _("Think Fast"),
     [MOVE_PINPOINT] = _("Pinpoint"),
     [MOVE_WATER_FLOG] = _("Water Flog"),
+    [MOVE_FEAR_FACTOR] = _("Fear Factor"),
+    [MOVE_GEO_PULSE] = _("Geo Pulse"),
+    [MOVE_DEMOLISHER] = _("Demolisher"),
+    [MOVE_ARCANE_POWER] = _("Arcane Power"),
 };
 #endif
 
