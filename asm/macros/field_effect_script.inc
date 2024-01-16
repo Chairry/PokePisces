@@ -5,9 +5,10 @@
 	.4byte \address
 	.endm
 
-	.macro field_eff_loadfadedpal address:req
+	.macro field_eff_loadfadedpal address:req, colorMap:req
 	.byte 1
 	.4byte \address
+	.4byte \colorMap
 	.endm
 
 	.macro field_eff_loadpal address:req
@@ -37,8 +38,9 @@
 	.4byte \function_address
 	.endm
 
-	.macro field_eff_loadfadedpal_callnative palette_address:req, function_address:req
+	.macro field_eff_loadfadedpal_callnative palette_address:req, colorMap:req, function_address:req
 	.byte 7
 	.4byte \palette_address
+	.4byte \colorMap
 	.4byte \function_address
 	.endm
