@@ -886,6 +886,10 @@ gBattleAnims_Moves::
     .4byte Move_THINK_FAST
     .4byte Move_PINPOINT
     .4byte Move_WATER_FLOG
+	.4byte Move_FEAR_FACTOR
+	.4byte Move_GEO_PULSE
+	.4byte Move_DEMOLISHER
+	.4byte Move_ARCANE_POWER
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16836,6 +16840,18 @@ Move_PINPOINT:
 
 Move_WATER_FLOG:
 	goto Move_CONSTRICT
+
+Move_FEAR_FACTOR:
+	goto Move_SPOOK
+
+Move_GEO_PULSE:
+	goto Move_DARK_PULSE
+
+Move_DEMOLISHER:
+	goto Move_BULLDOZE
+
+Move_ARCANE_POWER:
+	goto Move_MYSTICAL_POWER
 
 Move_TERA_BLAST::
 Move_AXE_KICK::
