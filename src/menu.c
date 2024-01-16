@@ -66,6 +66,7 @@ static EWRAM_DATA struct Menu sMenu = {0};
 static EWRAM_DATA u16 sTileNum = 0;
 static EWRAM_DATA u8 sPaletteNum = 0;
 static EWRAM_DATA u8 sYesNoWindowId = 0;
+static EWRAM_DATA u8 sAbilitiesWindowId = 0;
 static EWRAM_DATA u8 sHofPCTopBarWindowId = 0;
 static EWRAM_DATA u16 sFiller = 0;  // needed to align
 static EWRAM_DATA bool8 sScheduledBgCopiesToVram[4] = {FALSE};
@@ -1229,10 +1230,24 @@ s8 Menu_ProcessInputNoWrapClearOnChoose(void)
     return result;
 }
 
+s8 Menu_ProcessInputNoWrapClearOnChooseAbility(void)
+{
+    s8 result = Menu_ProcessInputNoWrap();
+    if (result != MENU_NOTHING_CHOSEN)
+        EraseAbilitiesWindow();
+    return result;
+}
+
 void EraseYesNoWindow(void)
 {
     ClearStdWindowAndFrameToTransparent(sYesNoWindowId, TRUE);
     RemoveWindow(sYesNoWindowId);
+}
+
+void EraseAbilitiesWindow(void)
+{
+    ClearStdWindowAndFrameToTransparent(sAbilitiesWindowId, TRUE);
+    RemoveWindow(sAbilitiesWindowId);
 }
 
 static void PrintMenuActionGridText(u8 windowId, u8 fontId, u8 left, u8 top, u8 width, u8 height, u8 columns, u8 rows, const struct MenuAction *menuActions)
@@ -1662,6 +1677,31 @@ void CreateYesNoMenu(const struct WindowTemplate *window, u16 baseTileNum, u8 pa
 
     AddTextPrinter(&printer, TEXT_SKIP_DRAW, NULL);
     InitMenuInUpperLeftCornerNormal(sYesNoWindowId, 2, initialCursorPos);
+}
+
+void CreateAbilitiesMenu(const struct WindowTemplate *window, u16 baseTileNum, u8 paletteNum, u8 initialCursorPos)
+{
+    struct TextPrinterTemplate printer;
+
+    sAbilitiesWindowId = AddWindow(window);
+    DrawStdFrameWithCustomTileAndPalette(sAbilitiesWindowId, TRUE, baseTileNum, paletteNum);
+
+    printer.currentChar = gText_Abilities;
+    printer.windowId = sAbilitiesWindowId;
+    printer.fontId = FONT_NORMAL;
+    printer.x = 8;
+    printer.y = 1;
+    printer.currentX = printer.x;
+    printer.currentY = printer.y;
+    printer.fgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_FOREGROUND);
+    printer.bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
+    printer.shadowColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_SHADOW);
+    printer.unk = GetFontAttribute(FONT_NORMAL, FONTATTR_UNKNOWN);
+    printer.letterSpacing = 0;
+    printer.lineSpacing = 0;
+
+    AddTextPrinter(&printer, TEXT_SKIP_DRAW, NULL);
+    InitMenuInUpperLeftCornerNormal(sAbilitiesWindowId, 3, initialCursorPos);
 }
 
 void PrintMenuGridTable(u8 windowId, u8 optionWidth, u8 columns, u8 rows, const struct MenuAction *menuActions)
