@@ -464,8 +464,8 @@
     {
       "id": "LAYOUT_ROUTE131",
       "name": "Route131_Layout",
-      "width": 60,
-      "height": 42,
+      "width": 20,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/Route131/border.bin",
@@ -4990,6 +4990,16 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/NewMauvilleCenter2/border.bin",
       "blockdata_filepath": "data/layouts/NewMauvilleCenter2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOTSHORE",
+      "name": "Flotshore_Layout",
+      "width": 60,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Seaside",
+      "border_filepath": "data/layouts/Flotshore/border.bin",
+      "blockdata_filepath": "data/layouts/Flotshore/map.bin"
     }
   ]
 }

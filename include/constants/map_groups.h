@@ -21,6 +21,7 @@
 #define MAP_SOOTOPOLIS_CITY         (12 | (0 << 8))
 #define MAP_SOOTOPOLIS_CITY_GYM_1F  (13 | (0 << 8))
 #define MAP_SOOTOPOLIS_CITY_GYM_B1F (14 | (0 << 8))
+#define MAP_FLOTSHORE               (15 | (0 << 8))
 
 // gMapGroup_PiscesPart1Minor
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (1 << 8))
