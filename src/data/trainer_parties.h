@@ -7722,11 +7722,11 @@ static const struct TrainerMon sParty_Crissy[] = {
 static const struct TrainerMon sParty_Rick[] = {
     {
     .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .species = SPECIES_TRIDALIER,
     },
     {
     .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .species = SPECIES_TRIDALIER,
     }
 };
 
