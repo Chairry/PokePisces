@@ -21471,7 +21471,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 205,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_SADDENED, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
