@@ -3123,7 +3123,7 @@ static const u8 sTripleDiveDescription[] = _(
 
 static const u8 sMortalSpinDescription[] = _(
     "Erases trap moves and Leech\n"
-    "Seed. Poisons adjecent foes.");
+    "Seed. Poisons adjacent foes.");
 
 static const u8 sDoodleDescription[] = _(
     "Changes user's and ally's\n"
@@ -3138,8 +3138,8 @@ static const u8 sKowtowCleaveDescription[] = _(
     "kowtowing. It never misses.");
 
 static const u8 sFlowerTrickDescription[] = _(
-    "Rigged bouquet. Always gets\n"
-    "a critical hit, never missing.");
+    "A rigged bouquet that always\n"
+    "critical hits, never missing.");
 
 static const u8 sTorchSongDescription[] = _(
     "Flames scorch the target.\n"
@@ -3295,6 +3295,66 @@ static const u8 sUpperHandDescription[] = _(
 static const u8 sMalignantChainDescription[] = _(
     "Corrosive chains wrap around\n"
     "the foe and may badly poison.");
+
+static const u8 sWyvernWaveDescription[] = _(
+    "Exhales a breath blast.\n"
+    "May lower the foe's Attack.");
+
+static const u8 sPixiePowDescription[] = _(
+    "A mystical tackle.\n"
+    "May lower the foe's Attack.");
+
+static const u8 sBurningSpiritDescription[] = _(
+    "Uses pure passionate aura\n"
+    "that may burn the foe.");
+
+static const u8 sPurgingFlamesDescription[] = _(
+    "Uses white flames to\n"
+    "eliminates all stat changes.");
+
+static const u8 sSnuffOutDescription[] = _(
+    "User blows real hard. Super\n"
+    "effective on Fire-types.");
+
+static const u8 sSpiritDanceDescription[] = _(
+    "A dance that lasts 2 to 3\n"
+    "turns and confuses the user.");
+
+static const u8 sMudslideDescription[] = _(
+    "Large mud balls are hurled.\n"
+    "May lower Accuracy.");
+
+static const u8 sViperStrikeDescription[] = _(
+    "A fast serpentine attack\n"
+    "that may poison or paralyze.");
+
+static const u8 sThinkFastDescription[] = _(
+    "A quick psychic attack that\n"
+    "always hits first.");
+
+static const u8 sPinpointDescription[] = _(
+    "A focused strike that always\n"
+    "critical hits, never missing.");
+
+static const u8 sWaterFlogDescription[] = _(
+    "Whips foe with their\n"
+    "tentacles. May lower Speed.");
+
+static const u8 sFearFactorDescription[] = _(
+    "A fear-inducing attack of\n"
+    "random intensity.");
+
+static const u8 sGeoPulseDescription[] = _(
+    "Sends a pulse of energy made\n"
+    "from rocks. May raise Def.");
+
+static const u8 sDemolisherDescription[] = _(
+    "Destroys and gets boosted in\n"
+    "Terrains and Rooms.");
+
+static const u8 sArcanePowerDescription[] = _(
+    "A draconic attack that may\n"
+    "double all stats.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4148,4 +4208,25 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PSYCHIC_NOISE - 1] = sPsychicNoiseDescription,
     [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
+    [MOVE_BUG_SNACK - 1] = sLeechLifeDescription,
+    [MOVE_HIT_N_RUN - 1] = sUTurnDescription,
+    [MOVE_WYVERN_WAVE - 1] = sWyvernWaveDescription,
+    [MOVE_STORM_FURY - 1] = sOutrageDescription,
+    [MOVE_PIXIE_POW - 1] = sPixiePowDescription,
+    [MOVE_BURNING_SPIRIT - 1] = sBurningSpiritDescription,
+    [MOVE_PURGING_FLAMES - 1] = sPurgingFlamesDescription,
+    [MOVE_SNUFF_OUT - 1] = sSnuffOutDescription,
+    [MOVE_SPIRIT_DANCE - 1] = sSpiritDanceDescription,
+    [MOVE_MUDSLIDE - 1] = sMudslideDescription,
+    [MOVE_COLD_MEND - 1] = sSynthesisDescription,
+    [MOVE_TERRAIN_SNAP - 1] = sTerrainPulseDescription,
+    [MOVE_WEATHER_FORCE - 1] = sWeatherBallDescription,
+    [MOVE_VIPER_STRIKE - 1] = sViperStrikeDescription,
+    [MOVE_THINK_FAST - 1] = sThinkFastDescription,
+    [MOVE_PINPOINT - 1] = sPinpointDescription,
+    [MOVE_WATER_FLOG - 1] = sWaterFlogDescription,
+    [MOVE_FEAR_FACTOR - 1] = sFearFactorDescription,
+    [MOVE_GEO_PULSE - 1] = sGeoPulseDescription,
+    [MOVE_DEMOLISHER - 1] = sDemolisherDescription,
+    [MOVE_ARCANE_POWER - 1] = sArcanePowerDescription,
 };

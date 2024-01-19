@@ -77,6 +77,7 @@ extern const u8 BattleScript_DmgHazardsOnFaintedBattler[];
 extern const u8 BattleScript_PerishSongTakesLife[];
 extern const u8 BattleScript_PerishSongCountGoesDown[];
 extern const u8 BattleScript_AllStatsUp[];
+extern const u8 BattleScript_AllStatsUp2[];
 extern const u8 BattleScript_RapidSpinAway[];
 extern const u8 BattleScript_WrapFree[];
 extern const u8 BattleScript_LeechSeedFree[];
@@ -487,6 +488,7 @@ extern const u8 BattleScript_UltraBurst[];
 extern const u8 BattleScript_SelectingNotAllowedCurrentMove[];
 extern const u8 BattleScript_SelectingNotAllowedCurrentMoveInPalace[];
 extern const u8 BattleScript_SaltCureExtraDamage[];
+extern const u8 BattleScript_SpecialDefenseUp[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

@@ -384,8 +384,9 @@
 #define MOVE_EFFECT_STEALTH_ROCK        76
 #define MOVE_EFFECT_SPIKES              77
 #define MOVE_EFFECT_TRIPLE_ARROWS       78
-
-#define NUM_MOVE_EFFECTS                79
+#define MOVE_EFFECT_VIPER_STRIKE        79
+#define MOVE_EFFECT_ALL_STATS_UP_2      80
+#define NUM_MOVE_EFFECTS                81
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

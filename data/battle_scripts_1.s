@@ -447,6 +447,49 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectDragonCheer             @ EFFECT_DRAGON_CHEER
 	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
+	.4byte BattleScript_EffectColdMend                @ EFFECT_COLD_MEND
+	.4byte BattleScript_EffectViperStrike             @ EFFECT_VIPER_STRIKE
+	.4byte BattleScript_EffectAllStatsUp2Hit          @ EFFECT_ALL_STATS_UP_2_HIT
+
+BattleScript_AllStatsUp2::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2Ret
+BattleScript_AllStatsUp2Atk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Def
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Def::
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Speed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Speed::
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2SpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2SpAtk::
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2SpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2SpDef::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Ret
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Ret::
+	return
+
+BattleScript_EffectAllStatsUp2Hit::
+	setmoveeffect MOVE_EFFECT_ALL_STATS_UP_2 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
 
 BattleScript_EffectPsychicNoise:
 	attackcanceler
@@ -560,7 +603,9 @@ BattleScript_EffectChillyReceptionTrySwitchWeatherFailed:
 	return
 
 BattleScript_CheckPrimalWeather:
-	call BattleScript_CheckPrimalWeather
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
 	return
 
 BattleScript_MoveSwitch:
@@ -4049,6 +4094,10 @@ BattleScript_EffectTriAttack::
 	setmoveeffect MOVE_EFFECT_TRI_ATTACK
 	goto BattleScript_EffectHit
 
+BattleScript_EffectViperStrike::
+	setmoveeffect MOVE_EFFECT_VIPER_STRIKE
+	goto BattleScript_EffectHit
+
 BattleScript_EffectRest::
 	attackcanceler
 	attackstring
@@ -5234,6 +5283,7 @@ BattleScript_EffectMorningSun::
 BattleScript_EffectSynthesis::
 BattleScript_EffectMoonlight::
 BattleScript_EffectShoreUp::
+BattleScript_EffectColdMend::
 	attackcanceler
 	attackstring
 	ppreduce
@@ -7816,6 +7866,9 @@ BattleScript_DefDownSpeedUpTrySpeed:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DefDownSpeedUpRet::
 	return
+
+BattleScript_SpecialDefenseUp::
+goto BattleScript_EffectSpecialDefenseUp
 
 BattleScript_KnockedOff::
 	playanimation BS_TARGET, B_ANIM_ITEM_KNOCKOFF

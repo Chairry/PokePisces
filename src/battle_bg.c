@@ -21,6 +21,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "window.h"
+#include "config/battle.h"
 #include "constants/map_types.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -934,7 +935,7 @@ void LoadBattleTextboxAndBackground(void)
     DrawMainBattleBackground();
 #endif
     gBattleMoveTypeSpriteId = MAX_SPRITES;
-    LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
+    LoadCompressedPalette(gMoveTypes_Pal, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
 }
 
 static void DrawLinkBattleParticipantPokeballs(u8 taskId, u8 multiplayerId, u8 bgId, u8 destX, u8 destY)

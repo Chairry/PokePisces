@@ -47,15 +47,17 @@ Route102_Text_AllenPostBattle:
 	.string "I wish I would win soon…$"
 
 Route102_Text_RickIntro:
-	.string "Hahah! Our eyes met!\n"
-	.string "I'll take you on with my BUG POKéMON!$"
+	.string "Eh? What's a big plumber like me\n"
+	.string "Doin' at the Cyclin' Road?\p"
+	.string "Well, my brotha Figliosi 'n I\n"
+	.string "are big BMX fans!\l"
+	.string "Skilled battlers, too!$"
 
 Route102_Text_RickDefeated:
-	.string "Ow! Down and out!$"
+	.string "Mama mia!$"
 
 Route102_Text_RickPostBattle:
-	.string "If you lock eyes with a TRAINER,\n"
-	.string "you have to challenge! It's a rule!$"
+	.string "Spaghet your ass outta here!$"
 
 Route102_Text_TianaIntro:
 	.string "I'm going to keep winning and aim\n"

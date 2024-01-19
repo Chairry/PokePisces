@@ -868,7 +868,28 @@ gBattleAnims_Moves::
 	.4byte Move_TEMPER_FLARE
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
-    .4byte Move_MALIGNANT_CHAIN
+	.4byte Move_MALIGNANT_CHAIN
+    .4byte Move_BUG_SNACK
+    .4byte Move_HIT_N_RUN
+    .4byte Move_WYVERN_WAVE
+    .4byte Move_STORM_FURY
+    .4byte Move_PIXIE_POW
+    .4byte Move_BURNING_SPIRIT
+    .4byte Move_PURGING_FLAMES
+    .4byte Move_SNUFF_OUT
+    .4byte Move_SPIRIT_DANCE
+    .4byte Move_MUDSLIDE
+    .4byte Move_COLD_MEND
+    .4byte Move_TERRAIN_SNAP
+    .4byte Move_WEATHER_FORCE
+    .4byte Move_VIPER_STRIKE
+    .4byte Move_THINK_FAST
+    .4byte Move_PINPOINT
+    .4byte Move_WATER_FLOG
+	.4byte Move_FEAR_FACTOR
+	.4byte Move_GEO_PULSE
+	.4byte Move_DEMOLISHER
+	.4byte Move_ARCANE_POWER
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16603,10 +16624,10 @@ Move_FILLET_AWAY:
 	blendoff
 	end
 
-Move_BURNING_BULWARK::
+Move_BURNING_BULWARK:
 	goto Move_PROTECT
 
-Move_ALLURING_VOICE::
+Move_ALLURING_VOICE:
 	loadspritegfx ANIM_TAG_THIN_RING
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d
 	waitforvisualfinish
@@ -16626,58 +16647,237 @@ Move_ALLURING_VOICE::
 	waitforvisualfinish
 	end
 
+Move_LAST_RESPECTS:
+	goto Move_REVENGE
+
+Move_SPIN_OUT:
+	goto Move_STEEL_ROLLER
+
+Move_POPULATION_BOMB:
+	goto Move_FURY_CUTTER
+
+Move_ICE_SPINNER:
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS
+	loadspritegfx ANIM_TAG_HANDS_AND_FEET
+	monbg ANIM_TARGET
+	loopsewithpan SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER, 0x20, 0x6
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 12, 6, 6, 3
+	call IceSpinnerSpin
+	delay 0x9
+	call IceSpinnerSpin
+	delay 0x9
+	call IceSpinnerSpin
+	delay 0x9
+	call IceSpinnerSpin
+	delay 0x9
+	call IceSpinnerSpin
+	waitforvisualfinish
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x18, 0x0, 0x0, 0x5
+	delay 0x3
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gSpinningHandOrFootSpriteTemplate, ANIM_TARGET, 3, 0, 0, 1, 30
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 6, 0, 8, 1
+	call IceSpreadEffect
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 0x8
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x7
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
+IceSpinnerSpin:
+	createsprite gIceSpinnerSpinTemplate, ANIM_ATTACKER, 2, 0x0, 0xffe8, 0x8, 0x8c
+	return
+IceSpreadEffect:
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, 176, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, 240, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, -160, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, -112, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 160, 48, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -224, -32, 40
+	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 112, -128, 40
+	return
+
+Move_MORTAL_SPIN:
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_RAPID_SPIN
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	monbg ANIM_ATTACKER
+	createsprite gRapidSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 32, -32, 40, -2
+	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 0
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 1, 1, RGB(24, 6, 23)
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 10, 1, 0
+	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	waitforvisualfinish
+	delay 8
+	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 1
+	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
+	waitforvisualfinish
+	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, ANIM_ATTACKER, TRUE
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	call PoisonBubblesEffect
+	waitforvisualfinish
+	end
+
+Move_FLOWER_TRICK:
+	goto Move_PETAL_BLIZZARD
+
+Move_TORCH_SONG:
+	goto Move_RELIC_SONG
+
+Move_AQUA_STEP:
+	goto Move_PETAL_DANCE
+
+Move_MAKE_IT_RAIN:
+	goto Move_PAY_DAY
+
+Move_POUNCE:
+	goto Move_LUNGE
+
+Move_TRAILBLAZE:
+	goto Move_FLAME_CHARGE
+
+Move_CHILLING_WATER:
+	goto Move_SCALD
+
+Move_HYPER_DRILL:
+	goto Move_DRILL_RUN
+
+Move_TWIN_BEAM:
+	goto Move_PSYBEAM
+
+Move_RAGE_FIST:
+	goto Move_RAGE
+
+Move_COMEUPPANCE:
+	goto Move_PAYBACK
+
+Move_AQUA_CUTTER:
+	goto Move_NIGHT_SLASH
+
+Move_HYDRO_STEAM:
+	goto Move_STEAM_ERUPTION
+
+Move_ELECTRO_SHOT:
+	goto Move_ZAP_CANNON
+
+Move_FICKLE_BEAM:
+	goto Move_LIGHT_OF_RUIN
+
+Move_THUNDERCLAP:
+	goto Move_THUNDER
+
+Move_HARD_PRESS:
+	goto Move_BODY_PRESS
+
+Move_DRAGON_CHEER:
+	goto Move_HOWL
+
+Move_TEMPER_FLARE:
+	goto Move_STOMPING_TANTRUM
+
+Move_PSYCHIC_NOISE:
+	goto Move_HEAL_BLOCK
+
+Move_UPPER_HAND:
+	goto Move_SUCKER_PUNCH
+
+Move_MALIGNANT_CHAIN:
+	goto Move_ANCHOR_SHOT
+
+Move_BUG_SNACK:
+	goto Move_LEECH_LIFE
+
+Move_HIT_N_RUN:
+	goto Move_U_TURN
+
+Move_WYVERN_WAVE:
+	goto Move_DRAGON_BREATH
+
+Move_STORM_FURY:
+	goto Move_OUTRAGE
+
+Move_PIXIE_POW:
+	goto Move_TACKLE
+
+Move_BURNING_SPIRIT:
+	goto Move_BURNING_JEALOUSY
+
+Move_PURGING_FLAMES:
+	goto Move_CLEAR_SMOG
+
+Move_SNUFF_OUT:
+	goto Move_BLEAKWIND_STORM
+
+Move_SPIRIT_DANCE:
+	goto Move_OUTRAGE
+
+Move_MUDSLIDE:
+	goto Move_ROCK_SLIDE
+
+Move_COLD_MEND:
+	goto Move_SYNTHESIS
+
+Move_TERRAIN_SNAP:
+	goto Move_TERRAIN_PULSE
+
+Move_WEATHER_FORCE:
+	goto Move_WEATHER_BALL
+
+Move_VIPER_STRIKE:
+	goto Move_QUICK_ATTACK
+
+Move_THINK_FAST:
+	goto Move_VACUUM_WAVE
+
+Move_PINPOINT:
+	goto Move_LASER_FOCUS
+
+Move_WATER_FLOG:
+	goto Move_CONSTRICT
+
+Move_FEAR_FACTOR:
+	goto Move_SPOOK
+
+Move_GEO_PULSE:
+	goto Move_DARK_PULSE
+
+Move_DEMOLISHER:
+	goto Move_BULLDOZE
+
+Move_ARCANE_POWER:
+	goto Move_MYSTICAL_POWER
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
-Move_LAST_RESPECTS::
 Move_LUMINA_CRASH::
 Move_ORDER_UP::
 Move_JET_PUNCH::
 Move_SPICY_EXTRACT::
-Move_SPIN_OUT::
-Move_POPULATION_BOMB::
-Move_ICE_SPINNER::
 Move_GLAIVE_RUSH::
 Move_REVIVAL_BLESSING::
 Move_SALT_CURE::
 Move_TRIPLE_DIVE::
-Move_MORTAL_SPIN::
 Move_DOODLE::
 Move_KOWTOW_CLEAVE::
-Move_FLOWER_TRICK::
-Move_TORCH_SONG::
-Move_AQUA_STEP::
 Move_RAGING_BULL::
-Move_MAKE_IT_RAIN::
 Move_RUINATION::
 Move_COLLISION_COURSE::
 Move_ELECTRO_DRIFT::
 Move_TIDY_UP::
-Move_POUNCE::
-Move_TRAILBLAZE::
-Move_CHILLING_WATER::
-Move_HYPER_DRILL::
-Move_TWIN_BEAM::
-Move_RAGE_FIST::
 Move_ARMOR_CANNON::
 Move_GIGATON_HAMMER::
-Move_COMEUPPANCE::
-Move_AQUA_CUTTER::
 Move_BLAZING_TORQUE::
 Move_WICKED_TORQUE::
 Move_NOXIOUS_TORQUE::
 Move_COMBAT_TORQUE::
 Move_MAGICAL_TORQUE::
 Move_PSYBLADE::
-Move_HYDRO_STEAM::
-Move_ELECTRO_SHOT::
-Move_FICKLE_BEAM::
-Move_THUNDERCLAP::
-Move_HARD_PRESS::
-Move_DRAGON_CHEER::
-Move_TEMPER_FLARE::
-Move_PSYCHIC_NOISE::
-Move_UPPER_HAND::
-Move_MALIGNANT_CHAIN::
 	end @to do
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@

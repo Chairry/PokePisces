@@ -4732,6 +4732,7 @@ s8 GetMovePriority(u32 battler, u16 move)
         case EFFECT_MORNING_SUN:
         case EFFECT_MOONLIGHT:
         case EFFECT_SYNTHESIS:
+        case EFFECT_COLD_MEND:
         case EFFECT_HEAL_PULSE:
         case EFFECT_HEALING_WISH:
         case EFFECT_SWALLOW:
@@ -5733,6 +5734,8 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
                  || (attackerAbility == ABILITY_REFRIGERATE && (ateType = TYPE_ICE))
                  || (attackerAbility == ABILITY_AERILATE && (ateType = TYPE_FLYING))
                  || ((attackerAbility == ABILITY_GALVANIZE) && (ateType = TYPE_ELECTRIC))
+                 || ((attackerAbility == ABILITY_AQUA_HEART) && (ateType = TYPE_WATER))
+                 || ((attackerAbility == ABILITY_DRACO_FORCE) && (ateType = TYPE_DRAGON))
                 )
              )
     {

@@ -1594,6 +1594,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
 #endif
     case EFFECT_MORNING_SUN:
     case EFFECT_SYNTHESIS:
+    case EFFECT_COLD_MEND:
     case EFFECT_MOONLIGHT:
     case EFFECT_RESTORE_HP:
     case EFFECT_REST:
@@ -8998,6 +8999,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_ELECTRIC_TERRAIN))
             basePower *= 2;
         break;
+    case EFFECT_HIT_SET_REMOVE_TERRAIN:
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+            basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
     case EFFECT_BEAT_UP:
         #if B_BEAT_UP >= GEN_5
         basePower = CalcBeatUpPower();
@@ -9035,7 +9039,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     return basePower;
 }
 
-static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk, u32 weather)
+u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk, u32 weather)
 {
     u32 i;
     u32 holdEffectParamAtk;
@@ -9205,6 +9209,14 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if (moveType == TYPE_FAIRY && gBattleStruct->ateBoost[battlerAtk])
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_AQUA_HEART:
+        if (moveType == TYPE_WATER && gBattleStruct->ateBoost[battlerAtk])
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_DRACO_FORCE:
+        if (moveType == TYPE_DRAGON && gBattleStruct->ateBoost[battlerAtk])
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
     case ABILITY_GALVANIZE:
         if (moveType == TYPE_ELECTRIC && gBattleStruct->ateBoost[battlerAtk])
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
@@ -9275,7 +9287,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break;
     case ABILITY_SHARPNESS:
         if (gBattleMoves[move].slicingMove)
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SUPREME_OVERLORD:
         modifier = uq4_12_multiply(modifier, GetSupremeOverlordModifier(battlerAtk));
@@ -10250,6 +10262,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_SNUFF_OUT && defType == TYPE_FIRE)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_FALSE_SWIPE)
         mod = UQ_4_12(1.0);
