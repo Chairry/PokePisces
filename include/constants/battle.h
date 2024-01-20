@@ -428,8 +428,13 @@
 #define BATTLE_TERRAIN_DISTORTION_WORLD 32
 #define BATTLE_TERRAIN_SPACE            33
 #define BATTLE_TERRAIN_ULTRA_SPACE      34
+// New pisces exclusive battle terrains, NOT set up for Secret Power idk if that's an issue guess we'll see!!
+#define BATTLE_TERRAIN_SNOW_ROUTE       35
+#define BATTLE_TERRAIN_BLOSSOM_ROUTE    36
+#define BATTLE_TERRAIN_CHIMNEY_ROUTE    37
+#define BATTLE_TERRAIN_GOLD_ROUTE       38
 
-#define BATTLE_TERRAIN_COUNT            35
+#define BATTLE_TERRAIN_COUNT            39
 
 #define B_WAIT_TIME_LONG        (B_WAIT_TIME_MULTIPLIER * 4)
 #define B_WAIT_TIME_MED         (B_WAIT_TIME_MULTIPLIER * 3)
