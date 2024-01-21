@@ -1138,6 +1138,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_ORROWHELM] = gMonIcon_Orrowhelm,
     [SPECIES_SHAYON] = gMonIcon_ShaYon,
     [SPECIES_LUOSHAN] = gMonIcon_LuoShan,
+    [SPECIES_GAOTERRA] = gMonIcon_Gaoterra,
 #endif
     [SPECIES_VENUSAUR_MEGA] = gMonIcon_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = gMonIcon_CharizardMegaX,
@@ -1489,6 +1490,8 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_BASCULEGION_FEMALE] = gMonIcon_BasculegionFemale,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = gMonIcon_DudunsparsThreeSegment,
     [SPECIES_LOTTABATS_HUDDLED] = gMonIcon_LottabatsHuddled,
+    [SPECIES_GAOTERRA_SOLAR] = gMonIcon_GaoterraSolar,
+    [SPECIES_GAOTERRA_LUNAR] = gMonIcon_GaoterraLunar,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2614,6 +2617,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_ORROWHELM] = 0,
     [SPECIES_SHAYON] = 0,
     [SPECIES_LUOSHAN] = 0,
+    [SPECIES_GAOTERRA] = 4,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
@@ -2918,6 +2922,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_BASCULEGION_FEMALE] = 0,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = 0,
     [SPECIES_LOTTABATS_HUDDLED] = 0,
+    [SPECIES_GAOTERRA_SOLAR] = 3,
+    [SPECIES_GAOTERRA_LUNAR] = 3,
 #endif
     [SPECIES_EGG] = 1,
 };

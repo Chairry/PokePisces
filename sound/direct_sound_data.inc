@@ -4802,6 +4802,10 @@ Cry_ShaYon::
 	.align 2
 Cry_LuoShan::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Gaoterra::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2
@@ -5153,6 +5157,14 @@ Cry_CalyrexShadowRider::
 
 	.align 2
 Cry_LottabatsHuddled::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_GaoterraSolar::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_GaoterraLunar::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 

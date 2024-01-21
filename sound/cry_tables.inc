@@ -1538,6 +1538,7 @@ gCryTable::
 	cry Cry_Orrowhelm
 	cry Cry_ShaYon
 	cry Cry_LuoShan
+	cry Cry_Gaoterra
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2271,6 +2272,9 @@ gCryTable::
 	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
+	@ Gaoterra
+	cry Cry_GaoterraSolar
+	cry Cry_GaoterraLunar
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2314,6 +2318,8 @@ gCryTable::
 	@ Dudunspars
 	cry Cry_Unown
 	@ Lottabats
+	cry Cry_Unown
+	@ Gaoterra
 	cry Cry_Unown
 .endif
 
@@ -3857,6 +3863,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Orrowhelm
 	cry_reverse Cry_ShaYon
 	cry_reverse Cry_LuoShan
+	cry_reverse Cry_Gaoterra
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4557,6 +4564,9 @@ gCryTable_Reverse::
 	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
+	@ Gaoterra
+	cry_reverse Cry_GaoterraSolar
+	cry_reverse Cry_GaoterraLunar
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

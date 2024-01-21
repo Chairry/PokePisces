@@ -8389,6 +8389,24 @@ extern const u32 gMonBackPic_LottabatsHuddled[];
 extern const u32 gMonShinyPalette_LottabatsHuddled[];
 extern const u8 gMonIcon_LottabatsHuddled[];
 extern const u8 gMonFootprint_LottabatsHuddled[];
+extern const u32 gMonFrontPic_Gaoterra[];
+extern const u32 gMonPalette_Gaoterra[];
+extern const u32 gMonBackPic_Gaoterra[];
+extern const u32 gMonShinyPalette_Gaoterra[];
+extern const u8 gMonIcon_Gaoterra[];
+extern const u8 gMonFootprint_Gaoterra[];
+extern const u32 gMonFrontPic_GaoterraSolar[];
+extern const u32 gMonPalette_GaoterraSolar[];
+extern const u32 gMonBackPic_GaoterraSolar[];
+extern const u32 gMonShinyPalette_GaoterraSolar[];
+extern const u8 gMonIcon_GaoterraSolar[];
+extern const u8 gMonFootprint_GaoterraSolar[];
+extern const u32 gMonFrontPic_GaoterraLunar[];
+extern const u32 gMonPalette_GaoterraLunar[];
+extern const u32 gMonBackPic_GaoterraLunar[];
+extern const u32 gMonShinyPalette_GaoterraLunar[];
+extern const u8 gMonIcon_GaoterraLunar[];
+extern const u8 gMonFootprint_GaoterraLunar[];
 #endif
 
 // trainer sprites

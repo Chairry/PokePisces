@@ -1113,6 +1113,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_ORROWHELM] = sOrrowhelmTeachableLearnset,
     [SPECIES_SHAYON] = sShaYonTeachableLearnset,
     [SPECIES_LUOSHAN] = sLuoShanTeachableLearnset,
+    [SPECIES_GAOTERRA] = sGaoterraTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,
@@ -1529,5 +1530,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionTeachableLearnset,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsTeachableLearnset,
     [SPECIES_LOTTABATS_HUDDLED] = sLottabatsTeachableLearnset,
+    [SPECIES_GAOTERRA_SOLAR] = sGaoterraTeachableLearnset,
+    [SPECIES_GAOTERRA_LUNAR] = sGaoterraTeachableLearnset,
 #endif
 };

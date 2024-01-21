@@ -1231,7 +1231,7 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 static bool32 TryAegiFormChange(void)
 {
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
-    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_TORRENT
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STELLAR_BODY
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
         return FALSE;
 
@@ -1239,29 +1239,29 @@ static bool32 TryAegiFormChange(void)
     {
     default:
         return FALSE;
-    case SPECIES_MUDKIP: // Shield -> Blade
+    case SPECIES_GAOTERRA: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
         else if (IS_MOVE_PHYSICAL(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_MARSHTOMP;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
         else if (IS_MOVE_SPECIAL(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_SWAMPERT;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
         break;
-    case SPECIES_MARSHTOMP: // Shield -> Blade
+    case SPECIES_GAOTERRA_SOLAR: // Shield -> Blade
         if (IS_MOVE_PHYSICAL(gCurrentMove))
             return FALSE;
         else if (IS_MOVE_STATUS(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_MUDKIP;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
         else if (IS_MOVE_SPECIAL(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_SWAMPERT;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
         break;
-    case SPECIES_SWAMPERT: // Shield -> Blade
+    case SPECIES_GAOTERRA_LUNAR: // Shield -> Blade
         if (IS_MOVE_SPECIAL(gCurrentMove))
             return FALSE;
         else if (IS_MOVE_STATUS(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_MUDKIP;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
         else if (IS_MOVE_PHYSICAL(gCurrentMove))
-        gBattleMons[gBattlerAttacker].species = SPECIES_MARSHTOMP;
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
         break;
     }
 

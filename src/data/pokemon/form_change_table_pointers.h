@@ -226,5 +226,8 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_ENAMORUS_THERIAN] = sEnamorusFormChangeTable,
     [SPECIES_LOTTABATS] = sLottabatsFormChangeTable,
     [SPECIES_LOTTABATS_HUDDLED] = sLottabatsFormChangeTable,
+    [SPECIES_GAOTERRA] = sGaoterraFormChangeTable,
+    [SPECIES_GAOTERRA_SOLAR] = sGaoterraFormChangeTable,
+    [SPECIES_GAOTERRA_LUNAR] = sGaoterraFormChangeTable,
 #endif
 };
