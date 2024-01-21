@@ -1231,7 +1231,7 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 static bool32 TryAegiFormChange(void)
 {
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
-    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_TORRENT
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
         return FALSE;
 
@@ -1239,15 +1239,29 @@ static bool32 TryAegiFormChange(void)
     {
     default:
         return FALSE;
-    case SPECIES_AEGISLASH: // Shield -> Blade
+    case SPECIES_MUDKIP: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_MARSHTOMP;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_SWAMPERT;
         break;
-    case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
-        if (gCurrentMove != MOVE_KINGS_SHIELD)
+    case SPECIES_MARSHTOMP: // Shield -> Blade
+        if (IS_MOVE_PHYSICAL(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_MUDKIP;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_SWAMPERT;
+        break;
+    case SPECIES_SWAMPERT: // Shield -> Blade
+        if (IS_MOVE_SPECIAL(gCurrentMove))
+            return FALSE;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_MUDKIP;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_MARSHTOMP;
         break;
     }
 

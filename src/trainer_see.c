@@ -721,7 +721,12 @@ u8 FldEff_HeartIcon(void)
     u8 spriteId = CreateSpriteAtEnd(&sSpriteTemplate_HeartIcon, 0, 0, 0x52);
 
     if (spriteId != MAX_SPRITES)
-        SetIconSpriteData(&gSprites[spriteId], FLDEFF_HEART_ICON, 0);
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+
+        SetIconSpriteData(sprite, FLDEFF_HEART_ICON, 0);
+        sprite->oam.paletteNum = 2;
+    }
 
     return 0;
 }
