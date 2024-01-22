@@ -97,6 +97,9 @@ const u32 gBattleTerrainAnimTilemap_Rock[] = INCBIN_U32("graphics/battle_terrain
 const u32 gBattleTerrainAnimTiles_Cave[] = INCBIN_U32("graphics/battle_terrain/cave/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Cave[] = INCBIN_U32("graphics/battle_terrain/cave/anim_map.bin.lz");
 
+const u32 gBattleTerrainAnimTiles_Snow[] = INCBIN_U32("graphics/battle_terrain/snow/anim_tiles.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Snow[] = INCBIN_U32("graphics/battle_terrain/snow/anim_map.bin.lz");
+
 const u32 gBattleTerrainAnimTiles_Building[] = INCBIN_U32("graphics/battle_terrain/building/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Building[] = INCBIN_U32("graphics/battle_terrain/building/anim_map.bin.lz");
 

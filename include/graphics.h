@@ -8902,6 +8902,8 @@ extern const u32 gBattleTerrainPalette_Plain[];
 extern const u32 gBattleTerrainTiles_Snow[];
 extern const u32 gBattleTerrainPalette_Snow[];
 extern const u32 gBattleTerrainTilemap_Snow[];
+extern const u32 gBattleTerrainAnimTiles_Snow[];
+extern const u32 gBattleTerrainAnimTilemap_Snow[];
 extern const u32 gBattleTerrainTiles_Blossom[];
 extern const u32 gBattleTerrainPalette_Blossom[];
 extern const u32 gBattleTerrainTilemap_Blossom[];

@@ -689,8 +689,8 @@ const struct BattleBackground sBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Snow,
         .tilemap = gBattleTerrainTilemap_Snow,
-        .entryTileset = gBattleTerrainAnimTiles_Rayquaza,
-        .entryTilemap = gBattleTerrainAnimTilemap_Rayquaza,
+        .entryTileset = gBattleTerrainAnimTiles_Snow,
+        .entryTilemap = gBattleTerrainAnimTilemap_Snow,
         .palette = gBattleTerrainPalette_Snow,
     },
 
@@ -716,8 +716,8 @@ const struct BattleBackground sBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Gold,
         .tilemap = gBattleTerrainTilemap_Gold,
-        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
-        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .entryTileset = gBattleTerrainAnimTiles_Rock,
+        .entryTilemap = gBattleTerrainAnimTilemap_Rock,
         .palette = gBattleTerrainPalette_Gold,
     },
 
