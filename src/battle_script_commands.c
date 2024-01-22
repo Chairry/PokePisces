@@ -1231,7 +1231,7 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 static bool32 TryAegiFormChange(void)
 {
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
-    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STELLAR_BODY
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
         return FALSE;
 
@@ -1239,15 +1239,29 @@ static bool32 TryAegiFormChange(void)
     {
     default:
         return FALSE;
-    case SPECIES_AEGISLASH: // Shield -> Blade
+    case SPECIES_GAOTERRA: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
         break;
-    case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
-        if (gCurrentMove != MOVE_KINGS_SHIELD)
+    case SPECIES_GAOTERRA_SOLAR: // Shield -> Blade
+        if (IS_MOVE_PHYSICAL(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
+        break;
+    case SPECIES_GAOTERRA_LUNAR: // Shield -> Blade
+        if (IS_MOVE_SPECIAL(gCurrentMove))
+            return FALSE;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
         break;
     }
 
