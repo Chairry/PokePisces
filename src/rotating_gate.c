@@ -6,7 +6,6 @@
 #include "sound.h"
 #include "sprite.h"
 #include "constants/songs.h"
-#include "constants/event_objects.h"
 
 #define ROTATING_GATE_TILE_TAG 0x1300
 #define ROTATING_GATE_PUZZLE_MAX 12
@@ -462,6 +461,7 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_RotatingGate[] =
     sSpriteAffineAnim_RotatingClockwise270to360Faster,
 };
 
+#define OBJ_EVENT_PAL_TAG_NPC_1 0x1103
 
 static const struct SpriteTemplate sSpriteTemplate_RotatingGateLarge =
 {
@@ -733,7 +733,6 @@ static u8 RotatingGate_CreateGate(u8 gateId, s16 deltaX, s16 deltaY)
     s16 x, y;
 
     const struct RotatingGatePuzzle *gate = &sRotatingGate_PuzzleConfig[gateId];
-    u16 paletteTag;
 
     if (gate->shape == GATE_SHAPE_L1 || gate->shape == GATE_SHAPE_T1)
         template = sSpriteTemplate_RotatingGateRegular;
@@ -742,11 +741,7 @@ static u8 RotatingGate_CreateGate(u8 gateId, s16 deltaX, s16 deltaY)
 
     template.tileTag = gate->shape + ROTATING_GATE_TILE_TAG;
 
-    paletteTag = template.paletteTag;
-    if (paletteTag != TAG_NONE)
-        LoadObjectEventPalette(paletteTag);
-
-    spriteId = CreateSprite(&template, 0, 0, 0x94);
+    spriteId = CreateSprite(&template, 0, 0, 0x93);
     if (spriteId == MAX_SPRITES)
         return MAX_SPRITES;
 
@@ -754,6 +749,7 @@ static u8 RotatingGate_CreateGate(u8 gateId, s16 deltaX, s16 deltaY)
     y = gate->y + MAP_OFFSET;
 
     sprite = &gSprites[spriteId];
+    UpdateSpritePaletteByTemplate(&template, sprite);
     sprite->data[0] = gateId;
     sprite->coordOffsetEnabled = 1;
 

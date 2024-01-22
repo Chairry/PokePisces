@@ -9522,7 +9522,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     {
     case ABILITY_DORMANT:
         if (IS_MOVE_PHYSICAL(move)) // && gBattleMons[battlerAtk].species == SPECIES_BISHOUCHA_WARMONGER
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
@@ -10684,6 +10684,13 @@ bool32 IsBattlerMegaEvolved(u32 battler)
     return (gSpeciesInfo[gBattleMons[battler].species].flags & SPECIES_FLAG_MEGA_EVOLUTION);
 }
 
+bool32 IsBattlerGaoterra(u32 battler)
+{
+    if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
+        return FALSE;
+    return (gBattleMons[battler].species = SPECIES_GAOTERRA);
+}
+
 bool32 IsBattlerPrimalReverted(u32 battler)
 {
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
@@ -10837,6 +10844,9 @@ bool32 TryBattleFormChange(u32 battler, u16 method)
 
         // Unlike Megas, Primal Reversion isn't canceled on fainting.
         else if (IsBattlerPrimalReverted(battler) && (method == FORM_CHANGE_END_BATTLE))
+            restoreSpecies = TRUE;
+
+        else if (IsBattlerGaoterra(battler) && (method == FORM_CHANGE_FAINT || method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_BATTLE_SWITCH))
             restoreSpecies = TRUE;
 
         if (restoreSpecies)

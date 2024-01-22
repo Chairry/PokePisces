@@ -10524,6 +10524,12 @@ static const union AnimCmd sAnim_LuoShan_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Gaoterra_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Coffiddle_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -11544,6 +11550,24 @@ static const union AnimCmd sAnim_EnamorusTherian_1[] =
 };
 
 static const union AnimCmd sAnim_LottabatsHuddled_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DudunsparsThreeSegment_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GaoterraSolar_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_GaoterraLunar_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -12722,6 +12746,7 @@ SINGLE_ANIMATION(Cream);
 SINGLE_ANIMATION(Cremeletts);
 SINGLE_ANIMATION(Snurrowl);
 SINGLE_ANIMATION(Stolyce);
+SINGLE_ANIMATION(Gaoterra);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -12891,6 +12916,9 @@ SINGLE_ANIMATION(LycanrocDusk);
 #if P_GEN_8_POKEMON == TRUE
 SINGLE_ANIMATION(EnamorusTherian);
 SINGLE_ANIMATION(LottabatsHuddled);
+SINGLE_ANIMATION(DudunsparsThreeSegment);
+SINGLE_ANIMATION(GaoterraSolar);
+SINGLE_ANIMATION(GaoterraLunar);
 #endif
 
 const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
@@ -14007,6 +14035,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_CREMELETTS] = sAnims_Cremeletts,
     [SPECIES_SNURROWL] = sAnims_Snurrowl,
     [SPECIES_STOLYCE] = sAnims_Stolyce,
+    [SPECIES_GAOTERRA] = sAnims_Gaoterra,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,
@@ -14356,8 +14385,10 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_CALYREX_SHADOW_RIDER] = sAnims_Calyrex,
     [SPECIES_ENAMORUS_THERIAN] = sAnims_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = sAnims_Basculegion,
-    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sAnims_Dudunspars,
-    [SPECIES_LOTTABATS_HUDDLED] = sAnims_Lottabats,
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sAnims_DudunsparsThreeSegment,
+    [SPECIES_LOTTABATS_HUDDLED] = sAnims_LottabatsHuddled,
+    [SPECIES_GAOTERRA_SOLAR] = sAnims_GaoterraSolar,
+    [SPECIES_GAOTERRA_LUNAR] = sAnims_GaoterraLunar,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
 };

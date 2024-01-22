@@ -1111,6 +1111,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_ORROWHELM] = _("Orrowhelm"),
     [SPECIES_SHAYON] = _("Sha-Yon"),
     [SPECIES_LUOSHAN] = _("Luo-Shan"),
+    [SPECIES_GAOTERRA] = _("Gaoterra"),
 #endif
 
     // Megas
@@ -1530,5 +1531,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_BASCULEGION_FEMALE] = _("Bsculegion"),
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = _("Dudunspars"),
     [SPECIES_LOTTABATS_HUDDLED] = _("Lottabats"),
+    [SPECIES_GAOTERRA_SOLAR] = _("Gaoterra"),
+    [SPECIES_GAOTERRA_LUNAR] = _("Gaoterra"),
 #endif
 };

@@ -1105,6 +1105,7 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_CREMELETTS] = gMonFootprint_Cremeletts,
     [SPECIES_SNURROWL] = gMonFootprint_Snurrowl,
     [SPECIES_STOLYCE] = gMonFootprint_Stolyce,
+    [SPECIES_GAOTERRA] = gMonFootprint_Gaoterra,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

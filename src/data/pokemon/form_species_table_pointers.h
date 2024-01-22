@@ -172,6 +172,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_BASCULEGION] = sBasculegionFormSpeciesIdTable,
     [SPECIES_DUDUNSPARS] = sDudunsparsFormSpeciesIdTable,
     [SPECIES_LOTTABATS] = sLottabatsFormSpeciesIdTable,
+    [SPECIES_GAOTERRA] = sGaoterraFormSpeciesIdTable,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurFormSpeciesIdTable,
@@ -589,5 +590,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_BASCULEGION_FEMALE] = sBasculegionFormSpeciesIdTable,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sDudunsparsFormSpeciesIdTable,
     [SPECIES_LOTTABATS_HUDDLED] = sLottabatsFormSpeciesIdTable,
+    [SPECIES_GAOTERRA_SOLAR] = sGaoterraFormSpeciesIdTable,
+    [SPECIES_GAOTERRA_LUNAR] = sGaoterraFormSpeciesIdTable,
 #endif
 };
