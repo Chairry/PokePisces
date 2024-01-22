@@ -698,8 +698,8 @@ const struct BattleBackground sBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Blossom,
         .tilemap = gBattleTerrainTilemap_Blossom,
-        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
-        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .entryTileset = gBattleTerrainAnimTiles_Blossom,
+        .entryTilemap = gBattleTerrainAnimTilemap_Blossom,
         .palette = gBattleTerrainPalette_Blossom,
     },
     
@@ -707,8 +707,8 @@ const struct BattleBackground sBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Chimney,
         .tilemap = gBattleTerrainTilemap_Chimney,
-        .entryTileset = gBattleTerrainAnimTiles_Rock,
-        .entryTilemap = gBattleTerrainAnimTilemap_Rock,
+        .entryTileset = gBattleTerrainAnimTiles_Chimney,
+        .entryTilemap = gBattleTerrainAnimTilemap_Chimney,
         .palette = gBattleTerrainPalette_Chimney,
     },
     
@@ -716,8 +716,8 @@ const struct BattleBackground sBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Gold,
         .tilemap = gBattleTerrainTilemap_Gold,
-        .entryTileset = gBattleTerrainAnimTiles_Rock,
-        .entryTilemap = gBattleTerrainAnimTilemap_Rock,
+        .entryTileset = gBattleTerrainAnimTiles_Gold,
+        .entryTilemap = gBattleTerrainAnimTilemap_Gold,
         .palette = gBattleTerrainPalette_Gold,
     },
 

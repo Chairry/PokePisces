@@ -100,6 +100,15 @@ const u32 gBattleTerrainAnimTilemap_Cave[] = INCBIN_U32("graphics/battle_terrain
 const u32 gBattleTerrainAnimTiles_Snow[] = INCBIN_U32("graphics/battle_terrain/snow/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Snow[] = INCBIN_U32("graphics/battle_terrain/snow/anim_map.bin.lz");
 
+const u32 gBattleTerrainAnimTiles_Blossom[] = INCBIN_U32("graphics/battle_terrain/blossom/anim_tiles.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Blossom[] = INCBIN_U32("graphics/battle_terrain/blossom/anim_map.bin.lz");
+
+const u32 gBattleTerrainAnimTiles_Chimney[] = INCBIN_U32("graphics/battle_terrain/chimney/anim_tiles.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Chimney[] = INCBIN_U32("graphics/battle_terrain/chimney/anim_map.bin.lz");
+
+const u32 gBattleTerrainAnimTiles_Gold[] = INCBIN_U32("graphics/battle_terrain/gold/anim_tiles.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Gold[] = INCBIN_U32("graphics/battle_terrain/gold/anim_map.bin.lz");
+
 const u32 gBattleTerrainAnimTiles_Building[] = INCBIN_U32("graphics/battle_terrain/building/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Building[] = INCBIN_U32("graphics/battle_terrain/building/anim_map.bin.lz");
 
