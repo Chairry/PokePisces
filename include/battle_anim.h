@@ -313,6 +313,8 @@ extern const union AffineAnimCmd *const gAngerMarkAffineAnimTable[];
 extern const union AffineAnimCmd *const gWaterPulseRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gHyperVoiceRingAffineAnimTable[];
 extern const union AnimCmd *const gCoinAnimTable[];
+extern const union AnimCmd *const gAnims_FlyingCoin[];
+extern const union AnimCmd *const gAnims_FlyingCoin[];
 extern const union AffineAnimCmd *const gHiddenPowerOrbAffineAnimTable[];
 extern const union AffineAnimCmd *const gBulletSeedAffineAnimTable[];
 
