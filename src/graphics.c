@@ -1237,6 +1237,9 @@ const u32 gBattleAnimSpritePal_PurpleFlame[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.4bpp.lz");
+const u32 gBattleAnimSpritePal_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_SmellingsaltEffect[] = INCBIN_U32("graphics/battle_anims/sprites/smellingsalt_effect.4bpp.lz");
 const u32 gBattleAnimSpritePal_SmellingsaltEffect[] = INCBIN_U32("graphics/battle_anims/sprites/smellingsalt_effect.gbapal.lz");
 
