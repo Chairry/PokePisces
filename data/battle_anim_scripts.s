@@ -16932,10 +16932,10 @@ AquaStepEffect:
 	delay 2
 	return
 
-Move_MAKE_IT_RAIN:
+Move_MAKE_IT_RAIN::
 	loadspritegfx ANIM_TAG_COIN
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_DEF_PARTNER
+	monbg ANIM_ATTACKER
 	setalpha 12, 8
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
 	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 1152
@@ -16945,30 +16945,90 @@ Move_MAKE_IT_RAIN:
 	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
 	waitforvisualfinish
-	delay 100
+	delay 20
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpretfalse MakingItRainOnOpponent
+	jumprettrue MakingItRainOnPlayer
+MakingItRainContinue:
 	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 7, 1, 11, 1
-	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
-	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
-	delay 2
-	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
-	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
-	delay 2
-	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
-	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
-	delay 2
-	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
-	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
-	call SetImpactBackground
+	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 15
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x5, 0x0, 0x6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x13, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffe9, 0x0, 0xfff6, 0x1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	call MakingItRain
+	MakeItRainEnd:
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	end
+MakingItRainOnOpponent:
+	fadetobg BG_IMPACT_OPPONENT
+	goto MakingItRainContinue
+MakingItRainOnPlayer:
+	fadetobg BG_IMPACT_PLAYER
+	goto MakingItRainContinue
+MakingItRain:
+	waitbgfadein
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1c, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xfff6, 0x0, 0xfffb, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xa, 0x0, 0x6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x18, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffe0, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1e, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1c, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xfff6, 0x0, 0xfffb, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xa, 0x0, 0x6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x18, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffe0, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1e, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1c, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xfff6, 0x0, 0xfffb, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xa, 0x0, 0x6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x18, 0x0, 0xa, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffe0, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0xffec, 0x0, 0xfff6, 0x1
+	delay 0x2
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 2, 0x1e, 0x0, 0xa, 0x1
 	restorebg
 	waitbgfadein
-	delay 2
-	call CoinShower
-	call CoinShower
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
-	end
+	delay 100
+	createsprite gMakingItRainTemplate, ANIM_TARGET, 20, 0xffec, 0x0, 0xfff6, 0x1
+	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
+	delay 0x2
+	blendoff
+	goto MakeItRainEnd
 
 Move_POUNCE:
 	goto Move_LUNGE
