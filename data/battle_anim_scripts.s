@@ -16935,8 +16935,7 @@ AquaStepEffect:
 Move_MAKE_IT_RAIN:
 	loadspritegfx ANIM_TAG_COIN
 	loadspritegfx ANIM_TAG_IMPACT
-	monbg ANIM_TARGET
-	splitbgprio ANIM_TARGET
+	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
 	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 20, 0, 0, 0, 1152
@@ -16946,92 +16945,29 @@ Move_MAKE_IT_RAIN:
 	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
 	waitforvisualfinish
-	delay 5
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 30, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 30, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	delay 5
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 40, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 40, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 40, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	delay 5
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 50, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 50, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 50, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 50, 0, 0, 0, 1152
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
 	delay 100
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gCoinThrowSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 0, 0, 1152
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 7, 1, 11, 1
+	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
+	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
+	delay 2
+	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
+	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
+	delay 2
+	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
+	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
+	delay 2
+	createsprite gHappyHourCoinShowerTemplate, ANIM_TARGET, 2, 0xfffb, 0x0, 0xfffb, 0x1
+	loopsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET, 0x8, 10
+	call SetImpactBackground
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
+	restorebg
+	waitbgfadein
+	delay 2
+	call CoinShower
+	call CoinShower
 	waitforvisualfinish
-	playsewithpan SE_M_PAY_DAY, SOUND_PAN_TARGET
-	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 1, 0, 0, ANIM_TARGET, 2
-	createsprite gFallingCoinSpriteTemplate, ANIM_ATTACKER, 2
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
-	waitforvisualfinish
-	clearmonbg ANIM_TARGET
-	blendoff
+	clearmonbg ANIM_DEF_PARTNER
 	end
 
 Move_POUNCE:
