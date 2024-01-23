@@ -353,7 +353,8 @@ void HandleAction_UseMove(void)
            && (gBattleMoves[gCurrentMove].power != 0 || (moveTarget != MOVE_TARGET_USER && moveTarget != MOVE_TARGET_ALL_BATTLERS))
            && ((GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
             || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
-            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)))
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY)))
     {
         side = GetBattlerSide(gBattlerAttacker);
         for (battler = 0; battler < gBattlersCount; battler++)
@@ -361,7 +362,8 @@ void HandleAction_UseMove(void)
             if ( *(gBattleStruct->moveTarget + gBattlerAttacker) != battler
                 && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
                  || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
-                 || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL))
+                 || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
+                 || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY))
                 && GetBattlerTurnOrderNum(battler) < var
                 && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT
                 && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL
@@ -431,6 +433,8 @@ void HandleAction_UseMove(void)
                 gSpecialStatuses[battler].stormDrainRedirected = TRUE;
             else if (battlerAbility == ABILITY_MAGNET_PULL)
                 gSpecialStatuses[battler].magnetPullRedirected = TRUE;
+            else if (battlerAbility == ABILITY_WITCHCRAFT)
+                gSpecialStatuses[battler].witchcraftRedirected = TRUE;
             gBattlerTarget = battler;
         }
     }
@@ -4963,6 +4967,33 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     }
                 }
                 break;
+             case ABILITY_SADDENED:
+                if (gDisableStructs[battler].isFirstTurn != 2)
+                {
+                    u32 validToRaise = 0, validToLower = 0;
+                    u32 statsNum = NUM_STATS;
+                    for (i = STAT_ATK; i < statsNum; i++)
+                    {
+                        if (CompareStat(battler, i, MIN_STAT_STAGE, CMP_GREATER_THAN))
+                            validToLower |= gBitTable[i];
+                    }
+
+                    if (validToLower != 0) // Can lower one stat
+                    {
+                        gBattleScripting.statChanger = gBattleScripting.savedStatChanger = 0; // for raising and lowering stat respectively
+                        if (validToLower != 0) // Find stat to lower
+                        {
+                            do
+                            {
+                                i = (Random() % statsNum) + STAT_ATK;
+                            } while (!(validToLower & gBitTable[i]));
+                            SET_STATCHANGER2(gBattleScripting.savedStatChanger, i, 2, TRUE);
+                        }
+                        BattleScriptPushCursorAndCallback(BattleScript_MoodyActivates);
+                        effect++;
+                    }
+                }
+                break;
             case ABILITY_TRUANT:
                 if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF || gCurrentMove != MOVE_YAWN || gCurrentMove != MOVE_SLEEP_TALK || gCurrentMove != MOVE_SNORE))
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
@@ -5108,6 +5139,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             case ABILITY_WATER_ABSORB:
             case ABILITY_DRY_SKIN:
                 if (moveType == TYPE_WATER)
+                    effect = 1;
+                break;
+            case ABILITY_WITCHCRAFT:
+                if (moveType == TYPE_FAIRY)
                     effect = 1;
                 break;
             case ABILITY_MOTOR_DRIVE:
@@ -8227,6 +8262,14 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
                 targetBattler ^= BIT_FLANK;
                 RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
                 gSpecialStatuses[targetBattler].magnetPullRedirected = TRUE;
+            }
+            else if (gBattleMoves[move].type == TYPE_FAIRY
+                && IsAbilityOnOpposingSide(gBattlerAttacker, ABILITY_WITCHCRAFT)
+                && GetBattlerAbility(targetBattler) != ABILITY_WITCHCRAFT)
+            {
+                targetBattler ^= BIT_FLANK;
+                RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
+                gSpecialStatuses[targetBattler].witchcraftRedirected = TRUE;
             }
         }
         break;
