@@ -1001,6 +1001,10 @@ static void InitMapBasedOnPlayerLocation(void)
     case MAP_TYPE_ROUTE:
     case MAP_TYPE_UNDERWATER:
     case MAP_TYPE_OCEAN_ROUTE:
+    case MAP_TYPE_SNOW_ROUTE:
+    case MAP_TYPE_CHIMNEY_ROUTE:
+    case MAP_TYPE_BLOSSOM_ROUTE:
+    case MAP_TYPE_GOLD_ROUTE:
         sRegionMap->mapSecId = gMapHeader.regionMapSectionId;
         sRegionMap->playerIsInCave = FALSE;
         mapWidth = gMapHeader.mapLayout->width;

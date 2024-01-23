@@ -752,6 +752,20 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_BUILDING;
     case MAP_TYPE_UNDERWATER:
         return BATTLE_TERRAIN_UNDERWATER;
+    case MAP_TYPE_SNOW_ROUTE:
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
+            return BATTLE_TERRAIN_WATER;
+        return BATTLE_TERRAIN_SNOW_ROUTE;
+    case MAP_TYPE_BLOSSOM_ROUTE:
+        return BATTLE_TERRAIN_BLOSSOM_ROUTE;
+    case MAP_TYPE_CHIMNEY_ROUTE:
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
+            return BATTLE_TERRAIN_WATER;
+        return BATTLE_TERRAIN_CHIMNEY_ROUTE;
+    case MAP_TYPE_GOLD_ROUTE:
+        if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
+            return BATTLE_TERRAIN_WATER;
+        return BATTLE_TERRAIN_GOLD_ROUTE;
     case MAP_TYPE_OCEAN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_WATER;
