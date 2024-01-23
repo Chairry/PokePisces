@@ -685,6 +685,42 @@ const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_Plain,
     },
 
+    [BATTLE_TERRAIN_SNOW_ROUTE] =
+    {
+        .tileset = gBattleTerrainTiles_Snow,
+        .tilemap = gBattleTerrainTilemap_Snow,
+        .entryTileset = gBattleTerrainAnimTiles_Snow,
+        .entryTilemap = gBattleTerrainAnimTilemap_Snow,
+        .palette = gBattleTerrainPalette_Snow,
+    },
+
+    [BATTLE_TERRAIN_BLOSSOM_ROUTE] =
+    {
+        .tileset = gBattleTerrainTiles_Blossom,
+        .tilemap = gBattleTerrainTilemap_Blossom,
+        .entryTileset = gBattleTerrainAnimTiles_Blossom,
+        .entryTilemap = gBattleTerrainAnimTilemap_Blossom,
+        .palette = gBattleTerrainPalette_Blossom,
+    },
+    
+    [BATTLE_TERRAIN_CHIMNEY_ROUTE] =
+    {
+        .tileset = gBattleTerrainTiles_Chimney,
+        .tilemap = gBattleTerrainTilemap_Chimney,
+        .entryTileset = gBattleTerrainAnimTiles_Chimney,
+        .entryTilemap = gBattleTerrainAnimTilemap_Chimney,
+        .palette = gBattleTerrainPalette_Chimney,
+    },
+    
+    [BATTLE_TERRAIN_GOLD_ROUTE] =
+    {
+        .tileset = gBattleTerrainTiles_Gold,
+        .tilemap = gBattleTerrainTilemap_Gold,
+        .entryTileset = gBattleTerrainAnimTiles_Gold,
+        .entryTilemap = gBattleTerrainAnimTilemap_Gold,
+        .palette = gBattleTerrainPalette_Gold,
+    },
+
     [BATTLE_TERRAIN_FRONTIER] =
     {
         .tileset = gBattleTerrainTiles_Building,
