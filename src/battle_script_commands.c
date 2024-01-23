@@ -900,6 +900,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_PARALYSIS]      = STATUS1_PARALYSIS,
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
+    [MOVE_EFFECT_PANIC]          = STATUS1_PANIC,
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
     [MOVE_EFFECT_UPROAR]         = STATUS2_UPROAR,
@@ -924,6 +925,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_PAYDAY]           = BattleScript_MoveEffectPayDay,
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
+    [MOVE_EFFECT_PANIC]            = BattleScript_MoveEffectPanic,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -1894,6 +1896,9 @@ static void Cmd_ppreduce(void)
             break;
         }
     }
+
+    if (gBattleMons[gBattlerAttacker].status1 == STATUS1_PANIC)
+        ppToDeduct *= 2;
 
     if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])
     {
@@ -3106,9 +3111,46 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
             if (gBattleMons[gEffectBattler].status1)
                 break;     
-            if (CanGetFrostbite(gEffectBattler))
-                statusChanged = TRUE;
-                break;       
+            statusChanged = TRUE;    
+            break;
+        case STATUS1_PANIC:
+            if ((battlerAbility == ABILITY_WATER_VEIL || IsAbilityOnSide(gBattlerTarget, ABILITY_WATER_VEIL))
+              && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+            {
+                gLastUsedAbility = battlerAbility;
+                RecordAbilityBattle(gEffectBattler, battlerAbility);
+
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_PNCPrevention;
+                if (battlerAbility != ABILITY_WATER_VEIL && IsAbilityOnSide(gBattlerTarget, ABILITY_WATER_VEIL)) {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS;
+                }
+                else if (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ABILITY_PREVENTS_ABILITY_STATUS;
+                    gHitMarker &= ~HITMARKER_IGNORE_SAFEGUARD;
+                }
+                else
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ABILITY_PREVENTS_MOVE_STATUS;
+                }
+                RESET_RETURN
+            }
+            if (!CanGetPanicked(gEffectBattler)
+                && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+                && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+            {
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_PNCPrevention;
+
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+                RESET_RETURN
+            }
+            if (gBattleMons[gEffectBattler].status1)
+                break;     
+            //if (CanGetPanicked(gEffectBattler))
+            statusChanged = TRUE;
+                //break;
             break;
         }
         if (statusChanged == TRUE)
@@ -9670,6 +9712,9 @@ static void Cmd_various(void)
             break;
         case STATUS1_FROSTBITE:
             gBattleScripting.moveEffect = MOVE_EFFECT_FROSTBITE;
+            break;
+        case STATUS1_PANIC:
+            gBattleScripting.moveEffect = MOVE_EFFECT_PANIC;
             break;
         default:
             gBattleScripting.moveEffect = 0;

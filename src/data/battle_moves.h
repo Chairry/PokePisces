@@ -574,10 +574,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 35,
             .accuracy = 95,
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_PANIC_HIT,
         .type = TYPE_NORMAL,
         .pp = 35,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,

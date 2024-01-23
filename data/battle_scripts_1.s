@@ -450,6 +450,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectColdMend                @ EFFECT_COLD_MEND
 	.4byte BattleScript_EffectViperStrike             @ EFFECT_VIPER_STRIKE
 	.4byte BattleScript_EffectAllStatsUp2Hit          @ EFFECT_ALL_STATS_UP_2_HIT
+	.4byte BattleScript_EffectPanicHit                @ EFFECT_PANIC_HIT
 
 BattleScript_AllStatsUp2::
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
@@ -3625,6 +3626,10 @@ BattleScript_EffectFreezeHit::
 BattleScript_EffectParalyzeHit::
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	goto BattleScript_EffectHit
+
+BattleScript_EffectPanicHit::
+	setmoveeffect MOVE_EFFECT_PANIC
+    goto BattleScript_EffectHit
 
 BattleScript_EffectExplosion_AnimDmgRet:
 	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionAnimRet
@@ -8514,6 +8519,12 @@ BattleScript_MoveEffectParalysis::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 
+BattleScript_MoveEffectPanic::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGotPanickedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
 BattleScript_MoveEffectUproar::
 	printstring STRINGID_PKMNCAUSEDUPROAR
 	waitmessage B_WAIT_TIME_LONG
@@ -9251,6 +9262,12 @@ BattleScript_ItemNoStatLoss::
 BattleScript_BRNPrevention::
 	pause B_WAIT_TIME_SHORT
 	printfromtable gBRNPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_PNCPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gPNCPreventionStringIds
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -10818,3 +10835,9 @@ BattleScript_IlluminateInReverse:
 	pause B_WAIT_TIME_SHORT
 	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_IlluminateLoopIncrement, ANIM_ON
 	goto BattleScript_IlluminateLoopIncrement
+
+BattleScript_PanicTurn::
+	printstring STRINGID_PKMNSISPANICKED
+    waitmessage B_WAIT_TIME_LONG
+    goto BattleScript_DoStatusTurnDmg
+

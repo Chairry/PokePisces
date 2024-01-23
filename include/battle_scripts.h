@@ -173,6 +173,7 @@ extern const u8 BattleScript_FlashFireBoost[];
 extern const u8 BattleScript_AbilityNoStatLoss[];
 extern const u8 BattleScript_ItemNoStatLoss[];
 extern const u8 BattleScript_BRNPrevention[];
+extern const u8 BattleScript_PNCPrevention[];
 extern const u8 BattleScript_PRLZPrevention[];
 extern const u8 BattleScript_PSNPrevention[];
 extern const u8 BattleScript_ObliviousPreventsAttraction[];
@@ -489,6 +490,8 @@ extern const u8 BattleScript_SelectingNotAllowedCurrentMove[];
 extern const u8 BattleScript_SelectingNotAllowedCurrentMoveInPalace[];
 extern const u8 BattleScript_SaltCureExtraDamage[];
 extern const u8 BattleScript_SpecialDefenseUp[];
+extern const u8 BattleScript_MoveEffectPanic[];
+extern const u8 BattleScript_PanicTurn[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

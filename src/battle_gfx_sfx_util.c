@@ -432,6 +432,8 @@ void InitAndLaunchChosenStatusAnimation(u32 battler, bool32 isStatus2, u32 statu
             LaunchStatusAnimation(battler, B_ANIM_STATUS_SLP);
         else if (status == STATUS1_PARALYSIS)
             LaunchStatusAnimation(battler, B_ANIM_STATUS_PRZ);
+        else if (status == STATUS1_PANIC)
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_PNC);
         else // no animation
             gBattleSpritesDataPtr->healthBoxesData[battler].statusAnimActive = 0;
     }

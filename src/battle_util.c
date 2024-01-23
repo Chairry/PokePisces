@@ -2555,6 +2555,7 @@ enum
     ENDTURN_PLASMA_FISTS,
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
+    ENDTURN_PANIC,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3140,6 +3141,14 @@ u8 DoBattlerEndTurnEffects(void)
             }
             gBattleStruct->turnEffectsTracker++;
             break;
+        case ENDTURN_PANIC:
+            if ((gBattleMons[battler].status1 & STATUS1_PANIC)
+                && gBattleMons[battler].hp != 0)
+            {
+                BattleScriptExecute(BattleScript_PanicTurn);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
         case ENDTURN_BATTLER_COUNT:  // done
             gBattleStruct->turnEffectsTracker = 0;
             gBattleStruct->turnEffectsBattlerId++;
@@ -6590,6 +6599,20 @@ bool32 CanGetFrostbite(u32 battler)
     return TRUE;
 }
 
+bool32 CanGetPanicked(u32 battler)
+{
+    u16 ability = GetBattlerAbility(battler);
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_DARK)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_GHOST)
+      || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD
+      || ability == ABILITY_COMATOSE
+      || gBattleMons[battler].status1 & STATUS1_ANY
+      || IsAbilityStatusProtected(battler)
+      || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN))
+        return FALSE;
+    return TRUE;
+}
+
 bool32 CanBeConfused(u32 battler)
 {
     if (GetBattlerAbility(battler) == ABILITY_OWN_TEMPO
@@ -9901,7 +9924,7 @@ static uq4_12_t GetWeatherDamageModifier(u32 battlerAtk, u32 move, u32 moveType,
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetBurnOrFrostBiteModifier(u32 battlerAtk, u32 move, u32 abilityAtk)
+static inline uq4_12_t GetBurnOrFrostBiteOrPanicModifier(u32 battlerAtk, u32 move, u32 abilityAtk)
 {
     if (gBattleMons[battlerAtk].status1 & STATUS1_BURN
         && IS_MOVE_PHYSICAL(move)
@@ -9913,6 +9936,9 @@ static inline uq4_12_t GetBurnOrFrostBiteModifier(u32 battlerAtk, u32 move, u32 
         && !FACADE_PREVENTS_BURN_MALUS(move)
         && abilityAtk != ABILITY_GUTS)
         return UQ_4_12(0.5);
+    if (gBattleMons[battlerAtk].status1 & STATUS1_PANIC
+        && abilityAtk != ABILITY_GUTS)
+        return UQ_4_12(0.9);
     return UQ_4_12(1.0);
 }
 
@@ -10187,7 +10213,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
 
     DAMAGE_APPLY_MODIFIER(GetSameTypeAttackBonusModifier(battlerAtk, moveType, move, abilityAtk));
     DAMAGE_APPLY_MODIFIER(typeEffectivenessModifier);
-    DAMAGE_APPLY_MODIFIER(GetBurnOrFrostBiteModifier(battlerAtk, move, abilityAtk));
+    DAMAGE_APPLY_MODIFIER(GetBurnOrFrostBiteOrPanicModifier(battlerAtk, move, abilityAtk));
     DAMAGE_APPLY_MODIFIER(GetZMoveAgainstProtectionModifier(battlerDef));
     DAMAGE_APPLY_MODIFIER(GetOtherModifiers(move, moveType, battlerAtk, battlerDef, isCrit, typeEffectivenessModifier, updateFlags, abilityAtk, abilityDef, holdEffectAtk, holdEffectDef));
 
