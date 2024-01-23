@@ -200,6 +200,7 @@ struct SpecialStatus
     u8 emergencyExited:1;
     u8 afterYou:1;
     u8 magnetPullRedirected:1;
+    u8 witchcraftRedirected:1;
 };
 
 struct SideTimer

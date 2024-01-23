@@ -1473,6 +1473,14 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_TookAttack;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+    else if (gSpecialStatuses[gBattlerTarget].witchcraftRedirected)
+    {
+        gSpecialStatuses[gBattlerTarget].witchcraftRedirected = FALSE;
+        gLastUsedAbility = ABILITY_WITCHCRAFT;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TookAttack;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
     else if (gSpecialStatuses[gBattlerTarget].magnetPullRedirected)
     {
         gSpecialStatuses[gBattlerTarget].magnetPullRedirected = FALSE;
