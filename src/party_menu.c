@@ -323,6 +323,7 @@ static bool8 DisplayCancelChooseMonYesNo(u8);
 static const u8 *GetFacilityCancelString(void);
 static void Task_CancelChooseMonYesNo(u8);
 static void PartyMenuDisplayYesNoMenu(void);
+static void PartyMenuDisplayAbilitiesMenu(void);
 static void Task_HandleCancelChooseMonYesNoInput(u8);
 static void Task_ReturnToChooseMonAfterText(u8);
 static void UpdateCurrentPartySelection(s8 *, s8);
@@ -2596,6 +2597,11 @@ static void PartyMenuDisplayYesNoMenu(void)
     CreateYesNoMenu(&sPartyMenuYesNoWindowTemplate, 0x4F, 13, 0);
 }
 
+static void PartyMenuDisplayAbilitiesMenu(void)
+{
+    CreateAbilitiesMenu(&sPartyMenuAbilitiesWindowTemplate, 0x4F, 13, 0);
+}
+
 static u8 CreateLevelUpStatsWindow(void)
 {
     sPartyMenuInternal->windowId[0] = AddWindow(&sLevelUpStatsWindowTemplate);
@@ -4647,6 +4653,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
 
 void Task_AbilityCapsule(u8 taskId)
 {
+    static const u8 whichText[] = _("0 = {STR_VAR_1}, 1 = {STR_VAR_2}\n2 = {STR_VAR_2}");
     static const u8 askText[] = _("Would you like to change {STR_VAR_1}'s\nability to {STR_VAR_2}?");
     static const u8 doneText[] = _("{STR_VAR_1}'s ability became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
     s16 *data = gTasks[taskId].data;
@@ -4655,10 +4662,7 @@ void Task_AbilityCapsule(u8 taskId)
     {
     case 0:
         // Can't use.
-        if (gSpeciesInfo[tSpecies].abilities[0] == gSpeciesInfo[tSpecies].abilities[1]
-            || gSpeciesInfo[tSpecies].abilities[1] == 0
-            || tAbilityNum > 1
-            || !tSpecies)
+        if (gSpeciesInfo[tSpecies].abilities[0] == gSpeciesInfo[tSpecies].abilities[1] || !tSpecies)
         {
             gPartyMenuUseExitCallback = FALSE;
             PlaySE(SE_SELECT);
@@ -4667,23 +4671,70 @@ void Task_AbilityCapsule(u8 taskId)
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
             return;
         }
+        StringCopy(gStringVar1, gAbilityNames[GetAbilityBySpecies(tSpecies, 0)]);
+        StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, 1)]);
+        StringCopy(gStringVar3, gAbilityNames[GetAbilityBySpecies(tSpecies, 2)]);  
+        StringExpandPlaceholders(gStringVar4, whichText);
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gStringVar4, 1);
+        ScheduleBgCopyTilemapToVram(2);      
+        tState++;
+        break;
+    case 1:
+        if (!IsPartyMenuTextPrinterActive())
+        {
+            PartyMenuDisplayAbilitiesMenu();
+            tState++;
+        }
+        break;
+    case 2:
+        switch (Menu_ProcessInputNoWrapClearOnChooseAbility())
+        {
+        case 0:
+            tAbilityNum = 0;
+            tState++;
+            break;
+        case 1:
+            tAbilityNum = 1;
+            tState++;
+            break;
+        case 2:
+            tAbilityNum = 2;
+            tState++;
+            break;
+        case MENU_B_PRESSED:
+            gPartyMenuUseExitCallback = FALSE;
+            PlaySE(SE_SELECT);
+            ScheduleBgCopyTilemapToVram(2);
+            // Don't exit party selections screen, return to choosing a mon.
+            ClearStdWindowAndFrameToTransparent(6, 0);
+            ClearWindowTilemap(6);
+            DisplayPartyMenuStdMessage(5);
+            gTasks[taskId].func = (void *)GetWordTaskArg(taskId, tOldFunc);
+            return;
+        }        
+        break;
+    case 3:
         gPartyMenuUseExitCallback = TRUE;
         GetMonNickname(&gPlayerParty[tMonId], gStringVar1);
         StringCopy(gStringVar2, gAbilityNames[GetAbilityBySpecies(tSpecies, tAbilityNum)]);
         StringExpandPlaceholders(gStringVar4, askText);
         PlaySE(SE_SELECT);
+        ScheduleBgCopyTilemapToVram(2);
+        ClearStdWindowAndFrameToTransparent(6, 0);
+        ClearWindowTilemap(6);
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
         tState++;
         break;
-    case 1:
+    case 4:
         if (!IsPartyMenuTextPrinterActive())
         {
             PartyMenuDisplayYesNoMenu();
             tState++;
         }
         break;
-    case 2:
+    case 5:
         switch (Menu_ProcessInputNoWrapClearOnChoose())
         {
         case 0:
@@ -4702,18 +4753,18 @@ void Task_AbilityCapsule(u8 taskId)
             return;
         }
         break;
-    case 3:
+    case 6:
         PlaySE(SE_USE_ITEM);
         StringExpandPlaceholders(gStringVar4, doneText);
         DisplayPartyMenuMessage(gStringVar4, 1);
         ScheduleBgCopyTilemapToVram(2);
         tState++;
         break;
-    case 4:
+    case 7:
         if (!IsPartyMenuTextPrinterActive())
             tState++;
         break;
-    case 5:
+    case 8:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;

@@ -3340,6 +3340,22 @@ static const u8 sWaterFlogDescription[] = _(
     "Whips foe with their\n"
     "tentacles. May lower Speed.");
 
+static const u8 sFearFactorDescription[] = _(
+    "A fear-inducing attack of\n"
+    "random intensity.");
+
+static const u8 sGeoPulseDescription[] = _(
+    "Sends a pulse of energy made\n"
+    "from rocks. May raise Def.");
+
+static const u8 sDemolisherDescription[] = _(
+    "Destroys and gets boosted in\n"
+    "Terrains and Rooms.");
+
+static const u8 sArcanePowerDescription[] = _(
+    "A draconic attack that may\n"
+    "double all stats.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4209,4 +4225,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_THINK_FAST - 1] = sThinkFastDescription,
     [MOVE_PINPOINT - 1] = sPinpointDescription,
     [MOVE_WATER_FLOG - 1] = sWaterFlogDescription,
+    [MOVE_FEAR_FACTOR - 1] = sFearFactorDescription,
+    [MOVE_GEO_PULSE - 1] = sGeoPulseDescription,
+    [MOVE_DEMOLISHER - 1] = sDemolisherDescription,
+    [MOVE_ARCANE_POWER - 1] = sArcanePowerDescription,
 };

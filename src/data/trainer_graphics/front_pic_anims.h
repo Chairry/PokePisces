@@ -370,6 +370,234 @@ static const union AnimCmd *const sAnims_RubySapphireMay[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Plumber[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Birdwatcher[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Dragonrider[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Seasheller[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Youtuber[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Fairytalegirl[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Snowkid[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Snowchild[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Charmer[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Pokefreak[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Burglar[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Angler[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Vandal[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Presenter[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Bassist[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Klutz[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Streetthug[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Delinquent[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Wayfarer[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Climber[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Demolitionist[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Shrinemaiden[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Medium[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Waltzer[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Dancer[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Janitor[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Kunoichi[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Clown[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Electrician[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Scubadiver[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Freediver[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Nurse[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Madame[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Profiteer[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mogul[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Researcher[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Scientist[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Gogetter[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Upstart[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Dragoncaller[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Monk[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Angywangy[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Landscapers[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Stroller[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mechanic[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Meteorologists[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Ruinhunter[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Skier[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Icepops[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Hardhatter[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Gambler[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Paperboy[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Courier[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Gildedmonk[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Cheerleaders[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Hunter[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Breadwinner[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -465,4 +693,61 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_LEAF] = sAnims_Leaf,
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
+    [TRAINER_PIC_PLUMBER] = sAnims_Plumber,
+    [TRAINER_PIC_BIRD_WATCHER] = sAnims_Birdwatcher,
+    [TRAINER_PIC_DRAGON_RIDER] = sAnims_Dragonrider,
+    [TRAINER_PIC_SEA_SHELLER] = sAnims_Seasheller,
+    [TRAINER_PIC_YOU_TUBER] = sAnims_Youtuber,
+    [TRAINER_PIC_FAIRYTALE_GIRL] = sAnims_Fairytalegirl,
+    [TRAINER_PIC_SNOW_KID] = sAnims_Snowkid,
+    [TRAINER_PIC_SNOW_CHILD] = sAnims_Snowchild,
+    [TRAINER_PIC_CHARMER] = sAnims_Charmer,
+    [TRAINER_PIC_POKE_FREAK] = sAnims_Pokefreak,
+    [TRAINER_PIC_BURGLAR] = sAnims_Burglar,
+    [TRAINER_PIC_ANGLER] = sAnims_Angler,
+    [TRAINER_PIC_VANDAL] = sAnims_Vandal,
+    [TRAINER_PIC_PRESENTER] = sAnims_Presenter,
+    [TRAINER_PIC_BASSIST] = sAnims_Bassist,
+    [TRAINER_PIC_KLUTZ] = sAnims_Klutz,
+    [TRAINER_PIC_STREET_THUG] = sAnims_Streetthug,
+    [TRAINER_PIC_DELINQUENT] = sAnims_Delinquent,
+    [TRAINER_PIC_WAYFARER] = sAnims_Wayfarer,
+    [TRAINER_PIC_CLIMBER] = sAnims_Climber,
+    [TRAINER_PIC_DEMOLITIONIST] = sAnims_Demolitionist,
+    [TRAINER_PIC_SHRINE_MAIDEN] = sAnims_Shrinemaiden,
+    [TRAINER_PIC_MEDIUM] = sAnims_Medium,
+    [TRAINER_PIC_WALTZER] = sAnims_Waltzer,
+    [TRAINER_PIC_DANCER] = sAnims_Dancer,
+    [TRAINER_PIC_JANITOR] = sAnims_Janitor,
+    [TRAINER_PIC_KUNOICHI] = sAnims_Kunoichi,
+    [TRAINER_PIC_CLOWN] = sAnims_Clown,
+    [TRAINER_PIC_ELECTRICIAN] = sAnims_Electrician,
+    [TRAINER_PIC_SCUBA_DIVER] = sAnims_Scubadiver,
+    [TRAINER_PIC_FREE_DIVER] = sAnims_Freediver,
+    [TRAINER_PIC_NURSE] = sAnims_Nurse,
+    [TRAINER_PIC_MADAME] = sAnims_Madame,
+    [TRAINER_PIC_PROFITEER] = sAnims_Profiteer,
+    [TRAINER_PIC_MOGUL] = sAnims_Mogul,
+    [TRAINER_PIC_RESEARCHER] = sAnims_Researcher,
+    [TRAINER_PIC_SCIENTIST] = sAnims_Scientist,
+    [TRAINER_PIC_GO_GETTER] = sAnims_Gogetter,
+    [TRAINER_PIC_UPSTART] = sAnims_Upstart,
+    [TRAINER_PIC_DRAGON_CALLER] = sAnims_Dragoncaller,
+    [TRAINER_PIC_MONK] = sAnims_Monk,
+    [TRAINER_PIC_ANGY_WANGY] = sAnims_Angywangy,
+    [TRAINER_PIC_LANDSCAPERS] = sAnims_Landscapers,
+    [TRAINER_PIC_STROLLER] = sAnims_Stroller,
+    [TRAINER_PIC_MECHANIC] = sAnims_Mechanic,
+    [TRAINER_PIC_METEOROLOGISTS] = sAnims_Meteorologists,
+    [TRAINER_PIC_RUIN_HUNTER] = sAnims_Ruinhunter,
+    [TRAINER_PIC_SKIER] = sAnims_Skier,
+    [TRAINER_PIC_ICE_POPS] = sAnims_Icepops,
+    [TRAINER_PIC_HARDHATTER] = sAnims_Hardhatter,
+    [TRAINER_PIC_GAMBLER] = sAnims_Gambler,
+    [TRAINER_PIC_PAPER_BOY] = sAnims_Paperboy,
+    [TRAINER_PIC_COURIER] = sAnims_Courier,
+    [TRAINER_PIC_GILDED_MONK] = sAnims_Gildedmonk,
+    [TRAINER_PIC_CHEERLEADERS] = sAnims_Cheerleaders,
+    [TRAINER_PIC_HUNTER] = sAnims_Hunter,
+    [TRAINER_PIC_BREADWINNER] = sAnims_Breadwinner,
 };

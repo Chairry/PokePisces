@@ -772,7 +772,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BARB_BARRAGE] = _("Barb Barrage"),
     [MOVE_ESPER_WING] = _("Esper Wing"),
     [MOVE_BITTER_MALICE] = _("Bitter Malice"),
-    [MOVE_SHELTER] = _("Shelter"),
+    [MOVE_SHELTER] = _("Shellter"),
     [MOVE_TRIPLE_ARROWS] = _("Triple Arrows"),
     [MOVE_INFERNAL_PARADE] = _("Night Parade"),
     [MOVE_CEASELESS_EDGE] = _("Ceaseless Edge"),
@@ -861,6 +861,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_THINK_FAST] = _("Think Fast"),
     [MOVE_PINPOINT] = _("Pinpoint"),
     [MOVE_WATER_FLOG] = _("Water Flog"),
+    [MOVE_FEAR_FACTOR] = _("Fear Factor"),
+    [MOVE_GEO_PULSE] = _("Geo Pulse"),
+    [MOVE_DEMOLISHER] = _("Demolisher"),
+    [MOVE_ARCANE_POWER] = _("Arcane Power"),
 };
 #else
 // 12 letters
@@ -1636,7 +1640,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BARB_BARRAGE] = _("Barb Barrage"),
     [MOVE_ESPER_WING] = _("Esper Wing"),
     [MOVE_BITTER_MALICE] = _("BitterMalice"),
-    [MOVE_SHELTER] = _("Shelter"),
+    [MOVE_SHELTER] = _("Shellter"),
     [MOVE_TRIPLE_ARROWS] = _("TripleArrows"),
     [MOVE_INFERNAL_PARADE] = _("Night Parade"),
     [MOVE_CEASELESS_EDGE] = _("CeaslessEdge"),
@@ -1725,6 +1729,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_THINK_FAST] = _("Think Fast"),
     [MOVE_PINPOINT] = _("Pinpoint"),
     [MOVE_WATER_FLOG] = _("Water Flog"),
+    [MOVE_FEAR_FACTOR] = _("Fear Factor"),
+    [MOVE_GEO_PULSE] = _("Geo Pulse"),
+    [MOVE_DEMOLISHER] = _("Demolisher"),
+    [MOVE_ARCANE_POWER] = _("Arcane Power"),
 };
 #endif
 

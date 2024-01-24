@@ -14301,6 +14301,66 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .sheerForceBoost = TRUE,
     },
 
+    [MOVE_FEAR_FACTOR] =
+    {
+        .effect = EFFECT_MAGNITUDE,
+        .power = 1,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 30,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_GEO_PULSE] =
+    {
+        .effect = EFFECT_DEFENSE_UP_HIT,
+        .power = 80,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 50,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+        .pulseMove = TRUE,
+    },
+
+    [MOVE_DEMOLISHER] =
+    {
+        .effect = EFFECT_HIT_SET_REMOVE_TERRAIN,
+        .power = 70,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .argument = ARG_TRY_REMOVE_TERRAIN_HIT, // Remove the active field terrain if there is one.
+    },
+
+    [MOVE_ARCANE_POWER] =
+    {
+        .effect = EFFECT_ALL_STATS_UP_2_HIT,
+        .power = 70,
+        .type = TYPE_DRAGON,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 5,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

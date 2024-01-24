@@ -13245,5 +13245,17 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 405,
         .trainerOffset = 8,
     },
+
+    [NATIONAL_DEX_GAOTERRA] =
+    {
+        .categoryName = _("Celestial"),
+        .height = 42,
+        .weight = 3360,
+        .description = gGaoterraPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 650,
+        .trainerOffset = 16,
+    },
 #endif
 };

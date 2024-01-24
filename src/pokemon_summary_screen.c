@@ -4636,6 +4636,3 @@ static void SaveMonEVs(u8 taskId)
         //DebugPrintf("stat %d = %d", i, val);
     }
 }
-
-
-

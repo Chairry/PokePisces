@@ -1,5 +1,6 @@
 	.include "asm/macros.inc"
 	.include "constants/constants.inc"
+#include "constants/field_weather.h"
 
 	.section script_data, "aw", %progbits
 
@@ -174,7 +175,7 @@ gFieldEffectScript_DeepSandFootprints::
 	field_eff_end
 
 gFieldEffectScript_PokeCenterHeal::
-	field_eff_loadfadedpal gSpritePalette_PokeballGlow
+	field_eff_loadfadedpal gSpritePalette_PokeballGlow, 
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_PokecenterHeal
 	field_eff_end
 
@@ -324,7 +325,7 @@ gFieldEffectScript_SecretBaseBootPC::
 	field_eff_end
 
 gFieldEffectScript_HallOfFameRecord::
-	field_eff_loadfadedpal gSpritePalette_PokeballGlow
+	field_eff_loadfadedpal gSpritePalette_PokeballGlow, 
 	field_eff_loadfadedpal_callnative gSpritePalette_HofMonitor, FldEff_HallOfFameRecord
 	field_eff_end
 

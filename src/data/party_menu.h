@@ -526,6 +526,17 @@ static const struct WindowTemplate sPartyMenuYesNoWindowTemplate =
     .baseBlock = 0x2E9,
 };
 
+static const struct WindowTemplate sPartyMenuAbilitiesWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 21,
+    .tilemapTop = 1,
+    .width = 5,
+    .height = 6,
+    .paletteNum = 14,
+    .baseBlock = 0x2E9,
+};
+
 static const struct WindowTemplate sLevelUpStatsWindowTemplate =
 {
     .bg = 2,

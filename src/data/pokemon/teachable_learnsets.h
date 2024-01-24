@@ -31856,6 +31856,10 @@ static const u16 sLuoShanTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sGaoterraTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sCoffiddleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

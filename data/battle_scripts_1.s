@@ -449,6 +449,47 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
 	.4byte BattleScript_EffectColdMend                @ EFFECT_COLD_MEND
 	.4byte BattleScript_EffectViperStrike             @ EFFECT_VIPER_STRIKE
+	.4byte BattleScript_EffectAllStatsUp2Hit          @ EFFECT_ALL_STATS_UP_2_HIT
+
+BattleScript_AllStatsUp2::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2Ret
+BattleScript_AllStatsUp2Atk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Def
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Def::
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Speed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Speed::
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2SpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2SpAtk::
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2SpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2SpDef::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2Ret
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2Ret::
+	return
+
+BattleScript_EffectAllStatsUp2Hit::
+	setmoveeffect MOVE_EFFECT_ALL_STATS_UP_2 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
 
 BattleScript_EffectPsychicNoise:
 	attackcanceler
@@ -6446,7 +6487,7 @@ BattleScript_EffectCamouflage::
 BattleScript_FaintAttacker::
 	tryillusionoff BS_ATTACKER
 	playfaintcry BS_ATTACKER
-	pause B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_SHORT
 	dofaintanimation BS_ATTACKER
 	printstring STRINGID_ATTACKERFAINTED
 	cleareffectsonfaint BS_ATTACKER
@@ -6458,7 +6499,7 @@ BattleScript_FaintAttacker::
 BattleScript_FaintTarget::
 	tryillusionoff BS_TARGET
 	playfaintcry BS_TARGET
-	pause B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_SHORT
 	dofaintanimation BS_TARGET
 	printstring STRINGID_TARGETFAINTED
 	cleareffectsonfaint BS_TARGET

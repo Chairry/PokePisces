@@ -1,0 +1,44 @@
+{
+  "id": "MAP_FLOTSHORE",
+  "name": "Flotshore",
+  "layout": "LAYOUT_FLOTSHORE",
+  "music": "MUS_RG_SEVII_67",
+  "region_map_section": "MAPSEC_ROUTE_101",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_OCEAN_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_PACIFIDLOG_TOWN",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_SAILORS_PAUSE",
+      "offset": 32,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE129",
+      "offset": -7,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

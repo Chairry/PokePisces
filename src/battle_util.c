@@ -353,7 +353,8 @@ void HandleAction_UseMove(void)
            && (gBattleMoves[gCurrentMove].power != 0 || (moveTarget != MOVE_TARGET_USER && moveTarget != MOVE_TARGET_ALL_BATTLERS))
            && ((GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
             || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
-            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)))
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY)))
     {
         side = GetBattlerSide(gBattlerAttacker);
         for (battler = 0; battler < gBattlersCount; battler++)
@@ -361,7 +362,8 @@ void HandleAction_UseMove(void)
             if ( *(gBattleStruct->moveTarget + gBattlerAttacker) != battler
                 && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
                  || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
-                 || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL))
+                 || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
+                 || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY))
                 && GetBattlerTurnOrderNum(battler) < var
                 && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT
                 && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL
@@ -431,6 +433,8 @@ void HandleAction_UseMove(void)
                 gSpecialStatuses[battler].stormDrainRedirected = TRUE;
             else if (battlerAbility == ABILITY_MAGNET_PULL)
                 gSpecialStatuses[battler].magnetPullRedirected = TRUE;
+            else if (battlerAbility == ABILITY_WITCHCRAFT)
+                gSpecialStatuses[battler].witchcraftRedirected = TRUE;
             gBattlerTarget = battler;
         }
     }
@@ -4963,6 +4967,33 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     }
                 }
                 break;
+             case ABILITY_SADDENED:
+                if (gDisableStructs[battler].isFirstTurn != 2)
+                {
+                    u32 validToRaise = 0, validToLower = 0;
+                    u32 statsNum = NUM_STATS;
+                    for (i = STAT_ATK; i < statsNum; i++)
+                    {
+                        if (CompareStat(battler, i, MIN_STAT_STAGE, CMP_GREATER_THAN))
+                            validToLower |= gBitTable[i];
+                    }
+
+                    if (validToLower != 0) // Can lower one stat
+                    {
+                        gBattleScripting.statChanger = gBattleScripting.savedStatChanger = 0; // for raising and lowering stat respectively
+                        if (validToLower != 0) // Find stat to lower
+                        {
+                            do
+                            {
+                                i = (Random() % statsNum) + STAT_ATK;
+                            } while (!(validToLower & gBitTable[i]));
+                            SET_STATCHANGER2(gBattleScripting.savedStatChanger, i, 2, TRUE);
+                        }
+                        BattleScriptPushCursorAndCallback(BattleScript_MoodyActivates);
+                        effect++;
+                    }
+                }
+                break;
             case ABILITY_TRUANT:
                 if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF || gCurrentMove != MOVE_YAWN || gCurrentMove != MOVE_SLEEP_TALK || gCurrentMove != MOVE_SNORE))
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
@@ -5108,6 +5139,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             case ABILITY_WATER_ABSORB:
             case ABILITY_DRY_SKIN:
                 if (moveType == TYPE_WATER)
+                    effect = 1;
+                break;
+            case ABILITY_WITCHCRAFT:
+                if (moveType == TYPE_FAIRY)
                     effect = 1;
                 break;
             case ABILITY_MOTOR_DRIVE:
@@ -8228,6 +8263,14 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
                 RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
                 gSpecialStatuses[targetBattler].magnetPullRedirected = TRUE;
             }
+            else if (gBattleMoves[move].type == TYPE_FAIRY
+                && IsAbilityOnOpposingSide(gBattlerAttacker, ABILITY_WITCHCRAFT)
+                && GetBattlerAbility(targetBattler) != ABILITY_WITCHCRAFT)
+            {
+                targetBattler ^= BIT_FLANK;
+                RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
+                gSpecialStatuses[targetBattler].witchcraftRedirected = TRUE;
+            }
         }
         break;
     case MOVE_TARGET_DEPENDS:
@@ -8999,6 +9042,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_ELECTRIC_TERRAIN))
             basePower *= 2;
         break;
+    case EFFECT_HIT_SET_REMOVE_TERRAIN:
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+            basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
     case EFFECT_BEAT_UP:
         #if B_BEAT_UP >= GEN_5
         basePower = CalcBeatUpPower();
@@ -9206,6 +9252,14 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (moveType == TYPE_FAIRY && gBattleStruct->ateBoost[battlerAtk])
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_AQUA_HEART:
+        if (moveType == TYPE_WATER && gBattleStruct->ateBoost[battlerAtk])
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
+    case ABILITY_DRACO_FORCE:
+        if (moveType == TYPE_DRAGON && gBattleStruct->ateBoost[battlerAtk])
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+        break;
     case ABILITY_GALVANIZE:
         if (moveType == TYPE_ELECTRIC && gBattleStruct->ateBoost[battlerAtk])
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
@@ -9276,7 +9330,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case ABILITY_SHARPNESS:
         if (gBattleMoves[move].slicingMove)
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SUPREME_OVERLORD:
         modifier = uq4_12_multiply(modifier, GetSupremeOverlordModifier(battlerAtk));
@@ -9511,7 +9565,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     {
     case ABILITY_DORMANT:
         if (IS_MOVE_PHYSICAL(move)) // && gBattleMons[battlerAtk].species == SPECIES_BISHOUCHA_WARMONGER
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
@@ -9801,7 +9855,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_ROCK) && weather & B_WEATHER_SANDSTORM && !usesDefStat)
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
     // snow def boost for ice types
-    if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE) && weather & B_WEATHER_SNOW && usesDefStat)
+    if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE) && weather & B_WEATHER_HAIL && usesDefStat)
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
 
     // The defensive stats of a Player's Pok?mon are boosted by x1.1 (+10%) if they have the 5th badge and 7th badges.
@@ -10673,6 +10727,13 @@ bool32 IsBattlerMegaEvolved(u32 battler)
     return (gSpeciesInfo[gBattleMons[battler].species].flags & SPECIES_FLAG_MEGA_EVOLUTION);
 }
 
+bool32 IsBattlerGaoterra(u32 battler)
+{
+    if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
+        return FALSE;
+    return (gBattleMons[battler].species = SPECIES_GAOTERRA);
+}
+
 bool32 IsBattlerPrimalReverted(u32 battler)
 {
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
@@ -10826,6 +10887,9 @@ bool32 TryBattleFormChange(u32 battler, u16 method)
 
         // Unlike Megas, Primal Reversion isn't canceled on fainting.
         else if (IsBattlerPrimalReverted(battler) && (method == FORM_CHANGE_END_BATTLE))
+            restoreSpecies = TRUE;
+
+        else if (IsBattlerGaoterra(battler) && (method == FORM_CHANGE_FAINT || method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_BATTLE_SWITCH))
             restoreSpecies = TRUE;
 
         if (restoreSpecies)

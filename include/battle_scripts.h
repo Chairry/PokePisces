@@ -77,6 +77,7 @@ extern const u8 BattleScript_DmgHazardsOnFaintedBattler[];
 extern const u8 BattleScript_PerishSongTakesLife[];
 extern const u8 BattleScript_PerishSongCountGoesDown[];
 extern const u8 BattleScript_AllStatsUp[];
+extern const u8 BattleScript_AllStatsUp2[];
 extern const u8 BattleScript_RapidSpinAway[];
 extern const u8 BattleScript_WrapFree[];
 extern const u8 BattleScript_LeechSeedFree[];

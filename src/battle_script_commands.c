@@ -1231,7 +1231,7 @@ static bool32 NoTargetPresent(u8 battler, u32 move)
 static bool32 TryAegiFormChange(void)
 {
     // Only Aegislash with Stance Change can transform, transformed mons cannot.
-    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STANCE_CHANGE
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_STELLAR_BODY
         || gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED)
         return FALSE;
 
@@ -1239,15 +1239,29 @@ static bool32 TryAegiFormChange(void)
     {
     default:
         return FALSE;
-    case SPECIES_AEGISLASH: // Shield -> Blade
+    case SPECIES_GAOTERRA: // Shield -> Blade
         if (IS_MOVE_STATUS(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH_BLADE;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
         break;
-    case SPECIES_AEGISLASH_BLADE: // Blade -> Shield
-        if (gCurrentMove != MOVE_KINGS_SHIELD)
+    case SPECIES_GAOTERRA_SOLAR: // Shield -> Blade
+        if (IS_MOVE_PHYSICAL(gCurrentMove))
             return FALSE;
-        gBattleMons[gBattlerAttacker].species = SPECIES_AEGISLASH;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
+        else if (IS_MOVE_SPECIAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_LUNAR;
+        break;
+    case SPECIES_GAOTERRA_LUNAR: // Shield -> Blade
+        if (IS_MOVE_SPECIAL(gCurrentMove))
+            return FALSE;
+        else if (IS_MOVE_STATUS(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA;
+        else if (IS_MOVE_PHYSICAL(gCurrentMove))
+        gBattleMons[gBattlerAttacker].species = SPECIES_GAOTERRA_SOLAR;
         break;
     }
 
@@ -1455,6 +1469,14 @@ static void Cmd_attackcanceler(void)
     {
         gSpecialStatuses[gBattlerTarget].stormDrainRedirected = FALSE;
         gLastUsedAbility = ABILITY_STORM_DRAIN;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TookAttack;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
+    else if (gSpecialStatuses[gBattlerTarget].witchcraftRedirected)
+    {
+        gSpecialStatuses[gBattlerTarget].witchcraftRedirected = FALSE;
+        gLastUsedAbility = ABILITY_WITCHCRAFT;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_TookAttack;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
@@ -2671,7 +2693,7 @@ static void Cmd_waitmessage(void)
         else
         {
             u16 toWait = cmd->time;
-            if (++gPauseCounterBattle >= toWait)
+            if (++gPauseCounterBattle >= toWait || (JOY_NEW(A_BUTTON | B_BUTTON)))
             {
                 gPauseCounterBattle = 0;
                 gBattlescriptCurrInstr = cmd->nextInstr;
@@ -3507,6 +3529,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp;
+                }
+                break;
+            case MOVE_EFFECT_ALL_STATS_UP_2:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
                 }
                 break;
             case MOVE_EFFECT_RAPIDSPIN:
@@ -4931,7 +4960,7 @@ static void Cmd_pause(void)
     if (gBattleControllerExecFlags == 0)
     {
         u16 value = cmd->frames;
-        if (++gPauseCounterBattle >= value)
+        if (++gPauseCounterBattle >= value || (JOY_NEW(A_BUTTON | B_BUTTON)))
         {
             gPauseCounterBattle = 0;
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -5827,7 +5856,7 @@ static void Cmd_moveend(void)
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_MAGICIAN:
-            if (GetBattlerAbility(gBattlerAttacker) == ABILITY_MAGICIAN
+            if ( (GetBattlerAbility(gBattlerAttacker) == ABILITY_MAGICIAN || GetBattlerAbility(gBattlerAttacker) == ABILITY_PICKPOCKET)
               && gCurrentMove != MOVE_FLING && gCurrentMove != MOVE_NATURAL_GIFT
               && gBattleMons[gBattlerAttacker].item == ITEM_NONE
               && gBattleMons[gBattlerTarget].item != ITEM_NONE
@@ -9250,7 +9279,8 @@ static void Cmd_various(void)
         u16 battlerAbility = GetBattlerAbility(battler);
 
         if ((battlerAbility == ABILITY_GRIM_NEIGH
-         || battlerAbility == ABILITY_AS_ONE_SHADOW_RIDER)
+         || battlerAbility == ABILITY_AS_ONE_SHADOW_RIDER
+         || battlerAbility == ABILITY_DISDAIN)
           && HasAttackerFaintedTarget()
           && !NoAliveMonsForEitherParty()
           && CompareStat(gBattlerAttacker, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN))
@@ -15113,15 +15143,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ???¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ???¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ??ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ???¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);

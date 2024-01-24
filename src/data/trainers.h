@@ -7382,10 +7382,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RICK] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_CATCHER,
+        .trainerClass = TRAINER_CLASS_BREADWINNER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_BUG_CATCHER,
-        .trainerName = _("RICK"),
+        .trainerPic = TRAINER_PIC_BREADWINNER,
+        .trainerName = _("HIDEKI"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,

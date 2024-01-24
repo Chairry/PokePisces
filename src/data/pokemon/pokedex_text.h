@@ -5690,8 +5690,7 @@ const u8 gEerikoPokedexText[] = _(
 const u8 gMannikoPokedexText[] = _(
     "Slowly, Manniko absorbs the life force\n"
     "of the unfortunate girl who loves it,\n"
-    "gradually losing its rigid features.\n"
-    "");
+    "gradually losing its rigid features.");
 
 const u8 gKowakoPokedexText[] = _(
     "It has become a twisted reflection of\n"
@@ -5810,8 +5809,7 @@ const u8 gKaprikolaPokedexText[] = _(
 const u8 gBlottaPokedexText[] = _(
     "Blotta’s malice oozes out like black ink\n"
     "from its fur. Merely touching the ink\n"
-    "triggers a cascade of negative emotions.\n"
-    "");
+    "triggers a cascade of negative emotions.");
 
 const u8 gSchachttaPokedexText[] = _(
     "Schachtta’s own malice surrounds it at\n"
@@ -5996,8 +5994,7 @@ const u8 gHemokoPokedexText[] = _(
 const u8 gLepucytePokedexText[] = _(
     "They are extremely aggressive against\n"
     "children despite their docile appearance\n"
-    "However, carrots appease it.\n"
-    "");
+    "However, carrots appease it.");
 
 const u8 gLeukunehoPokedexText[] = _(
     "This Pokémon is not recommended in the\n"
@@ -6140,8 +6137,7 @@ const u8 gBassharkPokedexText[] = _(
 const u8 gSharguyPokedexText[] = _(
     "They nibble on other Pokémon to feed.\n"
     "Sharguy also often bite beachgoers on\n"
-    "the head.\n"
-    "");
+    "the head.");
 
 const u8 gSharpreyPokedexText[] = _(
     "It latches onto large water Pokémon,\n"
@@ -6254,8 +6250,7 @@ const u8 gShiversnapPokedexText[] = _(
 const u8 gExcatatorPokedexText[] = _(
     "In construction zones, these Pokémon are\n"
     "commonly used. The jaws of an Excatator\n"
-    "can hold up to 15,000 pounds of weight.\n"
-    "");
+    "can hold up to 15,000 pounds of weight.");
 
 const u8 gMarsoyartPokedexText[] = _(
     "Born weak, they have trained and\n"
@@ -6308,14 +6303,12 @@ const u8 gTardritchPokedexText[] = _(
 const u8 gBlabbuPokedexText[] = _(
     "While small, a Blabu can absorb nearly\n"
     "any physical attack. They make baby-like\n"
-    "sounds even when they’re adults.\n"
-    "");
+    "sounds even when they’re adults.");
 
 const u8 gTurryturryPokedexText[] = _(
     "They are millions of years old according\n"
     "to overwhelming evidence, but contrary\n"
-    "to that, their abnormal cells are young.\n"
-    "");
+    "to that, their abnormal cells are young.");
 
 const u8 gFaeredPokedexText[] = _(
     "This Pokémon has deceived many people in\n"
@@ -6380,8 +6373,7 @@ const u8 gAjokujokuPokedexText[] = _(
 const u8 gGarjiraPokedexText[] = _(
     "A Pokémon popular for its goofy\n"
     "personality. In modern times, it’s often\n"
-    "seen online as a pop culture icon.\n"
-    "");
+    "seen online as a pop culture icon.");
 
 const u8 gGarzillaPokedexText[] = _(
     "If a trainer can unlock the potential of\n"
@@ -6452,8 +6444,7 @@ const u8 gNeoroachPokedexText[] = _(
 const u8 gSpitfaxPokedexText[] = _(
     "A strange Pokémon that is rarely seen.\n"
     "It collects berries from the forest and\n"
-    "hordes it in its home.\n"
-    "");
+    "hordes it in its home.");
 
 const u8 gRapscaleonPokedexText[] = _(
     "A never before seen evolution to Spitfax.\n"
@@ -6482,8 +6473,7 @@ const u8 gEpochotlPokedexText[] = _(
 const u8 gVivisuPokedexText[] = _(
     "Vivisu frequently visit those who are\n"
     "about to leave this world and comfort\n"
-    "them on their deathbed.\n"
-    "");
+    "them on their deathbed.");
 
 const u8 gSolasuPokedexText[] = _(
     "Solasu is quite swift and potent during\n"
@@ -6574,4 +6564,10 @@ const u8 gStolycePokedexText[] = _(
     "stay in one place. They tend to only\n"
     "turn right and make brief stops when\n"
     "resting and laying eggs.");
+
+const u8 gGaoterraPokedexText[] = _(
+    "Scientists are unsure if these Pokémon\n"
+    "came from the sun, the moon, or originated\n"
+    "on Earth. Although, they all agree Gaoterra\n"
+    "are just absolutely adorable.");
 #endif
