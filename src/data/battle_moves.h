@@ -14117,7 +14117,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 95,
         #endif
         .effect = EFFECT_BURN_HIT,
-        .type = TYPE_FIRE,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 20,

@@ -2044,8 +2044,8 @@ Move_FORCE_PALM:
 	end
 
 Move_AURA_SPHERE:
-	loadspritegfx ANIM_TAG_METEOR
-	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_IMPACT_2
+	loadspritegfx ANIM_TAG_LEER
 	monbg ANIM_ATK_PARTNER
 	splitbgprio ANIM_ATTACKER
 	setalpha 12, 8
@@ -16625,7 +16625,31 @@ Move_FILLET_AWAY:
 	end
 
 Move_BURNING_BULWARK:
-	goto Move_PROTECT
+	loadspritegfx ANIM_TAG_PROTECT @protect
+	loadspritegfx ANIM_TAG_SMALL_EMBER @fire
+	monbg ANIM_ATK_PARTNER
+	splitbgprio ANIM_ATTACKER
+	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER 0x10
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PROTECT, 0x0, 0xD, 0xD, 0x015B   @Gray
+	createsprite gProtectSpriteTemplate, ANIM_ATTACKER, 2, 0x18, 0x0, 0x5a
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	delay 0x4
+	call FlameChargeSwirl
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	end
 
 Move_ALLURING_VOICE:
 	loadspritegfx ANIM_TAG_THIN_RING
@@ -17085,25 +17109,265 @@ Move_MALIGNANT_CHAIN:
 	goto Move_ANCHOR_SHOT
 
 Move_BUG_SNACK:
-	goto Move_LEECH_LIFE
+	loadspritegfx ANIM_TAG_NEEDLE
+	loadspritegfx ANIM_TAG_ORBS
+	delay 1
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio_foes ANIM_TARGET
+	setalpha 12, 8
+	delay 1
+	createsprite gLeechLifeNeedleSpriteTemplate, ANIM_ATTACKER, 2, -20, 15, 12
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	playsewithpan SE_M_ABSORB, SOUND_PAN_TARGET
+	delay 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 7, RGB_BLACK
+	waitforvisualfinish
+	call AbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 7, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
 
 Move_HIT_N_RUN:
-	goto Move_U_TURN
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_ATK_PARTNER
+	fadetobg BG_DARK
+	waitbgfadein
+	setalpha 12, 8
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 1, 5
+	createvisualtask AnimTask_TraceMonBlended, 2, 0, 4, 7, 3
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	delay 4
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, ANIM_TARGET, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	restorebg
+	waitbgfadein
+ 	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse HitNRunEnd
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -5
+	waitforvisualfinish
+	invisible ANIM_ATTACKER
+	end
+HitNRunEnd:
+	end
 
 Move_WYVERN_WAVE:
-	goto Move_DRAGON_BREATH
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	loadspritegfx ANIM_TAG_THIN_RING
+	loadspritegfx ANIM_TAG_EXPLOSION
+	fadetobg BG_ROCK_WRECKER
+	waitbgfadeout
+	delay 4
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	call WyvernWaveEffect
+	waitforvisualfinish
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	call WyvernWaveEffect
+	waitforvisualfinish
+	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	call WyvernWaveEffect
+	waitforvisualfinish
+	delay 20
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 3
+	waitforvisualfinish
+	waitforvisualfinish
+	call UnsetPsychicBg
+	waitforvisualfinish
+	end
+
+WyvernWaveEffect:
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 8, 0, RGB_YELLOW
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 5, ANIM_ATTACKER, 0
+	createsprite gWyvernWaveRingTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	return
 
 Move_STORM_FURY:
-	goto Move_OUTRAGE
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_SPARK
+	loadspritegfx ANIM_TAG_LIGHTNING
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	waitforvisualfinish
+	loopsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER, 8, 3
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 12, 6, 5, 4
+	fadetobg BG_THUNDER
+	waitbgfadeout
+	createvisualtask AnimTask_ShockWaveProgressingBolt, 5, ANIM_TARGET
+	delay 15
+	createvisualtask AnimTask_ShockWaveProgressingBolt, 4, ANIM_TARGET
+	delay 25
+	createvisualtask AnimTask_ShockWaveProgressingBolt, 6, ANIM_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 40, 1
+	delay 12
+	waitforvisualfinish
+	createvisualtask AnimTask_ShockWaveLightning, 5, ANIM_TARGET
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 6, 18, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 5, F_PAL_BG, 3, 16, 0, RGB_WHITE
+	createvisualtask AnimTask_BlendBattleAnimPal, 5, F_PAL_TARGET, 0, 16, 16, RGB_BLACK
+	delay 4
+	createvisualtask AnimTask_BlendBattleAnimPal, 5, F_PAL_TARGET, 0, 0, 0, RGB_BLACK
+	waitforvisualfinish
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
 
 Move_PIXIE_POW:
-	goto Move_TACKLE
+	loadspritegfx ANIM_TAG_PINK_CLOUD
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_TRUMP_CARD_PARTICLES
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
+	delay 6
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	waitforvisualfinish
+	call PinkCloudSpreadEffect
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+PinkCloudSpreadEffect:
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, 176, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, 240, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 192, -160, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -192, -112, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 160, 48, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, -224, -32, 40
+	createsprite gPinkCloudSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 112, -128, 40
+	return
 
 Move_BURNING_SPIRIT:
-	goto Move_BURNING_JEALOUSY
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpretfalse BurningSpiritOpponent
+	jumprettrue BurningSpiritPlayer
+BurningSpiritContinue:
+	loadspritegfx ANIM_TAG_FOCUS_ENERGY
+	loadspritegfx ANIM_TAG_SMALL_EMBER
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	call EndureEffect
+	delay 8
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 11, RGB_WHITE
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 32, 1
+	call EndureEffect
+	delay 8
+	call EndureEffect
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 42, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 8, RGB_RED
+	call BurningJealousyFireBuffEffect
+	delay 0x8
+	call BurningJealousyFireBuffEffect
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 8, RGB_RED
+	delay 0x4
+	call BurningJealousyFireBuffEffect
+	waitforvisualfinish
+	monbg ANIM_TARGET
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_FlailMovement, 2, ANIM_ATTACKER
+	call BurningJealousyFlames
+	delay 0x8
+	call BurningJealousyFlames
+	delay 0x8
+	call BurningJealousyFlames
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 12, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 2, 0, 12, 1
+	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_TARGET, RGB_RED, 12, 1, 1
+	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_DEF_PARTNER, RGB_RED, 12, 1, 1
+	call FireSpreadEffect		@ INCINERATE_BURN_CHANCE
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_TARGET
+	end
+BurningSpiritOpponent:
+	fadetobg BG_IMPACT_PLAYER
+	goto BurningSpiritContinue
+BurningSpiritPlayer:
+	fadetobg BG_IMPACT_OPPONENT
+	goto BurningSpiritContinue
+
 
 Move_PURGING_FLAMES:
-	goto Move_CLEAR_SMOG
+	loadspritegfx ANIM_TAG_WISP_FIRE
+	loadspritegfx ANIM_TAG_WISP_ORB
+	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio_foes ANIM_TARGET
+	splitbgprio_all
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 13, 1
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 42
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 84
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 126
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 168
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 210
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 42
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 84
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 126
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 168
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 210
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(10, 2, 19) @;Deep purple
+	createsprite gCurseGhostSpriteTemplate, ANIM_TARGET, 4
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
 
 Move_SNUFF_OUT:
 	goto Move_BLEAKWIND_STORM
@@ -22636,7 +22900,7 @@ Move_LEECH_LIFE:
 	waitforvisualfinish
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 7, RGB_BLACK
 	waitforvisualfinish
-	call AbsorbEffect
+	call GigaDrainAbsorbEffect
 	waitforvisualfinish
 	delay 15
 	call HealingEffect

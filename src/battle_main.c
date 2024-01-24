@@ -5048,6 +5048,7 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].kingsShielded = FALSE;
             gProtectStructs[i].detectShielded = FALSE;
             gProtectStructs[i].banefulBunkered = FALSE;
+            gProtectStructs[i].burningBulwarked = FALSE;
             gProtectStructs[i].quash = FALSE;
         }
         else

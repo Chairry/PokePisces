@@ -447,6 +447,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectDragonCheer             @ EFFECT_DRAGON_CHEER
 	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
+	.4byte BattleScript_EffectHit			          @ EFFECT_SNUFF_OUT
 	.4byte BattleScript_EffectColdMend                @ EFFECT_COLD_MEND
 	.4byte BattleScript_EffectViperStrike             @ EFFECT_VIPER_STRIKE
 	.4byte BattleScript_EffectAllStatsUp2Hit          @ EFFECT_ALL_STATS_UP_2_HIT
