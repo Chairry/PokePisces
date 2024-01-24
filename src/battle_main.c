@@ -5623,6 +5623,7 @@ void LoadTypeIcon(u8 type)
     if (gBattleMoveTypeSpriteId == MAX_SPRITES)
     {
         LoadCompressedSpriteSheet(&gSpriteSheet_MoveTypes);
+        LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
         gBattleMoveTypeSpriteId = CreateSprite(&gSpriteTemplate_MoveTypes, 216, 128, 0);
         gSprites[gBattleMoveTypeSpriteId].oam.priority = 0;
         SetTypeIconPal(type, gBattleMoveTypeSpriteId);
