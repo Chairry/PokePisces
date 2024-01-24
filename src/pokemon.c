@@ -4546,6 +4546,12 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         newMaxHP = 1;
     }
+
+    else if (species == SPECIES_MAGIKARP || SPECIES_FEEBAS)
+    {
+        newMaxHP = 5500;
+    }
+    
     else
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
