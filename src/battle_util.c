@@ -1235,7 +1235,7 @@ void PressurePPLose(u8 target, u8 attacker, u16 move)
 {
     int moveIndex;
 
-    if (GetBattlerAbility(target) != ABILITY_PRESSURE)
+    if (GetBattlerAbility(target) != ABILITY_PRESSURE || (GetBattlerAbility(target) != ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0))
         return;
 
     for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
@@ -1265,7 +1265,7 @@ void PressurePPLoseOnUsingImprison(u8 attacker)
 
     for (i = 0; i < gBattlersCount; i++)
     {
-        if (atkSide != GetBattlerSide(i) && GetBattlerAbility(i) == ABILITY_PRESSURE)
+        if ((atkSide != GetBattlerSide(i) && GetBattlerAbility(i) == ABILITY_PRESSURE) || (atkSide != GetBattlerSide(i) && GetBattlerAbility(i) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0))
         {
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
@@ -1295,7 +1295,7 @@ void PressurePPLoseOnUsingPerishSong(u8 attacker)
 
     for (i = 0; i < gBattlersCount; i++)
     {
-        if (GetBattlerAbility(i) == ABILITY_PRESSURE && i != attacker)
+        if ((GetBattlerAbility(i) == ABILITY_PRESSURE && i != attacker) || (GetBattlerAbility(i) == ABILITY_SHUNYONG && i != attacker && gBattleResults.battleTurnCounter % 2 != 0))
         {
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
@@ -4997,6 +4997,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gStatuses3[battler] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
                         gDisableStructs[battler].healBlockTimer = 2; //sets so offensive form can't heal
                         BattleScriptPushCursorAndCallback(BattleScript_ShunyongCantHealInOffensiveForm);
+                        effect++;
                         }
 
                     if (validToLower != 0 || validToRaise != 0) // Can lower one stat, or can raise one stat
