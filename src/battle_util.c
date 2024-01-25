@@ -115,6 +115,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
     ABILITY_GRIM_NEIGH,
+    ABILITY_SHUNYONG,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -140,6 +141,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
+    ABILITY_SHUNYONG,
 };
 
 static const u16 sRolePlayBannedAttackerAbilities[] =
@@ -157,6 +159,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
     ABILITY_HUNGER_SWITCH,
+    ABILITY_SHUNYONG,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -209,6 +212,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_ICE_FACE,
     ABILITY_HUNGER_SWITCH,
     ABILITY_GULP_MISSILE,
+    ABILITY_SHUNYONG,
 };
 
 static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
@@ -1006,6 +1010,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_STANCE_CHANGE] = 1,
     [ABILITY_TRACE] = 1,
     [ABILITY_ZEN_MODE] = 1,
+    [ABILITY_SHUNYONG] = 1,
 };
 
 static const u8 sHoldEffectToType[][2] =
@@ -4967,6 +4972,65 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     }
                 }
                 break;
+            case ABILITY_SHUNYONG:
+
+                if (gDisableStructs[battler].isFirstTurn != 2)
+                {
+                    u32 validToRaise = 0, validToLower = 0;
+                #if B_MOODY_ACC_EVASION < GEN_8
+                    u32 statsNum = NUM_BATTLE_STATS;
+                #else
+                    u32 statsNum = NUM_STATS;
+                #endif
+
+                    for (i = STAT_ATK; i < statsNum; i++)
+                    {
+                        if (CompareStat(gBattlerTarget, i, MIN_STAT_STAGE, CMP_GREATER_THAN))
+                            validToLower |= gBitTable[i];
+                        if (CompareStat(battler, i, MAX_STAT_STAGE, CMP_LESS_THAN))
+                            validToRaise |= gBitTable[i];
+                    }
+
+                    if(gBattleMons[battler].species == SPECIES_MORPEKO_HANGRY)
+                        {
+                        validToLower = 0; // makes it so opponents stats wont lower when in defensive form
+                        gStatuses3[battler] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
+                        gDisableStructs[battler].healBlockTimer = 2; //sets so offensive form can't heal
+                        BattleScriptPushCursorAndCallback(BattleScript_ShunyongCantHealInOffensiveForm);
+                        }
+
+                    if (validToLower != 0 || validToRaise != 0) // Can lower one stat, or can raise one stat
+                    {
+                        gBattleScripting.statChanger = gBattleScripting.savedStatChanger = 0; // for raising and lowering stat respectively
+                        if (validToRaise != 0) // Find stat to raise
+                        {
+                            do
+                            {
+                                i = (Random() % statsNum) + STAT_ATK;
+                            } while (!(validToRaise & gBitTable[i]));
+                            SET_STATCHANGER(i, 2, FALSE);
+                            validToLower &= ~(gBitTable[i]); // Can't lower the same stat as raising.
+                        }
+                        if (validToLower != 0) // Find stat to lower
+                        {
+                            do
+                            {
+                                i = (Random() % statsNum) + STAT_ATK;
+                            } while (!(validToLower & gBitTable[i]));
+                            SET_STATCHANGER2(gBattleScripting.savedStatChanger, i, 1, TRUE);
+                        }
+                        BattleScriptPushCursorAndCallback(BattleScript_ShunyongAbilityActivates);
+                        effect++;
+                    }
+                }
+
+                if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_TURN_END))
+                {
+                    BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3NoPopup);
+                    effect++;
+                }
+                
+                break;
              case ABILITY_SADDENED:
                 if (gDisableStructs[battler].isFirstTurn != 2)
                 {
@@ -5461,6 +5525,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_STANCE_CHANGE:
                 case ABILITY_WONDER_GUARD:
                 case ABILITY_ZEN_MODE:
+                case ABILITY_SHUNYONG:
                     break;
                 default:
                     if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)

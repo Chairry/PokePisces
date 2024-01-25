@@ -10818,3 +10818,29 @@ BattleScript_IlluminateInReverse:
 	pause B_WAIT_TIME_SHORT
 	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_IlluminateLoopIncrement, ANIM_ON
 	goto BattleScript_IlluminateLoopIncrement
+
+BattleScript_ShunyongAbilityActivates::
+	call BattleScript_AbilityPopUp
+	jumpifbyteequal sSTATCHANGER, sZero, BattleScript_ShunyongLower
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_ShunyongLower
+	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_ROSE, BattleScript_ShunyongLower
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShunyongLower:
+	jumpifbyteequal sSAVED_STAT_CHANGER, sZero, BattleScript_ShunyongEnd
+	copybyte sSTATCHANGER, sSAVED_STAT_CHANGER
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_ShunyongEnd
+	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_FELL, BattleScript_ShunyongEnd
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShunyongEnd:
+	end3
+
+BattleScript_ShunyongCantHealInOffensiveForm::
+	printstring STRINGID_CANTHEALINOFFENSIVEFORM
+	waitmessage B_WAIT_TIME_LONG
+	end3

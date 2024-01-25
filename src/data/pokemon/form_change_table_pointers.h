@@ -216,8 +216,8 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_CRAMORANT_GORGING] = sCramorantFormChangeTable,
     [SPECIES_EISCUE] = sEiscueFormChangeTable,
     [SPECIES_EISCUE_NOICE_FACE] = sEiscueFormChangeTable,
-    [SPECIES_MORPEKO] = sMorpekoFormChangeTable,
-    [SPECIES_MORPEKO_HANGRY] = sMorpekoFormChangeTable,
+    [SPECIES_MORPEKO] = sShunyongFormChangeTable,
+    [SPECIES_MORPEKO_HANGRY] = sShunyongFormChangeTable,
     [SPECIES_ZACIAN] = sZacianFormChangeTable,
     [SPECIES_ZACIAN_CROWNED_SWORD] = sZacianFormChangeTable,
     [SPECIES_ZAMAZENTA] = sZamazentaFormChangeTable,
@@ -229,5 +229,7 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_GAOTERRA] = sGaoterraFormChangeTable,
     [SPECIES_GAOTERRA_SOLAR] = sGaoterraFormChangeTable,
     [SPECIES_GAOTERRA_LUNAR] = sGaoterraFormChangeTable,
+    //[SPECIES_SHUNYONG] = sShunyongFormChangeTable,
+    //[SPECIES_SHUNYONG_OFFENSE] = sShunyongFormChangeTable,
 #endif
 };

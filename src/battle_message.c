@@ -823,6 +823,7 @@ static const u8 sText_AbilityWeakenedSurroundingMonsStats[] = _("A falling valle
 static const u8 sText_PkmnTellChillingReceptionJoke[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing to tell a\nchillingly bad joke!");
 static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\nto create a decoy!");
 static const u8 sText_ElectroShockCharging[] = _("{B_ATK_NAME_WITH_PREFIX} absorbed\nelectricity!");
+static const u8 sText_CantHealInOffensiveForm[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} can't\nheal in this form!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1501,6 +1502,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE - BATTLESTRINGS_TABLE_START] = sText_PkmnTellChillingReceptionJoke,
     [STRINGID_SHEDITSTAIL - BATTLESTRINGS_TABLE_START] = sText_ShedItsTail,
     [STRINGID_ELECTROSHOCKCHARGING - BATTLESTRINGS_TABLE_START] = sText_ElectroShockCharging,
+    [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
