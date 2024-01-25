@@ -1393,6 +1393,17 @@ const struct SpriteTemplate gVineWhipSpriteTemplate =
     .callback = AnimWhipHit,
 };
 
+const struct SpriteTemplate gWaterFlogSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHIP_HIT,
+    .paletteTag = ANIM_TAG_WATER_GUN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Whip,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWhipHit,
+};
+
 static const union AnimCmd sAnim_SlidingHit[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -2760,6 +2771,17 @@ const struct SpriteTemplate gNightSlashLeftSpriteTemplate =
     .callback = AnimNightSlash,
 };
 
+const struct SpriteTemplate gAquaCutterLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SLASH,
+    .paletteTag = ANIM_TAG_WATER_GUN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gNightSlashLeftAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNightSlash,
+};
+
 const union AnimCmd gNightSlashRightAnimCmd0[] =
 {
     ANIMCMD_FRAME(0, 4, .vFlip = TRUE, .hFlip = TRUE),
@@ -2785,6 +2807,17 @@ const struct SpriteTemplate gNightSlashRightSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SLASH,
     .paletteTag = ANIM_TAG_SLASH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gNightSlashRightAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNightSlash,
+};
+
+const struct SpriteTemplate gAquaCutterRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SLASH,
+    .paletteTag = ANIM_TAG_WATER_GUN,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gNightSlashRightAnimTable,
     .images = NULL,

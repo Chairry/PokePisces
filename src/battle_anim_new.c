@@ -1754,6 +1754,17 @@ const struct SpriteTemplate gMakingItRainTemplate =
     .callback = AnimMakingItRain,
 };
 
+const struct SpriteTemplate gFallingMudSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUDSLIDE,
+    .paletteTag = ANIM_TAG_MUDSLIDE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakingItRain,
+};
+
 //electric terrain
 const struct SpriteTemplate gElectricTerrainOrbsTemplate =
 {

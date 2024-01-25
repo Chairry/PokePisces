@@ -2034,3 +2034,6 @@ const u32 gUnknown_8E84F20[] = INCBIN_U32("graphics/tm_case/unk_8E84F20.gbapal.l
 const u32 gUnknown_8E85068[] = INCBIN_U32("graphics/tm_case/unk_8E85068.gbapal.lz");
 const u8 gUnknown_8E99118[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
 const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
+
+const u32 gBattleAnimSpriteGfx_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.4bpp.lz");
+const u32 gBattleAnimSpritePal_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.gbapal.lz");
