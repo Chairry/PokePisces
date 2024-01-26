@@ -11994,4 +11994,7 @@ extern const u16 gTMCaseMainWindowPalette[];
 
 extern const u32 gBattleAnimSpriteGfx_Mudslide[];
 extern const u32 gBattleAnimSpritePal_Mudslide[];
+
+extern const u32 gBattleAnimSpriteGfx_BigSpoon[];
+extern const u32 gBattleAnimSpritePal_BigSpoon[];
 #endif //GUARD_GRAPHICS_H

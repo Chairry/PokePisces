@@ -2037,3 +2037,6 @@ const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.
 
 const u32 gBattleAnimSpriteGfx_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.4bpp.lz");
 const u32 gBattleAnimSpritePal_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BigSpoon[] = INCBIN_U32("graphics/battle_anims/sprites/bigspoon.4bpp.lz");
+const u32 gBattleAnimSpritePal_BigSpoon[] = INCBIN_U32("graphics/battle_anims/sprites/bigspoon.gbapal.lz");

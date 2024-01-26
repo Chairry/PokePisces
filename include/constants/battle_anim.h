@@ -400,6 +400,7 @@
 #define ANIM_TAG_WOOD_HAMMER_HAMMER         (ANIM_SPRITES_START + 386)
 #define ANIM_TAG_WHITE_BALL                 (ANIM_SPRITES_START + 387)
 #define ANIM_TAG_MUDSLIDE                   (ANIM_SPRITES_START + 388)
+#define ANIM_TAG_BIG_SPOON                  (ANIM_SPRITES_START + 389)
 
 // battlers
 #define ANIM_ATTACKER         0

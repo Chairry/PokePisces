@@ -18006,7 +18006,7 @@ Move_VIPER_STRIKE:
 
 Move_THINK_FAST:
 	loadspritegfx ANIM_TAG_ALERT
-	loadspritegfx ANIM_TAG_BENT_SPOON
+	loadspritegfx ANIM_TAG_BIG_SPOON
 	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	call SetPsychicBackground
 	delay 15
