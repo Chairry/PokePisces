@@ -12697,12 +12697,12 @@ const struct PokedexEntry gPokedexEntries[] =
     [NATIONAL_DEX_FAERED] =
     {
         .categoryName = _("Trickster"),
-        .height = 999,
-        .weight = 999,
+        .height = 10,
+        .weight = 180,
         .description = gFaeredPokedexText,
-        .pokemonScale = 999,
-        .pokemonOffset = 0,
-        .trainerScale = 256,
+        .pokemonScale = 316,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
         .trainerOffset = 0,
     },
 

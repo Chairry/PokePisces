@@ -1073,7 +1073,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_TARDRITCH]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_BLABBU]                       = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_TURRYTURRY]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
-    [SPECIES_FAERED]                       = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_FAERED]                       = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  2 },
     [SPECIES_PROMISCBUS]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_GUMBORREE]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_KOREMAI]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
