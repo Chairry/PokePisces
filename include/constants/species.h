@@ -1110,7 +1110,7 @@
 #define SPECIES_LOTTABATS 1102
 #define SPECIES_GAOTERRA 1103
 
-//Mons that aren't added: Bishoucha, Papypus, Cindrillon, Shishima, Shunyong
+//Mons that aren't added: Bishoucha, Papypus, Cindrillon, Shishima, Shunyong, Kingambit
 
 #define NEW_MONS_END (SPECIES_GAOTERRA)
 #define NUM_NEW_MONS (NEW_MONS_END - NEW_MONS_START)
