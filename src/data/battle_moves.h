@@ -13826,7 +13826,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .accuracy = 100,
         #endif
-        .effect = EFFECT_ROAR,
+        .effect = EFFECT_SPOOK,
         .power = 0,
         .type = TYPE_GHOST,
         .pp = 20,

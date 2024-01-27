@@ -428,6 +428,7 @@
 #define EFFECT_COLD_MEND                    422
 #define EFFECT_VIPER_STRIKE                 423
 #define EFFECT_ALL_STATS_UP_2_HIT           424
-#define NUM_BATTLE_MOVE_EFFECTS             425
+#define EFFECT_SPOOK                        425
+#define NUM_BATTLE_MOVE_EFFECTS             426
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
