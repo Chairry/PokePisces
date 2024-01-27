@@ -687,8 +687,9 @@
 #define STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE        684  
 #define STRINGID_SHEDITSTAIL                          685
 #define STRINGID_ELECTROSHOCKCHARGING                 686
+#define STRINGID_DESTROYROOMANDTERRAIN                687
 
-#define BATTLESTRINGS_COUNT                           687
+#define BATTLESTRINGS_COUNT                           688
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -971,6 +972,8 @@
 #define B_MSG_TERRAIN_END_PSYCHIC   6
 #define B_MSG_TERRAIN_END_GRASSY    7
 #define B_MSG_TERRAIN_COUNT         8
+
+#define B_MSG_DESTROY_ROOM_AND_TERRAIN  0
 
 // gWrappedStringIds
 #define B_MSG_WRAPPED_BIND         0

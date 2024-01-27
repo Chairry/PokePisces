@@ -28,6 +28,8 @@
 #include "window.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/trainers.h"
+#include "field_effect.h"
 
 enum
 {
@@ -3756,7 +3758,6 @@ static void Task_LoadSizeScreen(u8 taskId)
             u8 string[64];
 
             StringCopy(string, gText_SizeComparedTo);
-            StringAppend(string, gSaveBlock2Ptr->playerName);
             PrintInfoScreenText(string, GetStringCenterAlignXOffset(FONT_NORMAL, string, DISPLAY_WIDTH), 121);
             gMain.state++;
         }
@@ -3766,7 +3767,7 @@ static void Task_LoadSizeScreen(u8 taskId)
         gMain.state++;
         break;
     case 5:
-        spriteId = CreateSizeScreenTrainerPic(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), 152, 56, 0);
+        spriteId = CreateTrainerSprite(FacilityClassToPicIndex(FACILITY_CLASS_RED), 152, 56, 0, &gDecompressionBuffer[TRAINER_PIC_SIZE]);
         gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
         gSprites[spriteId].oam.matrixNum = 1;
         gSprites[spriteId].oam.priority = 0;

@@ -8882,6 +8882,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gActionsByTurnOrder[GetBattlerTurnOrderNum(battlerDef)] == B_ACTION_SWITCH)
             basePower *= 2;
         break;
+    case EFFECT_FUTURE_SIGHT:
+        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN)
+            basePower = 180;
+        break;
     case EFFECT_NATURAL_GIFT:
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
         break;
@@ -9043,8 +9047,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
-        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || STATUS_FIELD_TRICK_ROOM || STATUS_FIELD_WONDER_ROOM || STATUS_FIELD_MAGIC_ROOM)
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
+        break;
     case EFFECT_BEAT_UP:
         #if B_BEAT_UP >= GEN_5
         basePower = CalcBeatUpPower();
@@ -9120,7 +9125,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
     case EFFECT_BULLDOZE:
-    case EFFECT_MAGNITUDE:
+    case MOVE_MAGNITUDE:
     case EFFECT_EARTHQUAKE:
         if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && !(gStatuses3[battlerDef] & STATUS3_SEMI_INVULNERABLE))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
@@ -9747,6 +9752,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     #endif
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
+        defStat = spDef;
         defStat /= 2;
 
     // critical hits ignore positive stat changes

@@ -291,6 +291,17 @@ const struct SpriteTemplate gIceSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+const struct SpriteTemplate gPinkCloudSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PINK_CLOUD,
+    .paletteTag = ANIM_TAG_PINK_CLOUD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 //final gambit
 const struct SpriteTemplate gFinalGambitBlueYawnTemplate =
 {
@@ -392,6 +403,17 @@ const struct SpriteTemplate gFoulPlayRingTemplate =
     .images = NULL,
     .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimSpriteOnMonPos
+};
+
+const struct SpriteTemplate gWyvernWaveRingTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
 };
 
 //simple beam
@@ -1725,6 +1747,17 @@ const struct SpriteTemplate gMakingItRainTemplate =
 {
     .tileTag = ANIM_TAG_COIN,
     .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakingItRain,
+};
+
+const struct SpriteTemplate gFallingMudSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUDSLIDE,
+    .paletteTag = ANIM_TAG_MUDSLIDE,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
     .anims = gCoinAnimTable,
     .images = NULL,

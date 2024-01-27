@@ -3309,7 +3309,7 @@ static const u8 sBurningSpiritDescription[] = _(
     "that may burn the foe.");
 
 static const u8 sPurgingFlamesDescription[] = _(
-    "Uses white flames to\n"
+    "Uses purple flames to\n"
     "eliminates all stat changes.");
 
 static const u8 sSnuffOutDescription[] = _(

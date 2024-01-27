@@ -313,8 +313,7 @@ extern const union AffineAnimCmd *const gAngerMarkAffineAnimTable[];
 extern const union AffineAnimCmd *const gWaterPulseRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gHyperVoiceRingAffineAnimTable[];
 extern const union AnimCmd *const gCoinAnimTable[];
-extern const union AnimCmd *const gAnims_FlyingCoin[];
-extern const union AnimCmd *const gAnims_FlyingCoin[];
+extern const union AnimCmd *const gMudAnimTable[];
 extern const union AffineAnimCmd *const gHiddenPowerOrbAffineAnimTable[];
 extern const union AffineAnimCmd *const gBulletSeedAffineAnimTable[];
 
@@ -395,6 +394,7 @@ extern const struct OamData gOamData_AffineDouble_ObjNormal_8x8;
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x16;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_32x32;
+extern const struct OamData gOamData_AffineNormal_ObjNormal_16x32;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_64x32;
 extern const struct OamData gOamData_AffineDouble_ObjNormal_16x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x32;

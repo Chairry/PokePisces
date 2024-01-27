@@ -5622,46 +5622,46 @@ const u8 gLottabatsPokedexText[] = _(
     "them come together to become a beast.");
 
 const u8 gPomelonianPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Haughty and snobbish, it proudly barks at\n"
+    "its opposition, thinking its high-pitched\n"
+    "squeaks are of any threat. The tail is\n"
+    "often collected due to being a delicacy.");
 
 const u8 gGourdougPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Gourdoug are trained in the snowy peaks\n"
+    "to help in mountain search and rescues.\n"
+    "Its tail is a sweet and juicy fruit\n"
+    "popularly used in teas.");
 
 const u8 gFogglehindPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "They travel in groups, wading through\n"
+    "the snowy mountains. Their movement path\n"
+    "is said to reflect the weather patterns\n"
+    "of the mountains.");
 
 const u8 gMatchlitPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "The flames Matchlit hold entrance them,\n"
+    "keeping them calm and happy. But when\n"
+    "the light snuffs out, they remember what\n"
+    "they were and start crying.");
 
 const u8 gYagangranPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Children should avoid the dark forest, as\n"
+    "the dreadful Yagangran will soon offer to\n"
+    "give them light to find their way through\n"
+    "the dark. No one returns from the offer.");
 
 const u8 gPidiumPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Pidium can receive glimpses of the\n"
+    "future of those around it. It\n"
+    "malevolently employs what it perceives\n"
+    "to its advantage.");
 
 const u8 gMedgeonPokedexText[] = _(
-    "\n"
-    "\n"
-    "\n"
-    "");
+    "Medgeon has lost its vision but\n"
+    "constantly sees the surrounding future\n"
+    "with unerring accuracy. When offended, it\n"
+    "shows the offender their imminent demise.");
 
 const u8 gMaggordePokedexText[] = _(
     "The oldest Maggorde transports their\n"
@@ -5700,8 +5700,8 @@ const u8 gKowakoPokedexText[] = _(
 
 const u8 gUmbratPokedexText[] = _(
     "Umbrat are friendly Pokémon that try to\n"
-    "shelter others from the weather using their\n"
-    "wings. Although because of their small\n"
+    "shelter others from the weather using\n"
+    "their wings. Although, due to their small\n"
     "size, they are usually not that helpful.");
 
 const u8 gChiroberraPokedexText[] = _(
@@ -6448,8 +6448,8 @@ const u8 gSpitfaxPokedexText[] = _(
 
 const u8 gRapscaleonPokedexText[] = _(
     "A never before seen evolution to Spitfax.\n"
-    "Rapscaleon scream into their tails to boost\n"
-    "their volume. Apparently they start\n"
+    "Rapscaleon scream into their tails to\n"
+    "boost their volume. Apparently they start\n"
     "shouting matches to assert dominance.");
 
 const u8 gAgomagoPokedexText[] = _(
@@ -6466,7 +6466,7 @@ const u8 gMorftreePokedexText[] = _(
 
 const u8 gEpochotlPokedexText[] = _(
     "It can cast rays of destructive light,\n"
-    "turning mountains to dust and ash. However,\n"
+    "turning mountains to dust and ash. But,\n"
     "its body is underdeveloped and unstable,\n"
     "limiting its destructive potential.");
 
