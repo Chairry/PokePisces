@@ -10461,7 +10461,6 @@ BattleScript_EffectHitSetRemoveTerrain:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	jumpifargument ARG_TRY_REMOVE_TERRAIN_FAIL, BattleScript_RemoveTerrain
 	critcalc
 	damagecalc
 	adjustdamage
@@ -10478,7 +10477,7 @@ BattleScript_EffectHitSetRemoveTerrain:
 	waitmessage B_WAIT_TIME_LONG
 	setremoveterrain BattleScript_TryFaint
 	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
-	printfromtable gTerrainStringIds
+	printfromtable gDemolisherStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_TryFaint:
 	tryfaintmon BS_TARGET

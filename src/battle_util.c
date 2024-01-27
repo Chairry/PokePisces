@@ -9047,8 +9047,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
-        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || STATUS_FIELD_TRICK_ROOM || STATUS_FIELD_WONDER_ROOM || STATUS_FIELD_MAGIC_ROOM)
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
+        break;
     case EFFECT_BEAT_UP:
         #if B_BEAT_UP >= GEN_5
         basePower = CalcBeatUpPower();

@@ -1467,13 +1467,29 @@ void LoadMoveBg(u16 bgId)
 static void LoadDefaultBg(void)
 {
     if (IsContest())
+    {
         LoadContestBgAfterMoveAnim();
-#if B_TERRAIN_BG_CHANGE == TRUE
+    }
     else if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+    {
         DrawTerrainTypeBattleBackground();
-#endif
+    }
+    else if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+    {
+        LoadMoveBg(BG_WONDER_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
     else
+    {
         DrawMainBattleBackground();
+    }
 }
 
 static void Cmd_restorebg(void)

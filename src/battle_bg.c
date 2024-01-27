@@ -966,7 +966,22 @@ void LoadBattleTextboxAndBackground(void)
     LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadBattleMenuWindowGfx();
 #if B_TERRAIN_BG_CHANGE == TRUE
-    DrawTerrainTypeBattleBackground();
+    if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+    {    
+        LoadMoveBg(BG_WONDER_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
+    else
+    {
+        DrawTerrainTypeBattleBackground();
+    }
 #else
     DrawMainBattleBackground();
 #endif
@@ -1401,4 +1416,3 @@ void DrawTerrainTypeBattleBackground(void)
         break;
     }
 }
-
