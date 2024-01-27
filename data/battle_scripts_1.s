@@ -484,12 +484,9 @@ BattleScript_EffectSpookAccuracyDown:
 	setstatchanger STAT_ACC, 1, TRUE
 	goto BattleScript_EffectSpookStatDown
 BattleScript_EffectSpookStatDown:
-	attackcanceler
 	jumpifsubstituteblocks BattleScript_FailedFromAtkString
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 BattleScript_SpookStatDownFromAttackString:
-	attackstring
-	ppreduce
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_SpookStatDownEnd
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_SpookStatDownDoAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_SpookStatDownEnd

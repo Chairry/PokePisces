@@ -12045,11 +12045,11 @@ static void Cmd_forcerandomswitch(void)
             *(gBattleStruct->battlerPartyIndexes + gBattlerTarget) = gBattlerPartyIndexes[gBattlerTarget];
             if (gCurrentMove == MOVE_SPOOK)
             {
-            gBattlescriptCurrInstr = BattleScript_SpookSuccessSwitch;
+                gBattlescriptCurrInstr = BattleScript_SpookSuccessSwitch;
             }
             else
             {
-            gBattlescriptCurrInstr = BattleScript_RoarSuccessSwitch;
+                gBattlescriptCurrInstr = BattleScript_RoarSuccessSwitch;
             }
             gBattleStruct->forcedSwitch |= gBitTable[gBattlerTarget];
             *(gBattleStruct->monToSwitchIntoId + gBattlerTarget) = validMons[RandomUniform(RNG_FORCE_RANDOM_SWITCH, 0, validMonsCount - 1)];
