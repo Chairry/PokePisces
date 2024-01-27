@@ -1110,7 +1110,7 @@
 #define SPECIES_LOTTABATS 1102
 #define SPECIES_GAOTERRA 1103
 
-//Mons that aren't added: Bishoucha, Papypus, Cindrillon, Shishima, Shunyong
+//Mons that aren't added: Bishoucha, Papypus, Cindrillon, Shishima, Shunyong, Kingambit
 
 #define NEW_MONS_END (SPECIES_GAOTERRA)
 #define NUM_NEW_MONS (NEW_MONS_END - NEW_MONS_START)
@@ -1578,7 +1578,7 @@
 #define SPECIES_GAOTERRA_LUNAR FORMS_START + 329 
 
 #define FORMS_START SPECIES_GAOTERRA
-#define SPECIES_EGG SPECIES_DUDUNSPARS_THREE_SEGMENT + 330
+#define SPECIES_EGG SPECIES_GAOTERRA_LUNAR + 330
 
 #define NUM_SPECIES SPECIES_EGG
 

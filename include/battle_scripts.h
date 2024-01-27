@@ -60,6 +60,7 @@ extern const u8 BattleScript_LeechSeedTurnDrain[];
 extern const u8 BattleScript_BideStoringEnergy[];
 extern const u8 BattleScript_BideAttack[];
 extern const u8 BattleScript_BideNoEnergyToAttack[];
+extern const u8 BattleScript_SpookSuccessSwitch[];
 extern const u8 BattleScript_RoarSuccessSwitch[];
 extern const u8 BattleScript_RoarSuccessEndBattle[];
 extern const u8 BattleScript_MistProtected[];
