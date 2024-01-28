@@ -354,7 +354,8 @@ void HandleAction_UseMove(void)
            && ((GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
             || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
             || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
-            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY)))
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY)
+            || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_SOUL_LOCKER && moveType == TYPE_GHOST)))
     {
         side = GetBattlerSide(gBattlerAttacker);
         for (battler = 0; battler < gBattlersCount; battler++)
@@ -363,7 +364,8 @@ void HandleAction_UseMove(void)
                 && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
                  || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER)
                  || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL)
-                 || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY))
+                 || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY)
+                 || (GetBattlerAbility(battler) == ABILITY_SOUL_LOCKER && moveType == TYPE_GHOST))
                 && GetBattlerTurnOrderNum(battler) < var
                 && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT
                 && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL
@@ -435,6 +437,8 @@ void HandleAction_UseMove(void)
                 gSpecialStatuses[battler].magnetPullRedirected = TRUE;
             else if (battlerAbility == ABILITY_WITCHCRAFT)
                 gSpecialStatuses[battler].witchcraftRedirected = TRUE;
+            else if (battlerAbility == ABILITY_SOUL_LOCKER)
+                gSpecialStatuses[battler].soulLockerRedirected = TRUE;
             gBattlerTarget = battler;
         }
     }
@@ -5162,6 +5166,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 if (moveType == TYPE_ELECTRIC)
                     effect = 2, statId = STAT_SPATK;
                 break;
+            case ABILITY_SOUL_LOCKER:
+                if (moveType == TYPE_GHOST)
+                    effect = 2, statId = STAT_SPATK;
+                break;
             case ABILITY_MAGNET_PULL:
                 if (moveType == TYPE_STEEL)
                     effect = 2, statId = STAT_ATK;
@@ -8279,6 +8287,14 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
                 targetBattler ^= BIT_FLANK;
                 RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
                 gSpecialStatuses[targetBattler].witchcraftRedirected = TRUE;
+            }
+            else if (gBattleMoves[move].type == TYPE_GHOST
+                && IsAbilityOnOpposingSide(gBattlerAttacker, ABILITY_SOUL_LOCKER)
+                && GetBattlerAbility(targetBattler) != ABILITY_SOUL_LOCKER)
+            {
+                targetBattler ^= BIT_FLANK;
+                RecordAbilityBattle(targetBattler, gBattleMons[targetBattler].ability);
+                gSpecialStatuses[targetBattler].soulLockerRedirected = TRUE;
             }
         }
         break;
