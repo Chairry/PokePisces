@@ -10889,7 +10889,7 @@ BattleScript_HardboiledActivates::
 BattleScript_HardboiledDefAnim:
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_TARGETABILITYSTATRAISESHARPLY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HardboiledActivatesSpdef:
 	setstatchanger STAT_SPDEF, 2, FALSE
@@ -10903,7 +10903,7 @@ BattleScript_HardboiledActivatesSpdef:
 BattleScript_HardboiledSpdefAnim:
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_TARGETABILITYSTATRAISESHARPLY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HardboiledActivatesEnd:
 	return
@@ -10921,7 +10921,7 @@ BattleScript_HardboiledActivatesExtra::
 BattleScript_HardboiledDefAnimExtra:
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_TARGETABILITYSTATRAISEDRASTICALLY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HardboiledActivatesSpdefExtra:
 	setstatchanger STAT_SPDEF, 3, FALSE
@@ -10935,7 +10935,7 @@ BattleScript_HardboiledActivatesSpdefExtra:
 BattleScript_HardboiledSpdefAnimExtra:
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_TARGETABILITYSTATRAISEDRASTICALLY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HardboiledActivatesEndExtra:
 	return
