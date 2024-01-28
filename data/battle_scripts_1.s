@@ -10875,3 +10875,67 @@ BattleScript_IlluminateInReverse:
 	pause B_WAIT_TIME_SHORT
 	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_IlluminateLoopIncrement, ANIM_ON
 	goto BattleScript_IlluminateLoopIncrement
+
+BattleScript_HardboiledActivates::
+	call BattleScript_AbilityPopUp
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_HardboiledActivatesSpdef
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HardboiledDefAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_EMPTY, BattleScript_HardboiledActivatesSpdef
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HardboiledActivatesSpdef
+BattleScript_HardboiledDefAnim:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HardboiledActivatesSpdef:
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_HardboiledActivatesEnd
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HardboiledSpdefAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_EMPTY, BattleScript_HardboiledActivatesEnd
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HardboiledActivatesEnd
+BattleScript_HardboiledSpdefAnim:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HardboiledActivatesEnd:
+	return
+
+BattleScript_HardboiledActivatesExtra::
+	call BattleScript_AbilityPopUp
+	setstatchanger STAT_DEF, 3, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_HardboiledActivatesSpdefExtra
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HardboiledDefAnimExtra
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_EMPTY, BattleScript_HardboiledActivatesSpdefExtra
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HardboiledActivatesSpdefExtra
+BattleScript_HardboiledDefAnimExtra:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HardboiledActivatesSpdefExtra:
+	setstatchanger STAT_SPDEF, 3, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_HardboiledActivatesEndExtra
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HardboiledSpdefAnimExtra
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_ROSE_EMPTY, BattleScript_HardboiledActivatesEndExtra
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HardboiledActivatesEndExtra
+BattleScript_HardboiledSpdefAnimExtra:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HardboiledActivatesEndExtra:
+	return

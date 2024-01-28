@@ -5350,6 +5350,23 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_HARDBOILED:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && TARGET_TURN_DAMAGED
+             && IsBattlerAlive(battler))
+            {
+                if (CalcTypeEffectivenessMultiplier(move, moveType, battler, gBattlerTarget, GetBattlerAbility(gBattlerTarget), FALSE) == UQ_4_12(2.0)) {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_HardboiledActivates;
+                    effect++;
+                }
+                else if (CalcTypeEffectivenessMultiplier(move, moveType, battler, gBattlerTarget, GetBattlerAbility(gBattlerTarget), FALSE) > UQ_4_12(2.0)) {
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_HardboiledActivatesExtra;
+                    effect++;
+                }                    
+            }
+            break;
         case ABILITY_BERSERK:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && TARGET_TURN_DAMAGED
