@@ -4062,15 +4062,29 @@ static void SetOpponentMovesShunyong(void)
         playerLeftTotalStatStages += gBattleMons[B_POSITION_PLAYER_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
         playerRightTotalStatStages += gBattleMons[B_POSITION_PLAYER_RIGHT].statStages[i] - DEFAULT_STAT_STAGE;
     }
-    
 
-
-if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages || playerRightTotalStatStages >= 6))
+    if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages >= 6 || playerRightTotalStatStages >= 6))
             {
                 gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_HAZE; //replace this with Gold Plains
                 gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_HAZE; //replace this with Gold Plains
                 gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_HAZE; //replace this with Gold Plains
                 gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_HAZE; //replace this with Gold Plains
+                return;
+            }
+    else if(gBattleMons[B_POSITION_OPPONENT_LEFT].hp < (gBattleMons[B_POSITION_OPPONENT_LEFT].maxHP / 10))
+            {
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
+                return;
+            }
+    else
+            {
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_QUICK_ATTACK; //replace this default moves
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_POWER_TRIP; //replace this default moves
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_AURA_WHEEL; //replace this default moves
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_BITE; //replace this default moves
                 return;
             }
     

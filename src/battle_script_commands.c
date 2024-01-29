@@ -3254,11 +3254,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     }
                 }
                 else
-                {
-                    if (gBattleMons[gEffectBattler].ability == ABILITY_SHUNYONG)
-                        gDisableStructs[gEffectBattler].shunyongFlinchTimer = 3;
+                {;
                     if (GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
-                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
+                        {
+                            gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
+                            if (gBattleMons[gEffectBattler].ability == ABILITY_SHUNYONG)
+                                gDisableStructs[gEffectBattler].shunyongFlinchTimer = 3;
+                        }
                     gBattlescriptCurrInstr++;
                 }
                 break;
