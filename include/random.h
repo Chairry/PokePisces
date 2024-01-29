@@ -94,6 +94,7 @@ enum RandomTag
     RNG_TRIPLE_ARROWS_FLINCH,
     RNG_FICKLE_BEAM,
     RNG_VIPER_STRIKE,
+    RNG_SIGNAL_BEAM,
 };
 
 #define RandomWeighted(tag, ...) \

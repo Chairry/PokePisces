@@ -103,6 +103,7 @@ struct DisableStruct
     u8 toxicSpikesDone:1;
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
+    u8 spiderweb:1;
 };
 
 struct ProtectStruct
@@ -724,7 +725,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_IF_MISS     \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS)
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))
