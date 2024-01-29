@@ -66,6 +66,7 @@ bool32 AI_MoveMakesContact(u32 ability, u32 holdEffect, u32 move);
 u32 AI_GetBattlerMoveTargetType(u32 battlerId, u32 move);
 bool32 ShouldUseZMove(u32 battlerAtk, u32 battlerDef, u32 chosenMove);
 
+
 // stat stage checks
 bool32 AnyStatIsRaised(u32 battlerId);
 bool32 ShouldLowerStat(u32 battler, u32 battlerAbility, u32 stat);
@@ -188,5 +189,9 @@ void IncreaseParalyzeScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
 void IncreaseSleepScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score);
 void IncreaseConfusionScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score);
 void IncreaseFrostbiteScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score);
+
+// misc
+extern const u16 gMegaBosses[];
+bool32 IsSpeciesOneOf(u16 specie, const u16 *species);
 
 #endif //GUARD_BATTLE_AI_UTIL_H

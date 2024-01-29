@@ -5914,3 +5914,21 @@ bool32 IsWildMonSmart(void)
     return FALSE;
 #endif
 }
+
+// misc
+bool32 IsSpeciesOneOf(u16 specie, const u16 *species)
+{
+    for (; *species !=0xFFFF; species ++)
+        {
+        if (*species == specie)
+            return TRUE;
+        }
+        return FALSE;
+}
+
+const u16 gMegaBosses[] =
+    {
+        SPECIES_MORPEKO,
+        SPECIES_MORPEKO_HANGRY,
+        0xFFFF
+    };

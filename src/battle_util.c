@@ -2656,7 +2656,10 @@ u8 DoBattlerEndTurnEffects(void)
                 MAGIC_GUARD_CHECK;
 
                 gBattlerTarget = gStatuses3[battler] & STATUS3_LEECHSEED_BATTLER; // Notice gBattlerTarget is actually the HP receiver.
-                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                    else
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 gBattleScripting.animArg1 = gBattlerTarget;
@@ -2676,7 +2679,10 @@ u8 DoBattlerEndTurnEffects(void)
                 {
                     if (!BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
                     {
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                        if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                            gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        else
+                            gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
                         gBattleMoveDamage *= -1;
@@ -2686,7 +2692,10 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 else
                 {
-                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                    if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                            gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        else
+                            gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_PoisonTurnDmg);
@@ -2713,6 +2722,14 @@ u8 DoBattlerEndTurnEffects(void)
                         effect++;
                     }
                 }
+                else if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        BattleScriptExecute(BattleScript_PoisonTurnDmg);
+                        effect++;
+                }
                 else
                 {
                     gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
@@ -2733,9 +2750,15 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 MAGIC_GUARD_CHECK;
             #if B_BURN_DAMAGE >= GEN_7
-                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 32;
+                    else
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
             #else
-                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                    else
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
             #endif
                 if (ability == ABILITY_HEATPROOF)
                 {
@@ -2756,9 +2779,15 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 MAGIC_GUARD_CHECK;
             #if B_BURN_DAMAGE >= GEN_7
-                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                if (IsSpeciesOneOf(gBattleMons[gBattlerAttacker].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 32;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
             #else
-                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                if (IsSpeciesOneOf(gBattleMons[gBattlerAttacker].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
             #endif
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
@@ -2815,13 +2844,33 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattlescriptCurrInstr = BattleScript_WrapTurnDmg;
                     if (GetBattlerHoldEffect(gBattleStruct->wrappedBy[battler], TRUE) == HOLD_EFFECT_BINDING_BAND)
                 #if B_BINDING_DAMAGE >= GEN_6
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
+                        {
+                            if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 12;
+                            else
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
+                        }
                     else
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                        {
+                            if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                            else
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                        }
                 #else
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                        {
+                            if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                            else
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                        }
                     else
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        {
+                            if (IsSpeciesOneOf(gBattleMons[battler].species, gMegaBosses))
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 32;
+                            else
+                                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        }
                 #endif
 
                     if (gBattleMoveDamage == 0)
@@ -5624,9 +5673,15 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && IsMoveMakingContact(move, gBattlerAttacker))
             {
                 #if B_ROUGH_SKIN_DMG >= GEN_4
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
+                    if (IsSpeciesOneOf(gBattleMons[gBattlerAttacker].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
                 #else
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+                    if (IsSpeciesOneOf(gBattleMons[gBattlerAttacker].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 32;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
                 #endif
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
@@ -8071,7 +8126,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     && IsBattlerAlive(gBattlerAttacker)
                     && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD)
                 {
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 6;
+                    if (IsSpeciesOneOf(gBattleMons[gBattlerAttacker].species, gMegaBosses))
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 12;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 6;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     effect = ITEM_HP_CHANGE;
