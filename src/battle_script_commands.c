@@ -1466,6 +1466,14 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = BattleScript_TookAttack;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
+    else if (gSpecialStatuses[gBattlerTarget].soulLockerRedirected)
+    {
+        gSpecialStatuses[gBattlerTarget].soulLockerRedirected = FALSE;
+        gLastUsedAbility = ABILITY_SOUL_LOCKER;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TookAttack;
+        RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
+    }
     else if (gSpecialStatuses[gBattlerTarget].stormDrainRedirected)
     {
         gSpecialStatuses[gBattlerTarget].stormDrainRedirected = FALSE;
@@ -15191,15 +15199,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);

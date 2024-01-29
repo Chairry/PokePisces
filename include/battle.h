@@ -184,7 +184,7 @@ struct SpecialStatus
     // End of byte
     u8 gemParam;
     // End of byte
-    u8 gemBoost:1;
+     u8 gemBoost:1;
     u8 rototillerAffected:1;  // to be affected by rototiller
     u8 parentalBondState:2;
     u8 multiHitOn:1;
@@ -202,6 +202,7 @@ struct SpecialStatus
     u8 afterYou:1;
     u8 magnetPullRedirected:1;
     u8 witchcraftRedirected:1;
+    u8 soulLockerRedirected:1;
 };
 
 struct SideTimer
