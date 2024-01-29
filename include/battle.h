@@ -393,6 +393,7 @@ struct BattleResults
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];     // 0x2A
     u8 filler35;           // 0x35
     u8 catchAttempts[POKEBALL_COUNT];     // 0x36
+    u8 shunyongStatusCounter;     
 };
 
 struct BattleTv_Side

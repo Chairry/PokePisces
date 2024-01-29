@@ -122,6 +122,7 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
 static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
+static void SetOpponentMovesShunyong(void);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -4045,6 +4046,34 @@ void BattleTurnPassed(void)
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
     else if ((i = ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_PLAYER_MON_UNAFFECTED)))
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
+
+    if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_MORPEKO || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_MORPEKO_HANGRY))
+        SetOpponentMovesShunyong();
+}
+
+static void SetOpponentMovesShunyong(void)
+{
+    s32 i;
+    s32 shunyongTotalStatStages = 0, playerLeftTotalStatStages = 0, playerRightTotalStatStages = 0;
+    
+    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    {
+        shunyongTotalStatStages += gBattleMons[B_POSITION_OPPONENT_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
+        playerLeftTotalStatStages += gBattleMons[B_POSITION_PLAYER_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
+        playerRightTotalStatStages += gBattleMons[B_POSITION_PLAYER_RIGHT].statStages[i] - DEFAULT_STAT_STAGE;
+    }
+    
+
+
+if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages || playerRightTotalStatStages >= 6))
+            {
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_HAZE; //replace this with Gold Plains
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_HAZE; //replace this with Gold Plains
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_HAZE; //replace this with Gold Plains
+                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_HAZE; //replace this with Gold Plains
+                return;
+            }
+    
 }
 
 u8 IsRunningFromBattleImpossible(u32 battler)

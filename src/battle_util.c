@@ -5030,7 +5030,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3NoPopup);
                     effect++;
                 }
-                
+                if(gBattleMons[battler].status1 & STATUS1_ANY)
+                    {
+                        gBattleResults.shunyongStatusCounter++;
+                        
+                    }
+                    
+                if(gBattleResults.shunyongStatusCounter >= 3)
+                    goto ABILITY_HEAL_MON_STATUS;
                 break;
              case ABILITY_SADDENED:
                 if (gDisableStructs[battler].isFirstTurn != 2)
@@ -7909,6 +7916,8 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             #if B_SERENE_GRACE_BOOST >= GEN_5
                 if (ability == ABILITY_SERENE_GRACE)
                     atkHoldEffectParam *= 2;
+                if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))
+                    atkHoldEffectParam *= 2;
             #endif
                 if (gBattleMoveDamage != 0  // Need to have done damage
                     && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
@@ -7930,6 +7939,8 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 u16 ability = GetBattlerAbility(gBattlerAttacker);
             #if B_SERENE_GRACE_BOOST >= GEN_5
                 if (ability == ABILITY_SERENE_GRACE)
+                    atkHoldEffectParam *= 2;
+                if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))
                     atkHoldEffectParam *= 2;
             #endif
                 if (gBattleMoveDamage != 0  // Need to have done damage
@@ -11661,6 +11672,8 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance)
 {
     if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE)
+        secondaryEffectChance *= 2;
+    if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))
         secondaryEffectChance *= 2;
 
     return secondaryEffectChance;
