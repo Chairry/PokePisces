@@ -2926,6 +2926,8 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_FLINCH:  // reset flinch
+            if(gDisableStructs[battler].shunyongFlinchTimer > 0)
+                gDisableStructs[battler].shunyongFlinchTimer--;
             gBattleMons[battler].status2 &= ~STATUS2_FLINCHED;
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -5035,7 +5037,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gBattleResults.shunyongStatusCounter++;
                         
                     }
-                    
+
                 if(gBattleResults.shunyongStatusCounter >= 3)
                     goto ABILITY_HEAL_MON_STATUS;
                 break;

@@ -3225,6 +3225,20 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gBattlescriptCurrInstr++;
                     }
                 } 
+                else if (battlerAbility == ABILITY_SHUNYONG && gDisableStructs[gEffectBattler].shunyongFlinchTimer > 0)
+                {
+                    if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
+                    {
+                        gLastUsedAbility = ABILITY_SHUNYONG;
+                        gBattlerAbility = gEffectBattler;
+                        RecordAbilityBattle(gEffectBattler, ABILITY_SHUNYONG);
+                        gBattlescriptCurrInstr = BattleScript_FlinchPrevention;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                } 
                 else if (battlerAbility == ABILITY_PROPELLER_TAIL)
                 {
                     if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
@@ -3241,6 +3255,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 else
                 {
+                    if (gBattleMons[gEffectBattler].ability == ABILITY_SHUNYONG)
+                        gDisableStructs[gEffectBattler].shunyongFlinchTimer = 3;
                     if (GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
                         gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
                     gBattlescriptCurrInstr++;
