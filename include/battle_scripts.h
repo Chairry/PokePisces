@@ -491,6 +491,8 @@ extern const u8 BattleScript_SelectingNotAllowedCurrentMoveInPalace[];
 extern const u8 BattleScript_SaltCureExtraDamage[];
 extern const u8 BattleScript_SpecialDefenseUp[];
 extern const u8 BattleScript_RemoveTerrainStuff[];
+extern const u8 BattleScript_HardboiledActivates[];
+extern const u8 BattleScript_HardboiledActivatesExtra[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

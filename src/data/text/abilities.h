@@ -357,6 +357,7 @@ static const u8 sTransfusionDescription[] = _("Draining moves copy abilities.");
 static const u8 sWhiteOutDescription[] = _("Powers up in hail.");
 static const u8 sWhipWaltzDescription[] = _("Strikes back against foes.");
 static const u8 sIgnorantBlissDescription[] = _("Ignores a lot.");
+static const u8 sHardboiledDescription[] = _("Boosts against super effective.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -726,7 +727,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TRANSFUSION] = _("Transfusion"),
     [ABILITY_WHITE_OUT] = _("White Out"),
     [ABILITY_WHIP_WALTZ] = _("Whip Waltz"),
-    [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss")
+    [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
+    [ABILITY_HARDBOILED] = _("Hardboiled")
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1096,7 +1098,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TRANSFUSION] = _("Transfusion"),
     [ABILITY_WHITE_OUT] = _("White Out"),
     [ABILITY_WHIP_WALTZ] = _("Whip Waltz"),
-    [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss")
+    [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
+    [ABILITY_HARDBOILED] = _("Hardboiled")
 };
 #endif
 
@@ -1467,5 +1470,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TRANSFUSION] = sTransfusionDescription,
     [ABILITY_WHITE_OUT] = sWhiteOutDescription,
     [ABILITY_WHIP_WALTZ] = sWhipWaltzDescription,
-    [ABILITY_IGNORANT_BLISS] = sIgnorantBlissDescription
+    [ABILITY_IGNORANT_BLISS] = sIgnorantBlissDescription,
+    [ABILITY_HARDBOILED] = sHardboiledDescription
 };
