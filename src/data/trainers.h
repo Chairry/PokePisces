@@ -5231,13 +5231,13 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Clarissa),
     },
-
+//trailer script testing using this trainer
     [TRAINER_ANGELICA] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
+        .trainerClass = TRAINER_CLASS_MONK,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
-        .trainerName = _("ANGELICA"),
+        .trainerPic = TRAINER_PIC_MONK,
+        .trainerName = _("GOTOU"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,

@@ -1900,12 +1900,12 @@
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_WHISMUR"
+                "species": "SPECIES_BIVAGUE"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_WHISMUR"
+                "species": "SPECIES_BIVAGUE"
               },
               {
                 "min_level": 6,
@@ -3561,12 +3561,12 @@
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_POOCHYENA"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_MIGHTYENA"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 27,
@@ -3715,7 +3715,7 @@
               {
                 "min_level": 26,
                 "max_level": 26,
-                "species": "SPECIES_BIVAGUE"
+                "species": "SPECIES_LOTTABATS"
               },
               {
                 "min_level": 26,
@@ -4694,12 +4694,12 @@
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_SNELFREND"
               },
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_SNELFREND"
               },
               {
                 "min_level": 10,
@@ -8887,12 +8887,12 @@
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_SNELFREND"
               },
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_SNELFREND"
               },
               {
                 "min_level": 10,
@@ -11895,6 +11895,75 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_TRITONAUT"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_SWELTORN_DESERT",
+          "base_label": "gSweltornDesert0",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 21,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 21,
+                "species": "SPECIES_COFFIDDLE"
               }
             ]
           }

@@ -5438,13 +5438,13 @@ static const struct TrainerMon sParty_Clarissa[] = {
     .species = SPECIES_WAILMER,
     }
 };
-
+//trainer party used for testing scripts
 static const struct TrainerMon sParty_Angelica[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 30,
-    .species = SPECIES_CASTFORM,
-    .moves = {MOVE_RAIN_DANCE, MOVE_WEATHER_BALL, MOVE_THUNDER, MOVE_WATER_PULSE}
+    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
+    .lvl = 50,
+    .species = SPECIES_GAOTERRA,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
