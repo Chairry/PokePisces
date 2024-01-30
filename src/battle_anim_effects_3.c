@@ -1036,7 +1036,18 @@ const struct SpriteTemplate gPopulationBombBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHITE_BALL,
     .paletteTag = ANIM_TAG_WHITE_BALL,
-    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gPopulationBombBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gPopulationBombBall2SpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_BAT,
+    .paletteTag = ANIM_TAG_WHITE_BAT,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gPopulationBombBallAffineAnimTable,
@@ -4360,6 +4371,76 @@ void AnimTask_PopulationBombBall(u8 taskId)
 }
 
 static void AnimTask_PopulationBombBall_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        if (++task->data[1] > 1)
+        {
+            task->data[1] = 0;
+            TranslateAnimHorizontalArc(&gSprites[task->data[15]]);
+            if (++task->data[2] > 7)
+                task->data[0]++;
+        }
+        break;
+    case 1:
+        if (TranslateAnimHorizontalArc(&gSprites[task->data[15]]))
+        {
+            task->data[1] = 0;
+            task->data[2] = 0;
+            task->data[0]++;
+        }
+        break;
+    case 2:
+        if (++task->data[1] > 1)
+        {
+            task->data[1] = 0;
+            task->data[2]++;
+            gSprites[task->data[15]].invisible = task->data[2] & 1;
+            if (task->data[2] == 16)
+            {
+                FreeOamMatrix(gSprites[task->data[15]].oam.matrixNum);
+                DestroySprite(&gSprites[task->data[15]]);
+                task->data[0]++;
+            }
+        }
+        break;
+    case 3:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_PopulationBombBall2(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+    task->data[15] = CreateSprite(&gPopulationBombBall2SpriteTemplate, task->data[11], task->data[12], GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+    if (task->data[15] != MAX_SPRITES)
+    {
+        gSprites[task->data[15]].data[0] = 16;
+        gSprites[task->data[15]].data[2] = task->data[13];
+        gSprites[task->data[15]].data[4] = task->data[14];
+        gSprites[task->data[15]].data[5] = -32;
+        InitAnimArcTranslation(&gSprites[task->data[15]]);
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(&gSprites[task->data[15]], 1);
+
+        task->func = AnimTask_PopulationBombBall_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimTask_PopulationBombBall2_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
