@@ -388,7 +388,10 @@
 #define MOVE_EFFECT_ALL_STATS_UP_2      80
 #define MOVE_EFFECT_SIGNAL_BEAM         81
 #define MOVE_EFFECT_ATK_TWO_DOWN        82
-#define NUM_MOVE_EFFECTS                83
+#define MOVE_EFFECT_BARB_BARRAGE        83
+#define MOVE_EFFECT_HEART_STAMP         84
+#define MOVE_EFFECT_METEOR_MASH         85
+#define NUM_MOVE_EFFECTS                86
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

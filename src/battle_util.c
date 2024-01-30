@@ -8603,13 +8603,11 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return TRUE;
     else if (gProtectStructs[battler].burningBulwarked)
         return TRUE;
-    else if ((gProtectStructs[battler].obstructed || gProtectStructs[battler].silkTrapped) && !IS_MOVE_STATUS(move))
+    else if ((gProtectStructs[battler].obstructed || gProtectStructs[battler].silkTrapped || gProtectStructs[battler].detectShielded || gProtectStructs[battler].shelltered) && !IS_MOVE_STATUS(move))
         return TRUE;
     else if (gProtectStructs[battler].spikyShielded)
         return TRUE;
     else if (gProtectStructs[battler].kingsShielded && gBattleMoves[move].power != 0)
-        return TRUE;
-    else if (gProtectStructs[battler].detectShielded && gBattleMoves[move].power != 0)
         return TRUE;
     else if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_QUICK_GUARD
              && GetChosenMovePriority(gBattlerAttacker) > 0)
@@ -8902,11 +8900,21 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_RETURN:
         basePower = 10 * (gBattleMons[battlerAtk].friendship) / 25;
         break;
+    case MOVE_WATERFALL:
+        basePower = 16 * (gBattleMons[battlerAtk].friendship) / 51;
+        break;
+    case MOVE_CUT:
+        basePower = (gBattleMons[battlerAtk].friendship) / 3;
+        break;
     case MOVE_ROCK_SMASH:
     case MOVE_STRENGTH:
+    case MOVE_ROCK_CLIMB:
+    case MOVE_SURF:
         basePower = 6 * (gBattleMons[battlerAtk].friendship) / 17;
         break;
+    case MOVE_DIVE:
     case MOVE_FLY:
+    case MOVE_WHIRLPOOL:
         basePower = 8 * (gBattleMons[battlerAtk].friendship) / 17;
         break;
     case EFFECT_FRUSTRATION:
@@ -8970,6 +8978,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_WRING_OUT:
         basePower = 120 * gBattleMons[battlerDef].hp / gBattleMons[battlerDef].maxHP;
         break;
+    case MOVE_SYNCHRONOISE:
+        if (DoBattlersShareType(gBattlerAttacker, gBattlerTarget))
+            basePower *= 2;
+        break; 
     case EFFECT_HEX:
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
@@ -9077,6 +9089,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_EXPLOSION:
         if (move == MOVE_MISTY_EXPLOSION && gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN && IsBattlerGrounded(battlerAtk))
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
+        break;
+    case MOVE_PSYCHIC:
+        if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+            basePower = 120;
         break;
     case EFFECT_DYNAMAX_DOUBLE_DMG:
         #ifdef B_DYNAMAX
@@ -10548,7 +10564,7 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
-        if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE)
+        if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE || gBattleMoves[move].effect == EFFECT_MUDDY_WATER)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
     }
 

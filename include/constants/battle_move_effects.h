@@ -439,6 +439,11 @@
 #define EFFECT_FLASH                        433
 #define EFFECT_CHARM                        434
 #define EFFECT_BITTER_MALICE                435
-#define NUM_BATTLE_MOVE_EFFECTS             436
+#define EFFECT_HEART_STAMP                  436
+#define EFFECT_MEDITATE                     437
+#define EFFECT_METEOR_MASH                  438
+#define EFFECT_FLIP_TURN                    439
+#define EFFECT_MUDDY_WATER                  440
+#define NUM_BATTLE_MOVE_EFFECTS             441
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

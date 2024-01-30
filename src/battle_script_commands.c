@@ -1647,7 +1647,7 @@ static bool32 AccuracyCalcHelper(u16 move)
         return TRUE;
     }
 
-    if ((gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION) && move == MOVE_SWEET_KISS)
+    if ((gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION) && (move == MOVE_SWEET_KISS || move == MOVE_LOVELY_KISS))
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -1972,6 +1972,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || gBattleMoves[move].effect == EFFECT_VITAL_THROW
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
+             || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY))
     {
         critChance = -2;
@@ -3658,6 +3659,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_MAT_BLOCK;
                     gProtectStructs[gBattlerTarget].spikyShielded = FALSE;
                     gProtectStructs[gBattlerTarget].kingsShielded = FALSE;
+                    gProtectStructs[gBattlerTarget].shelltered = FALSE;
                     gProtectStructs[gBattlerTarget].detectShielded = FALSE;
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
@@ -3845,6 +3847,45 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDown;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                }
+                break;
+            case MOVE_EFFECT_HEART_STAMP:
+                {
+                    u32 HeartStamprandomFlinchChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
+
+                    if (HeartStamprandomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
+                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
+
+                    if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_HeartStampDefDown2;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                }
+                break;
+            case MOVE_EFFECT_METEOR_MASH:
+                {
+                    u32 MeteorMashrandomRaiseAttackChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
+
+                    if (MeteorMashrandomRaiseAttackChance)
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
+                    }
+                    else if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
                     }
                     else
                     {
@@ -5481,6 +5522,17 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
                 }
+                else if (gProtectStructs[gBattlerTarget].shelltered)
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    i = gBattlerAttacker;
+                    gBattlerAttacker = gBattlerTarget;
+                    gBattlerTarget = i; // gBattlerTarget and gBattlerAttacker are swapped in order to activate Defiant, if applicable
+                    gBattleScripting.moveEffect = MOVE_EFFECT_ACC_MINUS_1;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    effect = 1;
+                }
                 // Not strictly a protect effect, but works the same way
                 else if (gProtectStructs[gBattlerTarget].beakBlastCharge
                          && CanBeBurned(gBattlerAttacker)
@@ -5993,6 +6045,12 @@ static void Cmd_moveend(void)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
+                    }
+
+                    if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE && !NoAliveMonsForEitherParty())
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_BarbBarrage;
                     }
 
                     BattleScriptPushCursor();
@@ -7783,7 +7841,7 @@ static void Cmd_setgravity(void)
     else
     {
         gFieldStatuses |= STATUS_FIELD_GRAVITY;
-        gFieldTimers.gravityTimer = 5;
+        gFieldTimers.gravityTimer = 6;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
@@ -9345,7 +9403,7 @@ static void Cmd_various(void)
             case ABILITY_FLOWER_GIFT:       case ABILITY_ILLUSION:
             case ABILITY_WONDER_GUARD:      case ABILITY_ZEN_MODE:
             case ABILITY_STANCE_CHANGE:     case ABILITY_IMPOSTER:
-            case ABILITY_DORMANT:   case ABILITY_BATTLE_BOND:
+            case ABILITY_DORMANT:           case ABILITY_BATTLE_BOND:
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
@@ -10970,6 +11028,11 @@ static void Cmd_setprotectlike(void)
             else if (gCurrentMove == MOVE_KINGS_SHIELD)
             {
                 gProtectStructs[gBattlerAttacker].kingsShielded = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
+            else if (gCurrentMove == MOVE_SHELTER)
+            {
+                gProtectStructs[gBattlerAttacker].shelltered = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
             else if (gCurrentMove == MOVE_DETECT)
@@ -15199,15 +15262,15 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_NEST_BALL:
             #if B_NEST_BALL_MODIFIER >= GEN_6
-                //((41 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
+                //((41 - Pok?mon's level) ????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)?? if Pok?mon's level is between 1 and 29, 1?? otherwise.
                 if (gBattleMons[gBattlerTarget].level < 30)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #elif B_NEST_BALL_MODIFIER == GEN_5
-                //((41 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
+                //((41 - Pok?mon's level) ????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 31)
                     ballMultiplier = 410 - (gBattleMons[gBattlerTarget].level * 10);
             #else
-                //((40 - Pok?mon's level) ????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½????¿½?¿½??¿½?¿½???¿½?¿½??¿½?¿½ 10)??, minimum 1??
+                //((40 - Pok?mon's level) ????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½????ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½???ï¿½ï¿½?ï¿½ï¿½??ï¿½ï¿½?ï¿½ï¿½ 10)??, minimum 1??
                 if (gBattleMons[gBattlerTarget].level < 40)
                 {
                     ballMultiplier = 400 - (gBattleMons[gBattlerTarget].level * 10);

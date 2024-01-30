@@ -48,7 +48,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAccuracyDown            @ EFFECT_ACCURACY_DOWN
 	.4byte BattleScript_EffectEvasionDown             @ EFFECT_EVASION_DOWN
 	.4byte BattleScript_EffectHaze                    @ EFFECT_HAZE
-	.4byte BattleScript_EffectBide                    @ EFFECT_BIDE
+	.4byte BattleScript_EffectCosmicPower             @ EFFECT_BIDE
 	.4byte BattleScript_EffectRampage                 @ EFFECT_RAMPAGE
 	.4byte BattleScript_EffectRoar                    @ EFFECT_ROAR
 	.4byte BattleScript_EffectHit                     @ EFFECT_MULTI_HIT
@@ -313,7 +313,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectShellSmash              @ EFFECT_SHELL_SMASH
 	.4byte BattleScript_EffectShiftGear               @ EFFECT_SHIFT_GEAR
 	.4byte BattleScript_EffectDefenseUp3              @ EFFECT_DEFENSE_UP_3
-	.4byte BattleScript_EffectNobleRoar               @ EFFECT_NOBLE_ROAR
+	.4byte BattleScript_EffectFakeOut                 @ EFFECT_NOBLE_ROAR
 	.4byte BattleScript_EffectVenomDrench             @ EFFECT_VENOM_DRENCH
 	.4byte BattleScript_EffectToxicThread             @ EFFECT_TOXIC_THREAD
 	.4byte BattleScript_EffectClearSmog               @ EFFECT_CLEAR_SMOG
@@ -421,7 +421,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_HYDRO_STEAM
 	.4byte BattleScript_EffectHitSetEntryHazard       @ EFFECT_HIT_SET_ENTRY_HAZARD
 	.4byte BattleScript_EffectDireClaw                @ EFFECT_DIRE_CLAW
-	.4byte BattleScript_EffectBarbBarrage             @ EFFECT_BARB_BARRAGE
+	.4byte BattleScript_EffectMultiHit                @ EFFECT_BARB_BARRAGE
 	.4byte BattleScript_EffectRevivalBlessing         @ EFFECT_REVIVAL_BLESSING
 	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_FROSTBITE_HIT
 	.4byte BattleScript_EffectSnow                    @ EFFECT_SNOWSCAPE
@@ -462,6 +462,46 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlash                   @ EFFECT_FLASH
 	.4byte BattleScript_EffectCharm                   @ EFFECT_CHARM
 	.4byte BattleScript_EffectBitterMalice            @ EFFECT_BITTER_MALICE
+	.4byte BattleScript_EffectHeartStamp              @ EFFECT_HEART_STAMP
+	.4byte BattleScript_EffectMeditate                @ EFFECT_MEDITATE
+	.4byte BattleScript_EffectMeteorMash              @ EFFECT_METEOR_MASH
+	.4byte BattleScript_EffectFlipTurn                @ EFFECT_FLIP_TURN
+	.4byte BattleScript_EffectAccuracyDownHit         @ EFFECT_MUDDY_WATER
+
+BattleScript_EffectMeteorMash:
+	setmoveeffect MOVE_EFFECT_METEOR_MASH
+	goto BattleScript_EffectHit
+
+BattleScript_EffectMeditate::
+	attackcanceler
+	attackstring
+	ppreduce
+BattleScript_MeditateTryToRaiseStats::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_MeditateDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_MeditateDoMoveAnim::
+	attackanimation
+	waitanimation
+BattleScript_MeditateStatRaise::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MeditateTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MeditateTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MeditateTrySpDef::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MeditateEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MeditateEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MeditateEnd::
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectHeartStamp:
+	setmoveeffect MOVE_EFFECT_HEART_STAMP
+	goto BattleScript_EffectHit
 
 BattleScript_EffectCharm:
 	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectAttackDown2 
@@ -612,6 +652,20 @@ BattleScript_EffectSilverWind:
 
 BattleScript_EffectUTurn:
 	setmoveeffect MOVE_EFFECT_FLINCH
+	call BattleScript_EffectHit_Ret
+	jumpifmovehadnoeffect BattleScript_MoveEnd
+	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	moveendto MOVEEND_ATTACKER_VISIBLE
+	moveendfrom MOVEEND_TARGET_VISIBLE
+	jumpifbattleend BattleScript_HitEscapeEnd
+	jumpifbyte CMP_NOT_EQUAL gBattleOutcome 0, BattleScript_HitEscapeEnd
+	jumpifemergencyexited BS_TARGET, BattleScript_HitEscapeEnd
+	goto BattleScript_MoveSwitch
+
+BattleScript_EffectFlipTurn:
+	setmoveeffect MOVE_EFFECT_SPD_MINUS_1
 	call BattleScript_EffectHit_Ret
 	jumpifmovehadnoeffect BattleScript_MoveEnd
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
@@ -991,7 +1045,7 @@ BattleScript_EffectMakeItRain:
 	call BattleScript_EffectHit_Ret
 	seteffectwithchance
 	tryfaintmon BS_TARGET
-	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_2 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	seteffectprimary
 	goto BattleScript_MoveEnd
 
@@ -1901,6 +1955,11 @@ BattleScript_DefDown::
 BattleScript_DefDown_Ret:
 	return
 
+BattleScript_HeartStampDefDown2::
+	modifybattlerstatstage BS_TARGET, STAT_DEF, DECREASE, 2, BattleScript_HeartStampDefDown2_Ret, ANIM_ON
+BattleScript_HeartStampDefDown2_Ret:
+	return
+
 BattleScript_EffectPurify:
 	attackcanceler
 	attackstring
@@ -2676,16 +2735,27 @@ BattleScript_EffectVenomDrench:
 	goto BattleScript_ButItFailed
 BattleScript_EffectVenomDrenchCanBeUsed:
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ATK, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPATK, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPDEF, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ACC, MIN_STAT_STAGE, BattleScript_VenomDrenchDoMoveAnim
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_EVASION, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
 BattleScript_VenomDrenchDoMoveAnim::
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPATK | BIT_SPEED, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF | BIT_SPATK | BIT_SPDEF | BIT_SPEED | BIT_ACC | BIT_EVASION, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_ATK, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerDef
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_VenomDrenchTryLowerDef::
+	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_DEF, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerSpAtk
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerSpAtk
 	printfromtable gStatDownStringIds
@@ -2693,6 +2763,13 @@ BattleScript_VenomDrenchDoMoveAnim::
 BattleScript_VenomDrenchTryLowerSpAtk::
 	playstatchangeanimation BS_TARGET, BIT_SPATK, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_SPATK, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerSpDef
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_VenomDrenchTryLowerSpDef::
+	playstatchangeanimation BS_TARGET, BIT_SPDEF, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_SPDEF, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerSpeed
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerSpeed
 	printfromtable gStatDownStringIds
@@ -2700,6 +2777,20 @@ BattleScript_VenomDrenchTryLowerSpAtk::
 BattleScript_VenomDrenchTryLowerSpeed::
 	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_SPEED, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerAcc
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerAcc
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_VenomDrenchTryLowerAcc::
+	playstatchangeanimation BS_TARGET, BIT_ACC, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_ACC, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchTryLowerEvasion
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchTryLowerEvasion
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_VenomDrenchTryLowerEvasion::
+	playstatchangeanimation BS_TARGET, BIT_EVASION, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_EVASION, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_VenomDrenchEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_VenomDrenchEnd
 	printfromtable gStatDownStringIds
@@ -3533,8 +3624,21 @@ BattleScript_EffectMircleEye:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	setmiracleeye BattleScript_ButItFailed
-	goto BattleScript_IdentifiedFoe
+	setmiracleeye BattleScript_EffectMircleEyeStatClear
+	normalisebuffs
+	attackanimation
+	waitanimation
+	printstring STRINGID_STATCHANGESGONE
+	printstring STRINGID_PKMNIDENTIFIED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_EffectMircleEyeStatClear:
+	normalisebuffs
+	attackanimation
+	waitanimation
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectGravity:
 	attackcanceler
@@ -3568,14 +3672,9 @@ BattleScript_EffectRoost:
 	goto BattleScript_PresentHealTarget
 
 BattleScript_EffectCaptivate:
-	setstatchanger STAT_SPATK, 2, TRUE
-	attackcanceler
-	jumpifsubstituteblocks BattleScript_FailedFromAtkString
-	jumpifoppositegenders BattleScript_CaptivateCheckAcc
-	goto BattleScript_FailedFromAtkString
-BattleScript_CaptivateCheckAcc:
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	goto BattleScript_StatDownFromAttackString
+	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectSpecialAttackDown2 
+	setstatchanger STAT_ATK, 2, TRUE
+	goto BattleScript_EffectStatDown
 
 BattleScript_EffectHealBlock:
 	attackcanceler
@@ -3858,10 +3957,13 @@ BattleScript_CantMakeAsleep::
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectBarbBarrage:
 BattleScript_EffectPoisonHit:
 	setmoveeffect MOVE_EFFECT_POISON
 	goto BattleScript_EffectHit
+
+BattleScript_BarbBarrage::
+	setmoveeffect MOVE_EFFECT_POISON
+	return
 
 BattleScript_EffectAbsorb::
 	call BattleScript_EffectHit_Ret
@@ -4189,12 +4291,15 @@ BattleScript_EffectHaze::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectBide::
-	attackcanceler
-	attackstring
-	ppreduce
+BattleScript_EffectBide1::
+	jumpifmove MOVE_COSMIC_POWER, BattleScript_CantRaiseMultipleStats
 	attackanimation
 	waitanimation
+	orword gHitMarker, HITMARKER_CHARGING
+	setbide
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectBide2::
 	orword gHitMarker, HITMARKER_CHARGING
 	setbide
 	goto BattleScript_MoveEnd
@@ -5959,6 +6064,7 @@ BattleScript_EffectFakeOut::
 	attackcanceler
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
 	setmoveeffect MOVE_EFFECT_FLINCH
+	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectNobleRoar
 	goto BattleScript_EffectHit
 
 BattleScript_FailedFromAtkCanceler::
@@ -6705,7 +6811,7 @@ BattleScript_EffectCosmicPower::
 	attackstring
 	ppreduce
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_CosmicPowerDoMoveAnim
-	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectBide1
 BattleScript_CosmicPowerDoMoveAnim::
 	attackanimation
 	waitanimation
@@ -6723,6 +6829,7 @@ BattleScript_CosmicPowerTrySpDef::
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_CosmicPowerEnd::
+	jumpifmove MOVE_BIDE, BattleScript_EffectBide2
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSkyUppercut::
