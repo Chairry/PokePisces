@@ -5027,7 +5027,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
 
                 if (gDisableStructs[battler].isFirstTurn != 2)
                 {
-                    u32 validToRaise = 0, validToLower = 0;
+                    s32 sBattlerTargetPlayerRight = B_POSITION_PLAYER_RIGHT; 
+                    u32 validToRaise = 0, validToLowerLeft = 0, validToLowerRight;
                 #if B_MOODY_ACC_EVASION < GEN_8
                     u32 statsNum = NUM_BATTLE_STATS;
                 #else
@@ -5037,21 +5038,28 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     for (i = STAT_ATK; i < statsNum; i++)
                     {
                         if (CompareStat(gBattlerTarget, i, MIN_STAT_STAGE, CMP_GREATER_THAN))
-                            validToLower |= gBitTable[i];
+                            validToLowerLeft |= gBitTable[i];
+                        if (CompareStat(sBattlerTargetPlayerRight, i, MIN_STAT_STAGE, CMP_GREATER_THAN))
+                            validToLowerRight |= gBitTable[i];
                         if (CompareStat(battler, i, MAX_STAT_STAGE, CMP_LESS_THAN))
                             validToRaise |= gBitTable[i];
                     }
 
+                    if(gBattleMons[battler].species == SPECIES_MORPEKO)
+                        validToRaise = 0; // makes it so shunyongs stats wont increase in offensive form
                     if(gBattleMons[battler].species == SPECIES_MORPEKO_HANGRY)
                         {
-                        validToLower = 0; // makes it so opponents stats wont lower when in defensive form
-                        gStatuses3[battler] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
-                        gDisableStructs[battler].healBlockTimer = 2; //sets so offensive form can't heal
+                        validToLowerLeft = 0; // makes it so opponents stats wont lower when in defensive form
+                        validToLowerRight = 0; // makes it so opponents stats wont lower when in defensive form
+                        gStatuses3[gBattlerTarget] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
+                        gDisableStructs[gBattlerTarget].healBlockTimer = 2; //sets so offensive form can't heal
+                        gStatuses3[sBattlerTargetPlayerRight] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
+                        gDisableStructs[sBattlerTargetPlayerRight].healBlockTimer = 2; //sets so offensive form can't heal
                         BattleScriptPushCursorAndCallback(BattleScript_ShunyongCantHealInOffensiveForm);
                         effect++;
                         }
 
-                    if (validToLower != 0 || validToRaise != 0) // Can lower one stat, or can raise one stat
+                    if (validToLowerLeft != 0 || validToRaise != 0 || validToLowerRight != 0) // Can lower one stat, or can raise one stat
                     {
                         gBattleScripting.statChanger = gBattleScripting.savedStatChanger = 0; // for raising and lowering stat respectively
                         if (validToRaise != 0) // Find stat to raise
@@ -5061,14 +5069,22 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                                 i = (Random() % statsNum) + STAT_ATK;
                             } while (!(validToRaise & gBitTable[i]));
                             SET_STATCHANGER(i, 2, FALSE);
-                            validToLower &= ~(gBitTable[i]); // Can't lower the same stat as raising.
+                            validToLowerLeft &= ~(gBitTable[i]); // Can't lower the same stat as raising.
                         }
-                        if (validToLower != 0) // Find stat to lower
+                        if (validToLowerLeft != 0) // Find stat to lower
                         {
                             do
                             {
                                 i = (Random() % statsNum) + STAT_ATK;
-                            } while (!(validToLower & gBitTable[i]));
+                            } while (!(validToLowerLeft & gBitTable[i]));
+                            SET_STATCHANGER2(gBattleScripting.savedStatChanger, i, 1, TRUE);
+                        }
+                        if (validToLowerRight != 0) // Find stat to lower
+                        {
+                            do
+                            {
+                                i = (Random() % statsNum) + STAT_ATK;
+                            } while (!(validToLowerRight & gBitTable[i]));
                             SET_STATCHANGER2(gBattleScripting.savedStatChanger, i, 1, TRUE);
                         }
                         BattleScriptPushCursorAndCallback(BattleScript_ShunyongAbilityActivates);

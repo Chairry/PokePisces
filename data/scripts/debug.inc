@@ -70,8 +70,8 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_Script_1::
-	trainerbattle_single TRAINER_CHARLIE, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat
-	cleartrainerflag TRAINER_CHARLIE 
+	trainerbattle_double TRAINER_JOHN_AND_JAY_1, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat, AbandonedShip_Corridors_1F_Text_CharlieDefeat
+	cleartrainerflag TRAINER_JOHN_AND_JAY_1 
 	end
 
 Debug_Script_2::
