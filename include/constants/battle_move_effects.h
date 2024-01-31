@@ -444,6 +444,7 @@
 #define EFFECT_METEOR_MASH                  438
 #define EFFECT_FLIP_TURN                    439
 #define EFFECT_MUDDY_WATER                  440
-#define NUM_BATTLE_MOVE_EFFECTS             441
+#define EFFECT_DRAGON_RUIN                  441
+#define NUM_BATTLE_MOVE_EFFECTS             442
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

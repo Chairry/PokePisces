@@ -830,6 +830,7 @@ static const u8 sText_PkmnTellChillingReceptionJoke[] = _("{B_ATK_NAME_WITH_PREF
 static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\nto create a decoy!");
 static const u8 sText_ElectroShockCharging[] = _("{B_ATK_NAME_WITH_PREFIX} absorbed\nelectricity!");
 static const u8 sText_DestroyRoomAndTerrain[] = _("{B_ATK_NAME_WITH_PREFIX} destroyed Rooms\nand Terrains!");
+static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing arcane draconic\nenergy for a grand attack!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1511,6 +1512,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SHEDITSTAIL - BATTLESTRINGS_TABLE_START] = sText_ShedItsTail,
     [STRINGID_ELECTROSHOCKCHARGING - BATTLESTRINGS_TABLE_START] = sText_ElectroShockCharging,
     [STRINGID_DESTROYROOMANDTERRAIN - BATTLESTRINGS_TABLE_START] = sText_DestroyRoomAndTerrain,
+    [STRINGID_DRAGONRUINCHARGING - BATTLESTRINGS_TABLE_START] = sText_DragonRuinCharging,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1759,6 +1761,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_SKY_DROP]      = STRINGID_PKMNTOOKTARGETHIGH,
     [B_MSG_TURN1_METEOR_BEAM]   = STRINGID_METEORBEAMCHARGING,
     [B_MSG_TURN1_ELECTRO_SHOCK] = STRINGID_ELECTROSHOCKCHARGING,
+    [B_MSG_TURN1_DRAGON_RUIN]   = STRINGID_DRAGONRUINCHARGING,
 };
 
 // Index copied from move's index in sTrappingMoves

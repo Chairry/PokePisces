@@ -890,6 +890,7 @@ gBattleAnims_Moves::
 	.4byte Move_GEO_PULSE
 	.4byte Move_DEMOLISHER
 	.4byte Move_ARCANE_POWER
+	.4byte Move_DRAGON_RUIN
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16626,21 +16627,8 @@ Move_BURNING_BULWARK:
 	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER 0x10
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PROTECT, 0x0, 0xD, 0xD, 0x015B   @Gray
 	createsprite gProtectSpriteTemplate, ANIM_ATTACKER, 2, 0x18, 0x0, 0x5a
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
-	delay 0x4
-	call FlameChargeSwirl
+	call FireSpreadEffect
+	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_ATTACKER, RGB_RED, 10, 0, 2
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
 	end
@@ -18290,6 +18278,101 @@ Move_DEMOLISHER:
 
 Move_ARCANE_POWER:
 	goto Move_MYSTICAL_POWER
+
+Move_DRAGON_RUIN:
+	choosetwoturnanim DRAGON_RUIN_CHARGE DRAGON_RUIN_BLAST
+
+DRAGON_RUIN_CHARGE:
+	loadspritegfx ANIM_TAG_ROCKS
+	loadspritegfx ANIM_TAG_SHOCK_3 @charge
+	loadspritegfx ANIM_TAG_SPARK_2 @ElectricityEffect
+	loadspritegfx ANIM_TAG_SMALL_RED_EYE @red color
+	loadspritegfx ANIM_TAG_THIN_RING @calm mind
+	loadspritegfx ANIM_TAG_SMALL_EMBER @yellow color
+	loadspritegfx ANIM_TAG_ORBS @recover
+	monbg ANIM_DEF_PARTNER
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	setalpha 12, 8
+	createsprite gShakeMonOrTerrainSpriteTemplate, ANIM_ATTACKER, 2, 4, 1, 10, 1
+	createsprite gPhotonGeyserChargeTemplate, ANIM_ATTACKER, 2, 0x0
+	call PhotonGeyserSparks1
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0xffd8, 0xffd8, 0x10
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x28, 0x10
+	delay 0xA
+	call PhotonGeyserSparks2
+	delay 0xA
+	call PhotonGeyserSparks1
+	delay 0xA
+	call PhotonGeyserSparks2
+	delay 0xA
+	call PhotonGeyserSparks1
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0xffd8, 0x10
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0x28, 0x14, 0x10
+	delay 0xA
+	call PhotonGeyserSparks2
+	delay 0xA
+	call PhotonGeyserSparks1
+	delay 0xA
+	call PhotonGeyserSparks2
+	delay 0xA
+	call PhotonGeyserSparks1
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0xffd8, 0x0, 0x10
+	createsprite gPowerAbsorptionOrbSpriteTemplate, ANIM_ATTACKER, 2, 0x28, 0x0, 0x10
+	delay 0xA
+	call PhotonGeyserSparks2
+	delay 0xA
+	call PhotonGeyserSparks1
+	delay 0xA
+	call PhotonGeyserSparks2
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 20, 32, -48, 50, 2
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, -38, 25, 5
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 32, 32, -28, 40, 3
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, -20, 32, -48, 50, 2
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 20, 32, -28, 60, 1
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, -28, 30, 4
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 30, 1
+	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
+	delay 10
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 15, 32, -48, 25, 5
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, -10, 32, -42, 30, 4
+	delay 10
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, -42, 25, 5
+	createsprite gAncientPowerRockSpriteTemplate, ANIM_ATTACKER, 2, -25, 32, -48, 30, 4
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	clearmonbg ANIM_DEF_PARTNER
+	end
+
+DRAGON_RUIN_BLAST:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_EXPLOSION
+	loadspritegfx ANIM_TAG_WATER_GUN
+	loadspritegfx ANIM_TAG_SPARK_2 @spark
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @psycho boost
+	loadspritegfx ANIM_TAG_FIRE_PLUME @blast burn
+	loadspritegfx ANIM_TAG_EXPLOSION_2 @explode
+	loadspritegfx ANIM_TAG_STRAIGHT_BEAM
+	monbg ANIM_TARGET
+	fadetobg BG_BLACKHOLE_ECLIPSE
+	waitbgfadeout
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_RIGHT, 0, 50
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 0, 50
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x6, 0x0, 0x10, 0x43FF @;Light yellow
+	call PhotonGeyserBeam
+	call LightThatBurnsTheSkyGeyser
+	call LightThatBurnsTheSkyBlast_1
+	call LightThatBurnsTheSkyGeyser
+	call LightThatBurnsTheSkyBlast_2
+	call LightThatBurnsTheSkyGeyser
+	createvisualtask AnimTask_BlendBattleAnimPal, 0x2, (F_PAL_BG | F_PAL_ALL_BUT_DEF), 0x4, 0x0, 0x10, 0x43FF
+	call LightThatBurnsTheSkyBlast_3
+	clearmonbg ANIM_TARGET
+	delay 50
+	call UnsetPsychicBg
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0x2, (F_PAL_BG | F_PAL_BATTLERS), 0x0, 0x10, 0x0, 0x43FF
+	waitforvisualfinish
+	end
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

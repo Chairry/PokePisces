@@ -21655,12 +21655,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_UHEFOE] =
     {
-        .baseHP        = 65,
+        .baseHP        = 85,
         .baseAttack    = 45,
-        .baseDefense   = 85,
+        .baseDefense   = 90,
         .baseSpeed     = 100,
         .baseSpAttack  = 45,
-        .baseSpDefense = 85,
+        .baseSpDefense = 90,
         .types = { TYPE_PSYCHIC, TYPE_STEEL },
         .catchRate = 90,
         .expYield = 170,
@@ -22342,12 +22342,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_CHIROBERRA] =
     {
-        .baseHP        = 50,
+        .baseHP        = 70,
         .baseAttack    = 70,
-        .baseDefense   = 90,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 90,
+        .baseDefense   = 100,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 100,
         .types = { TYPE_NORMAL,TYPE_FLYING },
         .catchRate = 100,
         .expYield = 100,
@@ -24520,10 +24520,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_TARDRITCH] =
     {
-        .baseHP        = 250,
+        .baseHP        = 255,
         .baseAttack    = 100,
         .baseDefense   = 35,
-        .baseSpeed     = 20,
+        .baseSpeed     = 15,
         .baseSpAttack  = 100,
         .baseSpDefense = 35,
         .types = { TYPE_WATER,TYPE_POISON },

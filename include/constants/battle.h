@@ -391,7 +391,8 @@
 #define MOVE_EFFECT_BARB_BARRAGE        83
 #define MOVE_EFFECT_HEART_STAMP         84
 #define MOVE_EFFECT_METEOR_MASH         85
-#define NUM_MOVE_EFFECTS                86
+#define MOVE_EFFECT_DEF_SPDEF_UP        86
+#define NUM_MOVE_EFFECTS                87
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
