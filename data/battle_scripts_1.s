@@ -467,6 +467,48 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMeteorMash              @ EFFECT_METEOR_MASH
 	.4byte BattleScript_EffectFlipTurn                @ EFFECT_FLIP_TURN
 	.4byte BattleScript_EffectAccuracyDownHit         @ EFFECT_MUDDY_WATER
+	.4byte BattleScript_EffectDragonRuin              @ EFFECT_DRAGON_RUIN
+
+BattleScript_EffectDragonRuin::
+	@ DecideTurn
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_DragonRuinSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_DragonRuinSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_DRAGON_RUIN
+	goto BattleScript_TryDragonRuinCharging
+BattleScript_TryDragonRuinCharging:
+	call BattleScript_FirstChargingTurnDragonRuin
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+	goto BattleScript_DragonRuinSecondTurn
+
+BattleScript_DragonRuinSecondTurn::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	seteffectsecondary
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	argumenttomoveeffect
+	goto BattleScript_HitFromAtkString
+
+BattleScript_FirstChargingTurnDragonRuin::
+	attackcanceler
+	printstring STRINGID_EMPTYSTRING3
+	ppreduce
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_CHARGING
+	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
+	printfromtable gFirstTurnOfTwoStringIds
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER
+	seteffectsecondary
+	return
 
 BattleScript_EffectMeteorMash:
 	setmoveeffect MOVE_EFFECT_METEOR_MASH
@@ -1041,6 +1083,8 @@ BattleScript_CorrosiveGasFail:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectMakeItRain:
+	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_MakeItRainDoubles
+BattleScript_MakeItRainContinuous:
 	setmoveeffect MOVE_EFFECT_PAYDAY
 	call BattleScript_EffectHit_Ret
 	seteffectwithchance
@@ -1048,6 +1092,9 @@ BattleScript_EffectMakeItRain:
 	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_2 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	seteffectprimary
 	goto BattleScript_MoveEnd
+BattleScript_MakeItRainDoubles:
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
+	goto BattleScript_MakeItRainContinuous
 
 BattleScript_EffectSpinOut::
 	setmoveeffect MOVE_EFFECT_SPD_MINUS_2 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
@@ -1357,7 +1404,10 @@ BattleScript_EffectMeteorBeam::
 BattleScript_TryCharging:
 	call BattleScript_FirstChargingTurnMeteorBeam
 	jumpifmove MOVE_METEOR_BEAM, BattleScript_TryMeteorBeam
+	jumpifmove MOVE_ELECTRO_SHOT, BattleScript_TryElectroShot
+BattleScript_TryElectroShot:
 	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_TwoTurnMovesSecondTurn @ Check for move Electro Shot
+	goto BattleScript_TryMeteorBeam
 BattleScript_TryMeteorBeam:
 	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
 	call BattleScript_PowerHerbActivation
@@ -8293,6 +8343,25 @@ BattleScript_DefSpDefDownTrySpDef::
 BattleScript_DefSpDefDownRet::
 	return
 
+BattleScript_DefSpDefUp::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_ATTACKER, BIT_DEF, STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_DefSpDefUpTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DefSpDefUpTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefSpDefUpTrySpDef::
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF, STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_DefSpDefUpRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DefSpDefUpRet
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefSpDefUpRet::
+	return
+
 BattleScript_DefDownSpeedUp::
 	jumpifstat BS_ATTACKER, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_DefDownSpeedUpTryDef
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_DefDownSpeedUpRet
@@ -8500,6 +8569,20 @@ BattleScript_AttackerFormChangeNoPopup::
 	playanimation BS_ATTACKER, B_ANIM_FORM_CHANGE
 	waitanimation
 	handleformchange BS_ATTACKER, 2
+	return
+
+BattleScript_DefenderFormChange::
+	pause 5
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+BattleScript_DefenderFormChangeNoPopup::
+	handleformchange BS_TARGET, 0
+	handleformchange BS_TARGET, 1
+	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
+	waitanimation
+	handleformchange BS_TARGET, 2
 	return
 
 BattleScript_AttackerFormChangeEnd3::

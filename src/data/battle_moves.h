@@ -5656,7 +5656,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .type = TYPE_WATER,
         .accuracy = 95,
         .pp = 10,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -14356,6 +14356,23 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_DRAGON_RUIN] =
+    {
+        .effect = EFFECT_DRAGON_RUIN,
+        .power = 255,
+        .type = TYPE_DRAGON,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_3,
+        .instructBanned = TRUE,
+        .ignoresProtect = TRUE,
     },
 
     // Z-Moves

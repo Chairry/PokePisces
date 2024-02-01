@@ -1082,7 +1082,7 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SHIVERSNAP]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_EXCATATOR]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_MARSOYART]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
-    [SPECIES_CINDRILLON]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_CINDRILLON]                   = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  6 },
     [SPECIES_ARMAGATTON]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_FAKYSNAKY]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_PANTNEY]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
@@ -1136,6 +1136,11 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_STOLYCE]                      = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  7 },
     [SPECIES_LOTTABATS]                    = { .size = MON_COORDS_SIZE(64, 40), .y_offset = 11 },
     [SPECIES_GAOTERRA]                     = { .size = MON_COORDS_SIZE(56, 56), .y_offset =  0 },
+    [SPECIES_BISHOUCHA]                    = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  5 },
+    [SPECIES_PAPYPUS]                      = { .size = MON_COORDS_SIZE(64, 40), .y_offset =  9 },
+    [SPECIES_SHISHIMA]                     = { .size = MON_COORDS_SIZE(40, 24), .y_offset = 21 },
+    [SPECIES_SHUNYONG]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_KINGAMBIT]                    = { .size = MON_COORDS_SIZE(40, 64), .y_offset =  1 },
 #endif
     [SPECIES_VENUSAUR_MEGA]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  8 },
     [SPECIES_CHARIZARD_MEGA_X]             = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
@@ -1554,6 +1559,12 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_LOTTABATS_HUDDLED]            = { .size = MON_COORDS_SIZE(64, 40), .y_offset = 10 },
     [SPECIES_GAOTERRA_SOLAR]               = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  0 },
     [SPECIES_GAOTERRA_LUNAR]               = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  0 },
+    [SPECIES_BISHOUCHA_WARMONGER]          = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
+    [SPECIES_PAPYPUS_FEMALE]               = { .size = MON_COORDS_SIZE(64, 40), .y_offset =  9 },
+    [SPECIES_CINDRILLON_PIRROUETTE]        = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_CINDRILLON_FEAROUETTE]        = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
+    [SPECIES_SHISHIMA_PUNISHER]            = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE]      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
 #endif
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },
 };

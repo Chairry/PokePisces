@@ -11304,7 +11304,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_POMELONIAN] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Sweet Ball"),
         .height = 999,
         .weight = 999,
         .description = gPomelonianPokedexText,
@@ -11316,7 +11316,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_GOURDOUG] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Sweet Melon"),
         .height = 999,
         .weight = 999,
         .description = gGourdougPokedexText,
@@ -11328,7 +11328,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_FOGGLEHIND] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Behind"),
         .height = 999,
         .weight = 999,
         .description = gFogglehindPokedexText,
@@ -11340,7 +11340,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MATCHLIT] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Stolen"),
         .height = 999,
         .weight = 999,
         .description = gMatchlitPokedexText,
@@ -11352,7 +11352,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_YAGANGRAN] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Wicked"),
         .height = 999,
         .weight = 999,
         .description = gYagangranPokedexText,
@@ -11364,7 +11364,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_PIDIUM] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Medium"),
         .height = 999,
         .weight = 999,
         .description = gPidiumPokedexText,
@@ -11376,7 +11376,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MEDGEON] =
     {
-        .categoryName = _("REPLACE ME"),
+        .categoryName = _("Psychic"),
         .height = 999,
         .weight = 999,
         .description = gMedgeonPokedexText,
@@ -13256,6 +13256,66 @@ const struct PokedexEntry gPokedexEntries[] =
         .pokemonOffset = 0,
         .trainerScale = 650,
         .trainerOffset = 16,
+    },
+
+    [NATIONAL_DEX_BISHOUCHA] =
+    {
+        .categoryName = _("Conqueror"),
+        .height = 999,
+        .weight = 999,
+        .description = gBishouchaPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_PAPYPUS] =
+    {
+        .categoryName = _("Humble"),
+        .height = 999,
+        .weight = 999,
+        .description = gPapypusPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SHISHIMA] =
+    {
+        .categoryName = _("Punishment"),
+        .height = 999,
+        .weight = 999,
+        .description = gShishimaPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SHUNYONG] =
+    {
+        .categoryName = _("Coalescent"),
+        .height = 999,
+        .weight = 999,
+        .description = gShunyongPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_KINGAMBIT] =
+    {
+        .categoryName = _("Big Blade"),
+        .height = 999,
+        .weight = 999,
+        .description = gKingambitPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
     },
 #endif
 };

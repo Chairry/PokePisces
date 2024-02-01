@@ -3353,12 +3353,16 @@ static const u8 sGeoPulseDescription[] = _(
     "from rocks. May raise Def.");
 
 static const u8 sDemolisherDescription[] = _(
-    "Destroys and gets boosted in\n"
-    "Terrains and Rooms.");
+    "Destroys and gets boosted\n"
+    "in Terrains and Rooms.");
 
 static const u8 sArcanePowerDescription[] = _(
     "A draconic attack that may\n"
     "double all stats.");
+
+static const u8 sDragonRuinDescription[] = _(
+    "The user charges raising\n"
+    "defenses. Also recharges.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4233,4 +4237,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GEO_PULSE - 1] = sGeoPulseDescription,
     [MOVE_DEMOLISHER - 1] = sDemolisherDescription,
     [MOVE_ARCANE_POWER - 1] = sArcanePowerDescription,
+    [MOVE_DRAGON_RUIN - 1] = sDragonRuinDescription,
 };

@@ -705,7 +705,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BOLT_BEAK] = _("Bolt Beak"),
     [MOVE_FISHIOUS_REND] = _("Sea Jaws"),
     [MOVE_COURT_CHANGE] = _("Court Change"),
-    [MOVE_CLANGOROUS_SOUL] = _("Scale Soul"),
+    [MOVE_CLANGOROUS_SOUL] = _("Mixtape"),
     [MOVE_BODY_PRESS] = _("Body Press"),
     [MOVE_DECORATE] = _("Decorate"),
     [MOVE_DRUM_BEATING] = _("Drum Beating"),
@@ -865,6 +865,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_GEO_PULSE] = _("Geo Pulse"),
     [MOVE_DEMOLISHER] = _("Demolisher"),
     [MOVE_ARCANE_POWER] = _("Arcane Power"),
+    [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
 };
 #else
 // 12 letters
@@ -1573,7 +1574,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BOLT_BEAK] = _("Bolt Beak"),
     [MOVE_FISHIOUS_REND] = _("Sea Jaws"),
     [MOVE_COURT_CHANGE] = _("Court Change"),
-    [MOVE_CLANGOROUS_SOUL] = _("Scale Soul"),
+    [MOVE_CLANGOROUS_SOUL] = _("Mixtape"),
     [MOVE_BODY_PRESS] = _("Body Press"),
     [MOVE_DECORATE] = _("Decorate"),
     [MOVE_DRUM_BEATING] = _("Drum Beating"),
@@ -1733,6 +1734,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_GEO_PULSE] = _("Geo Pulse"),
     [MOVE_DEMOLISHER] = _("Demolisher"),
     [MOVE_ARCANE_POWER] = _("Arcane Power"),
+    [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
 };
 #endif
 

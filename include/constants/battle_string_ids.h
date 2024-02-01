@@ -690,8 +690,8 @@
 #define STRINGID_DESTROYROOMANDTERRAIN                687
 #define STRINGID_TARGETABILITYSTATRAISESHARPLY        688
 #define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    690
-
-#define BATTLESTRINGS_COUNT                           691
+#define STRINGID_DRAGONRUINCHARGING                   691
+#define BATTLESTRINGS_COUNT                           692
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -751,6 +751,7 @@
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
 #define B_MSG_TURN1_ELECTRO_SHOCK  13
+#define B_MSG_TURN1_DRAGON_RUIN    14
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0

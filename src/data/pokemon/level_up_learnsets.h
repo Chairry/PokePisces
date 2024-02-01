@@ -18224,7 +18224,7 @@ static const struct LevelUpMove sEbibiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 8, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE(12, MOVE_FLAME_BURST),
     LEVEL_UP_MOVE(16, MOVE_BUBBLE),
-    LEVEL_UP_MOVE(20, MOVE_MYSTICAL_POWER),
+    LEVEL_UP_MOVE(20, MOVE_ARCANE_POWER),
     LEVEL_UP_MOVE(24, MOVE_FILLET_AWAY),
     LEVEL_UP_MOVE(28, MOVE_FLAMETHROWER),
     LEVEL_UP_MOVE(32, MOVE_HYDRO_STEAM),
@@ -18245,7 +18245,7 @@ static const struct LevelUpMove sMakibiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 8, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE(12, MOVE_FLAME_BURST),
     LEVEL_UP_MOVE(16, MOVE_BUBBLE),
-    LEVEL_UP_MOVE(20, MOVE_MYSTICAL_POWER),
+    LEVEL_UP_MOVE(20, MOVE_ARCANE_POWER),
     LEVEL_UP_MOVE(28, MOVE_FILLET_AWAY),
     LEVEL_UP_MOVE(32, MOVE_FLAMETHROWER),
     LEVEL_UP_MOVE(36, MOVE_HYDRO_STEAM),
@@ -18267,7 +18267,7 @@ static const struct LevelUpMove sEbirosashiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 8, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE(12, MOVE_FLAME_BURST),
     LEVEL_UP_MOVE(16, MOVE_BUBBLE),
-    LEVEL_UP_MOVE(20, MOVE_MYSTICAL_POWER),
+    LEVEL_UP_MOVE(20, MOVE_ARCANE_POWER),
     LEVEL_UP_MOVE(28, MOVE_FILLET_AWAY),
     LEVEL_UP_MOVE(32, MOVE_FLAMETHROWER),
     LEVEL_UP_MOVE(36, MOVE_HYDRO_STEAM),
@@ -20020,6 +20020,31 @@ static const struct LevelUpMove sShaYonLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sLuoShanLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sKingambitLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBishouchaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPapypusLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sShishimaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sShunyongLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
     LEVEL_UP_END
 };
