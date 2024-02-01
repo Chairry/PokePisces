@@ -3353,8 +3353,8 @@ static const u8 sGeoPulseDescription[] = _(
     "from rocks. May raise Def.");
 
 static const u8 sDemolisherDescription[] = _(
-    "Destroys and gets boosted in\n"
-    "Terrains and Rooms.");
+    "Destroys and gets boosted\n"
+    "in Terrains and Rooms.");
 
 static const u8 sArcanePowerDescription[] = _(
     "A draconic attack that may\n"

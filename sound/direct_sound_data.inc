@@ -4806,6 +4806,26 @@ Cry_LuoShan::
 	.align 2
 Cry_Gaoterra::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Bishoucha::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Papypus::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Shishima::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Shunyong::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Kingambit::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2
@@ -5167,6 +5187,30 @@ Cry_GaoterraSolar::
 Cry_GaoterraLunar::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
+
+	.align 2
+Cry_BishouchaWarmonger::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_PapypusFemale::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_CindrillonPirrouette::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_CindrillonFearouette::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_ShishimaPunisher::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_ShunyongGoldenOffense::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 
 	.align 2
 DirectSoundWaveData_register_noise::

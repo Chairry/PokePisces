@@ -18357,6 +18357,8 @@ DRAGON_RUIN_BLAST:
 	waitbgfadeout
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_RIGHT, 0, 50
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 0, 50
+	loopsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET, 8, 10
+	panse SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 0x2, 0x0
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x6, 0x0, 0x10, 0x43FF @;Light yellow
 	call PhotonGeyserBeam
 	call LightThatBurnsTheSkyGeyser

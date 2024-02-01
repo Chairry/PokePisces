@@ -1112,6 +1112,11 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SHAYON] = _("Sha-Yon"),
     [SPECIES_LUOSHAN] = _("Luo-Shan"),
     [SPECIES_GAOTERRA] = _("Gaoterra"),
+    [SPECIES_BISHOUCHA] = _("Bishoucha"),
+    [SPECIES_PAPYPUS] = _("Papypus"),
+    [SPECIES_SHISHIMA] = _("Shishima"),
+    [SPECIES_SHUNYONG] = _("Shunyong"),
+    [SPECIES_KINGAMBIT] = _("Kingambit"),
 #endif
 
     // Megas
@@ -1533,5 +1538,11 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_LOTTABATS_HUDDLED] = _("Lottabats"),
     [SPECIES_GAOTERRA_SOLAR] = _("Gaoterra"),
     [SPECIES_GAOTERRA_LUNAR] = _("Gaoterra"),
+    [SPECIES_BISHOUCHA_WARMONGER] = _("Bishoucha"),
+    [SPECIES_PAPYPUS_FEMALE] = _("Mamypus"),
+    [SPECIES_CINDRILLON_PIRROUETTE] = _("Cindrillon"),
+    [SPECIES_CINDRILLON_FEAROUETTE] = _("Cindrillon"),
+    [SPECIES_SHISHIMA_PUNISHER] = _("Shishima"),
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = _("Shunyong"),
 #endif
 };

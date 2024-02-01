@@ -31891,6 +31891,26 @@ static const u16 sSnurrowlTeachableLearnset[] = {
 static const u16 sStolyceTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
+
+static const u16 sBishouchaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sPapypusTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sKingambitTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sShunyongTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sShishimaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {

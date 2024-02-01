@@ -6570,4 +6570,34 @@ const u8 gGaoterraPokedexText[] = _(
     "came from the sun, the moon, or originated\n"
     "on Earth. Although, they all agree Gaoterra\n"
     "are just absolutely adorable.");
+
+const u8 gBishouchaPokedexText[] = _(
+    "Calm and jovial, these huge rodent Pokémon\n"
+    "are popular with tourists and children.\n"
+    "Locals, however, are aware not to battle\n"
+    "them, fearing the damage they can cause.");
+
+const u8 gPapypusPokedexText[] = _(
+    "The male Papypus live to serve and\n"
+    "support their children once they’re\n"
+    "born, while the females promptly leave\n"
+    "the pack to find other males.");
+
+const u8 gShishimaPokedexText[] = _(
+    "Those who live in the mountains adore\n"
+    "this bird-like Pokémon, but take caution\n"
+    "as committing any sinful acts in front\n"
+    "of it leads Shishima to maul the target.");
+
+const u8 gShunyongPokedexText[] = _(
+    "The true form of the two legendary\n"
+    "Pokémon. It is known as the “God of the\n"
+    "Golden Plains.” It fluctuates the rise\n"
+    "and fall of all.");
+
+const u8 gKingambitPokedexText[] = _(
+    "Kingambit command squads of Bisharp and\n"
+    "Pawniard to raid villages and habitats to\n"
+    "get food. They, however, lack strategic\n"
+    "versatility when commanding their army.");
 #endif

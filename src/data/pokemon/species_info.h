@@ -837,6 +837,50 @@
         .noFlip = FALSE,                                                        \
     }
 
+#define SHISHIMA_SPECIES_INFO \
+    { \
+        .baseHP        = 65, \
+        .baseAttack    = 25, \
+        .baseDefense   = 85, \
+        .baseSpeed     = 120, \
+        .baseSpAttack  = 20, \
+        .baseSpDefense = 85, \
+        .types = { TYPE_FAIRY, TYPE_ICE }, \
+        .catchRate = 45, \
+        .expYield = 290, \
+        .evYield_Speed = 3, \
+        .genderRatio = MON_GENDERLESS, \
+        .eggCycles = 80, \
+        .friendship = 35, \
+        .growthRate = GROWTH_SLOW, \
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER}, \
+        .abilities = {ABILITY_PUNISHER, ABILITY_PUNISHER, ABILITY_PUNISHER, ABILITY_NONE}, \
+        .bodyColor = BODY_COLOR_WHITE, \
+        .noFlip = FALSE, \
+    }
+
+#define SHUNYONG_SPECIES_INFO \
+    { \
+        .baseHP        = 200, \
+        .baseAttack    = 100, \
+        .baseDefense   = 100, \
+        .baseSpeed     = 100, \
+        .baseSpAttack  = 100, \
+        .baseSpDefense = 100, \
+        .types = { TYPE_DRAGON, TYPE_STEEL }, \
+        .catchRate = 45, \
+        .expYield = 340, \
+        .evYield_HP = 3, \
+        .genderRatio = MON_GENDERLESS, \
+        .eggCycles = 120, \
+        .friendship = 0, \
+        .growthRate = GROWTH_SLOW, \
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER}, \
+        .abilities = {ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_NONE}, \
+        .bodyColor = BODY_COLOR_YELLOW, \
+        .noFlip = FALSE, \
+    }
+
 const struct SpeciesInfo gSpeciesInfo[] =
 {
     [SPECIES_NONE] = {0},
@@ -24394,17 +24438,17 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed     = 102,
         .baseSpAttack  = 73,
         .baseSpDefense = 79,
-        .types = { TYPE_RELIC,TYPE_FIRE },
-        .catchRate = 100,
-        .expYield = 100,
-        .evYield_SpDefense = 2,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 100,
+        .types = { TYPE_RELIC, TYPE_FIRE },
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_Defense = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
         .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_NONE},
-        .bodyColor = BODY_COLOR_BLACK,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_SPEED_BOOST, ABILITY_SPEED_BOOST, ABILITY_SPEED_BOOST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
 
@@ -25375,6 +25419,80 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
+    },
+
+    [SPECIES_BISHOUCHA] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 65,
+        .baseDefense   = 85,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 85,
+        .types = { TYPE_ELECTRIC, TYPE_GROUND },
+        .catchRate = 180,
+        .expYield = 153,
+        .evYield_HP = 1,
+        .evYield_SpAttack = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 10,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_CHEEK_POUCH, ABILITY_UNAWARE, ABILITY_DORMANT, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_PAPYPUS] =
+    {
+        .baseHP        = 122,
+        .baseAttack    = 60,
+        .baseDefense   = 85,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 118,
+        .baseSpDefense = 85,
+        .types = { TYPE_WATER, TYPE_GROUND },
+        .catchRate = 45,
+        .expYield = 171,
+        .evYield_HP = 1,
+        .evYield_SpAttack = 1,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_IMMUNITY, ABILITY_DAMP, ABILITY_POISON_HEAL, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_SHISHIMA] = SHISHIMA_SPECIES_INFO,
+    [SPECIES_SHISHIMA_PUNISHER] = SHISHIMA_SPECIES_INFO,
+
+    [SPECIES_SHUNYONG] = SHUNYONG_SPECIES_INFO,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = SHUNYONG_SPECIES_INFO,
+
+    [SPECIES_KINGAMBIT] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 135,
+        .baseDefense   = 120,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 85,
+        .types = { TYPE_DARK, TYPE_STEEL},
+        .catchRate = 25,
+        .expYield = 275,
+        .evYield_Attack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 50,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE},
+        .abilities = {ABILITY_DEFIANT, ABILITY_SUPREME_OVERLORD, ABILITY_PRESSURE},
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = FALSE,
     },
 #endif
 
@@ -29076,6 +29194,96 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
         .abilities = {ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_BISHOUCHA_WARMONGER] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 65,
+        .baseDefense   = 85,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 85,
+        .types = { TYPE_ELECTRIC, TYPE_FIGHTING },
+        .catchRate = 180,
+        .expYield = 153,
+        .evYield_HP = 1,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 10,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_DORMANT, ABILITY_DORMANT, ABILITY_DORMANT, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_PAPYPUS_FEMALE] =
+    {
+        .baseHP        = 132,
+        .baseAttack    = 60,
+        .baseDefense   = 85,
+        .baseSpeed     = 55,
+        .baseSpAttack  = 128,
+        .baseSpDefense = 85,
+        .types = { TYPE_WATER, TYPE_GROUND },
+        .catchRate = 45,
+        .expYield = 171,
+        .evYield_HP = 1,
+        .evYield_SpAttack = 1,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_IMMUNITY, ABILITY_DAMP, ABILITY_TOXIC_BOOST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_CINDRILLON_PIRROUETTE] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 90,
+        .baseDefense   = 145,
+        .baseSpeed     = 62,
+        .baseSpAttack  = 73,
+        .baseSpDefense = 99,
+        .types = { TYPE_RELIC, TYPE_FIRE },
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_Defense = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_GRIM_NEIGH, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_CINDRILLON_FEAROUETTE] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 110,
+        .baseDefense   = 135,
+        .baseSpeed     = 62,
+        .baseSpAttack  = 83,
+        .baseSpDefense = 79,
+        .types = { TYPE_RELIC, TYPE_FIRE },
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_Defense = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
+        .abilities = {ABILITY_POWER_SPIKE, ABILITY_POWER_SPIKE, ABILITY_POWER_SPIKE, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
 #endif

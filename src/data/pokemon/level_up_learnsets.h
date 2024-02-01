@@ -20024,6 +20024,31 @@ static const struct LevelUpMove sLuoShanLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sKingambitLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBishouchaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPapypusLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sShishimaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sShunyongLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sGaoterraLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_LUNAR_DANCE),
     LEVEL_UP_MOVE( 1, MOVE_LUNAR_BLESSING),

@@ -605,6 +605,34 @@ static const struct FormChange sGaoterraFormChangeTable[] = {
     {FORM_CHANGE_END_BATTLE,    SPECIES_GAOTERRA},
     {FORM_CHANGE_TERMINATOR},
 };
+
+static const struct FormChange sBishouchaDormantFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_HP_PERCENT, SPECIES_BISHOUCHA_WARMONGER, ABILITY_DORMANT, HP_LOWER_EQ_THAN, 50},
+    {FORM_CHANGE_FAINT,             SPECIES_BISHOUCHA},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_BISHOUCHA},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sCindrillonFormChangeTable[] = {
+    {FORM_CHANGE_FAINT,         SPECIES_CINDRILLON},
+    {FORM_CHANGE_END_BATTLE,    SPECIES_CINDRILLON},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sShishimaFormChangeTable[] = {
+    {FORM_CHANGE_FAINT,             SPECIES_SHISHIMA},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_SHISHIMA},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sShunyongFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_TURN_END,   SPECIES_SHUNYONG_GOLDEN_OFFENSE, ABILITY_HUNGER_SWITCH},
+    {FORM_CHANGE_BATTLE_TURN_END,   SPECIES_SHUNYONG,                ABILITY_HUNGER_SWITCH},
+    {FORM_CHANGE_BATTLE_SWITCH,     SPECIES_SHUNYONG},
+    {FORM_CHANGE_FAINT,             SPECIES_SHUNYONG},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_SHUNYONG},
+    {FORM_CHANGE_TERMINATOR},
+};
 #endif
 
 #undef WHEN_LEARNED
