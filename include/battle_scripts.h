@@ -369,6 +369,7 @@ extern const u8 BattleScript_IllusionOff[];
 extern const u8 BattleScript_DancerActivates[];
 extern const u8 BattleScript_AftermathDmg[];
 extern const u8 BattleScript_AttackerFormChange[];
+extern const u8 BattleScript_DefenderFormChange[];
 extern const u8 BattleScript_AttackerFormChangeEnd3[];
 extern const u8 BattleScript_TargetFormChange[];
 extern const u8 BattleScript_AnticipationActivates[];

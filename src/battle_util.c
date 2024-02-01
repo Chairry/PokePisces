@@ -112,7 +112,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
-    ABILITY_HUNGER_SWITCH,
+    ABILITY_GOLDEN_MEAN,
     ABILITY_GULP_MISSILE,
     ABILITY_GRIM_NEIGH,
 };
@@ -138,7 +138,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_BATTLE_BOND,
     ABILITY_DORMANT,
     ABILITY_ICE_FACE,
-    ABILITY_HUNGER_SWITCH,
+    ABILITY_GOLDEN_MEAN,
     ABILITY_GULP_MISSILE,
 };
 
@@ -156,7 +156,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_DORMANT,
     ABILITY_ICE_FACE,
     ABILITY_GULP_MISSILE,
-    ABILITY_HUNGER_SWITCH,
+    ABILITY_GOLDEN_MEAN,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -207,7 +207,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_DORMANT,
     ABILITY_NEUTRALIZING_GAS,
     ABILITY_ICE_FACE,
-    ABILITY_HUNGER_SWITCH,
+    ABILITY_GOLDEN_MEAN,
     ABILITY_GULP_MISSILE,
 };
 
@@ -994,7 +994,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_FLOWER_GIFT] = 1,
     [ABILITY_FORECAST] = 1,
     [ABILITY_GULP_MISSILE] = 1,
-    [ABILITY_HUNGER_SWITCH] = 1,
+    [ABILITY_GOLDEN_MEAN] = 1,
     [ABILITY_ICE_FACE] = 1,
     [ABILITY_ILLUSION] = 1,
     [ABILITY_IMPOSTER] = 1,
@@ -5084,7 +5084,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
-            case ABILITY_HUNGER_SWITCH:
+            case ABILITY_GOLDEN_MEAN:
                 if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_TURN_END))
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3NoPopup);
@@ -5502,7 +5502,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_DISGUISE:
                 case ABILITY_FLOWER_GIFT:
                 case ABILITY_GULP_MISSILE:
-                case ABILITY_HUNGER_SWITCH:
+                case ABILITY_GOLDEN_MEAN:
                 case ABILITY_ICE_FACE:
                 case ABILITY_ILLUSION:
                 case ABILITY_IMPOSTER:
@@ -5540,6 +5540,17 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 SET_STATCHANGER(STAT_ATK, MAX_STAT_STAGE - gBattleMons[battler].statStages[STAT_ATK], FALSE);
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_TargetsStatWasMaxedOut;
+                effect++;
+            }
+            break;
+        case ABILITY_PUNISHER:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && TARGET_TURN_DAMAGED
+             && IsBattlerAlive(battler)
+             && TryBattleFormChange(battler, FORM_CHANGE_BATTLE_TURN_END))
+            {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_DefenderFormChange;
                 effect++;
             }
             break;
@@ -9655,9 +9666,19 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     // attacker's abilities
     switch (atkAbility)
     {
-    case ABILITY_DORMANT:
-        if (IS_MOVE_PHYSICAL(move)) // && gBattleMons[battlerAtk].species == SPECIES_BISHOUCHA_WARMONGER
+    case ABILITY_GOLDEN_MEAN:
+        if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
+    case ABILITY_DORMANT:
+        if (gBattleMons[battlerAtk].species == SPECIES_BISHOUCHA_WARMONGER && IS_MOVE_PHYSICAL(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
+    case ABILITY_PUNISHER:
+        if (gBattleMons[battlerAtk].species == SPECIES_SHISHIMA_PUNISHER && IS_MOVE_PHYSICAL(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(4.0));
         break;
     case ABILITY_HUGE_POWER:
     case ABILITY_PURE_POWER:
@@ -9899,6 +9920,12 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         break;
     case ABILITY_PURIFYING_SALT:
         if (gBattleMoves[move].type == TYPE_GHOST)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
+    case ABILITY_GOLDEN_MEAN:
+        if (gBattleMons[battlerDef].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        if (gBattleMons[battlerDef].species == SPECIES_SHUNYONG)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     }

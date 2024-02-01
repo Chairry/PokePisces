@@ -4708,11 +4708,14 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_QUARK_DRIVE && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && highestStat == STAT_SPEED)
         speed = (speed * 150) / 100;
-    if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
+    else if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
         speed *= 0.75;
-    if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
+    else if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
         speed *= 0.5;
-
+    else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
+        speed *= 2;
+    else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG)
+        speed *= 0.5;
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][0];
     speed /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][1];

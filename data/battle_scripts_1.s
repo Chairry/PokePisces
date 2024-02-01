@@ -8571,6 +8571,20 @@ BattleScript_AttackerFormChangeNoPopup::
 	handleformchange BS_ATTACKER, 2
 	return
 
+BattleScript_DefenderFormChange::
+	pause 5
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+BattleScript_DefenderFormChangeNoPopup::
+	handleformchange BS_TARGET, 0
+	handleformchange BS_TARGET, 1
+	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
+	waitanimation
+	handleformchange BS_TARGET, 2
+	return
+
 BattleScript_AttackerFormChangeEnd3::
 	call BattleScript_AttackerFormChange
 	end3
