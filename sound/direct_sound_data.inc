@@ -5197,7 +5197,7 @@ Cry_PapypusFemale::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 
 	.align 2
-Cry_CindrillonPirrouette::
+Cry_CindrillonPirouette::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 
 	.align 2

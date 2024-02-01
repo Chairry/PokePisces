@@ -2287,7 +2287,7 @@ gCryTable::
 	@ Shishima
 	cry Cry_ShishimaPunisher
 	@ Cindrillon
-	cry Cry_CindrillonPirrouette
+	cry Cry_CindrillonPirouette
 	cry Cry_CindrillonFearouette
 	@ Shunyong
 	cry Cry_ShunyongGoldenOffense
@@ -4606,7 +4606,7 @@ gCryTable_Reverse::
 	@ Shishima
 	cry_reverse Cry_ShishimaPunisher
 	@ Cindrillon
-	cry_reverse Cry_CindrillonPirrouette
+	cry_reverse Cry_CindrillonPirouette
 	cry_reverse Cry_CindrillonFearouette
 	@ Shunyong
 	cry Cry_ShunyongGoldenOffense

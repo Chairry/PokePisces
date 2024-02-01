@@ -866,6 +866,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DEMOLISHER] = _("Demolisher"),
     [MOVE_ARCANE_POWER] = _("Arcane Power"),
     [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
+    [MOVE_CINDER_TWIRL] = _("Cinder Twirl"),
+    [MOVE_CINDER_DRILL] = _("Cinder Drill"),
 };
 #else
 // 12 letters
@@ -1735,6 +1737,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DEMOLISHER] = _("Demolisher"),
     [MOVE_ARCANE_POWER] = _("Arcane Power"),
     [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
+    [MOVE_CINDER_TWIRL] = _("Cinder Twirl"),
+    [MOVE_CINDER_DRILL] = _("Cinder Drill"),
 };
 #endif
 

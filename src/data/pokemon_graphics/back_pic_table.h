@@ -1121,7 +1121,7 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(BISHOUCHA_WARMONGER, gMonBackPic_BishouchaWarmonger),
     SPECIES_SPRITE(PAPYPUS, gMonBackPic_Papypus),
     SPECIES_SPRITE(PAPYPUS_FEMALE, gMonBackPic_PapypusFemale),
-    SPECIES_SPRITE(CINDRILLON_PIRROUETTE, gMonBackPic_CindrillonPirrouette),
+    SPECIES_SPRITE(CINDRILLON_PIROUETTE, gMonBackPic_CindrillonPirouette),
     SPECIES_SPRITE(CINDRILLON_FEAROUETTE, gMonBackPic_CindrillonFearouette),
     SPECIES_SPRITE(SHISHIMA, gMonBackPic_Shishima),
     SPECIES_SPRITE(SHISHIMA_PUNISHER, gMonBackPic_ShishimaPunisher),

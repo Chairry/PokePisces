@@ -1121,7 +1121,7 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(BISHOUCHA_WARMONGER, gMonPalette_BishouchaWarmonger),
     SPECIES_PAL(PAPYPUS, gMonPalette_Papypus),
     SPECIES_PAL(PAPYPUS_FEMALE, gMonPalette_PapypusFemale),
-    SPECIES_PAL(CINDRILLON_PIRROUETTE, gMonPalette_CindrillonPirrouette),
+    SPECIES_PAL(CINDRILLON_PIROUETTE, gMonPalette_CindrillonPirouette),
     SPECIES_PAL(CINDRILLON_FEAROUETTE, gMonPalette_CindrillonFearouette),
     SPECIES_PAL(SHISHIMA, gMonPalette_Shishima),
     SPECIES_PAL(SHISHIMA_PUNISHER, gMonPalette_ShishimaPunisher),

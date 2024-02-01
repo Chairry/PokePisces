@@ -891,6 +891,8 @@ gBattleAnims_Moves::
 	.4byte Move_DEMOLISHER
 	.4byte Move_ARCANE_POWER
 	.4byte Move_DRAGON_RUIN
+	.4byte Move_CINDER_TWIRL
+	.4byte Move_CINDER_DRILL
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -18375,6 +18377,12 @@ DRAGON_RUIN_BLAST:
 	createvisualtask AnimTask_BlendBattleAnimPal, 0x2, (F_PAL_BG | F_PAL_BATTLERS), 0x0, 0x10, 0x0, 0x43FF
 	waitforvisualfinish
 	end
+
+Move_CINDER_TWIRL:
+	goto Move_TEETER_DANCE
+
+Move_CINDER_DRILL:
+	goto Move_DRILL_PECK
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

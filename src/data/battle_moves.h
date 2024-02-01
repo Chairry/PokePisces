@@ -5660,7 +5660,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
-        .argument = TYPE_GROUND,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
     },
@@ -14373,6 +14372,36 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_3,
         .instructBanned = TRUE,
         .ignoresProtect = TRUE,
+    },
+
+    [MOVE_CINDER_TWIRL] =
+    {
+        .effect = EFFECT_CINDER_TWIRL,
+        .power = 50,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .metronomeBanned = TRUE,
+    },
+
+    [MOVE_CINDER_DRILL] =
+    {
+        .effect = EFFECT_CINDER_DRILL,
+        .power = 90,
+        .type = TYPE_RELIC,
+        .accuracy = 95,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .metronomeBanned = TRUE,
     },
 
     // Z-Moves

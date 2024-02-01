@@ -11615,7 +11615,7 @@ static const union AnimCmd sAnim_PapypusFemale_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_CindrillonPirrouette_1[] =
+static const union AnimCmd sAnim_CindrillonPirouette_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -12817,7 +12817,7 @@ SINGLE_ANIMATION(Bishoucha);
 SINGLE_ANIMATION(BishouchaWarmonger);
 SINGLE_ANIMATION(Papypus);
 SINGLE_ANIMATION(PapypusFemale);
-SINGLE_ANIMATION(CindrillonPirrouette);
+SINGLE_ANIMATION(CindrillonPirouette);
 SINGLE_ANIMATION(CindrillonFearouette);
 SINGLE_ANIMATION(Shishima);
 SINGLE_ANIMATION(ShishimaPunisher);
@@ -14117,7 +14117,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_BISHOUCHA_WARMONGER] = sAnims_BishouchaWarmonger,
     [SPECIES_PAPYPUS] = sAnims_Papypus,
     [SPECIES_PAPYPUS_FEMALE] = sAnims_PapypusFemale,
-    [SPECIES_CINDRILLON_PIRROUETTE] = sAnims_CindrillonPirrouette,
+    [SPECIES_CINDRILLON_PIROUETTE] = sAnims_CindrillonPirouette,
     [SPECIES_CINDRILLON_FEAROUETTE] = sAnims_CindrillonFearouette,
     [SPECIES_SHISHIMA] = sAnims_Shishima,
     [SPECIES_SHISHIMA_PUNISHER] = sAnims_ShishimaPunisher,

@@ -392,7 +392,9 @@
 #define MOVE_EFFECT_HEART_STAMP         84
 #define MOVE_EFFECT_METEOR_MASH         85
 #define MOVE_EFFECT_DEF_SPDEF_UP        86
-#define NUM_MOVE_EFFECTS                87
+#define MOVE_EFFECT_CINDER_TWIRL        87
+#define MOVE_EFFECT_CINDER_DRILL        88
+#define NUM_MOVE_EFFECTS                89
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

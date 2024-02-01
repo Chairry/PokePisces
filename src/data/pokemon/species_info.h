@@ -29243,7 +29243,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_CINDRILLON_PIRROUETTE] =
+    [SPECIES_CINDRILLON_PIROUETTE] =
     {
         .baseHP        = 70,
         .baseAttack    = 90,

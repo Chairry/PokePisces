@@ -1171,7 +1171,7 @@ static const u16 sPapypusFormSpeciesIdTable[] = {
 
 static const u16 sCindrillonFormSpeciesIdTable[] = {
     SPECIES_CINDRILLON,
-    SPECIES_CINDRILLON_PIRROUETTE,
+    SPECIES_CINDRILLON_PIROUETTE,
     SPECIES_CINDRILLON_FEAROUETTE,
     FORM_SPECIES_END,
 };

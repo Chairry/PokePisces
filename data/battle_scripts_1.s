@@ -468,6 +468,32 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlipTurn                @ EFFECT_FLIP_TURN
 	.4byte BattleScript_EffectAccuracyDownHit         @ EFFECT_MUDDY_WATER
 	.4byte BattleScript_EffectDragonRuin              @ EFFECT_DRAGON_RUIN
+	.4byte BattleScript_EffectCinderTwirl             @ EFFECT_CINDER_TWIRL
+	.4byte BattleScript_EffectCinderDrill             @ EFFECT_CINDER_DRILL
+
+BattleScript_EffectCinderDrill:
+	setmoveeffect MOVE_EFFECT_CINDER_DRILL | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	argumentstatuseffect
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectCinderTwirl:
+	setmoveeffect MOVE_EFFECT_CINDER_TWIRL | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	call BattleScript_EffectHit_Ret
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
+	seteffectwithchance
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectRapidSpinEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectRapidSpinEnd
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	moveendall
+	end
 
 BattleScript_EffectDragonRuin::
 	@ DecideTurn
