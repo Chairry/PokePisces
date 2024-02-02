@@ -4549,7 +4549,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     else if (species == SPECIES_MORPEKO || species == SPECIES_MORPEKO_HANGRY)
     {
-        newMaxHP = 5500;
+        newMaxHP = 2500;
     }
 
     else
