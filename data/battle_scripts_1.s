@@ -10821,26 +10821,54 @@ BattleScript_IlluminateInReverse:
 
 BattleScript_ShunyongAbilityActivates::
 	call BattleScript_AbilityPopUp
-	jumpifbyteequal sSTATCHANGER, sZero, BattleScript_ShunyongLower
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_ShunyongLower
-	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_ROSE, BattleScript_ShunyongLower
+	jumpifbyteequal sSTATCHANGER, sZero, BattleScript_ShunyongLowerLoop
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_ShunyongLowerLoop
+	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_ROSE, BattleScript_ShunyongLowerLoop
 	setgraphicalstatchangevalues
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_ShunyongLower:
+BattleScript_ShunyongLowerLoop:
 	jumpifbyteequal sSAVED_STAT_CHANGER, sZero, BattleScript_ShunyongEnd
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_ShunyongLowerLoopIncrement
+	jumpiftargetally BattleScript_ShunyongLowerLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_ShunyongLowerLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ShunyongLowerLoopIncrement
+BattleScript_ShunyongLowerEffect:
+	copybyte sBATTLER, gBattlerAttacker
 	copybyte sSTATCHANGER, sSAVED_STAT_CHANGER
-	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_ShunyongEnd
-	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_FELL, BattleScript_ShunyongEnd
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_ShunyongLowerLoopIncrement
 	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_ShunyongLowerContrary
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShunyongLowerEffect_WaitString:
+	waitmessage B_WAIT_TIME_LONG
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_TryAdrenalineOrb
+BattleScript_ShunyongLowerLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_ShunyongLowerLoop
+BattleScript_ShunyongLowerEnd:
+	copybyte sBATTLER, gBattlerAttacker
 	printstring STRINGID_PRESSUREENTERS
 	waitmessage B_WAIT_TIME_LONG
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
 BattleScript_ShunyongEnd:
 	end3
+
+BattleScript_ShunyongLowerContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShunyongLowerContrary_WontIncrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	goto BattleScript_ShunyongLowerEffect_WaitString
+BattleScript_ShunyongLowerContrary_WontIncrease:
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	goto BattleScript_ShunyongLowerEffect_WaitString
 
 BattleScript_ShunyongCantHealInOffensiveForm::
 	printstring STRINGID_CANTHEALINOFFENSIVEFORM
