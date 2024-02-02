@@ -5097,14 +5097,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3NoPopup);
                     effect++;
                 }
+                
                 if(gBattleMons[battler].status1 & STATUS1_ANY)
-                    {
-                        gBattleResults.shunyongStatusCounter++;
+                    gBattleResults.shunyongStatusCounter++;
+                else
+                    gBattleResults.shunyongStatusCounter = 0;
                         
-                    }
 
                 if(gBattleResults.shunyongStatusCounter >= 3)
-                    goto ABILITY_HEAL_MON_STATUS;
+                    {
+                        gBattleResults.shunyongStatusCounter = 0;
+                        goto ABILITY_HEAL_MON_STATUS;
+                    }
                 break;
              case ABILITY_SADDENED:
                 if (gDisableStructs[battler].isFirstTurn != 2)
