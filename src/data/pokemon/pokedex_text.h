@@ -5361,9 +5361,10 @@ const u8 gEbibiPokedexText[] = _(
     "through the water with minimal friction.");
 
 const u8 gMakibiPokedexText[] = _(
-    "While not as fast as Ebibi, it has\n"
-    "enough speed to brutally impale prey\n"
-    "with its sharp horn.");
+    "Although not as fast as Ebibi, it has\n"
+    "enough speed to impale prey brutally with\n"
+    "its sharp horn. The oil it produces serves\n"
+    "as an ingredient in high-quality frying.");
 
 const u8 gEbirosashiPokedexText[] = _(
     "Their meat is described as comparable to\n"

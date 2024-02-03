@@ -19179,7 +19179,7 @@ static const struct LevelUpMove sLoafoofLevelUpLearnset[] = {
 static const struct LevelUpMove sSpiritoastLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_BITTER_BLADE),
     //LEVEL_UP_MOVE( 1, MOVE_JUMP_N_POP),
-    LEVEL_UP_MOVE( 1, MOVE_AMNESIA),
+    LEVEL_UP_MOVE( 1, MOVE_ENDURE),
     LEVEL_UP_MOVE( 1, MOVE_SYNTHESIS),
     LEVEL_UP_MOVE( 1, MOVE_OMINOUS_WIND),
     LEVEL_UP_MOVE( 1, MOVE_BITTER_BLADE),

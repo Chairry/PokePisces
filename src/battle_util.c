@@ -8030,7 +8030,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     && IsBattlerAlive(gBattlerAttacker)
                     && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
                     && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
-                    && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
+                    && (Random() % 3) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
                     {
                         gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                         gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -10171,7 +10171,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         break;
     case ABILITY_BATTLE_ARMOR:
         if (typeEffectivenessModifier <= UQ_4_12(1.0))
-            return typeEffectivenessModifier*0.75;
+            return UQ_4_12(0.75);
         break;
     case ABILITY_FILTER:
     case ABILITY_SOLID_ROCK:
