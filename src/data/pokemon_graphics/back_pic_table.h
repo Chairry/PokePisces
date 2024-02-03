@@ -1629,4 +1629,5 @@ const struct CompressedSpriteSheet gMonBackPicTableFemale[NUM_SPECIES + 1] =
 #endif
 
     SPECIES_SPRITE(SNEASEL_HISUIAN, gMonBackPic_SneaselHisuianF),
+    SPECIES_SPRITE(KARODORAUG, gMonBackPic_KarodoraugF),
 };

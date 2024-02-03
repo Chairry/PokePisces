@@ -1634,4 +1634,5 @@ const struct CompressedSpriteSheet gMonFrontPicTableFemale[NUM_SPECIES + 1] =
     SPECIES_SPRITE(PYROAR, gMonFrontPic_PyroarF),
 #endif
     SPECIES_SPRITE(SNEASEL_HISUIAN, gMonFrontPic_SneaselHisuianF),
+    SPECIES_SPRITE(KARODORAUG, gMonFrontPic_KarodoraugF),
 };

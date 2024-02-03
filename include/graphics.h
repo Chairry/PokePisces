@@ -7867,6 +7867,8 @@ extern const u32 gMonBackPic_Karodoraug[];
 extern const u32 gMonShinyPalette_Karodoraug[];
 extern const u8 gMonIcon_Karodoraug[];
 extern const u8 gMonFootprint_Karodoraug[];
+extern const u32 gMonFrontPic_KarodoraugF[];
+extern const u32 gMonBackPic_KarodoraugF[];
 extern const u32 gMonFrontPic_Coforchee[];
 extern const u32 gMonPalette_Coforchee[];
 extern const u32 gMonBackPic_Coforchee[];
