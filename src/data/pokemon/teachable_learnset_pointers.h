@@ -1543,5 +1543,10 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_CINDRILLON_FEAROUETTE] = sCindrillonTeachableLearnset,
     [SPECIES_SHISHIMA_PUNISHER] = sShishimaTeachableLearnset,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sShunyongTeachableLearnset,
+    [SPECIES_SPINDA_CAVE] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_DESERT] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_FOREST] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_MOUNTAIN] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_PLAINS2] = sSpindaTeachableLearnset,
 #endif
 };

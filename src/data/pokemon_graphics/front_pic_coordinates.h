@@ -287,7 +287,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SWELLOW]                      = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  5 },
     [SPECIES_SHROOMISH]                    = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 14 },
     [SPECIES_BRELOOM]                      = { .size = MON_COORDS_SIZE(48, 64), .y_offset =  3 },
-    [SPECIES_SPINDA]                       = { .size = MON_COORDS_SIZE(48, 64), .y_offset =  1 },
+    [SPECIES_SPINDA]                       = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_WINGULL]                      = { .size = MON_COORDS_SIZE(64, 48), .y_offset = 11 },
     [SPECIES_PELIPPER]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  2 },
     [SPECIES_SURSKIT]                      = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  8 },
@@ -1546,6 +1546,11 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_LOTTABATS_HUDDLED]            = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  2 },
     [SPECIES_GAOTERRA_SOLAR]               = { .size = MON_COORDS_SIZE(56, 56), .y_offset =  1 },
     [SPECIES_GAOTERRA_LUNAR]               = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  1 },
+    [SPECIES_SPINDA_CAVE]                  = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_SPINDA_DESERT]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_SPINDA_FOREST]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_SPINDA_MOUNTAIN]              = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_SPINDA_PLAINS2]               = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
 #endif
     // Egg
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },

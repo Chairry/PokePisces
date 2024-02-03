@@ -14477,6 +14477,11 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_LOTTABATS_HUDDLED] = sAnims_LottabatsHuddled,
     [SPECIES_GAOTERRA_SOLAR] = sAnims_GaoterraSolar,
     [SPECIES_GAOTERRA_LUNAR] = sAnims_ShunyongGoldenOffense,
+    [SPECIES_SPINDA_CAVE] = sAnims_Spinda,
+    [SPECIES_SPINDA_DESERT] = sAnims_Spinda,
+    [SPECIES_SPINDA_FOREST] = sAnims_Spinda,
+    [SPECIES_SPINDA_MOUNTAIN] = sAnims_Spinda,
+    [SPECIES_SPINDA_PLAINS2] = sAnims_Spinda,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
 };

@@ -1187,4 +1187,14 @@ static const u16 sShunyongFormSpeciesIdTable[] = {
     SPECIES_SHUNYONG_GOLDEN_OFFENSE,
     FORM_SPECIES_END,
 };
+
+static const u16 sSpindaFormSpeciesIdTable[] = {
+    SPECIES_SPINDA,
+    SPECIES_SPINDA_CAVE,
+    SPECIES_SPINDA_DESERT,
+    SPECIES_SPINDA_FOREST,
+    SPECIES_SPINDA_MOUNTAIN,
+    SPECIES_SPINDA_PLAINS2,
+    FORM_SPECIES_END,
+};
 #endif

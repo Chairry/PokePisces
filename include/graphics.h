@@ -8465,6 +8465,26 @@ extern const u32 gMonBackPic_Kingambit[];
 extern const u32 gMonShinyPalette_Kingambit[];
 extern const u8 gMonIcon_Kingambit[];
 extern const u8 gMonFootprint_Kingambit[];
+extern const u32 gMonFrontPic_SpindaCave[];
+extern const u32 gMonPalette_SpindaCave[];
+extern const u32 gMonBackPic_SpindaCave[];
+extern const u32 gMonShinyPalette_SpindaCave[];
+extern const u32 gMonFrontPic_SpindaDesert[];
+extern const u32 gMonPalette_SpindaDesert[];
+extern const u32 gMonBackPic_SpindaDesert[];
+extern const u32 gMonShinyPalette_SpindaDesert[];
+extern const u32 gMonFrontPic_SpindaForest[];
+extern const u32 gMonPalette_SpindaForest[];
+extern const u32 gMonBackPic_SpindaForest[];
+extern const u32 gMonShinyPalette_SpindaForest[];
+extern const u32 gMonFrontPic_SpindaMountain[];
+extern const u32 gMonPalette_SpindaMountain[];
+extern const u32 gMonBackPic_SpindaMountain[];
+extern const u32 gMonShinyPalette_SpindaMountain[];
+extern const u32 gMonFrontPic_SpindaPlains2[];
+extern const u32 gMonPalette_SpindaPlains2[];
+extern const u32 gMonBackPic_SpindaPlains2[];
+extern const u32 gMonShinyPalette_SpindaPlains2[];
 #endif
 
 // trainer sprites

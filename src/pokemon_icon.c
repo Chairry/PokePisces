@@ -1503,6 +1503,11 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_CINDRILLON_FEAROUETTE] = gMonIcon_CindrillonFearouette,
     [SPECIES_SHISHIMA_PUNISHER] = gMonIcon_ShishimaPunisher,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = gMonIcon_ShunyongGoldenOffense,
+    [SPECIES_SPINDA_CAVE] = gMonIcon_Spinda,
+    [SPECIES_SPINDA_DESERT] = gMonIcon_Spinda,
+    [SPECIES_SPINDA_FOREST] = gMonIcon_Spinda,
+    [SPECIES_SPINDA_MOUNTAIN] = gMonIcon_Spinda,
+    [SPECIES_SPINDA_PLAINS2] = gMonIcon_Spinda,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2946,6 +2951,11 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_CINDRILLON_FEAROUETTE] = 0,
     [SPECIES_SHISHIMA_PUNISHER] = 2,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = 3,
+    [SPECIES_SPINDA_CAVE] = 1,
+    [SPECIES_SPINDA_DESERT] = 1,
+    [SPECIES_SPINDA_FOREST] = 1,
+    [SPECIES_SPINDA_MOUNTAIN] = 1,
+    [SPECIES_SPINDA_PLAINS2] = 1,
 #endif
     [SPECIES_EGG] = 1,
 };

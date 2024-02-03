@@ -1696,10 +1696,10 @@ const u8 gBreloomPokedexText[] = _(
     "fields and forests.");
 
 const u8 gSpindaPokedexText[] = _(
-    "It is distinguished by a pattern of\n"
-    "spots that is always different. Its\n"
-    "unsteady, tottering walk has the\n"
-    "effect of fouling its foe's aim.");
+    "Their constant swaying and unpredictable\n"
+    "walking makes it annoying for predators\n"
+    "to catch them. It is so effective that\n"
+    "there has been a recent population boom.");
 
 const u8 gWingullPokedexText[] = _(
     "It makes its nest on a sheer cliff at the\n"

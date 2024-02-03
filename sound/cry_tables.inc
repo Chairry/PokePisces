@@ -2291,6 +2291,12 @@ gCryTable::
 	cry Cry_CindrillonFearouette
 	@ Shunyong
 	cry Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -4609,7 +4615,13 @@ gCryTable_Reverse::
 	cry_reverse Cry_CindrillonPirouette
 	cry_reverse Cry_CindrillonFearouette
 	@ Shunyong
-	cry Cry_ShunyongGoldenOffense
+	cry_reverse Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

@@ -86,6 +86,28 @@
         .noFlip = flip,                               \
     }
 
+#define SPINDA_SPECIES_INFO(color) \
+    { \
+        .baseHP        = 85, \
+        .baseAttack    = 85, \
+        .baseDefense   = 85, \
+        .baseSpeed     = 85, \
+        .baseSpAttack  = 85, \
+        .baseSpDefense = 85, \
+        .types = { TYPE_NORMAL, TYPE_NORMAL}, \
+        .catchRate = 255, \
+        .expYield = 126, \
+        .evYield_Attack  = 1, \
+        .genderRatio = PERCENT_FEMALE(50), \
+        .eggCycles = 15, \
+        .friendship = STANDARD_FRIENDSHIP, \
+        .growthRate = GROWTH_FAST, \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE}, \
+        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
+        .bodyColor = color, \
+        .noFlip = TRUE, \
+    }
+
 #define CASTFORM_SPECIES_INFO(type, color)            \
     {                                                 \
         .baseHP        = 70,                          \
@@ -8445,27 +8467,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_SPINDA] =
-    {
-        .baseHP        = 60,
-        .baseAttack    = 60,
-        .baseDefense   = 60,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 60,
-        .types = { TYPE_NORMAL, TYPE_NORMAL},
-        .catchRate = 255,
-        .expYield = 126,
-        .evYield_SpAttack  = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_FAST,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE},
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY},
-        .bodyColor = BODY_COLOR_BROWN,
-        .noFlip = TRUE,
-    },
+    [SPECIES_SPINDA] = SPINDA_SPECIES_INFO(BODY_COLOR_RED),
 
     [SPECIES_TRAPINCH] =
     {
@@ -29286,5 +29288,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
+
+    [SPECIES_SPINDA_CAVE] = SPINDA_SPECIES_INFO(BODY_COLOR_PURPLE),
+    [SPECIES_SPINDA_DESERT] = SPINDA_SPECIES_INFO(BODY_COLOR_YELLOW),
+    [SPECIES_SPINDA_FOREST] = SPINDA_SPECIES_INFO(BODY_COLOR_GREEN),
+    [SPECIES_SPINDA_MOUNTAIN] = SPINDA_SPECIES_INFO(BODY_COLOR_BLUE),
+    [SPECIES_SPINDA_PLAINS2] = SPINDA_SPECIES_INFO(BODY_COLOR_RED),
 #endif
 };
