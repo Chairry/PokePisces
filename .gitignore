@@ -42,3 +42,7 @@ prefabs.json
 *.toml
 .vs/
 /scripts/sheets_url.txt
+/scripts/Moveset.csv
+/scripts/moveset_path.txt
+/scripts/moves_path.txt
+/scripts/Moves.csv
