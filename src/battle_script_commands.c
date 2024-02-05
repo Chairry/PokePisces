@@ -972,6 +972,8 @@ static const u16 sProtectSuccessRates[] = {USHRT_MAX, USHRT_MAX / 2, USHRT_MAX /
 
 static const u16 sFinalStrikeOnlyEffects[] =
 {
+    EFFECT_CINDER_TWIRL,
+    EFFECT_CINDER_DRILL,
     EFFECT_RELIC_SONG,
     EFFECT_BUG_BITE,
     EFFECT_THIEF,
@@ -3784,6 +3786,46 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     else if (gBattleMons[gBattlerAttacker].species == SPECIES_MELOETTA_PIROUETTE)
                     {
                         gBattleMons[gBattlerAttacker].species = SPECIES_MELOETTA;
+                        BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeMoveEffect);
+                    }
+                }
+                break;
+            case MOVE_EFFECT_CINDER_TWIRL:
+                if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SHEER_FORCE && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED))
+                {
+                    if (gBattleMons[gBattlerAttacker].species == SPECIES_CINDRILLON)
+                    {
+                        gBattleMons[gBattlerAttacker].species = SPECIES_CINDRILLON_PIROUETTE;
+                        BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeMoveEffect);
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_RapidSpinAway;
+
+                    }
+                    else if (gBattleMons[gBattlerAttacker].species == SPECIES_CINDRILLON_FEAROUETTE)
+                    {
+                        gBattleMons[gBattlerAttacker].species = SPECIES_CINDRILLON_PIROUETTE;
+                        BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeMoveEffect);
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_RapidSpinAway;
+                    }
+                    else
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_RapidSpinAway;
+                    }
+                }
+                break;
+            case MOVE_EFFECT_CINDER_DRILL:
+                if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SHEER_FORCE && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED))
+                {
+                    if (gBattleMons[gBattlerAttacker].species == SPECIES_CINDRILLON)
+                    {
+                        gBattleMons[gBattlerAttacker].species = SPECIES_CINDRILLON_FEAROUETTE;
+                        BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeMoveEffect);
+                    }
+                    else if (gBattleMons[gBattlerAttacker].species == SPECIES_CINDRILLON_PIROUETTE)
+                    {
+                        gBattleMons[gBattlerAttacker].species = SPECIES_CINDRILLON_FEAROUETTE;
                         BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeMoveEffect);
                     }
                 }

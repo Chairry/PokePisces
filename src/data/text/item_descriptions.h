@@ -420,8 +420,9 @@ static const u8 sSwiftFeatherDesc[] = _(
 
 // Ability Modifiers
 static const u8 sAbilityCapsuleDesc[] = _(
-    "Switches a Poké-\n"
-    "mon's ability.");
+    "A cookie that\n"    
+    "changes a\n"
+    "Pokémon's ability.");
 
 static const u8 sAbilityPatchDesc[] = _(
     "Turns the ability\n"

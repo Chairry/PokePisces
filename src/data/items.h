@@ -956,7 +956,7 @@ const struct Item gItems[] =
 
     [ITEM_ABILITY_CAPSULE] =
     {
-        .name = _("AbilityCapsle"),
+        .name = _("Ability Snack"),
         .price = 10000,
         .holdEffectParam = 0,
         .description = sAbilityCapsuleDesc,

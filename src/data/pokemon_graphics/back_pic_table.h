@@ -284,6 +284,11 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(SHROOMISH, gMonBackPic_Shroomish),
     SPECIES_SPRITE(BRELOOM, gMonBackPic_Breloom),
     SPECIES_SPRITE(SPINDA, gMonBackPic_Spinda),
+    SPECIES_SPRITE(SPINDA_CAVE, gMonBackPic_SpindaCave),
+    SPECIES_SPRITE(SPINDA_DESERT, gMonBackPic_SpindaDesert),
+    SPECIES_SPRITE(SPINDA_FOREST, gMonBackPic_SpindaForest),
+    SPECIES_SPRITE(SPINDA_MOUNTAIN, gMonBackPic_SpindaMountain),
+    SPECIES_SPRITE(SPINDA_PLAINS2, gMonBackPic_SpindaPlains2),
     SPECIES_SPRITE(WINGULL, gMonBackPic_Wingull),
     SPECIES_SPRITE(PELIPPER, gMonBackPic_Pelipper),
     SPECIES_SPRITE(SURSKIT, gMonBackPic_Surskit),
@@ -1121,7 +1126,7 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(BISHOUCHA_WARMONGER, gMonBackPic_BishouchaWarmonger),
     SPECIES_SPRITE(PAPYPUS, gMonBackPic_Papypus),
     SPECIES_SPRITE(PAPYPUS_FEMALE, gMonBackPic_PapypusFemale),
-    SPECIES_SPRITE(CINDRILLON_PIRROUETTE, gMonBackPic_CindrillonPirrouette),
+    SPECIES_SPRITE(CINDRILLON_PIROUETTE, gMonBackPic_CindrillonPirouette),
     SPECIES_SPRITE(CINDRILLON_FEAROUETTE, gMonBackPic_CindrillonFearouette),
     SPECIES_SPRITE(SHISHIMA, gMonBackPic_Shishima),
     SPECIES_SPRITE(SHISHIMA_PUNISHER, gMonBackPic_ShishimaPunisher),
@@ -1629,4 +1634,5 @@ const struct CompressedSpriteSheet gMonBackPicTableFemale[NUM_SPECIES + 1] =
 #endif
 
     SPECIES_SPRITE(SNEASEL_HISUIAN, gMonBackPic_SneaselHisuianF),
+    SPECIES_SPRITE(KARODORAUG, gMonBackPic_KarodoraugF),
 };

@@ -8030,7 +8030,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     && IsBattlerAlive(gBattlerAttacker)
                     && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
                     && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
-                    && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
+                    && (Random() % 3) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam             
                     {
                         gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                         gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -10171,7 +10171,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         break;
     case ABILITY_BATTLE_ARMOR:
         if (typeEffectivenessModifier <= UQ_4_12(1.0))
-            return typeEffectivenessModifier*0.75;
+            return UQ_4_12(0.75);
         break;
     case ABILITY_FILTER:
     case ABILITY_SOLID_ROCK:
@@ -10426,7 +10426,9 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || TYPE_ELECTRIC || TYPE_STEEL))
+    if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || defType == TYPE_ELECTRIC || defType == TYPE_STEEL))
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_CINDER_DRILL && (defType == TYPE_BUG || defType == TYPE_GRASS || defType == TYPE_STEEL || defType == TYPE_ICE))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_SNUFF_OUT && defType == TYPE_FIRE)
         mod = UQ_4_12(2.0);

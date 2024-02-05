@@ -1696,10 +1696,10 @@ const u8 gBreloomPokedexText[] = _(
     "fields and forests.");
 
 const u8 gSpindaPokedexText[] = _(
-    "It is distinguished by a pattern of\n"
-    "spots that is always different. Its\n"
-    "unsteady, tottering walk has the\n"
-    "effect of fouling its foe's aim.");
+    "Their constant swaying and unpredictable\n"
+    "walking makes it annoying for predators\n"
+    "to catch them. It is so effective that\n"
+    "there has been a recent population boom.");
 
 const u8 gWingullPokedexText[] = _(
     "It makes its nest on a sheer cliff at the\n"
@@ -5361,9 +5361,10 @@ const u8 gEbibiPokedexText[] = _(
     "through the water with minimal friction.");
 
 const u8 gMakibiPokedexText[] = _(
-    "While not as fast as Ebibi, it has\n"
-    "enough speed to brutally impale prey\n"
-    "with its sharp horn.");
+    "Although not as fast as Ebibi, it has\n"
+    "enough speed to impale prey brutally with\n"
+    "its sharp horn. The oil it produces serves\n"
+    "as an ingredient in high-quality frying.");
 
 const u8 gEbirosashiPokedexText[] = _(
     "Their meat is described as comparable to\n"

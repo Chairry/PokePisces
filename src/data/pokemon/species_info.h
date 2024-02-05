@@ -86,6 +86,28 @@
         .noFlip = flip,                               \
     }
 
+#define SPINDA_SPECIES_INFO(color) \
+    { \
+        .baseHP        = 85, \
+        .baseAttack    = 85, \
+        .baseDefense   = 85, \
+        .baseSpeed     = 85, \
+        .baseSpAttack  = 85, \
+        .baseSpDefense = 85, \
+        .types = { TYPE_NORMAL, TYPE_NORMAL}, \
+        .catchRate = 255, \
+        .expYield = 126, \
+        .evYield_Attack  = 1, \
+        .genderRatio = PERCENT_FEMALE(50), \
+        .eggCycles = 15, \
+        .friendship = STANDARD_FRIENDSHIP, \
+        .growthRate = GROWTH_FAST, \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE}, \
+        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
+        .bodyColor = color, \
+        .noFlip = TRUE, \
+    }
+
 #define CASTFORM_SPECIES_INFO(type, color)            \
     {                                                 \
         .baseHP        = 70,                          \
@@ -4720,7 +4742,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_SUPER_LUCK, ABILITY_VICTORY_STAR, ABILITY_NONE},
+        .abilities = {ABILITY_STAR_SCREEN, ABILITY_SUPER_LUCK, ABILITY_VICTORY_STAR, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -6965,7 +6987,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_TECHNICIAN, ABILITY_GLUTTONY, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_TECHNICIAN, ABILITY_GLUTTONY, ABILITY_ONE_WAY_TRIP, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -8440,32 +8462,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_THICK_FAT, ABILITY_GRIM_NEIGH, ABILITY_GLUTTONY},
+        .abilities = {ABILITY_THICK_FAT, ABILITY_DISTURB, ABILITY_GLUTTONY},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
 
-    [SPECIES_SPINDA] =
-    {
-        .baseHP        = 60,
-        .baseAttack    = 60,
-        .baseDefense   = 60,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 60,
-        .types = { TYPE_NORMAL, TYPE_NORMAL},
-        .catchRate = 255,
-        .expYield = 126,
-        .evYield_SpAttack  = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_FAST,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE},
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY},
-        .bodyColor = BODY_COLOR_BROWN,
-        .noFlip = TRUE,
-    },
+    [SPECIES_SPINDA] = SPINDA_SPECIES_INFO(BODY_COLOR_RED),
 
     [SPECIES_TRAPINCH] =
     {
@@ -20563,7 +20565,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_WATER_1},
-        .abilities = {ABILITY_WATER_ABSORB, ABILITY_SHELL_ARMOR, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_WATER_ABSORB, ABILITY_SHELL_ARMOR, ABILITY_FRIENDLY_AURA, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -20586,7 +20588,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_WATER_1},
-        .abilities = {ABILITY_WATER_ABSORB, ABILITY_GOOEY, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_WATER_ABSORB, ABILITY_GOOEY, ABILITY_FRIENDLY_AURA, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
@@ -20610,7 +20612,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_WATER_1},
-        .abilities = {ABILITY_WATER_ABSORB, ABILITY_GOOEY, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_WATER_ABSORB, ABILITY_GOOEY, ABILITY_SPIRALYSIS, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
@@ -20742,7 +20744,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_IRON_BARBS, ABILITY_TOUGH_CLAWS, ABILITY_NONE},
+        .abilities = {ABILITY_BRAND_CLAWS, ABILITY_IRON_BARBS, ABILITY_TOUGH_CLAWS, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
     },
@@ -20852,7 +20854,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_WATER_3},
-        .abilities = {ABILITY_PROPELLER_TAIL, ABILITY_FILTER, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_PROPELLER_TAIL, ABILITY_FILTER, ABILITY_SEAFARER, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
@@ -21006,7 +21008,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_SWARM, ABILITY_SWIFT_SWIM},
+        .abilities = {ABILITY_DRAINAGE, ABILITY_SWARM, ABILITY_SWIFT_SWIM},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -21028,7 +21030,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_SWARM, ABILITY_INFILTRATOR},
+        .abilities = {ABILITY_DRAINAGE, ABILITY_SWARM, ABILITY_INFILTRATOR},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -21050,7 +21052,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_SWARM, ABILITY_GRIM_NEIGH},
+        .abilities = {ABILITY_DRAINAGE, ABILITY_SWARM, ABILITY_TRANSFUSION},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
     },
@@ -21204,7 +21206,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_THICK_FAT, ABILITY_MAGIC_GUARD, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_THICK_FAT, ABILITY_MAGIC_GUARD, ABILITY_SERENE_AURA, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
     },
@@ -21426,7 +21428,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FAIRY},
-        .abilities = {ABILITY_EFFECT_SPORE, ABILITY_UNAWARE, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_EFFECT_SPORE, ABILITY_UNAWARE, ABILITY_CACOPHONY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
     },
@@ -21448,7 +21450,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_STICKY_HOLD, ABILITY_ILLUMINATE, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_STICKY_HOLD, ABILITY_ILLUMINATE, ABILITY_ENTRANCING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
     },
@@ -21493,7 +21495,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_WATER_1},
-        .abilities = {ABILITY_POISON_POINT, ABILITY_TOXIC_BOOST, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_POISON_POINT, ABILITY_TOXIC_BOOST, ABILITY_POTENCY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -21537,7 +21539,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_MELANCHOLIA, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
@@ -21559,7 +21561,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_ILLUMINATE, ABILITY_DAZZLING, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_ILLUMINATE, ABILITY_DAZZLING, ABILITY_ENTRANCING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -21582,7 +21584,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
-        .abilities = {ABILITY_ILLUMINATE, ABILITY_DAZZLING, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_ILLUMINATE, ABILITY_DAZZLING, ABILITY_ENTRANCING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -21737,7 +21739,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE},
-        .abilities = {ABILITY_INFILTRATOR, ABILITY_GRIM_NEIGH, ABILITY_LEVITATE, ABILITY_NONE},
+        .abilities = {ABILITY_INFILTRATOR, ABILITY_DREAD_VEIL, ABILITY_LEVITATE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
@@ -21759,7 +21761,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED},
-        .abilities = {ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_GUARD, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_GUARD, ABILITY_STARS_GRACE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
@@ -21979,7 +21981,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_REFRIGERATE, ABILITY_SWEET_VEIL, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_REFRIGERATE, ABILITY_SWEET_VEIL, ABILITY_WHITE_OUT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -22002,7 +22004,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_REFRIGERATE, ABILITY_SWEET_VEIL, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_REFRIGERATE, ABILITY_SWEET_VEIL, ABILITY_WHITE_OUT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -29243,7 +29245,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_CINDRILLON_PIRROUETTE] =
+    [SPECIES_CINDRILLON_PIROUETTE] =
     {
         .baseHP        = 70,
         .baseAttack    = 90,
@@ -29260,7 +29262,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
-        .abilities = {ABILITY_GRIM_NEIGH, ABILITY_GRIM_NEIGH, ABILITY_GRIM_NEIGH, ABILITY_NONE},
+        .abilities = {ABILITY_CINDER_WALTZ, ABILITY_CINDER_WALTZ, ABILITY_CINDER_WALTZ, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
@@ -29286,5 +29288,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
+
+    [SPECIES_SPINDA_CAVE] = SPINDA_SPECIES_INFO(BODY_COLOR_PURPLE),
+    [SPECIES_SPINDA_DESERT] = SPINDA_SPECIES_INFO(BODY_COLOR_YELLOW),
+    [SPECIES_SPINDA_FOREST] = SPINDA_SPECIES_INFO(BODY_COLOR_GREEN),
+    [SPECIES_SPINDA_MOUNTAIN] = SPINDA_SPECIES_INFO(BODY_COLOR_BLUE),
+    [SPECIES_SPINDA_PLAINS2] = SPINDA_SPECIES_INFO(BODY_COLOR_RED),
 #endif
 };

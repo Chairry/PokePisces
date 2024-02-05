@@ -616,19 +616,19 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 9,
-        .width = 18,
-        .height = 4,
+        .width = 19,
+        .height = 6,
         .paletteNum = 6,
         .baseBlock = 485,
     },
     [PSS_DATA_WINDOW_INFO_MEMO] = {
         .bg = 0,
         .tilemapLeft = 11,
-        .tilemapTop = 14,
-        .width = 18,
-        .height = 6,
+        .tilemapTop = 15,
+        .width = 19,
+        .height = 5,
         .paletteNum = 6,
-        .baseBlock = 557,
+        .baseBlock = 591 + 19 * 6,
     },
 };
 static const struct WindowTemplate sPageSkillsTemplate[] =
@@ -3328,7 +3328,7 @@ static void BufferMonTrainerMemo(void)
 
 static void PrintMonTrainerMemo(void)
 {
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 1, 0, 0);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 9, 0, 0);
 }
 
 static void BufferNatureString(void)

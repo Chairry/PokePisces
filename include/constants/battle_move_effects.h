@@ -445,6 +445,8 @@
 #define EFFECT_FLIP_TURN                    439
 #define EFFECT_MUDDY_WATER                  440
 #define EFFECT_DRAGON_RUIN                  441
-#define NUM_BATTLE_MOVE_EFFECTS             442
+#define EFFECT_CINDER_TWIRL                 442
+#define EFFECT_CINDER_DRILL                 443
+#define NUM_BATTLE_MOVE_EFFECTS             444
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

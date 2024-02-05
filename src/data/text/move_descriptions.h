@@ -3364,6 +3364,14 @@ static const u8 sDragonRuinDescription[] = _(
     "The user charges raising\n"
     "defenses. Also recharges.");
 
+static const u8 sCinderTwirlDescription[] = _(
+    "A spin attack that raises\n"
+    "the user’s Speed stat.");
+
+static const u8 sCinderDrillDescription[] = _(
+    "Super effective against Bug,\n"
+    "Grass, Steel, and Ice-types.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4238,4 +4246,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DEMOLISHER - 1] = sDemolisherDescription,
     [MOVE_ARCANE_POWER - 1] = sArcanePowerDescription,
     [MOVE_DRAGON_RUIN - 1] = sDragonRuinDescription,
+    [MOVE_CINDER_TWIRL - 1] = sCinderTwirlDescription,
+    [MOVE_CINDER_DRILL - 1] = sCinderDrillDescription,
 };

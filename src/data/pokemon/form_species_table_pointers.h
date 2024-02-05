@@ -71,6 +71,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_MANECTRIC] = sManectricFormSpeciesIdTable,
     [SPECIES_SHARPEDO] = sSharpedoFormSpeciesIdTable,
     [SPECIES_CAMERUPT] = sCameruptFormSpeciesIdTable,
+    [SPECIES_SPINDA] = sSpindaFormSpeciesIdTable,
     [SPECIES_ALTARIA] = sAltariaFormSpeciesIdTable,
     [SPECIES_CASTFORM] = sCastformFormSpeciesIdTable,
     [SPECIES_BANETTE] = sBanetteFormSpeciesIdTable,
@@ -599,9 +600,14 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_GAOTERRA_LUNAR] = sGaoterraFormSpeciesIdTable,
     [SPECIES_BISHOUCHA_WARMONGER] = sBishouchaFormSpeciesIdTable,
     [SPECIES_PAPYPUS_FEMALE] = sPapypusFormSpeciesIdTable,
-    [SPECIES_CINDRILLON_PIRROUETTE] = sCindrillonFormSpeciesIdTable,
+    [SPECIES_CINDRILLON_PIROUETTE] = sCindrillonFormSpeciesIdTable,
     [SPECIES_CINDRILLON_FEAROUETTE] = sCindrillonFormSpeciesIdTable,
     [SPECIES_SHISHIMA_PUNISHER] = sShishimaFormSpeciesIdTable,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sShunyongFormSpeciesIdTable,
+    [SPECIES_SPINDA_CAVE] = sSpindaFormSpeciesIdTable,
+    [SPECIES_SPINDA_DESERT] = sSpindaFormSpeciesIdTable,
+    [SPECIES_SPINDA_FOREST] = sSpindaFormSpeciesIdTable,
+    [SPECIES_SPINDA_MOUNTAIN] = sSpindaFormSpeciesIdTable,
+    [SPECIES_SPINDA_PLAINS2] = sSpindaFormSpeciesIdTable,
 #endif
 };
