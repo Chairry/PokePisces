@@ -1122,6 +1122,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SHISHIMA] = _("Shishima"),
     [SPECIES_SHUNYONG] = _("Shunyong"),
     [SPECIES_KINGAMBIT] = _("Kingambit"),
+    [SPECIES_SHELLYLOUH] = _("Shellylouh"),
 #endif
 
     // Megas

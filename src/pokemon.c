@@ -377,6 +377,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(SHISHIMA),
     SPECIES_TO_HOENN(SHUNYONG),
     SPECIES_TO_HOENN(KINGAMBIT),
+    SPECIES_TO_HOENN(SHELLYLOUH),
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1499,6 +1500,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SHISHIMA),
     SPECIES_TO_NATIONAL(SHUNYONG),
     SPECIES_TO_NATIONAL(KINGAMBIT),
+    SPECIES_TO_NATIONAL(SHELLYLOUH),
 #endif
 
     // Megas
@@ -2206,6 +2208,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(SHISHIMA),
     HOENN_TO_NATIONAL(SHUNYONG),
     HOENN_TO_NATIONAL(KINGAMBIT),
+    HOENN_TO_NATIONAL(SHELLYLOUH),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -3380,6 +3383,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SHISHIMA - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SHUNYONG - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_KINGAMBIT - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHELLYLOUH - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]           = ANIM_GROW_VIBRATE,

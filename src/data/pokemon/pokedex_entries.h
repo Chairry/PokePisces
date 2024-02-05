@@ -13317,5 +13317,17 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+
+    [NATIONAL_DEX_SHELLYLOUH] =
+    {
+        .categoryName = _("Shimmer"),
+        .height = 999,
+        .weight = 999,
+        .description = gShellylouhPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 #endif
 };

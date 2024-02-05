@@ -1198,10 +1198,10 @@ const u8 gSlowkingPokedexText[] = _(
     "if the Shellder on its head comes off.");
 
 const u8 gMisdreavusPokedexText[] = _(
-    "A Misdreavus frightens people with a\n"
-    "creepy, sobbing cry. It apparently uses\n"
-    "its red spheres to absorb the fear of foes\n"
-    "as its nutrition.");
+    "At night, it mimics the sound of a lost\n"
+    "child crying. When disturbed, it lets\n"
+    "out a loud, shrill cry said to steal\n"
+    "souls.");
 
 const u8 gUnownPokedexText[] = _(
     "This Pokémon is shaped like ancient text\n"
@@ -1924,16 +1924,16 @@ const u8 gCacturnePokedexText[] = _(
     "nocturnal, so it hunts at night.");
 
 const u8 gSnoruntPokedexText[] = _(
-    "They tend to move about in groups of\n"
-    "around five Snorunt. In snowy regions,\n"
-    "it is said that when they are seen late at\n"
-    "night, snowfall will arrive by morning.");
+    "They travel in groups, wading through\n"
+    "the snowy mountains. Their movement path\n"
+    "is said to reflect the weather patterns\n"
+    "of the mountains.");
 
 const u8 gGlaliePokedexText[] = _(
-    "A Glalie has the power to instantaneously\n"
-    "freeze moisture in the atmosphere.\n"
-    "A dazzling cloud of diamondlike ice\n"
-    "crystals forms around its body.");
+    "It opens its mouth, instantly freezing\n"
+    "those hit by its breath. It then closes.\n"
+    "its mouth, instantly crushing those\n"
+    "helpless, frozen prey.");
 
 const u8 gLunatonePokedexText[] = _(
     "It becomes very active on the night of\n"
@@ -2375,10 +2375,10 @@ const u8 gLopunnyPokedexText[] = _(
     "It runs with sprightly jumps.");
 
 const u8 gMismagiusPokedexText[] = _(
-    "Its cries sound like incantations.\n"
-    "Those hearing it are tormented by\n"
-    "headaches and hallucinations.\n"
-    "It appears where you least expect it.");
+    "A malicious curse is believed to be cast\n"
+    "by hearing its baneful cries. The curse\n"
+    "ranges from misfortune to horrifying\n"
+    "ailments to outright madness.");
 
 const u8 gHonchkrowPokedexText[] = _(
     "Becoming active at night, it is known\n"
@@ -2669,10 +2669,10 @@ const u8 gDusknoirPokedexText[] = _(
     "and guides them home.");
 
 const u8 gFroslassPokedexText[] = _(
-    "When it finds people or Pokémon it likes,\n"
-    "it freezes them and takes them to its\n"
-    "chilly den, where they become its\n"
-    "decorations.");
+    "Froslass favors being caught by men and\n"
+    "often avoids women in the wild. Do not\n"
+    "let it embrace you or it will absorb all\n"
+    "your heat, leaving you ice-cold.");
 
 const u8 gRotomPokedexText[] = _(
     "Research continues on this Pokémon.\n"
@@ -6601,4 +6601,7 @@ const u8 gKingambitPokedexText[] = _(
     "Pawniard to raid villages and habitats to\n"
     "get food. They, however, lack strategic\n"
     "versatility when commanding their army.");
+
+const u8 gShellylouhPokedexText[] = _(
+    "N/A");
 #endif

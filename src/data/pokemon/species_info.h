@@ -25496,6 +25496,28 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
+
+    [SPECIES_SHELLYLOUH] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 30,
+        .baseDefense   = 160,
+        .baseSpeed     = 32,
+        .baseSpAttack  = 136,
+        .baseSpDefense = 102,
+        .types = { TYPE_ICE, TYPE_DRAGON},
+        .catchRate = 60,
+        .expYield = 170,
+        .evYield_Defense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_ERRATIC,
+        .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_WATER_1},
+        .abilities = {ABILITY_WITCHCRAFT, ABILITY_MAGIC_GUARD, ABILITY_SHELL_ARMOR},
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+    },
 #endif
 
     [SPECIES_VENUSAUR_MEGA] =

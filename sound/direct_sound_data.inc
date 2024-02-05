@@ -4826,6 +4826,10 @@ Cry_Shunyong::
 	.align 2
 Cry_Kingambit::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Shellylouh::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2

@@ -8485,6 +8485,13 @@ extern const u32 gMonFrontPic_SpindaPlains2[];
 extern const u32 gMonPalette_SpindaPlains2[];
 extern const u32 gMonBackPic_SpindaPlains2[];
 extern const u32 gMonShinyPalette_SpindaPlains2[];
+extern const u32 gMonFrontPic_Shellylouh[];
+extern const u32 gMonPalette_Shellylouh[];
+extern const u32 gMonBackPic_Shellylouh[];
+extern const u32 gMonShinyPalette_Shellylouh[];
+extern const u8 gMonIcon_Shellylouh[];
+extern const u8 gMonFootprint_Shellylouh[];
+
 #endif
 
 // trainer sprites

@@ -1544,6 +1544,7 @@ gCryTable::
 	cry Cry_Shishima
 	cry Cry_Shunyong
 	cry Cry_Kingambit
+	cry Cry_Shellylouh
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3902,6 +3903,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Shishima
 	cry_reverse Cry_Shunyong
 	cry_reverse Cry_Kingambit
+	cry_reverse Cry_Shellylouh
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
