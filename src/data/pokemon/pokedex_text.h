@@ -347,16 +347,16 @@ const u8 gPrimeapePokedexText[] = _(
     "Pokémon avoid it due to its tenaciousness.");
 
 const u8 gGrowlithePokedexText[] = _(
-    "Its superb sense of smell ensures that\n"
-    "this Pokémon won't forget any scent,\n"
-    "no matter what. It uses its sense of smell\n"
-    "to detect the emotions of others.");
+    "Growlid is a stalwart canine companion\n"
+    "that will defend its trainer at the cost\n"
+    "of its own life. Striking its rocky fur\n"
+    "causes it to ignite into flames.");
 
 const u8 gArcaninePokedexText[] = _(
-    "This fleet-footed Pokémon is said to run\n"
-    "over 6,200 miles in a single day and night.\n"
-    "The fire that blazes wildly within its body\n"
-    "is its source of power.");
+    "Its raging fury spreads flames throughout\n"
+    "the field, leaving nothing but ash and\n"
+    "ember. Yet, those who witness such an\n"
+    "event say it's a sight of perilous beauty.");
 
 const u8 gPoliwagPokedexText[] = _(
     "It is possible to see this Pokémon's spiral\n"
@@ -5873,10 +5873,10 @@ const u8 gIngbunPokedexText[] = _(
     "to defend them from the cruel city.");
 
 const u8 gChaffawPokedexText[] = _(
-    "Chaffaw often swarm to tag team their\n"
-    "arch-enemy, Ferror. Because of Ferror's\n"
-    "tough skin, they end up messing around\n"
-    "and laughing so hard that they puke.");
+    "Chaffaw swarm to battle their arch-enemy,\n"
+    "Ferror. The Chaffaw start mocking Ferror,\n"
+    "and this leads to them laughing and puking\n"
+    "lava, which can melt Ferror's skin.");
 
 const u8 gFerrorPokedexText[] = _(
     "Its skin is so hard that it is nigh\n"
