@@ -57,8 +57,8 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_GOLDUCK] = _("Golduck"),
     [SPECIES_MANKEY] = _("Mankey"),
     [SPECIES_PRIMEAPE] = _("Primeape"),
-    [SPECIES_GROWLITHE] = _("Growlithe"),
-    [SPECIES_ARCANINE] = _("Arcanine"),
+    [SPECIES_GROWLITHE] = _("Growlid"),
+    [SPECIES_ARCANINE] = _("Arcanite"),
     [SPECIES_POLIWAG] = _("Poliwag"),
     [SPECIES_POLIWHIRL] = _("Poliwhirl"),
     [SPECIES_POLIWRATH] = _("Poliwrath"),
@@ -1228,8 +1228,8 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
 #endif
 
 //Hisuian Forms
-    [SPECIES_GROWLITHE_HISUIAN] = _("Growlithe"),
-    [SPECIES_ARCANINE_HISUIAN] = _("Arcanine"),
+    [SPECIES_GROWLITHE_HISUIAN] = _("Growlid"),
+    [SPECIES_ARCANINE_HISUIAN] = _("Arcanite"),
     [SPECIES_VOLTORB_HISUIAN] = _("Voltorb"),
     [SPECIES_ELECTRODE_HISUIAN] = _("Electrode"),
     [SPECIES_TYPHLOSION_HISUIAN] = _("Typhlosion"),

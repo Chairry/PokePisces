@@ -5635,10 +5635,10 @@ const u8 gGourdougPokedexText[] = _(
     "popularly used in teas.");
 
 const u8 gFogglehindPokedexText[] = _(
-    "They travel in groups, wading through\n"
-    "the snowy mountains. Their movement path\n"
-    "is said to reflect the weather patterns\n"
-    "of the mountains.");
+    "Fogglehind follow people as they travel\n"
+    "through the woods. Because of their shy\n"
+    "disposition, they fade away when people\n"
+    "look at them.");
 
 const u8 gMatchlitPokedexText[] = _(
     "The flames Matchlit hold entrance them,\n"
@@ -6603,5 +6603,8 @@ const u8 gKingambitPokedexText[] = _(
     "versatility when commanding their army.");
 
 const u8 gShellylouhPokedexText[] = _(
-    "N/A");
+    "Shellylouh, with spells imbue.\n"
+    "Sells shells by Shellylouh.\n"
+    "For pearls, bijou, she sells in true.\n"
+    "Her lovely shelly brew.");
 #endif
