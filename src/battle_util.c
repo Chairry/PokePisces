@@ -10203,6 +10203,10 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (IS_MOVE_SPECIAL(move))
             return UQ_4_12(0.5);
         break;
+    case ABILITY_DAMP:
+        if(moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
+            return UQ_4_12(0.8);
+        break;
     }
     return UQ_4_12(1.0);
 }
@@ -10217,6 +10221,10 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
     {
     case ABILITY_FRIEND_GUARD:
         return UQ_4_12(0.75);
+        break;
+    case ABILITY_DAMP:
+        if(moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
+            return UQ_4_12(0.8);
         break;
     case ABILITY_PLUS:
         if (GetBattlerType(battlerDef, 0) == TYPE_STEEL || GetBattlerType(battlerDef, 0) == TYPE_ELECTRIC
