@@ -527,16 +527,16 @@ const u8 gDewgongPokedexText[] = _(
     "a mermaid by a mariner long ago.");
 
 const u8 gGrimerPokedexText[] = _(
-    "Born from polluted sludge in the sea,\n"
-    "Grimer's favorite food is anything filthy.\n"
-    "They feed on wastewater pumped out from\n"
-    "factories.");
+    "They feed on oil and toxic discharge\n"
+    "from factories. However, recent changes\n"
+    "in the industry have cut polluted\n"
+    "discharge, reducing Grimer populations.");
 
 const u8 gMukPokedexText[] = _(
-    "It prefers warm and humid habitats.\n"
-    "In the summertime, the toxic substances\n"
-    "in its body intensify, making Muk reek like\n"
-    "putrid kitchen garbage.");
+    "The stench it exudes is so overwhelming,\n"
+    "it instantly causes fainting and shock.\n"
+    "It leaves desolate lands and lifeless\n"
+    "soil in its wake.");
 
 const u8 gShellderPokedexText[] = _(
     "At night, it burrows a hole in the seafloor\n"
