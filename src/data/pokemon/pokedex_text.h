@@ -347,16 +347,16 @@ const u8 gPrimeapePokedexText[] = _(
     "Pokémon avoid it due to its tenaciousness.");
 
 const u8 gGrowlithePokedexText[] = _(
-    "Its superb sense of smell ensures that\n"
-    "this Pokémon won't forget any scent,\n"
-    "no matter what. It uses its sense of smell\n"
-    "to detect the emotions of others.");
+    "Growlid is a stalwart canine companion\n"
+    "that will defend its trainer at the cost\n"
+    "of its own life. Striking its rocky fur\n"
+    "causes it to ignite into flames.");
 
 const u8 gArcaninePokedexText[] = _(
-    "This fleet-footed Pokémon is said to run\n"
-    "over 6,200 miles in a single day and night.\n"
-    "The fire that blazes wildly within its body\n"
-    "is its source of power.");
+    "Its raging fury spreads flames throughout\n"
+    "the field, leaving nothing but ash and\n"
+    "ember. Yet, those who witness such an\n"
+    "event say it's a sight of perilous beauty.");
 
 const u8 gPoliwagPokedexText[] = _(
     "It is possible to see this Pokémon's spiral\n"
@@ -527,16 +527,16 @@ const u8 gDewgongPokedexText[] = _(
     "a mermaid by a mariner long ago.");
 
 const u8 gGrimerPokedexText[] = _(
-    "Born from polluted sludge in the sea,\n"
-    "Grimer's favorite food is anything filthy.\n"
-    "They feed on wastewater pumped out from\n"
-    "factories.");
+    "They feed on oil and toxic discharge\n"
+    "from factories. However, recent changes\n"
+    "in the industry have cut polluted\n"
+    "discharge, reducing Grimer populations.");
 
 const u8 gMukPokedexText[] = _(
-    "It prefers warm and humid habitats.\n"
-    "In the summertime, the toxic substances\n"
-    "in its body intensify, making Muk reek like\n"
-    "putrid kitchen garbage.");
+    "The stench it exudes is so overwhelming,\n"
+    "it instantly causes fainting and shock.\n"
+    "It leaves desolate lands and lifeless\n"
+    "soil in its wake.");
 
 const u8 gShellderPokedexText[] = _(
     "At night, it burrows a hole in the seafloor\n"
@@ -1198,10 +1198,10 @@ const u8 gSlowkingPokedexText[] = _(
     "if the Shellder on its head comes off.");
 
 const u8 gMisdreavusPokedexText[] = _(
-    "A Misdreavus frightens people with a\n"
-    "creepy, sobbing cry. It apparently uses\n"
-    "its red spheres to absorb the fear of foes\n"
-    "as its nutrition.");
+    "At night, it mimics the sound of a lost\n"
+    "child crying. When disturbed, it lets\n"
+    "out a loud, shrill cry said to steal\n"
+    "souls.");
 
 const u8 gUnownPokedexText[] = _(
     "This Pokémon is shaped like ancient text\n"
@@ -1924,16 +1924,16 @@ const u8 gCacturnePokedexText[] = _(
     "nocturnal, so it hunts at night.");
 
 const u8 gSnoruntPokedexText[] = _(
-    "They tend to move about in groups of\n"
-    "around five Snorunt. In snowy regions,\n"
-    "it is said that when they are seen late at\n"
-    "night, snowfall will arrive by morning.");
+    "They travel in groups, wading through\n"
+    "the snowy mountains. Their movement path\n"
+    "is said to reflect the weather patterns\n"
+    "of the mountains.");
 
 const u8 gGlaliePokedexText[] = _(
-    "A Glalie has the power to instantaneously\n"
-    "freeze moisture in the atmosphere.\n"
-    "A dazzling cloud of diamondlike ice\n"
-    "crystals forms around its body.");
+    "It opens its mouth, instantly freezing\n"
+    "those hit by its breath. It then closes.\n"
+    "its mouth, instantly crushing those\n"
+    "helpless, frozen prey.");
 
 const u8 gLunatonePokedexText[] = _(
     "It becomes very active on the night of\n"
@@ -2375,10 +2375,10 @@ const u8 gLopunnyPokedexText[] = _(
     "It runs with sprightly jumps.");
 
 const u8 gMismagiusPokedexText[] = _(
-    "Its cries sound like incantations.\n"
-    "Those hearing it are tormented by\n"
-    "headaches and hallucinations.\n"
-    "It appears where you least expect it.");
+    "A malicious curse is believed to be cast\n"
+    "by hearing its baneful cries. The curse\n"
+    "ranges from misfortune to horrifying\n"
+    "ailments to outright madness.");
 
 const u8 gHonchkrowPokedexText[] = _(
     "Becoming active at night, it is known\n"
@@ -2669,10 +2669,10 @@ const u8 gDusknoirPokedexText[] = _(
     "and guides them home.");
 
 const u8 gFroslassPokedexText[] = _(
-    "When it finds people or Pokémon it likes,\n"
-    "it freezes them and takes them to its\n"
-    "chilly den, where they become its\n"
-    "decorations.");
+    "Froslass favors being caught by men and\n"
+    "often avoids women in the wild. Do not\n"
+    "let it embrace you or it will absorb all\n"
+    "your heat, leaving you ice-cold.");
 
 const u8 gRotomPokedexText[] = _(
     "Research continues on this Pokémon.\n"
@@ -5635,10 +5635,10 @@ const u8 gGourdougPokedexText[] = _(
     "popularly used in teas.");
 
 const u8 gFogglehindPokedexText[] = _(
-    "They travel in groups, wading through\n"
-    "the snowy mountains. Their movement path\n"
-    "is said to reflect the weather patterns\n"
-    "of the mountains.");
+    "Fogglehind follow people as they travel\n"
+    "through the woods. Because of their shy\n"
+    "disposition, they fade away when people\n"
+    "look at them.");
 
 const u8 gMatchlitPokedexText[] = _(
     "The flames Matchlit hold entrance them,\n"
@@ -5873,10 +5873,10 @@ const u8 gIngbunPokedexText[] = _(
     "to defend them from the cruel city.");
 
 const u8 gChaffawPokedexText[] = _(
-    "Chaffaw often swarm to tag team their\n"
-    "arch-enemy, Ferror. Because of Ferror's\n"
-    "tough skin, they end up messing around\n"
-    "and laughing so hard that they puke.");
+    "Chaffaw swarm to battle their arch-enemy,\n"
+    "Ferror. The Chaffaw start mocking Ferror,\n"
+    "and this leads to them laughing and puking\n"
+    "lava, which can melt Ferror's skin.");
 
 const u8 gFerrorPokedexText[] = _(
     "Its skin is so hard that it is nigh\n"
@@ -6601,4 +6601,10 @@ const u8 gKingambitPokedexText[] = _(
     "Pawniard to raid villages and habitats to\n"
     "get food. They, however, lack strategic\n"
     "versatility when commanding their army.");
+
+const u8 gShellylouhPokedexText[] = _(
+    "Shellylouh, with spells imbue.\n"
+    "Sells shells by Shellylouh.\n"
+    "For pearls, bijou, she sells in true.\n"
+    "Her lovely shelly brew.");
 #endif

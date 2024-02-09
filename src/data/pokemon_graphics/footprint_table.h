@@ -1111,6 +1111,7 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_SHISHIMA] = gMonFootprint_Shishima,
     [SPECIES_SHUNYONG] = gMonFootprint_Shunyong,
     [SPECIES_KINGAMBIT] = gMonFootprint_Kingambit,
+    [SPECIES_SHELLYLOUH] = gMonFootprint_Shellylouh,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

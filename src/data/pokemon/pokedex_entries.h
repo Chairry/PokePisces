@@ -698,26 +698,26 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_GROWLITHE] =
     {
-        .categoryName = _("Puppy"),
-        .height = 7,
-        .weight = 190,
+        .categoryName = _("Scout"),
+        .height = 8,
+        .weight = 227,
         .description = gGrowlithePokedexText,
-        .pokemonScale = 346,
-        .pokemonOffset = 14,
-        .trainerScale = 256,
+        .pokemonScale = 366,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
         .trainerOffset = 0,
     },
 
     [NATIONAL_DEX_ARCANINE] =
     {
         .categoryName = _("Legendary"),
-        .height = 19,
-        .weight = 1550,
+        .height = 20,
+        .weight = 1680,
         .description = gArcaninePokedexText,
         .pokemonScale = 256,
-        .pokemonOffset = 1,
-        .trainerScale = 312,
-        .trainerOffset = 4,
+        .pokemonOffset = 2,
+        .trainerScale = 300,
+        .trainerOffset = 1,
     },
 
     [NATIONAL_DEX_POLIWAG] =
@@ -13312,6 +13312,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .height = 999,
         .weight = 999,
         .description = gKingambitPokedexText,
+        .pokemonScale = 999,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_SHELLYLOUH] =
+    {
+        .categoryName = _("Shimmer"),
+        .height = 999,
+        .weight = 999,
+        .description = gShellylouhPokedexText,
         .pokemonScale = 999,
         .pokemonOffset = 0,
         .trainerScale = 256,

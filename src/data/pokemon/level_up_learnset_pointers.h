@@ -1118,6 +1118,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SHISHIMA] = sShishimaLevelUpLearnset,
     [SPECIES_SHUNYONG] = sShunyongLevelUpLearnset,
     [SPECIES_KINGAMBIT] = sKingambitLevelUpLearnset,
+    [SPECIES_SHELLYLOUH] = sShellylouhLevelUpLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,

@@ -10560,6 +10560,12 @@ static const union AnimCmd sAnim_Kingambit_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Shellylouh_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Coffiddle_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -12824,6 +12830,7 @@ SINGLE_ANIMATION(ShishimaPunisher);
 SINGLE_ANIMATION(Shunyong);
 SINGLE_ANIMATION(ShunyongGoldenOffense);
 SINGLE_ANIMATION(Kingambit);
+SINGLE_ANIMATION(Shellylouh);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -14124,6 +14131,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SHUNYONG] = sAnims_Shunyong,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sAnims_ShunyongGoldenOffense,
     [SPECIES_KINGAMBIT] = sAnims_Kingambit,
+    [SPECIES_SHELLYLOUH] = sAnims_Shellylouh,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

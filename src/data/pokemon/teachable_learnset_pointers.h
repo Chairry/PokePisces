@@ -1119,6 +1119,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SHISHIMA] = sShishimaTeachableLearnset,
     [SPECIES_SHUNYONG] = sShunyongTeachableLearnset,
     [SPECIES_KINGAMBIT] = sKingambitTeachableLearnset,
+    [SPECIES_SHELLYLOUH] = sShellylouhTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,

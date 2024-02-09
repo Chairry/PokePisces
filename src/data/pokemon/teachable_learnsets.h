@@ -31904,6 +31904,10 @@ static const u16 sKingambitTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sShellylouhTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sShunyongTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

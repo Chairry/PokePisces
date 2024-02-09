@@ -1133,6 +1133,7 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(SHUNYONG, gMonPalette_Shunyong),
     SPECIES_PAL(SHUNYONG_GOLDEN_OFFENSE, gMonPalette_ShunyongGoldenOffense),
     SPECIES_PAL(KINGAMBIT, gMonPalette_Kingambit),
+    SPECIES_PAL(SHELLYLOUH, gMonPalette_Shellylouh),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),
