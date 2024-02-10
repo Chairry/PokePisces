@@ -3962,3 +3962,9 @@ static const u8 sSandstone[] = _(
     "A stone made of\n"
     "sandstorms.\n"
     "Evolves Pebbler.");
+
+static const u8 sComedyMaskDesc[] = _(
+    "???");
+
+static const u8 sTragedyMaskDesc[] = _(
+    "???");

@@ -564,6 +564,7 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_DEEP_SEA_SCALE]     = gItemEffect_EvoItem,
     [ITEM_DEEP_SEA_TOOTH]     = gItemEffect_EvoItem,
     [ITEM_METAL_COAT]         = gItemEffect_EvoItem,
+    [ITEM_BERSERK_GENE]       = gItemEffect_EvoItem,
     [ITEM_KINGS_ROCK]         = gItemEffect_EvoItem,
     [ITEM_RAZOR_CLAW]         = gItemEffect_EvoItem,
     [ITEM_AUSPICIOUS_ARMOR]   = gItemEffect_EvoItem,

@@ -289,6 +289,11 @@
 #define EVO_LOW_FRIENDSHIP                44     // Pokémon levels up with friendship less than or equal to 95
 #define EVO_MOVE_TWO_SEGMENT              45     // Pokémon levels up, knows specified move, has a personality value with a modulus of 0
 #define EVO_MOVE_THREE_SEGMENT            46     // Pokémon levels up, knows specified move, has a personality value with a modulus of 1-9
+#define EVO_LEVEL_MALE_KINGS_ROCK         47
+#define EVO_POISONED                      48
+#define EVO_BATTLE_TERRAIN                49
+#define EVO_LEVEL_ATK_GT_SPATK            50
+#define EVO_LEVEL_ATK_LT_SPATK            51
 
 #define EVOS_PER_MON 10
 
