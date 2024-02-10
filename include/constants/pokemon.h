@@ -294,6 +294,9 @@
 #define EVO_BATTLE_TERRAIN                49
 #define EVO_LEVEL_ATK_GT_SPATK            50
 #define EVO_LEVEL_ATK_LT_SPATK            51
+#define EVO_HIT_BY_SLASH_MOVE             52
+#define EVO_HIT_BY_PIERCE_MOVE            53
+#define EVO_HIT_BY_BLUNT_MOVE             54
 
 #define EVOS_PER_MON 10
 
