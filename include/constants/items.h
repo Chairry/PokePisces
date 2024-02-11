@@ -921,8 +921,10 @@
 #define ITEM_NEO_BATTERY 803
 #define ITEM_SANDBAG 804
 #define ITEM_SANDSTONE 805
+#define ITEM_COMEDY_MASK 806
+#define ITEM_TRAGEDY_MASK 807
 
-#define ITEMS_COUNT 806
+#define ITEMS_COUNT 808
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
