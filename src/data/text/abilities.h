@@ -78,7 +78,7 @@ static const u8 sAirLockDescription[] = _("Removes weather and stops\nit from be
 static const u8 sTangledFeetDescription[] = _("Ups the Pokémon's evasion\nif it is confused.");
 static const u8 sMotorDriveDescription[] = _("Raises Speed if hit by an\nElectric-type move.");
 static const u8 sRivalryDescription[] = _("Deals more damage to\nPokémon of the same gender.");
-static const u8 sSteadfastDescription[] = _("Boosts the Speed stat each\ntime the Pokémon flinches.");
+static const u8 sSteadfastDescription[] = _("Ups the Spd and Atk stat if\nflinching. Also prevents it.");
 static const u8 sSnowCloakDescription[] = _("Ignores stage hazards and\nups evasion in a hailstorm.");
 static const u8 sGluttonyDescription[] = _("Encourages the early use of\na held Berry.");
 static const u8 sAngerPointDescription[] = _("Critical-hits max Attack. SE\nmoves sharply raise Attack.");
@@ -358,6 +358,8 @@ static const u8 sWhiteOutDescription[] = _("Boosts the Pokémon's Sp.\nAttack in
 static const u8 sCinderWaltzDescription[] = _("If hit, counters with a 50\nBP Relic move that may burn.");
 static const u8 sIgnorantBlissDescription[] = _("Ignores a lot.");
 static const u8 sHardboiledDescription[] = _("Ups defenses after being hit\nby a super effective move.");
+static const u8 sToxicChainDescription[] = _("May badly poison a foe when\nthe user uses a move.");
+static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe user makes contact.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -728,7 +730,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WHITE_OUT] = _("White Out"),
     [ABILITY_CINDER_WALTZ] = _("Cinder Waltz"),
     [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
-    [ABILITY_HARDBOILED] = _("Hardboiled")
+    [ABILITY_HARDBOILED] = _("Hardboiled"),
+    [ABILITY_TOXIC_CHAIN] = _("Contagious"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1099,7 +1102,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WHITE_OUT] = _("White Out"),
     [ABILITY_CINDER_WALTZ] = _("Cinder Waltz"),
     [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
-    [ABILITY_HARDBOILED] = _("Hardboiled")
+    [ABILITY_HARDBOILED] = _("Hardboiled"),
+    [ABILITY_TOXIC_CHAIN] = _("Contagious"),
 };
 #endif
 
@@ -1248,7 +1252,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TELEPATHY] = sTelepathyDescription,
     [ABILITY_MOODY] = sMoodyDescription,
     [ABILITY_OVERCOAT] = sOvercoatDescription,
-    [ABILITY_POISON_TOUCH] = sPoisonPointDescription,
+    [ABILITY_POISON_TOUCH] = sPoisonTouchDescription,
     [ABILITY_REGENERATOR] = sNaturalCureDescription,
     [ABILITY_BIG_PECKS] = sBigPecksDescription,
     [ABILITY_SAND_RUSH] = sSandRushDescription,
@@ -1471,5 +1475,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WHITE_OUT] = sWhiteOutDescription,
     [ABILITY_CINDER_WALTZ] = sCinderWaltzDescription,
     [ABILITY_IGNORANT_BLISS] = sIgnorantBlissDescription,
-    [ABILITY_HARDBOILED] = sHardboiledDescription
+    [ABILITY_HARDBOILED] = sHardboiledDescription,
+    [ABILITY_TOXIC_CHAIN] = sToxicChainDescription,
 };

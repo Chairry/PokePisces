@@ -1240,10 +1240,10 @@ const u8 gDunsparcePokedexText[] = _(
     "underground the moment they see danger.");
 
 const u8 gGligarPokedexText[] = _(
-    "It glides without making a single sound.\n"
-    "It grasps the face of its foe using its\n"
-    "hind and large front claws, then stabs\n"
-    "with its poison barb.");
+    "It produces toxins that can incapacitate\n"
+    "large elephants. Gligar can be agitated\n"
+    "into missing its swing and stinging itself.\n"
+    "Which, surprisingly, it isn’t immune to.");
 
 const u8 gSteelixPokedexText[] = _(
     "Steelix live even further underground\n"
@@ -1636,40 +1636,40 @@ const u8 gLudicoloPokedexText[] = _(
     "quail even when it faces a tough opponent.");
 
 const u8 gSeedotPokedexText[] = _(
-    "It hangs off branches and absorbs\n"
-    "nutrients. When it finishes eating, its\n"
-    "body becomes so heavy that it drops to\n"
-    "the ground with a thump.");
+    "They hang around the branches of majestic\n"
+    "trees, sapping nutrients for themselves.\n"
+    "Loafoof ensure they don’t overcrowd a\n"
+    "tree, ensuring the tree's survival.");
 
 const u8 gNuzleafPokedexText[] = _(
-    "A forest-dwelling Pokémon that is skilled\n"
-    "at climbing trees. Its long and pointed\n"
-    "nose is its weak point. It loses power if\n"
-    "the nose is gripped.");
+    "Nuzleaf pretends to guide travelers down\n"
+    "the right path. They lead them astray\n"
+    "deep into the dark, overgrown forest,\n"
+    "then disappear with an audible snicker.");
 
 const u8 gShiftryPokedexText[] = _(
-    "It is said to arrive on chilly, wintry winds.\n"
-    "Feared from long ago as the guardian of\n"
-    "forests, this Pokémon lives in a deep\n"
-    "forest where people do not venture.");
+    "Shiftry holds two fans said to produce\n"
+    "winds so great it could topple towers.\n"
+    "It stays atop the trees, keeping a close\n"
+    "eye over the forest.");
 
 const u8 gNincadaPokedexText[] = _(
-    "It makes its nest at the roots of a mighty\n"
-    "tree. Using its whiskerlike antennae, it\n"
-    "probes its surroundings in the\n"
-    "pitch-black darkness of soil.");
+    "They lay underground, absorbing\n"
+    "nutrients from a tree’s roots. Every ten\n"
+    "years, they come up in droves to fully\n"
+    "mature into Ninjask.");
 
 const u8 gNinjaskPokedexText[] = _(
-    "Because it darts about vigorously at high\n"
-    "speed, it is very difficult to see. Hearing\n"
-    "its distinctive cries for too long induces\n"
-    "a headache.");
+    "Ninjask moves so fast that it was thought\n"
+    "to have known the move Teleport. In tandem\n"
+    "with its speed and claws, it can take out\n"
+    "the toughest of Pokémon in a single hit.");
 
 const u8 gShedinjaPokedexText[] = _(
-    "A peculiar Pokémon that floats in air even\n"
-    "though its wings remain completely still.\n"
-    "The inside of its body is hollow and\n"
-    "utterly dark.");
+    "Lost souls who find their way into the\n"
+    "exuviae of Nincada, become a Shedinja.\n"
+    "This twists them into a greedy void,\n"
+    "pulling at souls who stare at the cracks.");
 
 const u8 gTaillowPokedexText[] = _(
     "Although it is small, it is very courageous.\n"
@@ -2519,16 +2519,16 @@ const u8 gDrapionPokedexText[] = _(
     "out of a car.");
 
 const u8 gCroagunkPokedexText[] = _(
-    "Croagunk rarely fights fairly. Inflating\n"
-    "its poison sacs, it fills the area with\n"
-    "an odd sound and hits flinching\n"
-    "opponents with a poison jab.");
+    "Widely used in medicine, Croagunk is\n"
+    "highly valued for its poison.\n"
+    "Pharmacologists ordinarily take them as\n"
+    "partners.");
 
 const u8 gToxicroakPokedexText[] = _(
-    "Swaying and dodging the attacks\n"
-    "of its foes, it weaves its flexible body\n"
-    "in close, then lunges out with its\n"
-    "poisonous claws.");
+    "With its red claws, it jabs opponents\n"
+    "and releases deadly toxins. Luckily, the\n"
+    "anti-venom is made from the same toxin\n"
+    "and is available in most clinics.");
 
 const u8 gCarnivinePokedexText[] = _(
     "Hanging from branches using its\n"
@@ -2633,10 +2633,10 @@ const u8 gGlaceonPokedexText[] = _(
     "flurries of diamond dust.");
 
 const u8 gGliscorPokedexText[] = _(
-    "Gliscor observes prey while hanging\n"
-    "upside down from branches. Its flight is\n"
-    "soundless. When the chance presents\n"
-    "itself, it swoops!");
+    "It skulks around in the shade of trees,\n"
+    "watching and waiting for a chance to catch\n"
+    "prey. Gliscor uses its tail to grab and\n"
+    "inject lethal poison, preventing escape.");
 
 const u8 gMamoswinePokedexText[] = _(
     "A frozen Mamoswine was dug from ice\n"
@@ -3547,16 +3547,16 @@ const u8 gGolurkPokedexText[] = _(
     "internal energy go out of control.");
 
 const u8 gPawniardPokedexText[] = _(
-    "Ignoring their injuries, groups attack by\n"
-    "sinking the blades that cover their bodies\n"
-    "into their prey. If battling dulls them, it\n"
-    "sharpens them on stones by the river.");
+    "Pawniard enjoy keeping their sharp\n"
+    "blades clean and pristine. They follow\n"
+    "Bisharp hoping to learn their skills and\n"
+    "techniques.");
 
 const u8 gBisharpPokedexText[] = _(
-    "This pitiless Pokémon commands a group\n"
-    "of Pawniard to hound prey into immobility.\n"
-    "It battles to become the boss, but will be\n"
-    "driven from the group if it loses.");
+    "They take pride in the sharpness of\n"
+    "their blades, as well as the scratches in\n"
+    "their armor. A fight between two veteran\n"
+    "Bisharp is said to be a sight to behold.");
 
 const u8 gBouffalantPokedexText[] = _(
     "Their fluffy fur absorbs damage, even\n"
