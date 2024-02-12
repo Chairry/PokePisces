@@ -349,7 +349,7 @@ static const u8 sMysticOneDescription[] = _("Doubles the Pokémon's Sp.\nAttack.
 static const u8 sPermafrostDescription[] = _("Eliminates all of the Ice-\ntype's weaknesses in hail.");
 static const u8 sPotencyDescription[] = _("Powers up Poison-type moves.");
 static const u8 sPowerSpikeDescription[] = _("Boosts the power of piercing\nmoves when at half HP.");
-static const u8 sVerdictDescription[] = _("Cuts the foe's max HP by 1/4\nevery two turns.");
+static const u8 sVerdictDescription[] = _("Cuts the foe's HP by 1/5 or\nmore depending on stat boosts.");
 static const u8 sSeafarerDescription[] = _("Powers up Water-type moves.");
 static const u8 sStarScreenDescription[] = _("extends the duration of\nbarrier moves.");
 static const u8 sStrongholdDescription[] = _("Boosts the user's defenses\nbut permits only one move.");
@@ -360,6 +360,8 @@ static const u8 sIgnorantBlissDescription[] = _("Ignores a lot.");
 static const u8 sHardboiledDescription[] = _("Ups defenses after being hit\nby a super effective move.");
 static const u8 sToxicChainDescription[] = _("May badly poison a foe when\nthe user uses a move.");
 static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe user makes contact.");
+static const u8 sCheeseGuardDescription[] = _("Tries to get Cheese at the\neach turn or after battle.");
+static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -722,7 +724,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PERMAFROST] = _("Permafrost"),
     [ABILITY_POTENCY] = _("Potency"),
     [ABILITY_POWER_SPIKE] = _("Power Spike"),
-    [ABILITY_VERDICT] = _("Verdict"),
+    [ABILITY_VERDICT] = _("Arbiter"),
     [ABILITY_SEAFARER] = _("Seafarer"),
     [ABILITY_STAR_SCREEN] = _("Star Screen"),
     [ABILITY_STRONGHOLD] = _("Stronghold"),
@@ -732,6 +734,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
     [ABILITY_HARDBOILED] = _("Hardboiled"),
     [ABILITY_TOXIC_CHAIN] = _("Contagious"),
+    [ABILITY_CHEESE_GUARD] = _("CheeseGuard"),
+    [ABILITY_WATCHER] = _("Watcher"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1094,7 +1098,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_PERMAFROST] = _("Permafrost"),
     [ABILITY_POTENCY] = _("Potency"),
     [ABILITY_POWER_SPIKE] = _("Power Spike"),
-    [ABILITY_VERDICT] = _("Verdict"),
+    [ABILITY_VERDICT] = _("Arbiter"),
     [ABILITY_SEAFARER] = _("Seafarer"),
     [ABILITY_STAR_SCREEN] = _("Star Screen"),
     [ABILITY_STRONGHOLD] = _("Stronghold"),
@@ -1104,6 +1108,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_IGNORANT_BLISS] = _("Ignorant Bliss"),
     [ABILITY_HARDBOILED] = _("Hardboiled"),
     [ABILITY_TOXIC_CHAIN] = _("Contagious"),
+    [ABILITY_CHEESE_GUARD] = _("CheeseGuard"),
+    [ABILITY_WATCHER] = _("Watcher"),
 };
 #endif
 
@@ -1477,4 +1483,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_IGNORANT_BLISS] = sIgnorantBlissDescription,
     [ABILITY_HARDBOILED] = sHardboiledDescription,
     [ABILITY_TOXIC_CHAIN] = sToxicChainDescription,
+    [ABILITY_CHEESE_GUARD] = sCheeseGuardDescription,
+    [ABILITY_WATCHER] = sWatcherDescription,
 };
