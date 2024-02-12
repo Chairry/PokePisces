@@ -3953,7 +3953,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[LEGENDARY_PERFECT_IV_COUNT];
-
+    fixedIV = 31;
     ZeroBoxMonData(boxMon);
 
     if (hasFixedPersonality)

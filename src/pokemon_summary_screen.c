@@ -4513,6 +4513,7 @@ static void SwitchToEvEditor(u8 taskId)
     sum->evTotal = 0;
     for (j = 0; j < NUM_STATS; j++) {
         sum->evs[j] = GetMonData(mon, MON_DATA_HP_EV + sStatIdMap[j]);
+        //sum->evs[j] = GetMonData(mon, MON_DATA_HP_IV + sStatIdMap[j]); // Use this top view IVs
         sum->evTotal += sum->evs[j];
         //DebugPrintf("stat %d = %d", j, sum->evs[j]);
     }
