@@ -56,7 +56,7 @@ Defines
 #define ABILITY_PERMAFROST 355
 #define ABILITY_POTENCY 356
 #define ABILITY_POWER_SPIKE 357
-#define ABILITY_VERDICT 358
+#define ABILITY_ARBITER 358
 #define ABILITY_SEAFARER 359
 #define ABILITY_STAR_SCREEN 360
 #define ABILITY_STRONGHOLD 361
@@ -123,7 +123,7 @@ Names
 [ABILITY_PERMAFROST] = _("Permafrost"),
 [ABILITY_POTENCY] = _("Potency"),
 [ABILITY_POWER_SPIKE] = _("Power Spike"),
-[ABILITY_VERDICT] = _("Verdict"),
+[ABILITY_ARBITER] = _("Arbiter"),
 [ABILITY_SEAFARER] = _("Seafarer"),
 [ABILITY_STAR_SCREEN] = _("Star Screen"),
 [ABILITY_STRONGHOLD] = _("Stronghold"),
@@ -190,7 +190,7 @@ static const u8 sMysticOneDescription[] = _("Raises Special Attack.");
 static const u8 sPermafrostDescription[] = _("Removes weaknesses in hail.");
 static const u8 sPotencyDescription[] = _("Powers up Poison moves.");
 static const u8 sPowerSpikeDescription[] = _("Boosts horn moves at 50% HP.");
-static const u8 sVerdictDescription[] = _("");
+static const u8 sArbiterDescription[] = _("");
 static const u8 sSeafarerDescription[] = _("Powers up Water moves.");
 static const u8 sStarScreenDescription[] = _("Extends screens.");
 static const u8 sStrongholdDescription[] = _("Ups Defenses and locks moves.");
@@ -257,7 +257,7 @@ DefToDesc
 [ABILITY_PERMAFROST] = sPermafrostDescription,
 [ABILITY_POTENCY] = sPotencyDescription,
 [ABILITY_POWER_SPIKE] = sPowerSpikeDescription,
-[ABILITY_VERDICT] = sVerdictDescription,
+[ABILITY_ARBITER] = sArbiterDescription,
 [ABILITY_SEAFARER] = sSeafarerDescription,
 [ABILITY_STAR_SCREEN] = sStarScreenDescription,
 [ABILITY_STRONGHOLD] = sStrongholdDescription,
