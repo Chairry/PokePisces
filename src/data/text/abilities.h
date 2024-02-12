@@ -360,7 +360,7 @@ static const u8 sIgnorantBlissDescription[] = _("Ignores a lot.");
 static const u8 sHardboiledDescription[] = _("Ups defenses after being hit\nby a super effective move.");
 static const u8 sToxicChainDescription[] = _("May badly poison a foe when\nthe user uses a move.");
 static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe user makes contact.");
-static const u8 sCheeseGuardDescription[] = _("Tries to get Cheese at the\neach turn or after battle.");
+static const u8 sCheeseGuardDescription[] = _("i don't get it");
 static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
