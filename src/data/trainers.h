@@ -4058,10 +4058,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_CLAUDE] =
     {
-        .trainerClass = TRAINER_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_MONK,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
-        .trainerName = _("CLAUDE"),
+        .trainerPic = TRAINER_PIC_MONK,
+        .trainerName = _("GOTOU"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
@@ -7250,10 +7250,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HALEY_1] =
     {
-        .trainerClass = TRAINER_CLASS_LASS,
+        .trainerClass = TRAINER_CLASS_UPSTART,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_LASS,
-        .trainerName = _("HALEY"),
+        .trainerPic = TRAINER_PIC_UPSTART,
+        .trainerName = _("KATH"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
