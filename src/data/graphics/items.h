@@ -2046,3 +2046,9 @@ const u32 gItemIconPalette_Sandbag[] = INCBIN_U32("graphics/items/icon_palettes/
 
 const u32 gItemIcon_Sandstone[] = INCBIN_U32("graphics/items/icons/sandstone.4bpp.lz");
 const u32 gItemIconPalette_Sandstone[] = INCBIN_U32("graphics/items/icon_palettes/sandstone.gbapal.lz");
+
+const u32 gItemIcon_ComedyMask[] = INCBIN_U32("graphics/items/icons/comedy_mask.4bpp.lz");
+const u32 gItemIconPalette_ComedyMask[] = INCBIN_U32("graphics/items/icon_palettes/comedy_mask.gbapal.lz");
+
+const u32 gItemIcon_TragedyMask[] = INCBIN_U32("graphics/items/icons/tragedy_mask.4bpp.lz");
+const u32 gItemIconPalette_TragedyMask[] = INCBIN_U32("graphics/items/icon_palettes/tragedy_mask.gbapal.lz");

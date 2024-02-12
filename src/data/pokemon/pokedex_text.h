@@ -1798,10 +1798,10 @@ const u8 gWhiscashPokedexText[] = _(
     "continually feeds throughout the night.");
 
 const u8 gLuvdiscPokedexText[] = _(
-    "Luvdisc make the branches of Corsola\n"
-    "their nests. There is a custom from long\n"
-    "ago of giving a Luvdisc as a gift to\n"
-    "express one's feelings of love.");
+    "If one were to spot a pair of Luvdisc\n"
+    "when the clock strikes midnight during\n"
+    "the New Year, it is said that you will\n"
+    "find your soulmate seconds later.");
 
 const u8 gCorphishPokedexText[] = _(
     "Once it grips prey with its large pincers,\n"
@@ -1936,16 +1936,16 @@ const u8 gGlaliePokedexText[] = _(
     "helpless, frozen prey.");
 
 const u8 gLunatonePokedexText[] = _(
-    "It becomes very active on the night of\n"
-    "a full moon. This Pokémon was first\n"
-    "discovered 40 years ago at the site of\n"
-    "a meteor strike.");
+    "Their eyes cause unexplainable dread.\n"
+    "The population has developed a mass\n"
+    "phobia of full moons, the only time\n"
+    "Lunatone are active.");
 
 const u8 gSolrockPokedexText[] = _(
-    "Solar energy is the source of this \n"
-    "Pokémon's power. On sunny days, groups of\n"
-    "Solrock line up facing the sun and absorb\n"
-    "its light.");
+    "Stories tell of the sun god's sword\n"
+    "shattering into fragments and giving rise\n"
+    "to many Solrock. Sometimes it's mistaken\n"
+    "for the actual sun in the distance.");
 
 const u8 gAzurillPokedexText[] = _(
     "Its tail, which is packed with nutrition,\n"
@@ -2272,16 +2272,16 @@ const u8 gRegisteelPokedexText[] = _(
     "it shrinks and stretches flexibly.");
 
 const u8 gKyogrePokedexText[] = _(
-    "Kyogre has appeared in mythology as the\n"
-    "creator of the sea. After long years of\n"
-    "feuding with Groudon, it took to sleep at\n"
-    "the bottom of the sea.");
+    "Kyogre is known as “The Leviathan.” It\n"
+    "controls the sea and rain, waging war\n"
+    "against “The Behemoth.” It can produce\n"
+    "flash floods at any time.");
 
 const u8 gGroudonPokedexText[] = _(
-    "Groudon has appeared in mythology as the\n"
-    "creator of the land. It sleeps in magma\n"
-    "underground and is said to make volcanoes\n"
-    "erupt on awakening.");
+    "Groudon is known as “The Behemoth.” It\n"
+    "controls the land and sun, waging war\n"
+    "against “The Leviathan.” It can\n"
+    "instantly vaporize bodies of water.");
 
 const u8 gRayquazaPokedexText[] = _(
     "A Pokémon that flies endlessly in the\n"
@@ -6507,7 +6507,7 @@ const u8 gOrrowhelmPokedexText[] = _(
     "ocean’s wrath. They despise Summerasu.");
 
 const u8 gShaYonPokedexText[] = _(
-    "The ascension of the 'God of Mountains'\n"
+    "The ascension of the “God of Mountains”\n"
     "causes all things to rise upon its\n"
     "arrival. Strange new Pokémon have been\n"
     "appearing since it appeared.");
@@ -6516,7 +6516,7 @@ const u8 gLuoShanPokedexText[] = _(
     "Ever since this Pokémon appeared, it has\n"
     "caused a population decline of the\n"
     "locally known Pokémon. Once it descends,\n"
-    "all things fall to the 'God of Valleys.'");
+    "all things fall to the “God of Valleys.”");
 
 const u8 gCoffiddlePokedexText[] = _(
     "Coffiddle can frequently be found on\n"
