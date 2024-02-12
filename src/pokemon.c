@@ -4638,7 +4638,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     if (species == SPECIES_SHEDINJA)
     {
-        newMaxHP = 1;
+        newMaxHP = 5;
     }
     else
     {
@@ -4658,15 +4658,6 @@ void CalculateMonStats(struct Pokemon *mon)
     CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
     CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
 
-    if (species == SPECIES_SHEDINJA)
-    {
-        if (currentHP != 0 || oldMaxHP == 0)
-            currentHP = 1;
-        else
-            return;
-    }
-    else
-    {
         if (currentHP == 0 && oldMaxHP == 0)
             currentHP = newMaxHP;
         else if (currentHP != 0)
@@ -4680,7 +4671,6 @@ void CalculateMonStats(struct Pokemon *mon)
         }
         else
             return;
-    }
 
     SetMonData(mon, MON_DATA_HP, &currentHP);
 }
