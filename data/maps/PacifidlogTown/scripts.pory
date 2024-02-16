@@ -28,6 +28,19 @@ PacifidlogTown_EventScript_TownSign::
 	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
 	end
 
+PacifidlogTown_EventScript_RoadblockingFisherman_1::
+	msgbox PacifidlogTown_Text_CantGoPastUs1, MSGBOX_NPC
+	end
+
+PacifidlogTown_EventScript_RoadblockingFisherman_2::
+	msgbox PacifidlogTown_Text_CantGoPastUs2, MSGBOX_NPC
+	end
+
+PacifidlogTown_EventScript_BetatestingRoadblock::
+	msgbox PacifidlogTown_Text_Roadblockdeactivated, MSGBOX_NPC
+	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	end
+
 PacifidlogTown_Text_FastRunningCurrent:
 	.string "The sea between PACIFIDLOG and\n"
 	.string "SLATEPORT has a fast-running tide.\p"
@@ -52,6 +65,21 @@ PacifidlogTown_Text_TownSign:
 	.string "PACIFIDLOG TOWN\p"
 	.string "“Where the morning sun smiles upon\n"
 	.string "the waters.”$"
+
+PacifidlogTown_Text_CantGoPastUs1:
+	.string "Uhhh test text lol\n"
+	.string "My mom said its my turn on le toilet\p"
+	.string "HOW BOU DAH\p"
+	.string "don't try me doooood$"
+
+PacifidlogTown_Text_CantGoPastUs2:
+	.string "Uhhh test text lol\n"
+	.string "My mom said its my turn on le toilet\p"
+	.string "HOW BOU DAH\p"
+	.string "don't try me doooood$"
+
+PacifidlogTown_Text_Roadblockdeactivated:
+	.string "roadblock off$"
 
 `
 script PacifidlogTown_EventScript_TestSign {
