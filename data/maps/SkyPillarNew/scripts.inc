@@ -2,14 +2,18 @@ SkyPillarNew_MapScripts::
 	.byte 0
 
 SkyPillarNew_EventScript_Granger::
-	lockall
 	setflag FLAG_PISCES_A
-	trainerbattle_single TRAINER_GRANGER, SkyPillarNew_Text_GrangerIntro, SkyPillarNew_Text_GrangerDefeat
+	trainerbattle_single TRAINER_GRANGER, SkyPillarNew_Text_GrangerIntro, SkyPillarNew_Text_GrangerDefeat, SkyPillarNew_EventScript_GrangerChoice
 	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerEncouragement
 	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_GrangerEncouragement
 	goto_if_set FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerRoadblockOver
 	msgbox SkyPillarNew_Text_GrangerPostBattle, MSGBOX_AUTOCLOSE
-	releaseall
+	end
+
+SkyPillarNew_EventScript_GrangerChoice::
+	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerEncouragement
+	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_GrangerEncouragement
+	goto_if_set FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerRoadblockOver
 	end
 
 SkyPillarNew_EventScript_GrangerEncouragement::
@@ -25,11 +29,17 @@ SkyPillarNew_EventScript_GrangerRoadblockOver::
 
 SkyPillarNew_EventScript_Ricky::
 	setflag FLAG_PISCES_B
-	trainerbattle_single TRAINER_RICKY_P, SkyPillarNew_Text_RickyIntro, SkyPillarNew_Text_RickyDefeat
+	trainerbattle_single TRAINER_RICKY_P, SkyPillarNew_Text_RickyIntro, SkyPillarNew_Text_RickyDefeat, SkyPillarNew_EventScript_RickyChoice
 	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_RickyEncouragement
 	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_RickyEncouragement
 	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_RickyRoadblockOver
 	msgbox SkyPillarNew_Text_RickyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SkyPillarNew_EventScript_RickyChoice::
+	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_RickyEncouragement
+	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_RickyEncouragement
+	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_RickyRoadblockOver
 	end
 
 SkyPillarNew_EventScript_RickyEncouragement::
@@ -43,11 +53,17 @@ SkyPillarNew_EventScript_RickyRoadblockOver::
 
 SkyPillarNew_EventScript_Jeannie::
 	setflag FLAG_PISCES_C
-	trainerbattle_single TRAINER_JEANNIE_P, SkyPillarNew_Text_JeannieIntro, SkyPillarNew_Text_JeannieDefeat
+	trainerbattle_single TRAINER_JEANNIE_P, SkyPillarNew_Text_JeannieIntro, SkyPillarNew_Text_JeannieDefeat, SkyPillarNew_EventScript_JeannieChoice
 	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieEncouragement
 	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_JeannieEncouragement
 	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieRoadblockOver
 	msgbox SkyPillarNew_Text_JeanniePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+SkyPillarNew_EventScript_JeannieChoice::
+	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieEncouragement
+	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_JeannieEncouragement
+	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieRoadblockOver
 	end
 
 SkyPillarNew_EventScript_JeannieEncouragement::
