@@ -34,7 +34,7 @@ def add_move_line(move, commentList):
     return line
 
 url = f''
-with open("moveset_path.txt", "r") as speciesHeader:
+with open("moves_path.txt", "r") as speciesHeader:
     data = speciesHeader.readlines()
     url = data[0]
     
