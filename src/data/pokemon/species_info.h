@@ -25266,11 +25266,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_EPOCHOTL] =
     {
         .baseHP        = 120,
-        .baseAttack    = 85,
-        .baseDefense   = 105,
+        .baseAttack    = 50,
+        .baseDefense   = 100,
         .baseSpeed     = 70,
-        .baseSpAttack  = 90,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 100,
         .types = { TYPE_RELIC,TYPE_RELIC },
         .catchRate = 45,
         .expYield = 270,
