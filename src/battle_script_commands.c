@@ -5764,9 +5764,9 @@ static void Cmd_moveend(void)
                 effect = TryKnockOffBattleScript(gBattlerTarget);
                 break;
             case MOVE_EFFECT_STOCKPILE_WORE_OFF:
-                if (gDisableStructs[gBattlerAttacker].stockpileCounter != 0)
+                if (gDisableStructs[gBattlerAttacker].stockpileCounter > 0)
                 {
-                    gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
+                    gDisableStructs[gBattlerAttacker].stockpileCounter--;
                     effect = TRUE;
                     BattleScriptPush(gBattlescriptCurrInstr);
                     gBattlescriptCurrInstr = BattleScript_MoveEffectStockpileWoreOff;
@@ -11533,8 +11533,9 @@ static void Cmd_stockpiletobasedamage(void)
     CMD_ARGS(const u8 *failInstr);
 
     const u8 *failInstr = cmd->failInstr;
-    if (gDisableStructs[gBattlerAttacker].stockpileCounter == 0)
+    if (gDisableStructs[gBattlerAttacker].stockpileCounter < 1)
     {
+        gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
         gBattlescriptCurrInstr = failInstr;
     }
     else
@@ -11556,8 +11557,9 @@ static void Cmd_stockpiletohpheal(void)
 
     const u8 *failInstr = cmd->failInstr;
 
-    if (gDisableStructs[gBattlerAttacker].stockpileCounter == 0)
+    if (gDisableStructs[gBattlerAttacker].stockpileCounter < 1)
     {
+        gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
         gBattlescriptCurrInstr = failInstr;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWALLOW_FAILED;
     }
@@ -11565,7 +11567,7 @@ static void Cmd_stockpiletohpheal(void)
     {
         if (gBattleMons[gBattlerAttacker].maxHP == gBattleMons[gBattlerAttacker].hp)
         {
-            gDisableStructs[gBattlerAttacker].stockpileCounter = 0;
+            gDisableStructs[gBattlerAttacker].stockpileCounter--;
             gBattlescriptCurrInstr = failInstr;
             gBattlerTarget = gBattlerAttacker;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWALLOW_FULL_HP;
