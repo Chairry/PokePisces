@@ -854,6 +854,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_SANDSTONE] = {gItemIcon_Sandstone, gItemIconPalette_Sandstone},
     [ITEM_COMEDY_MASK] = {gItemIcon_ComedyMask, gItemIconPalette_ComedyMask},
     [ITEM_TRAGEDY_MASK] = {gItemIcon_TragedyMask, gItemIconPalette_TragedyMask},
+    [ITEM_PEBBLERITE] = {gItemIcon_Pebblerite, gItemIconPalette_Pebblerite},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
