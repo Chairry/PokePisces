@@ -10463,6 +10463,8 @@ extern const u32 gItemIcon_ComedyMask[];
 extern const u32 gItemIconPalette_ComedyMask[];
 extern const u32 gItemIcon_TragedyMask[];
 extern const u32 gItemIconPalette_TragedyMask[];
+extern const u32 gItemIcon_Pebblerite[];
+extern const u32 gItemIconPalette_Pebblerite[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

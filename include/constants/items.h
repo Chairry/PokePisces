@@ -923,8 +923,9 @@
 #define ITEM_SANDSTONE 805
 #define ITEM_COMEDY_MASK 806
 #define ITEM_TRAGEDY_MASK 807
+#define ITEM_PEBBLERITE 808
 
-#define ITEMS_COUNT 808
+#define ITEMS_COUNT 809
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
