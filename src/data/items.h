@@ -9744,4 +9744,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
+    [ITEM_PEBBLERITE] =
+    {
+        .name = _("Pebblerite"),
+        .price = 2000,
+        .description = sPebbleriteDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 10,
+    },
 };

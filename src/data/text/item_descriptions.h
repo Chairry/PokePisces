@@ -3968,3 +3968,6 @@ static const u8 sComedyMaskDesc[] = _(
 
 static const u8 sTragedyMaskDesc[] = _(
     "???");
+
+static const u8 sPebbleriteDesc[] = _(
+    "???");
