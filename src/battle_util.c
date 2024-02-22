@@ -921,6 +921,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
     [ABILITY_KEEN_EYE] = 1,
     [ABILITY_LEAF_GUARD] = 1,
     [ABILITY_LEVITATE] = 1,
+    [ABILITY_ALL_GAME] = 1,
     [ABILITY_LIGHTNING_ROD] = 1,
     [ABILITY_MAGNET_PULL] = 1,
     [ABILITY_LIMBER] = 1,
@@ -10600,6 +10601,19 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
             gLastLandedMoves[battlerDef] = 0;
             gBattleCommunication[MISS_TYPE] = B_MSG_POISON_MISS;
             RecordAbilityBattle(battlerDef, ABILITY_IMMUNITY);
+        }
+    }
+
+    if ((gBattleMoves[move].type == TYPE_GROUND || gBattleMoves[move].type == TYPE_WATER) && defAbility == ABILITY_ALL_GAME)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_ALL_GAME;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_IMMUNE;
+            RecordAbilityBattle(battlerDef, ABILITY_ALL_GAME);
         }
     }
 

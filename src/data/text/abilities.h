@@ -363,7 +363,7 @@ static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe use
 static const u8 sCheeseGuardDescription[] = _("i don't get it");
 static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
 static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any Pokémon.");
-static const u8 sAllGameDescription[] = _("Summons Mud Sport and Water\nSport.");
+static const u8 sAllGameDescription[] = _("Plays Mud and Water Sports.\nHas Ground/Water Immunity.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =

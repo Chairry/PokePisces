@@ -693,7 +693,8 @@
 #define STRINGID_DRAGONRUINCHARGING                   691
 #define STRINGID_PKMNRESTOREDHPUSINGABILITY           692
 #define STRINGID_ELECTRICITYANDFIREWEAKENED           693
-#define BATTLESTRINGS_COUNT                           694
+#define STRINGID_PKMNMAKESPSYCHICMISS                 694
+#define BATTLESTRINGS_COUNT                           695
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -726,6 +727,8 @@
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
 #define B_MSG_POISON_MISS  5
+#define B_MSG_PSYCHIC_MISS 6
+#define B_MSG_IMMUNE       7
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

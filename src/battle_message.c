@@ -806,7 +806,7 @@ static const u8 sText_BeingHitChargedPkmnWithPower[] = _("Being hit by {B_CURREN
 static const u8 sText_SunlightActivatedAbility[] = _("The harsh sunlight activated\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ABILITY}!");
 static const u8 sText_StatWasHeightened[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1} was heightened!");
 static const u8 sText_ElectricTerrainActivatedAbility[] = _("The Electric Terrain activated\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ABILITY}!");
-static const u8 sText_AbilityWeakenedSurroundingMonsStat[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nweakened the {B_BUFF1} of\lall surrounding Pokémon!\p");
+static const u8 sText_AbilityWeakenedSurroundingMonsStat[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nweakened the {B_BUFF1} of\lall opposing Pokémon!\p");
 static const u8 sText_AttackerGainedStrengthFromTheFallen[] = _("{B_ATK_NAME_WITH_PREFIX} gained strength\nfrom the fallen!");
 static const u8 sText_PrepareShellTrap[] = _("{B_ATK_NAME_WITH_PREFIX} set a shell trap!");
 static const u8 sText_ShellTrapDidntWork[] = _("{B_ATK_NAME_WITH_PREFIX}'s shell trap didn't work!");
@@ -833,6 +833,7 @@ static const u8 sText_DestroyRoomAndTerrain[] = _("{B_ATK_NAME_WITH_PREFIX} dest
 static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing arcane draconic\nenergy for a grand attack!");
 static const u8 sText_PkmnRestoredHPUsingAbility[] = _("{B_ATK_NAME_WITH_PREFIX} restored HP\nusing its {B_ATK_ABILITY}!");
 static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's\npower was weakened!");
+static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPSYCHIC moves ineffective!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1517,6 +1518,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_DRAGONRUINCHARGING - BATTLESTRINGS_TABLE_START] = sText_DragonRuinCharging,
     [STRINGID_PKMNRESTOREDHPUSINGABILITY - BATTLESTRINGS_TABLE_START] = sText_PkmnRestoredHPUsingAbility,
     [STRINGID_ELECTRICITYANDFIREWEAKENED - BATTLESTRINGS_TABLE_START] = sText_ElectricityandFireWeakened,
+    [STRINGID_PKMNMAKESPSYCHICMISS - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesPsychicMiss,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1617,7 +1619,9 @@ const u16 gMissStringIds[] =
     [B_MSG_AVOIDED_ATK] = STRINGID_PKMNAVOIDEDATTACK,
     [B_MSG_AVOIDED_DMG] = STRINGID_AVOIDEDDAMAGE,
     [B_MSG_GROUND_MISS] = STRINGID_PKMNMAKESGROUNDMISS,
-    [B_MSG_POISON_MISS] = STRINGID_PKMNMAKESPOISONMISS
+    [B_MSG_POISON_MISS] = STRINGID_PKMNMAKESPOISONMISS,
+    [B_MSG_PSYCHIC_MISS] = STRINGID_PKMNMAKESPSYCHICMISS,
+    [B_MSG_IMMUNE] = STRINGID_PKMNUNAFFECTED
 };
 
 const u16 gNoEscapeStringIds[] =
