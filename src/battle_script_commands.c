@@ -9412,6 +9412,29 @@ static void Cmd_various(void)
         }
         break;
     }
+    case VARIOUS_TRY_ACTIVATE_APPETITE:
+    {
+        VARIOUS_ARGS();
+
+        u16 battlerAbility = GetBattlerAbility(battler);
+
+        if ((battlerAbility == ABILITY_APPETITE)
+          && HasAttackerFaintedTarget()
+          && !NoAliveMonsForEitherParty()
+          && !BATTLER_MAX_HP(battler)
+          && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+        {
+            BattleScriptPush(cmd->nextInstr);
+            gLastUsedAbility = battlerAbility;
+            gBattlescriptCurrInstr = BattleScript_AppetiteActivates;
+            gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+            gBattleMoveDamage *= -1;
+            return;
+        }
+        break;
+    }
     case VARIOUS_TRY_ACTIVATE_GRIM_NEIGH:   // and as one shadow rider
     {
         VARIOUS_ARGS();

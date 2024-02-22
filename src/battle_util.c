@@ -4637,6 +4637,31 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_ALL_GAME:
+            if (!((gFieldStatuses & STATUS_FIELD_MUDSPORT) && (gFieldStatuses & STATUS_FIELD_WATERSPORT)))
+            {
+                gFieldStatuses |= STATUS_FIELD_MUDSPORT;
+                gFieldTimers.mudSportTimer = 5;
+                gFieldStatuses |= STATUS_FIELD_WATERSPORT;
+                gFieldTimers.waterSportTimer = 5;
+                BattleScriptPushCursorAndCallback(BattleScript_MudWaterSportActivates);
+                effect++;
+            }
+            else if ((!(gFieldStatuses & STATUS_FIELD_MUDSPORT)) && (gFieldStatuses & STATUS_FIELD_WATERSPORT))
+            {
+                gFieldStatuses |= STATUS_FIELD_MUDSPORT;
+                gFieldTimers.mudSportTimer = 5;
+                BattleScriptPushCursorAndCallback(BattleScript_MudSportActivates);
+                effect++;
+            }
+            else if ((!(gFieldStatuses & STATUS_FIELD_WATERSPORT)) && (gFieldStatuses & STATUS_FIELD_MUDSPORT))
+            {
+                gFieldStatuses |= STATUS_FIELD_WATERSPORT;
+                gFieldTimers.waterSportTimer = 5;
+                BattleScriptPushCursorAndCallback(BattleScript_WaterSportActivates);
+                effect++;
+            }
+            break;
         case ABILITY_SNOW_WARNING:
             #if B_USE_SNOW == TRUE
             if (TryChangeBattleWeather(battler, ENUM_WEATHER_SNOW, TRUE))

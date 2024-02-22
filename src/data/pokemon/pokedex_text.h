@@ -4648,7 +4648,7 @@ const u8 gZeraoraPokedexText[] = _(
     "Zeraora are always looking for a laugh.\n"
     "They'll do anything to forget their loss,\n"
     "whether it's making someone slip on a\n"
-    "banana peel or crushing their head in.");
+    "banana peel or bashing their head in.");
 
 const u8 gMeltanPokedexText[] = _(
     "It melts particles of iron and other metals\n"

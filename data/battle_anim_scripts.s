@@ -986,6 +986,9 @@ gBattleAnims_General::
 	.4byte General_Snow                     @ B_ANIM_SNOW_CONTINUES
 	.4byte General_UltraBurst               @ B_ANIM_ULTRA_BURST
 	.4byte General_SaltCureDamage           @ B_ANIM_SALT_CURE_DAMAGE
+	.4byte General_MudSport                 @ B_ANIM_MUD_SPORT
+	.4byte General_WaterSport               @ B_ANIM_WATER_SPORT
+	.4byte General_MudWaterSport            @ B_ANIM_MUD_WATER_SPORT
 
 	.align 2
 gBattleAnims_Special::
@@ -29017,6 +29020,93 @@ General_AffectionHangedOn_3Hearts:
 	createsprite gRedHeartBurstSpriteTemplate, ANIM_ATTACKER, 3, 128, -16
 	waitforvisualfinish
 	end
+
+General_MudWaterSport::
+	loadspritegfx ANIM_TAG_GLOWY_BLUE_ORB
+	loadspritegfx ANIM_TAG_MUD_SAND
+	createvisualtask AnimTask_Splash, 2, ANIM_ATTACKER, 6
+	createvisualtask AnimTask_WaterSport, 5
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -4, -16
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 4, -12
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
+	delay 32
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -3, -12
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 5, -14
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
+	delay 32
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, -5, -18
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 0, 3, -14
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	playsewithpan SE_M_SURF, SOUND_PAN_ATTACKER
+	delay 16
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
+	waitplaysewithpan SE_M_BUBBLE2, 0, 25
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
+	waitplaysewithpan SE_M_BUBBLE2, 0, 14
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 16
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 220, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 60, 100
+	waitplaysewithpan SE_M_BUBBLE2, 0, 25
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 140, 55
+	waitplaysewithpan SE_M_BUBBLE2, 0, 14
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 180, 50
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 20, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 90, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 160, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 30, 90
+	waitplaysewithpan SE_M_BUBBLE2, 0, 22
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 120, 60
+	waitplaysewithpan SE_M_BUBBLE2, 0, 15
+	delay 2
+	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
+	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	end
+
+General_MudSport::
+	goto Move_MUD_SPORT
+
+General_WaterSport::
+	goto Move_WATER_SPORT
 
 General_SaltCureDamage::
 	goto Status_Freeze

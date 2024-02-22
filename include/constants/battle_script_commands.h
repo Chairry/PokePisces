@@ -249,6 +249,7 @@
 #define VARIOUS_TRY_TRAINER_SLIDE_MSG_Z_MOVE         156
 #define VARIOUS_TRY_TRAINER_SLIDE_MSG_MEGA_EVOLUTION 157
 #define VARIOUS_SET_SPIDER_WEB                       158
+#define VARIOUS_TRY_ACTIVATE_APPETITE                159
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

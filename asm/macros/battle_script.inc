@@ -1608,6 +1608,10 @@
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
 	.endm
 
+	.macro tryactivateappetite battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_APPETITE
+	.endm
+
 	.macro tryactivatebeastboost battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_BEAST_BOOST
 	.endm

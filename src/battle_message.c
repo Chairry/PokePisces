@@ -831,6 +831,8 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_ElectroShockCharging[] = _("{B_ATK_NAME_WITH_PREFIX} absorbed\nelectricity!");
 static const u8 sText_DestroyRoomAndTerrain[] = _("{B_ATK_NAME_WITH_PREFIX} destroyed Rooms\nand Terrains!");
 static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing arcane draconic\nenergy for a grand attack!");
+static const u8 sText_PkmnRestoredHPUsingAbility[] = _("{B_ATK_NAME_WITH_PREFIX} restored HP\nusing its {B_ATK_ABILITY}!");
+static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's\npower was weakened!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1513,6 +1515,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ELECTROSHOCKCHARGING - BATTLESTRINGS_TABLE_START] = sText_ElectroShockCharging,
     [STRINGID_DESTROYROOMANDTERRAIN - BATTLESTRINGS_TABLE_START] = sText_DestroyRoomAndTerrain,
     [STRINGID_DRAGONRUINCHARGING - BATTLESTRINGS_TABLE_START] = sText_DragonRuinCharging,
+    [STRINGID_PKMNRESTOREDHPUSINGABILITY - BATTLESTRINGS_TABLE_START] = sText_PkmnRestoredHPUsingAbility,
+    [STRINGID_ELECTRICITYANDFIREWEAKENED - BATTLESTRINGS_TABLE_START] = sText_ElectricityandFireWeakened,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

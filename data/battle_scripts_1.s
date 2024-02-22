@@ -7061,6 +7061,7 @@ BattleScript_FaintTarget::
 	tryactivatesoulheart
 	tryactivatereceiver BS_TARGET
 	tryactivatemoxie BS_ATTACKER        @ and chilling neigh, as one ice rider
+	tryactivateappetite BS_ATTACKER
 	tryactivatebeastboost BS_ATTACKER
 	tryactivategrimneigh BS_ATTACKER    @ and as one shadow rider
 	tryactivatebattlebond BS_ATTACKER
@@ -9295,6 +9296,16 @@ BattleScript_RainDishActivates::
 	call BattleScript_AbilityHpHeal
 	end3
 
+BattleScript_AppetiteActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNRESTOREDHPUSINGABILITY
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	return
+
 BattleScript_CheekPouchActivates::
 	copybyte sSAVED_BATTLER, gBattlerAttacker
 	copybyte gBattlerAttacker, gBattlerAbility
@@ -9456,6 +9467,33 @@ BattleScript_DroughtActivates::
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SUN_CONTINUES
 	call BattleScript_ActivateWeatherAbilities
+	end3
+
+BattleScript_MudWaterSportActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ELECTRICITYANDFIREWEAKENED
+	waitstate
+	playanimation BS_BATTLER_0, B_ANIM_MUD_WATER_SPORT
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_MudSportActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ELECTRICITYWEAKENED
+	waitstate
+	playanimation BS_BATTLER_0, B_ANIM_MUD_SPORT
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_WaterSportActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_FIREWEAKENED
+	waitstate
+	playanimation BS_BATTLER_0, B_ANIM_WATER_SPORT
+	waitmessage B_WAIT_TIME_LONG
 	end3
 
 BattleScript_DesolateLandActivates::
