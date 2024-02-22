@@ -819,7 +819,7 @@
         .baseHP        = 110,                           \
         .baseAttack    = 130,                           \
         .baseDefense   = 95,                           \
-        .baseSpeed     = 110                           \
+        .baseSpeed     = 110,                          \
         .baseSpAttack  = 60,                            \
         .baseSpDefense = 95,                            \
         .types = { TYPE_GRASS, TYPE_GHOST},              \
