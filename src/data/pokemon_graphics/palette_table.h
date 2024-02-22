@@ -1134,6 +1134,13 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(SHUNYONG_GOLDEN_OFFENSE, gMonPalette_ShunyongGoldenOffense),
     SPECIES_PAL(KINGAMBIT, gMonPalette_Kingambit),
     SPECIES_PAL(SHELLYLOUH, gMonPalette_Shellylouh),
+    SPECIES_PAL(INFAIRNO, gMonPalette_Infairno),
+    SPECIES_PAL(PURGATIVAL, gMonPalette_Purgatival),
+    SPECIES_PAL(DETERIOTL, gMonPalette_Deteriotl),
+    SPECIES_PAL(CLAWLISTIC, gMonPalette_Clawlistic),
+    SPECIES_PAL(UNBERRABLE, gMonPalette_Unberrable),
+    SPECIES_PAL(PEBLRANIUM, gMonPalette_Peblranium),
+    SPECIES_PAL(VAIKING, gMonPalette_Vaiking),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),

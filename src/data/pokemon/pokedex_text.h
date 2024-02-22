@@ -3223,10 +3223,10 @@ const u8 gGarbodorPokedexText[] = _(
     "effects of this unidentified toxin.");
 
 const u8 gZoruaPokedexText[] = _(
-    "To protect themselves from danger, they\n"
-    "hide their true identities by transforming\n"
-    "into people and Pokémon. Apparently, it\n"
-    "often transforms into a silent child.");
+    "Zorua are the spirits of people and\n"
+    "Pokémon who have lost everything. They\n"
+    "can only smile for so long before\n"
+    "plunging into despair.");
 
 const u8 gZoroarkPokedexText[] = _(
     "Bonds between these Pokémon are very\n"
@@ -4645,9 +4645,10 @@ const u8 gBlacephalonPokedexText[] = _(
     "one kind of Ultra Beast.");
 
 const u8 gZeraoraPokedexText[] = _(
-    "It approaches its enemies at the speed\n"
-    "of lightning, then tears them limb from\n"
-    "limb with its sharp claws.");
+    "Zeraora are always looking for a laugh.\n"
+    "They'll do anything to forget their loss,\n"
+    "whether it's making someone slip on a\n"
+    "banana peel or crushing their head in.");
 
 const u8 gMeltanPokedexText[] = _(
     "It melts particles of iron and other metals\n"
@@ -5125,10 +5126,10 @@ const u8 gUrshifuPokedexText[] = _(
     "blow with a hardened fist.");
 
 const u8 gZarudePokedexText[] = _(
-    "Within dense forests, this Pokémon lives\n"
-    "in a pack with others of its kind. It's\n"
-    "incredibly aggressive, and the other\n"
-    "Pokémon of the forest fear it.");
+    "Zarude are beings filled with nothing\n"
+    "but anger. They demolish everything\n"
+    "surrounding them, even themselves,\n"
+    "trying to avenge all they have lost.");
 
 const u8 gRegielekiPokedexText[] = _(
     "This Pokémon is a cluster of electrical\n"
@@ -6607,4 +6608,46 @@ const u8 gShellylouhPokedexText[] = _(
     "Sells shells by Shellylouh.\n"
     "For pearls, bijou, she sells in true.\n"
     "Her lovely shelly brew.");
+
+const u8 gInfairnoPokedexText[] = _(
+    "Infairno are always in a rush to get\n"
+    "somewhere. However, their stubby legs\n"
+    "and underdeveloped wings make them\n"
+    "exceptionally slow.");
+
+const u8 gPurgativalPokedexText[] = _(
+    "These predators emit a glow and make a\n"
+    "ticking sound when hunting. But when\n"
+    "they glow brightest and their ticking\n"
+    "stops, they swiftly dispatch their prey.");
+
+const u8 gDeteriotlPokedexText[] = _(
+    "Deteriotl’s unstable body has decayed\n"
+    "into what is basically mud. Its DNA is\n"
+    "now completely different from what it\n"
+    "once was.");
+
+const u8 gClawlisticPokedexText[] = _(
+    "It uses its claws as fake heads to scare\n"
+    "off larger predators. If that does not\n"
+    "work, it can also blow them away with\n"
+    "force equal to 100,000 Megatons of TNT.");
+
+const u8 gUnberrablePokedexText[] = _(
+    "Unberrable lures its foes into a false\n"
+    "sense of security before taking it away\n"
+    "with the worst thing possible...\n"
+    "a berry bad joke.");
+
+const u8 gPeblraniumPokedexText[] = _(
+    "Their shells constantly emit radiation,\n"
+    "which deters most Pokémon. Trainers\n"
+    "should be careful with these Pokémon, as\n"
+    "mishandling them has grave consequences.");
+
+const u8 gVaikingPokedexText[] = _(
+    "Vaiking have many different flavors.\n"
+    "They can taste like fish, fruits, or even\n"
+    "cheese. However, they're both fearsome\n"
+    "and rare, so not just anyone can eat one.");
 #endif

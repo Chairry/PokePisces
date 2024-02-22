@@ -362,6 +362,8 @@ static const u8 sToxicChainDescription[] = _("May badly poison a foe when\nthe u
 static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe user makes contact.");
 static const u8 sCheeseGuardDescription[] = _("i don't get it");
 static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
+static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any Pokémon.");
+static const u8 sAllGameDescription[] = _("Summons Mud Sport and Water\nSport.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -736,6 +738,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TOXIC_CHAIN] = _("Contagious"),
     [ABILITY_CHEESE_GUARD] = _("CheeseGuard"),
     [ABILITY_WATCHER] = _("Watcher"),
+    [ABILITY_APPETITE] = _("Appetite"),
+    [ABILITY_ALL_GAME] = _("All Game"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1110,6 +1114,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_TOXIC_CHAIN] = _("Contagious"),
     [ABILITY_CHEESE_GUARD] = _("CheeseGuard"),
     [ABILITY_WATCHER] = _("Watcher"),
+    [ABILITY_APPETITE] = _("Appetite"),
+    [ABILITY_ALL_GAME] = _("All Game"),
 };
 #endif
 
@@ -1485,4 +1491,6 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_TOXIC_CHAIN] = sToxicChainDescription,
     [ABILITY_CHEESE_GUARD] = sCheeseGuardDescription,
     [ABILITY_WATCHER] = sWatcherDescription,
+    [ABILITY_APPETITE] = sAppetiteDescription,
+    [ABILITY_ALL_GAME] = sAllGameDescription,
 };

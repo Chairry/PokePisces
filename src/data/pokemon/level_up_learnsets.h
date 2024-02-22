@@ -23217,6 +23217,41 @@ static const struct LevelUpMove sStolyceLevelUpLearnset[] = {
     LEVEL_UP_MOVE(58, MOVE_FISSURE),
     LEVEL_UP_END
 };
+
+static const struct LevelUpMove sInfairnoLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPurgativalLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sDeteriotlLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sClawlisticLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sUnberrableLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPeblraniumLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sVaikingLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HIDDEN_POWER),
+    LEVEL_UP_END
+};
 #endif
 
 static const struct LevelUpMove sRattataAlolanLevelUpLearnset[] = {
