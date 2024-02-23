@@ -1177,3 +1177,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/NewMauvilleCenter2/scripts.inc"
 
 	.include "data/maps/Flotshore/scripts.inc"
+
+	.include "data/maps/BirchMaritimeLab/scripts.inc"
+
+	.include "data/maps/PacifidlogInteriors/scripts.inc"

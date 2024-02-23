@@ -5000,6 +5000,26 @@
       "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/Flotshore/border.bin",
       "blockdata_filepath": "data/layouts/Flotshore/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_MARITIME_LAB",
+      "name": "BirchMaritimeLab_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/BirchMaritimeLab/border.bin",
+      "blockdata_filepath": "data/layouts/BirchMaritimeLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_PACIFIDLOG_INTERIORS",
+      "name": "PacifidlogInteriors_Layout",
+      "width": 46,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PacifidlogInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/PacifidlogInteriors/map.bin"
     }
   ]
 }

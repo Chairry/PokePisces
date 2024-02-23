@@ -71,12 +71,14 @@
     "SootopolisCity",
     "SootopolisCity_Gym_1F",
     "SootopolisCity_Gym_B1F",
-    "Flotshore"
+    "Flotshore",
+    "BirchMaritimeLab"
   ],
   "gMapGroup_PiscesPart1Minor": [
     "PacifidlogTown_PokemonCenter_1F",
     "PacifidlogTown_PokemonCenter_2F",
-    "SootopolisCity_PokemonCenter_1F"
+    "SootopolisCity_PokemonCenter_1F",
+    "PacifidlogInteriors"
   ],
   "gMapGroup_PiscesPart2Major": [
     "CaveOfOrigin",
