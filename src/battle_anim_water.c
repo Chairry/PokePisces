@@ -234,6 +234,28 @@ const struct SpriteTemplate gSignalBeamGreenOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gDecayBeamRedOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLOWY_RED_ORB,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gDecayBeamGreenOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
+    .paletteTag = ANIM_TAG_MUD_SAND,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 static const union AnimCmd sAnim_FlamethrowerFlame[] =
 {
     ANIMCMD_FRAME(16, 2),

@@ -447,6 +447,12 @@
 #define EFFECT_DRAGON_RUIN                  441
 #define EFFECT_CINDER_TWIRL                 442
 #define EFFECT_CINDER_DRILL                 443
-#define NUM_BATTLE_MOVE_EFFECTS             444
+#define EFFECT_SILENCE                      444
+#define EFFECT_VEXING_KI                    445
+#define EFFECT_DECAY_BEAM                   446
+#define EFFECT_WARM_WELCOME                 447
+#define EFFECT_RADIOACID                    448
+#define EFFECT_PARTING_CURRY                449
+#define NUM_BATTLE_MOVE_EFFECTS             450
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

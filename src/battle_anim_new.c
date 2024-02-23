@@ -3714,6 +3714,17 @@ const struct SpriteTemplate gSnipeShotBallTemplate =    //used in aura sphere
     .callback = AnimShadowBall
 };
 
+const struct SpriteTemplate gCannonadeBallTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT_2,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sAnimCmdTable_SnipeShot,
+    .images = NULL,
+    .affineAnims = sSpriteAffineAnimTable_SnipeShot,
+    .callback = AnimShadowBall
+};
+
 //jaw lock
 const struct SpriteTemplate gJawLockTeethTemplate =
 {

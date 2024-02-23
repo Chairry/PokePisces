@@ -470,6 +470,30 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonRuin              @ EFFECT_DRAGON_RUIN
 	.4byte BattleScript_EffectCinderTwirl             @ EFFECT_CINDER_TWIRL
 	.4byte BattleScript_EffectCinderDrill             @ EFFECT_CINDER_DRILL
+	.4byte BattleScript_EffectSilence                 @ EFFECT_SILENCE
+	.4byte BattleScript_EffectVexingKi                @ EFFECT_VEXING_KI
+	.4byte BattleScript_EffectDecayBeam               @ EFFECT_DECAY_BEAM
+	.4byte BattleScript_EffectWarmWelcome             @ EFFECT_WARM_WELCOME
+	.4byte BattleScript_EffectRadioacid               @ EFFECT_RADIOACID
+	.4byte BattleScript_EffectPartingCurry            @ EFFECT_PARTING_CURRY
+
+BattleScript_EffectPartingCurry:
+	goto BattleScript_EffectHit
+
+BattleScript_EffectRadioacid:
+	goto BattleScript_EffectHit
+
+BattleScript_EffectWarmWelcome:
+	goto BattleScript_EffectHit
+
+BattleScript_EffectDecayBeam:
+	goto BattleScript_EffectHit
+
+BattleScript_EffectVexingKi:
+	goto BattleScript_EffectHit
+
+BattleScript_EffectSilence:
+	goto BattleScript_EffectHit
 
 BattleScript_EffectCinderDrill:
 	setmoveeffect MOVE_EFFECT_CINDER_DRILL | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
