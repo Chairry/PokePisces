@@ -637,7 +637,7 @@ PacifidlogTown_Text_LabSign:
 # 319 "data/maps/PacifidlogTown/scripts.pory"
 	.string "PROFESSOR BIRCH'S\n"
 # 320 "data/maps/PacifidlogTown/scripts.pory"
-	.string "MARITIME POKéMON LAB"
+	.string "MARITIME POKéMON LAB$"
 # 321 "data/maps/PacifidlogTown/scripts.pory"
 
 # 322 "data/maps/PacifidlogTown/scripts.pory"
