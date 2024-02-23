@@ -375,6 +375,7 @@ extern const u8 BattleScript_AttackerFormChangeEnd3[];
 extern const u8 BattleScript_TargetFormChange[];
 extern const u8 BattleScript_AnticipationActivates[];
 extern const u8 BattleScript_SlowStartEnds[];
+extern const u8 BattleScript_SilenceActivates[];
 extern const u8 BattleScript_StarsGraceStarts[];
 extern const u8 BattleScript_HealerActivates[];
 extern const u8 BattleScript_ScriptingAbilityStatRaise[];

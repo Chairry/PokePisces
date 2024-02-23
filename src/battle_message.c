@@ -834,6 +834,8 @@ static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is abso
 static const u8 sText_PkmnRestoredHPUsingAbility[] = _("{B_ATK_NAME_WITH_PREFIX} restored HP\nusing its {B_ATK_ABILITY}!");
 static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's\npower was weakened!");
 static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPSYCHIC moves ineffective!");
+static const u8 sText_SilenceStarts[] = _("It has begun...");
+static const u8 sText_SilenceStarts[] = _("The silence has ceased...");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1519,6 +1521,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNRESTOREDHPUSINGABILITY - BATTLESTRINGS_TABLE_START] = sText_PkmnRestoredHPUsingAbility,
     [STRINGID_ELECTRICITYANDFIREWEAKENED - BATTLESTRINGS_TABLE_START] = sText_ElectricityandFireWeakened,
     [STRINGID_PKMNMAKESPSYCHICMISS - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesPsychicMiss,
+    [STRINGID_SILENCESTARTS - BATTLESTRINGS_TABLE_START] = sText_SilenceStarts,
+    [STRINGID_SILENCEEND - BATTLESTRINGS_TABLE_START] = sText_SilenceEnd,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

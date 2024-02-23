@@ -694,7 +694,9 @@
 #define STRINGID_PKMNRESTOREDHPUSINGABILITY           692
 #define STRINGID_ELECTRICITYANDFIREWEAKENED           693
 #define STRINGID_PKMNMAKESPSYCHICMISS                 694
-#define BATTLESTRINGS_COUNT                           695
+#define STRINGID_SILENCESTARTS                        695
+#define STRINGID_SILENCEEND                           696
+#define BATTLESTRINGS_COUNT                           697
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

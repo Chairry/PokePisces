@@ -2565,6 +2565,7 @@ enum
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
     ENDTURN_SPIDER_WEB,
+    ENDTURN_SILENCE,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3162,6 +3163,16 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = 1;
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SALT_CURE);
                 BattleScriptExecute(BattleScript_SaltCureExtraDamage);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_SILENCE:
+            if ((gDisableStructs[battler].silenceTimer
+                && --gDisableStructs[battler].silenceTimer == 0)
+                && !(NoAliveMonsForEitherParty()))
+            {
+                BattleScriptExecute(BattleScript_SilenceActivates);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -10486,6 +10497,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || defType == TYPE_ELECTRIC || defType == TYPE_STEEL))
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_BUG || defType == TYPE_DRAGON || defType == TYPE_FAIRY))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_CINDER_DRILL && (defType == TYPE_BUG || defType == TYPE_GRASS || defType == TYPE_STEEL || defType == TYPE_ICE))
         mod = UQ_4_12(2.0);

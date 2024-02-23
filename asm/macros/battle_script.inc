@@ -1164,9 +1164,9 @@
 	.4byte \failInstr
 	.endm
 
-	.macro unused2 ptr:req
+	.macro setsilence failInstr:req
 	.byte 0xe1
-	.4byte \ptr
+	.4byte \failInstr
 	.endm
 
 	.macro switchoutabilities battler:req

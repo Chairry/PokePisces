@@ -582,6 +582,7 @@ static void Cmd_setuserstatus3(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
+static void Cmd_setsilence(void);
 static void Cmd_unused2(void);
 static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
@@ -841,7 +842,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_assistattackselect,                      //0xDE
     Cmd_trysetmagiccoat,                         //0xDF
     Cmd_trysetsnatch,                            //0xE0
-    Cmd_unused2,                                 //0xE1
+    Cmd_setsilence,                              //0xE1
     Cmd_switchoutabilities,                      //0xE2
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
@@ -3336,6 +3337,18 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     static const u8 sViperStrikeEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_PARALYSIS };
                     gBattleScripting.moveEffect = RandomElement(RNG_VIPER_STRIKE, sViperStrikeEffects);
+                    SetMoveEffect(FALSE, 0);
+                }
+                break;
+            case MOVE_EFFECT_RADIOACID:
+                if (gBattleMons[gEffectBattler].status1)
+                {
+                    gBattlescriptCurrInstr++;
+                }
+                else
+                {
+                    static const u8 sRadioacidEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_BURN };
+                    gBattleScripting.moveEffect = RandomElement(RNG_RADIOACID, sRadioacidEffects);
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
@@ -14235,6 +14248,21 @@ static void Cmd_settaunt(void)
         #endif
 
         gDisableStructs[gBattlerTarget].tauntTimer = turns;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+}
+
+static void Cmd_setsilence(void)
+{
+    CMD_ARGS(const u8 *failInstr);
+
+    if (gDisableStructs[gBattlerAttacker].silenceTimer == 0)
+    {
+        gDisableStructs[gBattlerAttacker].silenceTimer = 5;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else

@@ -104,6 +104,7 @@ struct DisableStruct
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
     u8 spiderweb:1;
+    u8 silenceTimer;
 };
 
 struct ProtectStruct
