@@ -256,8 +256,8 @@
       "x": 35,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "11"
     },
     {
       "x": 50,

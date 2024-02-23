@@ -13,7 +13,7 @@
 #define TRAINER_GRANGER                   9
 #define TRAINER_RICKY_P        10
 #define TRAINER_JEANNIE_P                       11
-#define TRAINER_ALBERTO                      12
+#define TRAINER_SADFISHER_1_P                      12
 #define TRAINER_ED                           13
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
 #define TRAINER_DECLAN                       15

@@ -91,14 +91,36 @@ static const struct TrainerMon sParty_JeannieP[] = {
     }
 };
 
-static const struct TrainerMon sParty_Alberto[] = {
+static const struct TrainerMon sParty_Sadfisher1P[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_PELIPPER,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 30,
-    .species = SPECIES_XATU,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 

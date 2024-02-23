@@ -144,16 +144,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_JeannieP),
     },
 
-    [TRAINER_ALBERTO] =
+    [TRAINER_SADFISHER_1_P] =
     {
-        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
-        .trainerName = _("ALBERTO"),
+        .trainerClass = TRAINER_CLASS_FACTORY_HEAD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerName = _("SAD FISHER"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Alberto),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .party = TRAINER_PARTY(sParty_Sadfisher1P),
     },
 
     [TRAINER_ED] =
