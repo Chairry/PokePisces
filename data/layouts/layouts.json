@@ -5020,6 +5020,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/PacifidlogInteriors/border.bin",
       "blockdata_filepath": "data/layouts/PacifidlogInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_PILLAR_INTERIORS",
+      "name": "SkyPillarInteriors_Layout",
+      "width": 14,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SkyPillarInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SkyPillarInteriors/map.bin"
     }
   ]
 }

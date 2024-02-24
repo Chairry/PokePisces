@@ -263,36 +263,36 @@
       "x": 50,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "5"
     },
     {
       "x": 44,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "3"
     },
     {
       "x": 39,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "1"
     },
     {
       "x": 43,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "9"
     },
     {
       "x": 38,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PACIFIDLOG_INTERIORS",
+      "dest_warp_id": "7"
     },
     {
       "x": 17,

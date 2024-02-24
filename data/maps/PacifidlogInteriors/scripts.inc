@@ -111,36 +111,30 @@ PacifidlogInteriors_Text_ThrowInFishingAdvice:
 	.string "Use it wisely and raise them with care.$"
 
 PacifidlogInteriors_Text_ThatsTooBadThen:
-	.string "Oh, is that so?\n"
-	.string "That's too bad, then.$"
+	.string "...Cowardly. Come back if you ever\n"
+	.string "decide to take charge in your life.$"
 
 PacifidlogInteriors_Text_HowsYourFishing:
-	.string "Yo!\n"
-	.string "How's your fishing?$"
+	.string "How have your fishing escapades been\n"
+	.string "going? Hook any interesting fish?$"
 
 PacifidlogInteriors_Text_GreatHaulInSomeBigOnes:
-	.string "Is that right! That's great!\n"
-	.string "Haul in some big ones!$"
+	.string "Keep it up. Play your cards right\n"
+	.string "and I may hook you up with more\l"
+	.string "advanced tools in the future.$"
 
 PacifidlogInteriors_Text_FishingAdvice:
-	.string "Oh, hey, don't get down on yourself!\n"
-	.string "I'll give you a little fishing advice.\p"
-	.string "First, you want to face the water,\n"
-	.string "then use the ROD.\p"
-	.string "Focus your mind…\n"
-	.string "If you get a bite, pull the ROD.\p"
-	.string "Sometimes you can snag something\n"
-	.string "immediately, but with bigger catches,\l"
-	.string "you need to time the pulls on your ROD\l"
-	.string "to haul them in.$"
+	.string "Then you... must not be giving\n"
+	.string "it your all at the waves.\p"
+	.string "Be patient and keep at it.$"
 
 PacifidlogInteriors_Text_OldMan:
 	.string "Ah.\p"
 	.string "Mmmf... the years have not been kind\n"
 	.string "to me, I tell you.\p"
 	.string "I used to keep a watchful eye on an\n"
-	.string "odd phenomenon towards the eastern seas.\p"
-	.string "Mirage Island, it became known as.\n"
+	.string "odd phenomenon towards the east seas.\p"
+	.string "Mirage Island, it became known as.\p"
 	.string "Dozens of adventuring seafarers sought\n"
 	.string "to reach that mystical place...\l"
 	.string "And they all failed.\p"

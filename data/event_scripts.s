@@ -1181,3 +1181,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/BirchMaritimeLab/scripts.inc"
 
 	.include "data/maps/PacifidlogInteriors/scripts.inc"
+
+	.include "data/maps/SkyPillarInteriors/scripts.inc"
