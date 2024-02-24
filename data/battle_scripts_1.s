@@ -971,16 +971,30 @@ BattleScript_EffectDragonCheer:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_TARGET, STATUS2_FOCUS_ENERGY, BattleScript_ButItFailed
-	jumpifnoally BS_TARGET, BattleScript_ButItFailed
-	copybyte gBattlerAttacker, gBattlerTarget
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_ButItFailed
 	setfocusenergy
-	printfromtable gFocusEnergyUsedStringIds
-	jumpiftype BS_TARGET, TYPE_DRAGON, BattleScript_EffectGearUpCheckStats
+	copybyte gBattlerTarget, gBattlerAttacker
+	setallytonexttarget EffectDragonCheer_CheckAllyStats
+EffectDragonCheer_CheckAllyStats:
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_DragonCheerWorks
+	goto BattleScript_DragonCheerFocusWorksAccRaiseFailed
+BattleScript_DragonCheerWorks:
 	attackanimation
 	waitanimation
+	printfromtable gFocusEnergyUsedStringIds
+	waitmessage B_WAIT_TIME_SHORTEST
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_ACC, 0x0
+	setstatchanger STAT_ACC, 1, FALSE
+	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+BattleScript_DragonCheerFocusWorksAccRaiseFailed:
+	attackanimation
+	waitanimation
+	printfromtable gFocusEnergyUsedStringIds
+	waitmessage B_WAIT_TIME_SHORTEST
+	goto BattleScript_FocusEnergyEnd
 
 BattleScript_EffectFickleBeam:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
@@ -4839,7 +4853,7 @@ BattleScript_EffectFocusEnergy:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY, BattleScript_ButItFailed
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_ButItFailed
 	setfocusenergy
 	attackanimation
 	waitanimation
@@ -5451,8 +5465,6 @@ BattleScript_EffectEerieSpell::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
 	critcalc
 	damagecalc
 	adjustdamage
@@ -8375,6 +8387,12 @@ BattleScript_SlowStartEnds::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_SLOWSTARTEND
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_SilenceContinues::
+	playanimation BS_BATTLER_0, B_ANIM_SILENCE
+	printstring STRINGID_SILENCECONTINUES
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

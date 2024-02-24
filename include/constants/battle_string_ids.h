@@ -698,7 +698,8 @@
 #define STRINGID_SILENCEEND                           696
 #define STRINGID_PKMNMAXEDSTATS                       697
 #define STRINGID_FICKLEBEAMDOUBLED                    698
-#define BATTLESTRINGS_COUNT                           699
+#define STRINGID_SILENCECONTINUES                     699
+#define BATTLESTRINGS_COUNT                           700
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
