@@ -18836,7 +18836,7 @@ Move_RADIOACID::
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
-	call SetGunkShotBG
+	call SetUraniumBG
 	createvisualtask AnimTask_ShakeMon, 5, 5, ANIM_ATTACKER, 0, 2, 40, 1
 	delay 6
 	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 2, 0
@@ -18882,6 +18882,9 @@ RadioacidImpact:
 	createsprite gRadioacidImpactSpriteTemplate, 4, 4, 0, 15, 1, 1
 	createsprite gRadioacidImpactSpriteTemplate, 4, 4, 0, -15, 1, 1
 	return
+SetUraniumBG:
+	fadetobg BG_URANIUM
+	goto SetHighSpeedBgFade
 
 Move_PARTING_CURRY::
 	loadspritegfx ANIM_TAG_ITEM_BAG
