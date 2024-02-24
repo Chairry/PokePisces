@@ -9228,8 +9228,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = (basePower > 200) ? 200 : basePower;
         break;
     case EFFECT_FICKLE_BEAM:
-        if (RandomPercentage(RNG_FICKLE_BEAM, 30))
-            basePower *= 2;
+        basePower = gBattleStruct->ficklebeamBasePower;
         break;
     }
 

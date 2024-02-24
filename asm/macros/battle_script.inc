@@ -1188,7 +1188,7 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro ficklebeamdamagecalculation
 	.byte 0xe6
 	.endm
 

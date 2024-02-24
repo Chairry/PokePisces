@@ -444,7 +444,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFilletAway              @ EFFECT_FILLET_AWAY
 	.4byte BattleScript_EffectChillyReception         @ EFFECT_CHILLY_RECEPTION
 	.4byte BattleScript_EffectShedTail                @ EFFECT_SHED_TAIL
-	.4byte BattleScript_EffectHit                     @ EFFECT_FICKLE_BEAM
+	.4byte BattleScript_EffectFickleBeam              @ EFFECT_FICKLE_BEAM
 	.4byte BattleScript_EffectDragonCheer             @ EFFECT_DRAGON_CHEER
 	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
 	.4byte BattleScript_EffectHit			          @ EFFECT_SNUFF_OUT
@@ -981,6 +981,18 @@ BattleScript_EffectDragonCheer:
 	waitanimation
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectFickleBeam:
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	ficklebeamdamagecalculation
+	goto BattleScript_HitFromCritCalc
+BattleScript_FickleBeamDoubled::
+	printstring STRINGID_FICKLEBEAMDOUBLED
+	goto BattleScript_HitFromCritCalc
 
 BattleScript_EffectShedTail:
 	attackcanceler

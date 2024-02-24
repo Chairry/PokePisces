@@ -837,6 +837,7 @@ static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_
 static const u8 sText_SilenceStarts[] = _("It has begun...");
 static const u8 sText_SilenceEnd[] = _("The tolls have ended...");
 static const u8 sText_PkmnMaxedStats[] = _("The user maxed their stats!");
+static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going all\nout for this attack!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1525,6 +1526,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SILENCESTARTS - BATTLESTRINGS_TABLE_START] = sText_SilenceStarts,
     [STRINGID_SILENCEEND - BATTLESTRINGS_TABLE_START] = sText_SilenceEnd,
     [STRINGID_PKMNMAXEDSTATS - BATTLESTRINGS_TABLE_START] = sText_PkmnMaxedStats,
+    [STRINGID_FICKLEBEAMDOUBLED - BATTLESTRINGS_TABLE_START] = sText_FickleBeamDoubled,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -543,6 +543,7 @@ static void Cmd_setembargo(void);
 static void Cmd_presentdamagecalculation(void);
 static void Cmd_setsafeguard(void);
 static void Cmd_magnitudedamagecalculation(void);
+static void Cmd_ficklebeamdamagecalculation(void);
 static void Cmd_jumpifnopursuitswitchdmg(void);
 static void Cmd_setsunny(void);
 static void Cmd_halvehp(void);
@@ -847,7 +848,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
-    Cmd_unused3,                                 //0xE6
+    Cmd_ficklebeamdamagecalculation,             //0xE6
     Cmd_unused4,                                 //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
@@ -13715,6 +13716,30 @@ static void Cmd_magnitudedamagecalculation(void)
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_ficklebeamdamagecalculation(void)
+{
+    CMD_ARGS();
+
+    for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+    {
+        if (gBattlerTarget == gBattlerAttacker)
+            continue;
+        if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // A valid target was found.
+            break;
+    }
+
+    if (RandomPercentage(RNG_FICKLE_BEAM, 30))
+    {
+        gBattleStruct->ficklebeamBasePower = 160;
+        gBattlescriptCurrInstr = BattleScript_FickleBeamDoubled;
+    }
+    else
+    {
+        gBattleStruct->ficklebeamBasePower = 80;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
 
 static void Cmd_jumpifnopursuitswitchdmg(void)
