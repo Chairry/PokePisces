@@ -14262,7 +14262,7 @@ static void Cmd_setsilence(void)
 
     if (gDisableStructs[gBattlerAttacker].silenceTimer == 0)
     {
-        gDisableStructs[gBattlerAttacker].silenceTimer = 5;
+        gDisableStructs[gBattlerAttacker].silenceTimer = 13;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else

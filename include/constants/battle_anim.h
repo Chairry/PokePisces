@@ -402,6 +402,7 @@
 #define ANIM_TAG_MUDSLIDE                   (ANIM_SPRITES_START + 388)
 #define ANIM_TAG_BIG_SPOON                  (ANIM_SPRITES_START + 389)
 #define ANIM_TAG_WHITE_BAT                  (ANIM_SPRITES_START + 390)
+#define ANIM_TAG_BERRY_THOUGHT_BUBBLE       (ANIM_SPRITES_START + 391)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -556,6 +557,7 @@
 #define B_ANIM_MUD_SPORT                39
 #define B_ANIM_WATER_SPORT              40
 #define B_ANIM_MUD_WATER_SPORT          41
+#define B_ANIM_SILENCE                  42
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

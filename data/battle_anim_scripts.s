@@ -998,6 +998,7 @@ gBattleAnims_General::
 	.4byte General_MudSport                 @ B_ANIM_MUD_SPORT
 	.4byte General_WaterSport               @ B_ANIM_WATER_SPORT
 	.4byte General_MudWaterSport            @ B_ANIM_MUD_WATER_SPORT
+	.4byte General_Silence                  @ B_ANIM_SILENCE
 
 	.align 2
 gBattleAnims_Special::
@@ -18434,7 +18435,28 @@ Move_CINDER_DRILL:
 	end
 
 Move_SILENCE::
-	goto Move_TAIL_GLOW
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_ELECTRICITY
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createsprite gGrowingChargeOrbSpriteTemplate, ANIM_ATTACKER, 2, 0
+	delay 15
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	delay 10
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	delay 5
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	delay 5
+	delay 3
+	loopsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER, 6, 5
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 4, 0, RGB_BLACK
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
 
 Move_VEXING_KI::
 	loadspritegfx ANIM_TAG_ANGER
@@ -18715,7 +18737,31 @@ Move_WARM_WELCOME::
 	end
 
 Move_BERRY_BAD_JOKE::
-	goto Move_SNARL
+	loadspritegfx ANIM_TAG_ANGER
+	loadspritegfx ANIM_TAG_BERRY_THOUGHT_BUBBLE
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	createvisualtask AnimTask_BerryBadJokeAttacker, 2
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_ATTACKER, DOUBLE_CRY_GROWL
+	call RoarEffect
+	delay 10
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 9, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 9, 1
+	waitforvisualfinish
+	createvisualtask SoundTask_WaitForCry, 5
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendMonInAndOut, 2, ANIM_TARGET, RGB_RED, 10, 1, 1
+	createsprite gAngerMarkSpriteTemplate, ANIM_TARGET, 2, 1, -20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET
+	delay 20
+	createsprite gAngerMarkSpriteTemplate, ANIM_TARGET, 2, 1, 20, -28
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayDoubleCry, 2, ANIM_TARGET, DOUBLE_CRY_GROWL
+	delay 10
+	createvisualtask SoundTask_WaitForCry, 5
+	waitforvisualfinish
+	end
 
 Move_RADIOACID::
 	loadspritegfx ANIM_TAG_WATER_ORB
@@ -29501,6 +29547,40 @@ General_MudWaterSport::
 	delay 2
 	createsprite gMudsportMudSpriteTemplate, ANIM_TARGET, 2, 1, 200, 40
 	waitplaysewithpan SE_M_BUBBLE2, 0, 10
+	end
+
+General_Silence::
+	loadspritegfx ANIM_TAG_BELL
+	loadspritegfx ANIM_TAG_MUSIC_NOTES_2
+	loadspritegfx ANIM_TAG_THIN_RING
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATK_SIDE, 0, 0, 10, RGB_WHITE
+	waitforvisualfinish
+	createvisualtask AnimTask_LoadMusicNotesPals, 5
+	createsprite gBellSpriteTemplate, ANIM_ATTACKER, 2, 0, -24, 0, 1
+	delay 12
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 48, -18, 35, 0, 0
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -48, 20, 30, 1, 1
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -38, -29, 30, 2, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 36, 18, 30, 3, 3
+	call HealBellRing
+	delay 33
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 19, 26, 35, 4, 4
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -34, -12, 30, 5, 5
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 41, -20, 34, 6, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -15, 26, 32, 7, 0
+	call HealBellRing
+	delay 33
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -48, 18, 31, 0, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 48, -20, 30, 2, 5
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 38, 29, 33, 4, 3
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -36, -18, 30, 6, 1
+	call HealBellRing
+	waitforvisualfinish
+	createvisualtask AnimTask_FreeMusicNotesPals, 5
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 10, 4, 3, 10, 0, RGB(12, 24, 30)
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATK_SIDE, 3, 10, 0, RGB_WHITE
+	waitforvisualfinish
 	end
 
 General_MudSport::

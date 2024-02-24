@@ -3373,8 +3373,8 @@ static const u8 sCinderDrillDescription[] = _(
     "Grass, Steel, and Ice-types.");
 
 static const u8 sSilenceDescription[] = _(
-    "The user starts glowing.\n"
-    "Gets omniboosted in 5 turns.");
+    "The end has begun. All stats\n"
+    "are maxed in 13 turns.");
 
 static const u8 sVexingKiDescription[] = _(
     "Releases a malice aura that\n"
@@ -3394,7 +3394,7 @@ static const u8 sWarmWelcomeDescription[] = _(
 
 static const u8 sBerryBadJokeDescription[] = _(
     "Says a bad joke that forces\n"
-    "the foe to switch.");
+    "the foe to switch or leave.");
 
 static const u8 sRadioacidDescription[] = _(
     "Shoots nuclear acid at the\n"

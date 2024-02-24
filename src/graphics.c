@@ -1025,6 +1025,9 @@ const u32 gBattleAnimSpriteGfx_TornMetal[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_ThoughtBubble[] = INCBIN_U32("graphics/battle_anims/sprites/thought_bubble.4bpp.lz");
 const u32 gBattleAnimSpritePal_ThoughtBubble[] = INCBIN_U32("graphics/battle_anims/sprites/thought_bubble.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BerryThoughtBubble[] = INCBIN_U32("graphics/battle_anims/sprites/berry_thought_bubble.4bpp.lz");
+const u32 gBattleAnimSpritePal_BerryThoughtBubble[] = INCBIN_U32("graphics/battle_anims/sprites/berry_thought_bubble.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Finger[] = INCBIN_U32("graphics/battle_anims/sprites/finger.4bpp.lz");
 const u32 gBattleAnimSpritePal_Finger[] = INCBIN_U32("graphics/battle_anims/sprites/finger.gbapal.lz");
 

@@ -835,7 +835,8 @@ static const u8 sText_PkmnRestoredHPUsingAbility[] = _("{B_ATK_NAME_WITH_PREFIX}
 static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's\npower was weakened!");
 static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPSYCHIC moves ineffective!");
 static const u8 sText_SilenceStarts[] = _("It has begun...");
-static const u8 sText_SilenceStarts[] = _("The silence has ceased...");
+static const u8 sText_SilenceEnd[] = _("The tolls have ended...");
+static const u8 sText_PkmnMaxedStats[] = _("The user maxed their stats!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1523,6 +1524,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNMAKESPSYCHICMISS - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesPsychicMiss,
     [STRINGID_SILENCESTARTS - BATTLESTRINGS_TABLE_START] = sText_SilenceStarts,
     [STRINGID_SILENCEEND - BATTLESTRINGS_TABLE_START] = sText_SilenceEnd,
+    [STRINGID_PKMNMAXEDSTATS - BATTLESTRINGS_TABLE_START] = sText_PkmnMaxedStats,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
