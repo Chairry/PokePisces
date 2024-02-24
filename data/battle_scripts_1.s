@@ -2366,47 +2366,65 @@ BattleScript_EffectPowder:
 	goto BattleScript_EffectStatDown
 
 BattleScript_EffectAromaticMist:
-	jumpifnoally BS_ATTACKER, BattleScript_EffectAromaticMistSpecialDefenseUp
 	attackcanceler
 	attackstring
 	ppreduce
 	setbyte gBattleCommunication, 0
-	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_MISTY_TERRAIN, BattleScript_EffectMagneticFluxCheckStats
-	jumpifstat BS_ATTACKER, CMP_NOT_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMist_Works
-	jumpifstat BS_ATTACKER_PARTNER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_ButItFailed
-BattleScript_EffectAromaticMistSpecialDefenseUp:
-	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_MISTY_TERRAIN, BattleScript_EffectCalmMind
-	setstatchanger STAT_SPDEF, 1, FALSE
-	goto BattleScript_EffectStatUp
-BattleScript_EffectAromaticMist_Works:
+BattleScript_EffectAromaticMistStart:
+	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_MISTY_TERRAIN, BattleScript_EffectAromaticMistMistyTerrain
+	goto BattleScript_EffectAromaticMistMistyTerrainLoop
+BattleScript_EffectAromaticMistCheckStats:
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistLoop
+BattleScript_EffectAromaticMistTryAtk:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistSkipAnim
 	attackanimation
 	waitanimation
+BattleScript_EffectAromaticMistSkipAnim:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_SPDEF, 0
 	setstatchanger STAT_SPDEF, 1, FALSE
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMist_TryAlly
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistUser_PrintString
-	setgraphicalstatchangevalues
-	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-BattleScript_EffectAromaticMistUser_PrintString:
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistLoop
+	addbyte gBattleCommunication, 1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectAromaticMist_TryAlly:
-	setallytonexttarget BattleScript_EffectAromaticMist_TryAlly_
-BattleScript_EffectAromaticMist_End:
-	goto BattleScript_MoveEnd
-BattleScript_EffectAromaticMist_TryAlly_:
+BattleScript_EffectAromaticMistLoop:
+	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistEnd
+	setallytonexttarget BattleScript_EffectAromaticMistStart
+BattleScript_EffectAromaticMistEnd:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
+	goto BattleScript_ButItFailed
+BattleScript_EffectAromaticMistMistyTerrain:
+	goto BattleScript_EffectAromaticMistMistyTerrainLoop
+BattleScript_EffectAromaticMistMistyTerrainCheckStats:
+	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistMistyTerrainTryAtk
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_EffectAromaticMistMistyTerrainLoop
+BattleScript_EffectAromaticMistMistyTerrainTryAtk:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistMistyTerrainSkipAnim
+	attackanimation
+	waitanimation
+BattleScript_EffectAromaticMistMistyTerrainSkipAnim:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_SPDEF | BIT_SPATK, 0
 	setstatchanger STAT_SPDEF, 1, FALSE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMist_End
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMist_AllyAnim
-	pause B_WAIT_TIME_SHORTEST
-	printstring STRINGID_TARGETSTATWONTGOHIGHER
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_EffectAromaticMist_End
-BattleScript_EffectAromaticMist_AllyAnim:
-	setgraphicalstatchangevalues
-	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistMistyTerrainTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistMistyTerrainTrySpAtk
+	addbyte gBattleCommunication, 1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_EffectAromaticMist_End
+BattleScript_EffectAromaticMistMistyTerrainTrySpAtk:
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistMistyTerrainLoop
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistMistyTerrainLoop
+	addbyte gBattleCommunication, 1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectAromaticMistMistyTerrainLoop:
+	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistMistyTerrainEnd
+	setallytonexttarget BattleScript_EffectAromaticMistStart
+BattleScript_EffectAromaticMistMistyTerrainEnd:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
+	goto BattleScript_ButItFailed
+
 
 BattleScript_EffectMagneticFlux::
 	attackcanceler
@@ -2442,13 +2460,10 @@ BattleScript_EffectMagneticFluxTrySpDef:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EffectMagneticFluxLoop:
 	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectMagneticFluxEnd
-	jumpifmove MOVE_AROMATIC_MIST, BattleScript_EffectAromaticMistPart
 	setallytonexttarget BattleScript_EffectMagneticFluxStart
 BattleScript_EffectMagneticFluxEnd:
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
 	goto BattleScript_ButItFailed
-BattleScript_EffectAromaticMistPart:	
-	setallytonexttarget BattleScript_EffectMagneticFluxCheckStats
 
 BattleScript_EffectGearUp::
 	attackcanceler
