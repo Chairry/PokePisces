@@ -527,11 +527,11 @@ const u16 DecorGfx_DUSKULL_DOLL[] = {
 };
 
 const u16 DecorGfx_WYNAUT_DOLL[] = {
-    OBJ_EVENT_GFX_WYNAUT_DOLL
+    OBJ_EVENT_GFX_DARKSKIN_MAN
 };
 
 const u16 DecorGfx_BALTOY_DOLL[] = {
-    OBJ_EVENT_GFX_BALTOY_DOLL
+    OBJ_EVENT_GFX_SADFISH
 };
 
 const u16 DecorGfx_KECLEON_DOLL[] = {

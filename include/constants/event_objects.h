@@ -159,8 +159,8 @@
 #define OBJ_EVENT_GFX_FORESTER               155
 #define OBJ_EVENT_GFX_BREADWINNER                156
 #define OBJ_EVENT_GFX_PLUMBER               157
-#define OBJ_EVENT_GFX_WYNAUT_DOLL                158
-#define OBJ_EVENT_GFX_BALTOY_DOLL                159
+#define OBJ_EVENT_GFX_DARKSKIN_MAN                158
+#define OBJ_EVENT_GFX_SADFISH                159
 #define OBJ_EVENT_GFX_KECLEON_DOLL               160
 #define OBJ_EVENT_GFX_AZURILL_DOLL               161
 #define OBJ_EVENT_GFX_SKITTY_DOLL                162

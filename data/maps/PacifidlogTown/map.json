@@ -36,7 +36,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 53,
       "y": 22,
       "elevation": 0,
@@ -49,7 +49,7 @@
       "flag": "FLAG_PACIFIDLOG_ROADBLOCK"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "graphics_id": "OBJ_EVENT_GFX_SADFISH",
       "x": 53,
       "y": 24,
       "elevation": 0,
@@ -127,7 +127,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "graphics_id": "OBJ_EVENT_GFX_DARKSKIN_MAN",
       "x": 38,
       "y": 25,
       "elevation": 0,
