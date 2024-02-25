@@ -877,6 +877,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BERRY_BAD_JOKE] = _("Berry Bad Joke"),
     [MOVE_RADIOACID] = _("Radioacid"),
     [MOVE_PARTING_CURRY] = _("Parting Curry"),
+    [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
 };
 #else
 // 12 letters
@@ -1757,7 +1758,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BERRY_BAD_JOKE] = _("BerryBadJoke"),
     [MOVE_RADIOACID] = _("Radioacid"),
     [MOVE_PARTING_CURRY] = _("PartingCurry"),
-
+    [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
 };
 #endif
 

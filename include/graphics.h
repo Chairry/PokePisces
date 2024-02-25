@@ -11607,6 +11607,8 @@ extern const u32 gBattleAnimSpritePal_NewRocks[];
 extern const u32 gBattleAnimSpriteGfx_ShellLeft[];
 extern const u32 gBattleAnimSpritePal_ShellLeft[];
 extern const u32 gBattleAnimSpriteGfx_ShellRight[];
+extern const u32 gBattleAnimSpriteGfx_DragonScale[];
+extern const u32 gBattleAnimSpritePal_DragonScale[];
 extern const u32 gBattleAnimSpritePal_SpacialRendSlices[];
 extern const u32 gBattleAnimSpriteGfx_NewSpikes[];
 extern const u32 gBattleAnimSpritePal_NewSpikes[];

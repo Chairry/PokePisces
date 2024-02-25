@@ -1977,7 +1977,8 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
-             || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY))
+             || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
+             || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN)))
     {
         critChance = -2;
     }
@@ -12697,7 +12698,7 @@ static void Cmd_setfocusenergy(void)
 {
     CMD_ARGS();
 
-    if ((gBattleMoves[gCurrentMove].effect == EFFECT_DRAGON_CHEER && (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) || (gAbsentBattlerFlags & gBitTable[gBattlerTarget])))
+    if (((gBattleMoves[gCurrentMove].effect == EFFECT_DRAGON_CHEER || gBattleMoves[gCurrentMove].effect == EFFECT_COACHING) && (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) || (gAbsentBattlerFlags & gBitTable[gBattlerTarget])))
      || gBattleMons[gBattlerTarget].status2 & STATUS2_FOCUS_ENERGY_ANY)
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
@@ -12713,6 +12714,8 @@ static void Cmd_setfocusenergy(void)
         gBattleMons[gBattlerTarget].status2 |= STATUS2_FOCUS_ENERGY;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
     }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+
 }
 
 static void Cmd_transformdataexecution(void)

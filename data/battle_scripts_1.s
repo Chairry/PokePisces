@@ -476,6 +476,13 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectWarmWelcome             @ EFFECT_WARM_WELCOME
 	.4byte BattleScript_EffectRadioacid               @ EFFECT_RADIOACID
 	.4byte BattleScript_EffectPartingCurry            @ EFFECT_PARTING_CURRY
+	.4byte BattleScript_EffectSerpentSurge            @ EFFECT_SERPENT_SURGE
+
+BattleScript_EffectSerpentSurge:
+	shellsidearmcheck
+	jumpifability BS_ATTACKER, ABILITY_HYDRATION, BattleScript_EffectAbsorb
+	jumpifability BS_ATTACKER, ABILITY_REGENERATOR, BattleScript_EffectHitEscape
+	goto BattleScript_EffectHit
 
 BattleScript_EffectPartingCurry:
 	attackcanceler
@@ -971,10 +978,16 @@ BattleScript_EffectDragonCheer:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_ButItFailed
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_EffectDragonCheerFocusEnergyFailedTryStatRaise
 	setfocusenergy
 	copybyte gBattlerTarget, gBattlerAttacker
 	setallytonexttarget EffectDragonCheer_CheckAllyStats
+BattleScript_EffectDragonCheerFocusEnergyFailedTryStatRaise::
+	copybyte gBattlerTarget, gBattlerAttacker
+	setallytonexttarget EffectDragonCheer_CheckAllyStats
+EffectDragonCheer_FocusEnergyFailedCheckAllyStats:
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_DragonCheerWorks
+	goto BattleScript_ButItFailed
 EffectDragonCheer_CheckAllyStats:
 	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_DragonCheerWorks
 	goto BattleScript_DragonCheerFocusWorksAccRaiseFailed
@@ -2012,24 +2025,41 @@ BattleScript_EffectCoaching:
 	attackstring
 	ppreduce
 	jumpifnoally BS_ATTACKER, BattleScript_ButItFailed
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_EffectCoachingFocusEnergyFailedTryStatRaise
+	setfocusenergy
 	copybyte gBattlerTarget, gBattlerAttacker
 	setallytonexttarget EffectCoaching_CheckAllyStats
+	goto BattleScript_ButItFailed
+BattleScript_EffectCoachingFocusEnergyFailedTryStatRaise::
+	copybyte gBattlerTarget, gBattlerAttacker
+	setallytonexttarget EffectCoaching_FocusEnergyFailedCheckAllyStats
+EffectCoaching_FocusEnergyFailedCheckAllyStats:
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_CoachingWorks
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_DEF, MAX_STAT_STAGE, BattleScript_CoachingWorks
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_CoachingWorks
 	goto BattleScript_ButItFailed
 EffectCoaching_CheckAllyStats:
 	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_CoachingWorks
 	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_DEF, MAX_STAT_STAGE, BattleScript_CoachingWorks
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_CoachingWorks
 	goto BattleScript_ButItFailed   @ ally at max atk, def
 BattleScript_CoachingWorks:
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF, 0x0
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF | BIT_ACC, 0x0
 	setstatchanger STAT_ATK, 1, FALSE
 	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_CoachingBoostDef
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_CoachingBoostDef
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_CoachingBoostDef:
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_CoachingBoostAcc
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_CoachingBoostAcc
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_CoachingBoostAcc:
 	setstatchanger STAT_DEF, 1, FALSE
 	statbuffchange STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_MoveEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 0x2, BattleScript_MoveEnd
@@ -2425,7 +2455,6 @@ BattleScript_EffectAromaticMistMistyTerrainEnd:
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
 	goto BattleScript_ButItFailed
 
-
 BattleScript_EffectMagneticFlux::
 	attackcanceler
 	attackstring
@@ -2548,6 +2577,7 @@ BattleScript_TrickorTreatSwapItems:
 	attackanimation
 	waitanimation
 	printstring STRINGID_THIRDTYPEADDED
+	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNSWITCHEDITEMS
 	waitmessage B_WAIT_TIME_LONG
 	printfromtable gItemSwapStringIds
@@ -4868,14 +4898,25 @@ BattleScript_EffectFocusEnergy:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_ButItFailed
+	jumpifstatus2 BS_TARGET, STATUS2_FOCUS_ENERGY_ANY, BattleScript_FocusEnergyFailedCheckInnerFocus
 	setfocusenergy
 	attackanimation
 	waitanimation
 	printfromtable gFocusEnergyUsedStringIds
 	waitmessage B_WAIT_TIME_SHORTEST
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_FocusEnergyTryToRaiseStats
-	goto BattleScript_FocusEnergyEnd
+	goto BattleScript_MoveEnd
+BattleScript_FocusEnergyFailedCheckInnerFocus::
+	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_FocusEnergyTryToRaiseStats2
+	goto BattleScript_ButItFailed
+BattleScript_FocusEnergyTryToRaiseStats2::
+	call BattleScript_AbilityPopUp
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_FocusEnergyMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_FocusEnergyMoveAnim::
+	attackanimation
+	waitanimation
+	goto BattleScript_FocusEnergyStatRaise
 BattleScript_FocusEnergyTryToRaiseStats::
 	call BattleScript_AbilityPopUp
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_FocusEnergyStatRaise

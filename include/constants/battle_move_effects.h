@@ -453,6 +453,7 @@
 #define EFFECT_WARM_WELCOME                 447
 #define EFFECT_RADIOACID                    448
 #define EFFECT_PARTING_CURRY                449
-#define NUM_BATTLE_MOVE_EFFECTS             450
+#define EFFECT_SERPENT_SURGE                450
+#define NUM_BATTLE_MOVE_EFFECTS             451
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

@@ -14549,6 +14549,20 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .magicCoatAffected = TRUE,
     },
 
+    [MOVE_SERPENT_SURGE] =
+    {
+        .effect = EFFECT_SERPENT_SURGE,
+        .power = 90,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

@@ -902,6 +902,7 @@ gBattleAnims_Moves::
 	.4byte Move_BERRY_BAD_JOKE
 	.4byte Move_RADIOACID
 	.4byte Move_PARTING_CURRY
+	.4byte Move_SERPENT_SURGE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -14402,12 +14403,12 @@ SteelRollerRocks:
 
 @Credits to Skeli
 Move_SCALE_SHOT::
-	loadspritegfx ANIM_TAG_SHELL_RIGHT
+	loadspritegfx ANIM_TAG_DRAGON_SCALE
 	loadspritegfx ANIM_TAG_IMPACT
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 0x4, 0x6
 	delay 1
 	playsewithpan SE_M_BONEMERANG, SOUND_PAN_ATTACKER
-	createsprite gSpriteTemplate_ScaleShotScale, ANIM_TARGET, 2, 0x10, 0x0, 0x0, 0x0, 0x14, 0x101
+	createsprite gSpriteTemplate_ScaleShotScale, ANIM_TARGET, 2, 0x10, 0x0, 0x0, 0x10, 0x8, 0x101
 	waitforvisualfinish
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x1, 0x1
@@ -18901,6 +18902,9 @@ Move_PARTING_CURRY::
 	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_TARGET, 2, 0
 	waitforvisualfinish
 	end
+
+Move_SERPENT_SURGE::
+	goto Move_VIPER_STRIKE
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

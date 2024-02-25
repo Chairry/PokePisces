@@ -4352,13 +4352,13 @@ const struct SpriteTemplate gSpriteTemplate_SteelRoller = {
 
 // scale shot
 const struct SpriteTemplate gSpriteTemplate_ScaleShotScale = {
-    .tileTag = ANIM_TAG_SHELL_RIGHT,
-    .paletteTag = ANIM_TAG_SHELL_RIGHT,
-    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .tileTag = ANIM_TAG_DRAGON_SCALE,
+    .paletteTag = ANIM_TAG_DRAGON_SCALE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_BasicRock,
-    .callback = AnimRockBlastRock
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation
 };
 
 // meteor beam

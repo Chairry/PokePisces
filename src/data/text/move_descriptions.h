@@ -3404,6 +3404,10 @@ static const u8 sPartingCurryDescription[] = _(
     "Lowers the foe's Acc and\n"
     "Eva, then switches out.");
 
+static const u8 sSerpentSurgeDescription[] = _(
+    "Damage category is based on\n"
+    "foe. Effect based on ability.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4289,4 +4293,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BERRY_BAD_JOKE - 1] = sBerryBadJokeDescription,
     [MOVE_RADIOACID - 1] = sRadioacidDescription,
     [MOVE_PARTING_CURRY - 1] = sPartingCurryDescription,
+    [MOVE_SERPENT_SURGE - 1] = sSerpentSurgeDescription,
 };

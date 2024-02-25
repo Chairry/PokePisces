@@ -403,6 +403,7 @@
 #define ANIM_TAG_BIG_SPOON                  (ANIM_SPRITES_START + 389)
 #define ANIM_TAG_WHITE_BAT                  (ANIM_SPRITES_START + 390)
 #define ANIM_TAG_BERRY_THOUGHT_BUBBLE       (ANIM_SPRITES_START + 391)
+#define ANIM_TAG_DRAGON_SCALE               (ANIM_SPRITES_START + 392)
 
 // battlers
 #define ANIM_ATTACKER         0
