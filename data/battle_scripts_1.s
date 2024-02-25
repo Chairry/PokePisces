@@ -477,6 +477,24 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRadioacid               @ EFFECT_RADIOACID
 	.4byte BattleScript_EffectPartingCurry            @ EFFECT_PARTING_CURRY
 	.4byte BattleScript_EffectSerpentSurge            @ EFFECT_SERPENT_SURGE
+	.4byte BattleScript_EffectTidyUp                  @ EFFECT_TIDY_UP
+
+BattleScript_EffectTidyUp::
+	attackcanceler
+	attackstring
+	pause B_WAIT_TIME_MED
+	ppreduce
+	waitstate
+	trytidyup FALSE, BattleScript_EffectTidyUpDoMoveAnimation
+	goto BattleScript_EffectDragonDanceFromStatUp
+
+BattleScript_EffectTidyUpDoMoveAnimation::
+	attackanimation
+	waitanimation
+	trytidyup TRUE, NULL
+	printstring STRINGID_TIDYINGUPCOMPLETE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectDragonDanceFromStatUp
 
 BattleScript_EffectSerpentSurge:
 	shellsidearmcheck
@@ -3501,8 +3519,8 @@ BattleScript_EffectSimpleBeam:
 BattleScript_EffectSuckerPunch:
 	attackcanceler
 	suckerpunchcheck BattleScript_FailedFromAtkString
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	jumpifmove MOVE_UPPER_HAND, BattleScript_EffectFlinchHit
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	goto BattleScript_HitFromAtkString
 
 BattleScript_EffectLuckyChant:
@@ -7187,6 +7205,7 @@ BattleScript_EffectDragonDance::
 	attackcanceler
 	attackstring
 	ppreduce
+BattleScript_EffectDragonDanceFromStatUp::
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_DragonDanceDoMoveAnim
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
 BattleScript_DragonDanceDoMoveAnim::

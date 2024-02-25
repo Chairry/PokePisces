@@ -8523,6 +8523,44 @@ static bool32 TryDefogClear(u32 battlerAtk, bool32 clear)
     return FALSE;
 }
 
+static bool32 TryTidyUpClear(u32 battlerAtk, bool32 clear)
+{
+    s32 i;
+    u8 saveBattler = gBattlerAttacker;
+
+    for (i = 0; i < NUM_BATTLE_SIDES; i++)
+    {
+        struct SideTimer *sideTimer = &gSideTimers[i];
+        u32 *sideStatuses = &gSideStatuses[i];
+
+        gBattlerAttacker = i; // For correct battle string. Ally's / Foe's
+        DEFOG_CLEAR(SIDE_STATUS_SPIKES, spikesAmount, BattleScript_SpikesDefog, 0);
+        DEFOG_CLEAR(SIDE_STATUS_STEALTH_ROCK, stealthRockAmount, BattleScript_StealthRockDefog, 0);
+        DEFOG_CLEAR(SIDE_STATUS_TOXIC_SPIKES, toxicSpikesAmount, BattleScript_ToxicSpikesDefog, 0);
+        DEFOG_CLEAR(SIDE_STATUS_STICKY_WEB, stickyWebAmount, BattleScript_StickyWebDefog, 0);
+    }
+
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        if (gBattleMons[i].status2 & STATUS2_SUBSTITUTE)
+        {
+            if (clear)
+            {
+                gBattlerTarget = i;
+                gDisableStructs[i].substituteHP = 0;
+                gBattleMons[i].status2 &= ~STATUS2_SUBSTITUTE;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_SubstituteFade;
+            }
+            gBattlerAttacker = saveBattler;
+            return TRUE;
+        }
+    }
+
+    gBattlerAttacker = saveBattler;
+    return FALSE;
+}
+
 u32 IsFlowerVeilProtected(u32 battler)
 {
     if (IS_BATTLER_OF_TYPE(battler, TYPE_GRASS))
@@ -16791,5 +16829,25 @@ void BS_TryCopycat(void)
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
         gBattlerTarget = GetMoveTarget(gCalledMove, NO_TARGET_OVERRIDE);
         gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_TryTidyUp(void)
+{
+    NATIVE_ARGS(u8 clear, const u8 *jumpInstr);
+
+    if (cmd->clear)
+    {
+        if (TryTidyUpClear(gEffectBattler, TRUE))
+            return;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        if (TryTidyUpClear(gBattlerAttacker, FALSE))
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
