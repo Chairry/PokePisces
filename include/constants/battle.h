@@ -313,82 +313,90 @@
 #define MOVE_EFFECT_PARALYSIS           5
 #define MOVE_EFFECT_TOXIC               6
 #define MOVE_EFFECT_FROSTBITE           7
-#define MOVE_EFFECT_PANIC               8
+#define MOVE_EFFECT_PANIC               8   
 #define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_PANIC // All above move effects apply primary status
-#define MOVE_EFFECT_CONFUSION           8 + 1
-#define MOVE_EFFECT_FLINCH              9 + 1
-#define MOVE_EFFECT_TRI_ATTACK          10 + 1
-#define MOVE_EFFECT_UPROAR              11 + 1
-#define MOVE_EFFECT_PAYDAY              12 + 1
-#define MOVE_EFFECT_CHARGING            13 + 1
-#define MOVE_EFFECT_WRAP                14 + 1
-#define MOVE_EFFECT_ATK_PLUS_1          15 + 1
-#define MOVE_EFFECT_DEF_PLUS_1          16 + 1
-#define MOVE_EFFECT_SPD_PLUS_1          17 + 1
-#define MOVE_EFFECT_SP_ATK_PLUS_1       18 + 1
-#define MOVE_EFFECT_SP_DEF_PLUS_1       19 + 1
-#define MOVE_EFFECT_ACC_PLUS_1          20 + 1
-#define MOVE_EFFECT_EVS_PLUS_1          21 + 1
-#define MOVE_EFFECT_ATK_MINUS_1         22 + 1
-#define MOVE_EFFECT_DEF_MINUS_1         23 + 1
-#define MOVE_EFFECT_SPD_MINUS_1         24 + 1
-#define MOVE_EFFECT_SP_ATK_MINUS_1      25 + 1
-#define MOVE_EFFECT_SP_DEF_MINUS_1      26 + 1
-#define MOVE_EFFECT_ACC_MINUS_1         27 + 1
-#define MOVE_EFFECT_EVS_MINUS_1         28 + 1
-#define MOVE_EFFECT_BURN_UP             29 + 1
-#define MOVE_EFFECT_RECHARGE            30 + 1
-#define MOVE_EFFECT_RAGE                31 + 1
-#define MOVE_EFFECT_STEAL_ITEM          32 + 1
-#define MOVE_EFFECT_PREVENT_ESCAPE      33 + 1
-#define MOVE_EFFECT_NIGHTMARE           34 + 1
-#define MOVE_EFFECT_ALL_STATS_UP        35 + 1
-#define MOVE_EFFECT_RAPIDSPIN           36 + 1
-#define MOVE_EFFECT_REMOVE_STATUS       37 + 1
-#define MOVE_EFFECT_ATK_DEF_DOWN        38 + 1
-#define MOVE_EFFECT_ATK_PLUS_2          39 + 1
-#define MOVE_EFFECT_DEF_PLUS_2          40 + 1
-#define MOVE_EFFECT_SPD_PLUS_2          41 + 1
-#define MOVE_EFFECT_SP_ATK_PLUS_2       42 + 1
-#define MOVE_EFFECT_SP_DEF_PLUS_2       43 + 1
-#define MOVE_EFFECT_ACC_PLUS_2          44 + 1
-#define MOVE_EFFECT_EVS_PLUS_2          45 + 1
-#define MOVE_EFFECT_ATK_MINUS_2         46 + 1
-#define MOVE_EFFECT_DEF_MINUS_2         47 + 1
-#define MOVE_EFFECT_SPD_MINUS_2         48 + 1
-#define MOVE_EFFECT_SP_ATK_MINUS_2      49 + 1
-#define MOVE_EFFECT_SP_DEF_MINUS_2      50 + 1
-#define MOVE_EFFECT_ACC_MINUS_2         51 + 1
-#define MOVE_EFFECT_EVS_MINUS_2         52 + 1
-#define MOVE_EFFECT_SCALE_SHOT          53 + 1
-#define MOVE_EFFECT_THRASH              54 + 1
-#define MOVE_EFFECT_KNOCK_OFF           55 + 1
-#define MOVE_EFFECT_DEF_SPDEF_DOWN      56 + 1
-#define MOVE_EFFECT_CLEAR_SMOG          57 + 1
-#define MOVE_EFFECT_SP_ATK_TWO_DOWN     58 + 1
-#define MOVE_EFFECT_SMACK_DOWN          59 + 1
-#define MOVE_EFFECT_FLAME_BURST         60 + 1
-#define MOVE_EFFECT_FEINT               61 + 1
-#define MOVE_EFFECT_SPECTRAL_THIEF      62 + 1
-#define MOVE_EFFECT_V_CREATE            63 + 1
-#define MOVE_EFFECT_HAPPY_HOUR          64 + 1
-#define MOVE_EFFECT_CORE_ENFORCER       65 + 1
-#define MOVE_EFFECT_THROAT_CHOP         66 + 1
-#define MOVE_EFFECT_INCINERATE          67 + 1
-#define MOVE_EFFECT_BUG_BITE            68 + 1
-#define MOVE_EFFECT_RECOIL_HP_25        69 + 1
-#define MOVE_EFFECT_RELIC_SONG          70 + 1
-#define MOVE_EFFECT_TRAP_BOTH           71 + 1
-#define MOVE_EFFECT_DOUBLE_SHOCK        72 + 1
-#define MOVE_EFFECT_ROUND               73 + 1
-#define MOVE_EFFECT_STOCKPILE_WORE_OFF  74 + 1
-#define MOVE_EFFECT_DIRE_CLAW           75 + 1
-#define MOVE_EFFECT_STEALTH_ROCK        76 + 1
-#define MOVE_EFFECT_SPIKES              77 + 1
-#define MOVE_EFFECT_TRIPLE_ARROWS       78 + 1
-#define MOVE_EFFECT_VIPER_STRIKE        79 + 1
-#define MOVE_EFFECT_ALL_STATS_UP_2      80 + 1
-#define NUM_MOVE_EFFECTS                82
+#define MOVE_EFFECT_CONFUSION           9
+#define MOVE_EFFECT_FLINCH              10
+#define MOVE_EFFECT_TRI_ATTACK          11
+#define MOVE_EFFECT_UPROAR              12
+#define MOVE_EFFECT_PAYDAY              13
+#define MOVE_EFFECT_CHARGING            14
+#define MOVE_EFFECT_WRAP                15
+#define MOVE_EFFECT_ATK_PLUS_1          16
+#define MOVE_EFFECT_DEF_PLUS_1          17
+#define MOVE_EFFECT_SPD_PLUS_1          18
+#define MOVE_EFFECT_SP_ATK_PLUS_1       19
+#define MOVE_EFFECT_SP_DEF_PLUS_1       20
+#define MOVE_EFFECT_ACC_PLUS_1          21
+#define MOVE_EFFECT_EVS_PLUS_1          22
+#define MOVE_EFFECT_ATK_MINUS_1         23
+#define MOVE_EFFECT_DEF_MINUS_1         24
+#define MOVE_EFFECT_SPD_MINUS_1         25
+#define MOVE_EFFECT_SP_ATK_MINUS_1      26
+#define MOVE_EFFECT_SP_DEF_MINUS_1      27
+#define MOVE_EFFECT_ACC_MINUS_1         28
+#define MOVE_EFFECT_EVS_MINUS_1         29
+#define MOVE_EFFECT_BURN_UP             30
+#define MOVE_EFFECT_RECHARGE            31
+#define MOVE_EFFECT_RAGE                32
+#define MOVE_EFFECT_STEAL_ITEM          33
+#define MOVE_EFFECT_PREVENT_ESCAPE      34
+#define MOVE_EFFECT_NIGHTMARE           35
+#define MOVE_EFFECT_ALL_STATS_UP        36
+#define MOVE_EFFECT_RAPIDSPIN           37
+#define MOVE_EFFECT_REMOVE_STATUS       38
+#define MOVE_EFFECT_ATK_DEF_DOWN        39
+#define MOVE_EFFECT_ATK_PLUS_2          40
+#define MOVE_EFFECT_DEF_PLUS_2          41
+#define MOVE_EFFECT_SPD_PLUS_2          42
+#define MOVE_EFFECT_SP_ATK_PLUS_2       43
+#define MOVE_EFFECT_SP_DEF_PLUS_2       44
+#define MOVE_EFFECT_ACC_PLUS_2          45
+#define MOVE_EFFECT_EVS_PLUS_2          46
+#define MOVE_EFFECT_ATK_MINUS_2         47
+#define MOVE_EFFECT_DEF_MINUS_2         48
+#define MOVE_EFFECT_SPD_MINUS_2         49
+#define MOVE_EFFECT_SP_ATK_MINUS_2      50
+#define MOVE_EFFECT_SP_DEF_MINUS_2      51
+#define MOVE_EFFECT_ACC_MINUS_2         52
+#define MOVE_EFFECT_EVS_MINUS_2         53
+#define MOVE_EFFECT_SCALE_SHOT          54
+#define MOVE_EFFECT_THRASH              55
+#define MOVE_EFFECT_KNOCK_OFF           56
+#define MOVE_EFFECT_DEF_SPDEF_DOWN      57
+#define MOVE_EFFECT_CLEAR_SMOG          58
+#define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
+#define MOVE_EFFECT_SMACK_DOWN          60
+#define MOVE_EFFECT_FLAME_BURST         61
+#define MOVE_EFFECT_FEINT               62
+#define MOVE_EFFECT_SPECTRAL_THIEF      63
+#define MOVE_EFFECT_V_CREATE            64
+#define MOVE_EFFECT_HAPPY_HOUR          65
+#define MOVE_EFFECT_CORE_ENFORCER       66
+#define MOVE_EFFECT_THROAT_CHOP         67
+#define MOVE_EFFECT_INCINERATE          68
+#define MOVE_EFFECT_BUG_BITE            69
+#define MOVE_EFFECT_RECOIL_HP_25        70
+#define MOVE_EFFECT_RELIC_SONG          71
+#define MOVE_EFFECT_TRAP_BOTH           72
+#define MOVE_EFFECT_DOUBLE_SHOCK        73
+#define MOVE_EFFECT_ROUND               74
+#define MOVE_EFFECT_STOCKPILE_WORE_OFF  75
+#define MOVE_EFFECT_DIRE_CLAW           76
+#define MOVE_EFFECT_STEALTH_ROCK        77
+#define MOVE_EFFECT_SPIKES              78
+#define MOVE_EFFECT_TRIPLE_ARROWS       79
+#define MOVE_EFFECT_VIPER_STRIKE        80
+#define MOVE_EFFECT_ALL_STATS_UP_2      81
+#define MOVE_EFFECT_SIGNAL_BEAM         82
+#define MOVE_EFFECT_ATK_TWO_DOWN        83
+#define MOVE_EFFECT_BARB_BARRAGE        84
+#define MOVE_EFFECT_HEART_STAMP         85
+#define MOVE_EFFECT_METEOR_MASH         86
+#define MOVE_EFFECT_DEF_SPDEF_UP        87
+#define MOVE_EFFECT_CINDER_TWIRL        88
+#define MOVE_EFFECT_CINDER_DRILL        89
+#define NUM_MOVE_EFFECTS                90
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

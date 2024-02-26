@@ -455,7 +455,7 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite)
                 || sprite->x == DISPLAY_WIDTH / 2 + 16
                 || sprite->x == DISPLAY_WIDTH / 2 + 20
                 || sprite->x == DISPLAY_WIDTH / 2 + 24)
-                gPlttBufferFaded[0] = RGB(24, 31, 12);
+                gPlttBufferFaded[0] = RGB(31, 30, 6);
             else
                 gPlttBufferFaded[0] = backgroundColor;
         }
@@ -807,9 +807,9 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
         s32 intensity = Cos(frameNum, 128) + 128;
-        s32 r = 31 - ((intensity * 32 - intensity) / 256);
-        s32 g = 31 - (intensity * 22 / 256);
-        s32 b = 12;
+        s32 r = 15 + ((intensity * 16 - intensity) / 256);
+        s32 g = 12 + ((intensity * 16 - intensity) / 256);
+        s32 b = 6 + ((intensity * 16 - intensity) / 256);
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));

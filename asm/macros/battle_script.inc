@@ -2050,6 +2050,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro setspiderweb battler:req, failInstr:req
+	various \battler, VARIOUS_SET_SPIDER_WEB
+	.4byte \failInstr
+	.endm
+
 	.macro cutonethirdhpraisestats failInstr:req
 	various BS_ATTACKER, VARIOUS_CUT_1_3_HP_RAISE_STATS
 	.4byte \failInstr

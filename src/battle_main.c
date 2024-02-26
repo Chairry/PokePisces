@@ -527,13 +527,13 @@ static void (* const sEndTurnFuncsTable[])(void) =
     [B_OUTCOME_MON_TELEPORTED]    = HandleEndTurn_FinishBattle,
 };
 
-const u8 gStatusConditionString_PoisonJpn[] = _("$$$$$");
-const u8 gStatusConditionString_SleepJpn[] = _("$$$$");
-const u8 gStatusConditionString_ParalysisJpn[] = _("$$$$$");
-const u8 gStatusConditionString_BurnJpn[] = _("$$$$");
-const u8 gStatusConditionString_IceJpn[] = _("$$$$");
-const u8 gStatusConditionString_ConfusionJpn[] = _("$$$");
-const u8 gStatusConditionString_LoveJpn[] = _("$$$");
+const u8 gStatusConditionString_PoisonJpn[] = _("どく$$$$$");
+const u8 gStatusConditionString_SleepJpn[] = _("ねむり$$$$");
+const u8 gStatusConditionString_ParalysisJpn[] = _("まひ$$$$$");
+const u8 gStatusConditionString_BurnJpn[] = _("やけど$$$$");
+const u8 gStatusConditionString_IceJpn[] = _("こおり$$$$");
+const u8 gStatusConditionString_ConfusionJpn[] = _("こんらん$$$");
+const u8 gStatusConditionString_LoveJpn[] = _("メロメロ$$$");
 
 const u8 *const gStatusConditionStringsTable[][2] =
 {
@@ -3356,6 +3356,7 @@ void FaintClearSetData(u32 battler)
     gProtectStructs[battler].protected = FALSE;
     gProtectStructs[battler].spikyShielded = FALSE;
     gProtectStructs[battler].kingsShielded = FALSE;
+    gProtectStructs[battler].shelltered = FALSE;
     gProtectStructs[battler].detectShielded = FALSE;
     gProtectStructs[battler].banefulBunkered = FALSE;
     gProtectStructs[battler].quash = FALSE;
@@ -4707,9 +4708,14 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_QUARK_DRIVE && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && highestStat == STAT_SPEED)
         speed = (speed * 150) / 100;
-    if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
+    else if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
         speed *= 0.75;
-
+    else if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
+        speed *= 0.5;
+    else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
+        speed *= 2;
+    else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG)
+        speed *= 0.5;
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][0];
     speed /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][1];
@@ -5046,8 +5052,10 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].protected = FALSE;
             gProtectStructs[i].spikyShielded = FALSE;
             gProtectStructs[i].kingsShielded = FALSE;
+            gProtectStructs[i].shelltered = FALSE;
             gProtectStructs[i].detectShielded = FALSE;
             gProtectStructs[i].banefulBunkered = FALSE;
+            gProtectStructs[i].burningBulwarked = FALSE;
             gProtectStructs[i].quash = FALSE;
         }
         else
@@ -5692,6 +5700,7 @@ void LoadTypeIcon(u8 type)
     if (gBattleMoveTypeSpriteId == MAX_SPRITES)
     {
         LoadCompressedSpriteSheet(&gSpriteSheet_MoveTypes);
+        LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
         gBattleMoveTypeSpriteId = CreateSprite(&gSpriteTemplate_MoveTypes, 216, 128, 0);
         gSprites[gBattleMoveTypeSpriteId].oam.priority = 0;
         SetTypeIconPal(type, gBattleMoveTypeSpriteId);
@@ -5756,7 +5765,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         if (holdEffect == gBattleMoves[move].argument)
             gBattleStruct->dynamicMoveType = ItemId_GetSecondaryId(gBattleMons[battlerAtk].item) | F_DYNAMIC_TYPE_2;
     }
-    else if (gBattleMoves[move].effect == EFFECT_REVELATION_DANCE)
+    else if (gBattleMoves[move].effect == EFFECT_REVELATION_DANCE || gBattleMoves[move].effect == EFFECT_SPIT_UP)
     {
         if (gBattleMons[battlerAtk].type1 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type1 | F_DYNAMIC_TYPE_2;

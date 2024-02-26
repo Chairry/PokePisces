@@ -348,6 +348,36 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(MARINAROC),
     SPECIES_TO_HOENN(METTATOLL),
     SPECIES_TO_HOENN(GAOTERRA),
+    SPECIES_TO_HOENN(MISDREAVUS),
+    SPECIES_TO_HOENN(MISMAGIUS),
+    SPECIES_TO_HOENN(NINCADA),
+    SPECIES_TO_HOENN(NINJASK),
+    SPECIES_TO_HOENN(SHEDINJA),
+    SPECIES_TO_HOENN(SEEDOT),
+    SPECIES_TO_HOENN(NUZLEAF),
+    SPECIES_TO_HOENN(SHIFTRY),
+    SPECIES_TO_HOENN(CROAGUNK),
+    SPECIES_TO_HOENN(TOXICROAK),
+    SPECIES_TO_HOENN(PAWNIARD),
+    SPECIES_TO_HOENN(BISHARP),
+    SPECIES_TO_HOENN(SPINDA),
+    SPECIES_TO_HOENN(GROWLITHE),
+    SPECIES_TO_HOENN(ARCANINE),
+    SPECIES_TO_HOENN(GLIGAR),
+    SPECIES_TO_HOENN(GLISCOR),
+    SPECIES_TO_HOENN(GRIMER),
+    SPECIES_TO_HOENN(MUK),
+    SPECIES_TO_HOENN(LUVDISC),
+    SPECIES_TO_HOENN(LUNATONE),
+    SPECIES_TO_HOENN(SOLROCK),
+    SPECIES_TO_HOENN(GROUDON),
+    SPECIES_TO_HOENN(KYOGRE),
+    SPECIES_TO_HOENN(BISHOUCHA),
+    SPECIES_TO_HOENN(PAPYPUS),
+    SPECIES_TO_HOENN(SHISHIMA),
+    SPECIES_TO_HOENN(SHUNYONG),
+    SPECIES_TO_HOENN(KINGAMBIT),
+    SPECIES_TO_HOENN(SHELLYLOUH),
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1465,6 +1495,12 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(MARINAROC),
     SPECIES_TO_NATIONAL(METTATOLL),
     SPECIES_TO_NATIONAL(GAOTERRA),
+    SPECIES_TO_NATIONAL(BISHOUCHA),
+    SPECIES_TO_NATIONAL(PAPYPUS),
+    SPECIES_TO_NATIONAL(SHISHIMA),
+    SPECIES_TO_NATIONAL(SHUNYONG),
+    SPECIES_TO_NATIONAL(KINGAMBIT),
+    SPECIES_TO_NATIONAL(SHELLYLOUH),
 #endif
 
     // Megas
@@ -1564,6 +1600,17 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_LOTTABATS_HUDDLED - 1] = NATIONAL_DEX_LOTTABATS,
     [SPECIES_GAOTERRA_SOLAR - 1] = NATIONAL_DEX_GAOTERRA,
     [SPECIES_GAOTERRA_LUNAR - 1] = NATIONAL_DEX_GAOTERRA,
+    [SPECIES_BISHOUCHA_WARMONGER - 1] = NATIONAL_DEX_BISHOUCHA,
+    [SPECIES_PAPYPUS_FEMALE - 1] = NATIONAL_DEX_PAPYPUS,
+    [SPECIES_CINDRILLON_PIROUETTE - 1] = NATIONAL_DEX_CINDRILLON,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1] = NATIONAL_DEX_CINDRILLON,
+    [SPECIES_SHISHIMA_PUNISHER - 1] = NATIONAL_DEX_SHISHIMA,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1] = NATIONAL_DEX_SHUNYONG,
+    [SPECIES_SPINDA_CAVE - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_DESERT - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_FOREST - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_MOUNTAIN - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_PLAINS2 - 1] = NATIONAL_DEX_SPINDA,
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_DARUMAKA_GALARIAN - 1] = NATIONAL_DEX_DARUMAKA,
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
@@ -2132,6 +2179,36 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(MARINAROC),
     HOENN_TO_NATIONAL(METTATOLL),
     HOENN_TO_NATIONAL(GAOTERRA),
+    HOENN_TO_NATIONAL(MISDREAVUS),
+    HOENN_TO_NATIONAL(MISMAGIUS),
+    HOENN_TO_NATIONAL(NINCADA),
+    HOENN_TO_NATIONAL(NINJASK),
+    HOENN_TO_NATIONAL(SHEDINJA),
+    HOENN_TO_NATIONAL(SEEDOT),
+    HOENN_TO_NATIONAL(NUZLEAF),
+    HOENN_TO_NATIONAL(SHIFTRY),
+    HOENN_TO_NATIONAL(CROAGUNK),
+    HOENN_TO_NATIONAL(TOXICROAK),
+    HOENN_TO_NATIONAL(PAWNIARD),
+    HOENN_TO_NATIONAL(BISHARP),
+    HOENN_TO_NATIONAL(SPINDA),
+    HOENN_TO_NATIONAL(GROWLITHE),
+    HOENN_TO_NATIONAL(ARCANINE),
+    HOENN_TO_NATIONAL(GLIGAR),
+    HOENN_TO_NATIONAL(GLISCOR),
+    HOENN_TO_NATIONAL(GRIMER),
+    HOENN_TO_NATIONAL(MUK),
+    HOENN_TO_NATIONAL(LUVDISC),
+    HOENN_TO_NATIONAL(LUNATONE),
+    HOENN_TO_NATIONAL(SOLROCK),
+    HOENN_TO_NATIONAL(GROUDON),
+    HOENN_TO_NATIONAL(KYOGRE),
+    HOENN_TO_NATIONAL(BISHOUCHA),
+    HOENN_TO_NATIONAL(PAPYPUS),
+    HOENN_TO_NATIONAL(SHISHIMA),
+    HOENN_TO_NATIONAL(SHUNYONG),
+    HOENN_TO_NATIONAL(KINGAMBIT),
+    HOENN_TO_NATIONAL(SHELLYLOUH),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -3300,7 +3377,13 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_ORROWHELM - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SHAYON - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_LUOSHAN - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
-    [SPECIES_GAOTERRA - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_GAOTERRA - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_BISHOUCHA - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PAPYPUS - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHISHIMA - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHUNYONG - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_KINGAMBIT - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHELLYLOUH - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]           = ANIM_GROW_VIBRATE,
@@ -3313,6 +3396,17 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_DUDUNSPARS_THREE_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_GAOTERRA_SOLAR - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_GAOTERRA_LUNAR - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_BISHOUCHA_WARMONGER - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PAPYPUS_FEMALE - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CINDRILLON_PIROUETTE - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHISHIMA_PUNISHER - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1]  = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_CAVE - 1]              = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_DESERT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_FOREST - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_MOUNTAIN - 1]          = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_PLAINS2 - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     //Gen 4 Forms
     [SPECIES_CHERRIM_SUNSHINE - 1]       = ANIM_H_JUMPS_V_STRETCH,
     [SPECIES_SHELLOS_EAST_SEA - 1]       = ANIM_V_STRETCH,
@@ -3859,7 +3953,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[LEGENDARY_PERFECT_IV_COUNT];
-
+    fixedIV = 31;
     ZeroBoxMonData(boxMon);
 
     if (hasFixedPersonality)
@@ -4544,7 +4638,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     if (species == SPECIES_SHEDINJA)
     {
-        newMaxHP = 1;
+        newMaxHP = 5;
     }
     else
     {
@@ -4566,8 +4660,8 @@ void CalculateMonStats(struct Pokemon *mon)
 
     if (species == SPECIES_SHEDINJA)
     {
-        if (currentHP != 0 || oldMaxHP == 0)
-            currentHP = 1;
+        if (currentHP != 0 || oldMaxHP == 0 || currentHP != 1 || oldMaxHP == 1 || currentHP != 2 || oldMaxHP == 2 || currentHP != 3 || oldMaxHP == 3 || currentHP != 4 || oldMaxHP == 4)
+            currentHP = 5;
         else
             return;
     }
@@ -6951,10 +7045,21 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_FEMALE_BERSERK_GENE:
-                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE && heldItem == ITEM_BERSERK_GENE)
+                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE && evolutionItem == ITEM_BERSERK_GENE)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-
+            case EVO_LEVEL_MALE_KINGS_ROCK:
+                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_MALE && heldItem == ITEM_KINGS_ROCK)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_POISONED:
+                if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PSN_ANY)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_BATTLE_TERRAIN:
+                if (gBattleTerrain == gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_LEVEL_ATK_GT_DEF:
                 if (gEvolutionTable[species][i].param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
@@ -6968,6 +7073,16 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_LEVEL_ATK_LT_DEF:
                 if (gEvolutionTable[species][i].param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_LEVEL_ATK_GT_SPATK:
+                if (gEvolutionTable[species][i].param <= level)
+                    if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_SPATK, 0))
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_LEVEL_ATK_LT_SPATK:
+                if (gEvolutionTable[species][i].param <= level)
+                    if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_SPATK, 0))
                         targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_SILCOON:
@@ -7173,6 +7288,18 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             {
             case EVO_CRITICAL_HITS:
                 if (gPartyCriticalHits[evolutionItem] >= gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_HIT_BY_SLASH_MOVE:
+                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].slicingMove)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            //case EVO_HIT_BY_PIERCE_MOVE:
+                //if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].piercingMove)
+                    //targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                //break;
+            case EVO_HIT_BY_BLUNT_MOVE:
+                if (gLastHitBy[evolutionItem] == (gBattleMoves[evolutionItem].ballisticMove || gBattleMoves[evolutionItem].punchingMove))//|| gBattleMoves[evolutionItem].kickingMove))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
@@ -8565,8 +8692,6 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
         GetSetPokedexFlag(nationalNum, caseId);
         if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
             gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
-            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
 }
 

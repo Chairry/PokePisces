@@ -10530,6 +10530,42 @@ static const union AnimCmd sAnim_Gaoterra_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_Bishoucha_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Papypus_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Shishima_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Shunyong_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Kingambit_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Shellylouh_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_Coffiddle_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -11568,6 +11604,42 @@ static const union AnimCmd sAnim_GaoterraSolar_1[] =
 };
 
 static const union AnimCmd sAnim_GaoterraLunar_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_BishouchaWarmonger_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_PapypusFemale_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CindrillonPirouette_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_CindrillonFearouette_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ShishimaPunisher_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ShunyongGoldenOffense_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -12747,6 +12819,18 @@ SINGLE_ANIMATION(Cremeletts);
 SINGLE_ANIMATION(Snurrowl);
 SINGLE_ANIMATION(Stolyce);
 SINGLE_ANIMATION(Gaoterra);
+SINGLE_ANIMATION(Bishoucha);
+SINGLE_ANIMATION(BishouchaWarmonger);
+SINGLE_ANIMATION(Papypus);
+SINGLE_ANIMATION(PapypusFemale);
+SINGLE_ANIMATION(CindrillonPirouette);
+SINGLE_ANIMATION(CindrillonFearouette);
+SINGLE_ANIMATION(Shishima);
+SINGLE_ANIMATION(ShishimaPunisher);
+SINGLE_ANIMATION(Shunyong);
+SINGLE_ANIMATION(ShunyongGoldenOffense);
+SINGLE_ANIMATION(Kingambit);
+SINGLE_ANIMATION(Shellylouh);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -14036,6 +14120,18 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SNURROWL] = sAnims_Snurrowl,
     [SPECIES_STOLYCE] = sAnims_Stolyce,
     [SPECIES_GAOTERRA] = sAnims_Gaoterra,
+    [SPECIES_BISHOUCHA] = sAnims_Bishoucha,
+    [SPECIES_BISHOUCHA_WARMONGER] = sAnims_BishouchaWarmonger,
+    [SPECIES_PAPYPUS] = sAnims_Papypus,
+    [SPECIES_PAPYPUS_FEMALE] = sAnims_PapypusFemale,
+    [SPECIES_CINDRILLON_PIROUETTE] = sAnims_CindrillonPirouette,
+    [SPECIES_CINDRILLON_FEAROUETTE] = sAnims_CindrillonFearouette,
+    [SPECIES_SHISHIMA] = sAnims_Shishima,
+    [SPECIES_SHISHIMA_PUNISHER] = sAnims_ShishimaPunisher,
+    [SPECIES_SHUNYONG] = sAnims_Shunyong,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sAnims_ShunyongGoldenOffense,
+    [SPECIES_KINGAMBIT] = sAnims_Kingambit,
+    [SPECIES_SHELLYLOUH] = sAnims_Shellylouh,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,
@@ -14388,7 +14484,12 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sAnims_DudunsparsThreeSegment,
     [SPECIES_LOTTABATS_HUDDLED] = sAnims_LottabatsHuddled,
     [SPECIES_GAOTERRA_SOLAR] = sAnims_GaoterraSolar,
-    [SPECIES_GAOTERRA_LUNAR] = sAnims_GaoterraLunar,
+    [SPECIES_GAOTERRA_LUNAR] = sAnims_ShunyongGoldenOffense,
+    [SPECIES_SPINDA_CAVE] = sAnims_Spinda,
+    [SPECIES_SPINDA_DESERT] = sAnims_Spinda,
+    [SPECIES_SPINDA_FOREST] = sAnims_Spinda,
+    [SPECIES_SPINDA_MOUNTAIN] = sAnims_Spinda,
+    [SPECIES_SPINDA_PLAINS2] = sAnims_Spinda,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
 };

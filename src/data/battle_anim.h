@@ -1448,6 +1448,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_AuraSphere, 0x200, ANIM_TAG_POLTERGEIST},
     {gBattleAnimSpriteGfx_Teapot, 0x1800, ANIM_TAG_TEAPOT},
     {gBattleAnimSpriteGfx_WoodHammerHammer, 0x800, ANIM_TAG_WOOD_HAMMER_HAMMER},
+    {gBattleAnimSpriteGfx_WhiteBall, 0x0200, ANIM_TAG_WHITE_BALL},
+    {gBattleAnimSpriteGfx_Mudslide, 0x0200, ANIM_TAG_MUDSLIDE},
+    {gBattleAnimSpriteGfx_BigSpoon, 0x0200, ANIM_TAG_BIG_SPOON},
+    {gBattleAnimSpriteGfx_WhiteBat, 0x0200, ANIM_TAG_WHITE_BAT},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1896,6 +1900,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Poltergeist, ANIM_TAG_POLTERGEIST},
     {gBattleAnimSpritePal_Teapot, ANIM_TAG_TEAPOT},
     {gBattleAnimSpritePal_WoodHammerHammer, ANIM_TAG_WOOD_HAMMER_HAMMER},
+    {gBattleAnimSpritePal_WhiteBall, ANIM_TAG_WHITE_BALL},
+    {gBattleAnimSpritePal_Mudslide, ANIM_TAG_MUDSLIDE},
+    {gBattleAnimSpritePal_BigSpoon, ANIM_TAG_BIG_SPOON},
+    {gBattleAnimSpritePal_WhiteBat, ANIM_TAG_WHITE_BAT},
+
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

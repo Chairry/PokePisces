@@ -1043,22 +1043,22 @@
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_NUMEL"
+                "species": "SPECIES_BONFEU"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_NUMEL"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_MARILL"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 14,
                 "max_level": 14,
-                "species": "SPECIES_NUMEL"
+                "species": "SPECIES_BONFEU"
               },
               {
                 "min_level": 14,
@@ -1969,12 +1969,12 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_BIVAGUE"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_MAKUHITA"
+                "species": "SPECIES_BIVAGUE"
               },
               {
                 "min_level": 7,
@@ -11683,64 +11683,64 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_PSEUDRA"
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_KOMORODE"
               }
             ]
           }

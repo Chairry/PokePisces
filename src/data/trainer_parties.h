@@ -58,50 +58,36 @@ static const struct TrainerMon sParty_GruntSeafloorCavern3[] = {
     }
 };
 
-static const struct TrainerMon sParty_Gabrielle1[] = {
+static const struct TrainerMon sParty_Granger[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_SKITTY,
+    .lvl = 4,
+    .species = SPECIES_COMBUN,
     },
     {
-    .lvl = 26,
-    .species = SPECIES_POOCHYENA,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_ZIGZAGOON,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_LOTAD,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_SEEDOT,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_TAILLOW,
+    .lvl = 5,
+    .species = SPECIES_BERM,
     }
 };
 
-static const struct TrainerMon sParty_GruntPetalburgWoods[] = {
+static const struct TrainerMon sParty_RickyP[] = {
     {
-    .lvl = 9,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 4,
+    .species = SPECIES_COMBUN,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_QUILWARD,
     }
 };
 
-static const struct TrainerMon sParty_Marcel[] = {
+static const struct TrainerMon sParty_JeannieP[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 4,
+    .species = SPECIES_COMBUN,
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_SHIFTRY,
+    .lvl = 5,
+    .species = SPECIES_GUPSPAR,
     }
 };
 

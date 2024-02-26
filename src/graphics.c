@@ -1237,6 +1237,12 @@ const u32 gBattleAnimSpritePal_PurpleFlame[] = INCBIN_U32("graphics/battle_anims
 const u32 gBattleAnimSpriteGfx_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.4bpp.lz");
+const u32 gBattleAnimSpritePal_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_WhiteBat[] = INCBIN_U32("graphics/battle_anims/sprites/white_bat.4bpp.lz");
+const u32 gBattleAnimSpritePal_WhiteBat[] = INCBIN_U32("graphics/battle_anims/sprites/white_bat.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_SmellingsaltEffect[] = INCBIN_U32("graphics/battle_anims/sprites/smellingsalt_effect.4bpp.lz");
 const u32 gBattleAnimSpritePal_SmellingsaltEffect[] = INCBIN_U32("graphics/battle_anims/sprites/smellingsalt_effect.gbapal.lz");
 
@@ -2031,3 +2037,9 @@ const u32 gUnknown_8E84F20[] = INCBIN_U32("graphics/tm_case/unk_8E84F20.gbapal.l
 const u32 gUnknown_8E85068[] = INCBIN_U32("graphics/tm_case/unk_8E85068.gbapal.lz");
 const u8 gUnknown_8E99118[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
 const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
+
+const u32 gBattleAnimSpriteGfx_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.4bpp.lz");
+const u32 gBattleAnimSpritePal_Mudslide[] = INCBIN_U32("graphics/battle_anims/sprites/mudslide.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BigSpoon[] = INCBIN_U32("graphics/battle_anims/sprites/bigspoon.4bpp.lz");
+const u32 gBattleAnimSpritePal_BigSpoon[] = INCBIN_U32("graphics/battle_anims/sprites/bigspoon.gbapal.lz");

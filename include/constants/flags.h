@@ -655,13 +655,13 @@
 #define FLAG_I_EXP_SHARE   0x264 // Unused Flag
 #define FLAG_SYS_MOVE_INFO 0x265 // Battle Move Info
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+#define FLAG_PISCES_A  0x267 // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PISCES_B  0x268 // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PISCES_C  0x269 // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PISCES_D  0x26A // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PISCES_E  0x26B // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PISCES_F  0x26C // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
+#define FLAG_PACIFIDLOG_ROADBLOCK  0x26D // Unused Flag in Vanilla.
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag

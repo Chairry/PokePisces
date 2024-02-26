@@ -229,5 +229,14 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_GAOTERRA] = sGaoterraFormChangeTable,
     [SPECIES_GAOTERRA_SOLAR] = sGaoterraFormChangeTable,
     [SPECIES_GAOTERRA_LUNAR] = sGaoterraFormChangeTable,
+    [SPECIES_BISHOUCHA] = sBishouchaDormantFormChangeTable,
+    [SPECIES_BISHOUCHA_WARMONGER] = sBishouchaDormantFormChangeTable,
+    [SPECIES_CINDRILLON] = sCindrillonFormChangeTable,
+    [SPECIES_CINDRILLON_PIROUETTE] = sCindrillonFormChangeTable,
+    [SPECIES_CINDRILLON_FEAROUETTE] = sCindrillonFormChangeTable,
+    [SPECIES_SHISHIMA] = sShishimaFormChangeTable,
+    [SPECIES_SHISHIMA_PUNISHER] = sShishimaFormChangeTable,
+    [SPECIES_SHUNYONG] = sShunyongFormChangeTable,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sShunyongFormChangeTable,
 #endif
 };

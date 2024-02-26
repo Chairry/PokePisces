@@ -1114,6 +1114,12 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SHAYON] = sShaYonTeachableLearnset,
     [SPECIES_LUOSHAN] = sLuoShanTeachableLearnset,
     [SPECIES_GAOTERRA] = sGaoterraTeachableLearnset,
+    [SPECIES_BISHOUCHA] = sBishouchaTeachableLearnset,
+    [SPECIES_PAPYPUS] = sPapypusTeachableLearnset,
+    [SPECIES_SHISHIMA] = sShishimaTeachableLearnset,
+    [SPECIES_SHUNYONG] = sShunyongTeachableLearnset,
+    [SPECIES_KINGAMBIT] = sKingambitTeachableLearnset,
+    [SPECIES_SHELLYLOUH] = sShellylouhTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,
@@ -1532,5 +1538,16 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_LOTTABATS_HUDDLED] = sLottabatsTeachableLearnset,
     [SPECIES_GAOTERRA_SOLAR] = sGaoterraTeachableLearnset,
     [SPECIES_GAOTERRA_LUNAR] = sGaoterraTeachableLearnset,
+    [SPECIES_BISHOUCHA_WARMONGER] = sBishouchaTeachableLearnset,
+    [SPECIES_PAPYPUS_FEMALE] = sPapypusTeachableLearnset,
+    [SPECIES_CINDRILLON_PIROUETTE] = sCindrillonTeachableLearnset,
+    [SPECIES_CINDRILLON_FEAROUETTE] = sCindrillonTeachableLearnset,
+    [SPECIES_SHISHIMA_PUNISHER] = sShishimaTeachableLearnset,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sShunyongTeachableLearnset,
+    [SPECIES_SPINDA_CAVE] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_DESERT] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_FOREST] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_MOUNTAIN] = sSpindaTeachableLearnset,
+    [SPECIES_SPINDA_PLAINS2] = sSpindaTeachableLearnset,
 #endif
 };

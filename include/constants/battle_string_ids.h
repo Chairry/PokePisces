@@ -687,13 +687,17 @@
 #define STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE        684  
 #define STRINGID_SHEDITSTAIL                          685
 #define STRINGID_ELECTROSHOCKCHARGING                 686
-#define STRINGID_PKMNGOTPANICKED                      687
-#define STRINGID_PKMNPANICKEDBY                       688
-#define STRINGID_PKMNSITEMCAUSEPANIC                  689
-#define STRINGID_PKMNSXPREVENTSPANIC                  690
-#define STRINGID_PKMNSISPANICKED                      691
+#define STRINGID_DESTROYROOMANDTERRAIN                687
+#define STRINGID_TARGETABILITYSTATRAISESHARPLY        688
+#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    689
+#define STRINGID_DRAGONRUINCHARGING                   690
+#define STRINGID_PKMNGOTPANICKED                      691
+#define STRINGID_PKMNPANICKEDBY                       692
+#define STRINGID_PKMNSITEMCAUSEPANIC                  693
+#define STRINGID_PKMNSXPREVENTSPANIC                  694
+#define STRINGID_PKMNSISPANICKED                      695
 
-#define BATTLESTRINGS_COUNT                           692
+#define BATTLESTRINGS_COUNT                           696
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -753,6 +757,7 @@
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
 #define B_MSG_TURN1_ELECTRO_SHOCK  13
+#define B_MSG_TURN1_DRAGON_RUIN    14
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
@@ -976,6 +981,8 @@
 #define B_MSG_TERRAIN_END_PSYCHIC   6
 #define B_MSG_TERRAIN_END_GRASSY    7
 #define B_MSG_TERRAIN_COUNT         8
+
+#define B_MSG_DESTROY_ROOM_AND_TERRAIN  0
 
 // gWrappedStringIds
 #define B_MSG_WRAPPED_BIND         0

@@ -1539,6 +1539,12 @@ gCryTable::
 	cry Cry_ShaYon
 	cry Cry_LuoShan
 	cry Cry_Gaoterra
+	cry Cry_Bishoucha
+	cry Cry_Papypus
+	cry Cry_Shishima
+	cry Cry_Shunyong
+	cry Cry_Kingambit
+	cry Cry_Shellylouh
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2275,6 +2281,23 @@ gCryTable::
 	@ Gaoterra
 	cry Cry_GaoterraSolar
 	cry Cry_GaoterraLunar
+	@ Bishoucha
+	cry Cry_BishouchaWarmonger
+	@ Papypus
+	cry Cry_PapypusFemale
+	@ Shishima
+	cry Cry_ShishimaPunisher
+	@ Cindrillon
+	cry Cry_CindrillonPirouette
+	cry Cry_CindrillonFearouette
+	@ Shunyong
+	cry Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2320,6 +2343,17 @@ gCryTable::
 	@ Lottabats
 	cry Cry_Unown
 	@ Gaoterra
+	cry Cry_Unown
+	@ Bishoucha
+	cry Cry_Unown
+	@ Papypus
+	cry Cry_Unown
+	@ Shishima
+	cry Cry_Unown
+	@ Cindrillon
+	cry Cry_Unown
+	cry Cry_Unown
+	@ Shunyong
 	cry Cry_Unown
 .endif
 
@@ -3864,6 +3898,12 @@ gCryTable_Reverse::
 	cry_reverse Cry_ShaYon
 	cry_reverse Cry_LuoShan
 	cry_reverse Cry_Gaoterra
+	cry_reverse Cry_Bishoucha
+	cry_reverse Cry_Papypus
+	cry_reverse Cry_Shishima
+	cry_reverse Cry_Shunyong
+	cry_reverse Cry_Kingambit
+	cry_reverse Cry_Shellylouh
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4567,6 +4607,23 @@ gCryTable_Reverse::
 	@ Gaoterra
 	cry_reverse Cry_GaoterraSolar
 	cry_reverse Cry_GaoterraLunar
+	@ Bishoucha
+	cry_reverse Cry_BishouchaWarmonger
+	@ Papypus
+	cry_reverse Cry_PapypusFemale
+	@ Shishima
+	cry_reverse Cry_ShishimaPunisher
+	@ Cindrillon
+	cry_reverse Cry_CindrillonPirouette
+	cry_reverse Cry_CindrillonFearouette
+	@ Shunyong
+	cry_reverse Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

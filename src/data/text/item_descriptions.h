@@ -420,8 +420,9 @@ static const u8 sSwiftFeatherDesc[] = _(
 
 // Ability Modifiers
 static const u8 sAbilityCapsuleDesc[] = _(
-    "Switches a Poké-\n"
-    "mon's ability.");
+    "A cookie that\n"    
+    "changes a\n"
+    "Pokémon's ability.");
 
 static const u8 sAbilityPatchDesc[] = _(
     "Turns the ability\n"
@@ -3961,3 +3962,12 @@ static const u8 sSandstone[] = _(
     "A stone made of\n"
     "sandstorms.\n"
     "Evolves Pebbler.");
+
+static const u8 sComedyMaskDesc[] = _(
+    "???");
+
+static const u8 sTragedyMaskDesc[] = _(
+    "???");
+
+static const u8 sPebbleriteDesc[] = _(
+    "???");

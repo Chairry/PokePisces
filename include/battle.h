@@ -103,6 +103,7 @@ struct DisableStruct
     u8 toxicSpikesDone:1;
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
+    u8 spiderweb:1;
 };
 
 struct ProtectStruct
@@ -110,6 +111,7 @@ struct ProtectStruct
     u32 protected:1;
     u32 spikyShielded:1;
     u32 kingsShielded:1;
+    u32 shelltered:1;
     u32 detectShielded:1;
     u32 banefulBunkered:1;
     u32 obstructed:1;
@@ -183,7 +185,7 @@ struct SpecialStatus
     // End of byte
     u8 gemParam;
     // End of byte
-    u8 gemBoost:1;
+     u8 gemBoost:1;
     u8 rototillerAffected:1;  // to be affected by rototiller
     u8 parentalBondState:2;
     u8 multiHitOn:1;
@@ -200,6 +202,8 @@ struct SpecialStatus
     u8 emergencyExited:1;
     u8 afterYou:1;
     u8 magnetPullRedirected:1;
+    u8 witchcraftRedirected:1;
+    u8 soulLockerRedirected:1;
 };
 
 struct SideTimer
@@ -723,7 +727,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_IF_MISS     \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS)
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))
@@ -750,6 +755,7 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                                         || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_MAT_BLOCK            \
                                         || gProtectStructs[battlerId].spikyShielded                                    \
                                         || gProtectStructs[battlerId].kingsShielded                                    \
+                                        || gProtectStructs[battlerId].shelltered                                       \
                                         || gProtectStructs[battlerId].detectShielded                                   \
                                         || gProtectStructs[battlerId].banefulBunkered                                  \
                                         || gProtectStructs[battlerId].burningBulwarked                                 \

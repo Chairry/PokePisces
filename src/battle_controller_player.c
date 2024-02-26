@@ -311,7 +311,6 @@ static void HandleInputChooseAction(u32 battler)
             ArrowsChangeColorLastBallCycle(FALSE);
             TryHideLastUsedBall();
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_THROW_BALL, 0);
-            DestroyTypeIcon();
             PlayerBufferExecCompleted(battler);
         }
         return;
@@ -786,6 +785,7 @@ static void HandleInputChooseMove(u32 battler)
     else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         PlaySE(SE_SELECT);
+        DestroyTypeIcon();
         if (gBattleStruct->zmove.viewing)
         {
             ReloadMoveNames(battler);

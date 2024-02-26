@@ -1113,6 +1113,12 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SHAYON] = sShaYonLevelUpLearnset,
     [SPECIES_LUOSHAN] = sLuoShanLevelUpLearnset,
     [SPECIES_GAOTERRA] = sGaoterraLevelUpLearnset,
+    [SPECIES_BISHOUCHA] = sBishouchaLevelUpLearnset,
+    [SPECIES_PAPYPUS] = sPapypusLevelUpLearnset,
+    [SPECIES_SHISHIMA] = sShishimaLevelUpLearnset,
+    [SPECIES_SHUNYONG] = sShunyongLevelUpLearnset,
+    [SPECIES_KINGAMBIT] = sKingambitLevelUpLearnset,
+    [SPECIES_SHELLYLOUH] = sShellylouhLevelUpLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,
@@ -1531,5 +1537,16 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_LOTTABATS_HUDDLED] = sLottabatsLevelUpLearnset,
     [SPECIES_GAOTERRA_SOLAR] = sGaoterraLevelUpLearnset,
     [SPECIES_GAOTERRA_LUNAR] = sGaoterraLevelUpLearnset,
+    [SPECIES_BISHOUCHA_WARMONGER] = sBishouchaLevelUpLearnset,
+    [SPECIES_PAPYPUS_FEMALE] = sPapypusLevelUpLearnset,
+    [SPECIES_CINDRILLON_PIROUETTE] = sCindrillonLevelUpLearnset,
+    [SPECIES_CINDRILLON_FEAROUETTE] = sCindrillonLevelUpLearnset,
+    [SPECIES_SHISHIMA_PUNISHER] = sShishimaLevelUpLearnset,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sShunyongLevelUpLearnset,
+    [SPECIES_SPINDA_CAVE] = sSpindaCaveLevelUpLearnset,
+    [SPECIES_SPINDA_DESERT] = sSpindaDesertLevelUpLearnset,
+    [SPECIES_SPINDA_FOREST] = sSpindaForestLevelUpLearnset,
+    [SPECIES_SPINDA_MOUNTAIN] = sSpindaMountainLevelUpLearnset,
+    [SPECIES_SPINDA_PLAINS2] = sSpindaPlains2LevelUpLearnset,
 #endif
 };
