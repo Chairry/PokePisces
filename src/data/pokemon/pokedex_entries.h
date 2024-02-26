@@ -13382,7 +13382,7 @@ const struct PokedexEntry gPokedexEntries[] =
     {
         .categoryName = _("Bombeard"),
         .height = 69,
-        .weight = 4200,
+        .weight = 420,
         .description = gUnberrablePokedexText,
         .pokemonScale = 256,
         .pokemonOffset = 0,
