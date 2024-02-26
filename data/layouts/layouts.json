@@ -4615,7 +4615,7 @@
       "id": "LAYOUT_DEWFORD_NEW",
       "name": "DewfordNew_Layout",
       "width": 56,
-      "height": 40,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordNew/border.bin",
