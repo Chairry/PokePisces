@@ -794,7 +794,6 @@ BattleScript_SpookStatDownPrintString::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SpookStatDownEnd::
 	goto BattleScript_MoveEnd
->>>>>>> 107ef1e66e5e58919765e25f890a5c28b4a53d21
 
 BattleScript_AllStatsUp2::
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2Atk
