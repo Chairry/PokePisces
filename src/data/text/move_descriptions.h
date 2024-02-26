@@ -2298,7 +2298,7 @@ static const u8 sBoomburstDescription[] = _(
 
 static const u8 sFairyLockDescription[] = _(
     "Prevents escape for the turn.\n"
-    "Ensures the next move hits.");
+    "Ensures the next moves hit.");
 
 static const u8 sKingsShieldDescription[] = _(
     "Evades damage, and reduces\n"
