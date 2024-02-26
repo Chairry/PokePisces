@@ -635,18 +635,17 @@ BattleScript_TryDragonRuinCharging:
 
 BattleScript_DragonRuinSecondTurn::
 	attackcanceler
-	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
-	seteffectprimary
+	setmoveeffect MOVE_EFFECT_CHARGING
 	setbyte sB_ANIM_TURN, 1
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	argumenttomoveeffect
-	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	seteffectsecondary
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_HitFromAtkString
 
 BattleScript_FirstChargingTurnDragonRuin::
+	attackcanceler
 	printstring STRINGID_EMPTYSTRING3
 	ppreduce
 	attackanimation
