@@ -2240,17 +2240,6 @@ const struct SpriteTemplate gSpiritShackleArrowTemplate =
     .callback = AnimSonicBoomProjectile
 };
 
-const struct SpriteTemplate gSpiritShackleChainTemplate =
-{
-    .tileTag = ANIM_TAG_CHAIN_LINK,
-    .paletteTag = ANIM_TAG_CHAIN_LINK,
-    .oam = &gOamData_AffineOff_ObjNormal_32x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimThunderWave
-};
-
 //darkest lariat
 const struct SpriteTemplate gDarkestLariatImpactTemplate =
 {

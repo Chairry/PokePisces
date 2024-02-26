@@ -3356,15 +3356,15 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 break;
             case MOVE_EFFECT_SIGNAL_BEAM:
-                if (!(gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gBattlerTarget].statStages[STAT_ATK] == MIN_STAT_STAGE))
+                if ((gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gBattlerTarget].statStages[STAT_ATK] == MIN_STAT_STAGE))
+                {
+                    gBattlescriptCurrInstr++;
+                }
+                else
                 {
                     static const u8 sSignalBeamEffects[] = { MOVE_EFFECT_CONFUSION, MOVE_EFFECT_ATK_MINUS_1 };
                     gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects);
                     SetMoveEffect(FALSE, 0);
-                }
-                else
-                {
-                    gBattlescriptCurrInstr++;
                 }
                 break;
             case MOVE_EFFECT_CHARGING:
@@ -14207,9 +14207,9 @@ static void Cmd_setforcedtarget(void)
 {
     CMD_ARGS();
 
-    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 1;
-    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget = gBattlerTarget;
-    gSideTimers[GetBattlerSide(gBattlerTarget)].followmePowder = gBattleMoves[gCurrentMove].powderMove;
+    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTimer = 1;
+    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerTarget;
+    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmePowder = gBattleMoves[gCurrentMove].powderMove;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

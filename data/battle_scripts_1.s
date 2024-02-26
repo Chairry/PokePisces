@@ -478,6 +478,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPartingCurry            @ EFFECT_PARTING_CURRY
 	.4byte BattleScript_EffectSerpentSurge            @ EFFECT_SERPENT_SURGE
 	.4byte BattleScript_EffectTidyUp                  @ EFFECT_TIDY_UP
+	.4byte BattleScript_EffectAbsorb                  @ EFFECT_DRAINING_KISS
 
 BattleScript_EffectTidyUp::
 	attackcanceler
@@ -634,19 +635,18 @@ BattleScript_TryDragonRuinCharging:
 
 BattleScript_DragonRuinSecondTurn::
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
 	seteffectprimary
-	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	seteffectsecondary
 	setbyte sB_ANIM_TURN, 1
 	clearstatusfromeffect BS_ATTACKER
 	orword gHitMarker, HITMARKER_NO_PPDEDUCT
 	argumenttomoveeffect
+	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	seteffectsecondary
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	goto BattleScript_HitFromAtkString
 
 BattleScript_FirstChargingTurnDragonRuin::
-	attackcanceler
 	printstring STRINGID_EMPTYSTRING3
 	ppreduce
 	attackanimation
@@ -697,7 +697,11 @@ BattleScript_EffectHeartStamp:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectCharm:
-	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectAttackDown2 
+	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectAttackDown3
+	setstatchanger STAT_ATK, 2, TRUE
+	goto BattleScript_EffectStatDown
+
+BattleScript_EffectAttackDown3:
 	setstatchanger STAT_ATK, 3, TRUE
 	goto BattleScript_EffectStatDown
 
@@ -831,17 +835,13 @@ BattleScript_EffectSignalBeam::
 
 BattleScript_EffectSilverWind:
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
-	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
-	attackstring
-	ppreduce
 	jumpifstatus2 BS_TARGET, STATUS2_POWDER, BattleScript_EffectHit
 	setpowder BS_TARGET
-	attackanimation
-	waitanimation
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
 	printstring STRINGID_COVEREDINPOWDER
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_EffectHit
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectUTurn:
 	setmoveeffect MOVE_EFFECT_FLINCH
@@ -2157,7 +2157,8 @@ BattleScript_EffectFairyLock:
 	attackanimation
 	waitanimation
 	printstring STRINGID_NOONEWILLBEABLETORUNAWAY
-	printstring STRINGID_PKMNTOOKAIM
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNTOOKAIM2
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -2401,17 +2402,35 @@ BattleScript_EffectSpAtkUpHit:
 
 BattleScript_EffectPowder:
 	setstatchanger STAT_ACC, 1, TRUE
-	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
-	attackstring
-	ppreduce
 	jumpifstatus2 BS_TARGET, STATUS2_POWDER, BattleScript_EffectStatDown
 	setpowder BS_TARGET
-	attackanimation
-	waitanimation
+	call BattleScript_EffectStatDown_Ret
 	printstring STRINGID_COVEREDINPOWDER
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_EffectStatDown
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectStatDown_Ret:
+	attackcanceler
+	jumpifsubstituteblocks BattleScript_FailedFromAtkString
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript_StatDownFromAttackString_Ret:
+	attackstring
+	ppreduce
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StatDownReturn
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_StatDownDoAnim_Ret
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_StatDownReturn
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatDownPrintString_Ret
+BattleScript_StatDownDoAnim_Ret::
+	attackanimation
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_StatDownPrintString_Ret::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_StatDownReturn::
+	return
 
 BattleScript_EffectAromaticMist:
 	attackcanceler
@@ -4079,10 +4098,6 @@ BattleScript_MoveMissed::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectDarkVoid::
-.if B_DARK_VOID_FAIL >= GEN_7
-	jumpifspecies BS_ATTACKER, SPECIES_DARKRAI, BattleScript_EffectSleep
-	goto BattleScript_PokemonCantUseTheMove
-.endif
 BattleScript_EffectSleep::
 	attackcanceler
 	attackstring

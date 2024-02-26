@@ -830,7 +830,7 @@ static const u8 sText_PkmnTellChillingReceptionJoke[] = _("{B_ATK_NAME_WITH_PREF
 static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\nto create a decoy!");
 static const u8 sText_ElectroShockCharging[] = _("{B_ATK_NAME_WITH_PREFIX} absorbed\nelectricity!");
 static const u8 sText_DestroyRoomAndTerrain[] = _("{B_ATK_NAME_WITH_PREFIX} destroyed Rooms\nand Terrains!");
-static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing arcane draconic\nenergy for a grand attack!");
+static const u8 sText_DragonRuinCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing arcane\nenergy for a grand attack!");
 static const u8 sText_PkmnRestoredHPUsingAbility[] = _("{B_ATK_NAME_WITH_PREFIX} restored HP\nusing its {B_ATK_ABILITY}!");
 static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's\npower was weakened!");
 static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPSYCHIC moves ineffective!");
@@ -840,6 +840,7 @@ static const u8 sText_PkmnMaxedStats[] = _("The user maxed their stats!");
 static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going all\nout for this attack!");
 static const u8 sText_SilenceContinues[] = _("The tolls continue...");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
+static const u8 sText_PkmnTookAim2[] = _("Every Pokémon took aim at\neach other!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1531,6 +1532,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_FICKLEBEAMDOUBLED - BATTLESTRINGS_TABLE_START] = sText_FickleBeamDoubled,
     [STRINGID_SILENCECONTINUES - BATTLESTRINGS_TABLE_START] = sText_SilenceContinues,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
+    [STRINGID_PKMNTOOKAIM2 - BATTLESTRINGS_TABLE_START] = sText_PkmnTookAim2,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

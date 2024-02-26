@@ -9049,7 +9049,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMons[battlerDef].status1 & STATUS1_PARALYSIS)
             basePower *= 2;
         break;
-    case MOVE_DRAINING_KISS:
+    case EFFECT_DRAINING_KISS:
         if (gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
             basePower *= 2;
         break;

@@ -2543,9 +2543,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FLASH] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .accuracy = 100,
+            .accuracy = 85,
         #else
-            .accuracy = 100,
+            .accuracy = 85,
         #endif
         .effect = EFFECT_FLASH,
         .power = 0,
@@ -8048,7 +8048,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 0,
         .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 3,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_RESET_STATS,
@@ -9698,7 +9698,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DRAINING_KISS] =
     {
-        .effect = EFFECT_ABSORB,
+        .effect = EFFECT_DRAINING_KISS,
         .power = 50,
         .type = TYPE_FAIRY,
         .accuracy = 100,
