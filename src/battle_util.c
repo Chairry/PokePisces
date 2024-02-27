@@ -3641,7 +3641,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             if (!gBattleStruct->isAtkCancelerForCalledMove && gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
             {
                 gBattleScripting.battler = CountTrailingZeroBits((gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION) >> 0x10);
-                if (!RandomPercentage(RNG_INFATUATION, 50))
+                if (!RandomPercentage(RNG_INFATUATION, 25))
                 {
                     BattleScriptPushCursor();
                 }
