@@ -360,6 +360,7 @@ static bool8 ShouldSwitchIfGameStatePrompt(u32 battler)
 
         //Secondary Damage
         if (monAbility != ABILITY_MAGIC_GUARD
+            && monAbility != ABILITY_SUGAR_COAT
             && !AiExpectsToFaintPlayer(battler))
         {
             //Toxic

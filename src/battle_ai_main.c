@@ -747,6 +747,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         {
             switch (aiData->abilities[battlerDef])
             {
+            case ABILITY_SUGAR_COAT:
             case ABILITY_MAGIC_GUARD:
                 switch (moveEffect)
                 {

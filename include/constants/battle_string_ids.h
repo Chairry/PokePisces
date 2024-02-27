@@ -702,7 +702,9 @@
 #define STRINGID_TIDYINGUPCOMPLETE                    700
 #define STRINGID_PKMNTOOKAIM2                         701
 #define STRINGID_PKMNDOUBLEDSTATS                     702
-#define BATTLESTRINGS_COUNT                           703
+#define STRINGID_PKMNCUTSSPATTACKWITH                 703
+#define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        704
+#define BATTLESTRINGS_COUNT                           705
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
