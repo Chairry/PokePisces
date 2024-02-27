@@ -2638,7 +2638,7 @@ static const u8 sMindBlownDescription[] = _(
 
 static const u8 sPlasmaFistsDescription[] = _(
     "Hits with electrical fists.\n"
-    "Normal moves become Electric.");
+    "Normal moves become Elec.");
 
 static const u8 sPhotonGeyserDescription[] = _(
     "User's highest attack stat\n"

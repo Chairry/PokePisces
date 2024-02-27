@@ -562,6 +562,17 @@ BattleScript_EffectVexingKi:
 	settorment BattleScript_TormentFailedTauntSucceeded
 	attackanimation
 	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
 	printstring STRINGID_PKMNFELLFORTAUNT
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
@@ -570,19 +581,51 @@ BattleScript_EffectVexingKi:
 BattleScript_TormentFailedTauntSucceeded:
 	attackanimation
 	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
 	printstring STRINGID_PKMNFELLFORTAUNT
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
 BattleScript_TauntFailedCheckTorment:
 	settorment BattleScript_TauntTormentFailed
 	attackanimation
 	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
 	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_TauntTormentFailed:
 	attackanimation
 	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSilence:
@@ -785,7 +828,7 @@ BattleScript_EffectSpiderWeb:
 BattleScript_SpiderWebEndTurn::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_SpiderWebLowerDef
-	jumpifstat BS_TARGET, CMP_GREATER_THAN, BIT_SPEED, MIN_STAT_STAGE, BattleScript_SpiderWebTryLowerSpd
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_SpiderWebTryLowerSpd
 	goto BattleScript_SpiderWebEnd2
 BattleScript_SpiderWebLowerDef:
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPEED, STAT_CHANGE_NEGATIVE
