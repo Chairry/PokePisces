@@ -141,6 +141,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_LONG_REACH] = 3,
     [ABILITY_MAGIC_BOUNCE] = 9,
     [ABILITY_MAGIC_GUARD] = 9,
+    [ABILITY_SUGAR_COAT] = 9,
     [ABILITY_MAGICIAN] = 3,
     [ABILITY_MAGMA_ARMOR] = 1,
     [ABILITY_MAGNET_PULL] = 7,
@@ -1567,6 +1568,7 @@ bool32 ShouldSetSandstorm(u32 battler, u32 ability, u32 holdEffect)
       || ability == ABILITY_SAND_FORCE
       || ability == ABILITY_OVERCOAT
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
       || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
@@ -1590,6 +1592,7 @@ bool32 ShouldSetHail(u32 battler, u32 ability, u32 holdEffect)
       || ability == ABILITY_FORECAST
       || ability == ABILITY_SLUSH_RUSH
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || ability == ABILITY_OVERCOAT
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
@@ -2437,7 +2440,7 @@ u32 GetBattlerSecondaryDamage(u32 battlerId)
 {
     u32 secondaryDamage;
 
-    if (AI_DATA->abilities[battlerId] == ABILITY_MAGIC_GUARD)
+    if (AI_DATA->abilities[battlerId] == ABILITY_MAGIC_GUARD || AI_DATA->abilities[battlerId] == ABILITY_SUGAR_COAT )
         return FALSE;
 
     secondaryDamage = GetLeechSeedDamage(battlerId)
@@ -2519,7 +2522,7 @@ static bool32 PartyBattlerShouldAvoidHazards(u32 currBattler, u32 switchBattler)
     if (flags == 0)
         return FALSE;
 
-    if (ability == ABILITY_MAGIC_GUARD)
+    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_SUGAR_COAT)
         return FALSE;
     if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || ability == ABILITY_KLUTZ)
         holdEffect = HOLD_EFFECT_NONE;
@@ -2819,6 +2822,7 @@ bool32 ShouldPoisonSelf(u32 battler, u32 ability)
       || ability == ABILITY_POISON_HEAL
       || ability == ABILITY_QUICK_FEET
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || (ability == ABILITY_TOXIC_BOOST && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || (ability == ABILITY_GUTS && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || HasMoveEffect(battler, EFFECT_FACADE)
@@ -2918,6 +2922,7 @@ bool32 ShouldBurnSelf(u32 battler, u32 ability)
      ability == ABILITY_QUICK_FEET
       || ability == ABILITY_HEATPROOF
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || (ability == ABILITY_FLARE_BOOST && HasMoveWithSplit(battler, SPLIT_SPECIAL))
       || (ability == ABILITY_GUTS && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || HasMoveEffect(battler, EFFECT_FACADE)
