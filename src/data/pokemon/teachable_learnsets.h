@@ -51660,6 +51660,35 @@ static const u16 sShishimaTeachableLearnset[] = {
     MOVE_SUBSTITUTE,
     MOVE_UNAVAILABLE,
 };
+
+
+static const u16 sInfairnoTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sPurgativalTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sDeteriotlTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sClawlisticTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sUnberrableTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sPeblraniumTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sVaikingTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
 #endif
 
 static const u16 sRattataAlolanTeachableLearnset[] = {

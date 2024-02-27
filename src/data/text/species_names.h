@@ -1123,6 +1123,13 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SHUNYONG] = _("Shunyong"),
     [SPECIES_KINGAMBIT] = _("Kingambit"),
     [SPECIES_SHELLYLOUH] = _("Shellylouh"),
+    [SPECIES_INFAIRNO] = _("Infairno"),
+    [SPECIES_PURGATIVAL] = _("Purgatival"),
+    [SPECIES_DETERIOTL] = _("Deteriotl"),
+    [SPECIES_CLAWLISTIC] = _("Clawlistic"),
+    [SPECIES_UNBERRABLE] = _("Unberrable"),
+    [SPECIES_PEBLRANIUM] = _("Peblranium"),
+    [SPECIES_VAIKING] = _("Vaiking"),
 #endif
 
     // Megas

@@ -2298,7 +2298,7 @@ static const u8 sBoomburstDescription[] = _(
 
 static const u8 sFairyLockDescription[] = _(
     "Prevents escape for the turn.\n"
-    "Ensures the next move hits.");
+    "Ensures the next moves hit.");
 
 static const u8 sKingsShieldDescription[] = _(
     "Evades damage, and reduces\n"
@@ -2638,7 +2638,7 @@ static const u8 sMindBlownDescription[] = _(
 
 static const u8 sPlasmaFistsDescription[] = _(
     "Hits with electrical fists.\n"
-    "Normal moves become Electric.");
+    "Normal moves become Elec.");
 
 static const u8 sPhotonGeyserDescription[] = _(
     "User's highest attack stat\n"
@@ -3372,6 +3372,42 @@ static const u8 sCinderDrillDescription[] = _(
     "Super effective against Bug,\n"
     "Grass, Steel, and Ice-types.");
 
+static const u8 sSilenceDescription[] = _(
+    "In 13 turns the Pokémon on\n"
+    "the field gains a gift.");
+
+static const u8 sVexingKiDescription[] = _(
+    "Releases a malice aura that\n"
+    "taunts and torments the foe.");
+
+static const u8 sDecayBeamDescription[] = _(
+    "SE against Bug/Dragon/Fairy.\n"
+    "Foe's last move has 3 PP cut.");
+
+static const u8 sCannonadeDescription[] = _(
+    "Shoots two blazing\n"
+    "projectiles in a row.");
+
+static const u8 sWarmWelcomeDescription[] = _(
+    "Summon harsh sunlight and\n"
+    "everyone eats their berries.");
+
+static const u8 sBerryBadJokeDescription[] = _(
+    "Says a bad joke that forces\n"
+    "the foe to switch or leave.");
+
+static const u8 sRadioacidDescription[] = _(
+    "Shoots nuclear acid at the\n"
+    "foe. May poison or burn.");
+
+static const u8 sPartingCurryDescription[] = _(
+    "Lowers the foe's Acc and\n"
+    "Eva, then switches out.");
+
+static const u8 sSerpentSurgeDescription[] = _(
+    "Damage category is based on\n"
+    "foe. Effect based on ability.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -3787,7 +3823,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_X_SCISSOR - 1] = sXScissorDescription,
     [MOVE_BUG_BUZZ - 1] = sBugBuzzDescription,
     [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
-    [MOVE_DRAGON_RUSH - 1] = sDragonRushDescription,
+    [MOVE_DRAGON_RUSH - 1] = sQuickAttackDescription,
     [MOVE_POWER_GEM - 1] = sPowerGemDescription,
     [MOVE_DRAIN_PUNCH - 1] = sMegaDrainDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
@@ -4248,4 +4284,14 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAGON_RUIN - 1] = sDragonRuinDescription,
     [MOVE_CINDER_TWIRL - 1] = sCinderTwirlDescription,
     [MOVE_CINDER_DRILL - 1] = sCinderDrillDescription,
+    [MOVE_SILENCE - 1] = sSilenceDescription,
+    [MOVE_VEXING_KI - 1] = sVexingKiDescription,
+    [MOVE_JUNGLE_RAGE - 1] = sRageFistDescription,
+    [MOVE_DECAY_BEAM - 1] = sDecayBeamDescription,
+    [MOVE_CANNONADE - 1] = sCannonadeDescription,
+    [MOVE_WARM_WELCOME - 1] = sWarmWelcomeDescription,
+    [MOVE_BERRY_BAD_JOKE - 1] = sBerryBadJokeDescription,
+    [MOVE_RADIOACID - 1] = sRadioacidDescription,
+    [MOVE_PARTING_CURRY - 1] = sPartingCurryDescription,
+    [MOVE_SERPENT_SURGE - 1] = sSerpentSurgeDescription,
 };

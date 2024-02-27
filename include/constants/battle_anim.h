@@ -402,6 +402,8 @@
 #define ANIM_TAG_MUDSLIDE                   (ANIM_SPRITES_START + 388)
 #define ANIM_TAG_BIG_SPOON                  (ANIM_SPRITES_START + 389)
 #define ANIM_TAG_WHITE_BAT                  (ANIM_SPRITES_START + 390)
+#define ANIM_TAG_BERRY_THOUGHT_BUBBLE       (ANIM_SPRITES_START + 391)
+#define ANIM_TAG_DRAGON_SCALE               (ANIM_SPRITES_START + 392)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -512,6 +514,7 @@
 #define BG_STEEL_BEAM_OPPONENT 78
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
+#define BG_URANIUM 81
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -553,6 +556,10 @@
 #define B_ANIM_SNOW_CONTINUES           36
 #define B_ANIM_ULTRA_BURST              37
 #define B_ANIM_SALT_CURE_DAMAGE         38
+#define B_ANIM_MUD_SPORT                39
+#define B_ANIM_WATER_SPORT              40
+#define B_ANIM_MUD_WATER_SPORT          41
+#define B_ANIM_SILENCE                  42
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
