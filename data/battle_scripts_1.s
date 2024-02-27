@@ -11495,3 +11495,68 @@ BattleScript_HardboiledSpdefAnimExtra:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HardboiledActivatesEndExtra:
 	return
+
+BattleScript_DisturbActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+BattleScript_DisturbLoop:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_DisturbLoopIncrement
+	jumpiftargetally BattleScript_DisturbLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_DisturbLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_DisturbLoopIncrement
+	//jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_DisturbInReverse
+BattleScript_DisturbEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	setstatchanger STAT_SPATK, 1, TRUE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_DisturbLoopIncrement
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_DisturbContrary
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNCUTSSPATTACKWITH
+BattleScript_DisturbEffect_WaitString:
+	waitmessage B_WAIT_TIME_LONG
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_TryAdrenalineOrb
+BattleScript_DisturbLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_DisturbLoop
+BattleScript_DisturbEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
+BattleScript_DisturbContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DisturbContrary_WontIncrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	goto BattleScript_DisturbEffect_WaitString
+BattleScript_DisturbContrary_WontIncrease:
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	goto BattleScript_DisturbEffect_WaitString
+
+BattleScript_DisturbPrevented:
+	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_LONG
+	setbyte gBattleCommunication STAT_SPATK
+	stattextbuffer BS_TARGET
+	printstring STRINGID_STATWASNOTLOWERED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryAdrenalineOrb
+	goto BattleScript_DisturbLoopIncrement
+
+BattleScript_DisturbInReverse:
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_AbilityPopUpTarget
+	pause B_WAIT_TIME_SHORT
+	modifybattlerstatstage BS_TARGET, STAT_SPATK, INCREASE, 1, BattleScript_DisturbLoopIncrement, ANIM_ON
+	call BattleScript_TryAdrenalineOrb
+	goto BattleScript_DisturbLoopIncrement
