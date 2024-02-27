@@ -5005,7 +5005,7 @@
       "id": "LAYOUT_BIRCH_MARITIME_LAB",
       "name": "BirchMaritimeLab_Layout",
       "width": 20,
-      "height": 20,
+      "height": 16,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BirchLab",
       "border_filepath": "data/layouts/BirchMaritimeLab/border.bin",
@@ -5040,6 +5040,26 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT",
+      "name": "LabBasement_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT2",
+      "name": "LabBasement2_Layout",
+      "width": 4,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement2/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement2/map.bin"
     }
   ]
 }
