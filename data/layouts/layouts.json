@@ -5007,7 +5007,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_BirchLab",
       "border_filepath": "data/layouts/BirchMaritimeLab/border.bin",
       "blockdata_filepath": "data/layouts/BirchMaritimeLab/map.bin"
     },
@@ -5030,6 +5030,16 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/SkyPillarInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SkyPillarInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_INTERIORS",
+      "name": "SSTidalInteriors_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
     }
   ]
 }

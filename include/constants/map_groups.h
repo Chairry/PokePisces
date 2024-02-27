@@ -24,6 +24,7 @@
 #define MAP_FLOTSHORE               (15 | (0 << 8))
 #define MAP_BIRCH_MARITIME_LAB      (16 | (0 << 8))
 #define MAP_SKY_PILLAR_INTERIORS    (17 | (0 << 8))
+#define MAP_SS_TIDAL_INTERIORS      (18 | (0 << 8))
 
 // gMapGroup_PiscesPart1Minor
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (1 << 8))
