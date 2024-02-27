@@ -3373,8 +3373,8 @@ static const u8 sCinderDrillDescription[] = _(
     "Grass, Steel, and Ice-types.");
 
 static const u8 sSilenceDescription[] = _(
-    "The end has begun. All stats\n"
-    "are maxed in 13 turns.");
+    "In 13 turns the Pokémon on\n"
+    "the field gains a gift.");
 
 static const u8 sVexingKiDescription[] = _(
     "Releases a malice aura that\n"

@@ -1164,7 +1164,7 @@
 	.4byte \failInstr
 	.endm
 
-	.macro setsilence failInstr:req
+	.macro setsilence2 failInstr:req
 	.byte 0xe1
 	.4byte \failInstr
 	.endm
@@ -1797,6 +1797,11 @@
 
 	.macro setauroraveil battler:req
 	various \battler, VARIOUS_SET_AURORA_VEIL
+	.endm
+
+	.macro setsilence battler:req, failInstr:req
+	various \battler VARIOUS_SET_SILENCE
+	.4byte \failInstr
 	.endm
 
 	.macro trysetthirdtype battler:req, failInstr:req

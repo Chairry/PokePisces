@@ -104,7 +104,6 @@ struct DisableStruct
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
     u8 spiderweb:1;
-    u8 silenceTimer;
 };
 
 struct ProtectStruct
@@ -234,6 +233,8 @@ struct SideTimer
     u8 followmeTarget:3;
     u8 followmePowder:1; // Rage powder, does not affect grass type pokemon.
     u8 retaliateTimer;
+    u8 silenceTimer;
+    u8 silenceTimerBattlerId;
 };
 
 struct FieldTimer

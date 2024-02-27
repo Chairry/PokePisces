@@ -2031,6 +2031,7 @@ enum
     ENDTURN_RETALIATE,
     ENDTURN_WEATHER_FORM,
     ENDTURN_STATUS_HEAL,
+    ENDTURN_SILENCE,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -2154,6 +2155,31 @@ u8 DoFieldEndTurnEffects(void)
                         BattleScriptExecute(BattleScript_SideStatusWoreOff);
                         gBattleCommunication[MULTISTRING_CHOOSER] = side;
                         PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_AURORA_VEIL);
+                        effect++;
+                    }
+                }
+                gBattleStruct->turnSideTracker++;
+                if (effect != 0)
+                    break;
+            }
+            if (!effect)
+            {
+                gBattleStruct->turnCountersTracker++;
+                gBattleStruct->turnSideTracker = 0;
+            }
+            break;
+        case ENDTURN_SILENCE:
+            while (gBattleStruct->turnSideTracker < 2)
+            {
+                side = gBattleStruct->turnSideTracker;
+                gBattlerAttacker = gSideTimers[side].silenceTimerBattlerId;
+                if (gSideStatuses[side] & SIDE_STATUS_SILENCE)
+                {
+                    if (--gSideTimers[side].silenceTimer == 0)
+                    {
+                        gSideStatuses[side] &= ~SIDE_STATUS_SILENCE;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = side;
+                        BattleScriptExecute(BattleScript_SilenceActivatesNonArcane);
                         effect++;
                     }
                 }
@@ -2565,7 +2591,6 @@ enum
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
     ENDTURN_SPIDER_WEB,
-    ENDTURN_SILENCE,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3166,21 +3191,6 @@ u8 DoBattlerEndTurnEffects(void)
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
-            break;
-        case ENDTURN_SILENCE:
-            if ((gDisableStructs[battler].silenceTimer
-                && --gDisableStructs[battler].silenceTimer == 0)
-                && !(NoAliveMonsForEitherParty()))
-            {
-                BattleScriptExecute(BattleScript_SilenceActivates);
-                effect++;
-            }
-            gBattleStruct->turnEffectsTracker++;
-            if (gDisableStructs[battler].silenceTimer != 0)
-            {
-                BattleScriptExecute(BattleScript_SilenceContinues);
-                effect++;
-            }
             break;
         case ENDTURN_BATTLER_COUNT:  // done
             gBattleStruct->turnEffectsTracker = 0;
@@ -4958,13 +4968,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_RAIN)
-                 && gBattleMons[battler].status1 & STATUS1_ANY)
+                 && (gBattleMons[battler].status1 & STATUS1_ANY)
+                 && (Random() % 3) == 0)
                 {
                     goto ABILITY_HEAL_MON_STATUS;
                 }
                 break;
             case ABILITY_SHED_SKIN:
-                if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 3) == 0)
+                if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 2) == 0)
                 {
                 ABILITY_HEAL_MON_STATUS:
                     if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))

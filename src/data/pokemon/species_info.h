@@ -816,11 +816,11 @@
 
 #define ZARUDE_SPECIES_INFO                             \
     {                                                   \
-        .baseHP        = 110,                           \
-        .baseAttack    = 130,                           \
-        .baseDefense   = 95,                           \
-        .baseSpeed     = 110,                          \
-        .baseSpAttack  = 60,                            \
+        .baseHP        = 90,                           \
+        .baseAttack    = 120,                           \
+        .baseDefense   = 105,                           \
+        .baseSpeed     = 90,                          \
+        .baseSpAttack  = 50,                            \
         .baseSpDefense = 95,                            \
         .types = { TYPE_GRASS, TYPE_GHOST},              \
         .catchRate = 45,                                 \
@@ -13235,10 +13235,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_ZORUA] =
     {
         .baseHP        = 50,
-        .baseAttack    = 95,
+        .baseAttack    = 75,
         .baseDefense   = 50,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 85,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 65,
         .baseSpDefense = 50,
         .types = { TYPE_DARK, TYPE_GHOST},
         .catchRate = 75,
@@ -18267,12 +18267,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_ZERAORA] =
     {
-        .baseHP        = 88,
+        .baseHP        = 78,
         .baseAttack    = 102,
-        .baseDefense   = 85,
-        .baseSpeed     = 143,
+        .baseDefense   = 75,
+        .baseSpeed     = 123,
         .baseSpAttack  = 102,
-        .baseSpDefense = 80,
+        .baseSpDefense = 70,
         .types = { TYPE_ELECTRIC, TYPE_DARK},
         .catchRate = 45,
         .expYield = 270,

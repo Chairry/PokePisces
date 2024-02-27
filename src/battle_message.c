@@ -841,6 +841,7 @@ static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going
 static const u8 sText_SilenceContinues[] = _("The tolls continue...");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_PkmnTookAim2[] = _("Every Pokémon took aim at\neach other!");
+static const u8 sText_PkmnDoubledStats[] = _("The user had their stats doubled!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1533,6 +1534,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SILENCECONTINUES - BATTLESTRINGS_TABLE_START] = sText_SilenceContinues,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
     [STRINGID_PKMNTOOKAIM2 - BATTLESTRINGS_TABLE_START] = sText_PkmnTookAim2,
+    [STRINGID_PKMNDOUBLEDSTATS - BATTLESTRINGS_TABLE_START] = sText_PkmnDoubledStats,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

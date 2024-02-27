@@ -583,7 +583,7 @@ static void Cmd_setuserstatus3(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
-static void Cmd_setsilence(void);
+static void Cmd_setsilence2(void);
 static void Cmd_unused2(void);
 static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
@@ -843,7 +843,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_assistattackselect,                      //0xDE
     Cmd_trysetmagiccoat,                         //0xDF
     Cmd_trysetsnatch,                            //0xE0
-    Cmd_setsilence,                              //0xE1
+    Cmd_setsilence2,                              //0xE1
     Cmd_switchoutabilities,                      //0xE2
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
@@ -10206,6 +10206,22 @@ static void Cmd_various(void)
         }
         break;
     }
+    case VARIOUS_SET_SILENCE:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        if (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SILENCE))
+        {
+            gSideStatuses[GetBattlerSide(battler)] |= SIDE_STATUS_SILENCE;
+            gSideTimers[GetBattlerSide(battler)].silenceTimerBattlerId = battler;
+            gSideTimers[GetBattlerSide(battler)].silenceTimer = 13;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        return;
+    }
     case VARIOUS_TRY_THIRD_TYPE:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -14328,21 +14344,6 @@ static void Cmd_settaunt(void)
     }
 }
 
-static void Cmd_setsilence(void)
-{
-    CMD_ARGS(const u8 *failInstr);
-
-    if (gDisableStructs[gBattlerAttacker].silenceTimer == 0)
-    {
-        gDisableStructs[gBattlerAttacker].silenceTimer = 13;
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->failInstr;
-    }
-}
-
 static void Cmd_trysethelpinghand(void)
 {
     CMD_ARGS(const u8 *failInstr);
@@ -15098,6 +15099,10 @@ static void Cmd_pickup(void)
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_setsilence2(void)
+{
 }
 
 static void Cmd_unused3(void)
