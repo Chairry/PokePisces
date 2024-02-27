@@ -5294,6 +5294,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_MOVE_END: // Think contact abilities.
         switch (gLastUsedAbility)
         {
+        case ABILITY_GHOULISH:
+            if (gSpecialStatuses[gBattlerAttacker].damagedMons  // Need to have done damage
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                && gBattlerAttacker != gBattlerTarget
+                && TARGET_TURN_DAMAGED
+                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+                && gBattleMons[gBattlerTarget].hp != 0 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+            {
+                gPotentialItemEffectBattler = gBattlerAttacker;
+                gBattleScripting.battler = gBattlerAttacker;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / 3) * -1;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = -1;
+                gSpecialStatuses[gBattlerTarget].dmg = 0;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, GetBattlerAbility(gBattlerTarget));
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AbilityHealHP_Ret;
+            }
+            break;
         case ABILITY_JUSTIFIED:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && TARGET_TURN_DAMAGED
