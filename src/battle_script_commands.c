@@ -1331,7 +1331,7 @@ static void Cmd_attackcanceler(void)
     }
 
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
-    && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
+    && (GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND || GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE)
     && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
     && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget])
     && gBattleStruct->zmove.toBeUsed[gBattlerAttacker] == MOVE_NONE)
@@ -1932,6 +1932,10 @@ static void Cmd_ppreduce(void)
         else
             gBattleStruct->sameMoveTurns[gBattlerAttacker] = 0;
 
+        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE) {
+            ppToDeduct *= 2;
+        }
+
         if (gBattleMons[gBattlerAttacker].pp[gCurrMovePos] > ppToDeduct)
             gBattleMons[gBattlerAttacker].pp[gCurrMovePos] -= ppToDeduct;
         else
@@ -2262,7 +2266,7 @@ static void Cmd_attackanimation(void)
     }
     else
     {
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT) // No animation on second hit
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT && GetBattlerAbility(gBattlerAttacker) != ABILITY_RAPID_FIRE) // No animation on second hit
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -3600,7 +3604,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleMoveDamage = (gBattleMons[gEffectBattler].maxHP) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
-                if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND)
+                if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND || GetBattlerAbility(gEffectBattler) == ABILITY_RAPID_FIRE)
                     gBattleMoveDamage *= 2;
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -16129,7 +16133,7 @@ bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)
 {
     if (move != MOVE_NONE && move != MOVE_STRUGGLE
         && gBattleMoves[move].split != SPLIT_STATUS
-        && !gBattleMoves[move].strikeCount > 2)
+        && gBattleMoves[move].strikeCount < 2)
     {
         u32 i;
         for (i = 0; i < ARRAY_COUNT(sParentalBondBannedEffects); i++)

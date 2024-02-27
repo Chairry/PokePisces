@@ -10056,7 +10056,7 @@ static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 bat
 
 static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
 {
-    if (gSpecialStatuses[battlerAtk].parentalBondState != PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[battlerAtk].parentalBondState != PARENTAL_BOND_2ND_HIT || GetBattlerAbility(battlerAtk) == ABILITY_RAPID_FIRE)
         return UQ_4_12(1.0);
     return V_PARENTAL_BOND_DMG;
 }
