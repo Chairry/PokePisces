@@ -10141,6 +10141,13 @@ static inline uq4_12_t GetDiveModifier(u32 move, u32 battlerDef)
     return UQ_4_12(1.0);
 }
 
+static inline uq4_12_t GetInfatuationModifier(u32 battlerDef)
+{
+    if (gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
+        return UQ_4_12(1.25);
+    return UQ_4_12(1.0);
+}
+
 static inline uq4_12_t GetAirborneModifier(u32 move, u32 battlerDef)
 {
     if (gBattleMoves[move].damagesAirborneDoubleDamage && gStatuses3[battlerDef] & STATUS3_ON_AIR)
@@ -10329,6 +10336,7 @@ static inline uq4_12_t GetOtherModifiers(u32 move, u32 moveType, u32 battlerAtk,
     DAMAGE_MULTIPLY_MODIFIER(GetMinimizeModifier(move, battlerDef));
     DAMAGE_MULTIPLY_MODIFIER(GetUndergroundModifier(move, battlerDef));
     DAMAGE_MULTIPLY_MODIFIER(GetDiveModifier(move, battlerDef));
+    DAMAGE_MULTIPLY_MODIFIER(GetInfatuationModifier(battlerDef));
     DAMAGE_MULTIPLY_MODIFIER(GetAirborneModifier(move, battlerDef));
     DAMAGE_MULTIPLY_MODIFIER(GetScreensModifier(move, battlerAtk, battlerDef, isCrit, abilityAtk));
     DAMAGE_MULTIPLY_MODIFIER(GetCollisionCourseElectroDriftModifier(move, typeEffectivenessModifier));
