@@ -1331,7 +1331,7 @@ static void Cmd_attackcanceler(void)
     }
 
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
-    && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
+    && (GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND || GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE)
     && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
     && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget])
     && gBattleStruct->zmove.toBeUsed[gBattlerAttacker] == MOVE_NONE)
@@ -1932,6 +1932,10 @@ static void Cmd_ppreduce(void)
         else
             gBattleStruct->sameMoveTurns[gBattlerAttacker] = 0;
 
+        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE) {
+            ppToDeduct *= 2;
+        }
+
         if (gBattleMons[gBattlerAttacker].pp[gCurrMovePos] > ppToDeduct)
             gBattleMons[gBattlerAttacker].pp[gCurrMovePos] -= ppToDeduct;
         else
@@ -1975,7 +1979,8 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
-             || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY))
+             || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
+             || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN))
     {
         critChance = -2;
     }
@@ -2262,7 +2267,7 @@ static void Cmd_attackanimation(void)
     }
     else
     {
-        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT) // No animation on second hit
+        if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT && GetBattlerAbility(gBattlerAttacker) != ABILITY_RAPID_FIRE) // No animation on second hit
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -3600,7 +3605,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleMoveDamage = (gBattleMons[gEffectBattler].maxHP) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
-                if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND)
+                if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND || GetBattlerAbility(gEffectBattler) == ABILITY_RAPID_FIRE)
                     gBattleMoveDamage *= 2;
 
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -12589,8 +12594,10 @@ static void Cmd_tryinfatuating(void)
     }
     else
     {
-        if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION
-            || !AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+        if (GetBattlerAbility(gBattlerAttacker) != ABILITY_FREE_LOVE 
+            && (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION
+                || !AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
+            )
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -16129,7 +16136,7 @@ bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)
 {
     if (move != MOVE_NONE && move != MOVE_STRUGGLE
         && gBattleMoves[move].split != SPLIT_STATUS
-        && !gBattleMoves[move].strikeCount > 2)
+        && gBattleMoves[move].strikeCount < 2)
     {
         u32 i;
         for (i = 0; i < ARRAY_COUNT(sParentalBondBannedEffects); i++)
