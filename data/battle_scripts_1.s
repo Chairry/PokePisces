@@ -537,46 +537,54 @@ BattleScript_EffectRadioacid:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectWarmWelcome:
-	printstring STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE
+	printstring STRINGID_PKMNWELCOMETHEAUDIENCE
 	waitmessage B_WAIT_TIME_LONG
+	jumpifnotberry BS_ATTACKER, BattleScript_EffectSunnyDay
 	attackcanceler
 	ppreduce
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalSun
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_EffectChillyReceptionBlockedByPrimalRain
-	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_EffectChillyReceptionBlockedByStrongWinds
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_StuffCheeksEatBerry
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_StuffCheeksEatBerry
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_StuffCheeksEatBerry
 	attackstring
-	jumpifnotberry BS_ATTACKER, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	setsunny
 	call BattleScript_MoveWeatherChangeRet
 	goto BattleScript_StuffCheeksEatBerry
+BattleScript_EffectWarmWelcomeSunnyDayFailedStuffCheeksSucceeded::
+	attackstring
+	attackanimation
+	waitanimation
+	setbyte sBERRY_OVERRIDE, 1
+	orword gHitMarker, HITMARKER_NO_ANIMATIONS
+	consumeberry BS_ATTACKER, TRUE
+	bicword gHitMarker, HITMARKER_NO_ANIMATIONS
+	setbyte sBERRY_OVERRIDE, 0
+	removeitem BS_ATTACKER
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectVexingKi:
-	attackcanceler
+	call BattleScript_EffectHit_Ret
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	settaunt BattleScript_TauntFailedCheckTorment
 	settorment BattleScript_TormentFailedTauntSucceeded
-	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
+	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
 	printstring STRINGID_PKMNFELLFORTAUNT
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_TormentFailedTauntSucceeded:
-	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
+	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
 	printstring STRINGID_PKMNFELLFORTAUNT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_TauntFailedCheckTorment:
-	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
+	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
 	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
@@ -584,7 +592,6 @@ BattleScript_TauntFailedCheckTorment:
 BattleScript_TauntTormentFailed:
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSilence:
@@ -9754,7 +9761,7 @@ BattleScript_IntimidateInReverse:
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_AbilityPopUpTarget
 	pause B_WAIT_TIME_SHORT
-	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_IntimidateLoopIncrement, ANIM_ON
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_DisturbLoopIncrement, ANIM_ON
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_IntimidateLoopIncrement
 
@@ -11764,13 +11771,6 @@ BattleScript_IlluminatePrevented:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_IlluminateLoopIncrement
 
-BattleScript_IlluminateInReverse:
-	copybyte sBATTLER, gBattlerTarget
-	call BattleScript_AbilityPopUpTarget
-	pause B_WAIT_TIME_SHORT
-	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_IlluminateLoopIncrement, ANIM_ON
-	goto BattleScript_IlluminateLoopIncrement
-
 BattleScript_HardboiledActivates::
 	call BattleScript_AbilityPopUp
 	setstatchanger STAT_DEF, 2, FALSE
@@ -11845,7 +11845,6 @@ BattleScript_DisturbLoop:
 	jumpiftargetally BattleScript_DisturbLoopIncrement
 	jumpifabsent BS_TARGET, BattleScript_DisturbLoopIncrement
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_DisturbLoopIncrement
-	//jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_DisturbPrevented
@@ -11896,6 +11895,6 @@ BattleScript_DisturbInReverse:
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_AbilityPopUpTarget
 	pause B_WAIT_TIME_SHORT
-	modifybattlerstatstage BS_TARGET, STAT_SPATK, INCREASE, 1, BattleScript_DisturbLoopIncrement, ANIM_ON
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_DisturbLoopIncrement, ANIM_ON
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_DisturbLoopIncrement

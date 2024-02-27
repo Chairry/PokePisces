@@ -838,12 +838,13 @@ static const u8 sText_ElectricityandFireWeakened[] = _("Electricity's and fire's
 static const u8 sText_PkmnMakesPsychicMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPSYCHIC moves ineffective!");
 static const u8 sText_SilenceStarts[] = _("It has begun...");
 static const u8 sText_SilenceEnd[] = _("The tolls have ended...");
-static const u8 sText_PkmnMaxedStats[] = _("The user maxed their stats!");
+static const u8 sText_PkmnMaxedStats[] = _("{B_ATK_NAME_WITH_PREFIX} had their stats maxed!");
 static const u8 sText_FickleBeamDoubled[] = _("{B_ATK_NAME_WITH_PREFIX} is going all\nout for this attack!");
 static const u8 sText_SilenceContinues[] = _("The tolls continue...");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_PkmnTookAim2[] = _("Every Pokémon took aim at\neach other!");
-static const u8 sText_PkmnDoubledStats[] = _("The user had their stats doubled!");
+static const u8 sText_PkmnDoubledStats[] = _("{B_ATK_NAME_WITH_PREFIX} had their stats doubled!");
+static const u8 sText_PkmnWelcomeTheAudience[] = _("{B_ATK_NAME_WITH_PREFIX} is ready to welcome\nthe audience!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1539,6 +1540,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
     [STRINGID_PKMNTOOKAIM2 - BATTLESTRINGS_TABLE_START] = sText_PkmnTookAim2,
     [STRINGID_PKMNDOUBLEDSTATS - BATTLESTRINGS_TABLE_START] = sText_PkmnDoubledStats,
+    [STRINGID_PKMNWELCOMETHEAUDIENCE - BATTLESTRINGS_TABLE_START] = sText_PkmnWelcomeTheAudience,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
