@@ -174,7 +174,7 @@
 #define OBJ_EVENT_GFX_RANCHHAND_M             170
 #define OBJ_EVENT_GFX_FEDORA               171
 #define OBJ_EVENT_GFX_FAIRYTALEGIRL            172
-#define OBJ_EVENT_GFX_BALL_CUSHION               173
+#define OBJ_EVENT_GFX_DIVER               173
 #define OBJ_EVENT_GFX_GRASS_CUSHION              174
 #define OBJ_EVENT_GFX_FIRE_CUSHION               175
 #define OBJ_EVENT_GFX_WATER_CUSHION              176
