@@ -2169,28 +2169,34 @@ u8 DoFieldEndTurnEffects(void)
             }
             break;
         case ENDTURN_SILENCE:
-            while (gBattleStruct->turnSideTracker < 2)
-            {
+            {   
+                {
                 side = gBattleStruct->turnSideTracker;
                 gBattlerAttacker = gSideTimers[side].silenceTimerBattlerId;
                 if (gSideStatuses[side] & SIDE_STATUS_SILENCE)
-                {
-                    if (--gSideTimers[side].silenceTimer == 0)
                     {
-                        gSideStatuses[side] &= ~SIDE_STATUS_SILENCE;
-                        gBattleCommunication[MULTISTRING_CHOOSER] = side;
-                        BattleScriptExecute(BattleScript_SilenceActivatesNonArcane);
-                        effect++;
+                        if (--gSideTimers[side].silenceTimer == 0)
+                        {
+                            gSideStatuses[side] &= ~SIDE_STATUS_SILENCE;
+                            gBattleCommunication[MULTISTRING_CHOOSER] = side;
+                            gBattlescriptCurrInstr = BattleScript_SilenceActivatesNonArcane;
+                        }
+                        else
+                        {
+                            gBattlescriptCurrInstr = BattleScript_SilenceContinues;
+                        }
+                            BattleScriptExecute(gBattlescriptCurrInstr);
+                            effect++;
                     }
-                }
                 gBattleStruct->turnSideTracker++;
                 if (effect != 0)
                     break;
-            }
-            if (!effect)
-            {
-                gBattleStruct->turnCountersTracker++;
-                gBattleStruct->turnSideTracker = 0;
+                }
+                if (!effect)
+                {
+                    gBattleStruct->turnCountersTracker++;
+                    gBattleStruct->turnSideTracker = 0;
+                }
             }
             break;
         case ENDTURN_MIST:
