@@ -413,7 +413,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SURFER] =              &gObjectEventGraphicsInfo_SwabluDoll,
     [OBJ_EVENT_GFX_DELINQUENT] =              &gObjectEventGraphicsInfo_GulpinDoll,
     [OBJ_EVENT_GFX_NURSE_FIELD] =               &gObjectEventGraphicsInfo_LotadDoll,
-    [OBJ_EVENT_GFX_JANITOR] =              &gObjectEventGraphicsInfo_SeedotDoll,
+    [OBJ_EVENT_GFX_NEWSPAPER] =              &gObjectEventGraphicsInfo_SeedotDoll,
     [OBJ_EVENT_GFX_JANITOR] =             &gObjectEventGraphicsInfo_PikaCushion,
     [OBJ_EVENT_GFX_GUITARIST] =            &gObjectEventGraphicsInfo_RoundCushion,
     [OBJ_EVENT_GFX_RANCHHAND_F] =             &gObjectEventGraphicsInfo_KissCushion,
