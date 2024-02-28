@@ -6417,11 +6417,7 @@ static const union AnimCmd sAnim_Garbodor_1[] =
 
 static const union AnimCmd sAnim_Zorua_1[] =
 {
-    ANIMCMD_FRAME(0, 15),
-    ANIMCMD_FRAME(1, 15),
-    ANIMCMD_FRAME(0, 15),
-    ANIMCMD_FRAME(1, 15),
-    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
@@ -10613,6 +10609,48 @@ static const union AnimCmd sAnim_Stolyce_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Infairno_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Purgatival_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Deteriotl_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Clawlistic_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Unberrable_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Peblranium_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Vaiking_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -12831,6 +12869,13 @@ SINGLE_ANIMATION(Shunyong);
 SINGLE_ANIMATION(ShunyongGoldenOffense);
 SINGLE_ANIMATION(Kingambit);
 SINGLE_ANIMATION(Shellylouh);
+SINGLE_ANIMATION(Infairno);
+SINGLE_ANIMATION(Purgatival);
+SINGLE_ANIMATION(Deteriotl);
+SINGLE_ANIMATION(Clawlistic);
+SINGLE_ANIMATION(Unberrable);
+SINGLE_ANIMATION(Peblranium);
+SINGLE_ANIMATION(Vaiking);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -14132,6 +14177,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = sAnims_ShunyongGoldenOffense,
     [SPECIES_KINGAMBIT] = sAnims_Kingambit,
     [SPECIES_SHELLYLOUH] = sAnims_Shellylouh,
+    [SPECIES_INFAIRNO] = sAnims_Infairno,
+    [SPECIES_PURGATIVAL] = sAnims_Purgatival,
+    [SPECIES_DETERIOTL] = sAnims_Deteriotl,
+    [SPECIES_CLAWLISTIC] = sAnims_Clawlistic,
+    [SPECIES_UNBERRABLE] = sAnims_Unberrable,
+    [SPECIES_PEBLRANIUM] = sAnims_Peblranium,
+    [SPECIES_VAIKING] = sAnims_Vaiking,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

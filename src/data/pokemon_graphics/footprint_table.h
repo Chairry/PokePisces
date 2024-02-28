@@ -1112,6 +1112,13 @@ const u8 *const gMonFootprintTable[NUM_SPECIES + 1] =
     [SPECIES_SHUNYONG] = gMonFootprint_Shunyong,
     [SPECIES_KINGAMBIT] = gMonFootprint_Kingambit,
     [SPECIES_SHELLYLOUH] = gMonFootprint_Shellylouh,
+    [SPECIES_INFAIRNO] = gMonFootprint_Infairno,
+    [SPECIES_PURGATIVAL] = gMonFootprint_Purgatival,
+    [SPECIES_DETERIOTL] = gMonFootprint_Deteriotl,
+    [SPECIES_CLAWLISTIC] = gMonFootprint_Clawlistic,
+    [SPECIES_UNBERRABLE] = gMonFootprint_Unberrable,
+    [SPECIES_PEBLRANIUM] = gMonFootprint_Peblranium,
+    [SPECIES_VAIKING] = gMonFootprint_Vaiking,
 #endif
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

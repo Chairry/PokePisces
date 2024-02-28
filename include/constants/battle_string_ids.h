@@ -691,9 +691,21 @@
 #define STRINGID_TARGETABILITYSTATRAISESHARPLY        688
 #define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    690
 #define STRINGID_DRAGONRUINCHARGING                   691
-#define STRINGID_PKMNCUTSSPATTACKWITH                 692
-#define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        693
-#define BATTLESTRINGS_COUNT                           694
+#define STRINGID_PKMNRESTOREDHPUSINGABILITY           692
+#define STRINGID_ELECTRICITYANDFIREWEAKENED           693
+#define STRINGID_PKMNMAKESPSYCHICMISS                 694
+#define STRINGID_SILENCESTARTS                        695
+#define STRINGID_SILENCEEND                           696
+#define STRINGID_PKMNMAXEDSTATS                       697
+#define STRINGID_FICKLEBEAMDOUBLED                    698
+#define STRINGID_SILENCECONTINUES                     699
+#define STRINGID_TIDYINGUPCOMPLETE                    700
+#define STRINGID_PKMNTOOKAIM2                         701
+#define STRINGID_PKMNDOUBLEDSTATS                     702
+#define STRINGID_PKMNCUTSSPATTACKWITH                 703
+#define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        704
+#define STRINGID_PKMNWELCOMETHEAUDIENCE               705  
+#define BATTLESTRINGS_COUNT                           706
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -726,6 +738,8 @@
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
 #define B_MSG_POISON_MISS  5
+#define B_MSG_PSYCHIC_MISS 6
+#define B_MSG_IMMUNE       7
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

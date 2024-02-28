@@ -3964,10 +3964,16 @@ static const u8 sSandstone[] = _(
     "Evolves Pebbler.");
 
 static const u8 sComedyMaskDesc[] = _(
-    "???");
+    "The mask of\n"
+    "silliness.\n"
+    "Evolves Zorua.");
 
 static const u8 sTragedyMaskDesc[] = _(
-    "???");
+    "The mask of\n"
+    "enragement.\n"
+    "Evolves Zorua.");
 
 static const u8 sPebbleriteDesc[] = _(
-    "???");
+    "A stone that has\n"
+    "pebblericium.\n"
+    "Evolves Pebbler.");
