@@ -444,8 +444,8 @@
     {
       "id": "LAYOUT_ROUTE129",
       "name": "Route129_Layout",
-      "width": 80,
-      "height": 60,
+      "width": 7,
+      "height": 4,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/Route129/border.bin",
@@ -4994,8 +4994,8 @@
     {
       "id": "LAYOUT_FLOTSHORE",
       "name": "Flotshore_Layout",
-      "width": 60,
-      "height": 42,
+      "width": 64,
+      "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/Flotshore/border.bin",
@@ -5060,6 +5060,16 @@
       "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/LabBasement2/border.bin",
       "blockdata_filepath": "data/layouts/LabBasement2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALIN_COAST",
+      "name": "BasalinCoast_Layout",
+      "width": 80,
+      "height": 56,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/BasalinCoast/border.bin",
+      "blockdata_filepath": "data/layouts/BasalinCoast/map.bin"
     }
   ]
 }

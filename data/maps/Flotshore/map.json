@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_PACIFIDLOG_TOWN",
-      "offset": 0,
+      "offset": 4,
       "direction": "left"
     },
     {
@@ -24,9 +24,14 @@
       "direction": "down"
     },
     {
-      "map": "MAP_ROUTE129",
+      "map": "MAP_BASALIN_COAST",
       "offset": -7,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE129",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
