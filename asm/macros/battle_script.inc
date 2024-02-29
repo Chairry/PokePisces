@@ -1164,9 +1164,9 @@
 	.4byte \failInstr
 	.endm
 
-	.macro unused2 ptr:req
+	.macro setsilence2 failInstr:req
 	.byte 0xe1
-	.4byte \ptr
+	.4byte \failInstr
 	.endm
 
 	.macro switchoutabilities battler:req
@@ -1188,7 +1188,7 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro ficklebeamdamagecalculation
 	.byte 0xe6
 	.endm
 
@@ -1462,6 +1462,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro trytidyup clear:req, jumpInstr:req
+	callnative BS_TryTidyUp
+	.byte \clear
+	.4byte \jumpInstr
+	.endm
+
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
 	various \battler, VARIOUS_CANCEL_MULTI_TURN_MOVES
@@ -1606,6 +1612,10 @@
 
 	.macro tryactivatemoxie battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
+	.endm
+
+	.macro tryactivateappetite battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_APPETITE
 	.endm
 
 	.macro tryactivatebeastboost battler:req
@@ -1787,6 +1797,11 @@
 
 	.macro setauroraveil battler:req
 	various \battler, VARIOUS_SET_AURORA_VEIL
+	.endm
+
+	.macro setsilence battler:req, failInstr:req
+	various \battler VARIOUS_SET_SILENCE
+	.4byte \failInstr
 	.endm
 
 	.macro trysetthirdtype battler:req, failInstr:req

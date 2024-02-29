@@ -6450,7 +6450,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ZORUA] =
     {
-        .categoryName = _("Tricky Fox"),
+        .categoryName = _("Trickster"),
         .height = 7,
         .weight = 125,
         .description = gZoruaPokedexText,
@@ -9298,7 +9298,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ZERAORA] =
     {
-        .categoryName = _("Thunderclap"),
+        .categoryName = _("Oni"),
         .height = 15,
         .weight = 445,
         .description = gZeraoraPokedexText,
@@ -10332,7 +10332,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_ZARUDE] =
     {
-        .categoryName = _("Rogue Monkey"),
+        .categoryName = _("Bramble"),
         .height = 18,
         .weight = 700,
         .description = gZarudePokedexText,
@@ -13327,6 +13327,90 @@ const struct PokedexEntry gPokedexEntries[] =
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 269,
+        .trainerOffset = 1,
+    },
+
+    [NATIONAL_DEX_INFAIRNO] =
+    {
+        .categoryName = _("Time's Up"),
+        .height = 3,
+        .weight = 181,
+        .description = gInfairnoPokedexText,
+        .pokemonScale = 288,
+        .pokemonOffset = 10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_PURGATIVAL] =
+    {
+        .categoryName = _("Time's Up"),
+        .height = 25,
+        .weight = 508,
+        .description = gPurgativalPokedexText,
+        .pokemonScale = 257,
+        .pokemonOffset = 0,
+        .trainerScale = 423,
+        .trainerOffset = 8,
+    },
+
+    [NATIONAL_DEX_DETERIOTL] =
+    {
+        .categoryName = _("Embryonic"),
+        .height = 37,
+        .weight = 1303,
+        .description = gDeteriotlPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 2,
+        .trainerScale = 610,
+        .trainerOffset = 17,
+    },
+
+    [NATIONAL_DEX_CLAWLISTIC] =
+    {
+        .categoryName = _("True Dragon"),
+        .height = 13,
+        .weight = 353,
+        .description = gClawlisticPokedexText,
+        .pokemonScale = 272,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_UNBERRABLE] =
+    {
+        .categoryName = _("Bombeard"),
+        .height = 69,
+        .weight = 420,
+        .description = gUnberrablePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 448,
+        .trainerOffset = 12,
+    },
+
+    [NATIONAL_DEX_PEBLRANIUM] =
+    {
+        .categoryName = _("Uranium"),
+        .height = 23,
+        .weight = 2400,
+        .description = gPeblraniumPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 342,
+        .trainerOffset = 7,
+    },
+
+    [NATIONAL_DEX_VAIKING] =
+    {
+        .categoryName = _("Feast"),
+        .height = 17,
+        .weight = 505,
+        .description = gVaikingPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 271,
         .trainerOffset = 1,
     },
 #endif

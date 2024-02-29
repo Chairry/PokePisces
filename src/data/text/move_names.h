@@ -868,6 +868,16 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
     [MOVE_CINDER_TWIRL] = _("Cinder Twirl"),
     [MOVE_CINDER_DRILL] = _("Cinder Drill"),
+    [MOVE_SILENCE] = _("The 13 Tolls"),
+    [MOVE_VEXING_KI] = _("Vexing Ki"),
+    [MOVE_JUNGLE_RAGE] = _("Jungle Rage"),
+    [MOVE_DECAY_BEAM] = _("Decay Beam"),
+    [MOVE_CANNONADE] = _("Cannonade"),
+    [MOVE_WARM_WELCOME] = _("Warm Welcome"),
+    [MOVE_BERRY_BAD_JOKE] = _("Berry Bad Joke"),
+    [MOVE_RADIOACID] = _("Radioacid"),
+    [MOVE_PARTING_CURRY] = _("Parting Curry"),
+    [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
 };
 #else
 // 12 letters
@@ -1739,6 +1749,16 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAGON_RUIN] = _("Dragon Ruin"),
     [MOVE_CINDER_TWIRL] = _("Cinder Twirl"),
     [MOVE_CINDER_DRILL] = _("Cinder Drill"),
+    [MOVE_SILENCE] = _("The 13 Tolls"),
+    [MOVE_VEXING_KI] = _("Vexing Ki"),
+    [MOVE_JUNGLE_RAGE] = _("Jungle Rage"),
+    [MOVE_DECAY_BEAM] = _("Decay Beam"),
+    [MOVE_CANNONADE] = _("Cannonade"),
+    [MOVE_WARM_WELCOME] = _("Warm Welcome"),
+    [MOVE_BERRY_BAD_JOKE] = _("BerryBadJoke"),
+    [MOVE_RADIOACID] = _("Radioacid"),
+    [MOVE_PARTING_CURRY] = _("PartingCurry"),
+    [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
 };
 #endif
 

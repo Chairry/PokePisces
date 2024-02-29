@@ -153,6 +153,7 @@ enum
     LIST_SIDE_STEALTH_ROCK,
     LIST_SIDE_TOXIC_SPIKES,
     LIST_SIDE_STICKY_WEB,
+    LIST_SIDE_SILENCE,
 };
 
 enum
@@ -222,6 +223,7 @@ static const u8 sText_AquaRing[] = _("Aqua Ring");
 static const u8 sText_LaserFocus[] = _("Laser Focused");
 static const u8 sText_Electrified[] = _("Electrified");
 static const u8 sText_AuroraVeil[] = _("Aurora Veil");
+static const u8 sText_Silence[] = _("The 13 Tolls");
 static const u8 sText_LuckyChant[] = _("Lucky Chant");
 static const u8 sText_Tailwind[] = _("Tailwind");
 static const u8 sText_PP[] = _("PP");
@@ -450,6 +452,7 @@ static const struct ListMenuItem sSideStatusListItems[] =
     {sText_Safeguard, LIST_SIDE_SAFEGUARD},
     {sText_Mist, LIST_SIDE_MIST},
     {sText_AuroraVeil, LIST_SIDE_AURORA_VEIL},
+    {sText_Silence, LIST_SIDE_SILENCE},
     {sText_LuckyChant, LIST_SIDE_LUCKY_CHANT},
     {sText_Tailwind, LIST_SIDE_TAILWIND},
     {sText_StealthRock, LIST_SIDE_STEALTH_ROCK},
@@ -1689,6 +1692,16 @@ static u8 *GetSideStatusValue(struct BattleDebugMenu *data, bool32 changeStatus,
             sideTimer->auroraVeilBattlerId = data->battlerId;
         }
         return &sideTimer->auroraVeilTimer;
+    case LIST_SIDE_SILENCE:
+        if (changeStatus)
+        {
+            if (statusTrue)
+                *(u32 *)(data->modifyArrows.modifiedValPtr) |= SIDE_STATUS_SILENCE;
+            else
+                *(u32 *)(data->modifyArrows.modifiedValPtr) &= ~SIDE_STATUS_SILENCE;
+            sideTimer->silenceTimerBattlerId = data->battlerId;
+        }
+        return &sideTimer->silenceTimer;
     case LIST_SIDE_LUCKY_CHANT:
         if (changeStatus)
         {
