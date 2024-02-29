@@ -91,83 +91,105 @@ static const struct TrainerMon sParty_JeannieP[] = {
     }
 };
 
-static const struct TrainerMon sParty_Alberto[] = {
+static const struct TrainerMon sParty_Sadfisher1P[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_PELIPPER,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 30,
-    .species = SPECIES_XATU,
-    }
-};
-
-static const struct TrainerMon sParty_Ed[] = {
-    {
-    .lvl = 30,
-    .species = SPECIES_ZANGOOSE,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 30,
-    .species = SPECIES_SEVIPER,
-    }
-};
-
-static const struct TrainerMon sParty_GruntSeafloorCavern4[] = {
-    {
-    .lvl = 36,
-    .species = SPECIES_CARVANHA,
-    }
-};
-
-static const struct TrainerMon sParty_Declan[] = {
-    {
-    .lvl = 34,
-    .species = SPECIES_GYARADOS,
-    }
-};
-
-static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
-    {
-    .lvl = 11,
-    .species = SPECIES_POOCHYENA,
-    }
-};
-
-static const struct TrainerMon sParty_GruntWeatherInst1[] = {
-    {
-    .lvl = 27,
-    .species = SPECIES_ZUBAT,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst2[] = {
+static const struct TrainerMon sParty_SeanP[] = {
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
-    },
-    {
-    .lvl = 27,
-    .species = SPECIES_CARVANHA,
+    .lvl = 6,
+    .species = SPECIES_MINOTE,
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst3[] = {
+static const struct TrainerMon sParty_JaniceP[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 6,
+    .species = SPECIES_SAINTISOW,
+    }
+};
+
+static const struct TrainerMon sParty_JimmyP[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_MANKEY,
     },
     {
-    .lvl = 26,
-    .species = SPECIES_ZUBAT,
+    .lvl = 5,
+    .species = SPECIES_ICKSQUEEK,
+    }
+};
+
+static const struct TrainerMon sParty_DanP[] = {
+    {
+    .lvl = 6,
+    .species = SPECIES_SHARGUY,
     },
     {
-    .lvl = 26,
-    .species = SPECIES_CARVANHA,
+    .lvl = 7,
+    .species = SPECIES_SADSOD,
+    }
+};
+
+static const struct TrainerMon sParty_LadP[] = {
+    {
+    .lvl = 8,
+    .species = SPECIES_GUPSPAR,
+    }
+};
+
+static const struct TrainerMon sParty_SammieP[] = {
+    {
+    .lvl = 6,
+    .species = SPECIES_SNELFREND,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_KITIKITI,
+    }
+};
+
+static const struct TrainerMon sParty_BarbaraP[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_EBIBI,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_GUPSPAR,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_EBIBI,
     }
 };
 
