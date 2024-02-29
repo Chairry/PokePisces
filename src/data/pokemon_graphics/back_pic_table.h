@@ -1134,6 +1134,13 @@ const struct CompressedSpriteSheet gMonBackPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(SHUNYONG_GOLDEN_OFFENSE, gMonBackPic_ShunyongGoldenOffense),
     SPECIES_SPRITE(KINGAMBIT, gMonBackPic_Kingambit),
     SPECIES_SPRITE(SHELLYLOUH, gMonBackPic_Shellylouh),
+    SPECIES_SPRITE(INFAIRNO, gMonBackPic_Infairno),
+    SPECIES_SPRITE(PURGATIVAL, gMonBackPic_Purgatival),
+    SPECIES_SPRITE(DETERIOTL, gMonBackPic_Deteriotl),
+    SPECIES_SPRITE(CLAWLISTIC, gMonBackPic_Clawlistic),
+    SPECIES_SPRITE(UNBERRABLE, gMonBackPic_Unberrable),
+    SPECIES_SPRITE(PEBLRANIUM, gMonBackPic_Peblranium),
+    SPECIES_SPRITE(VAIKING, gMonBackPic_Vaiking),
 #endif
 
     SPECIES_SPRITE(VENUSAUR_MEGA, gMonBackPic_VenusaurMega),

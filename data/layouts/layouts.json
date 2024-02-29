@@ -4825,7 +4825,7 @@
       "id": "LAYOUT_MIDNEOR_FALLS",
       "name": "MidneorFalls_Layout",
       "width": 60,
-      "height": 80,
+      "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFalls/border.bin",
