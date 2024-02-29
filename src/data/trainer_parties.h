@@ -124,72 +124,72 @@ static const struct TrainerMon sParty_Sadfisher1P[] = {
     }
 };
 
-static const struct TrainerMon sParty_Ed[] = {
+static const struct TrainerMon sParty_SeanP[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_ZANGOOSE,
+    .lvl = 6,
+    .species = SPECIES_MINOTE,
+    }
+};
+
+static const struct TrainerMon sParty_JaniceP[] = {
+    {
+    .lvl = 6,
+    .species = SPECIES_SAINTISOW,
+    }
+};
+
+static const struct TrainerMon sParty_JimmyP[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_MANKEY,
     },
     {
-    .lvl = 30,
-    .species = SPECIES_SEVIPER,
+    .lvl = 5,
+    .species = SPECIES_ICKSQUEEK,
     }
 };
 
-static const struct TrainerMon sParty_GruntSeafloorCavern4[] = {
+static const struct TrainerMon sParty_DanP[] = {
     {
-    .lvl = 36,
-    .species = SPECIES_CARVANHA,
-    }
-};
-
-static const struct TrainerMon sParty_Declan[] = {
-    {
-    .lvl = 34,
-    .species = SPECIES_GYARADOS,
-    }
-};
-
-static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
-    {
-    .lvl = 11,
-    .species = SPECIES_POOCHYENA,
-    }
-};
-
-static const struct TrainerMon sParty_GruntWeatherInst1[] = {
-    {
-    .lvl = 27,
-    .species = SPECIES_ZUBAT,
+    .lvl = 6,
+    .species = SPECIES_SHARGUY,
     },
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 7,
+    .species = SPECIES_SADSOD,
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst2[] = {
+static const struct TrainerMon sParty_LadP[] = {
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
-    },
-    {
-    .lvl = 27,
-    .species = SPECIES_CARVANHA,
+    .lvl = 8,
+    .species = SPECIES_GUPSPAR,
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst3[] = {
+static const struct TrainerMon sParty_SammieP[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 6,
+    .species = SPECIES_SNELFREND,
     },
     {
-    .lvl = 26,
-    .species = SPECIES_ZUBAT,
+    .lvl = 6,
+    .species = SPECIES_KITIKITI,
+    }
+};
+
+static const struct TrainerMon sParty_BarbaraP[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_EBIBI,
     },
     {
-    .lvl = 26,
-    .species = SPECIES_CARVANHA,
+    .lvl = 5,
+    .species = SPECIES_GUPSPAR,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_EBIBI,
     }
 };
 
