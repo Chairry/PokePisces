@@ -305,6 +305,28 @@ const struct SpriteTemplate gGunkShotImpactSpriteTemplate =
     .callback = AnimGunkShotImpact,
 };
 
+const struct SpriteTemplate gRadioacidParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_ORB,
+    .paletteTag = ANIM_TAG_GREEN_POISON_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = gGunkShotParticlesAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGunkShotParticles,
+};
+
+const struct SpriteTemplate gRadioacidImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_IMPACT,
+    .paletteTag = ANIM_TAG_GREEN_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gSuckerPunchImpactAffineAnim,
+    .callback = AnimGunkShotImpact,
+};
+
 static void AnimGunkShotImpact(struct Sprite *sprite)
 {
     StartSpriteAffineAnim(sprite, gBattleAnimArgs[3]);

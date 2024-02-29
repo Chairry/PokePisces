@@ -2240,17 +2240,6 @@ const struct SpriteTemplate gSpiritShackleArrowTemplate =
     .callback = AnimSonicBoomProjectile
 };
 
-const struct SpriteTemplate gSpiritShackleChainTemplate =
-{
-    .tileTag = ANIM_TAG_CHAIN_LINK,
-    .paletteTag = ANIM_TAG_CHAIN_LINK,
-    .oam = &gOamData_AffineOff_ObjNormal_32x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimThunderWave
-};
-
 //darkest lariat
 const struct SpriteTemplate gDarkestLariatImpactTemplate =
 {
@@ -3714,6 +3703,17 @@ const struct SpriteTemplate gSnipeShotBallTemplate =    //used in aura sphere
     .callback = AnimShadowBall
 };
 
+const struct SpriteTemplate gCannonadeBallTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT_2,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sAnimCmdTable_SnipeShot,
+    .images = NULL,
+    .affineAnims = sSpriteAffineAnimTable_SnipeShot,
+    .callback = AnimShadowBall
+};
+
 //jaw lock
 const struct SpriteTemplate gJawLockTeethTemplate =
 {
@@ -4341,13 +4341,13 @@ const struct SpriteTemplate gSpriteTemplate_SteelRoller = {
 
 // scale shot
 const struct SpriteTemplate gSpriteTemplate_ScaleShotScale = {
-    .tileTag = ANIM_TAG_SHELL_RIGHT,
-    .paletteTag = ANIM_TAG_SHELL_RIGHT,
-    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .tileTag = ANIM_TAG_DRAGON_SCALE,
+    .paletteTag = ANIM_TAG_DRAGON_SCALE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_BasicRock,
-    .callback = AnimRockBlastRock
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation
 };
 
 // meteor beam

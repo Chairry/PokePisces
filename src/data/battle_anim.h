@@ -1452,6 +1452,8 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Mudslide, 0x0200, ANIM_TAG_MUDSLIDE},
     {gBattleAnimSpriteGfx_BigSpoon, 0x0200, ANIM_TAG_BIG_SPOON},
     {gBattleAnimSpriteGfx_WhiteBat, 0x0200, ANIM_TAG_WHITE_BAT},
+    {gBattleAnimSpriteGfx_BerryThoughtBubble, 0x0800, ANIM_TAG_BERRY_THOUGHT_BUBBLE},
+    {gBattleAnimSpriteGfx_DragonScale, 0x800, ANIM_TAG_DRAGON_SCALE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1904,7 +1906,8 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Mudslide, ANIM_TAG_MUDSLIDE},
     {gBattleAnimSpritePal_BigSpoon, ANIM_TAG_BIG_SPOON},
     {gBattleAnimSpritePal_WhiteBat, ANIM_TAG_WHITE_BAT},
-
+    {gBattleAnimSpritePal_BerryThoughtBubble, ANIM_TAG_BERRY_THOUGHT_BUBBLE},
+    {gBattleAnimSpritePal_DragonScale, ANIM_TAG_DRAGON_SCALE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1991,4 +1994,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_STEEL_BEAM_OPPONENT]       = {gBattleAnimBgImage_Highspeed,               gBattleAnimBgPalette_SteelBeam,               gBattleAnimBgTilemap_HighspeedOpponent},
     [BG_STEEL_BEAM_PLAYER]         = {gBattleAnimBgImage_Highspeed,               gBattleAnimBgPalette_SteelBeam,               gBattleAnimBgTilemap_HighspeedPlayer},
     [BG_CHLOROBLAST]               = {gBattleAnimBgImage_HydroCannon,             gBattleAnimBgPalette_Chloroblast,             gBattleAnimBgTilemap_HydroCannon},
+    [BG_URANIUM]                   = {gBattleAnimBgImage_FocusBlast,              gBattleAnimBgPalette_LeafStorm,               gBattleAnimBgTilemap_FocusBlast},
 };

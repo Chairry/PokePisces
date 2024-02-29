@@ -2403,6 +2403,17 @@ const struct SpriteTemplate gThoughtBubbleSpriteTemplate =
     .callback = AnimThoughtBubble,
 };
 
+const struct SpriteTemplate gBerryThoughtBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BERRY_THOUGHT_BUBBLE,
+    .paletteTag = ANIM_TAG_BERRY_THOUGHT_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gMetronomeThroughtBubbleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThoughtBubble,
+};
+
 const union AffineAnimCmd gMetronomeFingerAffineAnimCmds1[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),

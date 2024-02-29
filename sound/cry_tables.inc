@@ -1545,6 +1545,13 @@ gCryTable::
 	cry Cry_Shunyong
 	cry Cry_Kingambit
 	cry Cry_Shellylouh
+	cry Cry_Infairno
+	cry Cry_Purgatival
+	cry Cry_Deteriotl
+	cry Cry_Clawlistic
+	cry Cry_Unberrable
+	cry Cry_Peblranium
+	cry Cry_Vaiking
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -3904,6 +3911,13 @@ gCryTable_Reverse::
 	cry_reverse Cry_Shunyong
 	cry_reverse Cry_Kingambit
 	cry_reverse Cry_Shellylouh
+	cry_reverse Cry_Infairno
+	cry_reverse Cry_Purgatival
+	cry_reverse Cry_Deteriotl
+	cry_reverse Cry_Clawlistic
+	cry_reverse Cry_Unberrable
+	cry_reverse Cry_Peblranium
+	cry_reverse Cry_Vaiking
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
