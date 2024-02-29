@@ -8521,6 +8521,8 @@ extern const u32 gMonBackPic_Unberrable[];
 extern const u32 gMonShinyPalette_Unberrable[];
 extern const u8 gMonIcon_Unberrable[];
 extern const u8 gMonFootprint_Unberrable[];
+extern const u32 gMonPalette_UnberrableF[];
+extern const u32 gMonShinyPalette_UnberrableF[];
 extern const u32 gMonFrontPic_Peblranium[];
 extern const u32 gMonPalette_Peblranium[];
 extern const u32 gMonBackPic_Peblranium[];

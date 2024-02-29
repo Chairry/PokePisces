@@ -1145,8 +1145,8 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_INFAIRNO]                     = { .size = MON_COORDS_SIZE(56, 56), .y_offset =  3 },
     [SPECIES_PURGATIVAL]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_DETERIOTL]                    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  9 },
-    [SPECIES_CLAWLISTIC]                   = { .size = MON_COORDS_SIZE(64, 40), .y_offset =  5 },
-    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  0 },
+    [SPECIES_CLAWLISTIC]                   = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  9 },
+    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  6 },
     [SPECIES_PEBLRANIUM]                   = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  5 },
     [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  6 },
 #endif

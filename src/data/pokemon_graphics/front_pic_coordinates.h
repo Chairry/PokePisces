@@ -1133,7 +1133,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_PURGATIVAL]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_DETERIOTL]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_CLAWLISTIC]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
-    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_PEBLRANIUM]                   = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  7 },
     [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
 #endif
