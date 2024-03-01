@@ -1191,3 +1191,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LabBasement2/scripts.inc"
 
 	.include "data/maps/BasalinCoast/scripts.inc"
+
+	.include "data/maps/RivalRoom/scripts.inc"

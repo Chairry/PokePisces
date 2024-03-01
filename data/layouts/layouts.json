@@ -5070,6 +5070,16 @@
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/BasalinCoast/border.bin",
       "blockdata_filepath": "data/layouts/BasalinCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_ROOM",
+      "name": "RivalRoom_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/RivalRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RivalRoom/map.bin"
     }
   ]
 }
