@@ -1126,7 +1126,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_INFAIRNO] = _("Infairno"),
     [SPECIES_PURGATIVAL] = _("Purgatival"),
     [SPECIES_DETERIOTL] = _("Deteriotl"),
-    [SPECIES_CLAWLISTIC] = _("Clawlistic"),
+    [SPECIES_CLAWLISTIC] = _("Dakkapod"),
     [SPECIES_UNBERRABLE] = _("Unberrable"),
     [SPECIES_PEBLRANIUM] = _("Peblranium"),
     [SPECIES_VAIKING] = _("Vaiking"),
@@ -1557,5 +1557,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_CINDRILLON_FEAROUETTE] = _("Cindrillon"),
     [SPECIES_SHISHIMA_PUNISHER] = _("Shishima"),
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = _("Shunyong"),
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = _("Dudunspars"),
+    [SPECIES_KODOUGH_BLUNT] = _("Kodough"),
 #endif
 };

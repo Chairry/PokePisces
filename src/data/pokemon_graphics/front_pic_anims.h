@@ -11635,6 +11635,18 @@ static const union AnimCmd sAnim_DudunsparsThreeSegment_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_DudunsparsEightSegment_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_KodoughBlunt_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_GaoterraSolar_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -13048,6 +13060,8 @@ SINGLE_ANIMATION(LottabatsHuddled);
 SINGLE_ANIMATION(DudunsparsThreeSegment);
 SINGLE_ANIMATION(GaoterraSolar);
 SINGLE_ANIMATION(GaoterraLunar);
+SINGLE_ANIMATION(DudunsparsEightSegment);
+SINGLE_ANIMATION(KodoughBlunt);
 #endif
 
 const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
@@ -14534,6 +14548,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_ENAMORUS_THERIAN] = sAnims_EnamorusTherian,
     [SPECIES_BASCULEGION_FEMALE] = sAnims_Basculegion,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = sAnims_DudunsparsThreeSegment,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sAnims_DudunsparsEightSegment,
     [SPECIES_LOTTABATS_HUDDLED] = sAnims_LottabatsHuddled,
     [SPECIES_GAOTERRA_SOLAR] = sAnims_GaoterraSolar,
     [SPECIES_GAOTERRA_LUNAR] = sAnims_ShunyongGoldenOffense,
@@ -14542,6 +14557,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_FOREST] = sAnims_Spinda,
     [SPECIES_SPINDA_MOUNTAIN] = sAnims_Spinda,
     [SPECIES_SPINDA_PLAINS2] = sAnims_Spinda,
+    [SPECIES_KODOUGH_BLUNT] = sAnims_Kodough,
 #endif
     [SPECIES_EGG]         = sAnims_Egg,
 };

@@ -1133,7 +1133,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_PURGATIVAL]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_DETERIOTL]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_CLAWLISTIC]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
-    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_PEBLRANIUM]                   = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  7 },
     [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
 #endif
@@ -1559,6 +1559,8 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_FOREST]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_SPINDA_MOUNTAIN]              = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_SPINDA_PLAINS2]               = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT]     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_KODOUGH_BLUNT]                = { .size = MON_COORDS_SIZE(40, 32), .y_offset = 12 },
 #endif
     // Egg
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },

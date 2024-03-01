@@ -12996,7 +12996,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_MORFTREE] =
     {
-        .categoryName = _("Branch"),
+        .categoryName = _("Budding"),
         .height = 20,
         .weight = 1100,
         .description = gMorftreePokedexText,
@@ -13368,7 +13368,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_CLAWLISTIC] =
     {
-        .categoryName = _("True Dragon"),
+        .categoryName = _("Dracopod"),
         .height = 13,
         .weight = 353,
         .description = gClawlisticPokedexText,
