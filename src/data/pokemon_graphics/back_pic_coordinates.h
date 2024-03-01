@@ -1578,6 +1578,8 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_FOREST]                = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  6 },
     [SPECIES_SPINDA_MOUNTAIN]              = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  6 },
     [SPECIES_SPINDA_PLAINS2]               = { .size = MON_COORDS_SIZE(48, 56), .y_offset =  6 },
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT]     = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  5 },
+    [SPECIES_KODOUGH_BLUNT]                = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 11 },
 #endif
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },
 };

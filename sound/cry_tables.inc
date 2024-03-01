@@ -2283,6 +2283,7 @@ gCryTable::
 	cry Cry_Basculegion
 	@ Dudunspars
 	cry Cry_Dudunspars
+	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
 	@ Gaoterra
@@ -2305,6 +2306,8 @@ gCryTable::
 	cry Cry_Spinda
 	cry Cry_Spinda
 	cry Cry_Spinda
+	@ Kodough
+	cry Cry_Kodough
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -4616,6 +4619,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
 	@ Gaoterra
@@ -4638,6 +4642,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
+	@ Kodough
+	cry_reverse Cry_Kodough
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

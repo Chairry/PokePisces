@@ -1624,6 +1624,8 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_FOREST - 1] = NATIONAL_DEX_SPINDA,
     [SPECIES_SPINDA_MOUNTAIN - 1] = NATIONAL_DEX_SPINDA,
     [SPECIES_SPINDA_PLAINS2 - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = NATIONAL_DEX_DUDUNSPARS,
+    [SPECIES_KODOUGH_BLUNT - 1] = NATIONAL_DEX_KODOUGH,
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_DARUMAKA_GALARIAN - 1] = NATIONAL_DEX_DARUMAKA,
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
@@ -3432,6 +3434,8 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_FOREST - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPINDA_MOUNTAIN - 1]          = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPINDA_PLAINS2 - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_KODOUGH_BLUNT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
     //Gen 4 Forms
     [SPECIES_CHERRIM_SUNSHINE - 1]       = ANIM_H_JUMPS_V_STRETCH,
     [SPECIES_SHELLOS_EAST_SEA - 1]       = ANIM_V_STRETCH,
@@ -7131,11 +7135,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_TWO_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) != 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && ((personality % 1000) > 100))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_THREE_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) == 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (1 <= (personality % 1000) <= 100))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE_EIGHT_SEGMENT:
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 1000) == 0)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:

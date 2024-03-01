@@ -22056,6 +22056,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_DUDUNSPARS] = DUDUNSPARS_SPECIES_INFO,
     [SPECIES_DUDUNSPARS_THREE_SEGMENT] = DUDUNSPARS_SPECIES_INFO,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = DUDUNSPARS_SPECIES_INFO,
 
     [SPECIES_LOTTABATS] =
     {
@@ -29544,5 +29545,27 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SPINDA_FOREST] = SPINDA_SPECIES_INFO(BODY_COLOR_GREEN),
     [SPECIES_SPINDA_MOUNTAIN] = SPINDA_SPECIES_INFO(BODY_COLOR_BLUE),
     [SPECIES_SPINDA_PLAINS2] = SPINDA_SPECIES_INFO(BODY_COLOR_RED),
+
+    [SPECIES_KODOUGH_BLUNT] =
+    {
+        .baseHP        = 55,
+        .baseAttack    = 30,
+        .baseDefense   = 50,
+        .baseSpeed     = 35,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 25,
+        .types = { TYPE_GRASS, TYPE_GHOST },
+        .catchRate = 255,
+        .expYield = 64,
+        .evYield_HP = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
+        .abilities = {ABILITY_GOOEY, ABILITY_WATER_ABSORB, ABILITY_FLARE_BOOST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
 #endif
 };

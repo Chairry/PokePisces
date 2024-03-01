@@ -958,6 +958,7 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(HAPPEA, gMonPalette_Happea),
     SPECIES_PAL(DUDUNSPARS, gMonPalette_Dudunspars),
     SPECIES_PAL(DUDUNSPARS_THREE_SEGMENT, gMonPalette_DudunsparsThreeSegment),
+    SPECIES_PAL(DUDUNSPARS_EIGHT_SEGMENT, gMonPalette_DudunsparsEightSegment),
     SPECIES_PAL(COFFIDDLE, gMonPalette_Coffiddle),
     SPECIES_PAL(CRAVERAVE, gMonPalette_Craverave),
     SPECIES_PAL(FUZKY, gMonPalette_Fuzky),
@@ -1141,6 +1142,7 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(UNBERRABLE, gMonPalette_Unberrable),
     SPECIES_PAL(PEBLRANIUM, gMonPalette_Peblranium),
     SPECIES_PAL(VAIKING, gMonPalette_Vaiking),
+    SPECIES_PAL(KODOUGH_BLUNT, gMonPalette_KodoughBlunt),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),
