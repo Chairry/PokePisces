@@ -958,6 +958,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[NUM_SPECIES + 1] =
     SPECIES_SHINY_PAL(HAPPEA, gMonShinyPalette_Happea),
     SPECIES_SHINY_PAL(DUDUNSPARS, gMonShinyPalette_Dudunspars),
     SPECIES_SHINY_PAL(DUDUNSPARS_THREE_SEGMENT, gMonShinyPalette_DudunsparsThreeSegment),
+    SPECIES_SHINY_PAL(DUDUNSPARS_EIGHT_SEGMENT, gMonShinyPalette_DudunsparsEightSegment),
     SPECIES_SHINY_PAL(COFFIDDLE, gMonShinyPalette_Coffiddle),
     SPECIES_SHINY_PAL(CRAVERAVE, gMonShinyPalette_Craverave),
     SPECIES_SHINY_PAL(FUZKY, gMonShinyPalette_Fuzky),
@@ -1141,6 +1142,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[NUM_SPECIES + 1] =
     SPECIES_SHINY_PAL(UNBERRABLE, gMonShinyPalette_Unberrable),
     SPECIES_SHINY_PAL(PEBLRANIUM, gMonShinyPalette_Peblranium),
     SPECIES_SHINY_PAL(VAIKING, gMonShinyPalette_Vaiking),
+    SPECIES_SHINY_PAL(KODOUGH_BLUNT, gMonShinyPalette_KodoughBlunt),
 #endif
     SPECIES_SHINY_PAL(VENUSAUR_MEGA, gMonShinyPalette_VenusaurMega),
     SPECIES_SHINY_PAL(CHARIZARD_MEGA_X, gMonShinyPalette_CharizardMegaX),
@@ -1566,4 +1568,5 @@ const struct CompressedSpritePalette gMonShinyPaletteTableFemale[NUM_SPECIES + 1
     SPECIES_SHINY_PAL(FRILLISH, gMonShinyPalette_FrillishF),
     SPECIES_SHINY_PAL(JELLICENT, gMonShinyPalette_JellicentF),
 #endif
+    SPECIES_SHINY_PAL(UNBERRABLE, gMonShinyPalette_UnberrableF),
 };

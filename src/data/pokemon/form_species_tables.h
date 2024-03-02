@@ -1141,6 +1141,7 @@ static const u16 sBasculegionFormSpeciesIdTable[] = {
 static const u16 sDudunsparsFormSpeciesIdTable[] = {
     SPECIES_DUDUNSPARS,
     SPECIES_DUDUNSPARS_THREE_SEGMENT,
+    SPECIES_DUDUNSPARS_EIGHT_SEGMENT,
     FORM_SPECIES_END,
 };
 
@@ -1195,6 +1196,12 @@ static const u16 sSpindaFormSpeciesIdTable[] = {
     SPECIES_SPINDA_FOREST,
     SPECIES_SPINDA_MOUNTAIN,
     SPECIES_SPINDA_PLAINS2,
+    FORM_SPECIES_END,
+};
+
+static const u16 sKodoughFormSpeciesIdTable[] = {
+    SPECIES_KODOUGH,
+    SPECIES_KODOUGH_BLUNT,
     FORM_SPECIES_END,
 };
 #endif

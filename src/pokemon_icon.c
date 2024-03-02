@@ -1516,6 +1516,8 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_FOREST] = gMonIcon_Spinda,
     [SPECIES_SPINDA_MOUNTAIN] = gMonIcon_Spinda,
     [SPECIES_SPINDA_PLAINS2] = gMonIcon_Spinda,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = gMonIcon_DudunsparsEightSegment,
+    [SPECIES_KODOUGH_BLUNT] = gMonIcon_KodoughBlunt,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2972,6 +2974,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SPINDA_FOREST] = 1,
     [SPECIES_SPINDA_MOUNTAIN] = 1,
     [SPECIES_SPINDA_PLAINS2] = 1,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = 0,
+    [SPECIES_KODOUGH_BLUNT] = 2,
 #endif
     [SPECIES_EGG] = 1,
 };

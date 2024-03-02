@@ -93,7 +93,7 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 128 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
@@ -297,6 +297,7 @@
 #define EVO_HIT_BY_SLASH_MOVE             52
 #define EVO_HIT_BY_PIERCE_MOVE            53
 #define EVO_HIT_BY_BLUNT_MOVE             54
+#define EVO_MOVE_EIGHT_SEGMENT            55
 
 #define EVOS_PER_MON 10
 
