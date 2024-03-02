@@ -78,7 +78,8 @@
     "LabBasement",
     "LabBasement2",
     "BasalinCoast",
-    "RivalRoom"
+    "RivalRoom",
+    "SSTidalExterior"
   ],
   "gMapGroup_PiscesPart1Minor": [
     "PacifidlogTown_PokemonCenter_1F",

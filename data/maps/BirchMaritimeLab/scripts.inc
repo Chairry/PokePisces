@@ -10,7 +10,7 @@ BirchMaritimeLab_OnFrame:
 
 BirchMaritimeLab_EventScript_BeforeStarter::
 	lockall
-	setobjectxy LOCALID_BIRCH, 9, 13
+	setobjectxyperm LOCALID_BIRCH, 9, 13
 	applymovement LOCALID_BIRCH, BirchMaritimeLab_Movement_BirchEnterLabForPokedex
 	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerEnterLabForPokedex
 	waitmovement 0
@@ -42,7 +42,8 @@ BirchMaritimeLab_Movement_BirchEnterLabForPokedex:
 	walk_left
 	walk_left
 	walk_left
-	face_up
+	walk_left
+	face_right
 	step_end
 
 BirchMaritimeLab_Movement_PlayerEnterLabForPokedex:
@@ -76,16 +77,16 @@ BirchMaritimeLab_Movement_PlayerEnterLabForPokedex:
 
 BirchMaritimeLab_EventScript_PickYourStarter::
 	lock
-	faceplayer
+	msgbox BirchMaritimeLab_Text_TakeStarter, MSGBOX_DEFAULT
+	closemessage
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	special ChooseStarter
 	waitstate
+	clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
+	setflag FLAG_HIDE_BIRCH_BEFORE_STARTER
 	special HealPlayerParty
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_ROUTE101_STATE, 3
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	goto BirchMaritimeLab_EventScript_GiveStarterEvent
@@ -151,6 +152,20 @@ BirchMaritimeLab_EventScript_NoRoomForPokeBalls::
 	msgbox BirchMaritimeLab_Text_OhYourBagsFull, MSGBOX_DEFAULT
 	return
 
+BirchMaritimeLab_Text_TakeStarter:
+	.string "For a journey as long and,\n"
+	.string "hopefully, fruitful as it seems\l"
+	.string "this one will be... I'd love\l"
+	.string "to give you one of these\l"
+	.string "three Starter POKéMON, as a\l"
+	.string "close traveling companion.\p"
+	.string "Just like old times, huh?\p"
+	.string "With the move to Pacifidlog,\n"
+	.string "I had to start collecting 3 new\l"
+	.string "species of POKéMON to give out\l"
+	.string "to budding trainers.\p"
+	.string "I think you'll really take to them!$"
+
 BirchMaritimeLab_Text_ReceivedStarter:
 	.string "{PLAYER} has received their\n"
 	.string "Starter POKéMON, {STR_VAR_1}!$"
@@ -159,22 +174,55 @@ BirchMaritimeLab_Text_AfterGettingStarter:
 	.string "Go get em champ!$"
 
 BirchMaritimeLab_Text_WhyNotGiveNicknameToMon:
-	.string "nickname it$"
+	.string "Ah! Your new friend is wanting\n"
+	.string "to show you its loyalty!\p"
+	.string "Want to give it a nickname?$"
 
 BirchMaritimeLab_Text_HeardYouBeatRivalTakePokedex:
-	.string "take this dex nerd$"
+	.string "Very good then!\n"
+	.string "Along with your Starter POKéMON,\l"
+	.string "I'd be remiss if I didn't also\l"
+	.string "give you a brand new POKéDEX as well!$"
 
 BirchMaritimeLab_Text_ExplainPokedex:
-	.string "this lets you see nudes$"
+	.string "This model is much the same\n"
+	.string "as the one you had used some time\l"
+	.string "ago. Be aware, though, that the\l"
+	.string "slate has been wiped clean,\l"
+	.string "so to speak.\p"
+	.string "I'm sure you will encounter\n"
+	.string "many new faces in your\l"
+	.string "journey across the Hoenn region!$"
 
 BirchMaritimeLab_Text_ReceivedPokedex:
-	.string "you got da dex$"
+	.string "{PLAYER} received a new POKéDEX!$"
 
 BirchMaritimeLab_Text_TakeBalls:
-	.string "take my buols$"
+	.string "Now, {PLAYER}, kiddo...\p"
+	.string "I know you're really wanting\n"
+	.string "to get started and blitz through\l"
+	.string "the path forward, but I don't\l"
+	.string "think you've battled in a while,\l"
+	.string "would I have that right?\p"
+	.string "So, I took the liberty of\n"
+	.string "contracting a few kindhearted\l"
+	.string "Rangers to give you some\l"
+	.string "warm-up fights!\p"
+	.string "You'll find them atop Sky Pillar\n"
+	.string "to the north.\p"
+	.string "...Oh! And if you want to\n"
+	.string "catch any more POKéMON along the\l"
+	.string "way there, uhm... here...\p"
+	.string "(Your dad shuffles through\n"
+	.string "his labcoat pockets haphazardly.)$"
 
 BirchMaritimeLab_Text_GoFightTheRangers:
-	.string "go fight the doods$"
+	.string "Ten should suffice!\p"
+	.string "...Alrighty! That's about all\n"
+	.string "your pops has got to give.\p"
+	.string "Please stay safe out there,\n"
+	.string "alright kiddo?\p"
+	.string "Good luck; I'm always in your corner!$"
 
 BirchMaritimeLab_Text_OhYourBagsFull:
 	.string "uh oh spaghettios$"

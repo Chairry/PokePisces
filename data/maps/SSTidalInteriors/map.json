@@ -2,7 +2,7 @@
   "id": "MAP_SS_TIDAL_INTERIORS",
   "name": "SSTidalInteriors",
   "layout": "LAYOUT_SS_TIDAL_INTERIORS",
-  "music": "MUS_ENCOUNTER_MAY",
+  "music": "MUS_RG_SS_ANNE",
   "region_map_section": "MAPSEC_S_S_ANNE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -10,14 +10,153 @@
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
 
   ],
   "warp_events": [
-
+    {
+      "x": 3,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 33,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 34,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 3,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 4,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 18,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 19,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 33,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 34,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 3,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 13,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 18,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 3,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 10,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 11,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 17,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 18,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_EXTERIOR",
+      "dest_warp_id": "4"
+    }
   ],
   "coord_events": [
 

@@ -1,0 +1,76 @@
+{
+  "id": "MAP_SS_TIDAL_EXTERIOR",
+  "name": "SSTidalExterior",
+  "layout": "LAYOUT_SS_TIDAL_EXTERIOR",
+  "music": "MUS_RG_SS_ANNE",
+  "region_map_section": "MAPSEC_S_S_ANNE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_OCEAN_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 14,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_RIVAL_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "14"
+    },
+    {
+      "x": 18,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 27,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_INTERIORS",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 16,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_PACIFIDLOG_TOWN",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 17,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_PACIFIDLOG_TOWN",
+      "dest_warp_id": "16"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

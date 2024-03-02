@@ -5034,10 +5034,10 @@
     {
       "id": "LAYOUT_SS_TIDAL_INTERIORS",
       "name": "SSTidalInteriors_Layout",
-      "width": 50,
-      "height": 50,
+      "width": 38,
+      "height": 36,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
     },
@@ -5080,6 +5080,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/RivalRoom/border.bin",
       "blockdata_filepath": "data/layouts/RivalRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_EXTERIOR",
+      "name": "SSTidalExterior_Layout",
+      "width": 38,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalExterior/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalExterior/map.bin"
     }
   ]
 }
