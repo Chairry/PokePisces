@@ -189,6 +189,7 @@
 #define STATUS4_WATER_SPORT             (1 << 3)    // Only used if B_SPORT_TURNS < GEN_6
 #define STATUS4_INFINITE_CONFUSION      (1 << 4)    // Used for Berserk Gene
 #define STATUS4_SALT_CURE               (1 << 5)
+#define STATUS4_GLAIVE_RUSH             (1 << 6)
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
@@ -397,7 +398,8 @@
 #define MOVE_EFFECT_CINDER_TWIRL        87
 #define MOVE_EFFECT_CINDER_DRILL        88
 #define MOVE_EFFECT_RADIOACID           89
-#define NUM_MOVE_EFFECTS                90
+#define MOVE_EFFECT_HEART_CARVE         90
+#define NUM_MOVE_EFFECTS                91
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

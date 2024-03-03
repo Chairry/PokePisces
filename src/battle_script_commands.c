@@ -583,7 +583,7 @@ static void Cmd_setuserstatus3(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
-static void Cmd_setsilence2(void);
+static void Cmd_dragonpokerdamagecalculation(void);
 static void Cmd_unused2(void);
 static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
@@ -843,7 +843,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_assistattackselect,                      //0xDE
     Cmd_trysetmagiccoat,                         //0xDF
     Cmd_trysetsnatch,                            //0xE0
-    Cmd_setsilence2,                              //0xE1
+    Cmd_dragonpokerdamagecalculation,            //0xE1
     Cmd_switchoutabilities,                      //0xE2
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
@@ -1666,6 +1666,12 @@ static bool32 AccuracyCalcHelper(u16 move)
 #endif
 
     if (gBattleMoves[move].accuracy == 0)
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+
+    if (gStatuses4[gBattlerTarget] & STATUS4_GLAIVE_RUSH)
     {
         JumpIfMoveFailed(7, move);
         return TRUE;
@@ -3592,6 +3598,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
                 }
                 break;
+            case MOVE_EFFECT_HEART_CARVE:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_HeartCarve;
+                }
+                break;
             case MOVE_EFFECT_RAPIDSPIN:
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_RapidSpinAway;
@@ -3696,7 +3709,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
                     gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    if (gCurrentMove == MOVE_HYPERSPACE_FURY)
+                    if (gCurrentMove == MOVE_HYPERSPACE_FURY || gCurrentMove == MOVE_RAZING_SUN)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
@@ -5684,6 +5697,7 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_33: // Double Edge, 33 % recoil
+                case EFFECT_RAZING_SUN:
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -10715,7 +10729,7 @@ static void Cmd_various(void)
 
         special = ((((2 * gBattleMons[gBattlerAttacker].level / 5 + 2) * gBattleMoves[gCurrentMove].power * attackerSpAtkStat) / targetSpDefStat) / 50);
 
-        if (((physical > special) || (physical == special && (Random() % 2) == 0)))
+        if ((((physical > special) || (physical == special && (Random() % 2) == 0)) && (!(gCurrentMove == MOVE_DRAGON_POKER))))
             gBattleStruct->swapDamageCategory = TRUE;
         break;
     }
@@ -13814,6 +13828,72 @@ static void Cmd_ficklebeamdamagecalculation(void)
     }
 }
 
+static void Cmd_dragonpokerdamagecalculation(void)
+{
+    CMD_ARGS();
+
+    u32 dragonpoker = Random() % 100;
+
+    for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+    {
+        if (gBattlerTarget == gBattlerAttacker)
+            continue;
+        if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // A valid target was found.
+            break;
+    }
+
+    if (dragonpoker < 10)
+    {
+        gBattleStruct->dragonpokerBasePower = 50;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerNoPair;
+    }
+    else if (dragonpoker < 20)
+    {
+        gBattleStruct->dragonpokerBasePower = 60;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerOnePair;
+    }
+    else if (dragonpoker < 30)
+    {
+        gBattleStruct->dragonpokerBasePower = 70;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerTwoPair;
+    }
+    else if (dragonpoker < 40)
+    {
+        gBattleStruct->dragonpokerBasePower = 80;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerThreeOfAKind;
+    }
+    else if (dragonpoker < 50)
+    {
+        gBattleStruct->dragonpokerBasePower = 90;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerStraight;
+    }
+    else if (dragonpoker < 60)
+    {
+        gBattleStruct->dragonpokerBasePower = 100;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerFlush;
+    }
+    else if (dragonpoker < 70)
+    {
+        gBattleStruct->dragonpokerBasePower = 110;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerFullHouse;
+    }
+    else if (dragonpoker < 80)
+    {
+        gBattleStruct->dragonpokerBasePower = 120;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerFourOfAKind;
+    }
+    else if (dragonpoker < 90)
+    {
+        gBattleStruct->dragonpokerBasePower = 130;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerStraightFlush;
+    }
+    else
+    {
+        gBattleStruct->dragonpokerBasePower = 150;
+        gBattlescriptCurrInstr = BattleScript_DragonPokerRoyalFlush;
+    }
+}
+
 static void Cmd_jumpifnopursuitswitchdmg(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
@@ -15183,6 +15263,8 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
         return FALSE;
 #endif
     else if (gBattleMoves[move].ignoresSubstitute)
+        return FALSE;
+    else if (gCurrentMove == MOVE_RAZING_SUN)
         return FALSE;
     else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
         return FALSE;
@@ -16753,6 +16835,15 @@ void BS_JumpIfArgument(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetGlaiveRush(void)
+{
+    NATIVE_ARGS();
+
+    gStatuses4[gBattlerAttacker] |= STATUS4_GLAIVE_RUSH;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_SetRemoveTerrain(void)

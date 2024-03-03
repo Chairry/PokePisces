@@ -704,8 +704,19 @@
 #define STRINGID_PKMNDOUBLEDSTATS                     702
 #define STRINGID_PKMNCUTSSPATTACKWITH                 703
 #define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        704
-#define STRINGID_PKMNWELCOMETHEAUDIENCE               705  
-#define BATTLESTRINGS_COUNT                           706
+#define STRINGID_PKMNWELCOMETHEAUDIENCE               705
+#define STRINGID_DRAGONPOKERNOPAIR                    706
+#define STRINGID_DRAGONPOKERONEPAIR                   707
+#define STRINGID_DRAGONPOKERTWOPAIR                   708
+#define STRINGID_DRAGONPOKERTHREEOFAKIND              709
+#define STRINGID_DRAGONPOKERSTRAIGHT                  710
+#define STRINGID_DRAGONPOKERFLUSH                     711
+#define STRINGID_DRAGONPOKERFULLHOUSE                 712
+#define STRINGID_DRAGONPOKERFOUROFAKIND               713
+#define STRINGID_DRAGONPOKERSTRAIGHTFLUSH             714
+#define STRINGID_DRAGONPOKERROYALFLUSH                715
+#define STRINGID_PKMNLEAVINGITSELFOPEN                716
+#define BATTLESTRINGS_COUNT                           717
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

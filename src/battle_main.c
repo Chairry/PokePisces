@@ -5169,6 +5169,9 @@ static bool32 TryDoMoveEffectsBeforeMoves(void)
                 case MOVE_FOCUS_PUNCH:
                     BattleScriptExecute(BattleScript_FocusPunchSetUp);
                     return TRUE;
+                case MOVE_LONE_SHARK:
+                    BattleScriptExecute(BattleScript_LoneSharkSetUp);
+                    return TRUE;
                 case MOVE_BEAK_BLAST:
                     BattleScriptExecute(BattleScript_BeakBlastSetUp);
                     return TRUE;

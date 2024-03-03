@@ -13386,7 +13386,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .description = gUnberrablePokedexText,
         .pokemonScale = 256,
         .pokemonOffset = 0,
-        .trainerScale = 448,
+        .trainerScale = 672,
         .trainerOffset = 12,
     },
 
