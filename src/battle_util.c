@@ -5856,6 +5856,22 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_STICKY_HOLD:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && gBattleMons[gBattlerAttacker].hp != 0
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && TARGET_TURN_DAMAGED
+             && gBattleMons[gBattlerTarget].hp != 0
+             && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_ESCAPE_PREVENTION)
+             && IsMoveMakingContact(move, gBattlerAttacker))
+            {
+                BattleScriptPushCursor();
+                gBattleMons[gBattlerAttacker].status2 |= STATUS2_ESCAPE_PREVENTION;
+                gDisableStructs[gBattlerTarget].battlerPreventingEscape = gBattlerTarget;
+                gBattlescriptCurrInstr = BattleScript_EffectStickyHold;
+                effect++;
+            }
+            break;
         case ABILITY_ILLUSION:
             if (gBattleStruct->illusion[gBattlerTarget].on && !gBattleStruct->illusion[gBattlerTarget].broken && TARGET_TURN_DAMAGED)
             {

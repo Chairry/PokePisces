@@ -6294,6 +6294,12 @@ BattleScript_BlockedByPrimalWeatherRet::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOnRet
 	return
 
+BattleScript_EffectStickyHold::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ATTACKERCANTESCAPENOW
+	waitmessage B_WAIT_TIME_SHORT
+	end
+
 BattleScript_EffectDefenseUpHit::
 	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
