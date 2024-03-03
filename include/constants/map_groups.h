@@ -22,11 +22,18 @@
 #define MAP_SOOTOPOLIS_CITY_GYM_1F  (13 | (0 << 8))
 #define MAP_SOOTOPOLIS_CITY_GYM_B1F (14 | (0 << 8))
 #define MAP_FLOTSHORE               (15 | (0 << 8))
+#define MAP_BIRCH_MARITIME_LAB      (16 | (0 << 8))
+#define MAP_SKY_PILLAR_INTERIORS    (17 | (0 << 8))
+#define MAP_SS_TIDAL_INTERIORS      (18 | (0 << 8))
+#define MAP_LAB_BASEMENT            (19 | (0 << 8))
+#define MAP_LAB_BASEMENT2           (20 | (0 << 8))
+#define MAP_BASALIN_COAST           (21 | (0 << 8))
 
 // gMapGroup_PiscesPart1Minor
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (1 << 8))
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F (1 | (1 << 8))
 #define MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_1F (2 | (1 << 8))
+#define MAP_PACIFIDLOG_INTERIORS              (3 | (1 << 8))
 
 // gMapGroup_PiscesPart2Major
 #define MAP_CAVE_OF_ORIGIN    (0 | (2 << 8))

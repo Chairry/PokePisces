@@ -19,26 +19,26 @@
       "direction": "dive"
     },
     {
-      "map": "MAP_FLOTSHORE",
-      "offset": 7,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_SOOTOPOLIS_CITY",
-      "offset": 8,
-      "direction": "up"
-    },
-    {
       "map": "MAP_PACIFIDLOG_TOWN",
       "offset": -54,
       "direction": "down"
+    },
+    {
+      "map": "MAP_FLOTSHORE",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_BASALIN_COAST",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 28,
-      "y": 16,
+      "x": 3,
+      "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
       "movement_range_x": 3,
@@ -50,8 +50,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 10,
-      "y": 14,
+      "x": 1,
+      "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 5,
@@ -63,8 +63,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 13,
-      "y": 22,
+      "x": 5,
+      "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 1,
@@ -76,8 +76,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 35,
-      "y": 9,
+      "x": 2,
+      "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 1,
@@ -89,8 +89,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 13,
-      "y": 27,
+      "x": 4,
+      "y": 2,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
       "movement_range_x": 1,

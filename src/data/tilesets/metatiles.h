@@ -231,3 +231,6 @@ const u16 gMetatileAttributes_heypeta[] = INCBIN_U16("data/tilesets/secondary/he
 
 const u16 gMetatiles_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatiles.bin");
 const u16 gMetatileAttributes_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatile_attributes.bin");
+
+const u16 gMetatiles_BirchLab[] = INCBIN_U16("data/tilesets/secondary/birch_lab/metatiles.bin");
+const u16 gMetatileAttributes_BirchLab[] = INCBIN_U16("data/tilesets/secondary/birch_lab/metatile_attributes.bin");

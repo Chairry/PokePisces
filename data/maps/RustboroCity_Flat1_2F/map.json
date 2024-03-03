@@ -41,7 +41,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SKITTY_DOLL",
+      "graphics_id": "OBJ_EVENT_GFX_MLADY",
       "x": 9,
       "y": 4,
       "elevation": 3,
@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TREECKO_DOLL",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_GREEN_HAIR",
       "x": 10,
       "y": 5,
       "elevation": 3,
@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TORCHIC_DOLL",
+      "graphics_id": "OBJ_EVENT_GFX_FORESTER",
       "x": 10,
       "y": 6,
       "elevation": 3,
@@ -93,7 +93,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MUDKIP_DOLL",
+      "graphics_id": "OBJ_EVENT_GFX_BREADWINNER",
       "x": 8,
       "y": 6,
       "elevation": 3,
