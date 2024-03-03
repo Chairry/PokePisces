@@ -10,17 +10,17 @@
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
-#define TRAINER_GRANGER                   9
-#define TRAINER_RICKY_P        10
-#define TRAINER_JEANNIE_P                       11
-#define TRAINER_ALBERTO                      12
-#define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
-#define TRAINER_DECLAN                       15
-#define TRAINER_GRUNT_RUSTURF_TUNNEL         16
-#define TRAINER_GRUNT_WEATHER_INST_1         17
-#define TRAINER_GRUNT_WEATHER_INST_2         18
-#define TRAINER_GRUNT_WEATHER_INST_3         19
+#define TRAINER_GRANGER                       9 //SKY PILLAR FIRST VISIT
+#define TRAINER_RICKY_P                      10
+#define TRAINER_JEANNIE_P                    11
+#define TRAINER_SADFISHER_1_P                12 //PACIFIDLOG FIRST VISIT
+#define TRAINER_SEAN_P                       13 //FLOTSHORE TRAIL
+#define TRAINER_JANICE_P                     14
+#define TRAINER_JIMMY_P                      15
+#define TRAINER_DAN_P                        16
+#define TRAINER_LAD_P                        17
+#define TRAINER_SAMMIE_P                     18
+#define TRAINER_BARBARA_P                    19
 #define TRAINER_GRUNT_MUSEUM_1               20
 #define TRAINER_GRUNT_MUSEUM_2               21
 #define TRAINER_GRUNT_SPACE_CENTER_1         22
