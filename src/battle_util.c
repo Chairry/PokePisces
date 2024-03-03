@@ -2597,6 +2597,7 @@ enum
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
     ENDTURN_SPIDER_WEB,
+    ENDTURN_GLAIVE_RUSH,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3198,6 +3199,10 @@ u8 DoBattlerEndTurnEffects(void)
             }
             gBattleStruct->turnEffectsTracker++;
             break;
+        case ENDTURN_GLAIVE_RUSH:
+            gStatuses4[battler] &= ~STATUS4_GLAIVE_RUSH;
+            gBattleStruct->turnEffectsTracker++;
+            break;
         case ENDTURN_BATTLER_COUNT:  // done
             gBattleStruct->turnEffectsTracker = 0;
             gBattleStruct->turnEffectsBattlerId++;
@@ -3674,7 +3679,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             if (!gBattleStruct->isAtkCancelerForCalledMove && gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
             {
                 gBattleScripting.battler = CountTrailingZeroBits((gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION) >> 0x10);
-                if (!RandomPercentage(RNG_INFATUATION, 75))
+                if (!RandomPercentage(RNG_INFATUATION, 25))
                 {
                     BattleScriptPushCursor();
                 }
@@ -8909,6 +8914,30 @@ static const u8 sFlailHpScaleToPowerTable[] =
     48, 20
 };
 
+static const u8 sLoneSharkHpScaleToPowerTable[] =
+{
+    4, 170,
+    9, 165,
+    14, 160,
+    19, 155,
+    24, 150,
+    29, 145,
+    34, 140,
+    39, 135,
+    44, 130,
+    49, 125,
+    54, 120,
+    59, 115,
+    64, 110,
+    69, 105,
+    74, 100,
+    79, 95,
+    84, 90,
+    89, 85,
+    94, 80,
+    100, 75
+};
+
 // format: min. weight (hectograms), base power
 static const u16 sWeightToDamageTable[] =
 {
@@ -9042,24 +9071,33 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         }
         basePower = sFlailHpScaleToPowerTable[i + 1];
         break;
+    case EFFECT_LONE_SHARK:
+        hpFraction = GetScaledHPFraction(gBattleMons[battlerAtk].hp, gBattleMons[battlerAtk].maxHP, 100);
+        for (i = 0; i < sizeof(sLoneSharkHpScaleToPowerTable); i += 2)
+        {
+            if (hpFraction <= sLoneSharkHpScaleToPowerTable[i])
+                break;
+        }
+        basePower = sLoneSharkHpScaleToPowerTable[i + 1];
+        break;
     case EFFECT_RETURN:
         basePower = 10 * (gBattleMons[battlerAtk].friendship) / 25;
         break;
-    case MOVE_WATERFALL:
+    case EFFECT_WATERFALL:
         basePower = 16 * (gBattleMons[battlerAtk].friendship) / 51;
         break;
-    case MOVE_CUT:
+    case EFFECT_CUT:
         basePower = (gBattleMons[battlerAtk].friendship) / 3;
         break;
-    case MOVE_ROCK_SMASH:
-    case MOVE_STRENGTH:
-    case MOVE_ROCK_CLIMB:
-    case MOVE_SURF:
+    case EFFECT_ROCK_SMASH:
+    case EFFECT_STRENGTH:
+    case EFFECT_ROCK_CLIMB:
+    case EFFECT_SURF:
         basePower = 6 * (gBattleMons[battlerAtk].friendship) / 17;
         break;
-    case MOVE_DIVE:
-    case MOVE_FLY:
-    case MOVE_WHIRLPOOL:
+    case EFFECT_DIVE:
+    case EFFECT_FLY:
+    case EFFECT_WHIRLPOOL:
         basePower = 8 * (gBattleMons[battlerAtk].friendship) / 17;
         break;
     case EFFECT_FRUSTRATION:
@@ -9073,6 +9111,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_MAGNITUDE:
         basePower = gBattleStruct->magnitudeBasePower;
+        break;
+    case EFFECT_DRAGON_POKER:
+        basePower = gBattleStruct->dragonpokerBasePower;
         break;
     case EFFECT_PRESENT:
         basePower = gBattleStruct->presentBasePower;
@@ -9117,6 +9158,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_DRAINING_KISS:
+    case EFFECT_HEART_STEAL:
         if (gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
             basePower *= 2;
         break;
@@ -10247,6 +10289,13 @@ static inline uq4_12_t GetCriticalModifier(bool32 isCrit)
     return isCrit ? V_CRIT_MULTIPLIER : UQ_4_12(1.0);
 }
 
+static inline uq4_12_t GetGlaiveRushModifier(u32 battlerDef)
+{
+    if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH)
+        return UQ_4_12(2.0);
+    return UQ_4_12(1.0);
+}
+
 static inline uq4_12_t GetZMoveAgainstProtectionModifier(u32 battlerDef)
 {
     if (gBattleStruct->zmove.active && IS_BATTLER_PROTECTED(battlerDef))
@@ -10296,7 +10345,7 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
     bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IS_MOVE_PHYSICAL(move);
     bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
 
-    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[battlerAtk].confusionSelfDmg)
+    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[battlerAtk].confusionSelfDmg || gCurrentMove == MOVE_RAZING_SUN)
         return UQ_4_12(1.0);
     if (reflect || lightScreen || auroraVeil)
         return (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) ? UQ_4_12(0.667) : UQ_4_12(0.5);
@@ -10521,6 +10570,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     DAMAGE_APPLY_MODIFIER(GetParentalBondModifier(battlerAtk));
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(battlerAtk, move, moveType, holdEffectAtk, holdEffectDef, weather));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(isCrit));
+    DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));
     // TODO: Glaive Rush (Gen IX effect)
     if (randomFactor)
     {
@@ -10581,7 +10631,7 @@ s32 CalculateMoveDamageVars(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveTy
                                 typeEffectivenessModifier, weather, holdEffectAtk, holdEffectDef, abilityAtk, abilityDef);
 }
 
-static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 moveType, u32 battlerDef, u32 defType, u32 battlerAtk, bool32 recordAbilities)
+static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 moveType, u32 battlerDef, u32 defType, u32 battlerAtk, bool32 recordAbilities, uq4_12_t typeEffectivenessModifier)
 {
     uq4_12_t mod = GetTypeModifier(moveType, defType);
 
@@ -10618,6 +10668,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_FALSE_SWIPE)
         mod = UQ_4_12(1.0);
+    if (gCurrentMove == MOVE_CHROMA_BEAM && (typeEffectivenessModifier < UQ_4_12(2.0)))
+        mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
@@ -10641,9 +10693,9 @@ static inline void TryNoticeIllusionInTypeEffectiveness(u32 move, u32 moveType, 
 {
     // Check if the type effectiveness would've been different if the pokemon really had the types as the disguise.
     uq4_12_t presumedModifier = UQ_4_12(1.0);
-    MulByTypeEffectiveness(&presumedModifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[0], battlerAtk, FALSE);
+    MulByTypeEffectiveness(&presumedModifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[0], battlerAtk, FALSE, FALSE);
     if (gSpeciesInfo[illusionSpecies].types[1] != gSpeciesInfo[illusionSpecies].types[0])
-        MulByTypeEffectiveness(&presumedModifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[1], battlerAtk, FALSE);
+        MulByTypeEffectiveness(&presumedModifier, move, moveType, battlerDef, gSpeciesInfo[illusionSpecies].types[1], battlerAtk, FALSE, FALSE);
 
     if (presumedModifier != resultingModifier)
         RecordAbilityBattle(battlerDef, ABILITY_ILLUSION);
@@ -10676,12 +10728,12 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
 {
     u32 illusionSpecies;
 
-    MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 0), battlerAtk, recordAbilities);
+    MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 0), battlerAtk, recordAbilities, FALSE);
     if (GetBattlerType(battlerDef, 1) != GetBattlerType(battlerDef, 0))
-        MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 1), battlerAtk, recordAbilities);
+        MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 1), battlerAtk, recordAbilities, FALSE);
     if (GetBattlerType(battlerDef, 2) != TYPE_MYSTERY && GetBattlerType(battlerDef, 2) != GetBattlerType(battlerDef, 1)
         && GetBattlerType(battlerDef, 2) != GetBattlerType(battlerDef, 0))
-        MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 2), battlerAtk, recordAbilities);
+        MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, GetBattlerType(battlerDef, 2), battlerAtk, recordAbilities, FALSE);
 
     if (recordAbilities && (illusionSpecies = GetIllusionMonSpecies(battlerDef)))
         TryNoticeIllusionInTypeEffectiveness(move, moveType, battlerAtk, battlerDef, modifier, illusionSpecies);
@@ -10808,9 +10860,9 @@ uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 a
 
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
-        MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[0], 0, FALSE);
+        MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[0], 0, FALSE, FALSE);
         if (gSpeciesInfo[speciesDef].types[1] != gSpeciesInfo[speciesDef].types[0])
-            MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[1], 0, FALSE);
+            MulByTypeEffectiveness(&modifier, move, moveType, 0, gSpeciesInfo[speciesDef].types[1], 0, FALSE, FALSE);
 
         if (moveType == TYPE_GROUND && abilityDef == ABILITY_LEVITATE && !(gFieldStatuses & STATUS_FIELD_GRAVITY))
             modifier = UQ_4_12(0.0);

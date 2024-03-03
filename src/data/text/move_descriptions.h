@@ -3408,6 +3408,42 @@ static const u8 sSerpentSurgeDescription[] = _(
     "Damage category is based on\n"
     "foe. Effect based on ability.");
 
+static const u8 sFlareCrushDescription[] = _(
+    "Uses burning force that hits\n"
+    "4 times and may lower Def.");
+
+static const u8 sHullbreakerDescription[] = _(
+    "Ignores abilities and breaks\n"
+    "screens. Sharply drops Def.");
+
+static const u8 sChromaBeamDescription[] = _(
+    "An otherworldy beam that is\n"
+    "always super effective.");
+
+static const u8 sHeartCarveDescription[] = _(
+    "Rapidly jabs the target.\n"
+    "Becomes frenzied if in love.");
+
+static const u8 sRealTearsDescription[] = _(
+    "The user just cries...\n"
+    "Has no effect whatsoever.");
+
+static const u8 sRazingSunDescription[] = _(
+    "Uses light that ignores foe's\n"
+    "protection. Also hurts user.");
+
+static const u8 sDragonPokerDescription[] = _(
+    "Shifts damage category and\n"
+    "power. Money is taken after.");
+
+static const u8 sLoneSharkDescription[] = _(
+    "BP depends on user's HP. Ups\n"
+    "damage taken, then drains HP.");
+
+static const u8 sHeartStealDescription[] = _(
+    "Quickly steals foe's stats.\n"
+    "Boosts against infatuation.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4294,4 +4330,13 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_RADIOACID - 1] = sRadioacidDescription,
     [MOVE_PARTING_CURRY - 1] = sPartingCurryDescription,
     [MOVE_SERPENT_SURGE - 1] = sSerpentSurgeDescription,
+    [MOVE_FLARE_CRUSH - 1] = sFlareCrushDescription,
+    [MOVE_HULLBREAKER - 1] = sHullbreakerDescription,
+    [MOVE_CHROMA_BEAM - 1] = sChromaBeamDescription,
+    [MOVE_HEART_CARVE - 1] = sHeartCarveDescription,
+    [MOVE_REAL_TEARS - 1] = sRealTearsDescription,
+    [MOVE_RAZING_SUN - 1] = sRazingSunDescription,
+    [MOVE_DRAGON_POKER - 1] = sDragonPokerDescription,
+    [MOVE_LONE_SHARK - 1] = sLoneSharkDescription,
+    [MOVE_HEART_STEAL - 1] = sHeartStealDescription,
 };

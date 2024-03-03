@@ -636,6 +636,7 @@ struct BattleStruct
     u8 alreadyStatusedMoveAttempt; // As bits for battlers; For example when using Thunder Wave on an already paralyzed pokemon.
     u8 debugBattler;
     u8 magnitudeBasePower;
+    u8 dragonpokerBasePower;
     u8 ficklebeamBasePower;
     u8 presentBasePower;
     u8 roostTypes[MAX_BATTLERS_COUNT][2];
