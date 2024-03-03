@@ -10223,11 +10223,13 @@ static inline s32 CalculateBaseDamage(u32 power, u32 userFinalAttack, u32 level,
 
 static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 battlerDef)
 {
-    if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2)
-        if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY)
+    if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2) {
+        if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY) {
             return UQ_4_12(0.5);
-        else
+        } else {
             return V_MULTIPLE_TARGETS_DMG;
+        }
+    }
     return UQ_4_12(1.0);
 }
 
@@ -10263,8 +10265,11 @@ static uq4_12_t GetWeatherDamageModifier(u32 battlerAtk, u32 move, u32 moveType,
     }
     if (weather & B_WEATHER_SUN)
     {
-        if (moveType != TYPE_FIRE && moveType != TYPE_WATER)
+        if (moveType == TYPE_GRASS && GetBattlerAbility(battlerAtk) == ABILITY_CHLOROPHYLL) {
+            return UQ_4_12(1.5);
+        } else if (moveType != TYPE_FIRE && moveType != TYPE_WATER) {
             return UQ_4_12(1.0);
+        }
         return (moveType == TYPE_WATER) ? UQ_4_12(0.5) : UQ_4_12(1.5);
     }
     return UQ_4_12(1.0);
