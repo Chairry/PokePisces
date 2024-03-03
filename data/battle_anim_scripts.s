@@ -903,6 +903,15 @@ gBattleAnims_Moves::
 	.4byte Move_RADIOACID
 	.4byte Move_PARTING_CURRY
 	.4byte Move_SERPENT_SURGE
+	.4byte Move_FLARE_CRUSH
+	.4byte Move_HULLBREAKER
+	.4byte Move_CHROMA_BEAM
+	.4byte Move_HEART_CARVE
+	.4byte Move_REAL_TEARS
+	.4byte Move_RAZING_SUN
+	.4byte Move_DRAGON_POKER
+	.4byte Move_LONE_SHARK
+	.4byte Move_HEART_STEAL
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -18904,6 +18913,33 @@ Move_PARTING_CURRY::
 
 Move_SERPENT_SURGE::
 	goto Move_VIPER_STRIKE
+
+Move_FLARE_CRUSH::
+	goto Move_FIRE_PUNCH
+
+Move_HULLBREAKER::
+	goto Move_WAVE_CRASH
+
+Move_CHROMA_BEAM::
+	goto Move_AURORA_BEAM
+
+Move_HEART_CARVE::
+	goto Move_POISON_JAB
+
+Move_REAL_TEARS::
+	goto Move_FAKE_TEARS
+
+Move_RAZING_SUN::
+	goto Move_SUNNY_DAY
+
+Move_DRAGON_POKER::
+	goto Move_TRUMP_CARD
+
+Move_LONE_SHARK::
+	goto Move_AQUA_JET
+
+Move_HEART_STEAL::
+	goto Move_HEART_STAMP
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

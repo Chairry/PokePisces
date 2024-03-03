@@ -479,6 +479,156 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSerpentSurge            @ EFFECT_SERPENT_SURGE
 	.4byte BattleScript_EffectTidyUp                  @ EFFECT_TIDY_UP
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_DRAINING_KISS
+	.4byte BattleScript_EffectHullbreaker             @ EFFECT_HULLBREAKER
+	.4byte BattleScript_EffectHeartCarveHit           @ EFFECT_HEART_CARVE_HIT
+	.4byte BattleScript_EffectFeint                   @ EFFECT_RAZING_SUN
+	.4byte BattleScript_EffectDragonPoker             @ EFFECT_DRAGON_POKER
+	.4byte BattleScript_EffectFlinchHit               @ EFFECT_WATERFALL
+	.4byte BattleScript_EffectHit                     @ EFFECT_CUT
+	.4byte BattleScript_EffectDefenseDownHit          @ EFFECT_ROCK_SMASH
+	.4byte BattleScript_EffectAttackUpHit             @ EFFECT_STRENGTH
+	.4byte BattleScript_EffectConfuseHit              @ EFFECT_ROCK_CLIMB
+	.4byte BattleScript_EffectHit                     @ EFFECT_SURF
+	.4byte BattleScript_EffectSemiInvulnerable        @ EFFECT_DIVE
+	.4byte BattleScript_EffectSemiInvulnerable        @ EFFECT_FLY
+	.4byte BattleScript_EffectTrap                    @ EFFECT_WHIRLPOOL
+	.4byte BattleScript_EffectAbsorb                  @ EFFECT_LONE_SHARK
+	.4byte BattleScript_EffectSpectralThief           @ EFFECT_HEART_STEAL
+
+BattleScript_LoneSharkSetUp::
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_FOCUS_PUNCH_SETUP
+	setglaiverush
+	printstring STRINGID_PKMNLEAVINGITSELFOPEN
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_EffectDragonPoker::
+	shellsidearmcheck
+	setmoveeffect MOVE_EFFECT_PAYDAY
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
+	attackcanceler
+	attackstring
+	ppreduce
+	dragonpokerdamagecalculation
+BattleScript_DragonPokerNoPair::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERNOPAIR
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerOnePair::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERONEPAIR
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerTwoPair::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERTWOPAIR
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerThreeOfAKind::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERTHREEOFAKIND
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerStraight::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERSTRAIGHT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerFlush::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERFLUSH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerFullHouse::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERFULLHOUSE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerFourOfAKind::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERFOUROFAKIND
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerStraightFlush::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERSTRAIGHTFLUSH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonPokerRoyalFlush::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_DRAGONPOKERROYALFLUSH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HitFromCritCalc
+
+BattleScript_EffectHeartCarveHit::
+	jumpifstatus2 BS_ATTACKER, STATUS2_INFATUATION, BattleScript_HeartCarveUserInfatuated
+	goto BattleScript_EffectHit
+BattleScript_HeartCarveUserInfatuated:
+	setmoveeffect MOVE_EFFECT_HEART_CARVE | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_HeartCarve::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_HeartCarveTryAtk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_HeartCarveTryAtk
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_HeartCarveRet
+BattleScript_HeartCarveTryAtk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPATK | BIT_SPEED, 0
+	setstatchanger STAT_ATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeartCarveTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeartCarveTrySpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HeartCarveTrySpAtk::
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeartCarveTrySpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeartCarveTrySpeed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HeartCarveTrySpeed::
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeartCarveRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeartCarveRet
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HeartCarveRet::
+	return
+
+BattleScript_EffectHullbreaker::
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_2
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	removelightscreenreflect
+	critcalc
+	damagecalc
+	adjustdamage
+	jumpifbyte CMP_EQUAL, sB_ANIM_TURN, 0, BattleScript_HullbreakerAnim
+	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE
+BattleScript_HullbreakerAnim::
+	attackanimation
+	waitanimation
+	jumpifbyte CMP_LESS_THAN, sB_ANIM_TURN, 2, BattleScript_HullbreakerDoHit
+	printstring STRINGID_THEWALLSHATTERED
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HullbreakerDoHit::
+	typecalc
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectTidyUp::
 	attackcanceler
@@ -1003,36 +1153,52 @@ BattleScript_EffectDragonCheer:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_EffectDragonCheerFocusEnergyFailedTryStatRaise
+	jumpifstatus2 BS_TARGET, STATUS2_FOCUS_ENERGY_ANY, BattleScript_DragonCheerFocusEnergyFailedTryStatRaise
 	setfocusenergy
-	copybyte gBattlerTarget, gBattlerAttacker
-	setallytonexttarget EffectDragonCheer_CheckAllyStats
-BattleScript_EffectDragonCheerFocusEnergyFailedTryStatRaise::
-	copybyte gBattlerTarget, gBattlerAttacker
-	setallytonexttarget EffectDragonCheer_CheckAllyStats
-EffectDragonCheer_FocusEnergyFailedCheckAllyStats:
-	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_DragonCheerWorks
-	goto BattleScript_ButItFailed
-EffectDragonCheer_CheckAllyStats:
-	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_ACC, MAX_STAT_STAGE, BattleScript_DragonCheerWorks
-	goto BattleScript_DragonCheerFocusWorksAccRaiseFailed
-BattleScript_DragonCheerWorks:
 	attackanimation
 	waitanimation
 	printfromtable gFocusEnergyUsedStringIds
 	waitmessage B_WAIT_TIME_SHORTEST
-	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_ACC, 0x0
+	goto BattleScript_DragonCheerFocusEnergySucceededTryStatRaise
+BattleScript_DragonCheerFocusEnergySucceededTryStatRaise:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_MoveEnd
+	jumpiftargetally BattleScript_EffectDragonCheerWorks
+	goto BattleScript_MoveEnd
+BattleScript_EffectDragonCheerWorks2:
 	setstatchanger STAT_ACC, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectDragonCheerEnd
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DragonCheerAnim2
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectDragonCheerEnd
+BattleScript_DragonCheerAnim2:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-BattleScript_DragonCheerFocusWorksAccRaiseFailed:
+BattleScript_DragonCheerFocusEnergyFailedTryStatRaise:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_ButItFailed
+	jumpiftargetally BattleScript_EffectDragonCheerWorks
+	goto BattleScript_ButItFailed
+BattleScript_EffectDragonCheerWorks:
+	setstatchanger STAT_ACC, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectDragonCheerEnd
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DragonCheerAnim
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectDragonCheerEnd
+BattleScript_DragonCheerAnim:
 	attackanimation
 	waitanimation
-	printfromtable gFocusEnergyUsedStringIds
-	waitmessage B_WAIT_TIME_SHORTEST
-	goto BattleScript_FocusEnergyEnd
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectDragonCheerEnd:
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
@@ -2442,62 +2608,68 @@ BattleScript_StatDownReturn::
 	return
 
 BattleScript_EffectAromaticMist:
+jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_AromaticMistDoubles
+jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_MISTY_TERRAIN, BattleScript_EffectCalmMind
+goto BattleScript_EffectSpecialDefenseUp
+BattleScript_AromaticMistDoubles:
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_AromaticMistDoublesMistyTerrain
 	attackcanceler
 	attackstring
 	ppreduce
 	setbyte gBattleCommunication, 0
-BattleScript_EffectAromaticMistStart:
-	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_MISTY_TERRAIN, BattleScript_EffectAromaticMistMistyTerrain
-	goto BattleScript_EffectAromaticMistMistyTerrainLoop
-BattleScript_EffectAromaticMistCheckStats:
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistLoop
-BattleScript_EffectAromaticMistTryAtk:
-	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistSkipAnim
+BattleScript_EffectAromaticMistDoublesCheckStats:
+	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistDoublesTryAtk
+BattleScript_EffectAromaticMistDoublesTryAtk:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistDoublesSkipAnim
 	attackanimation
 	waitanimation
-BattleScript_EffectAromaticMistSkipAnim:
-	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_SPDEF, 0
-	setstatchanger STAT_SPDEF, 1, FALSE
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistLoop
-	addbyte gBattleCommunication, 1
-	printfromtable gStatUpStringIds
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectAromaticMistLoop:
-	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistEnd
-	setallytonexttarget BattleScript_EffectAromaticMistStart
-BattleScript_EffectAromaticMistEnd:
-	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
-	goto BattleScript_ButItFailed
-BattleScript_EffectAromaticMistMistyTerrain:
-	goto BattleScript_EffectAromaticMistMistyTerrainLoop
-BattleScript_EffectAromaticMistMistyTerrainCheckStats:
-	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistMistyTerrainTryAtk
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_EffectAromaticMistMistyTerrainLoop
-BattleScript_EffectAromaticMistMistyTerrainTryAtk:
-	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistMistyTerrainSkipAnim
-	attackanimation
-	waitanimation
-BattleScript_EffectAromaticMistMistyTerrainSkipAnim:
+BattleScript_EffectAromaticMistDoublesSkipAnim:
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_SPDEF | BIT_SPATK, 0
 	setstatchanger STAT_SPDEF, 1, FALSE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistMistyTerrainTrySpAtk
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistMistyTerrainTrySpAtk
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistDoublesLoop
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistDoublesLoop
 	addbyte gBattleCommunication, 1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectAromaticMistMistyTerrainTrySpAtk:
+BattleScript_EffectAromaticMistDoublesLoop:
+	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistDoublesEnd
+	setallytonexttarget BattleScript_EffectAromaticMistDoublesCheckStats
+BattleScript_EffectAromaticMistDoublesEnd:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
+	goto BattleScript_ButItFailed
+BattleScript_AromaticMistDoublesMistyTerrain:
+	attackcanceler
+	attackstring
+	ppreduce
+	setbyte gBattleCommunication, 0
+BattleScript_EffectAromaticMistDoublesMistyTerrainCheckStats:
+	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectAromaticMistDoublesMistyTerrainTryAtk
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_EffectAromaticMistDoublesMistyTerrainLoop
+BattleScript_EffectAromaticMistDoublesMistyTerrainTryAtk:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectAromaticMistDoublesMistyTerrainSkipAnim
+	attackanimation
+	waitanimation
+BattleScript_EffectAromaticMistDoublesMistyTerrainSkipAnim:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_SPDEF | BIT_SPATK, 0
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistDoublesMistyTerrainTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistDoublesMistyTerrainTrySpAtk
+	addbyte gBattleCommunication, 1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectAromaticMistDoublesMistyTerrainTrySpAtk:
 	setstatchanger STAT_SPATK, 1, FALSE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistMistyTerrainLoop
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistMistyTerrainLoop
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectAromaticMistDoublesMistyTerrainLoop
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectAromaticMistDoublesMistyTerrainLoop
 	addbyte gBattleCommunication, 1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectAromaticMistMistyTerrainLoop:
-	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistMistyTerrainEnd
-	setallytonexttarget BattleScript_EffectAromaticMistStart
-BattleScript_EffectAromaticMistMistyTerrainEnd:
+BattleScript_EffectAromaticMistDoublesMistyTerrainLoop:
+	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_EffectAromaticMistDoublesMistyTerrainEnd
+	setallytonexttarget BattleScript_EffectAromaticMistDoublesMistyTerrainCheckStats
+BattleScript_EffectAromaticMistDoublesMistyTerrainEnd:
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
 	goto BattleScript_ButItFailed
 
@@ -4941,7 +5113,7 @@ BattleScript_EffectFocusEnergy:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus2 BS_TARGET, STATUS2_FOCUS_ENERGY_ANY, BattleScript_FocusEnergyFailedCheckInnerFocus
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_FocusEnergyFailedCheckInnerFocus
 	setfocusenergy
 	attackanimation
 	waitanimation
@@ -5374,7 +5546,9 @@ BattleScript_EffectDoNothing::
 	waitanimation
 	jumpifmove MOVE_CELEBRATE, BattleScript_EffectCelebrate
 	jumpifmove MOVE_HAPPY_HOUR, BattleScript_EffectHappyHour
+	jumpifmove MOVE_REAL_TEARS, BattleScript_RealTearsStuff
 	incrementgamestat GAME_STAT_USED_SPLASH
+BattleScript_RealTearsStuff::
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

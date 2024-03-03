@@ -1164,9 +1164,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro setsilence2 failInstr:req
+	.macro dragonpokerdamagecalculation
 	.byte 0xe1
-	.4byte \failInstr
 	.endm
 
 	.macro switchoutabilities battler:req
@@ -1365,6 +1364,10 @@
 	.macro applysaltcure battler:req
 	callnative BS_ApplySaltCure
 	.byte \battler
+	.endm
+
+	.macro setglaiverush
+	callnative BS_SetGlaiveRush
 	.endm
 
 	.macro trycopycat failInstr:req

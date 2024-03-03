@@ -878,6 +878,15 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_RADIOACID] = _("Radioacid"),
     [MOVE_PARTING_CURRY] = _("Parting Curry"),
     [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
+    [MOVE_FLARE_CRUSH] = _("Flare Crush"),
+    [MOVE_HULLBREAKER] = _("Hullbreaker"),
+    [MOVE_CHROMA_BEAM] = _("Chroma Beam"),
+    [MOVE_HEART_CARVE] = _("Heart Carve"),
+    [MOVE_REAL_TEARS] = _("Real Tears"),
+    [MOVE_RAZING_SUN] = _("Razing Sun"),
+    [MOVE_DRAGON_POKER] = _("Dragon Poker"),
+    [MOVE_LONE_SHARK] = _("Lone Shark"),
+    [MOVE_HEART_STEAL] = _("Heart Steal"),
 };
 #else
 // 12 letters
@@ -1759,6 +1768,15 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_RADIOACID] = _("Radioacid"),
     [MOVE_PARTING_CURRY] = _("PartingCurry"),
     [MOVE_SERPENT_SURGE] = _("Serpent Surge"),
+    [MOVE_FLARE_CRUSH] = _("Flare Crush"),
+    [MOVE_HULLBREAKER] = _("Hullbreaker"),
+    [MOVE_CHROMA_BEAM] = _("Chroma Beam"),
+    [MOVE_HEART_CARVE] = _("Heart Carve"),
+    [MOVE_REAL_TEARS] = _("Real Tears"),
+    [MOVE_RAZING_SUN] = _("Razing Sun"),
+    [MOVE_DRAGON_POKER] = _("Dragon Poker"),
+    [MOVE_LONE_SHARK] = _("Lone Shark"),
+    [MOVE_HEART_STEAL] = _("Heart Steal"),
 };
 #endif
 

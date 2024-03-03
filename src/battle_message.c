@@ -845,6 +845,17 @@ static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_PkmnTookAim2[] = _("Every Pokémon took aim at\neach other!");
 static const u8 sText_PkmnDoubledStats[] = _("{B_ATK_NAME_WITH_PREFIX} had their stats doubled!");
 static const u8 sText_PkmnWelcomeTheAudience[] = _("{B_ATK_NAME_WITH_PREFIX} is ready to welcome\nthe audience!");
+static const u8 sText_DragonPokerNoPair[] = _("{B_ATK_NAME_WITH_PREFIX} has nothing...");
+static const u8 sText_DragonPokerOnePair[] = _("{B_ATK_NAME_WITH_PREFIX} has one pair!");
+static const u8 sText_DragonPokerTwoPair[] = _("{B_ATK_NAME_WITH_PREFIX} has two pairs!");
+static const u8 sText_DragonPokerThreeOfAKind[] = _("{B_ATK_NAME_WITH_PREFIX} has three of a kind!\n");
+static const u8 sText_DragonPokerStraight[] = _("{B_ATK_NAME_WITH_PREFIX} has a straight!");
+static const u8 sText_DragonPokerFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a flush!");
+static const u8 sText_DragonPokerFullHouse[] = _("{B_ATK_NAME_WITH_PREFIX} has a full house!");
+static const u8 sText_DragonPokerFourOfAKind[] = _("{B_ATK_NAME_WITH_PREFIX} has four of a kind!");
+static const u8 sText_DragonPokerStraightFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a straight\nflush!");
+static const u8 sText_DragonPokerRoyalFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a royal flush!\n");
+static const u8 sText_PkmnLeavingItselfOpen[] = _("{B_ATK_NAME_WITH_PREFIX} is leaving\nitself open?");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1541,6 +1552,17 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNTOOKAIM2 - BATTLESTRINGS_TABLE_START] = sText_PkmnTookAim2,
     [STRINGID_PKMNDOUBLEDSTATS - BATTLESTRINGS_TABLE_START] = sText_PkmnDoubledStats,
     [STRINGID_PKMNWELCOMETHEAUDIENCE - BATTLESTRINGS_TABLE_START] = sText_PkmnWelcomeTheAudience,
+    [STRINGID_DRAGONPOKERNOPAIR - BATTLESTRINGS_TABLE_START] = sText_DragonPokerNoPair,
+    [STRINGID_DRAGONPOKERONEPAIR - BATTLESTRINGS_TABLE_START] = sText_DragonPokerOnePair,
+    [STRINGID_DRAGONPOKERTWOPAIR - BATTLESTRINGS_TABLE_START] = sText_DragonPokerTwoPair,
+    [STRINGID_DRAGONPOKERTHREEOFAKIND - BATTLESTRINGS_TABLE_START] = sText_DragonPokerThreeOfAKind,
+    [STRINGID_DRAGONPOKERSTRAIGHT - BATTLESTRINGS_TABLE_START] = sText_DragonPokerStraight,
+    [STRINGID_DRAGONPOKERFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerFlush,
+    [STRINGID_DRAGONPOKERFULLHOUSE - BATTLESTRINGS_TABLE_START] = sText_DragonPokerFullHouse,
+    [STRINGID_DRAGONPOKERFOUROFAKIND - BATTLESTRINGS_TABLE_START] = sText_DragonPokerFourOfAKind,
+    [STRINGID_DRAGONPOKERSTRAIGHTFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerStraightFlush,
+    [STRINGID_DRAGONPOKERROYALFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerRoyalFlush,
+    [STRINGID_PKMNLEAVINGITSELFOPEN - BATTLESTRINGS_TABLE_START] = sText_PkmnLeavingItselfOpen,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

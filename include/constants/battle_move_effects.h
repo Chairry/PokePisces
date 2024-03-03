@@ -456,6 +456,21 @@
 #define EFFECT_SERPENT_SURGE                450
 #define EFFECT_TIDY_UP                      451
 #define EFFECT_DRAINING_KISS                452
-#define NUM_BATTLE_MOVE_EFFECTS             453
+#define EFFECT_HULLBREAKER                  453
+#define EFFECT_HEART_CARVE_HIT              454
+#define EFFECT_RAZING_SUN                   455
+#define EFFECT_DRAGON_POKER                 456
+#define EFFECT_WATERFALL                    457
+#define EFFECT_CUT                          458
+#define EFFECT_ROCK_SMASH                   459
+#define EFFECT_STRENGTH                     460
+#define EFFECT_ROCK_CLIMB                   461
+#define EFFECT_SURF                         462
+#define EFFECT_DIVE                         463
+#define EFFECT_FLY                          464
+#define EFFECT_WHIRLPOOL                    465
+#define EFFECT_LONE_SHARK                   466
+#define EFFECT_HEART_STEAL                  467
+#define NUM_BATTLE_MOVE_EFFECTS             468
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
