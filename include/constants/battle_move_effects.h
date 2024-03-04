@@ -472,6 +472,8 @@
 #define EFFECT_LONE_SHARK                   466
 #define EFFECT_HEART_STEAL                  467
 #define EFFECT_IGNA_STRIKE                  468
-#define NUM_BATTLE_MOVE_EFFECTS             469
+#define EFFECT_ACCURACY_DEFENSE_DOWN_HIT    469
+#define EFFECT_VENOM_DRAIN                  470
+#define NUM_BATTLE_MOVE_EFFECTS             471
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

@@ -14721,6 +14721,46 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
     },
 
+    [MOVE_VENOM_GALE] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .power = 55,
+        #else
+            .power = 55,
+        #endif
+        .effect = EFFECT_ACCURACY_DEFENSE_DOWN_HIT,
+        .type = TYPE_POISON,
+        .accuracy = 95,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_VENOM_DRAIN] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .secondaryEffectChance = 0,
+        #else
+            .secondaryEffectChance = 0,
+        #endif
+        .effect = EFFECT_VENOM_DRAIN,
+        .power = 75,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .bitingMove = TRUE,
+        .argument = STATUS1_PSN_ANY,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

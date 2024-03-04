@@ -399,7 +399,8 @@
 #define MOVE_EFFECT_CINDER_DRILL        88
 #define MOVE_EFFECT_RADIOACID           89
 #define MOVE_EFFECT_HEART_CARVE         90
-#define NUM_MOVE_EFFECTS                91
+#define MOVE_EFFECT_DEF_ACC_DOWN        91
+#define NUM_MOVE_EFFECTS                92
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

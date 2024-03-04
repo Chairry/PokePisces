@@ -913,6 +913,8 @@ gBattleAnims_Moves::
 	.4byte Move_LONE_SHARK
 	.4byte Move_HEART_STEAL
 	.4byte Move_IGNA_STRIKE
+	.4byte Move_VENOM_GALE
+	.4byte Move_VENOM_DRAIN
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -18947,6 +18949,12 @@ Move_HEART_STEAL::
 
 Move_IGNA_STRIKE::
 	goto Move_EXTREME_SPEED
+
+Move_VENOM_GALE::
+	goto Move_SMOG
+
+Move_VENOM_DRAIN::
+	goto Move_POISON_FANG
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

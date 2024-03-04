@@ -888,6 +888,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_LONE_SHARK] = _("Lone Shark"),
     [MOVE_HEART_STEAL] = _("Heart Steal"),
     [MOVE_IGNA_STRIKE] = _("Igna Strike"),
+    [MOVE_VENOM_GALE] = _("Venom Gale"),
+    [MOVE_VENOM_DRAIN] = _("Venom Drain"),
 };
 #else
 // 12 letters
@@ -1779,6 +1781,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_LONE_SHARK] = _("Lone Shark"),
     [MOVE_HEART_STEAL] = _("Heart Steal"),
     [MOVE_IGNA_STRIKE] = _("Igna Strike"),
+    [MOVE_VENOM_GALE] = _("Venom Gale"),
+    [MOVE_VENOM_DRAIN] = _("Venom Drain"),
 };
 #endif
 

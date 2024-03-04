@@ -985,6 +985,7 @@ static const u16 sFinalStrikeOnlyEffects[] =
     EFFECT_SMACK_DOWN,
     EFFECT_SPARKLING_ARIA,
     EFFECT_SMELLINGSALT,
+    EFFECT_VENOM_DRAIN,
     EFFECT_WAKE_UP_SLAP,
     EFFECT_HIT_ESCAPE,
     EFFECT_RECOIL_HP_25,
@@ -3637,7 +3638,14 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
                 }
                 break;
-            case MOVE_EFFECT_DEF_SPDEF_UP: // Close Combat
+            case MOVE_EFFECT_DEF_ACC_DOWN:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_DefAccDown;
+                }
+                break;
+            case MOVE_EFFECT_DEF_SPDEF_UP:
                 if (!NoAliveMonsForEitherParty())
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -5850,6 +5858,9 @@ static void Cmd_moveend(void)
                         break;
                     case STATUS1_BURN:
                         gBattlescriptCurrInstr = BattleScript_TargetBurnHeal;
+                        break;
+                    case STATUS1_PSN_ANY:
+                        gBattlescriptCurrInstr = BattleScript_TargetPoisonHeal;
                         break;
                     }
                 }
@@ -11730,6 +11741,11 @@ static void Cmd_stockpiletohpheal(void)
 static void Cmd_setdrainedhp(void)
 {
     CMD_ARGS();
+
+    if (gBattleMoves[gCurrentMove].argument != 0 && (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY)))
+        gBattleMoveDamage = (gHpDealt * 75 / 100);
+    else if (gBattleMoves[gCurrentMove].argument != 0 && (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN))
+        gBattleMoveDamage = (gHpDealt / 4);
 
     if (gBattleMoves[gCurrentMove].argument != 0)
         gBattleMoveDamage = (gHpDealt * gBattleMoves[gCurrentMove].argument / 100);

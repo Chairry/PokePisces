@@ -495,6 +495,40 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_LONE_SHARK
 	.4byte BattleScript_EffectSpectralThief           @ EFFECT_HEART_STEAL
 	.4byte BattleScript_EffectHit                     @ EFFECT_IGNA_STRIKE
+	.4byte BattleScript_EffectDefAccDownHit           @ EFFECT_ACCURACY_DEFENSE_DOWN_HIT
+	.4byte BattleScript_EffectVenomDrain              @ EFFECT_VENOM_DRAIN
+
+BattleScript_EffectVenomDrain:
+	jumpifsubstituteblocks BattleScript_EffectAbsorb
+	setmoveeffect MOVE_EFFECT_REMOVE_STATUS | MOVE_EFFECT_CERTAIN
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_VenomDrainHealBlock
+	setdrainedhp
+	manipulatedamage DMG_BIG_ROOT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
+	jumpifability BS_TARGET, ABILITY_LIQUID_OOZE, BattleScript_VenomDrainLiquidOoze
+	setbyte cMULTISTRING_CHOOSER, B_MSG_ABSORB
+	goto BattleScript_VenomDrainUpdateHp
+BattleScript_VenomDrainLiquidOoze::
+	call BattleScript_AbilityPopUpTarget
+	manipulatedamage DMG_CHANGE_SIGN
+	setbyte cMULTISTRING_CHOOSER, B_MSG_ABSORB_OOZE
+BattleScript_VenomDrainUpdateHp::
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	jumpifmovehadnoeffect BattleScript_VenomDrainTryFainting
+	printfromtable gAbsorbDrainStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_VenomDrainTryFainting::
+	tryfaintmon BS_ATTACKER
+BattleScript_VenomDrainHealBlock::
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectDefAccDownHit::
+	setmoveeffect MOVE_EFFECT_DEF_ACC_DOWN
+	goto BattleScript_EffectHit
 
 BattleScript_LoneSharkSetUp::
 	printstring STRINGID_EMPTYSTRING3
@@ -8892,6 +8926,25 @@ BattleScript_AtkDefDownTryDef:
 BattleScript_AtkDefDownRet:
 	return
 
+BattleScript_DefAccDown::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_DEF | BIT_ACC, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_DEF, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_DefAccDownTryAcc
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefAccDownTryAcc
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefAccDownTryAcc::
+	playstatchangeanimation BS_TARGET, BIT_ACC, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_ACC, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_DefAccDownRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefAccDownRet
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefAccDownRet::
+	return
+
 BattleScript_DefSpDefDown::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
@@ -9526,6 +9579,12 @@ BattleScript_CurseTurnDmg::
 	waitmessage B_WAIT_TIME_LONG
 	status2animation BS_ATTACKER, STATUS2_CURSED
 	goto BattleScript_DoTurnDmg
+
+BattleScript_TargetPoisonHeal::
+	printstring STRINGID_PKMNHEALEDPOISON
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_TARGET
+	return
 
 BattleScript_TargetPRLZHeal::
 	printstring STRINGID_PKMNHEALEDPARALYSIS

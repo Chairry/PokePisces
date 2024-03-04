@@ -3448,6 +3448,14 @@ static const u8 sIgnaStrikeDescription[] = _(
     "A quick dash that hits Fire\n"
     "and Flying super effectively.");
 
+static const u8 sVenomGaleDescription[] = _(
+    "Spreads a poison mist that\n"
+    "lowers Accuracy and Defense.");
+
+static const u8 sVenomDrainDescription[] = _(
+    "Drains more when foe is\n"
+    "poisoned but also removes it.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4344,4 +4352,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LONE_SHARK - 1] = sLoneSharkDescription,
     [MOVE_HEART_STEAL - 1] = sHeartStealDescription,
     [MOVE_IGNA_STRIKE - 1] = sIgnaStrikeDescription,
+    [MOVE_VENOM_GALE - 1] = sVenomGaleDescription,
+    [MOVE_VENOM_DRAIN - 1] = sVenomDrainDescription,
 };
