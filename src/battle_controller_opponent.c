@@ -217,17 +217,21 @@ static void Intro_TryShinyAnimShowHealthbox(u32 battler)
 {
     bool32 bgmRestored = FALSE;
     bool32 battlerAnimsDone = FALSE;
-    bool32 twoMons = TwoOpponentIntroMons(battler);;
+    bool32 twoMons;
 
-    // Start shiny animation if applicable for 1st pokemon
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim
-     && !gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive)
-        TryShinyAnimation(battler, &gPlayerParty[gBattlerPartyIndexes[battler]]);
+     && !gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive
+     && !gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim)
+        TryShinyAnimation(battler, &gEnemyParty[gBattlerPartyIndexes[battler]]);
 
-    // Start shiny animation if applicable for 2nd pokemon
-    if (!gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].triedShinyMonAnim
-     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive)
-        TryShinyAnimation(BATTLE_PARTNER(battler), &gPlayerParty[gBattlerPartyIndexes[BATTLE_PARTNER(battler)]]);
+    twoMons = TwoOpponentIntroMons(battler);
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+     && (!(gBattleTypeFlags & BATTLE_TYPE_MULTI) || BATTLE_TWO_VS_ONE_OPPONENT)
+     && twoMons
+     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].triedShinyMonAnim
+     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive
+     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].finishedShinyMonAnim)
+        TryShinyAnimation(BATTLE_PARTNER(battler), &gEnemyParty[gBattlerPartyIndexes[BATTLE_PARTNER(battler)]]);
 
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive)
     {
@@ -310,7 +314,8 @@ static void TryShinyAnimAfterMonAnim(u32 battler)
         TryShinyAnimation(battler, &gEnemyParty[gBattlerPartyIndexes[battler]]);
 
     if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy
-     && gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim)
+     && gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim
+     && gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].finishedShinyMonAnim)
     {
         gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim = FALSE;
         gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim = FALSE;
