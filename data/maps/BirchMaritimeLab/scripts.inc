@@ -99,7 +99,6 @@ BirchMaritimeLab_EventScript_GiveStarterEvent::
 	waitmessage
 	playfanfare MUS_SLOTS_JACKPOT
 	waitfanfare
-	playbgm MUS_ENCOUNTER_MAY, FALSE
 	msgbox BirchMaritimeLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, BirchMaritimeLab_EventScript_NicknameStarter
 	goto_if_eq VAR_RESULT, NO, BirchMaritimeLab_EventScript_GivePokedex
@@ -112,6 +111,7 @@ BirchMaritimeLab_EventScript_NicknameStarter::
 	end
 
 BirchMaritimeLab_EventScript_GivePokedex::
+	playbgm MUS_ENCOUNTER_MAY, FALSE
 	msgbox BirchMaritimeLab_Text_HeardYouBeatRivalTakePokedex, MSGBOX_DEFAULT
 	call BirchMaritimeLab_EventScript_ReceivePokedex
 	msgbox BirchMaritimeLab_Text_ExplainPokedex, MSGBOX_DEFAULT

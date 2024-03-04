@@ -1,7 +1,10 @@
 raw `
+.set LOCALID_PACIFBIRCH, 20
+
 PacifidlogTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, PacifidlogTown_OnResume
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PacifidlogTown_OnFrame
 	.byte 0
 
 PacifidlogTown_OnTransition:
@@ -11,6 +14,159 @@ PacifidlogTown_OnTransition:
 PacifidlogTown_OnResume:
 	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
 	end
+
+PacifidlogTown_OnFrame:
+	map_script_2 VAR_BIRCH_LAB_STATE, 2, PacifidlogTown_EventScript_TakePlayerToLab
+	.2byte 0
+
+PacifidlogTown_EventScript_TakePlayerToLab::
+	lock
+	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchNotice
+	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerNotice
+	waitmovement 0
+	msgbox PacifidlogTown_Text_GladToSeeYou, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchWalk1
+	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerWalk1
+	waitmovement 0
+	msgbox PacifidlogTown_Text_PacifidlogTownIsNice, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchWalk2
+	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerWalk2
+	waitmovement 0
+	msgbox PacifidlogTown_Text_ResearchingTheLegends, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchWalk3
+	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerWalk3
+	waitmovement 0
+	msgbox PacifidlogTown_Text_CouldUseYourHelp, MSGBOX_DEFAULT
+	warp MAP_BIRCH_MARITIME_LAB, 9, 14
+	waitstate
+	release
+	end
+
+PacifidlogTown_Movement_BirchNotice:
+	emote_exclamation_mark
+	jump_in_place_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+PacifidlogTown_Movement_PlayerNotice:
+	face_left
+	delay_8
+	walk_left
+	walk_left
+	step_end
+
+PacifidlogTown_Movement_BirchWalk1:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_right
+	step_end
+
+PacifidlogTown_Movement_PlayerWalk1:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+PacifidlogTown_Movement_BirchWalk2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_left
+	step_end
+
+PacifidlogTown_Movement_PlayerWalk2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_left
+	step_end
+
+PacifidlogTown_Movement_BirchWalk3:
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_down
+	step_end
+
+PacifidlogTown_Movement_PlayerWalk3:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
 
 PacifidlogTown_EventScript_NinjaBoy::
 	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
@@ -165,6 +321,18 @@ PacifidlogTown_Text_TownSign:
 	.string "PACIFIDLOG TOWN\p"
 	.string "“Where the morning sun smiles upon\n"
 	.string "the waters.”$"
+
+PacifidlogTown_Text_GladToSeeYou:
+	.string "test1$"
+
+PacifidlogTown_Text_PacifidlogTownIsNice:
+	.string "test2$"
+
+PacifidlogTown_Text_ResearchingTheLegends:
+	.string "test3$"
+
+PacifidlogTown_Text_CouldUseYourHelp:
+	.string "test4$"
 
 PacifidlogTown_Text_CantGoPastUs1:
 	.string "(There are two men attempting\n"
