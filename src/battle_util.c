@@ -8918,6 +8918,23 @@ u32 GetMoveTargetCount(u32 move, u32 battlerAtk, u32 battlerDef)
     }
 }
 
+bool32 IsMoveMultipleTargetAndDamages(u32 move, u32 battlerAtk)
+{
+    if(gBattleMoves[move].power > 0) {
+        switch (GetBattlerMoveTargetType(battlerAtk, move))
+        {
+            case MOVE_TARGET_BOTH:
+            case MOVE_TARGET_FOES_AND_ALLY:
+                return TRUE;
+            default:
+                return FALSE;
+        }
+    } else {
+        return FALSE;
+    }
+    
+}
+
 static const u8 sFlailHpScaleToPowerTable[] =
 {
     1, 200,
@@ -10239,14 +10256,27 @@ static inline s32 CalculateBaseDamage(u32 power, u32 userFinalAttack, u32 level,
 
 static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 battlerDef)
 {
-    if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2) {
-        if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY) {
+    if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2)
+    {
+        if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        {
+            // WIDE_ARMOR Effect can go in this check too
             return UQ_4_12(0.5);
-        } else {
+        }
+        else
+        {
             return V_MULTIPLE_TARGETS_DMG;
         }
     }
-    return UQ_4_12(1.0);
+    else if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+    {
+        // WIDE_ARMOR Effect can go in this check too
+        return UQ_4_12(0.75);
+    }
+    else
+    {
+        return UQ_4_12(1.0);
+    }
 }
 
 static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
