@@ -314,8 +314,7 @@ static void TryShinyAnimAfterMonAnim(u32 battler)
         TryShinyAnimation(battler, &gEnemyParty[gBattlerPartyIndexes[battler]]);
 
     if (gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy
-     && gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim
-     && gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].finishedShinyMonAnim)
+     && gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim)
     {
         gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim = FALSE;
         gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim = FALSE;
