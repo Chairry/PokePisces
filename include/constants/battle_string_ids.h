@@ -716,8 +716,10 @@
 #define STRINGID_DRAGONPOKERSTRAIGHTFLUSH             714
 #define STRINGID_DRAGONPOKERROYALFLUSH                715
 #define STRINGID_PKMNLEAVINGITSELFOPEN                716
-#define STRINGID_ATTACKERCANTESCAPENOW                717  
-#define BATTLESTRINGS_COUNT                           718
+#define STRINGID_ATTACKERCANTESCAPENOW                717
+#define STRINGID_PKMNCUTSDEFENCEWITH                  718
+#define STRINGID_PKMNCUTSSPDEFENCEWITH                719
+#define BATTLESTRINGS_COUNT                           720
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
