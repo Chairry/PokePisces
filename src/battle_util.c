@@ -10258,7 +10258,7 @@ static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 bat
 {
     if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2)
     {
-        if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
         {
             // WIDE_ARMOR Effect can go in this check too
             return UQ_4_12(0.5);
@@ -10268,7 +10268,7 @@ static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 bat
             return V_MULTIPLE_TARGETS_DMG;
         }
     }
-    else if (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+    else if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
     {
         // WIDE_ARMOR Effect can go in this check too
         return UQ_4_12(0.75);
