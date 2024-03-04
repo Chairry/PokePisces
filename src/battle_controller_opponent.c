@@ -217,21 +217,17 @@ static void Intro_TryShinyAnimShowHealthbox(u32 battler)
 {
     bool32 bgmRestored = FALSE;
     bool32 battlerAnimsDone = FALSE;
-    bool32 twoMons;
+    bool32 twoMons = TwoOpponentIntroMons(battler);;
 
+    // Start shiny animation if applicable for 1st pokemon
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim
-     && !gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive
-     && !gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim)
-        TryShinyAnimation(battler, &gEnemyParty[gBattlerPartyIndexes[battler]]);
+     && !gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive)
+        TryShinyAnimation(battler, &gPlayerParty[gBattlerPartyIndexes[battler]]);
 
-    twoMons = TwoOpponentIntroMons(battler);
-    if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-     && (!(gBattleTypeFlags & BATTLE_TYPE_MULTI) || BATTLE_TWO_VS_ONE_OPPONENT)
-     && twoMons
-     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].triedShinyMonAnim
-     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive
-     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].finishedShinyMonAnim)
-        TryShinyAnimation(BATTLE_PARTNER(battler), &gEnemyParty[gBattlerPartyIndexes[BATTLE_PARTNER(battler)]]);
+    // Start shiny animation if applicable for 2nd pokemon
+    if (!gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].triedShinyMonAnim
+     && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive)
+        TryShinyAnimation(BATTLE_PARTNER(battler), &gPlayerParty[gBattlerPartyIndexes[BATTLE_PARTNER(battler)]]);
 
     if (!gBattleSpritesDataPtr->healthBoxesData[battler].ballAnimActive && !gBattleSpritesDataPtr->healthBoxesData[BATTLE_PARTNER(battler)].ballAnimActive)
     {
