@@ -1011,6 +1011,7 @@ gBattleAnims_General::
 	.4byte General_Silence                  @ B_ANIM_SILENCE
 	.4byte General_WhiteSmoke               @ B_ANIM_WHITE_SMOKE
 	.4byte General_SwitchItems              @ B_ANIM_SWITCH_ITEMS
+	.4byte Move_TRICK_ROOM                 @ B_ANIM_TIME_TURN 
 
 	.align 2
 gBattleAnims_Special::
@@ -28879,6 +28880,16 @@ Status_Nightmare:
 	end
 
 Status_Powder:
+	end
+
+_RGeneral_TimeTurn::
+	call InitRoomAnimation
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
 	end
 
 General_StatsChange:

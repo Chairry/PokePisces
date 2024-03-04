@@ -278,6 +278,8 @@ extern const u8 BattleScript_AuroraVeilEnds[];
 extern const u8 BattleScript_LuckyChantEnds[];
 extern const u8 BattleScript_TailwindEnds[];
 extern const u8 BattleScript_TrickRoomEnds[];
+extern const u8 BattleScript_TimeTurnActivated[];
+extern const u8 BattleScript_TimeTurnDeactivated[];
 extern const u8 BattleScript_WonderRoomEnds[];
 extern const u8 BattleScript_MagicRoomEnds[];
 extern const u8 BattleScript_TerrainEnds[];

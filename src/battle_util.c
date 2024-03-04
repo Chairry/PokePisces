@@ -4875,6 +4875,26 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_TIME_TURN:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                if(!(gFieldStatuses & STATUS_FIELD_TRICK_ROOM)){
+                    //Enable Trick Room
+                    gFieldStatuses |= STATUS_FIELD_TRICK_ROOM;
+                    gFieldTimers.trickRoomTimer = 5;
+                    BattleScriptPushCursorAndCallback(BattleScript_TimeTurnActivated);
+                    effect++;
+                }
+                else{
+                    //Removes Trick Room
+                    gFieldTimers.trickRoomTimer = 0;
+                    gFieldStatuses &= ~(STATUS_FIELD_TRICK_ROOM);
+                    BattleScriptPushCursorAndCallback(BattleScript_TimeTurnDeactivated);
+                    effect++;
+                }
+            }
+            break;            
         case ABILITY_WHITE_SMOKE:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {

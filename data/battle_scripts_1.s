@@ -4006,6 +4006,30 @@ BattleScript_RoomServiceLoop_NextBattler:
 	restoretarget
 	goto BattleScript_MoveEnd
 
+BattleScript_TimeTurnActivated::	
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNTWISTEDDIMENSIONS
+	playanimation 0, B_ANIM_TIME_TURN
+	waitmessage B_WAIT_TIME_SHORT
+	savetarget
+	setbyte gBattlerTarget, 0
+BattleScript_TimeTurnRoomServiceLoop:
+	copybyte sBATTLER, gBattlerTarget
+	tryroomservice BS_TARGET, BattleScript_TimeTurnRoomServiceLoop_NextBattler
+	removeitem BS_TARGET
+BattleScript_TimeTurnRoomServiceLoop_NextBattler:
+	addbyte gBattlerTarget, 0x1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_TimeTurnRoomServiceLoop
+	restoretarget
+	end3
+
+BattleScript_TimeTurnDeactivated::
+	call BattleScript_AbilityPopUp
+	playanimation 0, B_ANIM_TIME_TURN
+	printstring STRINGID_TRICKROOMENDS
+	waitmessage B_WAIT_TIME_SHORT
+	end3
+
 BattleScript_EffectWonderRoom:
 BattleScript_EffectMagicRoom:
 	attackcanceler
