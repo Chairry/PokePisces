@@ -497,6 +497,7 @@ extern const u8 BattleScript_QuarkDriveActivates[];
 extern const u8 BattleScript_GoodAsGoldActivates[];
 extern const u8 BattleScript_RuinAbilityActivates[];
 extern const u8 BattleScript_WhiteSmokeAbilityActivates[];
+extern const u8 BattleScript_MagicianAbilityActivates[];
 extern const u8 BattleScript_FallingAbilityActivates[];
 extern const u8 BattleScript_CudChewActivates[];
 extern const u8 BattleScript_SupremeOverlordActivates[];

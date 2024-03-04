@@ -10045,6 +10045,20 @@ BattleScript_WhiteSmokeAbilityActivates::
 	waitmessage B_WAIT_TIME_SHORT
 	end3
 
+BattleScript_MagicianAbilityActivates::	
+	setbyte gBattlerAttacker, 0
+	setbyte gBattlerTarget, 1
+	jumpifsubstituteblocks BattleScript_MagicianAbilityActivates_End
+	tryswapitems BattleScript_MagicianAbilityActivates_End
+	call BattleScript_AbilityPopUp	
+	playanimation BS_BATTLER_0, B_ANIM_SWITCH_ITEMS	
+	printstring STRINGID_PKMNSWITCHEDITEMS
+	waitmessage B_WAIT_TIME_LONG
+	printfromtable gItemSwapStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MagicianAbilityActivates_End:
+	end3
+
 BattleScript_FallingAbilityActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTATS
