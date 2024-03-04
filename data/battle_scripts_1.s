@@ -10037,6 +10037,14 @@ BattleScript_RuinAbilityActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_WhiteSmokeAbilityActivates::
+	call BattleScript_AbilityPopUp
+	setmist	
+	printstring STRINGID_ABILITYSUMMONEDMIST
+	playanimation BS_BATTLER_0, B_ANIM_WHITE_SMOKE	
+	waitmessage B_WAIT_TIME_SHORT
+	end3
+
 BattleScript_FallingAbilityActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTATS

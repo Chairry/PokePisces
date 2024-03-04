@@ -4875,6 +4875,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_WHITE_SMOKE:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_WhiteSmokeAbilityActivates);
+                effect++;
+            }
+            break;
         case ABILITY_VESSEL_OF_RUIN:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
