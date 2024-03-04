@@ -560,6 +560,9 @@
 #define B_ANIM_WATER_SPORT              40
 #define B_ANIM_MUD_WATER_SPORT          41
 #define B_ANIM_SILENCE                  42
+#define B_ANIM_WHITE_SMOKE              43
+#define B_ANIM_SWITCH_ITEMS             44
+#define B_ANIM_TIME_TURN                45
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

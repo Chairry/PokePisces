@@ -4007,6 +4007,30 @@ BattleScript_RoomServiceLoop_NextBattler:
 	restoretarget
 	goto BattleScript_MoveEnd
 
+BattleScript_TimeTurnActivated::	
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNTWISTEDDIMENSIONS
+	playanimation 0, B_ANIM_TIME_TURN
+	waitmessage B_WAIT_TIME_SHORT
+	savetarget
+	setbyte gBattlerTarget, 0
+BattleScript_TimeTurnRoomServiceLoop:
+	copybyte sBATTLER, gBattlerTarget
+	tryroomservice BS_TARGET, BattleScript_TimeTurnRoomServiceLoop_NextBattler
+	removeitem BS_TARGET
+BattleScript_TimeTurnRoomServiceLoop_NextBattler:
+	addbyte gBattlerTarget, 0x1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_TimeTurnRoomServiceLoop
+	restoretarget
+	end3
+
+BattleScript_TimeTurnDeactivated::
+	call BattleScript_AbilityPopUp
+	playanimation 0, B_ANIM_TIME_TURN
+	printstring STRINGID_TRICKROOMENDS
+	waitmessage B_WAIT_TIME_SHORT
+	end3
+
 BattleScript_EffectWonderRoom:
 BattleScript_EffectMagicRoom:
 	attackcanceler
@@ -6294,6 +6318,12 @@ BattleScript_BlockedByPrimalWeatherRet::
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRainRet
 	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOnRet
 	return
+
+BattleScript_EffectStickyHold::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ATTACKERCANTESCAPENOW
+	waitmessage B_WAIT_TIME_SHORT
+	end
 
 BattleScript_EffectDefenseUpHit::
 	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
@@ -9884,12 +9914,10 @@ BattleScript_IntimidateLoop:
 	jumpifabsent BS_TARGET, BattleScript_IntimidateLoopIncrement
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_IntimidateLoopIncrement
 	jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_IntimidatePrevented
-.if B_UPDATED_INTIMIDATE >= GEN_8
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_IntimidatePrevented
-.endif
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_IntimidateInReverse
 BattleScript_IntimidateEffect:
 	copybyte sBATTLER, gBattlerAttacker
@@ -9936,7 +9964,7 @@ BattleScript_IntimidateInReverse:
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_AbilityPopUpTarget
 	pause B_WAIT_TIME_SHORT
-	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_DisturbLoopIncrement, ANIM_ON
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_IntimidateLoopIncrement, ANIM_ON
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_IntimidateLoopIncrement
 
@@ -10032,6 +10060,28 @@ BattleScript_RuinAbilityActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_ABILITYWEAKENEDFSURROUNDINGMONSSTAT
 	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_WhiteSmokeAbilityActivates::
+	call BattleScript_AbilityPopUp
+	setmist	
+	printstring STRINGID_ABILITYSUMMONEDMIST
+	playanimation BS_BATTLER_0, B_ANIM_WHITE_SMOKE	
+	waitmessage B_WAIT_TIME_SHORT
+	end3
+
+BattleScript_MagicianAbilityActivates::	
+	setbyte gBattlerAttacker, 0
+	setbyte gBattlerTarget, 1
+	jumpifsubstituteblocks BattleScript_MagicianAbilityActivates_End
+	tryswapitems BattleScript_MagicianAbilityActivates_End
+	call BattleScript_AbilityPopUp	
+	playanimation BS_BATTLER_0, B_ANIM_SWITCH_ITEMS	
+	printstring STRINGID_PKMNSWITCHEDITEMS
+	waitmessage B_WAIT_TIME_LONG
+	printfromtable gItemSwapStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MagicianAbilityActivates_End:
 	end3
 
 BattleScript_FallingAbilityActivates::
@@ -10396,6 +10446,34 @@ BattleScript_FlinchPrevention::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNSXPREVENTSFLINCHING
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_SteadFastFlinchPrevention::
+	pause B_WAIT_TIME_SHORTEST
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNSXPREVENTSFLINCHING
+	waitmessage B_WAIT_TIME_SHORT
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_SteadFastFlinchPrevention_Atk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_SteadFastFlinchPrevention_Atk
+	call BattleScript_AbilityPopUp
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	setbyte gBattleCommunication STAT_SPEED
+	stattextbuffer BS_TARGET
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_SHORTEST
+BattleScript_SteadFastFlinchPrevention_Atk:
+	setstatchanger STAT_ATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_SteadFastFlinchPrevention_End
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_SteadFastFlinchPrevention_End
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	setbyte gBattleCommunication STAT_ATK
+	stattextbuffer BS_TARGET
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_SHORTEST	
+BattleScript_SteadFastFlinchPrevention_End:
 	goto BattleScript_MoveEnd
 
 BattleScript_OwnTempoPrevents::
@@ -12021,7 +12099,7 @@ BattleScript_DisturbLoop:
 	jumpifabsent BS_TARGET, BattleScript_DisturbLoopIncrement
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_DisturbLoopIncrement
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_DisturbPrevented
-	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented // SCRAPPY
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_DisturbInReverse
@@ -12073,3 +12151,78 @@ BattleScript_DisturbInReverse:
 	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_DisturbLoopIncrement, ANIM_ON
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_DisturbLoopIncrement
+
+
+BattleScript_MockingActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+BattleScript_MockingLoop:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_MockingLoopIncrement
+	jumpiftargetally BattleScript_MockingLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_MockingLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_MockingLoopIncrement
+	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_MockingPrevented
+	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_MockingPrevented
+	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_MockingPrevented
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_MockingPrevented
+	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MockingInReverse
+BattleScript_MockingEffect_Def:
+	copybyte sBATTLER, gBattlerAttacker
+	setstatchanger STAT_DEF, 1, TRUE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_MockingEffect_SpDef
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_MockingContrary
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_MockingEffect_SpDef
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNCUTSDEFENCEWITH
+BattleScript_MockingEffect_SpDef:
+	copybyte sBATTLER, gBattlerAttacker
+	setstatchanger STAT_SPDEF, 1, TRUE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_MockingLoopIncrement
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_MockingContrary
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_MockingLoopIncrement
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNCUTSSPDEFENCEWITH
+BattleScript_MockingEffect_WaitString:
+	waitmessage B_WAIT_TIME_SHORT
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_TryAdrenalineOrb
+BattleScript_MockingLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_MockingLoop
+BattleScript_MockingEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
+BattleScript_MockingContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MockingContrary_WontIncrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	goto BattleScript_MockingEffect_WaitString
+BattleScript_MockingContrary_WontIncrease:
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	goto BattleScript_MockingEffect_WaitString
+
+BattleScript_MockingPrevented:
+	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_LONG
+	setbyte gBattleCommunication STAT_SPATK
+	stattextbuffer BS_TARGET
+	printstring STRINGID_STATWASNOTLOWERED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryAdrenalineOrb
+	goto BattleScript_MockingLoopIncrement
+
+BattleScript_MockingInReverse:
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_AbilityPopUpTarget
+	pause B_WAIT_TIME_SHORT
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_MockingLoopIncrement, ANIM_ON
+	call BattleScript_TryAdrenalineOrb
+	goto BattleScript_MockingLoopIncrement

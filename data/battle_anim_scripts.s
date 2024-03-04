@@ -1010,6 +1010,9 @@ gBattleAnims_General::
 	.4byte General_WaterSport               @ B_ANIM_WATER_SPORT
 	.4byte General_MudWaterSport            @ B_ANIM_MUD_WATER_SPORT
 	.4byte General_Silence                  @ B_ANIM_SILENCE
+	.4byte General_WhiteSmoke               @ B_ANIM_WHITE_SMOKE
+	.4byte General_SwitchItems              @ B_ANIM_SWITCH_ITEMS
+	.4byte Move_TRICK_ROOM                 @ B_ANIM_TIME_TURN 
 
 	.align 2
 gBattleAnims_Special::
@@ -28883,6 +28886,16 @@ Status_Nightmare:
 Status_Powder:
 	end
 
+_RGeneral_TimeTurn::
+	call InitRoomAnimation
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
+	end
+
 General_StatsChange:
 	createvisualtask AnimTask_StatsChange, 5
 	waitforvisualfinish
@@ -29113,6 +29126,72 @@ General_SmokeballEscape:
 	invisible ANIM_ATTACKER
 	delay 0
 	blendoff
+	end
+
+General_WhiteSmoke:
+	loadspritegfx ANIM_TAG_PINK_CLOUD
+	monbg ANIM_ATTACKER
+	setalpha 12, 4
+	delay 0
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_TARGET, 0, 0, 32, 28, 30
+	delay 4
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 127, 2, 12, 20, 30
+	delay 12
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 126, 2, -28, 4, 30
+	delay 12
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 124, 2, 14, -20, 30
+	delay 4
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createvisualtask AnimTask_AttackerFadeToInvisible, 2, 2
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 123, 3, 4, 4, 30
+	delay 14
+	playsewithpan SE_BALL_OPEN, SOUND_PAN_TARGET
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 122, 3, -14, 18, 46
+	delay 0
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 121, 3, 14, -14, 46
+	delay 0
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 120, 3, -12, -10, 46
+	delay 0
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 119, 3, 14, 14, 46
+	delay 0
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 118, 3, 0, 0, 46
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	visible ANIM_ATTACKER
+	delay 0
+	blendoff
+	end
+
+General_SwitchItems:
+	loadspritegfx ANIM_TAG_ITEM_BAG
+	loadspritegfx ANIM_TAG_SPEED_DUST
+	createsprite gTrickBagSpriteTemplate, ANIM_ATTACKER, 2, -40, 80
+	createsprite gTrickBagSpriteTemplate, ANIM_ATTACKER, 2, -40, 208
+	delay 16
+	playsewithpan SE_M_SKETCH, 0
+	createvisualtask AnimTask_StretchTargetUp, 3
+	createvisualtask AnimTask_StretchAttackerUp, 3
+	delay 30
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 24
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_DOUBLE_TEAM, 0
+	delay 16
+	playsewithpan SE_M_ATTRACT, 0
+	createvisualtask AnimTask_ShakeMon, 3, ANIM_ATTACKER, 5, 0, 7, 2
+	createvisualtask AnimTask_ShakeMon, 3, ANIM_TARGET, 5, 0, 7, 2
+	waitforvisualfinish
 	end
 
 General_HangedOn:
