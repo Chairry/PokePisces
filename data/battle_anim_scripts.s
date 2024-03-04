@@ -22715,7 +22715,7 @@ Move_AROMATHERAPY:
 	createsprite gSparklingStarsSpriteTemplate, ANIM_ATTACKER, 16, 12, -5, 0, 0, 32, 60, 1
 	waitforvisualfinish
 	playsewithpan SE_SHINY, SOUND_PAN_ATTACKER
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, (F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_ANIM_1), 3, 10, 0, RGB(13, 31, 12)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_ANIM_1, 3, 10, 0, RGB(13, 31, 12)
 	createsprite gBlendThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 16, 0, 0, 0, 1
 	waitforvisualfinish
 	end
@@ -25509,7 +25509,7 @@ Move_FIRE_PUNCH:
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 15, 1
 	call FireSpreadEffect
 	delay 4
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 0, 9, 0, RGB_RED
 	waitforvisualfinish
@@ -27024,7 +27024,7 @@ Move_BLAZE_KICK:
 	createsprite gSpinningHandOrFootSpriteTemplate, ANIM_TARGET, 3, 0, 0, 1, 30
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 7, RGB_WHITE
 	delay 30
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 0
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 14, 1
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
@@ -27859,17 +27859,17 @@ Move_OVERHEAT:
 	delay 5
 	waitforvisualfinish
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, -5, 3, ANIM_TARGET, 0
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	createvisualtaskontargets AnimTask_ShakeMon, 2, 0, ANIM_TARGET, 10, 0, 25, 1
 	delay 6
 	createspriteontargets gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 2, 8, -5, ANIM_TARGET, 0
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	delay 8
 	createspriteontargets gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 2, 10, 10, ANIM_TARGET, 0
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	delay 8
 	createspriteontargets gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 2, 0, 0, ANIM_TARGET, 0
-	playsewithpan SE_M_FLAMETHROWER, SOUND_PAN_TARGET
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
 	createvisualtask AnimTask_CopyPalFadedToUnfaded, 5, 1
 	delay 1
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, -1, 0, 13, RGB(18, 18, 18)
