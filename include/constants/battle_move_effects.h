@@ -471,6 +471,7 @@
 #define EFFECT_WHIRLPOOL                    465
 #define EFFECT_LONE_SHARK                   466
 #define EFFECT_HEART_STEAL                  467
-#define NUM_BATTLE_MOVE_EFFECTS             468
+#define EFFECT_IGNA_STRIKE                  468
+#define NUM_BATTLE_MOVE_EFFECTS             469
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

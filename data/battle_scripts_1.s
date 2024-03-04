@@ -494,6 +494,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTrap                    @ EFFECT_WHIRLPOOL
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_LONE_SHARK
 	.4byte BattleScript_EffectSpectralThief           @ EFFECT_HEART_STEAL
+	.4byte BattleScript_EffectHit                     @ EFFECT_IGNA_STRIKE
 
 BattleScript_LoneSharkSetUp::
 	printstring STRINGID_EMPTYSTRING3

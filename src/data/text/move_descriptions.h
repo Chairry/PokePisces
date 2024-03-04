@@ -3444,6 +3444,10 @@ static const u8 sHeartStealDescription[] = _(
     "Quickly steals foe's stats.\n"
     "Boosts against infatuation.");
 
+static const u8 sIgnaStrikeDescription[] = _(
+    "A quick dash that hits Fire\n"
+    "and Flying super effectively.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4339,4 +4343,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAGON_POKER - 1] = sDragonPokerDescription,
     [MOVE_LONE_SHARK - 1] = sLoneSharkDescription,
     [MOVE_HEART_STEAL - 1] = sHeartStealDescription,
+    [MOVE_IGNA_STRIKE - 1] = sIgnaStrikeDescription,
 };

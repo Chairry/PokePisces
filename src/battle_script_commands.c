@@ -6125,16 +6125,26 @@ static void Cmd_moveend(void)
                 gBattleScripting.multihitString[4]++;
                 if (--gMultiHitCounter == 0)
                 {
+                    u32 BarbBarragePoisonChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
+
                     if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_SCALE_SHOT && !NoAliveMonsForEitherParty())
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
 
-                    if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE && !NoAliveMonsForEitherParty())
+                    if ((gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE
+                    && !NoAliveMonsForEitherParty())
+                    && gBattleMoveDamage != 0  // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && (BarbBarragePoisonChance)
+                    && gBattleMons[gBattlerTarget].hp)
                     {
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_BarbBarrage;
+                        gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
+                        BattleScriptPushCursor();
+                        SetMoveEffect(FALSE, 0);
+                        BattleScriptPop();
                     }
 
                     BattleScriptPushCursor();
@@ -13864,32 +13874,32 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
     else if (dragonpoker < 50)
     {
-        gBattleStruct->dragonpokerBasePower = 90;
+        gBattleStruct->dragonpokerBasePower = 95;
         gBattlescriptCurrInstr = BattleScript_DragonPokerStraight;
     }
     else if (dragonpoker < 60)
     {
-        gBattleStruct->dragonpokerBasePower = 100;
+        gBattleStruct->dragonpokerBasePower = 110;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFlush;
     }
     else if (dragonpoker < 70)
     {
-        gBattleStruct->dragonpokerBasePower = 110;
+        gBattleStruct->dragonpokerBasePower = 125;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFullHouse;
     }
     else if (dragonpoker < 80)
     {
-        gBattleStruct->dragonpokerBasePower = 120;
+        gBattleStruct->dragonpokerBasePower = 140;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFourOfAKind;
     }
     else if (dragonpoker < 90)
     {
-        gBattleStruct->dragonpokerBasePower = 130;
+        gBattleStruct->dragonpokerBasePower = 160;
         gBattlescriptCurrInstr = BattleScript_DragonPokerStraightFlush;
     }
     else
     {
-        gBattleStruct->dragonpokerBasePower = 150;
+        gBattleStruct->dragonpokerBasePower = 180;
         gBattlescriptCurrInstr = BattleScript_DragonPokerRoyalFlush;
     }
 }

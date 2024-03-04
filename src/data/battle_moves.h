@@ -8702,7 +8702,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_BURN_HIT,
         .power = 100,
         .type = TYPE_FIRE,
-        .accuracy = 75,
+        .accuracy = 70,
         .pp = 5,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_BOTH,
@@ -12809,7 +12809,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
-        .argument = MOVE_EFFECT_SCALE_SHOT,
+        .argument = MOVE_EFFECT_BARB_BARRAGE,
     },
 
     [MOVE_ESPER_WING] =
@@ -14700,6 +14700,25 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .metronomeBanned = TRUE,
+    },
+
+    [MOVE_IGNA_STRIKE] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_5
+            .priority = 2,
+        #else
+            .priority = 1,
+        #endif
+        .effect = EFFECT_IGNA_STRIKE,
+        .power = 80,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
     },
 
     // Z-Moves
