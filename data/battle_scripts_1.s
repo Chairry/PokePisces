@@ -12052,7 +12052,7 @@ BattleScript_DisturbLoop:
 	jumpifabsent BS_TARGET, BattleScript_DisturbLoopIncrement
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_DisturbLoopIncrement
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_DisturbPrevented
-	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented // SCRAPPY
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_DisturbInReverse
