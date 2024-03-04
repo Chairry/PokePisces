@@ -3261,6 +3261,20 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         gBattlescriptCurrInstr++;
                     }
                 } 
+                else if (battlerAbility == ABILITY_STEADFAST)
+                {
+                    if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
+                    {
+                        gLastUsedAbility = ABILITY_STEADFAST;
+                        gBattlerAbility = gEffectBattler;
+                        RecordAbilityBattle(gEffectBattler, ABILITY_STEADFAST);
+                        gBattlescriptCurrInstr = BattleScript_SteadFastFlinchPrevention;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                }
                 else if (battlerAbility == ABILITY_PROPELLER_TAIL)
                 {
                     if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
