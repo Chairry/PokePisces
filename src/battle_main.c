@@ -4718,7 +4718,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed *= 0.75;
     if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
         speed *= 0.5;
-        
+    if (IsAbilityOnSide(battler, ABILITY_FRIENDLY_AURA))
+        speed *= 1.5;
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][0];
     speed /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][1];
