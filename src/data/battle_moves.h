@@ -12556,7 +12556,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_ASTRAL_BARRAGE] =
     {
         .effect = EFFECT_HIT,
-        .power = 120,
+        .power = 110,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 5,
@@ -14877,6 +14877,37 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .damagesAirborne = TRUE,
         .bitingMove = TRUE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_CAUSTIC_FINALE] =
+    {
+        .effect = EFFECT_RECOIL_50_HAZARD,
+        .power = 150,
+        .type = TYPE_POISON,
+        .accuracy = 80,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .argument = MOVE_EFFECT_TOXIC_SPIKES,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_DINE_N_DASH] =
+    {
+        .effect = EFFECT_BUG_BITE,
+        .power = 60,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
     },
 

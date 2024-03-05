@@ -2859,6 +2859,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
         return;
     case MOVE_EFFECT_STEALTH_ROCK:
     case MOVE_EFFECT_SPIKES:
+    case MOVE_EFFECT_TOXIC_SPIKES:
     case MOVE_EFFECT_PAYDAY:
     case MOVE_EFFECT_STEAL_ITEM:
     case MOVE_EFFECT_BUG_BITE:
@@ -3938,6 +3939,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POINTEDSTONESFLOAT;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_StealthRockActivates;
+                }
+                break;
+            case MOVE_EFFECT_TOXIC_SPIKES:
+                if (gSideTimers[GetBattlerSide(gEffectBattler)].toxicSpikesAmount < 2)
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_ToxicSpikesActivates;
                 }
                 break;
             case MOVE_EFFECT_SPIKES:
@@ -5746,10 +5754,16 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
                     effect = TRUE;
                     break;
-                case EFFECT_RECOIL_50_STATUS: // Flare Blitz - can burn, Volt Tackle - can paralyze
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
+                case EFFECT_RECOIL_50_STATUS: // Volt Tackle - can paralyze
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
+                    effect = TRUE;
+                    break;
+                case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                     effect = TRUE;
                     break;
                 }
@@ -9694,13 +9708,13 @@ static void Cmd_various(void)
     case VARIOUS_SUCKER_PUNCH_CHECK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gCurrentMove == MOVE_UPPER_HAND && GetChosenMovePriority(gBattlerTarget) > 0 && (!(GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))))
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        else if (gProtectStructs[gBattlerTarget].obstructed)
+        if (gCurrentMove == MOVE_UPPER_HAND && ((GetChosenMovePriority(gBattlerTarget) < 1) || (gChosenMoveByBattler[gBattlerTarget] == MOVE_NONE)))
+            gBattlescriptCurrInstr = cmd->failInstr;
+        else if (gProtectStructs[gBattlerTarget].obstructed && gCurrentMove != MOVE_UPPER_HAND)
             gBattlescriptCurrInstr = cmd->failInstr;
         else if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
             gBattlescriptCurrInstr = cmd->failInstr;
-        else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+        else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]) && gCurrentMove != MOVE_UPPER_HAND)
             gBattlescriptCurrInstr = cmd->failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;

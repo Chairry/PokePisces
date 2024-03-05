@@ -897,6 +897,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_FINAL_SHRIEK] = _("Final Shriek"),
     [MOVE_MANEUVER] = _("Maneuver"),
     [MOVE_SCORP_FANG] = _("Scorp Fang"),
+    [MOVE_CAUSTIC_FINALE] = _("Caustic Finale"),
+    [MOVE_DINE_N_DASH] = _("Dine & Dash"),
 };
 #else
 // 12 letters
@@ -1797,6 +1799,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_FINAL_SHRIEK] = _("Final Shriek"),
     [MOVE_MANEUVER] = _("Maneuver"),
     [MOVE_SCORP_FANG] = _("Scorp Fang"),
+    [MOVE_CAUSTIC_FINALE] = _("Caustic Finale"),
+    [MOVE_DINE_N_DASH] = _("Dine & Dash"),
 };
 #endif
 

@@ -501,6 +501,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_WILLPOWER
 	.4byte BattleScript_EffectHitSwitchTarget         @ EFFECT_MANEUVER
 	.4byte BattleScript_EffectScorpFang               @ EFFECT_SCORP_FANG
+	.4byte BattleScript_EffectHitSetEntryHazard       @ EFFECT_RECOIL_50_HAZARD
 
 BattleScript_EffectScorpFang:
 	setmoveeffect MOVE_EFFECT_SMACK_DOWN
@@ -854,14 +855,17 @@ BattleScript_EffectCinderDrill:
 	setmoveeffect MOVE_EFFECT_CINDER_DRILL | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	call BattleScript_EffectHit_Ret
 	seteffectwithchance
-	argumentstatuseffect
 	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
+	argumentstatuseffect
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectCinderTwirl:
 	setmoveeffect MOVE_EFFECT_CINDER_TWIRL | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	call BattleScript_EffectHit_Ret
 	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectSaltCure_End
 	seteffectwithchance
 	setstatchanger STAT_SPEED, 1, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectRapidSpinEnd
@@ -870,7 +874,6 @@ BattleScript_EffectCinderTwirl:
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
 	moveendall
 	end
 
@@ -1286,8 +1289,6 @@ BattleScript_EffectDragonCheerWorks:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_EffectDragonCheerEnd
 BattleScript_DragonCheerAnim:
-	attackanimation
-	waitanimation
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatUpStringIds
@@ -1594,6 +1595,11 @@ BattleScript_EffectRevivalBlessingSendOut:
 BattleScript_StealthRockActivates::
 	setstealthrock BattleScript_MoveEnd
 	printfromtable gDmgHazardsStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+BattleScript_ToxicSpikesActivates::
+	settoxicspikes BattleScript_MoveEnd
+	printstring STRINGID_POISONSPIKESSCATTERED
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -2544,6 +2550,7 @@ BattleScript_StrengthSapMustLower:
 
 BattleScript_EffectBugBite:
 	setmoveeffect MOVE_EFFECT_BUG_BITE | MOVE_EFFECT_CERTAIN
+	jumpifmove MOVE_DINE_N_DASH, BattleScript_EffectHitEscape
 	goto BattleScript_EffectHit
 
 BattleScript_EffectIncinerate:
@@ -5969,7 +5976,7 @@ BattleScript_CheckNightmare2::
 	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_NightmareJustTrap
 	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_NightmareWorked
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_NightmareWorked
-	goto BattleScript_NightmareJustTrap
+	goto BattleScript_ButItFailed
 BattleScript_NightmareJustTrap::
 	attackanimation
 	waitanimation

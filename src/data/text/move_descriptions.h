@@ -3480,6 +3480,14 @@ static const u8 sScorpFangDescription[] = _(
     "Badly poisons, grounds foes,\n"
     "and hits Poison and Steel.");
 
+static const u8 sCausticFinaleDescription[] = _(
+    "A jab so powerful it damages\n"
+    "the user. Sets Toxic Spikes.");
+
+static const u8 sDineNDashDescription[] = _(
+    "Hits and switches. If the foe\n"
+    "has a berry the user eats it.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4385,4 +4393,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_FINAL_SHRIEK - 1] = sFinalShriekDescription,
     [MOVE_MANEUVER - 1] = sManeuverDescription,
     [MOVE_SCORP_FANG - 1] = sScorpFangDescription,
+    [MOVE_CAUSTIC_FINALE - 1] = sCausticFinaleDescription,
+    [MOVE_DINE_N_DASH - 1] = sDineNDashDescription,
 };

@@ -478,6 +478,7 @@
 #define EFFECT_WILLPOWER                    472
 #define EFFECT_MANEUVER                     473
 #define EFFECT_SCORP_FANG                   474
-#define NUM_BATTLE_MOVE_EFFECTS             475
+#define EFFECT_RECOIL_50_HAZARD             475
+#define NUM_BATTLE_MOVE_EFFECTS             476
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
