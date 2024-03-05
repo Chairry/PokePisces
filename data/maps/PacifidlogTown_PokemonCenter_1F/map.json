@@ -87,20 +87,6 @@
       "elevation": 3,
       "dest_map": "MAP_PACIFIDLOG_TOWN",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 1,
-      "y": 0,
-      "elevation": 3,
-      "dest_map": "MAP_PACIFIDLOG_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 0,
-      "y": 0,
-      "elevation": 4,
-      "dest_map": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
