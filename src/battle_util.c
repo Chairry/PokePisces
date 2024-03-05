@@ -10924,6 +10924,19 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         }
     }
 
+    if ((gBattleMoves[move].type == TYPE_NORMAL || gBattleMoves[move].type == TYPE_FIGHTING) && defAbility == ABILITY_EMPTY)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_EMPTY;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_IS_EMPTY;
+            RecordAbilityBattle(battlerDef, ABILITY_EMPTY);
+        }
+    }
+
     // Immunity
     if (gBattleMoves[move].type == TYPE_PSYCHIC && defAbility == ABILITY_ZEN_INCENSE)
     {

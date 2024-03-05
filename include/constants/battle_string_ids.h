@@ -721,7 +721,8 @@
 #define STRINGID_PKMNCUTSSPDEFENCEWITH                719
 #define STRINGID_ABILITYSUMMONEDMIST                  720  
 #define STRINGID_STRONGHOLDDOESNTALLOW                721
-#define BATTLESTRINGS_COUNT                           722
+#define STRINGID_PKMNISEMPTY                          722
+#define BATTLESTRINGS_COUNT                           723
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -756,6 +757,7 @@
 #define B_MSG_POISON_MISS  5
 #define B_MSG_PSYCHIC_MISS 6
 #define B_MSG_IMMUNE       7
+#define B_MSG_IS_EMPTY     8
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

@@ -74,6 +74,7 @@ static const u8 sText_PkmnProtectedItself[] = _("{B_DEF_NAME_WITH_PREFIX}\nprote
 static const u8 sText_AvoidedDamage[] = _("{B_DEF_NAME_WITH_PREFIX} avoided\ndamage with {B_DEF_ABILITY}!");
 static const u8 sText_PkmnMakesGroundMiss[] = _("{B_DEF_NAME_WITH_PREFIX} makes GROUND\nmoves miss with {B_DEF_ABILITY}!");
 static const u8 sText_PkmnMakesPoisonMiss[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} makes\nPOISON moves ineffective!");
+static const u8 sText_PkmnMakesIsEmpty[] = _("{B_DEF_NAME_WITH_PREFIX} is empty...");
 static const u8 sText_PkmnAvoidedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} avoided\nthe attack!");
 static const u8 sText_ItDoesntAffect[] = _("It doesn't affect\n{B_DEF_NAME_WITH_PREFIX}…");
 static const u8 sText_AttackerFainted[] = _("{B_ATK_NAME_WITH_PREFIX}\nfainted!\p");
@@ -1314,6 +1315,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ABOOSTED - BATTLESTRINGS_TABLE_START] = sText_ABoosted,
     [STRINGID_PKMNSXINTENSIFIEDSUN - BATTLESTRINGS_TABLE_START] = sText_PkmnsXIntensifiedSun,
     [STRINGID_PKMNMAKESGROUNDMISS - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesGroundMiss,
+    [STRINGID_PKMNISEMPTY - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesIsEmpty,
     [STRINGID_PKMNMAKESPOISONMISS - BATTLESTRINGS_TABLE_START] = sText_PkmnMakesPoisonMiss,
     [STRINGID_YOUTHROWABALLNOWRIGHT - BATTLESTRINGS_TABLE_START] = sText_YouThrowABallNowRight,
     [STRINGID_PKMNSXTOOKATTACK - BATTLESTRINGS_TABLE_START] = sText_PkmnsXTookAttack,
@@ -1675,7 +1677,8 @@ const u16 gMissStringIds[] =
     [B_MSG_GROUND_MISS] = STRINGID_PKMNMAKESGROUNDMISS,
     [B_MSG_POISON_MISS] = STRINGID_PKMNMAKESPOISONMISS,
     [B_MSG_PSYCHIC_MISS] = STRINGID_PKMNMAKESPSYCHICMISS,
-    [B_MSG_IMMUNE] = STRINGID_PKMNUNAFFECTED
+    [B_MSG_IMMUNE] = STRINGID_PKMNUNAFFECTED,
+    [B_MSG_IS_EMPTY] = STRINGID_PKMNISEMPTY
 };
 
 const u16 gNoEscapeStringIds[] =
