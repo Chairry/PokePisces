@@ -5085,7 +5085,7 @@
       "id": "LAYOUT_SS_TIDAL_EXTERIOR",
       "name": "SSTidalExterior_Layout",
       "width": 38,
-      "height": 26,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/SSTidalExterior/border.bin",

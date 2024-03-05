@@ -32,12 +32,33 @@ RivalRoom_Movement_PlayerFaceBriney:
 	step_end
 
 RivalRoom_EventScript_GetOut::
+	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, RivalRoom_EventScript_Docked
 	msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
 	end
 
+RivalRoom_EventScript_Docked::
+	msgbox RivalRoom_Text_Docked, MSGBOX_NPC
+	end
+
 RivalRoom_Text_GoTalkToOthers:
-	.string "go bestie$"
+	.string "The Tidal's voyage should be\n"
+	.string "concluding in a short spell.\p"
+	.string "Why not go talk to the other\n"
+	.string "passengers to pass the time?\p"
+	.string "My good friend Drake is\n"
+	.string "aboard today... I am positive\l"
+	.string "that he would enjoy some\l"
+	.string "brief company.\p"
+	.string "I'll make the announcement when\n"
+	.string "we are docked.$"
 
 RivalRoom_Text_BrineyText:
-	.string "plz get out$"
+	.string "I encourage you to go\n"
+	.string "interact with the other passengers.$"
 
+RivalRoom_Text_Docked:
+	.string "Well {PLAYER}, that'll\n"
+	.string "be it for the S.S. Tidal's voyage\l"
+	.string "on this fine morning.\p"
+	.string "It's been a pleasure meeting\n"
+	.string "you. Tell Birch that I said Ahoy!$"

@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_DRAKE",
-      "x": 4,
-      "y": 5,
+      "x": 7,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -29,12 +29,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT",
-      "x": 4,
+      "x": 3,
       "y": 22,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSTidalInteriors_EventScript_GymChallenger",
@@ -42,10 +42,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
-      "x": 19,
-      "y": 23,
+      "x": 21,
+      "y": 21,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -56,9 +56,9 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 34,
-      "y": 23,
+      "y": 21,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -69,40 +69,66 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
       "x": 31,
-      "y": 23,
+      "y": 24,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SSTidalInteriors_EventScript_TeamAquaFemale",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_GREEN_HAIR",
-      "x": 14,
+      "graphics_id": "OBJ_EVENT_GFX_JANITOR",
+      "x": 13,
       "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
-      "movement_range_x": 4,
+      "movement_range_x": 6,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SSTidalInteriors_EventScript_Janitor",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SSTidalInteriors_EventScript_LeftSailor",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SSTidalInteriors_EventScript_RightSailor",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 3,
+      "x": 1,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_EXTERIOR",
       "dest_warp_id": "1"
     },
     {
-      "x": 4,
+      "x": 2,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_EXTERIOR",
@@ -110,14 +136,14 @@
     },
     {
       "x": 33,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_INTERIORS",
       "dest_warp_id": "13"
     },
     {
       "x": 34,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_INTERIORS",
       "dest_warp_id": "13"
@@ -172,14 +198,14 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 8,
+      "x": 13,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_INTERIORS",
       "dest_warp_id": "6"
     },
     {
-      "x": 13,
+      "x": 8,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_SS_TIDAL_INTERIORS",
@@ -239,6 +265,61 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_PlayerDesk"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_PlayerDesk"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_RoomSign1"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_RoomSign3"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_RoomSign2"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_RoomSign4"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SSTidalInteriors_EventScript_PlayerBed"
+    }
   ]
 }
