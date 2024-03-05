@@ -1818,6 +1818,13 @@ u32 TrySetCantSelectMoveBattleScript(u32 battler)
             limitations++;
         }
     }
+    else if (GetBattlerAbility(battler) == ABILITY_STRONGHOLD && IS_MOVE_STATUS(move) && move != MOVE_ME_FIRST)
+    {
+        gCurrentMove = move;
+        gSelectionBattleScripts[battler] = BattleScript_SelectingNotAllowedMoveStronghold;
+        limitations++;
+        
+    }
     if ((GetBattlerAbility(battler) == ABILITY_GORILLA_TACTICS) && *choicedMove != MOVE_NONE
               && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
     {
@@ -10159,15 +10166,15 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         usesDefStat = FALSE;
     }
 
-    #if B_EXPLOSION_DEFENSE <= GEN_4
+#if B_EXPLOSION_DEFENSE <= GEN_4
     // Self-destruct / Explosion cut defense in half
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defStat /= 2;
-    #endif
+#endif
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
         defStat = spDef;
-        defStat /= 2;
+    defStat /= 2;
 
     // critical hits ignore positive stat changes
     if (isCrit && defStage > DEFAULT_STAT_STAGE)
@@ -10188,6 +10195,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     // target's abilities
     switch (defAbility)
     {
+    case ABILITY_STRONGHOLD:
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
     case ABILITY_MARVEL_SCALE:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY && usesDefStat)
         {
@@ -10269,9 +10279,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         break;
 #if B_SOUL_DEW_BOOST <= GEN_6
     case HOLD_EFFECT_SOUL_DEW:
-        if ((gBattleMons[battlerDef].species == SPECIES_LATIAS || gBattleMons[battlerDef].species == SPECIES_LATIOS)
-         && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-         && !usesDefStat)
+        if ((gBattleMons[battlerDef].species == SPECIES_LATIAS || gBattleMons[battlerDef].species == SPECIES_LATIOS) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER) && !usesDefStat)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
 #endif

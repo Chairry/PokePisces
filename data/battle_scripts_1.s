@@ -11218,6 +11218,10 @@ BattleScript_SelectingNotAllowedMoveAssaultVest::
 	printselectionstring STRINGID_ASSAULTVESTDOESNTALLOW
 	endselectionscript
 
+BattleScript_SelectingNotAllowedMoveStronghold::
+	printselectionstring STRINGID_STRONGHOLDDOESNTALLOW
+	endselectionscript
+
 BattleScript_SelectingNotAllowedMoveAssaultVestInPalace::
 	printstring STRINGID_ASSAULTVESTDOESNTALLOW
 	goto BattleScript_SelectingUnusableMoveInPalace
