@@ -10538,6 +10538,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (IsMoveMakingContact(move, battlerAtk) && moveType != TYPE_FIRE)
             return UQ_4_12(0.5);
         break;
+    case ABILITY_CACOPHONY:
     case ABILITY_PUNK_ROCK:
         if (gBattleMoves[move].soundMove)
             return UQ_4_12(0.5);
@@ -10572,6 +10573,10 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
     case ABILITY_DAMP:
         if(moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
             return UQ_4_12(0.8);
+        break;
+    case ABILITY_CACOPHONY:
+        if (gBattleMoves[gCurrentMove].soundMove)
+            return UQ_4_12(0.5);
         break;
     case ABILITY_PLUS:
         if (GetBattlerType(battlerDef, 0) == TYPE_STEEL || GetBattlerType(battlerDef, 0) == TYPE_ELECTRIC
