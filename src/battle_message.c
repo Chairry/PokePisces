@@ -861,6 +861,7 @@ static const u8 sText_DragonPokerStraightFlush[] = _("{B_ATK_NAME_WITH_PREFIX} h
 static const u8 sText_DragonPokerRoyalFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a royal flush!\n");
 static const u8 sText_PkmnLeavingItselfOpen[] = _("{B_ATK_NAME_WITH_PREFIX} is leaving\nitself open?");
 static const u8 sText_PkmnHealedPoison[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of its poison!");
+static const u8 sText_GhostTypeAdded[] = _("Ghost-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1573,6 +1574,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_DRAGONPOKERROYALFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerRoyalFlush,
     [STRINGID_PKMNLEAVINGITSELFOPEN - BATTLESTRINGS_TABLE_START] = sText_PkmnLeavingItselfOpen,
     [STRINGID_PKMNHEALEDPOISON - BATTLESTRINGS_TABLE_START] = sText_PkmnHealedPoison,
+    [STRINGID_GHOSTTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GhostTypeAdded,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -479,6 +479,7 @@
 #define EFFECT_MANEUVER                     473
 #define EFFECT_SCORP_FANG                   474
 #define EFFECT_RECOIL_50_HAZARD             475
-#define NUM_BATTLE_MOVE_EFFECTS             476
+#define EFFECT_TRICK_OR_TREAT               476
+#define NUM_BATTLE_MOVE_EFFECTS             477
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

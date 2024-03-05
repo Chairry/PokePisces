@@ -2892,21 +2892,21 @@ BattleScript_EffectThirdType:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_TrickorTreatSwapItems:
-	jumpifsubstituteblocks BattleScript_ButItFailed
-	tryswapitems BattleScript_TrickorTreatSwapItemsFailed
+	jumpifsubstituteblocks BattleScript_GhostTypeContinue
+	tryswapitems BattleScript_GhostTypeContinue
 	attackanimation
 	waitanimation
-	printstring STRINGID_THIRDTYPEADDED
+	printstring STRINGID_GHOSTTYPEADDED
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNSWITCHEDITEMS
 	waitmessage B_WAIT_TIME_LONG
 	printfromtable gItemSwapStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-BattleScript_TrickorTreatSwapItemsFailed:
+BattleScript_GhostTypeContinue:
 	attackanimation
 	waitanimation
-	printstring STRINGID_THIRDTYPEADDED
+	printstring STRINGID_GHOSTTYPEADDED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

@@ -18304,7 +18304,7 @@ Move_SNUFF_OUT:
 	createvisualtask AnimTask_BlendBackground, 6, 6, RGB_BLUE
 	panse SE_M_HEAT_WAVE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	delay 4
-	createvisualtask AnimTask_MoveHeatWaveTargets, 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
 	delay 12
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 1
 	delay 10

@@ -2217,8 +2217,8 @@ static const u8 sFellStingerDescription[] = _(
     "the Attack stat is raised.");
 
 static const u8 sTrickOrTreatDescription[] = _(
-    "Makes the foe Ghost-type and\n"
-    "trades held items.");
+    "Makes the foe Ghost-type\n"
+    "and trades held items.");
 
 static const u8 sNobleRoarDescription[] = _(
     "A 1st-turn move that flinches\n"
