@@ -474,6 +474,10 @@
 #define EFFECT_IGNA_STRIKE                  468
 #define EFFECT_ACCURACY_DEFENSE_DOWN_HIT    469
 #define EFFECT_VENOM_DRAIN                  470
-#define NUM_BATTLE_MOVE_EFFECTS             471
+#define EFFECT_ALL_STATS_DOWN_HIT           471
+#define EFFECT_WILLPOWER                    472
+#define EFFECT_MANEUVER                     473
+#define EFFECT_SCORP_FANG                   474
+#define NUM_BATTLE_MOVE_EFFECTS             475
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

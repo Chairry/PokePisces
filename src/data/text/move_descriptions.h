@@ -2714,8 +2714,8 @@ static const u8 sSnipeShotDescription[] = _(
     "that draw in moves.");
 
 static const u8 sJawLockDescription[] = _(
-    "Prevents the user and\n"
-    "the target from escaping.");
+    "Bites down hard onto the\n"
+    "foe. The foe cannot escape.");
 
 static const u8 sStuffCheeksDescription[] = _(
     "Consumes the user's Berry,\n"
@@ -3455,6 +3455,30 @@ static const u8 sVenomGaleDescription[] = _(
 static const u8 sVenomDrainDescription[] = _(
     "Drains more when foe is\n"
     "poisoned but also removes it.");
+
+static const u8 sGunkFunkDescription[] = _(
+    "Spreads debilitating gunk\n"
+    "that may lower all stats.");
+
+static const u8 sStellarFistsDescription[] = _(
+    "Hits 4 times with cosmic\n"
+    "fists using the Sp. Def stat.");
+
+static const u8 sWillpowerDescription[] = _(
+    "Deals more damage the higher\n"
+    "the user's Sp. Def.");
+
+static const u8 sFinalShriekDescription[] = _(
+    "An ear-splitting yell that\n"
+    "also knocks the user out.");
+
+static const u8 sManeuverDescription[] = _(
+    "Switches the user out.\n"
+    "Critical hits in tailwind.");
+
+static const u8 sScorpFangDescription[] = _(
+    "Badly poisons, grounds foes,\n"
+    "and hits Poison and Steel.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4354,4 +4378,11 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_IGNA_STRIKE - 1] = sIgnaStrikeDescription,
     [MOVE_VENOM_GALE - 1] = sVenomGaleDescription,
     [MOVE_VENOM_DRAIN - 1] = sVenomDrainDescription,
+    [MOVE_GUNK_FUNK - 1] = sGunkFunkDescription,
+    [MOVE_STELLAR_FISTS - 1] = sStellarFistsDescription,
+    [MOVE_WILLPOWER - 1] = sWillpowerDescription,
+    [MOVE_MISERY_WAIL - 1] = sFlailDescription,
+    [MOVE_FINAL_SHRIEK - 1] = sFinalShriekDescription,
+    [MOVE_MANEUVER - 1] = sManeuverDescription,
+    [MOVE_SCORP_FANG - 1] = sScorpFangDescription,
 };

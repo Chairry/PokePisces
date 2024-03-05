@@ -890,6 +890,13 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_IGNA_STRIKE] = _("Igna Strike"),
     [MOVE_VENOM_GALE] = _("Venom Gale"),
     [MOVE_VENOM_DRAIN] = _("Venom Drain"),
+    [MOVE_GUNK_FUNK] = _("Gunk Funk"),
+    [MOVE_STELLAR_FISTS] = _("Stellar Fists"),
+    [MOVE_WILLPOWER] = _("Willpower"),
+    [MOVE_MISERY_WAIL] = _("Misery Wail"),
+    [MOVE_FINAL_SHRIEK] = _("Final Shriek"),
+    [MOVE_MANEUVER] = _("Maneuver"),
+    [MOVE_SCORP_FANG] = _("Scorp Fang"),
 };
 #else
 // 12 letters
@@ -1783,6 +1790,13 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_IGNA_STRIKE] = _("Igna Strike"),
     [MOVE_VENOM_GALE] = _("Venom Gale"),
     [MOVE_VENOM_DRAIN] = _("Venom Drain"),
+    [MOVE_GUNK_FUNK] = _("Gunk Funk"),
+    [MOVE_STELLAR_FISTS] = _("Stellar Fists"),
+    [MOVE_WILLPOWER] = _("Willpower"),
+    [MOVE_MISERY_WAIL] = _("Misery Wail"),
+    [MOVE_FINAL_SHRIEK] = _("Final Shriek"),
+    [MOVE_MANEUVER] = _("Maneuver"),
+    [MOVE_SCORP_FANG] = _("Scorp Fang"),
 };
 #endif
 

@@ -9938,6 +9938,11 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         atkStat = gBattleMons[battlerAtk].defense;
         atkStage = gBattleMons[battlerAtk].statStages[STAT_DEF];
     }
+    else if (gBattleMoves[move].effect == EFFECT_WILLPOWER)
+    {
+        atkStat = gBattleMons[battlerAtk].spDefense;
+        atkStage = gBattleMons[battlerAtk].statStages[STAT_SPDEF];
+    }
     else
     {
         if (IS_MOVE_PHYSICAL(move))
@@ -10798,8 +10803,10 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
         mod = UQ_4_12(2.0);
-    if(moveType == TYPE_POISON && defType == TYPE_STEEL && GetBattlerAbility(battlerAtk) == ABILITY_CORROSION)
+    if(moveType == TYPE_POISON && (defType == TYPE_POISON || defType == TYPE_STEEL) && GetBattlerAbility(battlerAtk) == ABILITY_CORROSION)
         mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_SCORP_FANG && (defType == TYPE_POISON || defType == TYPE_STEEL))
+        mod = UQ_4_12(1.0);
     if(moveType == TYPE_WATER && GetBattlerAbility(battlerDef) == ABILITY_MAGMA_ARMOR)
         mod = UQ_4_12(1.0);
 

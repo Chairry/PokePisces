@@ -992,6 +992,7 @@ static const u16 sFinalStrikeOnlyEffects[] =
     EFFECT_HIT_PREVENT_ESCAPE,
     EFFECT_HIT_SWITCH_TARGET,
     EFFECT_VITAL_THROW,
+    EFFECT_SCORP_FANG,
 };
 
 static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
@@ -1990,6 +1991,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
              || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN))
+             || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[battlerAtk] & SIDE_STATUS_TAILWIND)
              || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN))
     {
         critChance = -2;
@@ -3611,6 +3613,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
+                }
+                break;
+            case MOVE_EFFECT_ALL_STATS_DOWN:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsDown;
                 }
                 break;
             case MOVE_EFFECT_HEART_CARVE:
@@ -8489,7 +8498,7 @@ static bool32 HasAttackerFaintedTarget(void)
 
 bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget)
 {
-    return ((GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION && gBattleMoves[gCurrentMove].split == SPLIT_STATUS)
+    return ((GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION) || (gBattleMoves[gCurrentMove].effect == EFFECT_SCORP_FANG)
             || !(IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON) || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL)));
 }
 
@@ -9685,13 +9694,13 @@ static void Cmd_various(void)
     case VARIOUS_SUCKER_PUNCH_CHECK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gProtectStructs[gBattlerTarget].obstructed)
+        if (gCurrentMove == MOVE_UPPER_HAND && GetChosenMovePriority(gBattlerTarget) > 0 && (!(GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))))
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else if (gProtectStructs[gBattlerTarget].obstructed)
             gBattlescriptCurrInstr = cmd->failInstr;
         else if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
             gBattlescriptCurrInstr = cmd->failInstr;
         else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
-            gBattlescriptCurrInstr = cmd->failInstr;
-        else if (gCurrentMove == MOVE_UPPER_HAND && GetChosenMovePriority(gBattlerTarget) <= 0)
             gBattlescriptCurrInstr = cmd->failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -11742,12 +11751,11 @@ static void Cmd_setdrainedhp(void)
 {
     CMD_ARGS();
 
-    if (gBattleMoves[gCurrentMove].argument != 0 && (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY)))
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY))
         gBattleMoveDamage = (gHpDealt * 75 / 100);
-    else if (gBattleMoves[gCurrentMove].argument != 0 && (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN))
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN)
         gBattleMoveDamage = (gHpDealt / 4);
-
-    if (gBattleMoves[gCurrentMove].argument != 0)
+    else if (gBattleMoves[gCurrentMove].argument != 0)
         gBattleMoveDamage = (gHpDealt * gBattleMoves[gCurrentMove].argument / 100);
     else
         gBattleMoveDamage = (gHpDealt / 2);

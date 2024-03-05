@@ -11584,7 +11584,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_JAW_LOCK] =
     {
-        .effect = EFFECT_JAW_LOCK,
+        .effect = EFFECT_HIT_PREVENT_ESCAPE,
         .power = 80,
         .type = TYPE_ROCK,
         .accuracy = 100,
@@ -14759,6 +14759,125 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
         .bitingMove = TRUE,
         .argument = STATUS1_PSN_ANY,
+    },
+
+    [MOVE_GUNK_FUNK] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 95,
+        #else
+            .accuracy = 95,
+        #endif
+        .effect = EFFECT_ALL_STATS_DOWN_HIT,
+        .power = 100,
+        .type = TYPE_POISON,
+        .pp = 10,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_STELLAR_FISTS] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 90,
+        #else
+            .accuracy = 90,
+        #endif
+        .effect = EFFECT_WILLPOWER,
+        .power = 25,
+        .type = TYPE_BUG,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .strikeCount = 4,
+        .makesContact = TRUE,
+        .metronomeBanned = TRUE,
+        .punchingMove = TRUE,
+    },
+
+    [MOVE_WILLPOWER] =
+    {
+        .effect = EFFECT_WILLPOWER,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .metronomeBanned = TRUE,
+    },
+
+    [MOVE_MISERY_WAIL] =
+    {
+        .effect = EFFECT_FLAIL,
+        .power = 1,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .soundMove = TRUE,
+    },
+
+    [MOVE_FINAL_SHRIEK] =
+    {
+        .effect = EFFECT_EXPLOSION,
+        .power = 200,
+        .type = TYPE_GHOST,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .soundMove = TRUE,
+    },
+
+    [MOVE_MANEUVER] =
+    {
+        .effect = EFFECT_MANEUVER,
+        .power = 50,
+        .type = TYPE_FLYING,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_SCORP_FANG] =
+    {
+        .effect = EFFECT_SCORP_FANG,
+        .power = 85,
+        .type = TYPE_POISON,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .damagesAirborne = TRUE,
+        .bitingMove = TRUE,
+        .makesContact = TRUE,
     },
 
     // Z-Moves
