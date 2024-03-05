@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SSTIDAL_SAILOR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 18,
+      "x": 17,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SSTIDAL_SAILOR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SADFISH",
@@ -145,7 +145,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "2",
+      "script": "SSTidalExterior_EventScript_AllowedToLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "2",
+      "script": "SSTidalExterior_EventScript_AllowedToLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "2",
+      "script": "SSTidalExterior_EventScript_AllowedToLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "2",
+      "script": "SSTidalExterior_EventScript_AllowedToLeave"
+    }
   ],
   "bg_events": [
 

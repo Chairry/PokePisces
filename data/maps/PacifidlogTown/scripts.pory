@@ -21,6 +21,7 @@ PacifidlogTown_OnFrame:
 
 PacifidlogTown_EventScript_TakePlayerToLab::
 	lock
+	playse SE_PIN
 	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchNotice
 	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerNotice
 	waitmovement 0
@@ -40,6 +41,10 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerWalk3
 	waitmovement 0
 	msgbox PacifidlogTown_Text_CouldUseYourHelp, MSGBOX_DEFAULT
+	clearflag FLAG_PISCES_A
+	clearflag FLAG_PISCES_B
+	clearflag FLAG_PISCES_C
+	clearflag FLAG_PISCES_D
 	warp MAP_BIRCH_MARITIME_LAB, 9, 14
 	waitstate
 	release
