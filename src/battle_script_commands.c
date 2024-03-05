@@ -5475,7 +5475,7 @@ static bool32 TryKnockOffBattleScript(u32 battlerDef)
 
             gLastUsedItem = gBattleMons[battlerDef].item;
             gBattleMons[battlerDef].item = 0;
-            if (gBattleMons[battlerDef].ability != ABILITY_GORILLA_TACTICS)
+            if (gBattleMons[battlerDef].ability != ABILITY_GORILLA_TACTICS && gBattleMons[battlerDef].ability != ABILITY_ONE_WAY_TRIP)
                 gBattleStruct->choicedMove[battlerDef] = 0;
             gWishFutureKnock.knockedOffMons[side] |= gBitTable[gBattlerPartyIndexes[battlerDef]];
             CheckSetUnburden(battlerDef);
@@ -5767,7 +5767,8 @@ static void Cmd_moveend(void)
             break;
         case MOVEEND_CHOICE_MOVE: // update choice band move
             if (gHitMarker & HITMARKER_OBEYS
-             && (HOLD_EFFECT_CHOICE(holdEffectAtk) || GetBattlerAbility(gBattlerAttacker) == ABILITY_GORILLA_TACTICS)
+             && (HOLD_EFFECT_CHOICE(holdEffectAtk) || GetBattlerAbility(gBattlerAttacker) == ABILITY_GORILLA_TACTICS 
+             || GetBattlerAbility(gBattlerAttacker) == ABILITY_ONE_WAY_TRIP)
              && gChosenMove != MOVE_STRUGGLE
              && (*choicedMoveAtk == MOVE_NONE || *choicedMoveAtk == MOVE_UNAVAILABLE))
             {

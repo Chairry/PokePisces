@@ -4712,6 +4712,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed *= 2;
     else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG)
         speed *= 0.5;
+    else if (ability == ABILITY_ONE_WAY_TRIP)
+        speed *= 1.5;
     
     // abilities on field
     if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
@@ -4720,6 +4722,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed *= 0.5;
     if (IsAbilityOnSide(battler, ABILITY_FRIENDLY_AURA))
         speed *= 1.5;
+
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][0];
     speed /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][1];
