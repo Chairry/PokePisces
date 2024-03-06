@@ -426,7 +426,7 @@ SSTidalInteriors_Text_TAFLeave:
 SSTidalInteriors_Text_Janitor:
 	.string "Sweep, sweep, sweep...\p"
 	.string "(She's nodding off.)\p"
-	.string "...Sleep...sleep...sleep...\p"
+	.string "...Sleep...sleep...sleep...$"
 
 SSTidalInteriors_Text_LeftSailor:
 	.string "Ever hear of the Behemoth of\n"
