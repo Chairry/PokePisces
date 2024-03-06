@@ -899,6 +899,13 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_SCORP_FANG] = _("Scorp Fang"),
     [MOVE_CAUSTIC_FINALE] = _("Caustic Finale"),
     [MOVE_DINE_N_DASH] = _("Dine & Dash"),
+    [MOVE_WICKED_WINDS] = _("Wicked Winds"),
+    [MOVE_SONIC_BURST] = _("Sonic Burst"),
+    [MOVE_SOUL_CUTTER] = _("Soul Cutter"),
+    [MOVE_VOID] = _("Void"),
+    [MOVE_BLUSTER] = _("Bluster"),
+    [MOVE_KERFUFFLE] = _("Kerfuffle"),
+    [MOVE_TIPSY_STEP] = _("Tipsy Step"),
 };
 #else
 // 12 letters
@@ -1801,6 +1808,13 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_SCORP_FANG] = _("Scorp Fang"),
     [MOVE_CAUSTIC_FINALE] = _("Caustic Finale"),
     [MOVE_DINE_N_DASH] = _("Dine & Dash"),
+    [MOVE_WICKED_WINDS] = _("Wicked Winds"),
+    [MOVE_SONIC_BURST] = _("Sonic Burst"),
+    [MOVE_SOUL_CUTTER] = _("Soul Cutter"),
+    [MOVE_VOID] = _("Void"),
+    [MOVE_BLUSTER] = _("Bluster"),
+    [MOVE_KERFUFFLE] = _("Kerfuffle"),
+    [MOVE_TIPSY_STEP] = _("Tipsy Step"),
 };
 #endif
 

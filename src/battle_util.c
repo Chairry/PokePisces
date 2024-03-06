@@ -4677,7 +4677,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_ALL_GAME:
-            if (!((gFieldStatuses & STATUS_FIELD_MUDSPORT) && (gFieldStatuses & STATUS_FIELD_WATERSPORT)))
+            if (!(gFieldStatuses & STATUS_FIELD_MUDSPORT) && (gFieldStatuses & STATUS_FIELD_WATERSPORT))
             {
                 gFieldStatuses |= STATUS_FIELD_MUDSPORT;
                 gFieldTimers.mudSportTimer = 5;
@@ -9469,6 +9469,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMons[battlerAtk].status1 & (STATUS1_BURN | STATUS1_PSN_ANY | STATUS1_PARALYSIS | STATUS1_FROSTBITE))
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
+    case EFFECT_KERFUFFLE:
+        if (gBattleMons[battlerAtk].status2 & STATUS2_CONFUSION)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
     case EFFECT_BRINE:
         if (gBattleMons[battlerDef].hp <= (gBattleMons[battlerDef].maxHP / 2))
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
@@ -9943,6 +9947,11 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         atkStat = gBattleMons[battlerAtk].spDefense;
         atkStage = gBattleMons[battlerAtk].statStages[STAT_SPDEF];
     }
+    else if (gBattleMoves[move].effect == EFFECT_SONIC_BURST)
+    {
+        atkStat = gBattleMons[battlerAtk].speed;
+        atkStage = gBattleMons[battlerAtk].statStages[STAT_SPEED];
+    }
     else
     {
         if (IS_MOVE_PHYSICAL(move))
@@ -10157,7 +10166,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         defStage = gBattleMons[battlerDef].statStages[STAT_DEF];
         usesDefStat = TRUE;
     }
-    else // is special
+    else if (gBattleMoves[move].effect == EFFECT_SOUL_CUTTER || IS_MOVE_SPECIAL(move)) // uses sp.def stat instead of defense
     {
         defStat = spDef;
         defStage = gBattleMons[battlerDef].statStages[STAT_SPDEF];
@@ -10975,7 +10984,7 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
-        if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE)
+        if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE || gBattleMoves[move].effect == EFFECT_WICKED_WINDS)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
     }
 

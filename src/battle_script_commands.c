@@ -3741,7 +3741,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
                     gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    if (gCurrentMove == MOVE_HYPERSPACE_FURY || gCurrentMove == MOVE_RAZING_SUN)
+                    if (gCurrentMove == MOVE_HYPERSPACE_FURY)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
@@ -5736,7 +5736,6 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_33: // Double Edge, 33 % recoil
-                case EFFECT_RAZING_SUN:
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;

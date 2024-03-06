@@ -1329,8 +1329,8 @@ static const u8 sSkyUppercutDescription[] = _(
     "leaping into the sky.");
 
 static const u8 sSandTombDescription[] = _(
-    "Traps and hurts the foe in\n"
-    "quicksand for "BINDING_TURNS" turns.");
+    "Traps foe for "BINDING_TURNS" turns. \n"
+    "Lowers foe's Def in Sandstorm.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
@@ -3488,6 +3488,26 @@ static const u8 sDineNDashDescription[] = _(
     "Hits and switches. If the foe\n"
     "has a berry the user eats it.");
 
+static const u8 sWickedWindsDescription[] = _(
+    "Does Dark and Flying-type\n"
+    "damage. May cause frostbite.");
+
+static const u8 sSonicBurstDescription[] = _(
+    "Does more damage the higher\n"
+    "the user's Speed. May confuse.");
+
+static const u8 sSoulCutterDescription[] = _(
+    "Attacks with a ghostly blade\n"
+    "that does special damage.");
+
+static const u8 sVoidDescription[] = _(
+    "Quickly disables a foe's move.\n"
+    "Also ignores protect.");
+
+static const u8 sKerfuffleDescription[] = _(
+    "Doubles power if the user is\n"
+    "confused. May confuse user.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4395,4 +4415,11 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SCORP_FANG - 1] = sScorpFangDescription,
     [MOVE_CAUSTIC_FINALE - 1] = sCausticFinaleDescription,
     [MOVE_DINE_N_DASH - 1] = sDineNDashDescription,
+    [MOVE_WICKED_WINDS - 1] = sWickedWindsDescription,
+    [MOVE_SONIC_BURST - 1] = sSonicBurstDescription,
+    [MOVE_SOUL_CUTTER - 1] = sSoulCutterDescription,
+    [MOVE_VOID - 1] = sVoidDescription,
+    [MOVE_BLUSTER - 1] = sFacadeDescription,
+    [MOVE_KERFUFFLE - 1] = sKerfuffleDescription,
+    [MOVE_TIPSY_STEP - 1] = sKerfuffleDescription,
 };

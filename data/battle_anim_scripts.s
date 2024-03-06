@@ -924,6 +924,13 @@ gBattleAnims_Moves::
 	.4byte Move_SCORP_FANG
 	.4byte Move_CAUSTIC_FINALE
 	.4byte Move_DINE_N_DASH
+	.4byte Move_WICKED_WINDS
+	.4byte Move_SONIC_BURST
+	.4byte Move_SOUL_CUTTER
+	.4byte Move_VOID
+	.4byte Move_BLUSTER
+	.4byte Move_KERFUFFLE
+	.4byte Move_TIPSY_STEP
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -8382,6 +8389,27 @@ PhantomForceUnleash:
 	goto PhantomForceEnd
 
 Move_TRICK_OR_TREAT:
+	loadspritegfx ANIM_TAG_EYE_SPARKLE
+	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
+	fadetobg BG_NIGHTMARE
+	waitbgfadein
+	delay 10
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 2, 0, 8, RGB(10, 2, 19)
+	waitforvisualfinish
+	playsewithpan SE_M_LEER, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaryFace, 5
+	delay 13
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(10, 2, 19) @;Deep purple
+	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	createsprite gCurseGhostSpriteTemplate, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	restorebg
+	waitbgfadein
 	end
 
 Move_NOBLE_ROAR:
@@ -19632,6 +19660,27 @@ Move_CAUSTIC_FINALE::
 
 Move_DINE_N_DASH::
 	goto Move_U_TURN
+
+Move_WICKED_WINDS::
+	goto Move_BLEAKWIND_STORM
+
+Move_SONIC_BURST::
+	goto Move_SONIC_BOOM
+
+Move_SOUL_CUTTER::
+	goto Move_NIGHT_SLASH
+
+Move_VOID::
+	goto Move_DARK_VOID
+
+Move_BLUSTER::
+	goto Move_FACADE
+
+Move_KERFUFFLE::
+	goto Move_TEETER_DANCE
+
+Move_TIPSY_STEP::
+	goto Move_AQUA_STEP
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

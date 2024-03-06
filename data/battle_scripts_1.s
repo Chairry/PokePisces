@@ -481,7 +481,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_DRAINING_KISS
 	.4byte BattleScript_EffectHullbreaker             @ EFFECT_HULLBREAKER
 	.4byte BattleScript_EffectHeartCarveHit           @ EFFECT_HEART_CARVE_HIT
-	.4byte BattleScript_EffectFeint                   @ EFFECT_RAZING_SUN
 	.4byte BattleScript_EffectDragonPoker             @ EFFECT_DRAGON_POKER
 	.4byte BattleScript_EffectFlinchHit               @ EFFECT_WATERFALL
 	.4byte BattleScript_EffectHit                     @ EFFECT_CUT
@@ -502,6 +501,53 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHitSwitchTarget         @ EFFECT_MANEUVER
 	.4byte BattleScript_EffectScorpFang               @ EFFECT_SCORP_FANG
 	.4byte BattleScript_EffectHitSetEntryHazard       @ EFFECT_RECOIL_50_HAZARD
+	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_WICKED_WINDS
+	.4byte BattleScript_EffectSandTomb                @ EFFECT_SAND_TOMB
+	.4byte BattleScript_EffectConfuseHit              @ EFFECT_SONIC_BURST
+	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_CUTTER
+	.4byte BattleScript_EffectVoid                    @ EFFECT_VOID
+	.4byte BattleScript_EffectKerfuffle               @ EFFECT_KERFUFFLE
+
+BattleScript_EffectKerfuffle::
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_EffectVoid::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_HitFromCritCalc
+	critcalc
+	damagecalc
+	adjustdamage
+	disablelastusedattack BattleScript_HitFromAtkAnimation
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNMOVEWASDISABLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSandTomb:
+	setmoveeffect MOVE_EFFECT_WRAP
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectSandTombLowerDefense
+	goto BattleScript_EffectHit
+BattleScript_EffectSandTombLowerDefense::
+	seteffectprimary
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_1
+	seteffectsecondary
+	goto BattleScript_EffectHit
 
 BattleScript_EffectScorpFang:
 	setmoveeffect MOVE_EFFECT_SMACK_DOWN
