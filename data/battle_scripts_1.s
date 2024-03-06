@@ -1073,6 +1073,7 @@ BattleScript_EffectRagePowder::
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNFELLFORTAUNT
+	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PKMNCENTERATTENTION
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -2424,16 +2425,25 @@ BattleScript_EffectAllySwitch:
 
 BattleScript_EffectFairyLock:
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	trysetfairylock BattleScript_ButItFailed
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_FairyJustLockOn
+	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_FairyJustLockOn
+	trysetfairylock BattleScript_FairyJustLockOn
 	setalwayshitflag
 	attackanimation
 	waitanimation
-	printstring STRINGID_NOONEWILLBEABLETORUNAWAY
+	printstring STRINGID_PKMNTOOKAIM2
 	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_TARGETCANTESCAPEFORNOW
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_FairyJustLockOn::
+	setalwayshitflag
+	attackanimation
+	waitanimation
 	printstring STRINGID_PKMNTOOKAIM2
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

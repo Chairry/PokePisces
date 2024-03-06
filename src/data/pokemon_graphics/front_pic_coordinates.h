@@ -1135,7 +1135,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_CLAWLISTIC]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_PEBLRANIUM]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  4 },
-    [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  0 },
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },

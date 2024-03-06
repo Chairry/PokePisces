@@ -2297,8 +2297,8 @@ static const u8 sBoomburstDescription[] = _(
     "destructive sound wave.");
 
 static const u8 sFairyLockDescription[] = _(
-    "Prevents escape for the turn.\n"
-    "Ensures the next moves hit.");
+    "Traps foe for the turn.\n"
+    "Ensures the next move hits.");
 
 static const u8 sKingsShieldDescription[] = _(
     "Evades damage, and reduces\n"

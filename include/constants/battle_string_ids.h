@@ -722,7 +722,8 @@
 #define STRINGID_ABILITYSUMMONEDMIST                  720
 #define STRINGID_PKMNHEALEDPOISON                     721
 #define	STRINGID_GHOSTTYPEADDED                       722
-#define BATTLESTRINGS_COUNT                           723
+#define STRINGID_TARGETCANTESCAPEFORNOW               723
+#define BATTLESTRINGS_COUNT                           724
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

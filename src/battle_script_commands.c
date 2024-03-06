@@ -14375,7 +14375,7 @@ static void Cmd_setforcedtarget(void)
     CMD_ARGS();
 
     gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTimer = 1;
-    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerTarget;
+    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerAttacker;
     gSideTimers[GetBattlerSide(gBattlerAttacker)].followmePowder = gBattleMoves[gCurrentMove].powderMove;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
