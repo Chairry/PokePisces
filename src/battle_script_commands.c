@@ -16203,7 +16203,7 @@ static void Cmd_tryswapitemsmagician(void)
             u8 target = GetBattlerAtPosition(targets[sideAttacker][Random() % 2]);
             if (IsBattlerAlive(target) && IsBattlerAlive(target ^ BIT_FLANK)) {
                 if (gBattleMons[target].item == ITEM_NONE && gBattleMons[target ^ BIT_FLANK].item == ITEM_NONE) {
-                    gBattlescriptCurrInstr = cmd->failInstr;
+                    if(gBattleMons[gBattlerAttacker].item == ITEM_NONE) gBattlescriptCurrInstr = cmd->failInstr;
                 } else {
                     if (gBattleMons[target].item == ITEM_NONE) monToStealFrom = target ^ BIT_FLANK;
                     else monToStealFrom = target;
