@@ -719,8 +719,11 @@
 #define STRINGID_ATTACKERCANTESCAPENOW                717
 #define STRINGID_PKMNCUTSDEFENCEWITH                  718
 #define STRINGID_PKMNCUTSSPDEFENCEWITH                719
-#define STRINGID_ABILITYSUMMONEDMIST                  720  
-#define BATTLESTRINGS_COUNT                           721
+#define STRINGID_ABILITYSUMMONEDMIST                  720
+#define STRINGID_PKMNHEALEDPOISON                     721
+#define	STRINGID_GHOSTTYPEADDED                       722
+#define STRINGID_TARGETCANTESCAPEFORNOW               723
+#define BATTLESTRINGS_COUNT                           724
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

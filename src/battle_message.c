@@ -235,7 +235,7 @@ static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\
 static const u8 sText_PkmnTookAttack[] = _("{B_DEF_NAME_WITH_PREFIX} took the\n{B_BUFF1} attack!");
 static const u8 sText_PkmnChoseXAsDestiny[] = _("{B_ATK_NAME_WITH_PREFIX} chose\n{B_CURRENT_MOVE} as its destiny!");
 static const u8 sText_PkmnAttack[] = _("{B_BUFF1}'s attack!");
-static const u8 sText_PkmnCenterAttention[] = _("{B_DEF_NAME_WITH_PREFIX} became the\ncenter of attention!");
+static const u8 sText_PkmnCenterAttention[] = _("{B_ATK_NAME_WITH_PREFIX} became the\ncenter of attention!");
 static const u8 sText_PkmnChargingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\ncharging power!");
 static const u8 sText_NaturePowerTurnedInto[] = _("NATURE POWER turned into\n{B_CURRENT_MOVE}!");
 static const u8 sText_PkmnStatusNormal[] = _("{B_ATK_NAME_WITH_PREFIX}'s status\nreturned to normal!");
@@ -860,6 +860,9 @@ static const u8 sText_DragonPokerFourOfAKind[] = _("{B_ATK_NAME_WITH_PREFIX} has
 static const u8 sText_DragonPokerStraightFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a straight\nflush!");
 static const u8 sText_DragonPokerRoyalFlush[] = _("{B_ATK_NAME_WITH_PREFIX} has a royal flush!\n");
 static const u8 sText_PkmnLeavingItselfOpen[] = _("{B_ATK_NAME_WITH_PREFIX} is leaving\nitself open?");
+static const u8 sText_PkmnHealedPoison[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of its poison!");
+static const u8 sText_GhostTypeAdded[] = _("Ghost-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_TargetCantEscapeForNow[] = _("{B_DEF_NAME_WITH_PREFIX} can't escape until\ntheir next turn!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1571,6 +1574,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_DRAGONPOKERSTRAIGHTFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerStraightFlush,
     [STRINGID_DRAGONPOKERROYALFLUSH - BATTLESTRINGS_TABLE_START] = sText_DragonPokerRoyalFlush,
     [STRINGID_PKMNLEAVINGITSELFOPEN - BATTLESTRINGS_TABLE_START] = sText_PkmnLeavingItselfOpen,
+    [STRINGID_PKMNHEALEDPOISON - BATTLESTRINGS_TABLE_START] = sText_PkmnHealedPoison,
+    [STRINGID_GHOSTTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GhostTypeAdded,
+    [STRINGID_TARGETCANTESCAPEFORNOW - BATTLESTRINGS_TABLE_START] = sText_TargetCantEscapeForNow,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
