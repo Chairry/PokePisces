@@ -11,7 +11,7 @@ PacifidlogInteriors_EventScript_OldRodFisherman::
 	end
 
 PacifidlogInteriors_EventScript_BattleSadFisher::
-	trainerbattle_single TRAINER_SADFISHER_1_P, PacifidlogInteriors_Text_SadFisherIntro, PacifidlogInteriors_Text_SadFisherDefeat, PacifidlogInteriors_EventScript_GiveOldRod
+	trainerbattle_single TRAINER_P_SADFISHER_1, PacifidlogInteriors_Text_SadFisherIntro, PacifidlogInteriors_Text_SadFisherDefeat, PacifidlogInteriors_EventScript_GiveOldRod
 	release
 	end
 

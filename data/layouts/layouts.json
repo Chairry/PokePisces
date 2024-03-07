@@ -624,10 +624,10 @@
     {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
-      "width": 11,
-      "height": 8,
+      "width": 17,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin"
     },
@@ -704,8 +704,8 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "name": "LavaridgeTown_PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
+      "width": 23,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/LavaridgeTown_PokemonCenter_1F/border.bin",
@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -5034,10 +5034,10 @@
     {
       "id": "LAYOUT_SS_TIDAL_INTERIORS",
       "name": "SSTidalInteriors_Layout",
-      "width": 50,
-      "height": 50,
+      "width": 38,
+      "height": 36,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
     },
@@ -5070,6 +5070,26 @@
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/BasalinCoast/border.bin",
       "blockdata_filepath": "data/layouts/BasalinCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_ROOM",
+      "name": "RivalRoom_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/RivalRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RivalRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_EXTERIOR",
+      "name": "SSTidalExterior_Layout",
+      "width": 38,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalExterior/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalExterior/map.bin"
     }
   ]
 }
