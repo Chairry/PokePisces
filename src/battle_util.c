@@ -242,7 +242,12 @@ static u8 CalcBeatUpPower(void)
 bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
 {
     u32 ability = GetBattlerAbility(battlerAtk);
-
+    if(IsAbilityOnOpposingSide(battlerAtk, ABILITY_ENTRANCING)) {
+        if (gSideTimers[defSide].followmeTimer == 0) {
+            gSideTimers[defSide].followmeTimer = 1;
+        } 
+        return TRUE;
+    }
     if (gSideTimers[defSide].followmeTimer == 0
         || gBattleMons[gSideTimers[defSide].followmeTarget].hp == 0
         || gBattleMoves[move].effect == EFFECT_SNIPE_SHOT
@@ -4908,14 +4913,28 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_WHITE_SMOKE:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
+                gBattlerAttacker = battler;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_WhiteSmokeAbilityActivates);
                 effect++;
             }
             break;
+        case ABILITY_ENTRANCING:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                gSideTimers[GetBattlerSide(battler)].followmeTimer = 1;
+                gSideTimers[GetBattlerSide(battler)].followmeTarget = gBattlerAttacker;
+                gSideTimers[GetBattlerSide(battler)].followmePowder = gBattleMoves[gCurrentMove].powderMove;
+                BattleScriptPushCursorAndCallback(BattleScript_EntrancingAbilityActivates);                
+                effect++;
+            }
+            break;            
         case ABILITY_MAGICIAN:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
+                gBattlerAttacker = battler;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_MagicianAbilityActivates);
                 effect++;
@@ -8578,8 +8597,9 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
         break;
     case MOVE_TARGET_RANDOM:
         side = BATTLE_OPPOSITE(GetBattlerSide(gBattlerAttacker));
-        if (IsAffectedByFollowMe(gBattlerAttacker, side, move))
+        if (IsAffectedByFollowMe(gBattlerAttacker, side, move)) {
             targetBattler = gSideTimers[side].followmeTarget;
+        }
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && moveTarget & MOVE_TARGET_RANDOM)
             targetBattler = SetRandomTarget(gBattlerAttacker);
         else

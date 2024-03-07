@@ -563,6 +563,7 @@
 #define B_ANIM_WHITE_SMOKE              43
 #define B_ANIM_SWITCH_ITEMS             44
 #define B_ANIM_TIME_TURN                45
+#define B_ANIM_ENTRANCING               46
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
