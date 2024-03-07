@@ -3870,7 +3870,7 @@ static void PrintNewMoveDetailsOrCancelText(void)
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sMovesPPLayout);
-        PrintTextOnWindow(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 44), 65, 0, 12);
+        PrintTextOnWindowSmall(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_SMALL, gStringVar4, 45), 65, 0, 12);
     }
 }
 

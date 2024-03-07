@@ -7,6 +7,7 @@
 #include "constants/sound.h"
 #include "constants/moves.h"
 #include "constants/pokemon.h"
+#include "constants/abilities.h"
 #include "constants/items.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_anim_script.inc"
@@ -19596,7 +19597,662 @@ Move_PARTING_CURRY::
 	end
 
 Move_SERPENT_SURGE::
-	goto Move_VIPER_STRIKE
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpretfalse SerpentSurgeCheckDamageCategoryPlayer
+	jumprettrue SerpentSurgeCheckDamageCategoryOpponent
+SerpentSurgeCheckDamageCategoryPlayer:
+	createvisualtask AnimTask_ShellSideArm, 0x5
+	jumpargeq 0x0, TRUE, SerpentSurgePhysicalPlayer
+	jumpargeq 0x0, FALSE, SerpentSurgeSpecialPlayer
+SerpentSurgePhysicalPlayer:
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+    loadspritegfx ANIM_TAG_REAL_DRAGON_ORB
+	loadspritegfx ANIM_TAG_REAL_DRAGON_HEAD
+	loadspritegfx ANIM_TAG_DRAGON_HEAD_OPPONENT
+	createvisualtask AnimTask_SerpentSurge, 0x5
+	jumpargeq 0x0, TYPE_WATER, SerpentSurgePhysicalCritPlayer
+	jumpargeq 0x0, TYPE_GRASS, SerpentSurgePhysicalDrainPlayer
+	jumpargeq 0x0, TYPE_BUG, SerpentSurgePhysicalSwitchPlayer
+SerpentSurgePhysicalCritPlayer:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeHeadPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeHeadPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgePhysicalDrainPlayer:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeHeadPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeHeadPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgePhysicalSwitchPlayer:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeBeamsPhysicalPlayer1
+	call SerpentSurgeHeadPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeBeamsPhysicalPlayer2
+	call SerpentSurgeHeadPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call SerpentSurgeBeamsPhysicalPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse SerpentSurgeLast
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -5
+	waitforvisualfinish
+	invisible ANIM_ATTACKER
+	end
+SerpentSurgeHeadPhysicalPlayer1:
+	createsprite gRealDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeHeadPhysicalPlayer2:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeHeadPhysicalPlayer3:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -8
+	delay 1
+	createsprite gRealDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalPlayer1:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalPlayer2:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalPlayer3:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -32
+	delay 1
+	return
+SerpentSurgeSpecialPlayer:
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+    loadspritegfx ANIM_TAG_DRAGON_ORB
+	loadspritegfx ANIM_TAG_DRAGON_HEAD_OPPONENT
+	loadspritegfx ANIM_TAG_DRAGON_HEAD
+	createvisualtask AnimTask_SerpentSurge, 0x5
+	jumpargeq 0x0, TYPE_WATER, SerpentSurgeSpecialCritPlayer
+	jumpargeq 0x0, TYPE_GRASS, SerpentSurgeSpecialDrainPlayer
+	jumpargeq 0x0, TYPE_BUG, SerpentSurgeSpecialSwitchPlayer
+SerpentSurgeSpecialCritPlayer:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeHeadSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeHeadSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgeSpecialDrainPlayer:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeHeadSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeHeadSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgeSpecialSwitchPlayer:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeBeamsSpecialPlayer1
+	call SerpentSurgeHeadSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeBeamsSpecialPlayer2
+	call SerpentSurgeHeadSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call SerpentSurgeBeamsSpecialPlayer3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse SerpentSurgeLast
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -5
+	waitforvisualfinish
+	invisible ANIM_ATTACKER
+	end
+SerpentSurgeHeadSpecialPlayer1:
+	createsprite gDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeHeadSpecialPlayer2:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeHeadSpecialPlayer3:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -8
+	delay 1
+	createsprite gDragonHeadSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeBeamsSpecialPlayer1:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeBeamsSpecialPlayer2:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	return
+SerpentSurgeBeamsSpecialPlayer3:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -32
+	delay 1
+	return
+SerpentSurgeCheckDamageCategoryOpponent:
+	createvisualtask AnimTask_ShellSideArm, 0x5
+	jumpargeq 0x0, TRUE, SerpentSurgePhysicalOpponent
+	jumpargeq 0x0, FALSE, SerpentSurgeSpecialOpponent
+SerpentSurgePhysicalOpponent:
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+    loadspritegfx ANIM_TAG_REAL_DRAGON_ORB
+	loadspritegfx ANIM_TAG_REAL_DRAGON_HEAD
+	loadspritegfx ANIM_TAG_DRAGON_HEAD_OPPONENT
+	createvisualtask AnimTask_SerpentSurge, 0x5
+	jumpargeq 0x0, TYPE_WATER, SerpentSurgePhysicalCritOpponent
+	jumpargeq 0x0, TYPE_GRASS, SerpentSurgePhysicalDrainOpponent
+	jumpargeq 0x0, TYPE_BUG, SerpentSurgePhysicalSwitchOpponent
+SerpentSurgePhysicalCritOpponent:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeHeadPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeHeadPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgePhysicalDrainOpponent:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeHeadPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeHeadPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgePhysicalSwitchOpponent:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeBeamsPhysicalOpponent1
+	call SerpentSurgeHeadPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeBeamsPhysicalOpponent2
+	call SerpentSurgeHeadPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call SerpentSurgeBeamsPhysicalOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse SerpentSurgeLast
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -5
+	waitforvisualfinish
+	invisible ANIM_ATTACKER
+	end
+SerpentSurgeHeadPhysicalOpponent1:
+	createsprite gRealDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeHeadPhysicalOpponent2:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeHeadPhysicalOpponent3:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -8
+	delay 1
+	createsprite gRealDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalOpponent1:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalOpponent2:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	return
+SerpentSurgeBeamsPhysicalOpponent3:
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	createsprite gRealDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -32
+	delay 1
+	return
+SerpentSurgeSpecialOpponent:
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+    loadspritegfx ANIM_TAG_DRAGON_ORB
+	loadspritegfx ANIM_TAG_DRAGON_HEAD
+	loadspritegfx ANIM_TAG_DRAGON_HEAD_OPPONENT
+	createvisualtask AnimTask_SerpentSurge, 0x5
+	jumpargeq 0x0, TYPE_WATER, SerpentSurgeSpecialCritOpponent
+	jumpargeq 0x0, TYPE_GRASS, SerpentSurgeSpecialDrainOpponent
+	jumpargeq 0x0, TYPE_BUG, SerpentSurgeSpecialSwitchOpponent
+SerpentSurgeSpecialCritOpponent:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeHeadSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeHeadSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgeSpecialDrainOpponent:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeHeadSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeHeadSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+SerpentSurgeSpecialSwitchOpponent:
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
+	delay 6
+	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	createvisualtask AnimTask_StartSinAnimTimer, 5, 100
+	call SerpentSurgeHeadSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 3, 0, 37, 1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeBeamsSpecialOpponent1
+	call SerpentSurgeHeadSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeBeamsSpecialOpponent2
+	call SerpentSurgeHeadSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call SerpentSurgeBeamsSpecialOpponent3
+	call RisingWaterHitEffect
+	delay 1
+	delay 1
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
+	jumpretfalse SerpentSurgeLast
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_ATTACKER, -5
+	waitforvisualfinish
+	invisible ANIM_ATTACKER
+SerpentSurgeLast:
+	end
+SerpentSurgeHeadSpecialOpponent1:
+	createsprite gDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeHeadSpecialOpponent2:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeHeadSpecialOpponent3:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -8
+	delay 1
+	createsprite gDragonHeadOpponentSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 8
+	delay 1
+	return
+SerpentSurgeBeamsSpecialOpponent1:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	return
+SerpentSurgeBeamsSpecialOpponent2:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	return
+SerpentSurgeBeamsSpecialOpponent3:
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 0
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, 32
+	delay 1
+	createsprite gDragonOrbSpriteTemplate, ANIM_ATTACKER, 3, 10, 10, 0, -32
+	delay 1
+	return
 
 Move_FLARE_CRUSH::
 	goto Move_FIRE_PUNCH

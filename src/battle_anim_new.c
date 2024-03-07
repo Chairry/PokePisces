@@ -21,6 +21,7 @@
 #include "constants/pokemon.h"
 #include "battle_util.h"
 #include "constants/songs.h"
+#include "constants/abilities.h"
 
 // function declarations
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
@@ -8715,6 +8716,20 @@ void AnimTask_TerrainPulse(u8 taskId)
     {
         gBattleAnimArgs[0] = 0;
     }
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_SerpentSurge(u8 taskId)
+{
+    if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_DRIZZLE)
+        gBattleAnimArgs[0] = TYPE_WATER;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_HYDRATION)
+        gBattleAnimArgs[0] = TYPE_GRASS;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_REGENERATOR)
+        gBattleAnimArgs[0] = TYPE_BUG;
+    else
+        gBattleAnimArgs[0] = 0;
+
     DestroyAnimVisualTask(taskId);
 }
 
