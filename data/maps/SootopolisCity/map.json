@@ -290,10 +290,10 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
-      "y": 6,
+      "x": 15,
+      "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_SOOTOPOLIS_CITY_HOUSE1",
+      "dest_map": "MAP_MANGROTTO_TUNNEL",
       "dest_warp_id": "0"
     },
     {

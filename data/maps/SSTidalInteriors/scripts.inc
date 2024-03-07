@@ -302,7 +302,7 @@ SSTidalInteriors_Text_Drake:
 	.string "bring balance and unity to\l"
 	.string "the region they inhabit.\p"
 	.string "Those who believe in them\n"
-	.string "attribute the recent times of peace\n"
+	.string "attribute the recent times of peace\l"
 	.string "in Hoenn to their presence.\p"
 	.string "I seek to find evidence of the\n"
 	.string "existence of these fabled deities.\p"
