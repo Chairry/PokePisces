@@ -1033,7 +1033,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_PLASMANTIS]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_HARACE]                       = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  3 },
     [SPECIES_TORSTEVIC]                    = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  3 },
-    [SPECIES_CHIKA]                        = { .size = MON_COORDS_SIZE(48, 48), .y_offset =  7 },
+    [SPECIES_CHIKA]                        = { .size = MON_COORDS_SIZE(40, 40), .y_offset =  5 },
     [SPECIES_SWORDUC]                      = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_GOSMARK]                      = { .size = MON_COORDS_SIZE(48, 64), .y_offset =  0 },
     [SPECIES_CORDELICT]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  2 },
