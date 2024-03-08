@@ -4796,6 +4796,7 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    //else if (ability == )
     else if (ability == ABILITY_PRANKSTER && IS_MOVE_STATUS(move))
     {
         gProtectStructs[battler].pranksterElevated = 1;
