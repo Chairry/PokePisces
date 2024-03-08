@@ -485,6 +485,9 @@
 #define EFFECT_SOUL_CUTTER                  479
 #define EFFECT_VOID                         480
 #define EFFECT_KERFUFFLE                    481
-#define NUM_BATTLE_MOVE_EFFECTS             482
+#define EFFECT_VERGLASTROM                  482
+#define EFFECT_EXORCISM                     483
+#define EFFECT_LOVE_TAP                     484
+#define NUM_BATTLE_MOVE_EFFECTS             485
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

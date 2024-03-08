@@ -9231,6 +9231,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (weather & B_WEATHER_ANY)
             basePower *= 2;
         break;
+    case EFFECT_FAKE_OUT:
+        if ((gCurrentMove == MOVE_COLD_SNAP) && (weather & B_WEATHER_HAIL))
+            basePower *= 2;
+        break;
     case EFFECT_PURSUIT:
         if (gActionsByTurnOrder[GetBattlerTurnOrderNum(battlerDef)] == B_ACTION_SWITCH)
             basePower *= 2;
@@ -10791,6 +10795,10 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_HEAT_SINK && defType == TYPE_WATER)
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_EXORCISM && defType == TYPE_GHOST)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || defType == TYPE_ELECTRIC || defType == TYPE_STEEL))
         mod = UQ_4_12(2.0);

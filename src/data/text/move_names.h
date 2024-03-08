@@ -906,6 +906,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BLUSTER] = _("Bluster"),
     [MOVE_KERFUFFLE] = _("Kerfuffle"),
     [MOVE_TIPSY_STEP] = _("Tipsy Step"),
+    [MOVE_VERGLASTROM] = _("Verglastrom"),
+    [MOVE_EXORCISM] = _("Exorcism"),
+    [MOVE_LOVE_TAP] = _("Love Tap"),
+    [MOVE_COLD_SNAP] = _("Cold Snap"),
+    [MOVE_HEAT_SINK] = _("Heat Sink"),
 };
 #else
 // 12 letters
@@ -1815,6 +1820,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BLUSTER] = _("Bluster"),
     [MOVE_KERFUFFLE] = _("Kerfuffle"),
     [MOVE_TIPSY_STEP] = _("Tipsy Step"),
+    [MOVE_VERGLASTROM] = _("Verglastrom"),
+    [MOVE_EXORCISM] = _("Exorcism"),
+    [MOVE_LOVE_TAP] = _("Love Tap"),
+    [MOVE_COLD_SNAP] = _("Cold Snap"),
+    [MOVE_HEAT_SINK] = _("Heat Sink"),
 };
 #endif
 
