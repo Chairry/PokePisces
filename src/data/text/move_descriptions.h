@@ -1329,8 +1329,8 @@ static const u8 sSkyUppercutDescription[] = _(
     "leaping into the sky.");
 
 static const u8 sSandTombDescription[] = _(
-    "Traps and hurts the foe in\n"
-    "quicksand for "BINDING_TURNS" turns.");
+    "Traps foe for "BINDING_TURNS" turns. \n"
+    "Lowers foe's Def in Sandstorm.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
@@ -2217,8 +2217,8 @@ static const u8 sFellStingerDescription[] = _(
     "the Attack stat is raised.");
 
 static const u8 sTrickOrTreatDescription[] = _(
-    "Makes the foe Ghost-type and\n"
-    "trades held items.");
+    "Makes the foe Ghost-type\n"
+    "and trades held items.");
 
 static const u8 sNobleRoarDescription[] = _(
     "A 1st-turn move that flinches\n"
@@ -2297,8 +2297,8 @@ static const u8 sBoomburstDescription[] = _(
     "destructive sound wave.");
 
 static const u8 sFairyLockDescription[] = _(
-    "Prevents escape for the turn.\n"
-    "Ensures the next moves hit.");
+    "Traps foe for the turn.\n"
+    "Ensures the next move hits.");
 
 static const u8 sKingsShieldDescription[] = _(
     "Evades damage, and reduces\n"
@@ -2714,8 +2714,8 @@ static const u8 sSnipeShotDescription[] = _(
     "that draw in moves.");
 
 static const u8 sJawLockDescription[] = _(
-    "Prevents the user and\n"
-    "the target from escaping.");
+    "Bites down hard onto the\n"
+    "foe. The foe cannot escape.");
 
 static const u8 sStuffCheeksDescription[] = _(
     "Consumes the user's Berry,\n"
@@ -3443,6 +3443,70 @@ static const u8 sLoneSharkDescription[] = _(
 static const u8 sHeartStealDescription[] = _(
     "Quickly steals foe's stats.\n"
     "Boosts against infatuation.");
+
+static const u8 sIgnaStrikeDescription[] = _(
+    "A quick dash that hits Fire\n"
+    "and Flying super effectively.");
+
+static const u8 sVenomGaleDescription[] = _(
+    "Spreads a poison mist that\n"
+    "lowers Accuracy and Defense.");
+
+static const u8 sVenomDrainDescription[] = _(
+    "Drains more when foe is\n"
+    "poisoned but also removes it.");
+
+static const u8 sGunkFunkDescription[] = _(
+    "Spreads debilitating gunk\n"
+    "that may lower all stats.");
+
+static const u8 sStellarFistsDescription[] = _(
+    "Hits 4 times with cosmic\n"
+    "fists using the Sp. Def stat.");
+
+static const u8 sWillpowerDescription[] = _(
+    "Deals more damage the higher\n"
+    "the user's Sp. Def.");
+
+static const u8 sFinalShriekDescription[] = _(
+    "An ear-splitting yell that\n"
+    "also knocks the user out.");
+
+static const u8 sManeuverDescription[] = _(
+    "Switches the user out.\n"
+    "Critical hits in tailwind.");
+
+static const u8 sScorpFangDescription[] = _(
+    "Badly poisons, grounds foes,\n"
+    "and hits Poison and Steel.");
+
+static const u8 sCausticFinaleDescription[] = _(
+    "A jab so powerful it damages\n"
+    "the user. Sets Toxic Spikes.");
+
+static const u8 sDineNDashDescription[] = _(
+    "Hits and switches. If the foe\n"
+    "has a berry the user eats it.");
+
+static const u8 sWickedWindsDescription[] = _(
+    "Does Dark and Flying-type\n"
+    "damage. May cause frostbite.");
+
+static const u8 sSonicBurstDescription[] = _(
+    "Does more damage the higher\n"
+    "the user's Speed. May confuse.");
+
+static const u8 sSoulCutterDescription[] = _(
+    "Attacks with a ghostly blade\n"
+    "that does special damage.");
+
+static const u8 sVoidDescription[] = _(
+    "Quickly disables a foe's move.\n"
+    "Also ignores protect.");
+
+static const u8 sKerfuffleDescription[] = _(
+    "Doubles power if the user is\n"
+    "confused. May confuse user.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4339,4 +4403,23 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAGON_POKER - 1] = sDragonPokerDescription,
     [MOVE_LONE_SHARK - 1] = sLoneSharkDescription,
     [MOVE_HEART_STEAL - 1] = sHeartStealDescription,
+    [MOVE_IGNA_STRIKE - 1] = sIgnaStrikeDescription,
+    [MOVE_VENOM_GALE - 1] = sVenomGaleDescription,
+    [MOVE_VENOM_DRAIN - 1] = sVenomDrainDescription,
+    [MOVE_GUNK_FUNK - 1] = sGunkFunkDescription,
+    [MOVE_STELLAR_FISTS - 1] = sStellarFistsDescription,
+    [MOVE_WILLPOWER - 1] = sWillpowerDescription,
+    [MOVE_MISERY_WAIL - 1] = sFlailDescription,
+    [MOVE_FINAL_SHRIEK - 1] = sFinalShriekDescription,
+    [MOVE_MANEUVER - 1] = sManeuverDescription,
+    [MOVE_SCORP_FANG - 1] = sScorpFangDescription,
+    [MOVE_CAUSTIC_FINALE - 1] = sCausticFinaleDescription,
+    [MOVE_DINE_N_DASH - 1] = sDineNDashDescription,
+    [MOVE_WICKED_WINDS - 1] = sWickedWindsDescription,
+    [MOVE_SONIC_BURST - 1] = sSonicBurstDescription,
+    [MOVE_SOUL_CUTTER - 1] = sSoulCutterDescription,
+    [MOVE_VOID - 1] = sVoidDescription,
+    [MOVE_BLUSTER - 1] = sFacadeDescription,
+    [MOVE_KERFUFFLE - 1] = sKerfuffleDescription,
+    [MOVE_TIPSY_STEP - 1] = sKerfuffleDescription,
 };

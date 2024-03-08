@@ -893,9 +893,7 @@ static void AnimElectricBoltSegment(struct Sprite *sprite)
 void AnimThunderWave(struct Sprite *sprite)
 {
     u8 spriteId;
-
     bool32 isAnchorShot = (gAnimMoveIndex == MOVE_ANCHOR_SHOT);
-
     bool32 isSpiritShackle = (gAnimMoveIndex == MOVE_SPIRIT_SHACKLE);
 
     sprite->x += gBattleAnimArgs[0];

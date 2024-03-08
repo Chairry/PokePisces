@@ -985,12 +985,14 @@ static const u16 sFinalStrikeOnlyEffects[] =
     EFFECT_SMACK_DOWN,
     EFFECT_SPARKLING_ARIA,
     EFFECT_SMELLINGSALT,
+    EFFECT_VENOM_DRAIN,
     EFFECT_WAKE_UP_SLAP,
     EFFECT_HIT_ESCAPE,
     EFFECT_RECOIL_HP_25,
     EFFECT_HIT_PREVENT_ESCAPE,
     EFFECT_HIT_SWITCH_TARGET,
     EFFECT_VITAL_THROW,
+    EFFECT_SCORP_FANG,
 };
 
 static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
@@ -1989,6 +1991,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
              || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN))
+             || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[battlerAtk] & SIDE_STATUS_TAILWIND)
              || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN))
     {
         critChance = -2;
@@ -2856,6 +2859,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
         return;
     case MOVE_EFFECT_STEALTH_ROCK:
     case MOVE_EFFECT_SPIKES:
+    case MOVE_EFFECT_TOXIC_SPIKES:
     case MOVE_EFFECT_PAYDAY:
     case MOVE_EFFECT_STEAL_ITEM:
     case MOVE_EFFECT_BUG_BITE:
@@ -3612,6 +3616,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
                 }
                 break;
+            case MOVE_EFFECT_ALL_STATS_DOWN:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsDown;
+                }
+                break;
             case MOVE_EFFECT_HEART_CARVE:
                 if (!NoAliveMonsForEitherParty())
                 {
@@ -3637,7 +3648,14 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
                 }
                 break;
-            case MOVE_EFFECT_DEF_SPDEF_UP: // Close Combat
+            case MOVE_EFFECT_DEF_ACC_DOWN:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_DefAccDown;
+                }
+                break;
+            case MOVE_EFFECT_DEF_SPDEF_UP:
                 if (!NoAliveMonsForEitherParty())
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -3723,7 +3741,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
                     gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
-                    if (gCurrentMove == MOVE_HYPERSPACE_FURY || gCurrentMove == MOVE_RAZING_SUN)
+                    if (gCurrentMove == MOVE_HYPERSPACE_FURY)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveEffectFeint;
@@ -3921,6 +3939,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POINTEDSTONESFLOAT;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_StealthRockActivates;
+                }
+                break;
+            case MOVE_EFFECT_TOXIC_SPIKES:
+                if (gSideTimers[GetBattlerSide(gEffectBattler)].toxicSpikesAmount < 2)
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_ToxicSpikesActivates;
                 }
                 break;
             case MOVE_EFFECT_SPIKES:
@@ -5711,7 +5736,6 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_33: // Double Edge, 33 % recoil
-                case EFFECT_RAZING_SUN:
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -5729,10 +5753,16 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
                     effect = TRUE;
                     break;
-                case EFFECT_RECOIL_50_STATUS: // Flare Blitz - can burn, Volt Tackle - can paralyze
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
+                case EFFECT_RECOIL_50_STATUS: // Volt Tackle - can paralyze
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
+                    effect = TRUE;
+                    break;
+                case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                     effect = TRUE;
                     break;
                 }
@@ -5851,6 +5881,9 @@ static void Cmd_moveend(void)
                         break;
                     case STATUS1_BURN:
                         gBattlescriptCurrInstr = BattleScript_TargetBurnHeal;
+                        break;
+                    case STATUS1_PSN_ANY:
+                        gBattlescriptCurrInstr = BattleScript_TargetPoisonHeal;
                         break;
                     }
                 }
@@ -6140,16 +6173,26 @@ static void Cmd_moveend(void)
                 gBattleScripting.multihitString[4]++;
                 if (--gMultiHitCounter == 0)
                 {
+                    u32 BarbBarragePoisonChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
+
                     if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_SCALE_SHOT && !NoAliveMonsForEitherParty())
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
 
-                    if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE && !NoAliveMonsForEitherParty())
+                    if ((gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE
+                    && !NoAliveMonsForEitherParty())
+                    && gBattleMoveDamage != 0  // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && TARGET_TURN_DAMAGED
+                    && (BarbBarragePoisonChance)
+                    && gBattleMons[gBattlerTarget].hp)
                     {
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_BarbBarrage;
+                        gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
+                        BattleScriptPushCursor();
+                        SetMoveEffect(FALSE, 0);
+                        BattleScriptPop();
                     }
 
                     BattleScriptPushCursor();
@@ -8469,7 +8512,7 @@ static bool32 HasAttackerFaintedTarget(void)
 
 bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget)
 {
-    return ((GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION && gBattleMoves[gCurrentMove].split == SPLIT_STATUS)
+    return ((GetBattlerAbility(battlerAttacker) == ABILITY_CORROSION) || (gBattleMoves[gCurrentMove].effect == EFFECT_SCORP_FANG)
             || !(IS_BATTLER_OF_TYPE(battlerTarget, TYPE_POISON) || IS_BATTLER_OF_TYPE(battlerTarget, TYPE_STEEL)));
 }
 
@@ -9666,13 +9709,13 @@ static void Cmd_various(void)
     case VARIOUS_SUCKER_PUNCH_CHECK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gProtectStructs[gBattlerTarget].obstructed)
+        if (gCurrentMove == MOVE_UPPER_HAND && ((GetChosenMovePriority(gBattlerTarget) < 1) || (gChosenMoveByBattler[gBattlerTarget] == MOVE_NONE)))
+            gBattlescriptCurrInstr = cmd->failInstr;
+        else if (gProtectStructs[gBattlerTarget].obstructed && gCurrentMove != MOVE_UPPER_HAND)
             gBattlescriptCurrInstr = cmd->failInstr;
         else if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
             gBattlescriptCurrInstr = cmd->failInstr;
-        else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
-            gBattlescriptCurrInstr = cmd->failInstr;
-        else if (gCurrentMove == MOVE_UPPER_HAND && GetChosenMovePriority(gBattlerTarget) <= 0)
+        else if (IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]) && gCurrentMove != MOVE_UPPER_HAND)
             gBattlescriptCurrInstr = cmd->failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -11723,7 +11766,11 @@ static void Cmd_setdrainedhp(void)
 {
     CMD_ARGS();
 
-    if (gBattleMoves[gCurrentMove].argument != 0)
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY))
+        gBattleMoveDamage = (gHpDealt * 75 / 100);
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN)
+        gBattleMoveDamage = (gHpDealt / 4);
+    else if (gBattleMoves[gCurrentMove].argument != 0)
         gBattleMoveDamage = (gHpDealt * gBattleMoves[gCurrentMove].argument / 100);
     else
         gBattleMoveDamage = (gHpDealt / 2);
@@ -13882,32 +13929,32 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
     else if (dragonpoker < 50)
     {
-        gBattleStruct->dragonpokerBasePower = 90;
+        gBattleStruct->dragonpokerBasePower = 95;
         gBattlescriptCurrInstr = BattleScript_DragonPokerStraight;
     }
     else if (dragonpoker < 60)
     {
-        gBattleStruct->dragonpokerBasePower = 100;
+        gBattleStruct->dragonpokerBasePower = 110;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFlush;
     }
     else if (dragonpoker < 70)
     {
-        gBattleStruct->dragonpokerBasePower = 110;
+        gBattleStruct->dragonpokerBasePower = 125;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFullHouse;
     }
     else if (dragonpoker < 80)
     {
-        gBattleStruct->dragonpokerBasePower = 120;
+        gBattleStruct->dragonpokerBasePower = 140;
         gBattlescriptCurrInstr = BattleScript_DragonPokerFourOfAKind;
     }
     else if (dragonpoker < 90)
     {
-        gBattleStruct->dragonpokerBasePower = 130;
+        gBattleStruct->dragonpokerBasePower = 160;
         gBattlescriptCurrInstr = BattleScript_DragonPokerStraightFlush;
     }
     else
     {
-        gBattleStruct->dragonpokerBasePower = 150;
+        gBattleStruct->dragonpokerBasePower = 180;
         gBattlescriptCurrInstr = BattleScript_DragonPokerRoyalFlush;
     }
 }
@@ -14330,7 +14377,7 @@ static void Cmd_setforcedtarget(void)
 {
     CMD_ARGS();
     gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTimer = 1;
-    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerTarget;
+    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerAttacker;
     gSideTimers[GetBattlerSide(gBattlerAttacker)].followmePowder = gBattleMoves[gCurrentMove].powderMove;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
