@@ -102,6 +102,12 @@
 #define METATILE_BikeShop_Generator_Off_Tile7      0x2F7
 #define METATILE_BikeShop_Wall_Edge_Top            0x281
 
+// gTileset_BirchLab
+#define METATILE_BirchLab_BirchTable1  0x283
+#define METATILE_BirchLab_BirchTable2  0x284
+#define METATILE_BirchLab_BirchTable3  0x28B
+#define METATILE_BirchLab_BirchTable4  0x28C
+
 // gTileset_BrendansMaysHouse
 #define METATILE_BrendansMaysHouse_BookOnTable       0x293
 #define METATILE_BrendansMaysHouse_BrendanPC_Off     0x25A

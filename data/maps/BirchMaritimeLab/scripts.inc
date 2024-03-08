@@ -2,11 +2,24 @@
 
 BirchMaritimeLab_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, BirchMaritimeLab_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, BirchMaritimeLab_OnLoad
 	.byte 0
 
 BirchMaritimeLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, BirchMaritimeLab_EventScript_BeforeStarter
 	.2byte 0
+
+BirchMaritimeLab_OnLoad:
+	call_if_eq VAR_BIRCH_LAB_STATE, 5, BirchMaritimeLab_EventScript_ReplaceTable
+	end
+
+BirchMaritimeLab_EventScript_ReplaceTable::
+	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, TRUE
+	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, TRUE
+	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
+	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
+	special DrawWholeMapView
+	return
 
 BirchMaritimeLab_EventScript_BeforeStarter::
 	lockall
@@ -95,6 +108,11 @@ BirchMaritimeLab_EventScript_PickYourStarter::
 BirchMaritimeLab_EventScript_GiveStarterEvent::
 	lockall
 	bufferleadmonspeciesname STR_VAR_1
+	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, TRUE
+	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, TRUE
+	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
+	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
+	special DrawWholeMapView
 	message BirchMaritimeLab_Text_ReceivedStarter
 	waitmessage
 	playfanfare MUS_SLOTS_JACKPOT
