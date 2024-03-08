@@ -1,10 +1,20 @@
 static const struct TrainerMon sParty_Sawyer1[] = {
     {
-    .lvl = 21,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_BERM,
+    .ability = ABILITY_GRASSY_SURGE,
+    .friendship = 42,
+    .gender = TRAINER_MON_FEMALE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .isShiny = TRUE,
+    .iv = TRAINER_PARTY_IVS(25,26,27,28,29,30),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 4, 0),
+    .lvl = 67,
+    .moves = {MOVE_AIR_SLASH, MOVE_BARRIER, MOVE_SOLAR_BEAM, MOVE_EXPLOSION},
+    .nature = TRAINER_PARTY_NATURE(NATURE_HASTY),
+    .nickname = COMPOUND_STRING("Bubbles")
     }
 };
-
+//Example Struct Above
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {
     {
     .lvl = 32,
@@ -60,33 +70,33 @@ static const struct TrainerMon sParty_GruntSeafloorCavern3[] = {
 
 static const struct TrainerMon sParty_PGranger[] = {
     {
-    .lvl = 4,
+    .lvl = 3,
     .species = SPECIES_COMBUN,
     },
     {
-    .lvl = 5,
+    .lvl = 4,
     .species = SPECIES_BERM,
     }
 };
 
 static const struct TrainerMon sParty_PRicky[] = {
     {
-    .lvl = 4,
+    .lvl = 3,
     .species = SPECIES_COMBUN,
     },
     {
-    .lvl = 5,
+    .lvl = 4,
     .species = SPECIES_QUILWARD,
     }
 };
 
 static const struct TrainerMon sParty_PJeannie[] = {
     {
-    .lvl = 4,
+    .lvl = 3,
     .species = SPECIES_COMBUN,
     },
     {
-    .lvl = 5,
+    .lvl = 4,
     .species = SPECIES_GUPSPAR,
     }
 };
@@ -95,7 +105,6 @@ static const struct TrainerMon sParty_PSadfisher1[] = {
     {
     .lvl = 1,
     .species = SPECIES_SADSOD,
-    .ability = ABILITY_PRESSURE,
     .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
@@ -142,11 +151,11 @@ static const struct TrainerMon sParty_PJanice[] = {
 static const struct TrainerMon sParty_PJimmy[] = {
     {
     .lvl = 5,
-    .species = SPECIES_MANKEY,
+    .species = SPECIES_ICKSQUEEK,
     },
     {
     .lvl = 5,
-    .species = SPECIES_ICKSQUEEK,
+    .species = SPECIES_MANKEY,
     }
 };
 
@@ -228,8 +237,18 @@ static const struct TrainerMon sParty_PSadie[] = {
 
 static const struct TrainerMon sParty_PMelanie[] = {
     {
-    .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_BERM,
+    .ability = ABILITY_GRASSY_SURGE,
+    .friendship = 42,
+    .gender = TRAINER_MON_FEMALE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .isShiny = TRUE,
+    .iv = TRAINER_PARTY_IVS(25,26,27,28,29,30),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 4, 0),
+    .lvl = 67,
+    .moves = {MOVE_AIR_SLASH, MOVE_BARRIER, MOVE_SOLAR_BEAM, MOVE_EXPLOSION},
+    .nature = TRAINER_PARTY_NATURE(NATURE_HASTY),
+    .nickname = COMPOUND_STRING("Bubbles")
     }
 };
 
