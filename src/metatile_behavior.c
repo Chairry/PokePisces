@@ -855,6 +855,14 @@ bool8 MetatileBehavior_IsMountain(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsWooden(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_WOODEN)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsDiveable(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_INTERIOR_DEEP_WATER
