@@ -911,6 +911,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_LOVE_TAP] = _("Love Tap"),
     [MOVE_COLD_SNAP] = _("Cold Snap"),
     [MOVE_HEAT_SINK] = _("Heat Sink"),
+    [MOVE_FROST_NOVA] = _("Frost Nova"),
+    [MOVE_GEM_BLASTER] = _("Gem Blaster"),
 };
 #else
 // 12 letters
@@ -1825,6 +1827,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_LOVE_TAP] = _("Love Tap"),
     [MOVE_COLD_SNAP] = _("Cold Snap"),
     [MOVE_HEAT_SINK] = _("Heat Sink"),
+    [MOVE_FROST_NOVA] = _("Frost Nova"),
+    [MOVE_GEM_BLASTER] = _("Gem Blaster"),
 };
 #endif
 

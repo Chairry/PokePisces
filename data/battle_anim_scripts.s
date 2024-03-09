@@ -937,6 +937,8 @@ gBattleAnims_Moves::
 	.4byte Move_LOVE_TAP
 	.4byte Move_COLD_SNAP
 	.4byte Move_HEAT_SINK
+	.4byte Move_FROST_NOVA
+	.4byte Move_GEM_BLASTER
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -20357,6 +20359,12 @@ Move_COLD_SNAP::
 
 Move_HEAT_SINK::
 	goto Move_FAKE_OUT
+
+Move_FROST_NOVA::
+	goto Move_FROST_BREATH
+
+Move_GEM_BLASTER::
+	goto Move_POWER_GEM
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

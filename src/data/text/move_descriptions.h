@@ -3524,6 +3524,14 @@ static const u8 sHeatSinkDescription[] = _(
     "Drops the temperature. Super\n"
     "effective on Fire-types.");
 
+static const u8 sFrostNovaDescription[] = _(
+    "An extremely fast attack\n"
+    "that always frostbites.");
+
+static const u8 sGemBlasterDescription[] = _(
+    "Blasts gems at the foe\n"
+    "2 to 5 times in a row.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4443,4 +4451,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LOVE_TAP - 1] = sLoveTapDescription,
     [MOVE_COLD_SNAP - 1] = sFakeOutDescription,
     [MOVE_HEAT_SINK - 1] = sHeatSinkDescription,
+    [MOVE_FROST_NOVA - 1] = sFrostNovaDescription,
+    [MOVE_GEM_BLASTER - 1] = sGemBlasterDescription,
 };
