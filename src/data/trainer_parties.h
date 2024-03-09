@@ -415,27 +415,51 @@ static const struct TrainerMon sParty_Felix[] = {
     }
 };
 
-static const struct TrainerMon sParty_Violet[] = {
+static const struct TrainerMon sParty_PJuan[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_CREAM,
+    .ability = ABILITY_REFRIGERATE,
+    .gender = TRAINER_MON_FEMALE,
+    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .lvl = 14,
+    .moves = {MOVE_POWDER_SNOW, MOVE_DISARMING_VOICE, MOVE_CHARM, MOVE_NONE}, //fourth move will be Cold Snap when it is added
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     },
     {
-    .lvl = 26,
-    .species = SPECIES_GLOOM,
+    .species = SPECIES_BIVAGUE,
+    .ability = ABILITY_POISON_POINT,
+    .gender = TRAINER_MON_FEMALE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .lvl = 15,
+    .moves = {MOVE_DRAGON_RAGE, MOVE_CLAMP, MOVE_POWDER_SNOW, MOVE_WITHDRAW},
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     }
 };
 
-static const struct TrainerMon sParty_Rose2[] = {
+static const struct TrainerMon sParty_PSebastian[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 26,
-    .species = SPECIES_SHROOMISH,
+    .species = SPECIES_HEMOKO,
+    .ability = ABILITY_POWER_OF_ALCHEMY,
+    .gender = TRAINER_MON_FEMALE,
+    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .lvl = 14,
+    .moves = {MOVE_COVET, MOVE_ASTONISH, MOVE_SWIFT, MOVE_AQUA_RING},
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 26,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_FAERED,
+    .ability = ABILITY_PRANKSTER,
+    .gender = TRAINER_MON_MALE,
+    .heldItem = ITEM_IRON_BALL,
+    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .lvl = 15,
+    .moves = {MOVE_ME_FIRST, MOVE_TRICK, MOVE_PSYCH_UP, MOVE_NONE},
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     }
 };
 
