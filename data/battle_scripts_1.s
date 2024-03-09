@@ -10285,17 +10285,22 @@ BattleScript_WhiteSmokeAbilityActivates::
 	call BattleScript_AbilityPopUp
 	setmist	
 	printstring STRINGID_ABILITYSUMMONEDMIST
-	playanimation BS_BATTLER_0, B_ANIM_WHITE_SMOKE	
+	playanimation BS_ATTACKER, B_ANIM_WHITE_SMOKE	
+	waitmessage B_WAIT_TIME_SHORT
+	end3
+
+BattleScript_EntrancingAbilityActivates::
+	call BattleScript_AbilityPopUp		
+	playanimation BS_ATTACKER, B_ANIM_ENTRANCING	
+	printstring STRINGID_ABILITYENTRANCED
 	waitmessage B_WAIT_TIME_SHORT
 	end3
 
 BattleScript_MagicianAbilityActivates::	
-	setbyte gBattlerAttacker, 0
-	setbyte gBattlerTarget, 1
 	jumpifsubstituteblocks BattleScript_MagicianAbilityActivates_End
-	tryswapitems BattleScript_MagicianAbilityActivates_End
+	tryswapitemsmagician BattleScript_MagicianAbilityActivates_End
 	call BattleScript_AbilityPopUp	
-	playanimation BS_BATTLER_0, B_ANIM_SWITCH_ITEMS	
+	playanimation BS_ATTACKER, B_ANIM_SWITCH_ITEMS	
 	printstring STRINGID_PKMNSWITCHEDITEMS
 	waitmessage B_WAIT_TIME_LONG
 	printfromtable gItemSwapStringIds
@@ -11436,6 +11441,10 @@ BattleScript_SelectingNotAllowedMoveGorillaTacticsInPalace::
 
 BattleScript_SelectingNotAllowedMoveAssaultVest::
 	printselectionstring STRINGID_ASSAULTVESTDOESNTALLOW
+	endselectionscript
+
+BattleScript_SelectingNotAllowedMoveStronghold::
+	printselectionstring STRINGID_STRONGHOLDDOESNTALLOW
 	endselectionscript
 
 BattleScript_SelectingNotAllowedMoveAssaultVestInPalace::

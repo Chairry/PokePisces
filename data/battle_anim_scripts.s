@@ -1038,7 +1038,8 @@ gBattleAnims_General::
 	.4byte General_Silence                  @ B_ANIM_SILENCE
 	.4byte General_WhiteSmoke               @ B_ANIM_WHITE_SMOKE
 	.4byte General_SwitchItems              @ B_ANIM_SWITCH_ITEMS
-	.4byte Move_TRICK_ROOM                 @ B_ANIM_TIME_TURN 
+	.4byte Move_TRICK_ROOM                  @ B_ANIM_TIME_TURN 
+	.4byte Move_FOLLOW_ME                  @ B_ANIM_ENTRANCING 
 
 	.align 2
 gBattleAnims_Special::
