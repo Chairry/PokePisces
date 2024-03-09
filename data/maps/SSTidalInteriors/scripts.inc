@@ -87,6 +87,7 @@ SSTidalInteriors_EventScript_GivePokedex::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	setflag FLAG_HIDE_LAB_RANGERS
 	warp MAP_SKY_PILLAR_NEW, 20, 27
 	waitstate
 	releaseall

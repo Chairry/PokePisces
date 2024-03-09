@@ -6,7 +6,7 @@ SootopolisCity_Gym_B1F_MapScripts::
 	.byte 0
 
 SootopolisCity_Gym_B1F_OnFrame:
-	map_script_2 VAR_ICE_STEP_COUNT, 148, SootopolisCity_Gym_B1F_EventScript_JuanBattleStart
+	map_script_2 VAR_ICE_STEP_COUNT, 113, SootopolisCity_Gym_B1F_EventScript_JuanBattleStart
 	.2byte 0
 
 SootopolisCity_Gym_B1F_EventScript_JuanBattleStart::
