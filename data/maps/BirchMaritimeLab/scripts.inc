@@ -7,10 +7,11 @@ BirchMaritimeLab_MapScripts::
 
 BirchMaritimeLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, BirchMaritimeLab_EventScript_BeforeStarter
+	map_script_2 VAR_BIRCH_LAB_STATE, 6, BirchMaritimeLab_EventScript_BeatenRangers
 	.2byte 0
 
 BirchMaritimeLab_OnLoad:
-	call_if_eq VAR_BIRCH_LAB_STATE, 5, BirchMaritimeLab_EventScript_ReplaceTable
+	call_if_gt VAR_BIRCH_LAB_STATE, 4, BirchMaritimeLab_EventScript_ReplaceTable
 	end
 
 BirchMaritimeLab_EventScript_ReplaceTable::
@@ -170,6 +171,34 @@ BirchMaritimeLab_EventScript_NoRoomForPokeBalls::
 	msgbox BirchMaritimeLab_Text_OhYourBagsFull, MSGBOX_DEFAULT
 	return
 
+BirchMaritimeLab_EventScript_BeatenRangers::
+	setflag FLAG_HIDE_SKY_PILLAR_RANGERS
+	setvar VAR_BIRCH_LAB_STATE, 7
+	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar
+	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE
+	releaseall
+	end
+
+BirchMaritimeLab_EventScript_BirchPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_BirchPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_GrangerPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_GrangerPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_JeanniePostSkyPillar::
+	msgbox BirchMaritimeLab_Text_JeanniePostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_RickyPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_RickyPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar:
+	face_up
+	step_end
+
 BirchMaritimeLab_Text_TakeStarter:
 	.string "For a journey as long and,\n"
 	.string "hopefully, fruitful as it seems\l"
@@ -244,3 +273,18 @@ BirchMaritimeLab_Text_GoFightTheRangers:
 
 BirchMaritimeLab_Text_OhYourBagsFull:
 	.string "uh oh spaghettios$"
+
+BirchMaritimeLab_Text_GoToSootopolis:
+	.string "go east bestie$"
+
+BirchMaritimeLab_Text_BirchPostSkyPillar:
+	.string "birch test$"
+
+BirchMaritimeLab_Text_GrangerPostSkyPillar:
+	.string "granger test$"
+
+BirchMaritimeLab_Text_JeanniePostSkyPillar:
+	.string "jeannie test$"
+
+BirchMaritimeLab_Text_RickyPostSkyPillar:
+	.string "ricky test$"

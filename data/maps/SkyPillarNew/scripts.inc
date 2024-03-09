@@ -22,8 +22,13 @@ SkyPillarNew_EventScript_GrangerEncouragement::
 	end
 
 SkyPillarNew_EventScript_GrangerRoadblockOver::
-	msgbox SkyPillarNew_Text_GrangerAllDone, MSGBOX_NPC
+	msgbox SkyPillarNew_Text_GrangerAllDone, MSGBOX_AUTOCLOSE
 	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	setflag FLAG_HIDE_BIRCH_AFTER_STARTER
+	clearflag FLAG_HIDE_LAB_RANGERS
+	setvar VAR_BIRCH_LAB_STATE, 6
+	warp MAP_BIRCH_MARITIME_LAB, 3, 9
+	waitstate
 	releaseall
 	end
 
@@ -47,8 +52,14 @@ SkyPillarNew_EventScript_RickyEncouragement::
 	end
 
 SkyPillarNew_EventScript_RickyRoadblockOver::
-	msgbox SkyPillarNew_Text_RickyAllDone, MSGBOX_NPC
+	msgbox SkyPillarNew_Text_RickyAllDone, MSGBOX_AUTOCLOSE
 	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	setflag FLAG_HIDE_BIRCH_AFTER_STARTER
+	clearflag FLAG_HIDE_LAB_RANGERS
+	setvar VAR_BIRCH_LAB_STATE, 6
+	warp MAP_BIRCH_MARITIME_LAB, 3, 9
+	waitstate
+	releaseall
 	end
 
 SkyPillarNew_EventScript_Jeannie::
@@ -71,8 +82,14 @@ SkyPillarNew_EventScript_JeannieEncouragement::
 	end
 
 SkyPillarNew_EventScript_JeannieRoadblockOver::
-	msgbox SkyPillarNew_Text_JeannieAllDone, MSGBOX_NPC
+	msgbox SkyPillarNew_Text_JeannieAllDone, MSGBOX_AUTOCLOSE
 	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	setflag FLAG_HIDE_BIRCH_AFTER_STARTER
+	clearflag FLAG_HIDE_LAB_RANGERS
+	setvar VAR_BIRCH_LAB_STATE, 6
+	warp MAP_BIRCH_MARITIME_LAB, 3, 9
+	waitstate
+	releaseall
 	end
 
 SkyPillarNew_EventScript_Man::

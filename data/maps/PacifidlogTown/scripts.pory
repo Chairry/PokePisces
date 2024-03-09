@@ -45,6 +45,9 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 	clearflag FLAG_PISCES_B
 	clearflag FLAG_PISCES_C
 	clearflag FLAG_PISCES_D
+	clearflag FLAG_PISCES_E
+	clearflag FLAG_PISCES_F
+	setflag FLAG_HIDE_LAB_RANGERS
 	warp MAP_BIRCH_MARITIME_LAB, 9, 14
 	waitstate
 	release
