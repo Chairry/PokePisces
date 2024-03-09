@@ -4824,6 +4824,8 @@ s8 GetMovePriority(u32 battler, u16 move)
         case EFFECT_ABSORB:
         case EFFECT_ROOST:
         case EFFECT_JUNGLE_HEALING:
+        case EFFECT_VENOM_DRAIN:
+        case EFFECT_LONE_SHARK:
             priority += 3;
             break;
         }

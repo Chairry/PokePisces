@@ -6649,9 +6649,7 @@ static const union AnimCmd sAnim_Jellicent_1[] =
 
 static const union AnimCmd sAnim_Alomomola_1[] =
 {
-    ANIMCMD_FRAME(1, 50),
-    ANIMCMD_FRAME(1, 50),
-    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 

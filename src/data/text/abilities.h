@@ -117,7 +117,7 @@ static const u8 sIceBodyDescription[] = _("Heals HP in a hailstorm. May\ncause f
 #if B_SNOW_WARNING < GEN_9
 static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
 #elif B_SNOW_WARNING >= GEN_9
-static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nsnowstorm in battle.");
+static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
 #endif
 static const u8 sHoneyGatherDescription[] = _("The Pokémon may gather Honey\nafter a battle.");
 static const u8 sFriskDescription[] = _("The Pokémon can check the\nfoe's held item.");

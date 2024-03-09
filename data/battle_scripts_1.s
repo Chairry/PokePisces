@@ -507,6 +507,43 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_CUTTER
 	.4byte BattleScript_EffectVoid                    @ EFFECT_VOID
 	.4byte BattleScript_EffectKerfuffle               @ EFFECT_KERFUFFLE
+	.4byte BattleScript_EffectVerglastrom             @ EFFECT_VERGLASTROM
+	.4byte BattleScript_EffectHit                     @ EFFECT_EXORCISM
+	.4byte BattleScript_EffectLoveTap                 @ EFFECT_LOVE_TAP
+
+BattleScript_EffectLoveTap::
+	attackcanceler
+	jumpifnotfirstturn BattleScript_FailedFromAtkString
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_CERTAIN
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_HitFromCritCalc
+	tryinfatuating BattleScript_HitFromCritCalc
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNFELLINLOVE
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotAttacker
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectVerglastrom::
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectTrap
+	goto BattleScript_EffectHit
 
 BattleScript_EffectKerfuffle::
 	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER

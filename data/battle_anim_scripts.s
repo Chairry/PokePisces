@@ -932,6 +932,13 @@ gBattleAnims_Moves::
 	.4byte Move_BLUSTER
 	.4byte Move_KERFUFFLE
 	.4byte Move_TIPSY_STEP
+	.4byte Move_VERGLASTROM
+	.4byte Move_EXORCISM
+	.4byte Move_LOVE_TAP
+	.4byte Move_COLD_SNAP
+	.4byte Move_HEAT_SINK
+	.4byte Move_FROST_NOVA
+	.4byte Move_GEM_BLASTER
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -20338,6 +20345,27 @@ Move_KERFUFFLE::
 
 Move_TIPSY_STEP::
 	goto Move_AQUA_STEP
+
+Move_VERGLASTROM::
+	goto Move_MAGMA_STORM
+
+Move_EXORCISM::
+	goto Move_PURIFY
+
+Move_LOVE_TAP::
+	goto Move_LOVELY_KISS
+
+Move_COLD_SNAP::
+	goto Move_FAKE_OUT
+
+Move_HEAT_SINK::
+	goto Move_FAKE_OUT
+
+Move_FROST_NOVA::
+	goto Move_FROST_BREATH
+
+Move_GEM_BLASTER::
+	goto Move_POWER_GEM
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

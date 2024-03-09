@@ -3508,6 +3508,30 @@ static const u8 sKerfuffleDescription[] = _(
     "Doubles power if the user is\n"
     "confused. May confuse user.");
 
+static const u8 sVerglastromDescription[] = _(
+    "In hail, creates a storm that\n"
+    "will trap and damage the foe.");
+
+static const u8 sExorcismDescription[] = _(
+    "Exorcises impurities. Super-\n"
+    "effective on Ghost-types.");
+
+static const u8 sLoveTapDescription[] = _(
+    "A 1st-turn move that confuses\n"
+    "and infatuates.");
+
+static const u8 sHeatSinkDescription[] = _(
+    "Drops the temperature. Super\n"
+    "effective on Fire-types.");
+
+static const u8 sFrostNovaDescription[] = _(
+    "An extremely fast attack\n"
+    "that always frostbites.");
+
+static const u8 sGemBlasterDescription[] = _(
+    "Blasts gems at the foe\n"
+    "2 to 5 times in a row.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4422,4 +4446,11 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BLUSTER - 1] = sFacadeDescription,
     [MOVE_KERFUFFLE - 1] = sKerfuffleDescription,
     [MOVE_TIPSY_STEP - 1] = sKerfuffleDescription,
+    [MOVE_VERGLASTROM - 1] = sVerglastromDescription,
+    [MOVE_EXORCISM - 1] = sExorcismDescription,
+    [MOVE_LOVE_TAP - 1] = sLoveTapDescription,
+    [MOVE_COLD_SNAP - 1] = sFakeOutDescription,
+    [MOVE_HEAT_SINK - 1] = sHeatSinkDescription,
+    [MOVE_FROST_NOVA - 1] = sFrostNovaDescription,
+    [MOVE_GEM_BLASTER - 1] = sGemBlasterDescription,
 };
