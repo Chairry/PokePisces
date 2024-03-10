@@ -676,6 +676,2059 @@ Common_EventScript_ReadyPetalburgGymForBattle::
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
 	return
 
+Common_EventScript_BallShop::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Common_EventScript_BallShop0Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 1, Common_EventScript_BallShop1Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 2, Common_EventScript_BallShop2Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 3, Common_EventScript_BallShop3Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 4, Common_EventScript_BallShop4Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 5, Common_EventScript_BallShop5Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 6, Common_EventScript_BallShop6Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 7, Common_EventScript_BallShop7Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 8, Common_EventScript_BallShop8Badge
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Common_EventScript_BallShop0Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop0B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop0B1Q
+
+Common_EventScript_BallShop0B0Q::
+	pokemart Common_Mart_BallShop0B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop0B0Q:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop0B1Q::
+	pokemart Common_Mart_BallShop0B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop0B1Q:
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop1Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop1B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop1B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop1B2Q
+
+Common_EventScript_BallShop1B0Q::
+	pokemart Common_Mart_BallShop1B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop1B0Q:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop1B1Q::
+	pokemart Common_Mart_BallShop1B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop1B1Q:
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop1B2Q::
+	pokemart Common_Mart_BallShop1B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop1B2Q:
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop2Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop2B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop2B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop2B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop2B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop2B4Q
+
+Common_EventScript_BallShop2B0Q::
+	pokemart Common_Mart_BallShop2B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop2B0Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop2B1Q::
+	pokemart Common_Mart_BallShop2B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop2B1Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop2B2Q::
+	pokemart Common_Mart_BallShop2B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop2B2Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop2B3Q::
+	pokemart Common_Mart_BallShop2B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop2B3Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop2B4Q::
+	pokemart Common_Mart_BallShop2B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop2B4Q:
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop3B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop3B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop3B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop3B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop3B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop3B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop3B6Q
+
+Common_EventScript_BallShop3B0Q::
+	pokemart Common_Mart_BallShop3B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B0Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B1Q::
+	pokemart Common_Mart_BallShop3B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B1Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B2Q::
+	pokemart Common_Mart_BallShop3B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B2Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B3Q::
+	pokemart Common_Mart_BallShop3B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B3Q:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B4Q::
+	pokemart Common_Mart_BallShop3B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B4Q:
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B5Q::
+	pokemart Common_Mart_BallShop3B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B5Q:
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop3B6Q::
+	pokemart Common_Mart_BallShop3B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop3B6Q:
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop4B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop4B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop4B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop4B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop4B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop4B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop4B6Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 7, Common_EventScript_BallShop4B7Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 8, Common_EventScript_BallShop4B8Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 9, Common_EventScript_BallShop4B9Q
+
+Common_EventScript_BallShop4B0Q::
+	pokemart Common_Mart_BallShop4B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B0Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B1Q::
+	pokemart Common_Mart_BallShop4B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B1Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B2Q::
+	pokemart Common_Mart_BallShop4B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B2Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B3Q::
+	pokemart Common_Mart_BallShop4B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B3Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B4Q::
+	pokemart Common_Mart_BallShop4B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B4Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B5Q::
+	pokemart Common_Mart_BallShop4B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B5Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B6Q::
+	pokemart Common_Mart_BallShop4B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B6Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B7Q::
+	pokemart Common_Mart_BallShop4B7Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B7Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B8Q::
+	pokemart Common_Mart_BallShop4B8Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B8Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop4B9Q::
+	pokemart Common_Mart_BallShop4B9Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop4B9Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop5B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop5B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop5B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop5B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop5B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop5B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop5B6Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 7, Common_EventScript_BallShop5B7Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 8, Common_EventScript_BallShop5B8Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 9, Common_EventScript_BallShop5B9Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 10, Common_EventScript_BallShop5B10Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 11, Common_EventScript_BallShop5B11Q
+
+Common_EventScript_BallShop5B0Q::
+	pokemart Common_Mart_BallShop5B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B0Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B1Q::
+	pokemart Common_Mart_BallShop5B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B1Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B2Q::
+	pokemart Common_Mart_BallShop5B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B2Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B3Q::
+	pokemart Common_Mart_BallShop5B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B3Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B4Q::
+	pokemart Common_Mart_BallShop5B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B4Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B5Q::
+	pokemart Common_Mart_BallShop5B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B5Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B6Q::
+	pokemart Common_Mart_BallShop5B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B6Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B7Q::
+	pokemart Common_Mart_BallShop5B7Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B7Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B8Q::
+	pokemart Common_Mart_BallShop5B8Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B8Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B9Q::
+	pokemart Common_Mart_BallShop5B9Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B9Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B10Q::
+	pokemart Common_Mart_BallShop5B10Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B10Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop5B11Q::
+	pokemart Common_Mart_BallShop5B11Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop5B11Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop6B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop6B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop6B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop6B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop6B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop6B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop6B6Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 7, Common_EventScript_BallShop6B7Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 8, Common_EventScript_BallShop6B8Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 9, Common_EventScript_BallShop6B9Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 10, Common_EventScript_BallShop6B10Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 11, Common_EventScript_BallShop6B11Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 12, Common_EventScript_BallShop6B12Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 13, Common_EventScript_BallShop6B13Q
+
+Common_EventScript_BallShop6B0Q::
+	pokemart Common_Mart_BallShop6B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B0Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B1Q::
+	pokemart Common_Mart_BallShop6B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B1Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B2Q::
+	pokemart Common_Mart_BallShop6B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B2Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B3Q::
+	pokemart Common_Mart_BallShop6B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B3Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B4Q::
+	pokemart Common_Mart_BallShop6B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B4Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B5Q::
+	pokemart Common_Mart_BallShop6B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B5Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B6Q::
+	pokemart Common_Mart_BallShop6B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B6Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B7Q::
+	pokemart Common_Mart_BallShop6B7Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B7Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B8Q::
+	pokemart Common_Mart_BallShop6B8Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B8Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B9Q::
+	pokemart Common_Mart_BallShop6B9Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B9Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B10Q::
+	pokemart Common_Mart_BallShop6B10Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B10Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B11Q::
+	pokemart Common_Mart_BallShop6B11Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B11Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B12Q::
+	pokemart Common_Mart_BallShop6B12Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B12Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop6B13Q::
+	pokemart Common_Mart_BallShop6B13Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop6B13Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_HEAVY_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop7B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop7B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop7B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop7B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop7B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop7B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop7B6Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 7, Common_EventScript_BallShop7B7Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 8, Common_EventScript_BallShop7B8Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 9, Common_EventScript_BallShop7B9Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 10, Common_EventScript_BallShop7B10Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 11, Common_EventScript_BallShop7B11Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 12, Common_EventScript_BallShop7B12Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 13, Common_EventScript_BallShop7B13Q
+
+Common_EventScript_BallShop7B0Q::
+	pokemart Common_Mart_BallShop7B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B0Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B1Q::
+	pokemart Common_Mart_BallShop7B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B1Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B2Q::
+	pokemart Common_Mart_BallShop7B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B2Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B3Q::
+	pokemart Common_Mart_BallShop7B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B3Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B4Q::
+	pokemart Common_Mart_BallShop7B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B4Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B5Q::
+	pokemart Common_Mart_BallShop7B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B5Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B6Q::
+	pokemart Common_Mart_BallShop7B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B6Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B7Q::
+	pokemart Common_Mart_BallShop7B7Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B7Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B8Q::
+	pokemart Common_Mart_BallShop7B8Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B8Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B9Q::
+	pokemart Common_Mart_BallShop7B9Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B9Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B10Q::
+	pokemart Common_Mart_BallShop7B10Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B10Q:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B11Q::
+	pokemart Common_Mart_BallShop7B11Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B11Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B12Q::
+	pokemart Common_Mart_BallShop7B12Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B12Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop7B13Q::
+	pokemart Common_Mart_BallShop7B13Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop7B13Q:
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_HEAVY_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8Badge::
+	goto_if_eq VAR_BALL_QUEST_STATE, 0, Common_EventScript_BallShop8B0Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, Common_EventScript_BallShop8B1Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 2, Common_EventScript_BallShop8B2Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 3, Common_EventScript_BallShop8B3Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 4, Common_EventScript_BallShop8B4Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 5, Common_EventScript_BallShop8B5Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 6, Common_EventScript_BallShop8B6Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 7, Common_EventScript_BallShop8B7Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 8, Common_EventScript_BallShop8B8Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 9, Common_EventScript_BallShop8B9Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 10, Common_EventScript_BallShop8B10Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 11, Common_EventScript_BallShop8B11Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 12, Common_EventScript_BallShop8B12Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 13, Common_EventScript_BallShop8B13Q
+	goto_if_eq VAR_BALL_QUEST_STATE, 14, Common_EventScript_BallShop8B14Q
+
+Common_EventScript_BallShop8B0Q::
+	pokemart Common_Mart_BallShop8B0Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B0Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B1Q::
+	pokemart Common_Mart_BallShop8B1Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B1Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B2Q::
+	pokemart Common_Mart_BallShop8B2Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B2Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B3Q::
+	pokemart Common_Mart_BallShop8B3Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B3Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B4Q::
+	pokemart Common_Mart_BallShop8B4Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B4Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B5Q::
+	pokemart Common_Mart_BallShop8B5Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B5Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B6Q::
+	pokemart Common_Mart_BallShop8B6Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B6Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B7Q::
+	pokemart Common_Mart_BallShop8B7Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B7Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B8Q::
+	pokemart Common_Mart_BallShop8B8Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B8Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B9Q::
+	pokemart Common_Mart_BallShop8B9Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B9Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B10Q::
+	pokemart Common_Mart_BallShop8B10Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B10Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B11Q::
+	pokemart Common_Mart_BallShop8B11Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B11Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B12Q::
+	pokemart Common_Mart_BallShop8B12Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B12Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B13Q::
+	pokemart Common_Mart_BallShop8B13Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B13Q:
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_HEAVY_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_BallShop8B14Q::
+	pokemart Common_Mart_BallShop8B14Q
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_BallShop8B14Q:
+	.2byte ITEM_CHERISH_BALL
+	.2byte ITEM_PARK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_SAFARI_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_HEAVY_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
 Common_EventScript_BufferTrendyPhrase::
 	dotimebasedevents
 	setvar VAR_0x8004, 0
