@@ -4820,6 +4820,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    else if (ability == ABILITY_QUICK_DRAW && IS_MOVE_SPECIAL(move) && gDisableStructs[battler].isFirstTurn)
+    {
+        priority++;
+    }
     else if (ability == ABILITY_FAST_TALKER && gBattleMoves[move].soundMove)
     {
         priority++;

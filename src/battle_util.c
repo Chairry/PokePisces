@@ -9667,6 +9667,9 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
+    case ABILITY_QUICK_DRAW:
+        if (IS_MOVE_SPECIAL(move) && gDisableStructs[battlerAtk].isFirstTurn)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
     }
 
     // target's abilities
