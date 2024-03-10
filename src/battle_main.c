@@ -4782,6 +4782,20 @@ s8 GetChosenMovePriority(u32 battler)
     return GetMovePriority(battler, move);
 }
 
+static bool8 IsTwoTurnsMove(u16 move)
+{
+    if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
+     || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
+     || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
+     || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
+     || gBattleMoves[move].effect == EFFECT_BIDE
+     || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+     || gBattleMoves[move].effect == EFFECT_GEOMANCY)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 s8 GetMovePriority(u32 battler, u16 move)
 {
     s8 priority;
@@ -4800,6 +4814,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     else if (ability == ABILITY_PRANKSTER && IS_MOVE_STATUS(move))
     {
         gProtectStructs[battler].pranksterElevated = 1;
+        priority++;
+    }
+    else if (ability == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battler].isFirstTurn || IsTwoTurnsMove(move)))
+    {
         priority++;
     }
     else if (ability == ABILITY_FAST_TALKER && gBattleMoves[move].soundMove)
