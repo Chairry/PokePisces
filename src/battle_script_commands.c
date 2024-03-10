@@ -1754,8 +1754,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
             calc = (calc * 50) / 100; // 1.5 tangled feet loss
         break;
     case ABILITY_ANTICIPATION:
-        if(gDisableStructs[battlerAtk].isFirstTurn) {
-            calc = 0;                 // all moves fail unless 100% anticipation
+        if(gDisableStructs[battlerDef].isFirstTurn) {
+            calc = 50;                 // all moves fail unless 100% anticipation
         }
     }
 
