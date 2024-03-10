@@ -404,6 +404,12 @@
 #define ANIM_TAG_WHITE_BAT                  (ANIM_SPRITES_START + 390)
 #define ANIM_TAG_BERRY_THOUGHT_BUBBLE       (ANIM_SPRITES_START + 391)
 #define ANIM_TAG_DRAGON_SCALE               (ANIM_SPRITES_START + 392)
+#define ANIM_TAG_PURPLE_CHAIN               (ANIM_SPRITES_START + 393)
+#define ANIM_TAG_DRAGON_HEAD                (ANIM_SPRITES_START + 394)
+#define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
+#define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
+#define ANIM_TAG_REAL_DRAGON_HEAD           (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_REAL_DRAGON_ORB            (ANIM_SPRITES_START + 398)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -563,6 +569,7 @@
 #define B_ANIM_WHITE_SMOKE              43
 #define B_ANIM_SWITCH_ITEMS             44
 #define B_ANIM_TIME_TURN                45
+#define B_ANIM_ENTRANCING               46
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -820,6 +820,17 @@ const u32 gBattleAnimSpriteGfx_WaterOrb[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimSpriteGfx_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.4bpp.lz");
 const u32 gBattleAnimSpritePal_WaterImpact[] = INCBIN_U32("graphics/battle_anims/sprites/water_impact.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_DragonHead[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_head.4bpp.lz");
+const u32 gBattleAnimSpriteGfx_DragonHeadOpponent[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_head_opponent.4bpp.lz");
+const u32 gBattleAnimSpritePal_DragonHead[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_head.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_DragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_orb.4bpp.lz");
+
+const u32 gBattleAnimSpritePal_RealDragonHead[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_head.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_RealDragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_orb.4bpp.lz");
+const u32 gBattleAnimSpritePal_RealDragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_orb.gbapal.lz");
+
 const u32 gBattleAnimSpritePal_BrownOrb[] = INCBIN_U32("graphics/battle_anims/sprites/brown_orb.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_MudSand[] = INCBIN_U32("graphics/battle_anims/sprites/mud_sand.4bpp.lz");
@@ -947,6 +958,9 @@ const u32 gBattleAnimSpritePal_Eye[] = INCBIN_U32("graphics/battle_anims/sprites
 
 const u32 gBattleAnimSpriteGfx_Tendrils[] = INCBIN_U32("graphics/battle_anims/sprites/tendrils.4bpp.lz");
 const u32 gBattleAnimSpritePal_Tendrils[] = INCBIN_U32("graphics/battle_anims/sprites/tendrils.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PurpleChain[] = INCBIN_U32("graphics/battle_anims/sprites/purple_chain.4bpp.lz");
+const u32 gBattleAnimSpritePal_PurpleChain[] = INCBIN_U32("graphics/battle_anims/sprites/purple_chain.gbapal.lz");
 
 const u32 gHealthboxSinglesPlayerGfx[] = INCBIN_U32("graphics/battle_interface/healthbox_singles_player.4bpp.lz");
 const u32 gHealthboxSinglesOpponentGfx[] = INCBIN_U32("graphics/battle_interface/healthbox_singles_opponent.4bpp.lz");

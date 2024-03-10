@@ -4695,7 +4695,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
             speed *= 2;
     }
 
-    // other abilities
+    // own abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
@@ -4707,15 +4707,22 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     else if (ability == ABILITY_PROTOSYNTHESIS && gBattleWeather & B_WEATHER_SUN && highestStat == STAT_SPEED)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_QUARK_DRIVE && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN && highestStat == STAT_SPEED)
-        speed = (speed * 150) / 100;
-    else if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
-        speed *= 0.75;
-    else if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
-        speed *= 0.5;
+        speed = (speed * 150) / 100;    
     else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
         speed *= 2;
     else if (ability == ABILITY_GOLDEN_MEAN && gBattleMons[battler].species == SPECIES_SHUNYONG)
         speed *= 0.5;
+    else if (ability == ABILITY_ONE_WAY_TRIP)
+        speed *= 1.5;
+    
+    // abilities on field
+    if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
+        speed *= 0.75;
+    if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
+        speed *= 0.5;
+    if (IsAbilityOnSide(battler, ABILITY_FRIENDLY_AURA))
+        speed *= 1.5;
+
     // stat stages
     speed *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][0];
     speed /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPEED]][1];
@@ -4789,6 +4796,7 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    //else if (ability == )
     else if (ability == ABILITY_PRANKSTER && IS_MOVE_STATUS(move))
     {
         gProtectStructs[battler].pranksterElevated = 1;
@@ -4816,6 +4824,8 @@ s8 GetMovePriority(u32 battler, u16 move)
         case EFFECT_ABSORB:
         case EFFECT_ROOST:
         case EFFECT_JUNGLE_HEALING:
+        case EFFECT_VENOM_DRAIN:
+        case EFFECT_LONE_SHARK:
             priority += 3;
             break;
         }

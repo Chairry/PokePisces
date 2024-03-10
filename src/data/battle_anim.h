@@ -1454,6 +1454,12 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_WhiteBat, 0x0200, ANIM_TAG_WHITE_BAT},
     {gBattleAnimSpriteGfx_BerryThoughtBubble, 0x0800, ANIM_TAG_BERRY_THOUGHT_BUBBLE},
     {gBattleAnimSpriteGfx_DragonScale, 0x800, ANIM_TAG_DRAGON_SCALE},
+    {gBattleAnimSpriteGfx_PurpleChain, 0x1000, ANIM_TAG_PURPLE_CHAIN},
+    {gBattleAnimSpriteGfx_DragonHead, 0x0A00, ANIM_TAG_DRAGON_HEAD},
+    {gBattleAnimSpriteGfx_WaterOrb, 0x0200, ANIM_TAG_DRAGON_ORB},
+    {gBattleAnimSpriteGfx_DragonHeadOpponent, 0x0A00, ANIM_TAG_DRAGON_HEAD_OPPONENT},
+    {gBattleAnimSpriteGfx_WaterOrb, 0x0200, ANIM_TAG_REAL_DRAGON_ORB},
+    {gBattleAnimSpriteGfx_DragonHead, 0x0A00, ANIM_TAG_REAL_DRAGON_HEAD},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1908,6 +1914,11 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_WhiteBat, ANIM_TAG_WHITE_BAT},
     {gBattleAnimSpritePal_BerryThoughtBubble, ANIM_TAG_BERRY_THOUGHT_BUBBLE},
     {gBattleAnimSpritePal_DragonScale, ANIM_TAG_DRAGON_SCALE},
+    {gBattleAnimSpritePal_PurpleChain, ANIM_TAG_PURPLE_CHAIN},
+    {gBattleAnimSpritePal_DragonHead, ANIM_TAG_DRAGON_HEAD},
+    {gBattleAnimSpritePal_DragonHead, ANIM_TAG_DRAGON_ORB},
+    {gBattleAnimSpritePal_RealDragonHead, ANIM_TAG_REAL_DRAGON_HEAD},
+    {gBattleAnimSpritePal_RealDragonOrb, ANIM_TAG_REAL_DRAGON_ORB},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

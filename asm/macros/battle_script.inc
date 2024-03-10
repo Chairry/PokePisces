@@ -1291,9 +1291,9 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro unused ptr:req
+	.macro tryswapitemsmagician failInstr:req
 	.byte 0xfd
-	.4byte \ptr
+	.4byte \failInstr
 	.endm
 
 	.macro tryworryseed failInstr:req

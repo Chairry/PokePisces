@@ -117,7 +117,7 @@ static const u8 sIceBodyDescription[] = _("Heals HP in a hailstorm. May\ncause f
 #if B_SNOW_WARNING < GEN_9
 static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
 #elif B_SNOW_WARNING >= GEN_9
-static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nsnowstorm in battle.");
+static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
 #endif
 static const u8 sHoneyGatherDescription[] = _("The Pokémon may gather Honey\nafter a battle.");
 static const u8 sFriskDescription[] = _("The Pokémon can check the\nfoe's held item.");
@@ -325,7 +325,7 @@ static const u8 sFuddlePointDescription[] = _("Contact with the Pokémon\nmay co
 static const u8 sMadnessDescription[] = _("All damaging moves have a\nchance to confuse the foe.");
 static const u8 sOneWayTripDescription[] = _("Boosts the Pokémon's Speed\nbut permits only one move.");
 static const u8 sPurpleHazeDescription[] = _("Haze-like moves boost the\nSp. Atk and Spd stats.");
-static const u8 sRapidFireDescription[] = _("The Pokémon uses more PP to\nuse offensive mvoes twice.");
+static const u8 sRapidFireDescription[] = _("The Pokémon uses more PP to\nuse offensive moves twice.");
 static const u8 sSoulLockerDescription[] = _("Draws in Ghost-type moves to\nboost its Sp. Atk stat.");
 static const u8 sSpiralysisDescription[] = _("Halves the Speed stat of\nall foes.");
 static const u8 sZenIncenseDescription[] = _("Ignores Panic, Disturb, and\nPsychic-type moves.");
