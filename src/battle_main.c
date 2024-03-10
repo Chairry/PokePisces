@@ -4802,6 +4802,10 @@ s8 GetMovePriority(u32 battler, u16 move)
         gProtectStructs[battler].pranksterElevated = 1;
         priority++;
     }
+    else if (ability == ABILITY_FAST_TALKER && gBattleMoves[move].soundMove)
+    {
+        priority++;
+    }
     else if (gBattleMoves[move].effect == EFFECT_GRASSY_GLIDE && gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && IsBattlerGrounded(battler))
     {
         priority++;
