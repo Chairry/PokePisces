@@ -1755,7 +1755,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         break;
     case ABILITY_ANTICIPATION:
         if(gDisableStructs[battlerDef].isFirstTurn) {
-            calc = 50;                 // all moves fail unless 100% anticipation
+            calc = min(calc, 50);                 // max accuraccy of move is 50%
         }
     }
 
