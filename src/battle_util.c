@@ -11664,9 +11664,8 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 
 u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance)
 {
-    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE)
+    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
         secondaryEffectChance *= 2;
-
     return secondaryEffectChance;
 }
 
