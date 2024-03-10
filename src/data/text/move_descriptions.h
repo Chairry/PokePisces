@@ -3532,6 +3532,14 @@ static const u8 sGemBlasterDescription[] = _(
     "Blasts gems at the foe\n"
     "2 to 5 times in a row.");
 
+static const u8 sDarkTideDescription[] = _(
+    "An evil wave that sharply\n"
+    "lowers the user's Sp. Attack.");
+
+static const u8 sSolarFlareDescription[] = _(
+    "The blazing sun shines\n"
+    "through the dark.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4453,4 +4461,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HEAT_SINK - 1] = sHeatSinkDescription,
     [MOVE_FROST_NOVA - 1] = sFrostNovaDescription,
     [MOVE_GEM_BLASTER - 1] = sGemBlasterDescription,
+    [MOVE_DARK_TIDE - 1] = sDarkTideDescription,
+    [MOVE_SOLAR_FLARE - 1] = sSolarFlareDescription,
+    [MOVE_ODD_STEP - 1] = sFoulPlayDescription,
 };

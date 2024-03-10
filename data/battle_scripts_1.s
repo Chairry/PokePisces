@@ -501,7 +501,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHitSwitchTarget         @ EFFECT_MANEUVER
 	.4byte BattleScript_EffectScorpFang               @ EFFECT_SCORP_FANG
 	.4byte BattleScript_EffectHitSetEntryHazard       @ EFFECT_RECOIL_50_HAZARD
-	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_WICKED_WINDS
+	.4byte BattleScript_EffectWickedWinds             @ EFFECT_WICKED_WINDS
 	.4byte BattleScript_EffectSandTomb                @ EFFECT_SAND_TOMB
 	.4byte BattleScript_EffectConfuseHit              @ EFFECT_SONIC_BURST
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_CUTTER
@@ -510,6 +510,14 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectVerglastrom             @ EFFECT_VERGLASTROM
 	.4byte BattleScript_EffectHit                     @ EFFECT_EXORCISM
 	.4byte BattleScript_EffectLoveTap                 @ EFFECT_LOVE_TAP
+	.4byte BattleScript_EffectBurnHit                 @ EFFECT_SOLAR_FLARE
+
+BattleScript_EffectWickedWinds::
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	argumentstatuseffect
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectLoveTap::
 	attackcanceler
@@ -576,7 +584,7 @@ BattleScript_EffectVoid::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectSandTomb:
+BattleScript_EffectSandTomb::
 	setmoveeffect MOVE_EFFECT_WRAP
 	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectSandTombLowerDefense
 	goto BattleScript_EffectHit
@@ -586,7 +594,7 @@ BattleScript_EffectSandTombLowerDefense::
 	seteffectsecondary
 	goto BattleScript_EffectHit
 
-BattleScript_EffectScorpFang:
+BattleScript_EffectScorpFang::
 	setmoveeffect MOVE_EFFECT_SMACK_DOWN
 	seteffectprimary
 	seteffectwithchance
@@ -7495,8 +7503,16 @@ BattleScript_EffectPoisonFang::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectOverheat::
+	jumpifmove MOVE_DARK_TIDE, BattleScript_CheckOverheatDoubles
+BattleScript_DoOverheat::
 	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+BattleScript_CheckOverheatDoubles::
+jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
+	goto BattleScript_DoOverheat
+BattleScript_OverheatDoubles::
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
+	goto BattleScript_DoOverheat
 
 BattleScript_EffectHammerArm::
 	setmoveeffect MOVE_EFFECT_SPD_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
