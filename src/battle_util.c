@@ -10529,6 +10529,7 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         }
     }
 
+    // All Game
     if ((gBattleMoves[move].type == TYPE_GROUND || gBattleMoves[move].type == TYPE_WATER) && defAbility == ABILITY_ALL_GAME)
     {
         modifier = UQ_4_12(0.0);
@@ -10542,6 +10543,21 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         }
     }
 
+    // Wind Power
+    if (gBattleMoves[move].windMove && defAbility == ABILITY_WIND_POWER)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_WIND_POWER;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_IMMUNE;
+            RecordAbilityBattle(battlerDef, ABILITY_WIND_POWER);
+        }
+    }
+
+    // Empty
     if ((gBattleMoves[move].type == TYPE_NORMAL || gBattleMoves[move].type == TYPE_FIGHTING) && defAbility == ABILITY_EMPTY)
     {
         modifier = UQ_4_12(0.0);
