@@ -181,6 +181,7 @@ extern const u8 BattleScript_ShedSkinActivates[];
 extern const u8 BattleScript_IntimidateActivates[];
 extern const u8 BattleScript_DisturbActivates[];
 extern const u8 BattleScript_MockingActivates[];
+extern const u8 BattleScript_EvilEyeActivates[];
 extern const u8 BattleScript_IlluminateActivates[];
 extern const u8 BattleScript_DroughtActivates[];
 extern const u8 BattleScript_TookAttack[];
