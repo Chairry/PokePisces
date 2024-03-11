@@ -689,15 +689,54 @@
 #define STRINGID_ELECTROSHOCKCHARGING                 686
 #define STRINGID_DESTROYROOMANDTERRAIN                687
 #define STRINGID_TARGETABILITYSTATRAISESHARPLY        688
-#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    689
-#define STRINGID_DRAGONRUINCHARGING                   690
-#define STRINGID_PKMNGOTPANICKED                      691
-#define STRINGID_PKMNPANICKEDBY                       692
-#define STRINGID_PKMNSITEMCAUSEPANIC                  693
-#define STRINGID_PKMNSXPREVENTSPANIC                  694
-#define STRINGID_PKMNSISPANICKED                      695
+#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    690
+#define STRINGID_DRAGONRUINCHARGING                   691
+#define STRINGID_PKMNRESTOREDHPUSINGABILITY           692
+#define STRINGID_ELECTRICITYANDFIREWEAKENED           693
+#define STRINGID_PKMNMAKESPSYCHICMISS                 694
+#define STRINGID_SILENCESTARTS                        695
+#define STRINGID_SILENCEEND                           696
+#define STRINGID_PKMNMAXEDSTATS                       697
+#define STRINGID_FICKLEBEAMDOUBLED                    698
+#define STRINGID_SILENCECONTINUES                     699
+#define STRINGID_TIDYINGUPCOMPLETE                    700
+#define STRINGID_PKMNTOOKAIM2                         701
+#define STRINGID_PKMNDOUBLEDSTATS                     702
+#define STRINGID_PKMNCUTSSPATTACKWITH                 703
+#define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        704
+#define STRINGID_PKMNWELCOMETHEAUDIENCE               705
+#define STRINGID_DRAGONPOKERNOPAIR                    706
+#define STRINGID_DRAGONPOKERONEPAIR                   707
+#define STRINGID_DRAGONPOKERTWOPAIR                   708
+#define STRINGID_DRAGONPOKERTHREEOFAKIND              709
+#define STRINGID_DRAGONPOKERSTRAIGHT                  710
+#define STRINGID_DRAGONPOKERFLUSH                     711
+#define STRINGID_DRAGONPOKERFULLHOUSE                 712
+#define STRINGID_DRAGONPOKERFOUROFAKIND               713
+#define STRINGID_DRAGONPOKERSTRAIGHTFLUSH             714
+#define STRINGID_DRAGONPOKERROYALFLUSH                715
+#define STRINGID_PKMNLEAVINGITSELFOPEN                716
+#define STRINGID_ATTACKERCANTESCAPENOW                717
+#define STRINGID_PKMNCUTSDEFENCEWITH                  718
+#define STRINGID_PKMNCUTSSPDEFENCEWITH                719
+#define STRINGID_ABILITYSUMMONEDMIST                  720  
+#define STRINGID_PKMNHEALEDPOISON                     721
+#define	STRINGID_GHOSTTYPEADDED                       722
+#define STRINGID_TARGETCANTESCAPEFORNOW               723
+#define STRINGID_STRONGHOLDDOESNTALLOW                724
+#define STRINGID_PKMNISEMPTY                          725
+#define STRINGID_ABILITYENTRANCED                     726
+#define STRINGID_PKMNCUTSSPEEDWITH                    727  
+#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    728
+#define STRINGID_DRAGONRUINCHARGING                   729
+#define STRINGID_PKMNGOTPANICKED                      730
+#define STRINGID_PKMNPANICKEDBY                       731
+#define STRINGID_PKMNSITEMCAUSEPANIC                  732
+#define STRINGID_PKMNSXPREVENTSPANIC                  733
+#define STRINGID_PKMNSISPANICKED                      734
 
-#define BATTLESTRINGS_COUNT                           696
+#define BATTLESTRINGS_COUNT                           735
+
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -730,6 +769,9 @@
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
 #define B_MSG_POISON_MISS  5
+#define B_MSG_PSYCHIC_MISS 6
+#define B_MSG_IMMUNE       7
+#define B_MSG_IS_EMPTY     8
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0

@@ -204,6 +204,8 @@ const u8 gEnemyMonElevation[NUM_SPECIES + 1] =
     [SPECIES_SOLASU] = 4,
     [SPECIES_SUMMERASU] = 4,
     [SPECIES_SHAYON] = 8,
+    [SPECIES_PURGATIVAL] = 8,
+    [SPECIES_PEBLRANIUM] = 4,
     // Megas
     [SPECIES_BEEDRILL_MEGA] = 5,
     [SPECIES_PIDGEOT_MEGA] = 8,

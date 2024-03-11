@@ -1164,9 +1164,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro unused2 ptr:req
+	.macro dragonpokerdamagecalculation
 	.byte 0xe1
-	.4byte \ptr
 	.endm
 
 	.macro switchoutabilities battler:req
@@ -1188,7 +1187,7 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro ficklebeamdamagecalculation
 	.byte 0xe6
 	.endm
 
@@ -1292,9 +1291,9 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro unused ptr:req
+	.macro tryswapitemsmagician failInstr:req
 	.byte 0xfd
-	.4byte \ptr
+	.4byte \failInstr
 	.endm
 
 	.macro tryworryseed failInstr:req
@@ -1365,6 +1364,10 @@
 	.macro applysaltcure battler:req
 	callnative BS_ApplySaltCure
 	.byte \battler
+	.endm
+
+	.macro setglaiverush
+	callnative BS_SetGlaiveRush
 	.endm
 
 	.macro trycopycat failInstr:req
@@ -1459,6 +1462,12 @@
 	callnative BS_JumpIfTerrainAffected
 	.byte \battler
 	.4byte \terrainFlags
+	.4byte \jumpInstr
+	.endm
+
+	.macro trytidyup clear:req, jumpInstr:req
+	callnative BS_TryTidyUp
+	.byte \clear
 	.4byte \jumpInstr
 	.endm
 
@@ -1606,6 +1615,10 @@
 
 	.macro tryactivatemoxie battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
+	.endm
+
+	.macro tryactivateappetite battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_APPETITE
 	.endm
 
 	.macro tryactivatebeastboost battler:req
@@ -1787,6 +1800,11 @@
 
 	.macro setauroraveil battler:req
 	various \battler, VARIOUS_SET_AURORA_VEIL
+	.endm
+
+	.macro setsilence battler:req, failInstr:req
+	various \battler VARIOUS_SET_SILENCE
+	.4byte \failInstr
 	.endm
 
 	.macro trysetthirdtype battler:req, failInstr:req

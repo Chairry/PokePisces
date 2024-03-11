@@ -58,7 +58,7 @@ static const struct TrainerMon sParty_GruntSeafloorCavern3[] = {
     }
 };
 
-static const struct TrainerMon sParty_Granger[] = {
+static const struct TrainerMon sParty_PGranger[] = {
     {
     .lvl = 4,
     .species = SPECIES_COMBUN,
@@ -69,7 +69,7 @@ static const struct TrainerMon sParty_Granger[] = {
     }
 };
 
-static const struct TrainerMon sParty_RickyP[] = {
+static const struct TrainerMon sParty_PRicky[] = {
     {
     .lvl = 4,
     .species = SPECIES_COMBUN,
@@ -80,7 +80,7 @@ static const struct TrainerMon sParty_RickyP[] = {
     }
 };
 
-static const struct TrainerMon sParty_JeannieP[] = {
+static const struct TrainerMon sParty_PJeannie[] = {
     {
     .lvl = 4,
     .species = SPECIES_COMBUN,
@@ -91,94 +91,117 @@ static const struct TrainerMon sParty_JeannieP[] = {
     }
 };
 
-static const struct TrainerMon sParty_Alberto[] = {
+static const struct TrainerMon sParty_PSadfisher1[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_PELIPPER,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .ability = ABILITY_PRESSURE,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 30,
-    .species = SPECIES_XATU,
-    }
-};
-
-static const struct TrainerMon sParty_Ed[] = {
-    {
-    .lvl = 30,
-    .species = SPECIES_ZANGOOSE,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 30,
-    .species = SPECIES_SEVIPER,
-    }
-};
-
-static const struct TrainerMon sParty_GruntSeafloorCavern4[] = {
-    {
-    .lvl = 36,
-    .species = SPECIES_CARVANHA,
-    }
-};
-
-static const struct TrainerMon sParty_Declan[] = {
-    {
-    .lvl = 34,
-    .species = SPECIES_GYARADOS,
-    }
-};
-
-static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
-    {
-    .lvl = 11,
-    .species = SPECIES_POOCHYENA,
-    }
-};
-
-static const struct TrainerMon sParty_GruntWeatherInst1[] = {
-    {
-    .lvl = 27,
-    .species = SPECIES_ZUBAT,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .moves = {MOVE_FLAIL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst2[] = {
+static const struct TrainerMon sParty_PSean[] = {
     {
-    .lvl = 27,
-    .species = SPECIES_POOCHYENA,
-    },
-    {
-    .lvl = 27,
-    .species = SPECIES_CARVANHA,
+    .lvl = 6,
+    .species = SPECIES_MINOTE,
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst3[] = {
+static const struct TrainerMon sParty_PJanice[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_POOCHYENA,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_ZUBAT,
-    },
-    {
-    .lvl = 26,
-    .species = SPECIES_CARVANHA,
+    .lvl = 6,
+    .species = SPECIES_SAINTISOW,
     }
 };
 
-static const struct TrainerMon sParty_GruntMuseum1[] = {
+static const struct TrainerMon sParty_PJimmy[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_MANKEY,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_ICKSQUEEK,
+    }
+};
+
+static const struct TrainerMon sParty_PDan[] = {
+    {
+    .lvl = 6,
+    .species = SPECIES_SHARGUY,
+    },
+    {
+    .lvl = 7,
+    .species = SPECIES_SADSOD,
+    }
+};
+
+static const struct TrainerMon sParty_PLad[] = {
+    {
+    .lvl = 8,
+    .species = SPECIES_GUPSPAR,
+    }
+};
+
+static const struct TrainerMon sParty_PSammie[] = {
+    {
+    .lvl = 6,
+    .species = SPECIES_SNELFREND,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_KITIKITI,
+    }
+};
+
+static const struct TrainerMon sParty_PBarbara[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_EBIBI,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_GUPSPAR,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_EBIBI,
+    }
+};
+
+static const struct TrainerMon sParty_PBeatrice[] = {
     {
     .lvl = 15,
     .species = SPECIES_CARVANHA,
     }
 };
 
-static const struct TrainerMon sParty_GruntMuseum2[] = {
+static const struct TrainerMon sParty_PNancy[] = {
     {
     .lvl = 14,
     .species = SPECIES_ZUBAT,
@@ -196,21 +219,21 @@ static const struct TrainerMon sParty_GruntSpaceCenter1[] = {
     }
 };
 
-static const struct TrainerMon sParty_GruntMtPyre1[] = {
+static const struct TrainerMon sParty_PSadie[] = {
     {
     .lvl = 32,
     .species = SPECIES_ZUBAT,
     }
 };
 
-static const struct TrainerMon sParty_GruntMtPyre2[] = {
+static const struct TrainerMon sParty_PMelanie[] = {
     {
     .lvl = 32,
     .species = SPECIES_CARVANHA,
     }
 };
 
-static const struct TrainerMon sParty_GruntMtPyre3[] = {
+static const struct TrainerMon sParty_PTimmy[] = {
     {
     .lvl = 30,
     .species = SPECIES_POOCHYENA,
@@ -221,28 +244,28 @@ static const struct TrainerMon sParty_GruntMtPyre3[] = {
     }
 };
 
-static const struct TrainerMon sParty_GruntWeatherInst4[] = {
+static const struct TrainerMon sParty_PWadelle[] = {
     {
     .lvl = 28,
     .species = SPECIES_CARVANHA,
     }
 };
 
-static const struct TrainerMon sParty_GruntAquaHideout5[] = {
+static const struct TrainerMon sParty_PYanny[] = {
     {
     .lvl = 32,
     .species = SPECIES_CARVANHA,
     }
 };
 
-static const struct TrainerMon sParty_GruntAquaHideout6[] = {
+static const struct TrainerMon sParty_PRemy[] = {
     {
     .lvl = 32,
     .species = SPECIES_ZUBAT,
     }
 };
 
-static const struct TrainerMon sParty_Fredrick[] = {
+static const struct TrainerMon sParty_PSelko[] = {
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
     .lvl = 30,

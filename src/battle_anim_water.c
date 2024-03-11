@@ -190,6 +190,109 @@ const struct SpriteTemplate gHydroPumpOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gDragonOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_ORB,
+    .paletteTag = ANIM_TAG_DRAGON_HEAD,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = gAnims_WaterMudOrb,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+static const union AnimCmd sAnim_DragonHead[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(16, 1),
+    ANIMCMD_FRAME(32, 1),
+    ANIMCMD_FRAME(48, 1),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_DragonHead[] =
+{
+    sAnim_DragonHead,
+};
+
+static const union AnimCmd sAnim_DragonHead_Flip[] =
+{
+    ANIMCMD_FRAME(0, 1, .hFlip = TRUE,),
+    ANIMCMD_FRAME(16, 1, .hFlip = TRUE,),
+    ANIMCMD_FRAME(32, 1, .hFlip = TRUE,),
+    ANIMCMD_FRAME(48, 1, .hFlip = TRUE,),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_DragonHeadFlip[] =
+{
+    sAnim_DragonHead_Flip,
+};
+
+const struct SpriteTemplate gDragonHeadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
+    .paletteTag = ANIM_TAG_DRAGON_HEAD,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gAnims_DragonHeadFlip,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gDragonHeadOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
+    .paletteTag = ANIM_TAG_DRAGON_HEAD,
+    .oam = &gOamData_AffineOff_ObjBlend_32x32,
+    .anims = gAnims_DragonHead,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+
+static const union AnimCmd sAnimDragonHead2[] = {
+	ANIMCMD_FRAME(0, 1, .hFlip = TRUE),
+	ANIMCMD_END,
+};
+static const union AnimCmd *const sAnimDragonHead_2[] = {
+	sAnimDragonHead2,
+};
+
+const struct SpriteTemplate gRealDragonHeadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
+    .paletteTag = ANIM_TAG_REAL_DRAGON_HEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnimDragonHead_2,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gRealDragonHeadOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
+    .paletteTag = ANIM_TAG_REAL_DRAGON_HEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gRealDragonOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_REAL_DRAGON_ORB,
+    .paletteTag = ANIM_TAG_REAL_DRAGON_ORB,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = gAnims_WaterMudOrb,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gWaterPledgeOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WATER_ORB,
@@ -227,6 +330,28 @@ const struct SpriteTemplate gSignalBeamGreenOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
     .paletteTag = ANIM_TAG_GLOWY_GREEN_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gDecayBeamRedOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLOWY_RED_ORB,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
+const struct SpriteTemplate gDecayBeamGreenOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
+    .paletteTag = ANIM_TAG_MUD_SAND,
     .oam = &gOamData_AffineOff_ObjNormal_8x8,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

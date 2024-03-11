@@ -233,6 +233,8 @@ struct SideTimer
     u8 followmeTarget:3;
     u8 followmePowder:1; // Rage powder, does not affect grass type pokemon.
     u8 retaliateTimer;
+    u8 silenceTimer;
+    u8 silenceTimerBattlerId;
 };
 
 struct FieldTimer
@@ -634,6 +636,8 @@ struct BattleStruct
     u8 alreadyStatusedMoveAttempt; // As bits for battlers; For example when using Thunder Wave on an already paralyzed pokemon.
     u8 debugBattler;
     u8 magnitudeBasePower;
+    u8 dragonpokerBasePower;
+    u8 ficklebeamBasePower;
     u8 presentBasePower;
     u8 roostTypes[MAX_BATTLERS_COUNT][2];
     u8 savedBattlerTarget;
@@ -728,7 +732,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS   \
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD)
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))

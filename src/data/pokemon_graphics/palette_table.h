@@ -958,6 +958,7 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(HAPPEA, gMonPalette_Happea),
     SPECIES_PAL(DUDUNSPARS, gMonPalette_Dudunspars),
     SPECIES_PAL(DUDUNSPARS_THREE_SEGMENT, gMonPalette_DudunsparsThreeSegment),
+    SPECIES_PAL(DUDUNSPARS_EIGHT_SEGMENT, gMonPalette_DudunsparsEightSegment),
     SPECIES_PAL(COFFIDDLE, gMonPalette_Coffiddle),
     SPECIES_PAL(CRAVERAVE, gMonPalette_Craverave),
     SPECIES_PAL(FUZKY, gMonPalette_Fuzky),
@@ -1134,6 +1135,14 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(SHUNYONG_GOLDEN_OFFENSE, gMonPalette_ShunyongGoldenOffense),
     SPECIES_PAL(KINGAMBIT, gMonPalette_Kingambit),
     SPECIES_PAL(SHELLYLOUH, gMonPalette_Shellylouh),
+    SPECIES_PAL(INFAIRNO, gMonPalette_Infairno),
+    SPECIES_PAL(PURGATIVAL, gMonPalette_Purgatival),
+    SPECIES_PAL(DETERIOTL, gMonPalette_Deteriotl),
+    SPECIES_PAL(CLAWLISTIC, gMonPalette_Clawlistic),
+    SPECIES_PAL(UNBERRABLE, gMonPalette_Unberrable),
+    SPECIES_PAL(PEBLRANIUM, gMonPalette_Peblranium),
+    SPECIES_PAL(VAIKING, gMonPalette_Vaiking),
+    SPECIES_PAL(KODOUGH_BLUNT, gMonPalette_KodoughBlunt),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),
@@ -1561,4 +1570,5 @@ const struct CompressedSpritePalette gMonPaletteTableFemale[NUM_SPECIES + 1] =
     SPECIES_PAL(FRILLISH, gMonPalette_FrillishF),
     SPECIES_PAL(JELLICENT, gMonPalette_JellicentF),
 #endif
+    SPECIES_PAL(UNBERRABLE, gMonPalette_UnberrableF),
 };

@@ -360,6 +360,7 @@ static bool8 ShouldSwitchIfGameStatePrompt(u32 battler)
 
         //Secondary Damage
         if (monAbility != ABILITY_MAGIC_GUARD
+            && monAbility != ABILITY_SUGAR_COAT
             && !AiExpectsToFaintPlayer(battler))
         {
             //Toxic
@@ -1106,7 +1107,7 @@ static bool8 ShouldUseItem(u32 battler)
             break;
         case EFFECT_ITEM_SET_FOCUS_ENERGY:
             if (!gDisableStructs[battler].isFirstTurn
-                || gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY
+                || gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY_ANY
                 || AI_OpponentCanFaintAiWithMod(battler, 0))
                 break;
             shouldUse = TRUE;

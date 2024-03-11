@@ -10,27 +10,27 @@
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
-#define TRAINER_GRANGER                   9
-#define TRAINER_RICKY_P        10
-#define TRAINER_JEANNIE_P                       11
-#define TRAINER_ALBERTO                      12
-#define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
-#define TRAINER_DECLAN                       15
-#define TRAINER_GRUNT_RUSTURF_TUNNEL         16
-#define TRAINER_GRUNT_WEATHER_INST_1         17
-#define TRAINER_GRUNT_WEATHER_INST_2         18
-#define TRAINER_GRUNT_WEATHER_INST_3         19
-#define TRAINER_GRUNT_MUSEUM_1               20
-#define TRAINER_GRUNT_MUSEUM_2               21
-#define TRAINER_GRUNT_SPACE_CENTER_1         22
-#define TRAINER_GRUNT_MT_PYRE_1              23
-#define TRAINER_GRUNT_MT_PYRE_2              24
-#define TRAINER_GRUNT_MT_PYRE_3              25
-#define TRAINER_GRUNT_WEATHER_INST_4         26
-#define TRAINER_GRUNT_AQUA_HIDEOUT_5         27
-#define TRAINER_GRUNT_AQUA_HIDEOUT_6         28
-#define TRAINER_FREDRICK                     29
+#define TRAINER_P_GRANGER                     9 //SKY PILLAR FIRST VISIT
+#define TRAINER_P_RICKY                      10
+#define TRAINER_P_JEANNIE                    11
+#define TRAINER_P_SADFISHER_1                12 //PACIFIDLOG FIRST VISIT
+#define TRAINER_P_SEAN                       13 //FLOTSHORE TRAIL
+#define TRAINER_P_JANICE                     14
+#define TRAINER_P_JIMMY                      15
+#define TRAINER_P_DAN                        16
+#define TRAINER_P_LAD                        17
+#define TRAINER_P_SAMMIE                     18
+#define TRAINER_P_BARBARA                    19
+#define TRAINER_P_BEATRICE                   20 //BASALIN COAST
+#define TRAINER_P_NANCY                      21
+#define TRAINER_GRUNT_SPACE_CENTER_1         22 //Outlier
+#define TRAINER_P_SADIE                      23
+#define TRAINER_P_MELANIE                    24
+#define TRAINER_P_TIMMY                      25
+#define TRAINER_P_WADELLE                    26
+#define TRAINER_P_YANNY                      27
+#define TRAINER_P_REMY                       28
+#define TRAINER_P_SELKO                      29
 #define TRAINER_MATT                         30
 #define TRAINER_ZANDER                       31
 #define TRAINER_SHELLY_WEATHER_INSTITUTE     32

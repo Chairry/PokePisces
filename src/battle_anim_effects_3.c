@@ -25,6 +25,7 @@
 #include "constants/hold_effects.h"
 
 extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;
+extern const struct SpriteTemplate gBerryThoughtBubbleSpriteTemplate;
 
 static void AnimBlackSmoke_Step(struct Sprite *);
 static void AnimWhiteHalo(struct Sprite *);
@@ -93,6 +94,8 @@ static void FadeScreenToWhite_Step(u8);
 static void RapinSpinMonElevation_Step(u8);
 static void TormentAttacker_Step(u8);
 static void TormentAttacker_Callback(struct Sprite *);
+static void BerryBadJokeAttacker_Step(u8);
+static void BerryBadJokeAttacker_Callback(struct Sprite *);
 static void AnimTask_RockMonBackAndForth_Step(u8);
 static void AnimTask_FlailMovement_Step(u8);
 static void AnimTask_RolePlaySilhouette_Step1(u8);
@@ -2127,6 +2130,129 @@ static void TormentAttacker_Step(u8 taskId)
 }
 
 static void TormentAttacker_Callback(struct Sprite *sprite)
+{
+    if (sprite->animEnded)
+    {
+        gTasks[sprite->data[0]].data[sprite->data[1]]--;
+        DestroySprite(sprite);
+    }
+}
+
+void AnimTask_BerryBadJokeAttacker(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[3] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[4] = 32;
+    task->data[5] = -20;
+    task->data[6] = 0;
+    task->data[15] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    task->func = BerryBadJokeAttacker_Step;
+}
+
+static void BerryBadJokeAttacker_Step(u8 taskId)
+{
+    int var0, var1;
+    s16 x, y;
+    u16 i, j;
+    u8 spriteId;
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        var0 = task->data[2];
+        if (task->data[1] & 1)
+        {
+            var1 = task->data[4];
+            x = var0 - var1;
+        }
+        else
+        {
+            var1 = task->data[4];
+            x = var0 + var1;
+        }
+
+        y = task->data[3] + task->data[5];
+        spriteId = CreateSprite(&gBerryThoughtBubbleSpriteTemplate, x, y, 6 - task->data[1]);
+        PlaySE12WithPanning(SE_M_METRONOME, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].hFlip = task->data[1] & 1;
+            gSprites[spriteId].callback = SpriteCallbackDummy;
+        }
+
+        if (task->data[1] & 1)
+        {
+            task->data[4] -= 6;
+            task->data[5] -= 6;
+        }
+
+        PrepareAffineAnimInTaskData(task, task->data[15], sAffineAnims_Torment);
+        task->data[1]++;
+        task->data[0] = 1;
+        break;
+    case 1:
+        if (!RunAffineAnimFromTaskData(task))
+        {
+            if (task->data[1] == 6)
+            {
+                task->data[6] = 8;
+                task->data[0] = 3;
+            }
+            else
+            {
+                if (task->data[1] <= 2)
+                    task->data[6] = 10;
+                else
+                    task->data[6] = 0;
+
+                task->data[0] = 2;
+            }
+        }
+        break;
+    case 2:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 0;
+        break;
+    case 3:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 4;
+        break;
+    case 4:
+        for (i = 0, j = 0; i < MAX_SPRITES; i++)
+        {
+            if (gSprites[i].template == &gBerryThoughtBubbleSpriteTemplate)
+            {
+                gSprites[i].data[0] = taskId;
+                gSprites[i].data[1] = 6;
+                StartSpriteAnim(&gSprites[i], 2);
+                gSprites[i].callback = BerryBadJokeAttacker_Callback;
+
+                if (++j == 6)
+                    break;
+            }
+        }
+
+        task->data[6] = j;
+        task->data[0] = 5;
+        break;
+    case 5:
+        if (task->data[6] == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static void BerryBadJokeAttacker_Callback(struct Sprite *sprite)
 {
     if (sprite->animEnded)
     {

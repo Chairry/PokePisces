@@ -179,6 +179,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_CINDRILLON] = sCindrillonFormSpeciesIdTable,
     [SPECIES_SHISHIMA] = sShishimaFormSpeciesIdTable,
     [SPECIES_SHUNYONG] = sShunyongFormSpeciesIdTable,
+    [SPECIES_KODOUGH] = sKodoughFormSpeciesIdTable,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurFormSpeciesIdTable,
@@ -609,5 +610,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_SPINDA_FOREST] = sSpindaFormSpeciesIdTable,
     [SPECIES_SPINDA_MOUNTAIN] = sSpindaFormSpeciesIdTable,
     [SPECIES_SPINDA_PLAINS2] = sSpindaFormSpeciesIdTable,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsFormSpeciesIdTable,
+    [SPECIES_KODOUGH_BLUNT] = sKodoughFormSpeciesIdTable,
 #endif
 };

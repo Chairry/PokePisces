@@ -1120,6 +1120,13 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SHUNYONG] = sShunyongTeachableLearnset,
     [SPECIES_KINGAMBIT] = sKingambitTeachableLearnset,
     [SPECIES_SHELLYLOUH] = sShellylouhTeachableLearnset,
+    [SPECIES_INFAIRNO] = sInfairnoTeachableLearnset,
+    [SPECIES_PURGATIVAL] = sPurgativalTeachableLearnset,
+    [SPECIES_DETERIOTL] = sDeteriotlTeachableLearnset,
+    [SPECIES_CLAWLISTIC] = sClawlisticTeachableLearnset,
+    [SPECIES_UNBERRABLE] = sUnberrableTeachableLearnset,
+    [SPECIES_PEBLRANIUM] = sPeblraniumTeachableLearnset,
+    [SPECIES_VAIKING] = sVaikingTeachableLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurTeachableLearnset,
@@ -1549,5 +1556,7 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SPINDA_FOREST] = sSpindaTeachableLearnset,
     [SPECIES_SPINDA_MOUNTAIN] = sSpindaTeachableLearnset,
     [SPECIES_SPINDA_PLAINS2] = sSpindaTeachableLearnset,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsTeachableLearnset,
+    [SPECIES_KODOUGH_BLUNT] = sKodoughTeachableLearnset,
 #endif
 };

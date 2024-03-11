@@ -378,6 +378,12 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(SHUNYONG),
     SPECIES_TO_HOENN(KINGAMBIT),
     SPECIES_TO_HOENN(SHELLYLOUH),
+    SPECIES_TO_HOENN(INFAIRNO),
+    SPECIES_TO_HOENN(PURGATIVAL),
+    SPECIES_TO_HOENN(DETERIOTL),
+    SPECIES_TO_HOENN(CLAWLISTIC),
+    SPECIES_TO_HOENN(UNBERRABLE),
+    SPECIES_TO_HOENN(VAIKING),
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1501,6 +1507,13 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(SHUNYONG),
     SPECIES_TO_NATIONAL(KINGAMBIT),
     SPECIES_TO_NATIONAL(SHELLYLOUH),
+    SPECIES_TO_NATIONAL(INFAIRNO),
+    SPECIES_TO_NATIONAL(PURGATIVAL),
+    SPECIES_TO_NATIONAL(DETERIOTL),
+    SPECIES_TO_NATIONAL(CLAWLISTIC),
+    SPECIES_TO_NATIONAL(UNBERRABLE),
+    SPECIES_TO_NATIONAL(PEBLRANIUM),
+    SPECIES_TO_NATIONAL(VAIKING),
 #endif
 
     // Megas
@@ -1611,6 +1624,8 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_FOREST - 1] = NATIONAL_DEX_SPINDA,
     [SPECIES_SPINDA_MOUNTAIN - 1] = NATIONAL_DEX_SPINDA,
     [SPECIES_SPINDA_PLAINS2 - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = NATIONAL_DEX_DUDUNSPARS,
+    [SPECIES_KODOUGH_BLUNT - 1] = NATIONAL_DEX_KODOUGH,
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_DARUMAKA_GALARIAN - 1] = NATIONAL_DEX_DARUMAKA,
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
@@ -1628,7 +1643,6 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_SAMUROTT_HISUIAN - 1] = NATIONAL_DEX_SAMUROTT,
     [SPECIES_LILLIGANT_HISUIAN - 1] = NATIONAL_DEX_LILLIGANT,
-    [SPECIES_ZORUA_HISUIAN - 1] = NATIONAL_DEX_ZORUA,
     [SPECIES_ZOROARK_HISUIAN - 1] = NATIONAL_DEX_ZOROARK,
     [SPECIES_BRAVIARY_HISUIAN - 1] = NATIONAL_DEX_BRAVIARY,
 #endif
@@ -2209,6 +2223,12 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(SHUNYONG),
     HOENN_TO_NATIONAL(KINGAMBIT),
     HOENN_TO_NATIONAL(SHELLYLOUH),
+    HOENN_TO_NATIONAL(INFAIRNO),
+    HOENN_TO_NATIONAL(PURGATIVAL),
+    HOENN_TO_NATIONAL(DETERIOTL),
+    HOENN_TO_NATIONAL(CLAWLISTIC),
+    HOENN_TO_NATIONAL(UNBERRABLE),
+    HOENN_TO_NATIONAL(VAIKING),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -3384,6 +3404,13 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SHUNYONG - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_KINGAMBIT - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SHELLYLOUH - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_INFAIRNO - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PURGATIVAL - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DETERIOTL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CLAWLISTIC - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_UNBERRABLE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PEBLRANIUM - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_VAIKING - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]           = ANIM_GROW_VIBRATE,
@@ -3407,6 +3434,8 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_FOREST - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPINDA_MOUNTAIN - 1]          = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPINDA_PLAINS2 - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_KODOUGH_BLUNT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
     //Gen 4 Forms
     [SPECIES_CHERRIM_SUNSHINE - 1]       = ANIM_H_JUMPS_V_STRETCH,
     [SPECIES_SHELLOS_EAST_SEA - 1]       = ANIM_V_STRETCH,
@@ -7106,11 +7135,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_TWO_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) != 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && ((personality % 1000) > 100))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_THREE_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) == 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (1 <= (personality % 1000) <= 100))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE_EIGHT_SEGMENT:
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 1000) == 0)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:

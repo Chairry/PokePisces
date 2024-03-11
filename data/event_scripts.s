@@ -1177,3 +1177,21 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/NewMauvilleCenter2/scripts.inc"
 
 	.include "data/maps/Flotshore/scripts.inc"
+
+	.include "data/maps/BirchMaritimeLab/scripts.inc"
+
+	.include "data/maps/PacifidlogInteriors/scripts.inc"
+
+	.include "data/maps/SkyPillarInteriors/scripts.inc"
+
+	.include "data/maps/SSTidalInteriors/scripts.inc"
+
+	.include "data/maps/LabBasement/scripts.inc"
+
+	.include "data/maps/LabBasement2/scripts.inc"
+
+	.include "data/maps/BasalinCoast/scripts.inc"
+
+	.include "data/maps/RivalRoom/scripts.inc"
+
+	.include "data/maps/SSTidalExterior/scripts.inc"

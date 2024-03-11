@@ -21,6 +21,7 @@
 #include "constants/pokemon.h"
 #include "battle_util.h"
 #include "constants/songs.h"
+#include "constants/abilities.h"
 
 // function declarations
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
@@ -2240,17 +2241,6 @@ const struct SpriteTemplate gSpiritShackleArrowTemplate =
     .callback = AnimSonicBoomProjectile
 };
 
-const struct SpriteTemplate gSpiritShackleChainTemplate =
-{
-    .tileTag = ANIM_TAG_CHAIN_LINK,
-    .paletteTag = ANIM_TAG_CHAIN_LINK,
-    .oam = &gOamData_AffineOff_ObjNormal_32x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimThunderWave
-};
-
 //darkest lariat
 const struct SpriteTemplate gDarkestLariatImpactTemplate =
 {
@@ -3714,6 +3704,17 @@ const struct SpriteTemplate gSnipeShotBallTemplate =    //used in aura sphere
     .callback = AnimShadowBall
 };
 
+const struct SpriteTemplate gCannonadeBallTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT_2,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sAnimCmdTable_SnipeShot,
+    .images = NULL,
+    .affineAnims = sSpriteAffineAnimTable_SnipeShot,
+    .callback = AnimShadowBall
+};
+
 //jaw lock
 const struct SpriteTemplate gJawLockTeethTemplate =
 {
@@ -4341,13 +4342,13 @@ const struct SpriteTemplate gSpriteTemplate_SteelRoller = {
 
 // scale shot
 const struct SpriteTemplate gSpriteTemplate_ScaleShotScale = {
-    .tileTag = ANIM_TAG_SHELL_RIGHT,
-    .paletteTag = ANIM_TAG_SHELL_RIGHT,
-    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .tileTag = ANIM_TAG_DRAGON_SCALE,
+    .paletteTag = ANIM_TAG_DRAGON_SCALE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_BasicRock,
-    .callback = AnimRockBlastRock
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation
 };
 
 // meteor beam
@@ -8715,6 +8716,20 @@ void AnimTask_TerrainPulse(u8 taskId)
     {
         gBattleAnimArgs[0] = 0;
     }
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_SerpentSurge(u8 taskId)
+{
+    if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_DRIZZLE)
+        gBattleAnimArgs[0] = TYPE_WATER;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_HYDRATION)
+        gBattleAnimArgs[0] = TYPE_GRASS;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_REGENERATOR)
+        gBattleAnimArgs[0] = TYPE_BUG;
+    else
+        gBattleAnimArgs[0] = 0;
+
     DestroyAnimVisualTask(taskId);
 }
 

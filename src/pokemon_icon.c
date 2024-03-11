@@ -1145,6 +1145,13 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SHUNYONG] = gMonIcon_Shunyong,
     [SPECIES_KINGAMBIT] = gMonIcon_Kingambit,
     [SPECIES_SHELLYLOUH] = gMonIcon_Shellylouh,
+    [SPECIES_INFAIRNO] = gMonIcon_Infairno,
+    [SPECIES_PURGATIVAL] = gMonIcon_Purgatival,
+    [SPECIES_DETERIOTL] = gMonIcon_Deteriotl,
+    [SPECIES_CLAWLISTIC] = gMonIcon_Clawlistic,
+    [SPECIES_UNBERRABLE] = gMonIcon_Unberrable,
+    [SPECIES_PEBLRANIUM] = gMonIcon_Peblranium,
+    [SPECIES_VAIKING] = gMonIcon_Vaiking,
 #endif
     [SPECIES_VENUSAUR_MEGA] = gMonIcon_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = gMonIcon_CharizardMegaX,
@@ -1509,6 +1516,8 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_FOREST] = gMonIcon_Spinda,
     [SPECIES_SPINDA_MOUNTAIN] = gMonIcon_Spinda,
     [SPECIES_SPINDA_PLAINS2] = gMonIcon_Spinda,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = gMonIcon_DudunsparsEightSegment,
+    [SPECIES_KODOUGH_BLUNT] = gMonIcon_KodoughBlunt,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2641,6 +2650,13 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SHUNYONG] = 3,
     [SPECIES_KINGAMBIT] = 0,
     [SPECIES_SHELLYLOUH] = 1,
+    [SPECIES_INFAIRNO] = 0,
+    [SPECIES_PURGATIVAL] = 0,
+    [SPECIES_DETERIOTL] = 1,
+    [SPECIES_CLAWLISTIC] = 0,
+    [SPECIES_UNBERRABLE] = 2,
+    [SPECIES_PEBLRANIUM] = 3,
+    [SPECIES_VAIKING] = 0,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
@@ -2958,6 +2974,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SPINDA_FOREST] = 1,
     [SPECIES_SPINDA_MOUNTAIN] = 1,
     [SPECIES_SPINDA_PLAINS2] = 1,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = 0,
+    [SPECIES_KODOUGH_BLUNT] = 2,
 #endif
     [SPECIES_EGG] = 1,
 };

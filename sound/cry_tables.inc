@@ -1545,6 +1545,13 @@ gCryTable::
 	cry Cry_Shunyong
 	cry Cry_Kingambit
 	cry Cry_Shellylouh
+	cry Cry_Infairno
+	cry Cry_Purgatival
+	cry Cry_Deteriotl
+	cry Cry_Clawlistic
+	cry Cry_Unberrable
+	cry Cry_Peblranium
+	cry Cry_Vaiking
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2276,6 +2283,7 @@ gCryTable::
 	cry Cry_Basculegion
 	@ Dudunspars
 	cry Cry_Dudunspars
+	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
 	@ Gaoterra
@@ -2298,6 +2306,8 @@ gCryTable::
 	cry Cry_Spinda
 	cry Cry_Spinda
 	cry Cry_Spinda
+	@ Kodough
+	cry Cry_Kodough
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -3904,6 +3914,13 @@ gCryTable_Reverse::
 	cry_reverse Cry_Shunyong
 	cry_reverse Cry_Kingambit
 	cry_reverse Cry_Shellylouh
+	cry_reverse Cry_Infairno
+	cry_reverse Cry_Purgatival
+	cry_reverse Cry_Deteriotl
+	cry_reverse Cry_Clawlistic
+	cry_reverse Cry_Unberrable
+	cry_reverse Cry_Peblranium
+	cry_reverse Cry_Vaiking
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4602,6 +4619,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
 	@ Gaoterra
@@ -4624,6 +4642,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
+	@ Kodough
+	cry_reverse Cry_Kodough
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

@@ -3,7 +3,7 @@ SkyPillarNew_MapScripts::
 
 SkyPillarNew_EventScript_Granger::
 	setflag FLAG_PISCES_A
-	trainerbattle_single TRAINER_GRANGER, SkyPillarNew_Text_GrangerIntro, SkyPillarNew_Text_GrangerDefeat, SkyPillarNew_EventScript_GrangerChoice
+	trainerbattle_single TRAINER_P_GRANGER, SkyPillarNew_Text_GrangerIntro, SkyPillarNew_Text_GrangerDefeat, SkyPillarNew_EventScript_GrangerChoice
 	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerEncouragement
 	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_GrangerEncouragement
 	goto_if_set FLAG_PISCES_B, SkyPillarNew_EventScript_GrangerRoadblockOver
@@ -29,7 +29,7 @@ SkyPillarNew_EventScript_GrangerRoadblockOver::
 
 SkyPillarNew_EventScript_Ricky::
 	setflag FLAG_PISCES_B
-	trainerbattle_single TRAINER_RICKY_P, SkyPillarNew_Text_RickyIntro, SkyPillarNew_Text_RickyDefeat, SkyPillarNew_EventScript_RickyChoice
+	trainerbattle_single TRAINER_P_RICKY, SkyPillarNew_Text_RickyIntro, SkyPillarNew_Text_RickyDefeat, SkyPillarNew_EventScript_RickyChoice
 	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_RickyEncouragement
 	goto_if_unset FLAG_PISCES_C, SkyPillarNew_EventScript_RickyEncouragement
 	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_RickyRoadblockOver
@@ -53,7 +53,7 @@ SkyPillarNew_EventScript_RickyRoadblockOver::
 
 SkyPillarNew_EventScript_Jeannie::
 	setflag FLAG_PISCES_C
-	trainerbattle_single TRAINER_JEANNIE_P, SkyPillarNew_Text_JeannieIntro, SkyPillarNew_Text_JeannieDefeat, SkyPillarNew_EventScript_JeannieChoice
+	trainerbattle_single TRAINER_P_JEANNIE, SkyPillarNew_Text_JeannieIntro, SkyPillarNew_Text_JeannieDefeat, SkyPillarNew_EventScript_JeannieChoice
 	goto_if_unset FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieEncouragement
 	goto_if_unset FLAG_PISCES_B, SkyPillarNew_EventScript_JeannieEncouragement
 	goto_if_set FLAG_PISCES_A, SkyPillarNew_EventScript_JeannieRoadblockOver
@@ -73,6 +73,26 @@ SkyPillarNew_EventScript_JeannieEncouragement::
 SkyPillarNew_EventScript_JeannieRoadblockOver::
 	msgbox SkyPillarNew_Text_JeannieAllDone, MSGBOX_NPC
 	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	end
+
+SkyPillarNew_EventScript_Man::
+	msgbox SkyPillarNew_Text_Man, MSGBOX_NPC
+	end
+
+SkyPillarNew_EventScript_Forester::
+	msgbox SkyPillarNew_Text_Forester, MSGBOX_NPC
+	end
+
+SkyPillarNew_EventScript_Scientist::
+	msgbox SkyPillarNew_Text_Scientist, MSGBOX_NPC
+	end
+
+SkyPillarNew_EventScript_SkyPillarSign::
+	msgbox SkyPillarNew_Text_SkyPillarSign, MSGBOX_SIGN
+	end
+
+SkyPillarNew_EventScript_RayquazaStatue::
+	msgbox SkyPillarNew_Text_RayquazaStatue, MSGBOX_SIGN
 	end
 
 SkyPillarNew_Text_GrangerIntro:
@@ -148,4 +168,44 @@ SkyPillarNew_Text_JeannieAllDone:
 	.string "Well, what are you waiting for?\n"
 	.string "the world's your oyster!\l"
 	.string "Make us proud!$"
+
+SkyPillarNew_Text_Man:
+	.string "I've had this urge recently to hop\n"
+	.string "down this stream and crash down\l"
+	.string "that waterfall!\p"
+	.string "Will I get hurt? Probably!\n"
+	.string "But think of the possibilities!$"
+
+SkyPillarNew_Text_Forester:
+	.string "Oh, I'm assuming you're that\n"
+	.string "trainer my friends up top are\l"
+	.string "looking for.\p"
+	.string "Go give 'em a proper thrashing!$"
+
+SkyPillarNew_Text_Scientist:
+	.string "These triangle-shaped stones\n"
+	.string "embedded in the ground here are\l"
+	.string "what we've been calling Delta Stones.\p"
+	.string "They were, as far as we know,\n"
+	.string "carved out hyper-meticulously\l"
+	.string "by an ancient society that\l"
+	.string "worshipped the POKéMON Rayquaza.\p"
+	.string "The Delta Stones are even\n"
+	.string "made partially out of emerald dust,\l"
+	.string "a rare material.\p"
+	.string "Sky Pillar is a veritable\n"
+	.string "well of olden knowledge!$"
+
+SkyPillarNew_Text_SkyPillarSign:
+	.string "S K Y   P I L L A R\p"
+	.string "May the almighty skyward sentinel\n"
+	.string "look down upon and guide us\l"
+	.string "to peace and harmony.$"
+
+SkyPillarNew_Text_RayquazaStatue:
+	.string "(It's a statue resembling\n"
+	.string "Rayquaza. The visage brings back\l"
+	.string "a few memories of an\l"
+	.string "adventure long past...)$"
+
 

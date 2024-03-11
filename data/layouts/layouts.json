@@ -444,8 +444,8 @@
     {
       "id": "LAYOUT_ROUTE129",
       "name": "Route129_Layout",
-      "width": 80,
-      "height": 60,
+      "width": 7,
+      "height": 4,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/Route129/border.bin",
@@ -624,10 +624,10 @@
     {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
-      "width": 11,
-      "height": 8,
+      "width": 17,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin"
     },
@@ -704,8 +704,8 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "name": "LavaridgeTown_PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
+      "width": 23,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/LavaridgeTown_PokemonCenter_1F/border.bin",
@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4825,7 +4825,7 @@
       "id": "LAYOUT_MIDNEOR_FALLS",
       "name": "MidneorFalls_Layout",
       "width": 60,
-      "height": 80,
+      "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFalls/border.bin",
@@ -4994,12 +4994,102 @@
     {
       "id": "LAYOUT_FLOTSHORE",
       "name": "Flotshore_Layout",
-      "width": 60,
-      "height": 42,
+      "width": 64,
+      "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/Flotshore/border.bin",
       "blockdata_filepath": "data/layouts/Flotshore/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_MARITIME_LAB",
+      "name": "BirchMaritimeLab_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BirchLab",
+      "border_filepath": "data/layouts/BirchMaritimeLab/border.bin",
+      "blockdata_filepath": "data/layouts/BirchMaritimeLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_PACIFIDLOG_INTERIORS",
+      "name": "PacifidlogInteriors_Layout",
+      "width": 46,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PacifidlogInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/PacifidlogInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_PILLAR_INTERIORS",
+      "name": "SkyPillarInteriors_Layout",
+      "width": 14,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SkyPillarInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SkyPillarInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_INTERIORS",
+      "name": "SSTidalInteriors_Layout",
+      "width": 38,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT",
+      "name": "LabBasement_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT2",
+      "name": "LabBasement2_Layout",
+      "width": 4,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement2/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALIN_COAST",
+      "name": "BasalinCoast_Layout",
+      "width": 80,
+      "height": 56,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/BasalinCoast/border.bin",
+      "blockdata_filepath": "data/layouts/BasalinCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_ROOM",
+      "name": "RivalRoom_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/RivalRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RivalRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_EXTERIOR",
+      "name": "SSTidalExterior_Layout",
+      "width": 38,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalExterior/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalExterior/map.bin"
     }
   ]
 }
