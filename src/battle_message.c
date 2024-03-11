@@ -880,6 +880,7 @@ static const u8 sText_PkmnExposedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was e
 static const u8 sText_ItemCausedExposed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} became exposed\nfrom its {B_LAST_ITEM}!");
 static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
 static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
+static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1611,6 +1612,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSITEMCAUSEEXPOSED - BATTLESTRINGS_TABLE_START] = sText_ItemCausedExposed,
     [STRINGID_PKMNSXPREVENTSBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PreventBlooming,
     [STRINGID_PKMNSXPREVENTSEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PreventExposed,
+    [STRINGID_PKMNSISBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsBlooming,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

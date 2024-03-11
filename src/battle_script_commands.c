@@ -1652,6 +1652,12 @@ static bool32 AccuracyCalcHelper(u16 move)
         }
     #endif
     }
+    
+    if (gBattleMons[gBattlerTarget].status1 & STATUS1_EXPOSED)
+    {
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
 
     if (gBattleMoves[move].effect == EFFECT_VITAL_THROW)
     {
@@ -3209,7 +3215,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             break;
         case STATUS1_BLOOMING:
             // TODO abilities that prevent it
-            if (!CanStartBlossoming(gEffectBattler)
+            if (!CanStartBlooming(gEffectBattler)
                     && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                     && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
             {
@@ -13609,7 +13615,7 @@ static void Cmd_healpartystatus(void)
 
         if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SOUNDPROOF)
         {
-            gBattleMons[gBattlerAttacker].status1 = 0;
+            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
         }
         else
@@ -13625,7 +13631,7 @@ static void Cmd_healpartystatus(void)
         {
             if (GetBattlerAbility(battler) != ABILITY_SOUNDPROOF)
             {
-                gBattleMons[battler].status1 = 0;
+                gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
                 gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
             }
             else
@@ -13665,14 +13671,14 @@ static void Cmd_healpartystatus(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOOTHING_AROMA;
         toHeal = (1 << PARTY_SIZE) - 1;
 
-        gBattleMons[gBattlerAttacker].status1 = 0;
+        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
 
         battler = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerAttacker)));
         if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
             && !(gAbsentBattlerFlags & gBitTable[battler]))
         {
-            gBattleMons[battler].status1 = 0;
+            gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
             gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
         }
 

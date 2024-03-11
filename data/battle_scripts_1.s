@@ -2585,7 +2585,7 @@ BattleScript_EffectPurify:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_PurifyWorks
+	jumpifstatus BS_TARGET, STATUS1_ANY_NEGATIVE, BattleScript_PurifyWorks
 	goto BattleScript_ButItFailed
 BattleScript_PurifyWorks:
 	attackanimation

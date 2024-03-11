@@ -2606,7 +2606,6 @@ enum
     ENDTURN_SALT_CURE,
     ENDTURN_PANIC,
     ENDTURN_BLOOMING,
-    ENDTURN_EXPOSED,
     ENDTURN_SPIDER_WEB,
     ENDTURN_GLAIVE_RUSH,
     ENDTURN_BATTLER_COUNT
@@ -3189,6 +3188,17 @@ u8 DoBattlerEndTurnEffects(void)
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_BLOOMING:
+            if (gBattleMons[battler].status1 & STATUS1_BLOOMING && IsBattlerAlive(battler)) {
+                gBattleMoveDamage = -1 * gBattleMons[battler].maxHP / 10;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = -1;
+                BattleScriptExecute(BattleScript_BloomingHpGain);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
         case ENDTURN_BATTLER_COUNT:  // done
             gBattleStruct->turnEffectsTracker = 0;
             gBattleStruct->turnEffectsBattlerId++;
@@ -6628,6 +6638,28 @@ bool32 CanGetPanicked(u32 battler)
     return TRUE;
 }
 
+bool32 CanStartBlooming(u32 battler)
+{
+    u16 ability = GetBattlerAbility(battler);
+    // NOT blocked by safeguard or flower veil, etc
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE)
+            || ability == ABILITY_COMATOSE
+            || gBattleMons[battler].status1 & STATUS1_ANY)
+        return FALSE;
+    return TRUE;
+}
+
+bool32 CanBeExposed(u32 battler)
+{
+    u16 ability = GetBattlerAbility(battler);
+    if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD
+            || ability == ABILITY_COMATOSE
+            || gBattleMons[battler].status1 & STATUS1_ANY
+            || IsAbilityStatusProtected(battler))
+        return FALSE;
+    return TRUE;
+}
+
 bool32 CanBeConfused(u32 battler)
 {
     if (GetBattlerAbility(battler) == ABILITY_OWN_TEMPO || gBattleMons[battler].status2 & STATUS2_CONFUSION || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN))
@@ -8907,7 +8939,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_HEX:
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
-        if (gBattleMons[battlerDef].status1 & STATUS1_ANY || abilityDef == ABILITY_COMATOSE)
+        if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE)
             basePower *= 2;
         break;
     case EFFECT_ASSURANCE:
@@ -9689,7 +9721,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_GUTS:
-        if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
+        if (gBattleMons[battlerAtk].status1 & STATUS1_ANY_NEGATIVE && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_QUICK_DRAW:
@@ -9833,7 +9865,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_MARVEL_SCALE:
-        if (gBattleMons[battlerDef].status1 & STATUS1_ANY && usesDefStat)
+        if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE && usesDefStat)
         {
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             if (updateFlags)
@@ -9841,7 +9873,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         }
         break;
     case ABILITY_EXTREMO:
-        if (gBattleMons[battlerDef].status1 & STATUS1_ANY)
+        if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE)
         {
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
             if (updateFlags)
@@ -10057,6 +10089,13 @@ static inline uq4_12_t GetGlaiveRushModifier(u32 battlerDef)
 {
     if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH)
         return UQ_4_12(2.0);
+    return UQ_4_12(1.0);
+}
+
+static inline uq4_12_t GetTargetStatusDamageModifier(u32 battlerDef)
+{
+    if (gBattleMons[battlerDef].status1 & STATUS1_EXPOSED)
+        return UQ_4_12(1.5);
     return UQ_4_12(1.0);
 }
 
@@ -10344,6 +10383,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(battlerAtk, move, moveType, holdEffectAtk, holdEffectDef, weather));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));
+    DAMAGE_APPLY_MODIFIER(GetTargetStatusDamageModifier(battlerDef));
     // TODO: Glaive Rush (Gen IX effect)
     if (randomFactor)
     {

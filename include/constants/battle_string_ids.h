@@ -727,23 +727,22 @@
 #define STRINGID_PKMNISEMPTY                          725
 #define STRINGID_ABILITYENTRANCED                     726
 #define STRINGID_PKMNCUTSSPEEDWITH                    727  
-#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    728
-#define STRINGID_DRAGONRUINCHARGING                   729
-#define STRINGID_PKMNGOTPANICKED                      730
-#define STRINGID_PKMNPANICKEDBY                       731
-#define STRINGID_PKMNSITEMCAUSEPANIC                  732
-#define STRINGID_PKMNSXPREVENTSPANIC                  733
-#define STRINGID_PKMNSISPANICKED                      734
-#define STRINGID_PKMNSTARTEDBLOOMING                  735
-#define STRINGID_PKMNBLOOMINGFROM                     736
-#define STRINGID_PKMNSITEMCAUSEBLOOMING               737
-#define STRINGID_PKMNGOTEXPOSED                       738
-#define STRINGID_PKMNEXPOSEDBY                        739
-#define STRINGID_PKMNSITEMCAUSEEXPOSED                740
-#define STRINGID_PKMNSXPREVENTSBLOOMING               741
-#define STRINGID_PKMNSXPREVENTSEXPOSED                742
+#define STRINGID_PKMNGOTPANICKED                      728
+#define STRINGID_PKMNPANICKEDBY                       729
+#define STRINGID_PKMNSITEMCAUSEPANIC                  730
+#define STRINGID_PKMNSXPREVENTSPANIC                  731
+#define STRINGID_PKMNSISPANICKED                      732
+#define STRINGID_PKMNSTARTEDBLOOMING                  733
+#define STRINGID_PKMNBLOOMINGFROM                     734
+#define STRINGID_PKMNSITEMCAUSEBLOOMING               735
+#define STRINGID_PKMNGOTEXPOSED                       736
+#define STRINGID_PKMNEXPOSEDBY                        737
+#define STRINGID_PKMNSITEMCAUSEEXPOSED                738
+#define STRINGID_PKMNSXPREVENTSBLOOMING               739
+#define STRINGID_PKMNSXPREVENTSEXPOSED                740
+#define STRINGID_PKMNSISBLOOMING                      741
 
-#define BATTLESTRINGS_COUNT                           743
+#define BATTLESTRINGS_COUNT                           742
 
 
 // This is the string id that gBattleStringsTable starts with.
