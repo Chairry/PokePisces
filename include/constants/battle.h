@@ -117,8 +117,10 @@
 #define STATUS1_TOXIC_TURN(num)  ((num) << 8)
 #define STATUS1_FROSTBITE        (1 << 12)
 #define STATUS1_PANIC            (1 << 13)
+#define STATUS1_BLOOMING         (1 << 14)
+#define STATUS1_EXPOSED          (1 << 15)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
-#define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_PANIC)
+#define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_PANIC | STATUS1_BLOOMING | STATUS1_EXPOSED)
 
 // Volatile status ailments
 // These are removed after exiting the battle or switching out
@@ -316,8 +318,10 @@
 #define MOVE_EFFECT_PARALYSIS           5
 #define MOVE_EFFECT_TOXIC               6
 #define MOVE_EFFECT_FROSTBITE           7
-#define MOVE_EFFECT_PANIC               8   
-#define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_PANIC // All above move effects apply primary status
+#define MOVE_EFFECT_PANIC               8
+#define MOVE_EFFECT_BLOOMING            9
+#define MOVE_EFFECT_EXPOSED             10
+#define PRIMARY_STATUS_MOVE_EFFECT      MOVE_EFFECT_EXPOSED // All above move effects apply primary status
 #define MOVE_EFFECT_CONFUSION (PRIMARY_STATUS_MOVE_EFFECT + 1)
 #define MOVE_EFFECT_FLINCH (PRIMARY_STATUS_MOVE_EFFECT + 2)
 #define MOVE_EFFECT_TRI_ATTACK (PRIMARY_STATUS_MOVE_EFFECT + 3)

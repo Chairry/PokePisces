@@ -197,6 +197,8 @@ extern const u8 BattleScript_AbilityNoStatLoss[];
 extern const u8 BattleScript_ItemNoStatLoss[];
 extern const u8 BattleScript_BRNPrevention[];
 extern const u8 BattleScript_PNCPrevention[];
+extern const u8 BattleScript_BloomingPrevention[];
+extern const u8 BattleScript_ExposedPrevention[];
 extern const u8 BattleScript_PRLZPrevention[];
 extern const u8 BattleScript_PSNPrevention[];
 extern const u8 BattleScript_ObliviousPreventsAttraction[];
@@ -541,6 +543,9 @@ extern const u8 BattleScript_HardboiledActivatesExtra[];
 extern const u8 BattleScript_EffectTidyUpDoMoveAnimation[];
 extern const u8 BattleScript_MoveEffectPanic[];
 extern const u8 BattleScript_PanicTurn[];
+extern const u8 BattleScript_MoveEffectBlooming[];
+extern const u8 BattleScript_MoveEffectExposed[];
+extern const u8 BattleScript_BloomingHpGain[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

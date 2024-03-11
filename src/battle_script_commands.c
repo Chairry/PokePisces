@@ -903,6 +903,8 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
     [MOVE_EFFECT_PANIC]          = STATUS1_PANIC,
+    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING,
+    [MOVE_EFFECT_EXPOSED]        = STATUS1_EXPOSED,
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
     [MOVE_EFFECT_UPROAR]         = STATUS2_UPROAR,
@@ -928,6 +930,8 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
     [MOVE_EFFECT_PANIC]            = BattleScript_MoveEffectPanic,
+    [MOVE_EFFECT_BLOOMING]         = BattleScript_MoveEffectBlooming,
+    [MOVE_EFFECT_EXPOSED]          = BattleScript_MoveEffectExposed,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -3202,6 +3206,40 @@ void SetMoveEffect(bool32 primary, u32 certain)
             //if (CanGetPanicked(gEffectBattler))
             statusChanged = TRUE;
                 //break;
+            break;
+        case STATUS1_BLOOMING:
+            // TODO abilities that prevent it
+            if (!CanStartBlossoming(gEffectBattler)
+                    && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+                    && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+            {
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_BloomingPrevention;
+
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+                RESET_RETURN
+                
+            }
+            if (gBattleMons[gEffectBattler].status1)
+                break;
+            statusChanged = TRUE;
+            break;
+        case STATUS1_EXPOSED:
+            // TODO abilities that prevent it
+            if (!CanBeExposed(gEffectBattler)
+                    && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+                    && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+            {
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = BattleScript_ExposedPrevention;
+
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+                RESET_RETURN
+                
+            }
+            if (gBattleMons[gEffectBattler].status1)
+                break;
+            statusChanged = TRUE;
             break;
         }
         if (statusChanged == TRUE)
@@ -10023,6 +10061,12 @@ static void Cmd_various(void)
             break;
         case STATUS1_PANIC:
             gBattleScripting.moveEffect = MOVE_EFFECT_PANIC;
+            break;
+        case STATUS1_BLOOMING:
+            gBattleScripting.moveEffect = MOVE_EFFECT_BLOOMING;
+            break;
+        case STATUS1_EXPOSED:
+            gBattleScripting.moveEffect = MOVE_EFFECT_EXPOSED;
             break;
         default:
             gBattleScripting.moveEffect = 0;

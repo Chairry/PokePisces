@@ -511,6 +511,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_EXORCISM
 	.4byte BattleScript_EffectLoveTap                 @ EFFECT_LOVE_TAP
 	.4byte BattleScript_EffectPanicHit                @ EFFECT_PANIC_HIT
+	.4byte BattleScript_EffectBloomingHit             @ EFFECT_BLOOMING_HIT
+	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
 
 BattleScript_EffectLoveTap::
 	attackcanceler
@@ -4692,6 +4694,14 @@ BattleScript_EffectParalyzeHit::
 
 BattleScript_EffectPanicHit::
 	setmoveeffect MOVE_EFFECT_PANIC
+    goto BattleScript_EffectHit
+
+BattleScript_EffectBloomingHit::
+	setmoveeffect MOVE_EFFECT_BLOOMING
+    goto BattleScript_EffectHit
+    
+BattleScript_EffectExposedHit::
+	setmoveeffect MOVE_EFFECT_EXPOSED
     goto BattleScript_EffectHit
 
 BattleScript_EffectExplosion_AnimDmgRet:
@@ -9853,6 +9863,18 @@ BattleScript_MoveEffectPanic::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 
+BattleScript_MoveEffectBlooming::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gStartedBloomingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_MoveEffectExposed::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gWasExposedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
 BattleScript_MoveEffectUproar::
 	printstring STRINGID_PKMNCAUSEDUPROAR
 	waitmessage B_WAIT_TIME_LONG
@@ -10654,6 +10676,18 @@ BattleScript_ItemNoStatLoss::
 BattleScript_BRNPrevention::
 	pause B_WAIT_TIME_SHORT
 	printfromtable gBRNPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_BloomingPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gBloomingPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ExposedPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gExposedPreventionStringIds
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -12517,5 +12551,10 @@ BattleScript_EvilEyeContrary_WontIncrease:
 
 BattleScript_PanicTurn::
 	printstring STRINGID_PKMNSISPANICKED
+    waitmessage B_WAIT_TIME_LONG
+    goto BattleScript_DoStatusTurnDmg
+
+BattleScript_BloomingHpGain::
+	printstring STRINGID_PKMNSISBLOOMING
     waitmessage B_WAIT_TIME_LONG
     goto BattleScript_DoStatusTurnDmg

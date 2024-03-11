@@ -991,6 +991,8 @@ gBattleAnims_StatusConditions::
 	.4byte Status_Nightmare                 @ B_ANIM_STATUS_NIGHTMARE
 	.4byte Status_Powder
 	.4byte Status_Panic						@ B_ANIM_STATUS_PNC
+	.4byte Status_Blooming				    @ B_ANIM_STATUS_BLOOMING
+	.4byte Status_Exposed				    @ B_ANIM_STATUS_EXPOSED
 
 	.align 2
 gBattleAnims_General::
@@ -30312,12 +30314,15 @@ Status_Panic:
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 12, RGB(4, 4, 4)
 	end
 
-@Status_Panic:
-@	loopsewithpan SE_M_TOXIC, SOUND_PAN_TARGET, 13, 6
-@	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 18, 2
-@	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 12, RGB(30, 0, 31)
-@	end
+Status_Blooming:
+    goto General_IngrainHeal    @ TODO?
 
+Status_Exposed:
+    @ TODO
+    playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 12, RGB_BLUE
+	end 
 
 _RGeneral_TimeTurn::
 	call InitRoomAnimation

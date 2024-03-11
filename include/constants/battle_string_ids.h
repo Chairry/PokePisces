@@ -734,8 +734,16 @@
 #define STRINGID_PKMNSITEMCAUSEPANIC                  732
 #define STRINGID_PKMNSXPREVENTSPANIC                  733
 #define STRINGID_PKMNSISPANICKED                      734
+#define STRINGID_PKMNSTARTEDBLOOMING                  735
+#define STRINGID_PKMNBLOOMINGFROM                     736
+#define STRINGID_PKMNSITEMCAUSEBLOOMING               737
+#define STRINGID_PKMNGOTEXPOSED                       738
+#define STRINGID_PKMNEXPOSEDBY                        739
+#define STRINGID_PKMNSITEMCAUSEEXPOSED                740
+#define STRINGID_PKMNSXPREVENTSBLOOMING               741
+#define STRINGID_PKMNSXPREVENTSEXPOSED                742
 
-#define BATTLESTRINGS_COUNT                           735
+#define BATTLESTRINGS_COUNT                           743
 
 
 // This is the string id that gBattleStringsTable starts with.
@@ -949,6 +957,7 @@
 #define B_MSG_STATUSED_BY_ITEM    2
 
 // gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds / gPNCPreventionStringIds
+// gStartedBloomingStringIds / gWasExposedStringIds
 #define B_MSG_ABILITY_PREVENTS_MOVE_STATUS          0
 #define B_MSG_ABILITY_PREVENTS_ABILITY_STATUS       1
 #define B_MSG_STATUS_HAD_NO_EFFECT                  2
