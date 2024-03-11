@@ -511,6 +511,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_EXORCISM
 	.4byte BattleScript_EffectLoveTap                 @ EFFECT_LOVE_TAP
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_SOLAR_FLARE
+	.4byte BattleScript_EffectPanicHit                @ EFFECT_PANIC_HIT
+	.4byte BattleScript_EffectBloomingHit             @ EFFECT_BLOOMING_HIT
+	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
 
 BattleScript_EffectWickedWinds::
 	call BattleScript_EffectHit_Ret
@@ -2590,7 +2593,7 @@ BattleScript_EffectPurify:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_PurifyWorks
+	jumpifstatus BS_TARGET, STATUS1_ANY_NEGATIVE, BattleScript_PurifyWorks
 	goto BattleScript_ButItFailed
 BattleScript_PurifyWorks:
 	attackanimation
@@ -4696,6 +4699,18 @@ BattleScript_EffectFreezeHit::
 BattleScript_EffectParalyzeHit::
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	goto BattleScript_EffectHit
+
+BattleScript_EffectPanicHit::
+	setmoveeffect MOVE_EFFECT_PANIC
+    goto BattleScript_EffectHit
+
+BattleScript_EffectBloomingHit::
+	setmoveeffect MOVE_EFFECT_BLOOMING
+    goto BattleScript_EffectHit
+    
+BattleScript_EffectExposedHit::
+	setmoveeffect MOVE_EFFECT_EXPOSED
+    goto BattleScript_EffectHit
 
 BattleScript_EffectExplosion_AnimDmgRet:
 	jumpifbyte CMP_NO_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_MISSED, BattleScript_ExplosionAnimRet
@@ -9858,6 +9873,24 @@ BattleScript_MoveEffectParalysis::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 
+BattleScript_MoveEffectPanic::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gGotPanickedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_MoveEffectBlooming::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gStartedBloomingStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_MoveEffectExposed::
+	statusanimation BS_EFFECT_BATTLER
+	printfromtable gWasExposedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
 BattleScript_MoveEffectUproar::
 	printstring STRINGID_PKMNCAUSEDUPROAR
 	waitmessage B_WAIT_TIME_LONG
@@ -10659,6 +10692,24 @@ BattleScript_ItemNoStatLoss::
 BattleScript_BRNPrevention::
 	pause B_WAIT_TIME_SHORT
 	printfromtable gBRNPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_BloomingPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gBloomingPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ExposedPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gExposedPreventionStringIds
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_PNCPrevention::
+	pause B_WAIT_TIME_SHORT
+	printfromtable gPNCPreventionStringIds
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -12470,3 +12521,56 @@ BattleScript_MockingInReverse:
 	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 2, BattleScript_MockingLoopIncrement, ANIM_ON
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_MockingLoopIncrement
+
+
+BattleScript_EvilEyeActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+BattleScript_EvilEyeLoop:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_EvilEyeLoopIncrement
+	jumpiftargetally BattleScript_EvilEyeLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_EvilEyeLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_EvilEyeLoopIncrement
+BattleScript_EvilEyeEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	setstatchanger STAT_SPEED, 1, TRUE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_EvilEyeLoopIncrement
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_EvilEyeContrary
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_EvilEyeLoopIncrement
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_PKMNCUTSSPEEDWITH
+BattleScript_EvilEyeEffect_WaitString:
+	waitmessage B_WAIT_TIME_SHORT
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_TryAdrenalineOrb
+BattleScript_EvilEyeLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_EvilEyeLoop
+BattleScript_EvilEyeEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
+BattleScript_EvilEyeContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EvilEyeContrary_WontIncrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	goto BattleScript_EvilEyeEffect_WaitString
+BattleScript_EvilEyeContrary_WontIncrease:
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	goto BattleScript_EvilEyeEffect_WaitString
+
+BattleScript_PanicTurn::
+	printstring STRINGID_PKMNSISPANICKED
+    waitmessage B_WAIT_TIME_LONG
+    goto BattleScript_DoStatusTurnDmg
+
+BattleScript_BloomingHpGain::
+	printstring STRINGID_PKMNSISBLOOMING
+    waitmessage B_WAIT_TIME_LONG
+    goto BattleScript_DoStatusTurnDmg

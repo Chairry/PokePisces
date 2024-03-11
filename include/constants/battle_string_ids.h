@@ -726,7 +726,24 @@
 #define STRINGID_STRONGHOLDDOESNTALLOW                724
 #define STRINGID_PKMNISEMPTY                          725
 #define STRINGID_ABILITYENTRANCED                     726
-#define BATTLESTRINGS_COUNT                           727
+#define STRINGID_PKMNCUTSSPEEDWITH                    727  
+#define STRINGID_PKMNGOTPANICKED                      728
+#define STRINGID_PKMNPANICKEDBY                       729
+#define STRINGID_PKMNSITEMCAUSEPANIC                  730
+#define STRINGID_PKMNSXPREVENTSPANIC                  731
+#define STRINGID_PKMNSISPANICKED                      732
+#define STRINGID_PKMNSTARTEDBLOOMING                  733
+#define STRINGID_PKMNBLOOMINGFROM                     734
+#define STRINGID_PKMNSITEMCAUSEBLOOMING               735
+#define STRINGID_PKMNGOTEXPOSED                       736
+#define STRINGID_PKMNEXPOSEDBY                        737
+#define STRINGID_PKMNSITEMCAUSEEXPOSED                738
+#define STRINGID_PKMNSXPREVENTSBLOOMING               739
+#define STRINGID_PKMNSXPREVENTSEXPOSED                740
+#define STRINGID_PKMNSISBLOOMING                      741
+
+#define BATTLESTRINGS_COUNT                           742
+
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -938,7 +955,8 @@
 #define B_MSG_STATUSED_BY_ABILITY 1
 #define B_MSG_STATUSED_BY_ITEM    2
 
-// gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds
+// gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds / gPNCPreventionStringIds
+// gStartedBloomingStringIds / gWasExposedStringIds
 #define B_MSG_ABILITY_PREVENTS_MOVE_STATUS          0
 #define B_MSG_ABILITY_PREVENTS_ABILITY_STATUS       1
 #define B_MSG_STATUS_HAD_NO_EFFECT                  2

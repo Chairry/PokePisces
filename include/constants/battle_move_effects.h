@@ -488,6 +488,9 @@
 #define EFFECT_EXORCISM                     482
 #define EFFECT_LOVE_TAP                     483
 #define EFFECT_SOLAR_FLARE                  484
-#define NUM_BATTLE_MOVE_EFFECTS             485
+#define EFFECT_PANIC_HIT                    485
+#define EFFECT_BLOOMING_HIT                 486
+#define EFFECT_EXPOSED_HIT                  487
+#define NUM_BATTLE_MOVE_EFFECTS             488
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

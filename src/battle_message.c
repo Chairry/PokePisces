@@ -124,6 +124,8 @@ static const u8 sText_PkmnWasParalyzedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'
 static const u8 sText_PkmnIsParalyzed[] = _("{B_ATK_NAME_WITH_PREFIX} is paralyzed!\nIt can't move!");
 static const u8 sText_PkmnIsAlreadyParalyzed[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready paralyzed!");
 static const u8 sText_PkmnHealedParalysis[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of paralysis!");
+static const u8 sText_PkmnGotPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} got panicked!");
+static const u8 sText_PkmnPanickedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nmade {B_EFF_NAME_WITH_PREFIX} panicked!");
 static const u8 sText_PkmnDreamEaten[] = _("{B_DEF_NAME_WITH_PREFIX}'s\ndream was eaten!");
 static const u8 sText_StatsWontIncrease[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
 static const u8 sText_StatsWontDecrease[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go lower!");
@@ -298,12 +300,15 @@ static const u8 sText_PkmnCutsAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'
 static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s special attack!");
 static const u8 sText_PkmnCutsDefenceWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s defense!");
 static const u8 sText_PkmnCutsSpDefenceWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s special defense!");
+static const u8 sText_PkmnCutsSpeedWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s speed!");
 static const u8 sText_PkmnIncreasesAccWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nincreased everyone's accuracy!");
 static const u8 sText_PkmnPreventsStatLossWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nprevents stat loss!");
 static const u8 sText_PkmnHurtsWith[] = _("{B_ATK_NAME_WITH_PREFIX} was hurt by\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnHurtsWithInAttk[] = _("{B_DEF_NAME_WITH_PREFIX} was hurt by\n{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnTraced[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} TRACED\n{B_BUFF1}'s {B_BUFF2}!");
 static const u8 sText_PkmnsXPreventsBurns[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents burns!");
+static const u8 sText_PkmnsXPreventsPanic[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents panic!");
+static const u8 sText_PkmnIsPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} is panicked!");
 static const u8 sText_PkmnsXBlocksY[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nblocks {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnsXBlocksY2[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nblocks {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnsXRestoredHPALittle2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nrestored its HP a little!");
@@ -524,6 +529,7 @@ static const u8 sText_PkmnsAbilityRestoredHPALittle[] = _("{B_SCR_ACTIVE_NAME_WI
 static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM} allows the\nuse of only {B_CURRENT_MOVE}!\p");
 static const u8 sText_PkmnHungOnWithX[] = _("{B_DEF_NAME_WITH_PREFIX} hung on\nusing its {B_LAST_ITEM}!");
 static const u8 sText_PkmnsItemCauseBurn[] = _("{B_LAST_ITEM}\ncaused a burn!");
+static const u8 sText_PkmnsItemCausePanic[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncaused it to panic!");
 const u8 gText_EmptyString3[] = _("");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
 
@@ -866,6 +872,15 @@ static const u8 sText_PkmnLeavingItselfOpen[] = _("{B_ATK_NAME_WITH_PREFIX} is l
 static const u8 sText_PkmnHealedPoison[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of its poison!");
 static const u8 sText_GhostTypeAdded[] = _("Ghost-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_TargetCantEscapeForNow[] = _("{B_DEF_NAME_WITH_PREFIX} can't escape until\ntheir next turn!");
+static const u8 sText_PkmnStartedBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} started\nblooming!");
+static const u8 sText_PkmnBloomingFrom[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} started blooming\nfrom its {B_SCR_ACTIVE_ABILITY}!");
+static const u8 sText_ItemCausedBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} started blooming\nfrom its {B_LAST_ITEM}!");
+static const u8 sText_PkmnBecameExposed[] = _("{B_EFF_NAME_WITH_PREFIX} became\nexposed!");
+static const u8 sText_PkmnExposedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was exposed\nfrom its {B_SCR_ACTIVE_ABILITY}!");
+static const u8 sText_ItemCausedExposed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} became exposed\nfrom its {B_LAST_ITEM}!");
+static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
+static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
+static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1187,6 +1202,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCUTSSPATTACKWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsSpAttackWith,
     [STRINGID_PKMNCUTSDEFENCEWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsDefenceWith,
     [STRINGID_PKMNCUTSSPDEFENCEWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsSpDefenceWith,
+    [STRINGID_PKMNCUTSSPEEDWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsSpeedWith,
     [STRINGID_PKMNINCREASEACCWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnIncreasesAccWith,
     [STRINGID_PKMNPREVENTSSTATLOSSWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnPreventsStatLossWith,
     [STRINGID_PKMNHURTSWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnHurtsWith, 
@@ -1583,6 +1599,20 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNHEALEDPOISON - BATTLESTRINGS_TABLE_START] = sText_PkmnHealedPoison,
     [STRINGID_GHOSTTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GhostTypeAdded,
     [STRINGID_TARGETCANTESCAPEFORNOW - BATTLESTRINGS_TABLE_START] = sText_TargetCantEscapeForNow,
+    [STRINGID_PKMNGOTPANICKED - BATTLESTRINGS_TABLE_START] = sText_PkmnGotPanicked,
+    [STRINGID_PKMNPANICKEDBY - BATTLESTRINGS_TABLE_START] = sText_PkmnPanickedBy,
+    [STRINGID_PKMNSITEMCAUSEPANIC - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCausePanic,
+    [STRINGID_PKMNSXPREVENTSPANIC - BATTLESTRINGS_TABLE_START] = sText_PkmnsXPreventsPanic,
+    [STRINGID_PKMNSISPANICKED - BATTLESTRINGS_TABLE_START] = sText_PkmnIsPanicked,
+    [STRINGID_PKMNSTARTEDBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnStartedBlooming,
+    [STRINGID_PKMNBLOOMINGFROM - BATTLESTRINGS_TABLE_START] = sText_PkmnBloomingFrom,
+    [STRINGID_PKMNSITEMCAUSEBLOOMING - BATTLESTRINGS_TABLE_START] = sText_ItemCausedBlooming,
+    [STRINGID_PKMNGOTEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PkmnBecameExposed,
+    [STRINGID_PKMNEXPOSEDBY - BATTLESTRINGS_TABLE_START] = sText_PkmnExposedBy,
+    [STRINGID_PKMNSITEMCAUSEEXPOSED - BATTLESTRINGS_TABLE_START] = sText_ItemCausedExposed,
+    [STRINGID_PKMNSXPREVENTSBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PreventBlooming,
+    [STRINGID_PKMNSXPREVENTSEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PreventExposed,
+    [STRINGID_PKMNSISBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsBlooming,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1906,6 +1936,27 @@ const u16 gGotFrostbiteStringIds[] =
     [B_MSG_STATUSED]            = STRINGID_PKMNGOTFROSTBITE
 };
 
+const u16 gGotPanickedStringIds[] =
+{
+    [B_MSG_STATUSED]            = STRINGID_PKMNGOTPANICKED,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNPANICKEDBY,
+    [B_MSG_STATUSED_BY_ITEM]    = STRINGID_PKMNSITEMCAUSEPANIC
+};
+
+const u16 gStartedBloomingStringIds[] =
+{
+    [B_MSG_STATUSED]            = STRINGID_PKMNSTARTEDBLOOMING,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNBLOOMINGFROM,
+    [B_MSG_STATUSED_BY_ITEM]    = STRINGID_PKMNSITEMCAUSEBLOOMING
+};
+
+const u16 gWasExposedStringIds[] =
+{
+    [B_MSG_STATUSED]            = STRINGID_PKMNGOTEXPOSED,
+    [B_MSG_STATUSED_BY_ABILITY] = STRINGID_PKMNEXPOSEDBY,
+    [B_MSG_STATUSED_BY_ITEM]    = STRINGID_PKMNSITEMCAUSEEXPOSED
+};
+
 const u16 gFrostbiteHealedStringIds[] =
 {
     [B_MSG_FROSTBITE_HEALED]         = STRINGID_PKMNFROSTBITEHEALED2,
@@ -2038,6 +2089,30 @@ const u16 gBRNPreventionStringIds[] =
     [B_MSG_STATUS_HAD_NO_EFFECT]            = STRINGID_PKMNSXHADNOEFFECTONY
 };
 
+const u16 gPNCPreventionStringIds[] =
+{
+    [B_MSG_ABILITY_PREVENTS_MOVE_STATUS]    = STRINGID_PKMNSXPREVENTSPANIC,
+    [B_MSG_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSXPREVENTSYSZ, 
+    [B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSALLYXPREVENTSYSZ,
+    [B_MSG_STATUS_HAD_NO_EFFECT]            = STRINGID_PKMNSXHADNOEFFECTONY
+};
+
+const u16 gBloomingPreventionStringIds[] =
+{
+    [B_MSG_ABILITY_PREVENTS_MOVE_STATUS]    = STRINGID_PKMNSXPREVENTSBLOOMING,
+    [B_MSG_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSXPREVENTSYSZ, 
+    [B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSALLYXPREVENTSYSZ,
+    [B_MSG_STATUS_HAD_NO_EFFECT]            = STRINGID_PKMNSXHADNOEFFECTONY
+};
+
+const u16 gExposedPreventionStringIds[] =
+{
+    [B_MSG_ABILITY_PREVENTS_MOVE_STATUS]    = STRINGID_PKMNSXPREVENTSEXPOSED,
+    [B_MSG_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSXPREVENTSYSZ, 
+    [B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS] = STRINGID_PKMNSALLYXPREVENTSYSZ,
+    [B_MSG_STATUS_HAD_NO_EFFECT]            = STRINGID_PKMNSXHADNOEFFECTONY
+};
+
 const u16 gPRLZPreventionStringIds[] =
 {
     [B_MSG_ABILITY_PREVENTS_MOVE_STATUS]    = STRINGID_PKMNPREVENTSPARALYSISWITH,
@@ -2085,7 +2160,7 @@ const u16 gRoomsStringIds[] =
 
 const u16 gStatusConditionsStringIds[] =
 {
-    STRINGID_PKMNWASPOISONED, STRINGID_PKMNBADLYPOISONED, STRINGID_PKMNWASBURNED, STRINGID_PKMNWASPARALYZED, STRINGID_PKMNFELLASLEEP, STRINGID_PKMNGOTFROSTBITE
+    STRINGID_PKMNWASPOISONED, STRINGID_PKMNBADLYPOISONED, STRINGID_PKMNWASBURNED, STRINGID_PKMNWASPARALYZED, STRINGID_PKMNFELLASLEEP, STRINGID_PKMNGOTFROSTBITE, STRINGID_PKMNGOTPANICKED, STRINGID_PKMNSTARTEDBLOOMING, STRINGID_PKMNGOTEXPOSED
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");
