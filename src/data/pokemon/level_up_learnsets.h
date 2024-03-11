@@ -18958,7 +18958,7 @@ static const struct LevelUpMove sNanggalLevelUpLearnset[] = {
     LEVEL_UP_MOVE(24, MOVE_SONIC_BOOM),
     LEVEL_UP_MOVE(28, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE(32, MOVE_BATON_PASS),
-    //LEVEL_UP_MOVE(36, MOVE_HIT_N_RUN),
+    LEVEL_UP_MOVE(36, MOVE_HIT_N_RUN),
     LEVEL_UP_MOVE(40, MOVE_ACROBATICS),
     LEVEL_UP_MOVE(44, MOVE_CRUNCH),
     LEVEL_UP_MOVE(48, MOVE_QUIVER_DANCE),
@@ -23318,7 +23318,7 @@ static const struct LevelUpMove sSnurrowlLevelUpLearnset[] = {
 static const struct LevelUpMove sStolyceLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_MAGIC_COAT),
     LEVEL_UP_MOVE( 0, MOVE_MIRROR_COAT),
-    //LEVEL_UP_MOVE( 1, MOVE_HIT_N_RUN),
+    LEVEL_UP_MOVE( 1, MOVE_HIT_N_RUN),
     LEVEL_UP_MOVE( 1, MOVE_MYSTICAL_FIRE),
     LEVEL_UP_MOVE( 1, MOVE_EERIE_SPELL),
     LEVEL_UP_MOVE( 1, MOVE_DOUBLE_KICK),

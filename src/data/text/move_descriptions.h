@@ -2229,8 +2229,8 @@ static const u8 sIonDelugeDescription[] = _(
     "moves with charged atoms.");
 
 static const u8 sParabolicChargeDescription[] = _(
-    "Damages adjacent Pokémon and\n"
-    "heals up by half of it.");
+    "Damages adjacent Pokémon\n"
+    "and heals up by half of it.");
 
 static const u8 sForestsCurseDescription[] = _(
     "Puts a curse on the foe\n"
@@ -3494,7 +3494,7 @@ static const u8 sWickedWindsDescription[] = _(
 
 static const u8 sSonicBurstDescription[] = _(
     "Does more damage the higher\n"
-    "the user's Speed. May confuse.");
+    "the user's Spd. May confuse.");
 
 static const u8 sSoulCutterDescription[] = _(
     "Attacks with a ghostly blade\n"
