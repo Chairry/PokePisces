@@ -478,20 +478,19 @@
 #define EFFECT_MANEUVER                     472
 #define EFFECT_SCORP_FANG                   473
 #define EFFECT_RECOIL_50_HAZARD             474
-#define EFFECT_TRICK_OR_TREAT               475
-#define EFFECT_WICKED_WINDS                 476
-#define EFFECT_SAND_TOMB                    477
-#define EFFECT_SONIC_BURST                  478
-#define EFFECT_SOUL_CUTTER                  479
-#define EFFECT_VOID                         480
-#define EFFECT_KERFUFFLE                    481
-#define EFFECT_VERGLASTROM                  482
-#define EFFECT_EXORCISM                     483
-#define EFFECT_LOVE_TAP                     484
+#define EFFECT_WICKED_WINDS                 475
+#define EFFECT_SAND_TOMB                    476
+#define EFFECT_SONIC_BURST                  477
+#define EFFECT_SOUL_CUTTER                  478
+#define EFFECT_VOID                         479
+#define EFFECT_KERFUFFLE                    480
+#define EFFECT_VERGLASTROM                  481
+#define EFFECT_EXORCISM                     482
+#define EFFECT_LOVE_TAP                     483
+#define EFFECT_SOLAR_FLARE                  484
 #define EFFECT_PANIC_HIT                    485
 #define EFFECT_BLOOMING_HIT                 486
 #define EFFECT_EXPOSED_HIT                  487
-
 #define NUM_BATTLE_MOVE_EFFECTS             488
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

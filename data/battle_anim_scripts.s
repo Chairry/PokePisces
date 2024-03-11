@@ -939,6 +939,9 @@ gBattleAnims_Moves::
 	.4byte Move_HEAT_SINK
 	.4byte Move_FROST_NOVA
 	.4byte Move_GEM_BLASTER
+	.4byte Move_DARK_TIDE
+	.4byte Move_SOLAR_FLARE
+	.4byte Move_ODD_STEP
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -20369,6 +20372,15 @@ Move_FROST_NOVA::
 
 Move_GEM_BLASTER::
 	goto Move_POWER_GEM
+
+Move_DARK_TIDE::
+	goto Move_DARK_PULSE
+
+Move_SOLAR_FLARE::
+	goto Move_SOLAR_BEAM
+
+Move_ODD_STEP::
+	goto Move_AQUA_STEP
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

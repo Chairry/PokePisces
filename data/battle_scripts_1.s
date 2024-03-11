@@ -501,7 +501,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHitSwitchTarget         @ EFFECT_MANEUVER
 	.4byte BattleScript_EffectScorpFang               @ EFFECT_SCORP_FANG
 	.4byte BattleScript_EffectHitSetEntryHazard       @ EFFECT_RECOIL_50_HAZARD
-	.4byte BattleScript_EffectFrostbiteHit            @ EFFECT_WICKED_WINDS
+	.4byte BattleScript_EffectWickedWinds             @ EFFECT_WICKED_WINDS
 	.4byte BattleScript_EffectSandTomb                @ EFFECT_SAND_TOMB
 	.4byte BattleScript_EffectConfuseHit              @ EFFECT_SONIC_BURST
 	.4byte BattleScript_EffectHit                     @ EFFECT_SOUL_CUTTER
@@ -510,9 +510,17 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectVerglastrom             @ EFFECT_VERGLASTROM
 	.4byte BattleScript_EffectHit                     @ EFFECT_EXORCISM
 	.4byte BattleScript_EffectLoveTap                 @ EFFECT_LOVE_TAP
+	.4byte BattleScript_EffectBurnHit                 @ EFFECT_SOLAR_FLARE
 	.4byte BattleScript_EffectPanicHit                @ EFFECT_PANIC_HIT
 	.4byte BattleScript_EffectBloomingHit             @ EFFECT_BLOOMING_HIT
 	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
+
+BattleScript_EffectWickedWinds::
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	argumentstatuseffect
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectLoveTap::
 	attackcanceler
@@ -579,7 +587,7 @@ BattleScript_EffectVoid::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectSandTomb:
+BattleScript_EffectSandTomb::
 	setmoveeffect MOVE_EFFECT_WRAP
 	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectSandTombLowerDefense
 	goto BattleScript_EffectHit
@@ -589,7 +597,7 @@ BattleScript_EffectSandTombLowerDefense::
 	seteffectsecondary
 	goto BattleScript_EffectHit
 
-BattleScript_EffectScorpFang:
+BattleScript_EffectScorpFang::
 	setmoveeffect MOVE_EFFECT_SMACK_DOWN
 	seteffectprimary
 	seteffectwithchance
@@ -1222,7 +1230,6 @@ BattleScript_EffectSpook::
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
 	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut
 	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
-	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
 	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	forcerandomswitch BattleScript_ButItFailed
@@ -6069,31 +6076,18 @@ BattleScript_EffectNightmare::
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_CheckNightmare
+	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_TrapFailedCheckNightmare
 	jumpifsubstituteblocks BattleScript_ButItFailed
-	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_CheckNightmare
-	goto BattleScript_CheckNightmare2
-BattleScript_CheckNightmare::
-	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_TrapFailedCheckNightmare
+	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
+	seteffectprimary
+	goto BattleScript_TrapSucceededCheckNightmare
+BattleScript_TrapFailedCheckNightmare::
 	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_NightmareJustNightmare
-	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_NightmareJustNightmare
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TrapFailedNightmareWorked
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_TrapFailedNightmareWorked
 	goto BattleScript_ButItFailed
-BattleScript_CheckNightmare2::
-	jumpifsubstituteblocks BattleScript_ButItFailed
-	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_NightmareJustTrap
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_NightmareWorked
-	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_NightmareWorked
-	goto BattleScript_ButItFailed
-BattleScript_NightmareJustTrap::
-	attackanimation
-	waitanimation
-	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
-	seteffectprimary
-	printstring STRINGID_TARGETCANTESCAPENOW
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
-BattleScript_NightmareJustNightmare::
+BattleScript_TrapFailedNightmareWorked::
 	attackanimation
 	waitanimation
 	setmoveeffect MOVE_EFFECT_NIGHTMARE
@@ -6101,14 +6095,19 @@ BattleScript_NightmareJustNightmare::
 	printstring STRINGID_PKMNFELLINTONIGHTMARE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-BattleScript_NightmareWorked::
+BattleScript_TrapSucceededCheckNightmare::
+	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TrapSucceededNightmareWorked
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_TrapSucceededNightmareWorked
+	goto BattleScript_ButItFailed
+BattleScript_TrapSucceededNightmareWorked::
 	attackanimation
 	waitanimation
-	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	setmoveeffect MOVE_EFFECT_NIGHTMARE
-	seteffectprimary
-	printstring STRINGID_PKMNFELLINTONIGHTMARE
+	seteffectsecondary
 	printstring STRINGID_TARGETCANTESCAPENOW
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNFELLINTONIGHTMARE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -7510,8 +7509,16 @@ BattleScript_EffectPoisonFang::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectOverheat::
+	jumpifmove MOVE_DARK_TIDE, BattleScript_CheckOverheatDoubles
+BattleScript_DoOverheat::
 	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+BattleScript_CheckOverheatDoubles::
+jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
+	goto BattleScript_DoOverheat
+BattleScript_OverheatDoubles::
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
+	goto BattleScript_DoOverheat
 
 BattleScript_EffectHammerArm::
 	setmoveeffect MOVE_EFFECT_SPD_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
