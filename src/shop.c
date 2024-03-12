@@ -159,8 +159,6 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y);
 static void PrintMoneyLocal(u8 windowId, u8 y, u32 amount, u8 width, u8 colorIdx);
 static void UpdateItemData(void);
 
-static const u8 sGridCursorPos[] = { 0, 40, 80 };
-
 static const u8 sGridPosX[] = { (120 + 16), (160 + 16), (200 + 16) };
 static const u8 sGridPosY[] = { (24 + 16), (64 + 16) };
 
