@@ -988,7 +988,9 @@ static void UpdateItemData(void)
         const u8 strip[] = _("-");
         BuyMenuPrint(WIN_MULTI, COMPOUND_STRING("Return to Field"), 0, 0, TEXT_SKIP_DRAW, COLORID_BLACK);
         BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 72), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK);
-        BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 72), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
+        
+        if (sMartInfo.martType == MART_TYPE_NORMAL)
+            BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 72), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
 
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
         BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_QuitShopping, 4, 0, TEXT_SKIP_DRAW, COLORID_BLACK);
@@ -999,7 +1001,7 @@ static void UpdateItemData(void)
         BuyMenuPrint(WIN_MULTI, BuyMenuGetItemName(i), 0, 0, TEXT_SKIP_DRAW, COLORID_BLACK);
         PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 76, COLORID_BLACK);
 
-        if (sMartInfo.martType != MART_TYPE_DECOR || sMartInfo.martType != MART_TYPE_DECOR2)
+        if (sMartInfo.martType == MART_TYPE_NORMAL)
         {
             u16 quantity = CountTotalItemQuantityInBag(sMartInfo.itemList[i]);
             ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
