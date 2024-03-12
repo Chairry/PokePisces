@@ -10227,6 +10227,12 @@ static void Cmd_various(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_FROSTBITE) && CanBeFrozen(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 5;
+            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PANIC) && CanGetPanicked(gBattlerTarget))
+                gBattleCommunication[MULTISTRING_CHOOSER] = 6;
+            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING) && CanStartBlooming(gBattlerTarget))
+                gBattleCommunication[MULTISTRING_CHOOSER] = 7;
+            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_EXPOSED) && CanBeExposed(gBattlerTarget))
+                gBattleCommunication[MULTISTRING_CHOOSER] = 8;
             else
             {
                 gBattlescriptCurrInstr = cmd->failInstr;
