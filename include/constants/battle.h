@@ -117,8 +117,9 @@
 #define STATUS1_TOXIC_TURN(num)  ((num) << 8)
 #define STATUS1_FROSTBITE        (1 << 12)
 #define STATUS1_PANIC            (1 << 13)
-#define STATUS1_BLOOMING         (1 << 14)
-#define STATUS1_EXPOSED          (1 << 15)
+#define STATUS1_BLOOMING         (1 << 14 | 1 << 15)    // 2bits - lasts for 3 turns
+#define STATUS1_BLOOMING_TURN(num)  ((num) << 14)
+#define STATUS1_EXPOSED          (1 << 16)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
 #define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_PANIC | STATUS1_BLOOMING | STATUS1_EXPOSED)
 

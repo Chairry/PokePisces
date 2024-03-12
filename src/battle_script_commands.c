@@ -903,7 +903,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
     [MOVE_EFFECT_PANIC]          = STATUS1_PANIC,
-    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING,
+    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING_TURN(3),
     [MOVE_EFFECT_EXPOSED]        = STATUS1_EXPOSED,
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
@@ -3175,28 +3175,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
             statusChanged = TRUE;    
             break;
         case STATUS1_PANIC:
-            if ((battlerAbility == ABILITY_WATER_VEIL || IsAbilityOnSide(gBattlerTarget, ABILITY_WATER_VEIL))
-              && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
-            {
-                gLastUsedAbility = battlerAbility;
-                RecordAbilityBattle(gEffectBattler, battlerAbility);
-
-                BattleScriptPush(gBattlescriptCurrInstr + 1);
-                gBattlescriptCurrInstr = BattleScript_PNCPrevention;
-                if (battlerAbility != ABILITY_WATER_VEIL && IsAbilityOnSide(gBattlerTarget, ABILITY_WATER_VEIL)) {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ALLY_ABILITY_PREVENTS_ABILITY_STATUS;
-                }
-                else if (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
-                {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ABILITY_PREVENTS_ABILITY_STATUS;
-                    gHitMarker &= ~HITMARKER_IGNORE_SAFEGUARD;
-                }
-                else
-                {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ABILITY_PREVENTS_MOVE_STATUS;
-                }
-                RESET_RETURN
-            }
             if (!CanGetPanicked(gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                 && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
@@ -3214,7 +3192,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 //break;
             break;
         case STATUS1_BLOOMING:
-            // TODO abilities that prevent it
             if (!CanStartBlooming(gEffectBattler)
                     && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                     && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
@@ -3230,7 +3207,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
             statusChanged = TRUE;
             break;
         case STATUS1_EXPOSED:
-            // TODO abilities that prevent it
             if (!CanBeExposed(gEffectBattler)
                     && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
                     && (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
