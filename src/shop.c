@@ -1001,7 +1001,7 @@ static void UpdateItemData(void)
 
         if (sMartInfo.martType != MART_TYPE_DECOR || sMartInfo.martType != MART_TYPE_DECOR2)
         {
-            u16 quantity = CountTotalItemQuantityInBag(i);
+            u16 quantity = CountTotalItemQuantityInBag(sMartInfo.itemList[i]);
             ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
             BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 72), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
         }
