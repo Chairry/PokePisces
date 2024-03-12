@@ -3191,6 +3191,7 @@ u8 DoBattlerEndTurnEffects(void)
             break;
         case ENDTURN_BLOOMING:
             if (gBattleMons[battler].status1 & STATUS1_BLOOMING && IsBattlerAlive(battler)) {
+                gBattleMons[gBattlerAttacker].status1 -= STATUS1_BLOOMING_TURN(1);
                 gBattleMoveDamage = -1 * gBattleMons[battler].maxHP / 10;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = -1;
