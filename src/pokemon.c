@@ -8906,23 +8906,23 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
 u8 GetCurrentLevelCap(void)
 {
     if (!FlagGet(FLAG_BADGE01_GET))
-        return 15;
+        return 14;
     else if (!FlagGet(FLAG_BADGE02_GET))
         return 20;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 25;
+        return 29;
     else if (!FlagGet(FLAG_BADGE04_GET))
-        return 30;
+        return 36;
     else if (!FlagGet(FLAG_BADGE05_GET))
-        return 40;
+        return 45;
     else if (!FlagGet(FLAG_BADGE06_GET))
-        return 50;
+        return 49;
     else if (!FlagGet(FLAG_BADGE07_GET))
-        return 55;
+        return 54;
     else if (!FlagGet(FLAG_BADGE08_GET))
-        return 60;
+        return 64;
     else if (!FlagGet(FLAG_IS_CHAMPION))
-        return 70;
+        return 75;
     else
         return 100;
 }
@@ -9250,15 +9250,13 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {15,  60}, // before level 15, can only get 50 EVs total
-    {20,  120},
-    {25,  180},
-    {30,  240},
-    {40,  300},
-    {50,  360},
-    {55,  420},
-    {60,  480},
-    {100, MAX_TOTAL_EVS},
+    {11, 70}, // before level 10, can only get 70 EVs total
+    {21, 140},
+    {31, 210},
+    {41, 280},
+    {51, 350},
+    {61, 420},
+    {71, MAX_TOTAL_EVS},
 };
 
 u32 GetMaxTotalEVs(u32 level)
