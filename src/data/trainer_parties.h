@@ -175,18 +175,18 @@ static const struct TrainerMon sParty_PDan[] = {
 
 static const struct TrainerMon sParty_PLad[] = {
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_GUPSPAR,
     }
 };
 
 static const struct TrainerMon sParty_PSammie[] = {
     {
-    .lvl = 6,
+    .lvl = 7,
     .species = SPECIES_SNELFREND,
     },
     {
-    .lvl = 6,
+    .lvl = 7,
     .species = SPECIES_KITIKITI,
     }
 };
@@ -197,7 +197,7 @@ static const struct TrainerMon sParty_PBarbara[] = {
     .species = SPECIES_EBIBI,
     },
     {
-    .lvl = 5,
+    .lvl = 6,
     .species = SPECIES_GUPSPAR,
     },
     {
@@ -208,11 +208,11 @@ static const struct TrainerMon sParty_PBarbara[] = {
 
 static const struct TrainerMon sParty_PBeatrice[] = {
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_MINOTE,
     },
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_SQUEESHY,
     }
 };
@@ -233,14 +233,14 @@ static const struct TrainerMon sParty_GruntSpaceCenter1[] = {
 
 static const struct TrainerMon sParty_PSadie[] = {
     {
-    .lvl = 9,
+    .lvl = 10,
     .species = SPECIES_EBIBI,
     }
 };
 
 static const struct TrainerMon sParty_PMelanie[] = {
     {
-    .lvl = 7,
+    .lvl = 8,
     .species = SPECIES_ZIGZAGOON,
     },
     {
@@ -248,14 +248,14 @@ static const struct TrainerMon sParty_PMelanie[] = {
     .species = SPECIES_SAINTISOW,
     },
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_BERM,
     }
 };
 
 static const struct TrainerMon sParty_PTimmy[] = {
     {
-    .lvl = 7,
+    .lvl = 8,
     .species = SPECIES_KYUDI,
     },
     {
@@ -266,7 +266,7 @@ static const struct TrainerMon sParty_PTimmy[] = {
 
 static const struct TrainerMon sParty_PWadelle[] = {
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_UMBRAT,
     },
     {
@@ -277,7 +277,7 @@ static const struct TrainerMon sParty_PWadelle[] = {
 
 static const struct TrainerMon sParty_PYanny[] = {
     {
-    .lvl = 8,
+    .lvl = 9,
     .species = SPECIES_SNELFREND,
     .ability = ABILITY_SHELL_ARMOR,
     },
@@ -289,7 +289,7 @@ static const struct TrainerMon sParty_PYanny[] = {
 
 static const struct TrainerMon sParty_PRemy[] = {
     {
-    .lvl = 9,
+    .lvl = 10,
     .species = SPECIES_LUMELMO,
     .ability = ABILITY_DAZZLING,
     }
@@ -297,7 +297,7 @@ static const struct TrainerMon sParty_PRemy[] = {
 
 static const struct TrainerMon sParty_PSelko[] = {
     {
-    .lvl = 10,
+    .lvl = 11,
     .species = SPECIES_BIVAGUE,
     .ability = ABILITY_POISON_HEAL,
     .heldItem = ITEM_TOXIC_ORB,
@@ -382,18 +382,18 @@ static const struct TrainerMon sParty_PLisa[] = {
 
 static const struct TrainerMon sParty_PEmily[] = {
     {
-    .lvl = 13,
+    .lvl = 14,
     .species = SPECIES_CREAM,
     }
 };
 
 static const struct TrainerMon sParty_PHasparoth[] = {
     {
-    .lvl = 14,
+    .lvl = 13,
     .species = SPECIES_FUZKY,
     },
     {
-    .lvl = 14,
+    .lvl = 13,
     .species = SPECIES_SNORUNT,
     }
 };
@@ -417,7 +417,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
     .lvl = 14,
-    .moves = {MOVE_POWDER_SNOW, MOVE_DISARMING_VOICE, MOVE_CHARM, MOVE_NONE}, //MISSING MOVE - Cold Snap
+    .moves = {MOVE_POWDER_SNOW, MOVE_DISARMING_VOICE, MOVE_CHARM, MOVE_COLD_SNAP},
     .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     },
     {
