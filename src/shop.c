@@ -905,7 +905,7 @@ static void BuyMenuInitWindows(void)
         u16 quantity = CountTotalItemQuantityInBag(sMartInfo.itemList[0]);
 
         BuyMenuPrint(WIN_MULTI, COMPOUND_STRING("IN BAG"), 0, 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
-        ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
         BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 72), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
     }
 
@@ -978,7 +978,7 @@ static void BuyMenuDrawGraphics(void)
 
 static void UpdateItemData(void)
 {
-    if (GridMenu_SelectedIndex(sShopData->gridItems) > sMartInfo.itemCount)
+    if (GridMenu_SelectedIndex(sShopData->gridItems) >= sMartInfo.itemCount)
         return;
 
     FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 0, sShopMenuWindowTemplates[WIN_MULTI].width * 8, 16);
@@ -1002,7 +1002,7 @@ static void UpdateItemData(void)
         if (sMartInfo.martType != MART_TYPE_DECOR || sMartInfo.martType != MART_TYPE_DECOR2)
         {
             u16 quantity = CountTotalItemQuantityInBag(sMartInfo.itemList[i]);
-            ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
             BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 72), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK);
         }
 
