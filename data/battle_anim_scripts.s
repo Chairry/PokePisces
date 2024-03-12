@@ -939,6 +939,9 @@ gBattleAnims_Moves::
 	.4byte Move_HEAT_SINK
 	.4byte Move_FROST_NOVA
 	.4byte Move_GEM_BLASTER
+	.4byte Move_DARK_TIDE
+	.4byte Move_SOLAR_FLARE
+	.4byte Move_ODD_STEP
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -990,6 +993,9 @@ gBattleAnims_StatusConditions::
 	.4byte Status_Curse                     @ B_ANIM_STATUS_CURSED
 	.4byte Status_Nightmare                 @ B_ANIM_STATUS_NIGHTMARE
 	.4byte Status_Powder
+	.4byte Status_Panic						@ B_ANIM_STATUS_PNC
+	.4byte Status_Blooming				    @ B_ANIM_STATUS_BLOOMING
+	.4byte Status_Exposed				    @ B_ANIM_STATUS_EXPOSED
 
 	.align 2
 gBattleAnims_General::
@@ -20367,6 +20373,15 @@ Move_FROST_NOVA::
 Move_GEM_BLASTER::
 	goto Move_POWER_GEM
 
+Move_DARK_TIDE::
+	goto Move_DARK_PULSE
+
+Move_SOLAR_FLARE::
+	goto Move_SOLAR_BEAM
+
+Move_ODD_STEP::
+	goto Move_AQUA_STEP
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_LUMINA_CRASH::
@@ -30304,6 +30319,22 @@ Status_Nightmare:
 
 Status_Powder:
 	end
+
+Status_Panic:
+	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 12, RGB(4, 4, 4)
+	end
+
+Status_Blooming:
+    goto General_IngrainHeal    @ TODO?
+
+Status_Exposed:
+    @ TODO
+    playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 14, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 12, RGB_BLUE
+	end 
 
 _RGeneral_TimeTurn::
 	call InitRoomAnimation

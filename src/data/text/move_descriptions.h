@@ -2229,8 +2229,8 @@ static const u8 sIonDelugeDescription[] = _(
     "moves with charged atoms.");
 
 static const u8 sParabolicChargeDescription[] = _(
-    "Damages adjacent Pokémon and\n"
-    "heals up by half of it.");
+    "Damages adjacent Pokémon\n"
+    "and heals up by half of it.");
 
 static const u8 sForestsCurseDescription[] = _(
     "Puts a curse on the foe\n"
@@ -3494,7 +3494,7 @@ static const u8 sWickedWindsDescription[] = _(
 
 static const u8 sSonicBurstDescription[] = _(
     "Does more damage the higher\n"
-    "the user's Speed. May confuse.");
+    "the user's Spd. May confuse.");
 
 static const u8 sSoulCutterDescription[] = _(
     "Attacks with a ghostly blade\n"
@@ -3531,6 +3531,14 @@ static const u8 sFrostNovaDescription[] = _(
 static const u8 sGemBlasterDescription[] = _(
     "Blasts gems at the foe\n"
     "2 to 5 times in a row.");
+
+static const u8 sDarkTideDescription[] = _(
+    "An evil wave that sharply\n"
+    "lowers the user's Sp. Attack.");
+
+static const u8 sSolarFlareDescription[] = _(
+    "The blazing sun shines\n"
+    "through the dark.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4453,4 +4461,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HEAT_SINK - 1] = sHeatSinkDescription,
     [MOVE_FROST_NOVA - 1] = sFrostNovaDescription,
     [MOVE_GEM_BLASTER - 1] = sGemBlasterDescription,
+    [MOVE_DARK_TIDE - 1] = sDarkTideDescription,
+    [MOVE_SOLAR_FLARE - 1] = sSolarFlareDescription,
+    [MOVE_ODD_STEP - 1] = sFoulPlayDescription,
 };
