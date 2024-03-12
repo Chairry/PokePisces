@@ -9313,6 +9313,11 @@ extern const u32 gShopMenu_Pal[];
 extern const u32 gShopMenu_ScrollGfx[];
 extern const u32 gShopMenu_ScrollTilemap[];
 extern const u32 gShopMenuMoney_Gfx[];
+extern const u16 gShopMenu_CursorGfx[];
+
+// shop mugshots
+extern const u8 gMugshotGfx_Test[];
+extern const u16 gMugshotPal_Test[];
 
 extern const u32 gBattleInterface_BallStatusBarGfx[];
 extern const u8 gBattleInterface_BallDisplayGfx[];

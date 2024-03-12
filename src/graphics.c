@@ -1646,6 +1646,10 @@ const u32 gShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.lz");
 const u32 gShopMenu_ScrollGfx[] = INCBIN_U32("graphics/shop/scroll.4bpp.lz");
 const u32 gShopMenu_ScrollTilemap[] = INCBIN_U32("graphics/shop/scroll.bin.lz");
 const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.lz");
+const u16 gShopMenu_CursorGfx[] = INCBIN_U16("graphics/shop/cursor.4bpp"); // uses the menu palette
+
+const u8 gMugshotGfx_Test[] = INCBIN_U8("graphics/shop/test.4bpp.lz");
+const u16 gMugshotPal_Test[] = INCBIN_U16("graphics/shop/test.gbapal");
 
 // Pokeblock
 
