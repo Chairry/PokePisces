@@ -3708,7 +3708,7 @@ static void PrintMoveNameAndPP(u8 moveIndex)
         PrintTextOnWindow(moveNameWindowId, gText_OneDash, 0, moveIndex * 16 + 1, 0, 1);
         text = gText_TwoDashes;
         ppState = 12;
-        x = GetStringCenterAlignXOffset(FONT_SMALL, text, 45);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, text, 52);
     }
 
     PrintTextOnWindowSmall(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, ppState);

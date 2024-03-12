@@ -8545,6 +8545,11 @@ extern const u32 gMonBackPic_Vaiking[];
 extern const u32 gMonShinyPalette_Vaiking[];
 extern const u8 gMonIcon_Vaiking[];
 extern const u8 gMonFootprint_Vaiking[];
+extern const u32 gMonFrontPic_CastformSandy[];
+extern const u32 gMonPalette_CastformSandy[];
+extern const u32 gMonBackPic_CastformSandy[];
+extern const u32 gMonShinyPalette_CastformSandy[];
+extern const u8 gMonIcon_CastformSandy[];
 #endif
 
 // trainer sprites
