@@ -317,11 +317,15 @@ static const struct TrainerMon sParty_Matt[] = {
     .species = SPECIES_GOLBAT,
     }
 };
-
-static const struct TrainerMon sParty_Zander[] = {
+//SOOTOPOLIS GYM
+static const struct TrainerMon sParty_PArthur[] = {
     {
-    .lvl = 31,
-    .species = SPECIES_HARIYAMA,
+    .lvl = 12,
+    .species = SPECIES_HEMOKO,
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_SNORUNT,
     }
 };
 
@@ -369,49 +373,39 @@ static const struct TrainerMon sParty_Archie[] = {
     }
 };
 
-static const struct TrainerMon sParty_Leah[] = {
+static const struct TrainerMon sParty_PLisa[] = {
     {
-    .lvl = 31,
-    .species = SPECIES_SPOINK,
+    .lvl = 13,
+    .species = SPECIES_KYUDI,
     }
 };
 
-static const struct TrainerMon sParty_Daisy[] = {
+static const struct TrainerMon sParty_PEmily[] = {
     {
-    .lvl = 14,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .lvl = 14,
-    .species = SPECIES_ROSELIA,
+    .lvl = 13,
+    .species = SPECIES_CREAM,
     }
 };
 
-static const struct TrainerMon sParty_Rose1[] = {
+static const struct TrainerMon sParty_PHasparoth[] = {
     {
     .lvl = 14,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_FUZKY,
     },
     {
     .lvl = 14,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .lvl = 14,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_SNORUNT,
     }
 };
 
-static const struct TrainerMon sParty_Felix[] = {
+static const struct TrainerMon sParty_PMiikaChan[] = {
     {
-    .lvl = 43,
-    .species = SPECIES_MEDICHAM,
-    .moves = {MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 13,
+    .species = SPECIES_INFAIRNO,
     },
     {
-    .lvl = 43,
-    .species = SPECIES_CLAYDOL,
-    .moves = {MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
+    .lvl = 12,
+    .species = SPECIES_BUTTERWEE,
     }
 };
 
@@ -423,7 +417,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
     .lvl = 14,
-    .moves = {MOVE_POWDER_SNOW, MOVE_DISARMING_VOICE, MOVE_CHARM, MOVE_NONE}, //fourth move will be Cold Snap when it is added
+    .moves = {MOVE_POWDER_SNOW, MOVE_DISARMING_VOICE, MOVE_CHARM, MOVE_NONE}, //MISSING MOVE - Cold Snap
     .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
     },
     {
@@ -454,7 +448,7 @@ static const struct TrainerMon sParty_PSebastian[] = {
     .species = SPECIES_FAERED,
     .ability = ABILITY_PRANKSTER,
     .gender = TRAINER_MON_MALE,
-    .heldItem = ITEM_IRON_BALL,
+    .heldItem = ITEM_LAGGING_TAIL,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
     .lvl = 15,

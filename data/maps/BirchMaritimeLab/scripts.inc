@@ -175,6 +175,9 @@ BirchMaritimeLab_EventScript_BeatenRangers::
 	setflag FLAG_HIDE_SKY_PILLAR_RANGERS
 	setvar VAR_BIRCH_LAB_STATE, 7
 	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar
+	msgbox BirchMaritimeLab_Text_HaveEXPShare, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
 	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE
 	releaseall
 	end
@@ -273,6 +276,9 @@ BirchMaritimeLab_Text_GoFightTheRangers:
 
 BirchMaritimeLab_Text_OhYourBagsFull:
 	.string "uh oh spaghettios$"
+
+BirchMaritimeLab_Text_HaveEXPShare:
+	.string "heres the exp share$"
 
 BirchMaritimeLab_Text_GoToSootopolis:
 	.string "go east bestie$"
