@@ -19074,7 +19074,7 @@ static const struct LevelUpMove sShellylouhLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSadsodLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 1, MOVE_REAL_TEARS),
+    LEVEL_UP_MOVE( 1, MOVE_REAL_TEARS),
     LEVEL_UP_MOVE(15, MOVE_TACKLE),
     LEVEL_UP_MOVE(25, MOVE_FLAIL),
     LEVEL_UP_MOVE(35, MOVE_MEMENTO),
@@ -19084,7 +19084,7 @@ static const struct LevelUpMove sSadsodLevelUpLearnset[] = {
 static const struct LevelUpMove sMaeracholyLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_NIGHT_SHADE),
     LEVEL_UP_MOVE( 1, MOVE_COSMIC_POWER),
-    //LEVEL_UP_MOVE( 1, MOVE_REAL_TEARS),
+    LEVEL_UP_MOVE( 1, MOVE_REAL_TEARS),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_FLAIL),
     LEVEL_UP_MOVE( 1, MOVE_MEMENTO),
