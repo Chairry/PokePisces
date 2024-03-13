@@ -30,12 +30,15 @@
 #define MAP_BASALIN_COAST           (21 | (0 << 8))
 #define MAP_RIVAL_ROOM              (22 | (0 << 8))
 #define MAP_SS_TIDAL_EXTERIOR       (23 | (0 << 8))
+#define MAP_NEW_SOOTO               (24 | (0 << 8))
 
 // gMapGroup_PiscesPart1Minor
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (1 << 8))
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_2F (1 | (1 << 8))
 #define MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_1F (2 | (1 << 8))
 #define MAP_PACIFIDLOG_INTERIORS              (3 | (1 << 8))
+#define MAP_GYM1CORRIDOR                      (4 | (1 << 8))
+#define MAP_SOOTOPOLIS_INTERIORS              (5 | (1 << 8))
 
 // gMapGroup_PiscesPart2Major
 #define MAP_CAVE_OF_ORIGIN    (0 | (2 << 8))

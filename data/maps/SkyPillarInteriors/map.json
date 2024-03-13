@@ -46,14 +46,14 @@
       "dest_warp_id": "4"
     },
     {
-      "x": 3,
+      "x": 12,
       "y": 39,
       "elevation": 0,
       "dest_map": "MAP_SKY_PILLAR_INTERIORS",
       "dest_warp_id": "3"
     },
     {
-      "x": 12,
+      "x": 3,
       "y": 39,
       "elevation": 0,
       "dest_map": "MAP_SKY_PILLAR_INTERIORS",

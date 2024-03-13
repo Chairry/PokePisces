@@ -3248,3 +3248,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/RivalRoom/scripts.inc"
 
 	.include "data/maps/SSTidalExterior/scripts.inc"
+
+	.include "data/maps/NewSooto/scripts.inc"
+
+	.include "data/maps/Gym1Corridor/scripts.inc"
+
+	.include "data/maps/SootopolisInteriors/scripts.inc"

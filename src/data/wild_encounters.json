@@ -8885,54 +8885,54 @@
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "min_level": 1,
+                "max_level": 4,
+                "species": "SPECIES_SNELFREND"
               },
               {
-                "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
-              },
-              {
-                "min_level": 10,
-                "max_level": 30,
-                "species": "SPECIES_MAGIKARP"
+                "min_level": 1,
+                "max_level": 4,
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 10,
                 "max_level": 30,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 30,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_SHARPEDO"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 35,
                 "max_level": 40,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               },
               {
                 "min_level": 40,
                 "max_level": 45,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               }
             ]
           }
@@ -11501,22 +11501,22 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_CRAVERAVE"
+                "species": "SPECIES_BONFEU"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_CRAVERAVE"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_CRAVERAVE"
+                "species": "SPECIES_BONFEU"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_CRAVERAVE"
+                "species": "SPECIES_FAERED"
               },
               {
                 "min_level": 50,
@@ -11907,12 +11907,12 @@
             "mons": [
               {
                 "min_level": 2,
-                "max_level": 4,
+                "max_level": 3,
                 "species": "SPECIES_QUILWARD"
               },
               {
                 "min_level": 2,
-                "max_level": 4,
+                "max_level": 3,
                 "species": "SPECIES_BERM"
               },
               {
@@ -11936,7 +11936,7 @@
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 4,
+                "min_level": 3,
                 "max_level": 4,
                 "species": "SPECIES_ICKSQUEEK"
               },
@@ -11951,8 +11951,8 @@
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 4,
-                "max_level": 4,
+                "min_level": 3,
+                "max_level": 3,
                 "species": "SPECIES_MANKEY"
               },
               {
@@ -11961,9 +11961,9 @@
                 "species": "SPECIES_MANKEY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_MANKEY"
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_RETROROACH"
               }
             ]
           }
@@ -12272,6 +12272,95 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_SADSOD"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_FLOTSHORE",
+          "base_label": "gFlotshore0",
+          "water_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 2,
+                "max_level": 5,
+                "species": "SPECIES_SNELFREND"
+              },
+              {
+                "min_level": 2,
+                "max_level": 5,
+                "species": "SPECIES_EBIBI"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TOXTRICITY_LOW_KEY"
               }
             ]
           }

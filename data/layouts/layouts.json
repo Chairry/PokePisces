@@ -5090,6 +5090,36 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/SSTidalExterior/border.bin",
       "blockdata_filepath": "data/layouts/SSTidalExterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_SOOTO",
+      "name": "NewSooto_Layout",
+      "width": 72,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/NewSooto/border.bin",
+      "blockdata_filepath": "data/layouts/NewSooto/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM1CORRIDOR",
+      "name": "Gym1Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym1Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym1Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTOPOLIS_INTERIORS",
+      "name": "SootopolisInteriors_Layout",
+      "width": 38,
+      "height": 32,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SootopolisInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SootopolisInteriors/map.bin"
     }
   ]
 }
