@@ -616,7 +616,7 @@ static void BuyMenuFreeMemory(void)
     FreeAllWindowBuffers();
 }
 
-static void BuyMenuBuildListMenuTemplate(void)
+UNUSED static void BuyMenuBuildListMenuTemplate(void)
 {
     u16 i;
 
@@ -706,7 +706,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
     }
 }
 
-static void BuyMenuAddScrollIndicatorArrows(void)
+UNUSED static void BuyMenuAddScrollIndicatorArrows(void)
 {
     if (sShopData->scrollIndicatorsTaskId == TASK_NONE && sMartInfo.itemCount + 1 > MAX_ITEMS_SHOWN)
     {
@@ -722,7 +722,7 @@ static void BuyMenuAddScrollIndicatorArrows(void)
     }
 }
 
-static void BuyMenuRemoveScrollIndicatorArrows(void)
+UNUSED static void BuyMenuRemoveScrollIndicatorArrows(void)
 {
     if (sShopData->scrollIndicatorsTaskId != TASK_NONE)
     {
@@ -731,7 +731,7 @@ static void BuyMenuRemoveScrollIndicatorArrows(void)
     }
 }
 
-static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
+UNUSED static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
 {
     u8 spriteId;
     u8 *spriteIdPtr = &sShopData->itemSpriteIds[iconSlot];
@@ -826,7 +826,7 @@ static void BuyMenuInitGrid(void)
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_UpDownScroll, DIRECTION_DOWN, TYPE_SCROLL);
 }
 
-static void BuyMenuRemoveItemIcon(u16 item, u8 iconSlot)
+UNUSED static void BuyMenuRemoveItemIcon(u16 item, u8 iconSlot)
 {
     u8 *spriteIdPtr = &sShopData->itemSpriteIds[iconSlot];
     if (*spriteIdPtr == SPRITE_NONE)
