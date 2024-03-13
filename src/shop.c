@@ -1197,6 +1197,9 @@ static void Task_BuyMenu(u8 taskId)
     GridMenu_HandleInput(sShopData->gridItems);
     if (JOY_REPEAT(DPAD_ANY))
     {
+        if (!IsSEPlaying())
+            PlaySE(SE_RG_BAG_CURSOR);
+
         DebugPrintf("idx: %d", GridMenu_SelectedIndex(sShopData->gridItems));
     }
     else if (JOY_NEW(B_BUTTON))
