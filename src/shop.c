@@ -34,11 +34,13 @@
 #include "text_window.h"
 #include "tv.h"
 #include "grid_menu.h"
+#include "event_data.h"
 #include "constants/decorations.h"
 #include "constants/items.h"
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/event_objects.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
@@ -77,14 +79,12 @@ enum {
     MART_TYPE_DECOR2,
 };
 
-// shop view window NPC info enum
+// mugshot id
 enum
 {
-    OBJ_EVENT_ID,
-    X_COORD,
-    Y_COORD,
-    ANIM_NUM,
-    LAYER_TYPE
+    MUGSHOT_JERRY, // OBJ_EVENT_GFX_MART_EMPLOYEE
+    MUGSHOT_JENNIE, // OBJ_EVENT_GFX_WOMAN_3
+    MUGSHOT_COUNT,
 };
 
 struct MartInfo
@@ -112,6 +112,16 @@ struct ShopData
     u8 cursorSpriteId;
     u16 currentItemId;
     struct GridMenu *gridItems;
+};
+
+struct SellerMugshot
+{
+    // Add more id "param" on the union here
+    union {
+        u16 gfxId;
+    } id;
+    const void *gfx;
+    const u16 *pal;
 };
 
 static EWRAM_DATA struct MartInfo sMartInfo = {0};
@@ -374,11 +384,21 @@ static const struct SpriteTemplate sCursor_SpriteTemplate = {
     .oam = &sCursor_SpriteOamData,
 };
 
+#define MUGSHOT(num, gfxid, id) \
+    [MUGSHOT_ ## num] = {{.gfxId=OBJ_EVENT_GFX_ ## gfxid}, .gfx=gShopMenuSellerMugshotGfx_ ## id, .pal=gShopMenuSellerMugshotPal_ ## id}
+
+static const struct SellerMugshot sSellerMugshots[] = {
+    // both are same thing btw, is just one is shortened with macro and others are pure
+    MUGSHOT(JERRY, MART_EMPLOYEE, Jerry),
+    {{.gfxId=OBJ_EVENT_GFX_WOMAN_3}, .gfx=gShopMenuSellerMugshotGfx_Jennie, .pal=gShopMenuSellerMugshotPal_Jennie},
+};
+
 static u8 CreateShopMenu(u8 martType)
 {
     int numMenuItems;
 
     LockPlayerFieldControls();
+    DebugPrintf("lastTalked: %d", gSpecialVar_LastTalked);
     sMartInfo.martType = martType;
 
     if (martType == MART_TYPE_NORMAL)
@@ -880,6 +900,46 @@ static inline u32 BuyMenuGetItemPrice(u32 id)
         return gDecorations[sMartInfo.itemList[id]].price;
 }
 
+static void LoadSellerMugshot(const void *gfx, const u16 *pal)
+{
+    CopyToWindowPixelBuffer(WIN_MUGSHOT, gfx, 0, 0);
+    LoadPalette(pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+    PutWindowTilemap(WIN_MUGSHOT);
+    CopyWindowToVram(WIN_MUGSHOT, COPYWIN_FULL);
+}
+
+static void SetupSellerMugshot(void)
+{
+    u32 i;
+    u32 objId = GetObjectEventIdByLocalIdAndMap(gSpecialVar_LastTalked,
+                                                    gSaveBlock1Ptr->location.mapNum,
+                                                    gSaveBlock1Ptr->location.mapGroup);
+    u32 gfxId = gObjectEvents[objId].graphicsId;
+
+    if (gfxId >= OBJ_EVENT_GFX_VAR_0 && gfxId <= OBJ_EVENT_GFX_VAR_F)
+    {
+        gfxId = VarGetObjectEventGraphicsId(gfxId);
+    }
+
+    if (gSpecialVar_LastTalked == 0) // failsafe
+    {
+        LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
+        return;
+    }
+
+    // loop over all of the mugshots
+    for (i = 0; i < MUGSHOT_COUNT; i++)
+    {
+        if (gfxId == sSellerMugshots[i].id.gfxId)
+        {
+            LoadSellerMugshot(sSellerMugshots[i].gfx, sSellerMugshots[i].pal);
+            return;
+        }
+    }
+    // none of the mugshots match, load jerry
+    LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
+}
+
 static void BuyMenuInitWindows(void)
 {
     const u8 *name = BuyMenuGetItemName(0), *desc = BuyMenuGetItemDesc(0);
@@ -909,11 +969,7 @@ static void BuyMenuInitWindows(void)
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
     BuyMenuPrint(WIN_ITEM_DESCRIPTION, desc, 4, 0, TEXT_SKIP_DRAW, COLORID_BLACK);
-
-    CopyToWindowPixelBuffer(WIN_MUGSHOT, gMugshotGfx_Test, 0, 0);
-    LoadPalette(gMugshotPal_Test, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
-    PutWindowTilemap(WIN_MUGSHOT);
-    CopyWindowToVram(WIN_MUGSHOT, COPYWIN_FULL);
+    SetupSellerMugshot();
 }
 
 static bool8 BuyMenuInitSprites(void)
