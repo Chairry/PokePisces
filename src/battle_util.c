@@ -8944,6 +8944,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE)
             basePower *= 2;
         break;
+    case EFFECT_MULTI_HIT:
+        if ((gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE) && (gCurrentMove == MOVE_BARB_BARRAGE))
+            basePower *= 2;
+        break;
     case EFFECT_ASSURANCE:
         if (gProtectStructs[battlerDef].physicalDmg != 0 || gProtectStructs[battlerDef].specialDmg != 0 || gProtectStructs[battlerDef].confusionSelfDmg)
             basePower *= 2;

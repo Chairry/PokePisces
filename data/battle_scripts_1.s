@@ -4648,7 +4648,8 @@ BattleScript_EffectPoisonHit:
 	goto BattleScript_EffectHit
 
 BattleScript_BarbBarrage::
-	setmoveeffect MOVE_EFFECT_POISON
+	seteffectsecondary
+	setmoveeffect 0
 	return
 
 BattleScript_EffectAbsorb::

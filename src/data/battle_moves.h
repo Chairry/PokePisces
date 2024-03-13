@@ -12798,12 +12798,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BARB_BARRAGE] =
     {
-        .effect = EFFECT_BARB_BARRAGE,
+        .effect = EFFECT_MULTI_HIT,
         .power = 20,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 50,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
