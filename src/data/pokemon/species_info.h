@@ -21320,7 +21320,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
         .abilities = {ABILITY_LIQUID_OOZE, ABILITY_PUNK_ROCK, ABILITY_STICKY_HOLD, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PURPLE,
-        .noFlip = FALSE,
+        .noFlip = TRUE,
     },
 
     [SPECIES_SICKBEAT] =
