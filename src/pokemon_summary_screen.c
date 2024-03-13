@@ -4517,7 +4517,7 @@ static void SwitchToEvEditor(u8 taskId)
         sum->evTotal += sum->evs[j];
         //DebugPrintf("stat %d = %d", j, sum->evs[j]);
     }
-    
+
     // print view stats
     PrintEditEVsOrViewStats(1);
     
