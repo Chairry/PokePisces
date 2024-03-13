@@ -810,6 +810,21 @@ static void InputCB_UpDownScroll(void)
     GridMenu_ForAll(sShopData->gridItems, ForAllCB_FreeItemIcons);
     GridMenu_ForEach(sShopData->gridItems, ForEachCB_PopulateItemIcons);
     UpdateItemData();
+    if (!IsSEPlaying())
+        PlaySE(SE_RG_BAG_CURSOR);
+}
+
+static void InputCB_Move(void)
+{
+    UpdateItemData();
+    if (!IsSEPlaying())
+        PlaySE(SE_RG_BAG_CURSOR);
+}
+
+static void InputCB_Fail(void)
+{
+    if (!IsSEPlaying())
+        PlaySE(SE_BOO);
 }
 
 static void BuyMenuInitGrid(void)
@@ -818,10 +833,14 @@ static void BuyMenuInitGrid(void)
     GridMenu_ForEach(sShopData->gridItems, ForEachCB_PopulateItemIcons);
     // we're doing this so that when the grid menu input function "fails", the item data wont flickers
     // it'll flicker when we call UpdateItemData on the main input task func
-    GridMenu_SetInputCallback(sShopData->gridItems, UpdateItemData, DIRECTION_UP, TYPE_MOVE);
-    GridMenu_SetInputCallback(sShopData->gridItems, UpdateItemData, DIRECTION_DOWN, TYPE_MOVE);
-    GridMenu_SetInputCallback(sShopData->gridItems, UpdateItemData, DIRECTION_LEFT, TYPE_MOVE);
-    GridMenu_SetInputCallback(sShopData->gridItems, UpdateItemData, DIRECTION_RIGHT, TYPE_MOVE);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_UP, TYPE_MOVE);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_DOWN, TYPE_MOVE);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_LEFT, TYPE_MOVE);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_RIGHT, TYPE_MOVE);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Fail, DIRECTION_UP, TYPE_FAIL);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Fail, DIRECTION_DOWN, TYPE_FAIL);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Fail, DIRECTION_LEFT, TYPE_FAIL);
+    GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Fail, DIRECTION_RIGHT, TYPE_FAIL);
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_UpDownScroll, DIRECTION_UP, TYPE_SCROLL);
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_UpDownScroll, DIRECTION_DOWN, TYPE_SCROLL);
 }
@@ -1197,9 +1216,6 @@ static void Task_BuyMenu(u8 taskId)
     GridMenu_HandleInput(sShopData->gridItems);
     if (JOY_REPEAT(DPAD_ANY))
     {
-        if (!IsSEPlaying())
-            PlaySE(SE_RG_BAG_CURSOR);
-
         DebugPrintf("idx: %d", GridMenu_SelectedIndex(sShopData->gridItems));
     }
     else if (JOY_NEW(B_BUTTON))
