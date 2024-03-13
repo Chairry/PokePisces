@@ -1154,13 +1154,18 @@ static void Task_BuyMenuTryBuyingItem(u8 taskId)
         sShopData->totalCost = gDecorations[sShopData->currentItemId].price;
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-    if (ItemId_GetImportance(sShopData->currentItemId) && (CheckBagHasItem(sShopData->currentItemId, 1) || CheckPCHasItem(sShopData->currentItemId, 1)))
+
+    if (sMartInfo.martType == MART_TYPE_NORMAL)
     {
-        PlaySE(SE_BOO);
-        gTasks[taskId].data[0] = 70;
-        BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, Task_WaitMessage);
+        if (ItemId_GetImportance(sShopData->currentItemId) && (CheckBagHasItem(sShopData->currentItemId, 1) || CheckPCHasItem(sShopData->currentItemId, 1)))
+        {
+            PlaySE(SE_BOO);
+            gTasks[taskId].data[0] = 70;
+            BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, Task_WaitMessage);
+        }
     }
-    else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
+
+    if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
     {
         PlaySE(SE_BOO);
         gTasks[taskId].data[0] = 70;
