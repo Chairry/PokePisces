@@ -2491,20 +2491,19 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BUBBLE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .power = 20,
+            .power = 25,
         #else
-            .power = 20,
+            .power = 25,
         #endif
         .effect = EFFECT_MULTI_HIT,
         .type = TYPE_WATER,
         .accuracy = 90,
         .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        .sheerForceBoost = TRUE,
     },
 
     [MOVE_DIZZY_PUNCH] =
