@@ -1182,7 +1182,7 @@ static void BuyMenuInitWindows(void)
 
         if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
         {
-            FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 2*8, sShopMenuWindowTemplates[WIN_MULTI].width * 8, 40);
+            FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 2*8, sShopMenuWindowTemplates[WIN_MULTI].width * 8+8, 40);
             BuyMenuPrint(WIN_MULTI, gText_SoldOut, 0, 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
         else
@@ -1349,13 +1349,14 @@ static void Task_BuyMenuTryBuyingItem(u8 taskId)
 
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
 
-    if (sMartInfo.martType == MART_TYPE_NORMAL)
+    if (sMartInfo.martType != MART_TYPE_DECOR || sMartInfo.martType != MART_TYPE_DECOR2)
     {
         if (ItemId_GetImportance(sShopData->currentItemId) && (CheckBagHasItem(sShopData->currentItemId, 1) || CheckPCHasItem(sShopData->currentItemId, 1)))
         {
             PlaySE(SE_BOO);
             gTasks[taskId].data[0] = 70;
             BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, Task_WaitMessage);
+            return;
         }
     }
 
