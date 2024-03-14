@@ -2,11 +2,25 @@
 
 BirchMaritimeLab_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, BirchMaritimeLab_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, BirchMaritimeLab_OnLoad
 	.byte 0
 
 BirchMaritimeLab_OnFrame:
 	map_script_2 VAR_BIRCH_LAB_STATE, 2, BirchMaritimeLab_EventScript_BeforeStarter
+	map_script_2 VAR_BIRCH_LAB_STATE, 6, BirchMaritimeLab_EventScript_BeatenRangers
 	.2byte 0
+
+BirchMaritimeLab_OnLoad:
+	call_if_gt VAR_BIRCH_LAB_STATE, 4, BirchMaritimeLab_EventScript_ReplaceTable
+	end
+
+BirchMaritimeLab_EventScript_ReplaceTable::
+	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, TRUE
+	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, TRUE
+	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
+	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
+	special DrawWholeMapView
+	return
 
 BirchMaritimeLab_EventScript_BeforeStarter::
 	lockall
@@ -95,6 +109,11 @@ BirchMaritimeLab_EventScript_PickYourStarter::
 BirchMaritimeLab_EventScript_GiveStarterEvent::
 	lockall
 	bufferleadmonspeciesname STR_VAR_1
+	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, TRUE
+	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, TRUE
+	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
+	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
+	special DrawWholeMapView
 	message BirchMaritimeLab_Text_ReceivedStarter
 	waitmessage
 	playfanfare MUS_SLOTS_JACKPOT
@@ -151,6 +170,37 @@ BirchMaritimeLab_EventScript_PokemonAwait::
 BirchMaritimeLab_EventScript_NoRoomForPokeBalls::
 	msgbox BirchMaritimeLab_Text_OhYourBagsFull, MSGBOX_DEFAULT
 	return
+
+BirchMaritimeLab_EventScript_BeatenRangers::
+	setflag FLAG_HIDE_SKY_PILLAR_RANGERS
+	setvar VAR_BIRCH_LAB_STATE, 7
+	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar
+	msgbox BirchMaritimeLab_Text_HaveEXPShare, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE
+	releaseall
+	end
+
+BirchMaritimeLab_EventScript_BirchPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_BirchPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_GrangerPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_GrangerPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_JeanniePostSkyPillar::
+	msgbox BirchMaritimeLab_Text_JeanniePostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_EventScript_RickyPostSkyPillar::
+	msgbox BirchMaritimeLab_Text_RickyPostSkyPillar, MSGBOX_NPC
+	end
+
+BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar:
+	face_up
+	step_end
 
 BirchMaritimeLab_Text_TakeStarter:
 	.string "For a journey as long and,\n"
@@ -226,3 +276,21 @@ BirchMaritimeLab_Text_GoFightTheRangers:
 
 BirchMaritimeLab_Text_OhYourBagsFull:
 	.string "uh oh spaghettios$"
+
+BirchMaritimeLab_Text_HaveEXPShare:
+	.string "heres the exp share$"
+
+BirchMaritimeLab_Text_GoToSootopolis:
+	.string "go east bestie$"
+
+BirchMaritimeLab_Text_BirchPostSkyPillar:
+	.string "birch test$"
+
+BirchMaritimeLab_Text_GrangerPostSkyPillar:
+	.string "granger test$"
+
+BirchMaritimeLab_Text_JeanniePostSkyPillar:
+	.string "jeannie test$"
+
+BirchMaritimeLab_Text_RickyPostSkyPillar:
+	.string "ricky test$"

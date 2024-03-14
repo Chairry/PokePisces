@@ -274,7 +274,7 @@ static const struct TrainerBattleParameter sTrainerTwoTrainerBattleParams[] =
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
-    //[REMATCH_ROSE] = REMATCH(TRAINER_ROSE_1, TRAINER_ROSE_2, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, ROUTE118),
+    //[REMATCH_ROSE] = REMATCH(TRAINER_P_HASPAROTH, TRAINER_P_SEBASTIAN, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, ROUTE118),
     //[REMATCH_ANDRES] = REMATCH(TRAINER_ANDRES_1, TRAINER_ANDRES_2, TRAINER_ANDRES_3, TRAINER_ANDRES_4, TRAINER_ANDRES_5, ROUTE105),
     //[REMATCH_DUSTY] = REMATCH(TRAINER_DUSTY_1, TRAINER_DUSTY_2, TRAINER_DUSTY_3, TRAINER_DUSTY_4, TRAINER_DUSTY_5, ROUTE111),
     //[REMATCH_LOLA] = REMATCH(TRAINER_LOLA_1, TRAINER_LOLA_2, TRAINER_LOLA_3, TRAINER_LOLA_4, TRAINER_LOLA_5, ROUTE109),
@@ -735,6 +735,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
+    if (MetatileBehavior_IsShallowFlowingWater(tileBehavior))
+        return BATTLE_TERRAIN_POND;
 
     switch (gMapHeader.mapType)
     {
@@ -782,6 +784,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_POND;
     if (MetatileBehavior_IsMountain(tileBehavior))
         return BATTLE_TERRAIN_MOUNTAIN;
+    if (MetatileBehavior_IsWooden(tileBehavior))
+        return BATTLE_TERRAIN_WOODEN_ROUTE;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
         // Is BRIDGE_TYPE_POND_*?
@@ -1585,6 +1589,18 @@ void PlayTrainerEncounterMusic(void)
             break;
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_ENCOUNTER_RICH;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_EVIL:
+            music = MUS_RG_ENCOUNTER_ROCKET;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_LASSIE:
+            music = MUS_RG_ENCOUNTER_GIRL;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_LAD:
+            music = MUS_RG_ENCOUNTER_BOY;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_BLUE:
+            music = MUS_RG_ENCOUNTER_RIVAL;
             break;
         default:
             music = MUS_ENCOUNTER_SUSPICIOUS;

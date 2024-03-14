@@ -31,17 +31,17 @@
 #define TRAINER_P_YANNY                      27
 #define TRAINER_P_REMY                       28
 #define TRAINER_P_SELKO                      29
-#define TRAINER_MATT                         30
-#define TRAINER_ZANDER                       31
-#define TRAINER_SHELLY_WEATHER_INSTITUTE     32
-#define TRAINER_SHELLY_SEAFLOOR_CAVERN       33
-#define TRAINER_ARCHIE                       34
-#define TRAINER_LEAH                         35
-#define TRAINER_DAISY                        36
-#define TRAINER_ROSE_1                       37
-#define TRAINER_FELIX                        38
-#define TRAINER_VIOLET                       39
-#define TRAINER_ROSE_2                       40
+#define TRAINER_MATT                         30 //Outlier
+#define TRAINER_P_ARTHUR                     31 //SOOTOPOLIS GYM
+#define TRAINER_SHELLY_WEATHER_INSTITUTE     32 //Outlier
+#define TRAINER_SHELLY_SEAFLOOR_CAVERN       33 //Outlier
+#define TRAINER_ARCHIE                       34 //Outlier
+#define TRAINER_P_LISA                       35
+#define TRAINER_P_EMILY                      36
+#define TRAINER_P_HASPAROTH                  37
+#define TRAINER_P_MIIKACHAN                  38
+#define TRAINER_P_JUAN                       39 //LEADERS 1
+#define TRAINER_P_SEBASTIAN                  40 //LEADERS 1
 #define TRAINER_ROSE_3                       41
 #define TRAINER_ROSE_4                       42
 #define TRAINER_ROSE_5                       43

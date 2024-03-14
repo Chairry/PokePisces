@@ -117,8 +117,20 @@
 #define VAR_ROUTE102_STATE                               0x4061 // Unused Var
 #define VAR_ROUTE103_STATE                               0x4062 // Unused Var
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
+#define VAR_PISCES_STORY_PROGRESS                        0x4064 // Unused Var normally, used in PISCES
+//0 = Before Gym 1
+//1 = 1 Badge
+//2 = 2 Badge
+//3 = Fought Ozone Dudes At Lilycove
+//4 = 3 Badge
+//5 = 4 Badge
+//6 = 5 Badge
+//7 = 6 Badge
+//8 = 7 Badge
+//9 = 8 Badge
+//10 = Fought Luo-Shan/Kyogre and Sha-Yon/Groudon
+//11 = Shunyong Beaten
+#define VAR_BALL_QUEST_STATE                             0x4065 // Unused Var normally, used in PISCES
 #define VAR_ROUTE107_STATE                               0x4066 // Unused Var
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var
@@ -148,7 +160,7 @@
 #define VAR_ROUTE133_STATE                               0x4080 // Unused Var
 #define VAR_ROUTE134_STATE                               0x4081 // Unused Var
 #define VAR_LITTLEROOT_HOUSES_STATE_MAY                  0x4082
-#define VAR_UNUSED_0x4083                                0x4083 // Unused Var
+#define VAR_TESTINGHAHA                                  0x4083 // Unused Var
 #define VAR_BIRCH_LAB_STATE                              0x4084
 #define VAR_PETALBURG_GYM_STATE                          0x4085 // 0-1: Wally tutorial, 2-6: 0-4 badges, 7: Defeated Norman, 8: Rematch Norman
 #define VAR_CONTEST_HALL_STATE                           0x4086
