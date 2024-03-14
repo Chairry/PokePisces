@@ -1674,10 +1674,10 @@ const u32 gShopMenu_ScrollTilemap[] = INCBIN_U32("graphics/shop/scroll.bin.lz");
 const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.lz");
 const u16 gShopMenu_CursorGfx[] = INCBIN_U16("graphics/shop/cursor.4bpp"); // uses the menu palette
 
-const u8 gShopMenuSellerMugshotGfx_Jerry[] = INCBIN_U8("graphics/shop/mugshots/jerry.4bpp.lz");
+const u8 gShopMenuSellerMugshotGfx_Jerry[] = INCBIN_U8("graphics/shop/mugshots/jerry.4bpp");
 const u16 gShopMenuSellerMugshotPal_Jerry[] = INCBIN_U16("graphics/shop/mugshots/jerry.gbapal");
 
-const u8 gShopMenuSellerMugshotGfx_Jennie[] = INCBIN_U8("graphics/shop/mugshots/jennie.4bpp.lz");
+const u8 gShopMenuSellerMugshotGfx_Jennie[] = INCBIN_U8("graphics/shop/mugshots/jennie.4bpp");
 const u16 gShopMenuSellerMugshotPal_Jennie[] = INCBIN_U16("graphics/shop/mugshots/jennie.gbapal");
 
 // Pokeblock

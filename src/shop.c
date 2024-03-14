@@ -121,7 +121,7 @@ struct SellerMugshot
     union {
         u16 gfxId;
     } id;
-    const void *gfx;
+    const u8 *gfx;
     const u16 *pal;
 };
 
@@ -1108,9 +1108,9 @@ static inline u32 BuyMenuGetItemPrice(u32 id)
         return gDecorations[sMartInfo.itemList[id]].price;
 }
 
-static void LoadSellerMugshot(const void *gfx, const u16 *pal)
+static void LoadSellerMugshot(const u8 *gfx, const u16 *pal)
 {
-    CopyToWindowPixelBuffer(WIN_MUGSHOT, gfx, 0, 0);
+    CopyToWindowPixelBuffer(WIN_MUGSHOT, gfx, 4992, 0);
     LoadPalette(pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
     PutWindowTilemap(WIN_MUGSHOT);
     CopyWindowToVram(WIN_MUGSHOT, COPYWIN_FULL);
@@ -1140,12 +1140,17 @@ static void SetupSellerMugshot(void)
     {
         if (gfxId == sSellerMugshots[i].id.gfxId)
         {
-            LoadSellerMugshot(sSellerMugshots[i].gfx, sSellerMugshots[i].pal);
+            if (sSellerMugshots[i].gfx != NULL || sSellerMugshots[i].pal != NULL)
+            {
+                LoadSellerMugshot(sSellerMugshots[i].gfx, sSellerMugshots[i].pal);
+            }
+            else
+            {
+                LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
+            }
             return;
         }
     }
-    // none of the mugshots match, load jerry
-    LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
 }
 
 static void BuyMenuInitWindows(void)
