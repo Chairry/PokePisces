@@ -472,7 +472,7 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 13,
-        .width = 12,
+        .width = 14,
         .height = 6,
         .paletteNum = 15,
         .baseBlock = 0x0122,
@@ -1022,6 +1022,8 @@ static void BuyMenuInitGrid(void)
     GridMenu_ForEach(sShopData->gridItems, ForEachCB_PopulateItemIcons);
     // we're doing this so that when the grid menu input function "fails", the item data wont flickers
     // it'll flicker when we call UpdateItemData on the main input task func
+    // UPDATE: Not exactly true, it flickers when the printing func always immediately copy to vram
+    // for good measure though, i'll keep it.
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_UP, TYPE_MOVE);
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_DOWN, TYPE_MOVE);
     GridMenu_SetInputCallback(sShopData->gridItems, InputCB_Move, DIRECTION_LEFT, TYPE_MOVE);
@@ -1153,6 +1155,47 @@ static void SetupSellerMugshot(void)
     }
 }
 
+static void ReformatItemDescription(u16 item, u8 *dest)
+{
+    u8 count = 0;
+    u8 numLines = 1;
+    u8 maxChars = 14;
+    u8 *desc = (u8 *)ItemId_GetDescription(sMartInfo.itemList[item]);
+
+    while (*desc != EOS)
+    {
+        if (count >= maxChars)
+        {
+            while (*desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
+            {
+                *dest = *desc;  //finish word
+                dest++;
+                desc++;
+            }
+
+            *dest = CHAR_NEWLINE;
+            count = 0;
+            numLines++;
+            dest++;
+            desc++;
+            continue;
+        }
+
+        *dest = *desc;
+        if (*desc == CHAR_NEWLINE)
+        {
+            *dest = CHAR_SPACE;
+        }
+
+        dest++;
+        desc++;
+        count++;
+    }
+
+    // finish string
+    *dest = EOS;
+}
+
 static void BuyMenuInitWindows(void)
 {
     const u8 *name = BuyMenuGetItemName(0), *desc = BuyMenuGetItemDesc(0);
@@ -1176,8 +1219,10 @@ static void BuyMenuInitWindows(void)
         u32 item = sMartInfo.itemList[0];
         if (ItemId_GetPocket(item) == POCKET_TM_HM)
         {
-            StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(item)]);
-            BuyMenuPrint(WIN_MULTI, gStringVar2, GetStringRightAlignXOffset(FONT_SMALL, gStringVar2, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+            const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
+            ReformatItemDescription(0, gStringVar2);
+            desc = gStringVar2;
+            BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
 
         if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
@@ -1283,6 +1328,7 @@ static void UpdateItemData(void)
     {
         u32 i = GridMenu_SelectedIndex(sShopData->gridItems);
         u32 item = sMartInfo.itemList[i];
+        const u8 *desc = BuyMenuGetItemDesc(i);
         BuyMenuPrint(WIN_MULTI, BuyMenuGetItemName(i), 0, 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
 
         if (sMartInfo.martType == MART_TYPE_NORMAL)
@@ -1290,8 +1336,10 @@ static void UpdateItemData(void)
             u16 quantity = CountTotalItemQuantityInBag(item);
             if (ItemId_GetPocket(item) == POCKET_TM_HM && item != ITEM_NONE)
             {
-                StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(item)]);
-                BuyMenuPrint(WIN_MULTI, gStringVar2, GetStringRightAlignXOffset(FONT_SMALL, gStringVar2, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+                const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
+                ReformatItemDescription(i, gStringVar2);
+                desc = gStringVar2;
+                BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             }
 
             if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
@@ -1307,7 +1355,7 @@ static void UpdateItemData(void)
             PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
         }
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-        BuyMenuPrint(WIN_ITEM_DESCRIPTION, BuyMenuGetItemDesc(i), 4, 0, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
+        BuyMenuPrint(WIN_ITEM_DESCRIPTION, desc, 4, 0, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
     }
     CopyWindowToVram(WIN_MULTI, COPYWIN_FULL);
 }
@@ -1381,7 +1429,6 @@ static void Task_BuyMenuTryBuyingItem(u8 taskId)
             }
             else if (ItemId_GetPocket(sShopData->currentItemId) == POCKET_TM_HM)
             {
-                StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(sShopData->currentItemId)]);
                 BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany2, Task_BuyHowManyDialogueInit);
             }
             else
