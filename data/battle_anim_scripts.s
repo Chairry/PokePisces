@@ -13469,6 +13469,7 @@ Move_FREEZY_FROST::
 Move_SPARKLY_SWIRL::
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_PINK_PETAL
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_GUST, 0, 15, 15, RGB(31, 22, 30)
 	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 4, 88, 1
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 6, 0, 11, RGB(31, 22, 30)
