@@ -11339,9 +11339,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BOUNCY_BUBBLE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .pp = 20,
-            .argument = 100, // restores 100% HP instead of 50% HP
+            .power = 90,
+            .pp = 15,
+            .argument = 50, // restores 100% HP instead of 50% HP
         #else
             .power = 90,
             .pp = 15,
@@ -11492,9 +11492,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SPARKLY_SWIRL] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 120,
-            .accuracy = 85,
-            .pp = 5,
+            .power = 90,
+            .accuracy = 100,
+            .pp = 15,
         #else
             .power = 90,
             .accuracy = 100,

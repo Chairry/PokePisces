@@ -13431,7 +13431,22 @@ Move_PIKA_PAPOW::
 	end @to do:
 
 Move_BOUNCY_BUBBLE::
-	end @to do:
+	loadspritegfx ANIM_TAG_BUBBLE
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	delay 1
+	call BulbblebeamCreateBubbles
+	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
+	call BulbblebeamCreateBubbles
+	call BulbblebeamCreateBubbles
+	waitforvisualfinish
+	call WaterBubblesEffectShort
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 
 Move_BUZZY_BUZZ::
 	end @to do:
@@ -13452,7 +13467,39 @@ Move_FREEZY_FROST::
 	end @to do:
 
 Move_SPARKLY_SWIRL::
-	end @to do:
+	loadspritegfx ANIM_TAG_GUST
+	loadspritegfx ANIM_TAG_PINK_PETAL
+	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 4, 88, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 6, 0, 11, RGB(31, 22, 30)
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	call HurricaneGust
+	call SparklySwirlPetalStorm
+	waitforvisualfinish
+	stopsound
+	end
+SparklySwirlPetalStorm:
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x20, 0x210, 0x1e, 0xa, 0x32, ANIM_TARGET
+	delay 0x2
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x24, 0x1e0, 0x14, 0xd, 0xffd2, ANIM_TARGET
+	delay 0x2
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x25, 0x240, 0x14, 0x5, 0x2a, ANIM_TARGET
+	delay 0x2
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x23, 0x190, 0x19, 0x8, 0xffd6, ANIM_TARGET
+	delay 0x2
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x20, 0x200, 0x19, 0xd, 0x2e, ANIM_TARGET
+	delay 0x2
+	createsprite gSweetScentPetalSpriteTemplate, ANIM_TARGET, 2, 0x0, 0x25, 0x1d0, 0x1e, 0xc, 0xffce, ANIM_TARGET
+	return
 
 Move_VEEVEE_VOLLEY::
 	end @to do:
