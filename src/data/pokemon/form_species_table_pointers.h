@@ -612,5 +612,6 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_SPINDA_PLAINS2] = sSpindaFormSpeciesIdTable,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsFormSpeciesIdTable,
     [SPECIES_KODOUGH_BLUNT] = sKodoughFormSpeciesIdTable,
+    [SPECIES_CASTFORM_SANDY] = sKodoughFormSpeciesIdTable,
 #endif
 };

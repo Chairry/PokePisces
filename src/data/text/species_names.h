@@ -1559,5 +1559,6 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = _("Shunyong"),
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = _("Dudunspars"),
     [SPECIES_KODOUGH_BLUNT] = _("Kodough"),
+    [SPECIES_CASTFORM_SANDY] = _("Castform"),
 #endif
 };

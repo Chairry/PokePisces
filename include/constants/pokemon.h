@@ -207,7 +207,7 @@
 #else
 #define MAX_PER_STAT_EVS 255
 #endif
-#define MAX_TOTAL_EVS 510
+#define MAX_TOTAL_EVS 508
 #if I_VITAMIN_EV_CAP >= GEN_8
 #define EV_ITEM_RAISE_LIMIT MAX_PER_STAT_EVS
 #else
