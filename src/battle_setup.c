@@ -735,8 +735,6 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
-    if (MetatileBehavior_IsShallowFlowingWater(tileBehavior))
-        return BATTLE_TERRAIN_POND;
 
     switch (gMapHeader.mapType)
     {
@@ -781,6 +779,8 @@ u8 BattleSetup_GetTerrainId(void)
     if (MetatileBehavior_IsDeepOrOceanWater(tileBehavior))
         return BATTLE_TERRAIN_WATER;
     if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
+        return BATTLE_TERRAIN_POND;
+    if (MetatileBehavior_IsShallowFlowingWater(tileBehavior))
         return BATTLE_TERRAIN_POND;
     if (MetatileBehavior_IsMountain(tileBehavior))
         return BATTLE_TERRAIN_MOUNTAIN;
