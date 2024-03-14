@@ -536,3 +536,7 @@ gSpecials::
 	def_special TrySetBattleTowerLinkType
 	def_special SetTotemBoost
 	def_special TrySpecialOverworldEvo
+	def_special GetSeenMon
+	def_special GetCaughtMon
+	def_special SetSeenMon
+	def_special SetCaughtMon
