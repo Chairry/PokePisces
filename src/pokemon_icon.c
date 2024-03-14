@@ -1518,6 +1518,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_PLAINS2] = gMonIcon_Spinda,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = gMonIcon_DudunsparsEightSegment,
     [SPECIES_KODOUGH_BLUNT] = gMonIcon_KodoughBlunt,
+    [SPECIES_CASTFORM_SANDY] = gMonIcon_CastformSandy,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2976,6 +2977,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SPINDA_PLAINS2] = 1,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = 0,
     [SPECIES_KODOUGH_BLUNT] = 2,
+    [SPECIES_CASTFORM_SANDY] = 0,
 #endif
     [SPECIES_EGG] = 1,
 };

@@ -4498,6 +4498,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                gBattlerAttacker = battler;
                 BattleScriptPushCursorAndCallback(BattleScript_FriskActivates); // Try activate
                 effect++;
             }
@@ -8941,6 +8942,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE)
+            basePower *= 2;
+        break;
+    case EFFECT_MULTI_HIT:
+        if ((gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE) && (gCurrentMove == MOVE_BARB_BARRAGE))
             basePower *= 2;
         break;
     case EFFECT_ASSURANCE:

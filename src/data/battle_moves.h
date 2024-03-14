@@ -9561,7 +9561,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 100,
         .pp = 30,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_DEF_UP_1,
@@ -11339,9 +11339,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BOUNCY_BUBBLE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 60,
-            .pp = 20,
-            .argument = 100, // restores 100% HP instead of 50% HP
+            .power = 90,
+            .pp = 15,
+            .argument = 50, // restores 100% HP instead of 50% HP
         #else
             .power = 90,
             .pp = 15,
@@ -11492,9 +11492,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SPARKLY_SWIRL] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 120,
-            .accuracy = 85,
-            .pp = 5,
+            .power = 90,
+            .accuracy = 100,
+            .pp = 15,
         #else
             .power = 90,
             .accuracy = 100,
@@ -12798,12 +12798,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BARB_BARRAGE] =
     {
-        .effect = EFFECT_BARB_BARRAGE,
+        .effect = EFFECT_MULTI_HIT,
         .power = 20,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 50,
+        .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,

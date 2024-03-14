@@ -1626,6 +1626,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_PLAINS2 - 1] = NATIONAL_DEX_SPINDA,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = NATIONAL_DEX_DUDUNSPARS,
     [SPECIES_KODOUGH_BLUNT - 1] = NATIONAL_DEX_KODOUGH,
+    [SPECIES_CASTFORM_SANDY - 1] = NATIONAL_DEX_CASTFORM,
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_DARUMAKA_GALARIAN - 1] = NATIONAL_DEX_DARUMAKA,
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
@@ -3436,6 +3437,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_SPINDA_PLAINS2 - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_KODOUGH_BLUNT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CASTFORM_SANDY - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     //Gen 4 Forms
     [SPECIES_CHERRIM_SUNSHINE - 1]       = ANIM_H_JUMPS_V_STRETCH,
     [SPECIES_SHELLOS_EAST_SEA - 1]       = ANIM_V_STRETCH,
@@ -8906,23 +8908,23 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
 u8 GetCurrentLevelCap(void)
 {
     if (!FlagGet(FLAG_BADGE01_GET))
-        return 15;
+        return 14;
     else if (!FlagGet(FLAG_BADGE02_GET))
         return 20;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 25;
+        return 29;
     else if (!FlagGet(FLAG_BADGE04_GET))
-        return 30;
+        return 36;
     else if (!FlagGet(FLAG_BADGE05_GET))
-        return 40;
+        return 45;
     else if (!FlagGet(FLAG_BADGE06_GET))
-        return 50;
+        return 49;
     else if (!FlagGet(FLAG_BADGE07_GET))
-        return 55;
+        return 54;
     else if (!FlagGet(FLAG_BADGE08_GET))
-        return 60;
+        return 64;
     else if (!FlagGet(FLAG_IS_CHAMPION))
-        return 70;
+        return 75;
     else
         return 100;
 }
@@ -9250,15 +9252,13 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {15,  60}, // before level 15, can only get 50 EVs total
-    {20,  120},
-    {25,  180},
-    {30,  240},
-    {40,  300},
-    {50,  360},
-    {55,  420},
-    {60,  480},
-    {100, MAX_TOTAL_EVS},
+    {11, 70}, // before level 10, can only get 70 EVs total
+    {21, 140},
+    {31, 210},
+    {41, 280},
+    {51, 350},
+    {61, 420},
+    {71, MAX_TOTAL_EVS},
 };
 
 u32 GetMaxTotalEVs(u32 level)
