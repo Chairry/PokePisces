@@ -17,6 +17,28 @@ PacifidlogTown_PokemonCenter_2F_EventScript_Nurse::
 	release
 	end
 
+PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
+	lock
+	faceplayer
+	goto_if_eq VAR_BALL_QUEST_STATE, 1, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
+	getcaughtmon SPECIES_FLUFFSIR
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall::
+	addvar VAR_BALL_QUEST_STATE, 1
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest::
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest, MSGBOX_NPC
+	release
+	end
+
 PacifidlogTown_PokemonCenter_2F_EventScript_BallCounterTest::
 	addvar VAR_BALL_QUEST_STATE, 1
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_BallCounterTest, MSGBOX_NPC
@@ -34,3 +56,15 @@ PacifidlogTown_PokemonCenter_2F_Text_BallCounterTest:
 
 PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest:
 	.string "gym badge plus 1$"
+
+PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
+	.string "do you have fluffsir$"
+
+PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
+	.string "loser !!$"
+
+PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall:
+	.string "new balls unlocked bro$"
+
+PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest:
+	.string "nothin left for you idiot$"
