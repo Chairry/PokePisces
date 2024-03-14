@@ -1558,5 +1558,6 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_SPINDA_PLAINS2] = sSpindaTeachableLearnset,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsTeachableLearnset,
     [SPECIES_KODOUGH_BLUNT] = sKodoughTeachableLearnset,
+    [SPECIES_CASTFORM_SANDY] = sCastformTeachableLearnset,
 #endif
 };

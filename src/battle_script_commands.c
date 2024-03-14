@@ -6237,8 +6237,6 @@ static void Cmd_moveend(void)
                 gBattleScripting.multihitString[4]++;
                 if (--gMultiHitCounter == 0)
                 {
-                    u32 BarbBarragePoisonChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
-
                     if (gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_SCALE_SHOT && !NoAliveMonsForEitherParty())
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -6250,13 +6248,14 @@ static void Cmd_moveend(void)
                     && gBattleMoveDamage != 0  // Need to have done damage
                     && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                     && TARGET_TURN_DAMAGED
-                    && (BarbBarragePoisonChance)
+                    && (Random() % 2) == 0
                     && gBattleMons[gBattlerTarget].hp)
                     {
                         gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
+                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BARB_BARRAGE);
                         BattleScriptPushCursor();
-                        SetMoveEffect(FALSE, 0);
-                        BattleScriptPop();
+                        gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
+                        effect = 1;
                     }
 
                     BattleScriptPushCursor();

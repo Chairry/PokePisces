@@ -1557,5 +1557,6 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SPINDA_PLAINS2] = sSpindaPlains2LevelUpLearnset,
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsLevelUpLearnset,
     [SPECIES_KODOUGH_BLUNT] = sKodoughLevelUpLearnset,
+    [SPECIES_CASTFORM_SANDY] = sCastformLevelUpLearnset,
 #endif
 };
