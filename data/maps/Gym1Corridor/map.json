@@ -52,7 +52,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 2,
+      "elevation": 3,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "7",
+      "script": "Gym1Corridor_EventScript_DoorGuard"
+    }
   ],
   "bg_events": [
 
