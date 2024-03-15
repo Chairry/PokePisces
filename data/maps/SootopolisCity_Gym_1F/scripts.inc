@@ -67,6 +67,7 @@ SootopolisCity_Gym_1F_EventScript_UnlockThirdStairs::
 
 SootopolisCity_Gym_1F_EventScript_FinalFall::
 	lockall
+	clearflag FLAG_PISCES_A
 	delay 20
 	setmetatile 10, 6, METATILE_SootopolisGym_Ice_Broken, FALSE
 	special DrawWholeMapView
