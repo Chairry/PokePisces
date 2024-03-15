@@ -1232,14 +1232,14 @@ static void BuyMenuInitWindows(void)
         if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
             BuyMenuPrint(WIN_MULTI, gText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, gText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         else
-            PrintMoneyLocal(WIN_MULTI, 2*8, price, 84, COLORID_BLACK, FALSE);
+            PrintMoneyLocal(WIN_MULTI, 2*8, price, 65, COLORID_BLACK, FALSE);
 
         ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
-        BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 80), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+        BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
     }
     else
     {
-        PrintMoneyLocal(WIN_MULTI, 2*8, price, 84, COLORID_BLACK, FALSE);
+        PrintMoneyLocal(WIN_MULTI, 2*8, price, 65, COLORID_BLACK, FALSE);
     }
     CopyWindowToVram(WIN_MULTI, COPYWIN_FULL);
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
@@ -1348,14 +1348,14 @@ static void UpdateItemData(void)
             if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
                 BuyMenuPrint(WIN_MULTI, gText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, gText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             else
-                PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
+                PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65, COLORID_BLACK, FALSE);
 
             ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
-            BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 80), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+            BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
         else
         {
-            PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
+            PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65, COLORID_BLACK, FALSE);
         }
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
         BuyMenuPrint(WIN_ITEM_DESCRIPTION, desc, 4, 0, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
@@ -1649,10 +1649,10 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
     s16 *data = gTasks[taskId].data;
 
     FillWindowPixelBuffer(WIN_QUANTITY_PRICE, PIXEL_FILL(0));
-    PrintMoneyLocal(WIN_QUANTITY_PRICE, 0, sShopData->totalCost, 67, COLORID_BLACK, FALSE);
+    PrintMoneyLocal(WIN_QUANTITY_PRICE, 0, sShopData->totalCost, 63, COLORID_BLACK, FALSE);
     ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, BAG_ITEM_CAPACITY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
-    BuyMenuPrint(WIN_QUANTITY_PRICE, gStringVar4, 0, 1, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+    BuyMenuPrint(WIN_QUANTITY_PRICE, gStringVar4, 0, 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
     CopyWindowToVram(WIN_QUANTITY_PRICE, COPYWIN_FULL);
 }
 
