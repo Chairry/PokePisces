@@ -598,13 +598,11 @@ BattleScript_EffectSandTombLowerDefense::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectScorpFang::
-	setmoveeffect MOVE_EFFECT_SMACK_DOWN
+	setmoveeffect MOVE_EFFECT_SMACK_DOWN | MOVE_EFFECT_CERTAIN
 	seteffectprimary
-	seteffectwithchance
 	call BattleScript_EffectHit_Ret
-	setmoveeffect MOVE_EFFECT_TOXIC
+	setmoveeffect MOVE_EFFECT_TOXIC | MOVE_EFFECT_CERTAIN
 	seteffectsecondary
-	seteffectwithchance
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
@@ -1504,7 +1502,7 @@ BattleScript_EffectFilletAway:
 	attackstring
 	ppreduce
 	cutonethirdhpraisestats BattleScript_ButItFailed
-	ororword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
