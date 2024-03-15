@@ -63,24 +63,15 @@ SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox SootopolisCity_Gym_B1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
+	addvar VAR_PISCES_STORY_PROGRESS, 1
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 6
-	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
-	setvar VAR_0x8008, 8
-	call Common_EventScript_SetGymTrainers
 	call SootopolisCity_Gym_B1F_EventScript_GiveWaterPulse
 	closemessage
 	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox SootopolisCity_Gym_B1F_Text_RegisteredJuan, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_JUAN_MATCH_CALL
+	msgbox SootopolisCity_Gym_B1F_Text_GetOuttaHere, MSGBOX_DEFAULT
+	warp MAP_SKY_PILLAR_NEW, 20, 27
 	release
 	end
 
@@ -329,3 +320,6 @@ SootopolisCity_Gym_B1F_Text_ImSebastian:
 
 SootopolisCity_Gym_B1F_Text_BattleBegins:
 	.string "time to battle bruv$"
+
+SootopolisCity_Gym_B1F_Text_GetOuttaHere:
+	.string "now please scram thx$"

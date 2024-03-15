@@ -22,7 +22,21 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	faceplayer
 	goto_if_eq VAR_BALL_QUEST_STATE, 1, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
-	getcaughtmon SPECIES_FLUFFSIR
+	getcaughtmon SPECIES_BERM
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_Check2::
+	getcaughtmon SPECIES_EBIBI
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check3
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_Check3::
+	getcaughtmon SPECIES_KITIKITI
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
 	release
@@ -58,7 +72,8 @@ PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest:
 	.string "gym badge plus 1$"
 
 PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
-	.string "do you have fluffsir$"
+	.string "do you have berm,\n"
+	.string "kitikiti and ebibi?$"
 
 PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
 	.string "loser !!$"
