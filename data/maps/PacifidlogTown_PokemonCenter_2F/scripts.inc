@@ -2,7 +2,6 @@
 
 PacifidlogTown_PokemonCenter_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_PokemonCenter_2F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 PacifidlogTown_PokemonCenter_2F_OnTransition:
@@ -21,9 +20,9 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
 	goto_if_eq VAR_BALL_QUEST_STATE, 1, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
-	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_BERM
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -86,7 +85,7 @@ PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
 	.string "3 particular Pokémon.\p"
 	.string "Berm, Ebibi, and Kitikiti.\p"
 	.string "Catch those trés and show me your\n"
-	.string "your Pokédex, and I will make it\l"
+	.string "Pokédex, and I will make it\l"
 	.string "worth your troubles.$"
 
 PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
