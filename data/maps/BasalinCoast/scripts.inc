@@ -46,6 +46,22 @@ BasalinCoast_EventScript_Selko::
     msgbox BasalinCoast_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
     end
 
+BasalinCoast_EventScript_ShedShellKid::
+    lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_SHED_SHELL, BasalinCoast_EventScript_GaveShedShell
+	msgbox BasalinCoast_Text_HaveShedShell, MSGBOX_DEFAULT
+	giveitem ITEM_SHED_SHELL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_SHED_SHELL
+	release
+	end
+
+BasalinCoast_EventScript_GaveShedShell::
+    msgbox BasalinCoast_Text_GaveShedShell, MSGBOX_AUTOCLOSE
+    release
+    end
+
 BasalinCoast_Text_GugumbirIntro:
 	.string "intro$"
 
@@ -54,3 +70,9 @@ BasalinCoast_Text_GugumbirDefeated:
 
 BasalinCoast_Text_GugumbirPostBattle:
 	.string "post$"
+
+BasalinCoast_Text_HaveShedShell:
+    .string "have this shell haha$"
+
+BasalinCoast_Text_GaveShedShell:
+    .string "already gave ya one$"

@@ -63,6 +63,12 @@ SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox SootopolisCity_Gym_B1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
+	clearflag FLAG_PISCES_A
+	clearflag FLAG_PISCES_B
+	clearflag FLAG_PISCES_C
+	clearflag FLAG_PISCES_D
+	clearflag FLAG_PISCES_E
+	clearflag FLAG_PISCES_F
 	addvar VAR_PISCES_STORY_PROGRESS, 1
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET

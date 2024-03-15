@@ -377,8 +377,8 @@
 
 // Trainer Rematch Flags
 #define FLAG_MATCH_CALL_REGISTERED           0x15C
-#define FLAG_REMATCH_ROSE                    0x15D
-#define FLAG_REMATCH_ANDRES                  0x15E
+#define FLAG_RECEIVED_SHED_SHELL             0x15D  //No Rematches in Pisces so can use freely
+#define FLAG_RECEIVED_BLUNDER_POLICY         0x15E  //
 #define FLAG_REMATCH_DUSTY                   0x15F
 #define FLAG_REMATCH_LOLA                    0x160
 #define FLAG_REMATCH_RICKY                   0x161
@@ -454,7 +454,7 @@
 #define FLAG_REMATCH_PHOEBE                  0x1A6
 #define FLAG_REMATCH_GLACIA                  0x1A7
 #define FLAG_REMATCH_DRAKE                   0x1A8
-#define FLAG_REMATCH_WALLACE                 0x1A9
+#define FLAG_REMATCH_WALLACE                 0x1A9  //
 
 #define FLAG_UNUSED_0x1AA                    0x1AA // Unused Flag
 #define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
