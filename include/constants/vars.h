@@ -131,7 +131,7 @@
 //10 = Fought Luo-Shan/Kyogre and Sha-Yon/Groudon
 //11 = Shunyong Beaten
 #define VAR_BALL_QUEST_STATE                             0x4065 // Unused Var normally, used in PISCES
-#define VAR_ROUTE107_STATE                               0x4066 // Unused Var
+#define VAR_NEW_COO_STATE                                0x4066 // Unused Var normally, used in PISCES
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                               0x4069

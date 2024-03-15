@@ -4,18 +4,21 @@ Gym1Corridor_MapScripts::
 	.byte 0
 
 Gym1Corridor_EventScript_DoorGuard::
-	lockall
+	lock
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Gym1Corridor_EventScript_WantToGoIn
 	goto_if_gt VAR_PISCES_STORY_PROGRESS, 0, Gym1Corridor_EventScript_CantGoIn
-	releaseall
+	release
 	end
 
 Gym1Corridor_EventScript_WantToGoIn::
+	applymovement LOCALID_GYMGUARD, Gym1Corridor_Movement_GuardFacesYou
+	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_YouFaceGuard
 	msgbox Gym1Corridor_Text_AreYouReady, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Gym1Corridor_EventScript_PrepForGym
 	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_MoveAway
+	waitmovement 0
 	msgbox Gym1Corridor_Text_ThenGoPrepare, MSGBOX_AUTOCLOSE
-	releaseall
+	release
 	end
 
 Gym1Corridor_EventScript_PrepForGym::
@@ -33,7 +36,7 @@ Gym1Corridor_EventScript_PrepForGym::
 	msgbox Gym1Corridor_Text_TimeForGym, MSGBOX_DEFAULT
 	warp MAP_SOOTOPOLIS_CITY_GYM_B1F, 1, 18
 	waitstate
-	releaseall
+	release
 	end
 
 Gym1Corridor_EventScript_CantGoIn::
@@ -41,7 +44,8 @@ Gym1Corridor_EventScript_CantGoIn::
 	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_YouFaceGuard
 	msgbox Gym1Corridor_Text_YouAlreadyDidThis, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_MoveAway
-	releaseall
+	waitmovement 0
+	release
 	end
 
 Gym1Corridor_Movement_GuardFacesYou:

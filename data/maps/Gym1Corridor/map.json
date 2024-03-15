@@ -60,6 +60,15 @@
       "var": "VAR_BIRCH_LAB_STATE",
       "var_value": "7",
       "script": "Gym1Corridor_EventScript_DoorGuard"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_BIRCH_LAB_STATE",
+      "var_value": "8",
+      "script": "Gym1Corridor_EventScript_DoorGuard"
     }
   ],
   "bg_events": [
