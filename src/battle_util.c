@@ -5371,13 +5371,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         switch (gLastUsedAbility)
         {
         case ABILITY_GHOULISH:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && !BATTLER_MAX_HP(battler) && gBattlerAttacker != gBattlerTarget)
             {
                 gEffectBattler = battler;
-                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / 3) * -1;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / 3);
                 if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = -1;
-                gSpecialStatuses[gBattlerTarget].dmg = 0;
+                    gBattleMoveDamage = 1;
+                gBattleMoveDamage *= -1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, GetBattlerAbility(gBattlerTarget));
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AbilityHealHP_Ret;
