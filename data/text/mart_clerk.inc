@@ -5,6 +5,13 @@ gText_HowMayIServeYou::
 gText_PleaseComeAgain::
 	.string "Please come again!$"
 
+gText_WhatDoYouWant::
+	.string "Hey.\p"
+	.string "What do you want…?$"
+
+gText_SafeTravels::
+	.string "Safe travels…$"
+
 gText_PlayerWhatCanIDoForYou::
 	.string "{PLAYER}{STRING 5}, welcome!\p"
 	.string "What can I do for you?$"

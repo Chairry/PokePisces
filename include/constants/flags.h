@@ -379,11 +379,11 @@
 #define FLAG_MATCH_CALL_REGISTERED           0x15C
 #define FLAG_RECEIVED_SHED_SHELL             0x15D  //No Rematches in Pisces so can use freely
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x15E  //
-#define FLAG_REMATCH_DUSTY                   0x15F
-#define FLAG_REMATCH_LOLA                    0x160
-#define FLAG_REMATCH_RICKY                   0x161
-#define FLAG_REMATCH_LILA_AND_ROY            0x162
-#define FLAG_REMATCH_CRISTIN                 0x163
+#define FLAG_RECEIVED_SEASHELL_2             0x15F
+#define FLAG_RECEIVED_SEASHELL_3             0x160
+#define FLAG_RECEIVED_SEASHELL_4             0x161
+#define FLAG_RECEIVED_SALT                   0x162
+#define FLAG_RECEIVED_SHELL_BELL             0x163
 #define FLAG_REMATCH_BROOKE                  0x164
 #define FLAG_REMATCH_WILTON                  0x165
 #define FLAG_REMATCH_VALERIE                 0x166
@@ -860,7 +860,7 @@
 #define FLAG_HIDE_ROUTE_116_DROPPED_GLASSES_MAN                     0x32D
 #define FLAG_HIDE_RUSTBORO_CITY_RIVAL                               0x32E
 #define FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL     0x32F
-#define FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE                           0x330
+#define FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE                           0x330 //Used to hide Sooto Drake in Pisces
 #define FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL       0x331
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL           0x332
 #define FLAG_HIDE_ROUTE_112_TEAM_MAGMA                              0x333
@@ -996,14 +996,14 @@
 #define FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE              0x3B5
 #define FLAG_HIDE_SS_TIDAL_CORRIDOR_MR_BRINEY                       0x3B6
 #define FLAG_HIDE_SS_TIDAL_ROOMS_SNATCH_GIVER                       0x3B7
-#define FLAG_RECEIVED_SHOAL_SALT_1                                  0x3B8
+#define FLAG_RECEIVED_SHOAL_SALT_1                                  0x3B8 //Will not be used in Pisces
 #define FLAG_RECEIVED_SHOAL_SALT_2                                  0x3B9
 #define FLAG_RECEIVED_SHOAL_SALT_3                                  0x3BA
 #define FLAG_RECEIVED_SHOAL_SALT_4                                  0x3BB
 #define FLAG_RECEIVED_SHOAL_SHELL_1                                 0x3BC
 #define FLAG_RECEIVED_SHOAL_SHELL_2                                 0x3BD
 #define FLAG_RECEIVED_SHOAL_SHELL_3                                 0x3BE
-#define FLAG_RECEIVED_SHOAL_SHELL_4                                 0x3BF
+#define FLAG_RECEIVED_SHOAL_SHELL_4                                 0x3BF //^
 #define FLAG_HIDE_ROUTE_111_SECRET_POWER_MAN                        0x3C0
 #define FLAG_HIDE_SLATEPORT_MUSEUM_POPULATION                       0x3C1
 #define FLAG_HIDE_LILYCOVE_DEPARTMENT_STORE_ROOFTOP_SALE_WOMAN      0x3C2

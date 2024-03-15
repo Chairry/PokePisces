@@ -36,6 +36,22 @@ Flotshore_EventScript_Barbara::
     msgbox Flotshore_Text_BarbaraPostBattle, MSGBOX_AUTOCLOSE
     end
 
+Flotshore_EventScript_SeaShellGiver::
+    lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_SEASHELL_2, Flotshore_EventScript_GaveSeashellAlr
+	msgbox Flotshore_Text_HaveMyShell, MSGBOX_DEFAULT
+	giveitem ITEM_SHOAL_SHELL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_SEASHELL_2
+	release
+	end
+
+Flotshore_EventScript_GaveSeashellAlr::
+    msgbox Flotshore_Text_GaveSeashellAlr, MSGBOX_AUTOCLOSE
+    release
+    end
+
 Flotshore_Text_SeanIntro:
 	.string "test$"
 
@@ -98,3 +114,9 @@ Flotshore_Text_BarbaraDefeated:
 
 Flotshore_Text_BarbaraPostBattle:
 	.string "test$"
+
+Flotshore_Text_HaveMyShell:
+	.string "have this shell$"
+
+Flotshore_Text_GaveSeashellAlr:
+	.string "goody gum$"

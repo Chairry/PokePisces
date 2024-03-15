@@ -2,7 +2,6 @@
 
 PacifidlogTown_PokemonCenter_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_PokemonCenter_2F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 PacifidlogTown_PokemonCenter_2F_OnTransition:
@@ -21,9 +20,9 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
 	goto_if_eq VAR_BALL_QUEST_STATE, 1, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
-	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_BERM
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -72,14 +71,46 @@ PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest:
 	.string "gym badge plus 1$"
 
 PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
-	.string "do you have berm,\n"
-	.string "kitikiti and ebibi?$"
+	.string "Salut! I am un artiste. You may\n"
+	.string "have heard of me, non? I run the\l"
+	.string "Musée de Lilycove, where I have\l"
+	.string "put all of my best pieces\l"
+	.string "on display.\p"
+	.string "Mais hélas, I am in dire need\n"
+	.string "of inspiration. I would like some\l"
+	.string "Pokémon to draw, but I am a\l"
+	.string "horrible catcher.\p"
+	.string "Ah! Perhaps vous may assist me!\p"
+	.string "I would like to lay an eye on\n"
+	.string "3 particular Pokémon.\p"
+	.string "Berm, Ebibi, and Kitikiti.\p"
+	.string "Catch those trés and show me your\n"
+	.string "Pokédex, and I will make it\l"
+	.string "worth your troubles.$"
 
 PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
-	.string "loser !!$"
+	.string "I see you have not the required\n"
+	.string "Pokémon, amie. They should be in\l"
+	.string "areas close to here.\p"
+	.string "Bonne chance!$"
 
 PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall:
-	.string "new balls unlocked bro$"
+	.string "...\p"
+	.string "Ah! There they are! Lovely catches!\p"
+	.string "Berm's adorable charm...\n"
+	.string "That pesky smile on Kitikiti...\l"
+	.string "Ebibi's flaky fur...\p"
+	.string "Inspiration strikes! Incroyable!\n"
+	.string "I must get to painting.\p"
+	.string "Merci, trainer. I will put in a good\n"
+	.string "word for you with Purplina;\l"
+	.string "you should soon be able to\l"
+	.string "purchase Lure Balls from her.\p"
+	.string "Au revoir!$"
 
 PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest:
-	.string "nothin left for you idiot$"
+	.string "Bon aprés-midi, trainer.\n"
+	.string "I have naught in the way of new\l"
+	.string "jobs for you this very moment.\p"
+	.string "Perhaps when we next meet,\n"
+	.string "we shall work together again.$"

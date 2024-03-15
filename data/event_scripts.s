@@ -679,7 +679,7 @@ Common_EventScript_ReadyPetalburgGymForBattle::
 Common_EventScript_BallShop::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
+	message gText_WhatDoYouWant
 	waitmessage
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Common_EventScript_BallShop0Badge
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 1, Common_EventScript_BallShop1Badge
@@ -690,7 +690,7 @@ Common_EventScript_BallShop::
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 6, Common_EventScript_BallShop6Badge
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 7, Common_EventScript_BallShop7Badge
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 8, Common_EventScript_BallShop8Badge
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -700,7 +700,7 @@ Common_EventScript_BallShop0Badge::
 
 Common_EventScript_BallShop0B0Q::
 	pokemart Common_Mart_BallShop0B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -713,7 +713,7 @@ Common_Mart_BallShop0B0Q:
 
 Common_EventScript_BallShop0B1Q::
 	pokemart Common_Mart_BallShop0B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -732,7 +732,7 @@ Common_EventScript_BallShop1Badge::
 
 Common_EventScript_BallShop1B0Q::
 	pokemart Common_Mart_BallShop1B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -746,7 +746,7 @@ Common_Mart_BallShop1B0Q:
 
 Common_EventScript_BallShop1B1Q::
 	pokemart Common_Mart_BallShop1B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -761,7 +761,7 @@ Common_Mart_BallShop1B1Q:
 
 Common_EventScript_BallShop1B2Q::
 	pokemart Common_Mart_BallShop1B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -784,7 +784,7 @@ Common_EventScript_BallShop2Badge::
 
 Common_EventScript_BallShop2B0Q::
 	pokemart Common_Mart_BallShop2B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -799,7 +799,7 @@ Common_Mart_BallShop2B0Q:
 
 Common_EventScript_BallShop2B1Q::
 	pokemart Common_Mart_BallShop2B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -815,7 +815,7 @@ Common_Mart_BallShop2B1Q:
 
 Common_EventScript_BallShop2B2Q::
 	pokemart Common_Mart_BallShop2B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -832,7 +832,7 @@ Common_Mart_BallShop2B2Q:
 
 Common_EventScript_BallShop2B3Q::
 	pokemart Common_Mart_BallShop2B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -850,7 +850,7 @@ Common_Mart_BallShop2B3Q:
 
 Common_EventScript_BallShop2B4Q::
 	pokemart Common_Mart_BallShop2B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -878,7 +878,7 @@ Common_EventScript_BallShop3Badge::
 
 Common_EventScript_BallShop3B0Q::
 	pokemart Common_Mart_BallShop3B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -894,7 +894,7 @@ Common_Mart_BallShop3B0Q:
 
 Common_EventScript_BallShop3B1Q::
 	pokemart Common_Mart_BallShop3B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -911,7 +911,7 @@ Common_Mart_BallShop3B1Q:
 
 Common_EventScript_BallShop3B2Q::
 	pokemart Common_Mart_BallShop3B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -929,7 +929,7 @@ Common_Mart_BallShop3B2Q:
 
 Common_EventScript_BallShop3B3Q::
 	pokemart Common_Mart_BallShop3B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -948,7 +948,7 @@ Common_Mart_BallShop3B3Q:
 
 Common_EventScript_BallShop3B4Q::
 	pokemart Common_Mart_BallShop3B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -968,7 +968,7 @@ Common_Mart_BallShop3B4Q:
 
 Common_EventScript_BallShop3B5Q::
 	pokemart Common_Mart_BallShop3B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -989,7 +989,7 @@ Common_Mart_BallShop3B5Q:
 
 Common_EventScript_BallShop3B6Q::
 	pokemart Common_Mart_BallShop3B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1023,7 +1023,7 @@ Common_EventScript_BallShop4Badge::
 
 Common_EventScript_BallShop4B0Q::
 	pokemart Common_Mart_BallShop4B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1040,7 +1040,7 @@ Common_Mart_BallShop4B0Q:
 
 Common_EventScript_BallShop4B1Q::
 	pokemart Common_Mart_BallShop4B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1058,7 +1058,7 @@ Common_Mart_BallShop4B1Q:
 
 Common_EventScript_BallShop4B2Q::
 	pokemart Common_Mart_BallShop4B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1077,7 +1077,7 @@ Common_Mart_BallShop4B2Q:
 
 Common_EventScript_BallShop4B3Q::
 	pokemart Common_Mart_BallShop4B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1097,7 +1097,7 @@ Common_Mart_BallShop4B3Q:
 
 Common_EventScript_BallShop4B4Q::
 	pokemart Common_Mart_BallShop4B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1118,7 +1118,7 @@ Common_Mart_BallShop4B4Q:
 
 Common_EventScript_BallShop4B5Q::
 	pokemart Common_Mart_BallShop4B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1140,7 +1140,7 @@ Common_Mart_BallShop4B5Q:
 
 Common_EventScript_BallShop4B6Q::
 	pokemart Common_Mart_BallShop4B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1163,7 +1163,7 @@ Common_Mart_BallShop4B6Q:
 
 Common_EventScript_BallShop4B7Q::
 	pokemart Common_Mart_BallShop4B7Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1187,7 +1187,7 @@ Common_Mart_BallShop4B7Q:
 
 Common_EventScript_BallShop4B8Q::
 	pokemart Common_Mart_BallShop4B8Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1212,7 +1212,7 @@ Common_Mart_BallShop4B8Q:
 
 Common_EventScript_BallShop4B9Q::
 	pokemart Common_Mart_BallShop4B9Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1252,7 +1252,7 @@ Common_EventScript_BallShop5Badge::
 
 Common_EventScript_BallShop5B0Q::
 	pokemart Common_Mart_BallShop5B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1270,7 +1270,7 @@ Common_Mart_BallShop5B0Q:
 
 Common_EventScript_BallShop5B1Q::
 	pokemart Common_Mart_BallShop5B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1289,7 +1289,7 @@ Common_Mart_BallShop5B1Q:
 
 Common_EventScript_BallShop5B2Q::
 	pokemart Common_Mart_BallShop5B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1309,7 +1309,7 @@ Common_Mart_BallShop5B2Q:
 
 Common_EventScript_BallShop5B3Q::
 	pokemart Common_Mart_BallShop5B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1330,7 +1330,7 @@ Common_Mart_BallShop5B3Q:
 
 Common_EventScript_BallShop5B4Q::
 	pokemart Common_Mart_BallShop5B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1352,7 +1352,7 @@ Common_Mart_BallShop5B4Q:
 
 Common_EventScript_BallShop5B5Q::
 	pokemart Common_Mart_BallShop5B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1375,7 +1375,7 @@ Common_Mart_BallShop5B5Q:
 
 Common_EventScript_BallShop5B6Q::
 	pokemart Common_Mart_BallShop5B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1399,7 +1399,7 @@ Common_Mart_BallShop5B6Q:
 
 Common_EventScript_BallShop5B7Q::
 	pokemart Common_Mart_BallShop5B7Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1424,7 +1424,7 @@ Common_Mart_BallShop5B7Q:
 
 Common_EventScript_BallShop5B8Q::
 	pokemart Common_Mart_BallShop5B8Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1450,7 +1450,7 @@ Common_Mart_BallShop5B8Q:
 
 Common_EventScript_BallShop5B9Q::
 	pokemart Common_Mart_BallShop5B9Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1477,7 +1477,7 @@ Common_Mart_BallShop5B9Q:
 
 Common_EventScript_BallShop5B10Q::
 	pokemart Common_Mart_BallShop5B10Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1505,7 +1505,7 @@ Common_Mart_BallShop5B10Q:
 
 Common_EventScript_BallShop5B11Q::
 	pokemart Common_Mart_BallShop5B11Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1550,7 +1550,7 @@ Common_EventScript_BallShop6Badge::
 
 Common_EventScript_BallShop6B0Q::
 	pokemart Common_Mart_BallShop6B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1569,7 +1569,7 @@ Common_Mart_BallShop6B0Q:
 
 Common_EventScript_BallShop6B1Q::
 	pokemart Common_Mart_BallShop6B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1589,7 +1589,7 @@ Common_Mart_BallShop6B1Q:
 
 Common_EventScript_BallShop6B2Q::
 	pokemart Common_Mart_BallShop6B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1610,7 +1610,7 @@ Common_Mart_BallShop6B2Q:
 
 Common_EventScript_BallShop6B3Q::
 	pokemart Common_Mart_BallShop6B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1632,7 +1632,7 @@ Common_Mart_BallShop6B3Q:
 
 Common_EventScript_BallShop6B4Q::
 	pokemart Common_Mart_BallShop6B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1655,7 +1655,7 @@ Common_Mart_BallShop6B4Q:
 
 Common_EventScript_BallShop6B5Q::
 	pokemart Common_Mart_BallShop6B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1679,7 +1679,7 @@ Common_Mart_BallShop6B5Q:
 
 Common_EventScript_BallShop6B6Q::
 	pokemart Common_Mart_BallShop6B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1704,7 +1704,7 @@ Common_Mart_BallShop6B6Q:
 
 Common_EventScript_BallShop6B7Q::
 	pokemart Common_Mart_BallShop6B7Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1730,7 +1730,7 @@ Common_Mart_BallShop6B7Q:
 
 Common_EventScript_BallShop6B8Q::
 	pokemart Common_Mart_BallShop6B8Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1757,7 +1757,7 @@ Common_Mart_BallShop6B8Q:
 
 Common_EventScript_BallShop6B9Q::
 	pokemart Common_Mart_BallShop6B9Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1785,7 +1785,7 @@ Common_Mart_BallShop6B9Q:
 
 Common_EventScript_BallShop6B10Q::
 	pokemart Common_Mart_BallShop6B10Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1814,7 +1814,7 @@ Common_Mart_BallShop6B10Q:
 
 Common_EventScript_BallShop6B11Q::
 	pokemart Common_Mart_BallShop6B11Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1844,7 +1844,7 @@ Common_Mart_BallShop6B11Q:
 
 Common_EventScript_BallShop6B12Q::
 	pokemart Common_Mart_BallShop6B12Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1875,7 +1875,7 @@ Common_Mart_BallShop6B12Q:
 
 Common_EventScript_BallShop6B13Q::
 	pokemart Common_Mart_BallShop6B13Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1923,7 +1923,7 @@ Common_EventScript_BallShop7Badge::
 
 Common_EventScript_BallShop7B0Q::
 	pokemart Common_Mart_BallShop7B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1943,7 +1943,7 @@ Common_Mart_BallShop7B0Q:
 
 Common_EventScript_BallShop7B1Q::
 	pokemart Common_Mart_BallShop7B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1964,7 +1964,7 @@ Common_Mart_BallShop7B1Q:
 
 Common_EventScript_BallShop7B2Q::
 	pokemart Common_Mart_BallShop7B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1986,7 +1986,7 @@ Common_Mart_BallShop7B2Q:
 
 Common_EventScript_BallShop7B3Q::
 	pokemart Common_Mart_BallShop7B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2009,7 +2009,7 @@ Common_Mart_BallShop7B3Q:
 
 Common_EventScript_BallShop7B4Q::
 	pokemart Common_Mart_BallShop7B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2033,7 +2033,7 @@ Common_Mart_BallShop7B4Q:
 
 Common_EventScript_BallShop7B5Q::
 	pokemart Common_Mart_BallShop7B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2058,7 +2058,7 @@ Common_Mart_BallShop7B5Q:
 
 Common_EventScript_BallShop7B6Q::
 	pokemart Common_Mart_BallShop7B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2084,7 +2084,7 @@ Common_Mart_BallShop7B6Q:
 
 Common_EventScript_BallShop7B7Q::
 	pokemart Common_Mart_BallShop7B7Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2111,7 +2111,7 @@ Common_Mart_BallShop7B7Q:
 
 Common_EventScript_BallShop7B8Q::
 	pokemart Common_Mart_BallShop7B8Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2139,7 +2139,7 @@ Common_Mart_BallShop7B8Q:
 
 Common_EventScript_BallShop7B9Q::
 	pokemart Common_Mart_BallShop7B9Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2168,7 +2168,7 @@ Common_Mart_BallShop7B9Q:
 
 Common_EventScript_BallShop7B10Q::
 	pokemart Common_Mart_BallShop7B10Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2198,7 +2198,7 @@ Common_Mart_BallShop7B10Q:
 
 Common_EventScript_BallShop7B11Q::
 	pokemart Common_Mart_BallShop7B11Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2229,7 +2229,7 @@ Common_Mart_BallShop7B11Q:
 
 Common_EventScript_BallShop7B12Q::
 	pokemart Common_Mart_BallShop7B12Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2261,7 +2261,7 @@ Common_Mart_BallShop7B12Q:
 
 Common_EventScript_BallShop7B13Q::
 	pokemart Common_Mart_BallShop7B13Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2311,7 +2311,7 @@ Common_EventScript_BallShop8Badge::
 
 Common_EventScript_BallShop8B0Q::
 	pokemart Common_Mart_BallShop8B0Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2332,7 +2332,7 @@ Common_Mart_BallShop8B0Q:
 
 Common_EventScript_BallShop8B1Q::
 	pokemart Common_Mart_BallShop8B1Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2354,7 +2354,7 @@ Common_Mart_BallShop8B1Q:
 
 Common_EventScript_BallShop8B2Q::
 	pokemart Common_Mart_BallShop8B2Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2377,7 +2377,7 @@ Common_Mart_BallShop8B2Q:
 
 Common_EventScript_BallShop8B3Q::
 	pokemart Common_Mart_BallShop8B3Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2401,7 +2401,7 @@ Common_Mart_BallShop8B3Q:
 
 Common_EventScript_BallShop8B4Q::
 	pokemart Common_Mart_BallShop8B4Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2426,7 +2426,7 @@ Common_Mart_BallShop8B4Q:
 
 Common_EventScript_BallShop8B5Q::
 	pokemart Common_Mart_BallShop8B5Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2452,7 +2452,7 @@ Common_Mart_BallShop8B5Q:
 
 Common_EventScript_BallShop8B6Q::
 	pokemart Common_Mart_BallShop8B6Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2479,7 +2479,7 @@ Common_Mart_BallShop8B6Q:
 
 Common_EventScript_BallShop8B7Q::
 	pokemart Common_Mart_BallShop8B7Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2507,7 +2507,7 @@ Common_Mart_BallShop8B7Q:
 
 Common_EventScript_BallShop8B8Q::
 	pokemart Common_Mart_BallShop8B8Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2536,7 +2536,7 @@ Common_Mart_BallShop8B8Q:
 
 Common_EventScript_BallShop8B9Q::
 	pokemart Common_Mart_BallShop8B9Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2566,7 +2566,7 @@ Common_Mart_BallShop8B9Q:
 
 Common_EventScript_BallShop8B10Q::
 	pokemart Common_Mart_BallShop8B10Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2597,7 +2597,7 @@ Common_Mart_BallShop8B10Q:
 
 Common_EventScript_BallShop8B11Q::
 	pokemart Common_Mart_BallShop8B11Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2629,7 +2629,7 @@ Common_Mart_BallShop8B11Q:
 
 Common_EventScript_BallShop8B12Q::
 	pokemart Common_Mart_BallShop8B12Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2662,7 +2662,7 @@ Common_Mart_BallShop8B12Q:
 
 Common_EventScript_BallShop8B13Q::
 	pokemart Common_Mart_BallShop8B13Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 
@@ -2696,7 +2696,7 @@ Common_Mart_BallShop8B13Q:
 
 Common_EventScript_BallShop8B14Q::
 	pokemart Common_Mart_BallShop8B14Q
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
 

@@ -202,7 +202,7 @@ const struct Item gItems[] =
     [ITEM_LURE_BALL] =
     {
         .name = _("Lure Ball"),
-        .price = 0,
+        .price = 700,
         .description = sLureBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,

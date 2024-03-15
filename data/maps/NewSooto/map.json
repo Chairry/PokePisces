@@ -25,7 +25,45 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NEWSPAPER",
+      "x": 37,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewSooto_EventScript_PaperSeller",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DRAKE",
+      "x": 32,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 15,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+    }
   ],
   "warp_events": [
     {
@@ -128,7 +166,51 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_NEW_COO_STATE",
+      "var_value": "1",
+      "script": "NewSooto_EventScript_TakePlayerToCave1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_NEW_COO_STATE",
+      "var_value": "1",
+      "script": "NewSooto_EventScript_TakePlayerToCave2"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_NEW_COO_STATE",
+      "var_value": "1",
+      "script": "NewSooto_EventScript_TakePlayerToCave3"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_NEW_COO_STATE",
+      "var_value": "1",
+      "script": "NewSooto_EventScript_TakePlayerToCave4"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 30,
+      "elevation": 0,
+      "var": "VAR_NEW_COO_STATE",
+      "var_value": "0",
+      "script": "NewSooto_EventScript_DontGoInCave"
+    }
   ],
   "bg_events": [
     {

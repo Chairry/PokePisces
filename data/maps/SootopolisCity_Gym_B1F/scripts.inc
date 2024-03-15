@@ -69,7 +69,10 @@ SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
 	clearflag FLAG_PISCES_D
 	clearflag FLAG_PISCES_E
 	clearflag FLAG_PISCES_F
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
 	addvar VAR_PISCES_STORY_PROGRESS, 1
+	setvar VAR_BIRCH_LAB_STATE, 8
+	setvar VAR_NEW_COO_STATE, 1
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 6
