@@ -86,6 +86,7 @@ enum
     MUGSHOT_JERRY, // OBJ_EVENT_GFX_MART_EMPLOYEE
     MUGSHOT_JENNIE, // OBJ_EVENT_GFX_WOMAN_3
     MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_DELINQUENT
+    MUGSHOT_KODOUGH, // OBJ_EVENT_GFX_WINGULL
     MUGSHOT_COUNT,
 };
 
@@ -565,6 +566,7 @@ static const struct SellerMugshot sSellerMugshots[] = {
     MUGSHOT(JERRY, MART_EMPLOYEE, Jerry),
     {{.gfxId=OBJ_EVENT_GFX_WOMAN_3}, .gfx=gShopMenuSellerMugshotGfx_Jennie, .pal=gShopMenuSellerMugshotPal_Jennie},
     {{.gfxId=OBJ_EVENT_GFX_DELINQUENT}, .gfx=gShopMenuSellerMugshotGfx_Purplina, .pal=gShopMenuSellerMugshotPal_Purplina},
+    {{.gfxId=OBJ_EVENT_GFX_WINGULL}, .gfx=gShopMenuSellerMugshotGfx_Kodough, .pal=gShopMenuSellerMugshotPal_Kodough},
 };
 
 static u8 CreateShopMenu(u8 martType)

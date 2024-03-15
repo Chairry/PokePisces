@@ -10796,6 +10796,9 @@ extern const u16 gShopMenuSellerMugshotPal_Jennie[];
 extern const u8 gShopMenuSellerMugshotGfx_Purplina[];
 extern const u16 gShopMenuSellerMugshotPal_Purplina[];
 
+extern const u8 gShopMenuSellerMugshotGfx_Kodough[];
+extern const u16 gShopMenuSellerMugshotPal_Kodough[];
+
 extern const u32 gBattleInterface_BallStatusBarGfx[];
 extern const u8 gBattleInterface_BallDisplayGfx[];
 extern const u16 gBattleInterface_BallStatusBarPal[];
