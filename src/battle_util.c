@@ -10081,7 +10081,8 @@ static inline uq4_12_t GetBurnOrFrostBiteOrPanicModifier(u32 battlerAtk, u32 mov
     if (gBattleMons[battlerAtk].status1 & STATUS1_FROSTBITE && IS_MOVE_SPECIAL(move) && !FACADE_PREVENTS_BURN_MALUS(move) && abilityAtk != ABILITY_GUTS)
         return UQ_4_12(0.5);
     if (gBattleMons[battlerAtk].status1 & STATUS1_PANIC
-        && abilityAtk != ABILITY_GUTS)
+        && abilityAtk != ABILITY_GUTS
+        && !FACADE_PREVENTS_BURN_MALUS(move))
         return UQ_4_12(0.9);
     return UQ_4_12(1.0);
 }

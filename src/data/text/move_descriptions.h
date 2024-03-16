@@ -1069,8 +1069,8 @@ static const u8 sMementoDescription[] = _(
     "the foe's abilities.");
 
 static const u8 sFacadeDescription[] = _(
-    "Boosts Attack when burned,\n"
-    "paralyzed, or poisoned.");
+    "Boosts power when inflicted\n"
+    "with certain status problems.");
 
 static const u8 sFocusPunchDescription[] = _(
     "A powerful loyalty attack.\n"
