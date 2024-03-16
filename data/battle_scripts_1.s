@@ -6802,7 +6802,7 @@ BattleScript_EffectFakeOut::
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
 	setmoveeffect MOVE_EFFECT_FLINCH | MOVE_EFFECT_CERTAIN
 	seteffectwithchance
-	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectTearfulLook
+	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectSpeedDown
 	goto BattleScript_EffectHit
 
 BattleScript_FailedFromAtkCanceler::

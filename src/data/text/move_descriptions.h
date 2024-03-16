@@ -2221,8 +2221,8 @@ static const u8 sTrickOrTreatDescription[] = _(
     "and trades held items.");
 
 static const u8 sNobleRoarDescription[] = _(
-    "A 1st-turn move that cuts\n"
-    "Atk/Spd and flinches.");
+    "A 1st-turn move that lowers\n"
+    "the foe's Speed and flinches.");
 
 static const u8 sIonDelugeDescription[] = _(
     "Electrifies Normal-type\n"
