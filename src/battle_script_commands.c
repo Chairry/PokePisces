@@ -4041,25 +4041,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     }
                 }
                 break;
-            case MOVE_EFFECT_HEART_STAMP:
-                {
-                    u32 HeartStamprandomFlinchChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
-
-                    if (HeartStamprandomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
-                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
-                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
-
-                    if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
-                    {
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_HeartStampDefDown2;
-                    }
-                    else
-                    {
-                        gBattlescriptCurrInstr++;
-                    }
-                }
-                break;
             case MOVE_EFFECT_METEOR_MASH:
                 {
                     u32 MeteorMashrandomRaiseAttackChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
