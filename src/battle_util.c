@@ -9714,6 +9714,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2) && IsMoveDraining(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.75));
         break;
+    case ABILITY_POWER_SPIKE:
+        if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2) && gBattleMoves[move].piercingMove)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.75));
+        break;
     case ABILITY_OVERGROW:
         if (moveType == TYPE_GRASS && gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
