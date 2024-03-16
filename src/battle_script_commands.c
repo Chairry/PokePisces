@@ -903,8 +903,8 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
     [MOVE_EFFECT_PANIC]          = STATUS1_PANIC,
-    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING_TURN(3),
     [MOVE_EFFECT_EXPOSED]        = STATUS1_EXPOSED,
+    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING_TURN(3),
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
     [MOVE_EFFECT_UPROAR]         = STATUS2_UPROAR,
@@ -930,8 +930,8 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
     [MOVE_EFFECT_PANIC]            = BattleScript_MoveEffectPanic,
-    [MOVE_EFFECT_BLOOMING]         = BattleScript_MoveEffectBlooming,
     [MOVE_EFFECT_EXPOSED]          = BattleScript_MoveEffectExposed,
+    [MOVE_EFFECT_BLOOMING]         = BattleScript_MoveEffectBlooming,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
