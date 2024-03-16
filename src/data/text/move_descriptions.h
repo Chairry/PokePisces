@@ -3540,6 +3540,18 @@ static const u8 sSolarFlareDescription[] = _(
     "The blazing sun shines\n"
     "through the dark.");
 
+static const u8 sCreepyCrawlDescription[] = _(
+    "Multiples legs crawls on\n"
+    "the foe, causing Panic.");
+
+static const u8 sPesterRaidDescription[] = _(
+    "Ignores foe's stats, barriers,\n"
+    "protection, and substitute.");
+
+static const u8 sBenthicWhipDescription[] = _(
+    "This move's power is greatly\n"
+    "boosted when it is resisted.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4464,4 +4476,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DARK_TIDE - 1] = sDarkTideDescription,
     [MOVE_SOLAR_FLARE - 1] = sSolarFlareDescription,
     [MOVE_ODD_STEP - 1] = sFoulPlayDescription,
+    [MOVE_CREEPY_CRAWL - 1] = sCreepyCrawlDescription,
+    [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
+    [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
 };

@@ -916,6 +916,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DARK_TIDE] = _("Dark Tide"),
     [MOVE_SOLAR_FLARE] = _("Solar Flare"),
     [MOVE_ODD_STEP] = _("Odd Step"),
+    [MOVE_CREEPY_CRAWL] = _("Creepy Crawl"),
+    [MOVE_PESTER_RAID] = _("Pester Raid"),
+    [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
 };
 #else
 // 12 letters
@@ -1835,6 +1838,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DARK_TIDE] = _("Dark Tide"),
     [MOVE_SOLAR_FLARE] = _("Solar Flare"),
     [MOVE_ODD_STEP] = _("Odd Step"),
+    [MOVE_CREEPY_CRAWL] = _("Creepy Crawl"),
+    [MOVE_PESTER_RAID] = _("Pester Raid"),
+    [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
 };
 #endif
 

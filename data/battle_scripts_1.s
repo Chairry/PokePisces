@@ -6359,6 +6359,9 @@ BattleScript_EffectSafeguard::
 	goto BattleScript_PrintReflectLightScreenSafeguardString
 
 BattleScript_EffectMagnitude::
+	jumpifmove MOVE_MAGNITUDE, BattleScriptContinueMagnitude
+	setmoveeffect MOVE_EFFECT_PANIC
+BattleScriptContinueMagnitude::
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
 	attackcanceler
 	attackstring
@@ -11482,10 +11485,9 @@ BattleScript_ItemHealHP_Ret::
 
 BattleScript_AbilityHealHP_Ret::
 	call BattleScript_AbilityPopUpTarget
-	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNRESTOREDHPUSING
 	waitmessage B_WAIT_TIME_SHORTEST
-	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE | HITMARKER_PASSIVE_DAMAGE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	return

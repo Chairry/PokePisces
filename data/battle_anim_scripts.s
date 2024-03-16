@@ -942,6 +942,9 @@ gBattleAnims_Moves::
 	.4byte Move_DARK_TIDE
 	.4byte Move_SOLAR_FLARE
 	.4byte Move_ODD_STEP
+	.4byte Move_CREEPY_CRAWL
+	.4byte Move_PESTER_RAID
+	.4byte Move_BENTHIC_WHIP
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -20476,6 +20479,15 @@ Move_SOLAR_FLARE::
 
 Move_ODD_STEP::
 	goto Move_AQUA_STEP
+
+Move_CREEPY_CRAWL::
+	goto Move_SAVAGE_SPIN_OUT
+
+Move_PESTER_RAID::
+	goto Move_INFESTATION
+
+Move_BENTHIC_WHIP::
+	goto Move_VINE_WHIP
 
 Move_TERA_BLAST::
 Move_AXE_KICK::
