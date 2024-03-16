@@ -13577,7 +13577,7 @@ static void Cmd_healpartystatus(void)
 
         if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SOUNDPROOF)
         {
-            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
+            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
         }
         else
@@ -13593,7 +13593,7 @@ static void Cmd_healpartystatus(void)
         {
             if (GetBattlerAbility(battler) != ABILITY_SOUNDPROOF)
             {
-                gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+                gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
                 gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
             }
             else
@@ -13633,14 +13633,14 @@ static void Cmd_healpartystatus(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOOTHING_AROMA;
         toHeal = (1 << PARTY_SIZE) - 1;
 
-        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
+        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
 
         battler = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerAttacker)));
         if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
             && !(gAbsentBattlerFlags & gBitTable[battler]))
         {
-            gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
             gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
         }
 
