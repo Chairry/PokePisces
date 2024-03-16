@@ -9561,7 +9561,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .pp = 10,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 3,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_DEF_UP_1,
         .magicCoatAffected = TRUE,
@@ -11147,7 +11147,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_TEARFUL_LOOK] =
     {
-        .effect = EFFECT_NOBLE_ROAR,
+        .effect = EFFECT_TEARFUL_LOOK,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,

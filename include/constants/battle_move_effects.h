@@ -491,6 +491,7 @@
 #define EFFECT_PANIC_HIT                    485
 #define EFFECT_BLOOMING_HIT                 486
 #define EFFECT_EXPOSED_HIT                  487
-#define NUM_BATTLE_MOVE_EFFECTS             488
+#define EFFECT_TEARFUL_LOOK                 488
+#define NUM_BATTLE_MOVE_EFFECTS             489
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

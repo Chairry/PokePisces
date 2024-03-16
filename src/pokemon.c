@@ -7087,6 +7087,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PSN_ANY)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_PANICKED:
+                if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PANIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_BATTLE_TERRAIN:
                 if (gBattleTerrain == gEvolutionTable[species][i].param)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
