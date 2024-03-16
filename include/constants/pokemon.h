@@ -298,6 +298,7 @@
 #define EVO_HIT_BY_PIERCE_MOVE            53
 #define EVO_HIT_BY_BLUNT_MOVE             54
 #define EVO_MOVE_EIGHT_SEGMENT            55
+#define EVO_PANICKED                      56
 
 #define EVOS_PER_MON 10
 

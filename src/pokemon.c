@@ -7087,6 +7087,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PSN_ANY)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
+            case EVO_PANICKED:
+                if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PANIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_BATTLE_TERRAIN:
                 if (gBattleTerrain == gEvolutionTable[species][i].param)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
@@ -7329,12 +7333,12 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].slicingMove)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-            //case EVO_HIT_BY_PIERCE_MOVE:
-                //if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].piercingMove)
-                    //targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                //break;
+            case EVO_HIT_BY_PIERCE_MOVE:
+                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].piercingMove)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_HIT_BY_BLUNT_MOVE:
-                if (gLastHitBy[evolutionItem] == (gBattleMoves[evolutionItem].ballisticMove || gBattleMoves[evolutionItem].punchingMove))//|| gBattleMoves[evolutionItem].kickingMove))
+                if (gLastHitBy[evolutionItem] == (gBattleMoves[evolutionItem].ballisticMove || gBattleMoves[evolutionItem].punchingMove || gBattleMoves[evolutionItem].kickingMove))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }

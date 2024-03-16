@@ -1069,8 +1069,8 @@ static const u8 sMementoDescription[] = _(
     "the foe's abilities.");
 
 static const u8 sFacadeDescription[] = _(
-    "Boosts power when inflicted\n"
-    "with certain status problems.");
+    "Boosts power when the user\n"
+    "has certain status problems.");
 
 static const u8 sFocusPunchDescription[] = _(
     "A powerful loyalty attack.\n"
@@ -2221,8 +2221,8 @@ static const u8 sTrickOrTreatDescription[] = _(
     "and trades held items.");
 
 static const u8 sNobleRoarDescription[] = _(
-    "A 1st-turn move that flinches\n"
-    "and cuts Atk and Sp. Atk.");
+    "A 1st-turn move that lowers\n"
+    "the foe's Speed and flinches.");
 
 static const u8 sIonDelugeDescription[] = _(
     "Electrifies Normal-type\n"

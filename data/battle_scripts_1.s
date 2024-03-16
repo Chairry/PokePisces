@@ -514,6 +514,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPanicHit                @ EFFECT_PANIC_HIT
 	.4byte BattleScript_EffectBloomingHit             @ EFFECT_BLOOMING_HIT
 	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
+	.4byte BattleScript_EffectTearfulLook             @ EFFECT_TEARFUL_LOOK
 
 BattleScript_EffectWickedWinds::
 	call BattleScript_EffectHit_Ret
@@ -3466,12 +3467,13 @@ BattleScript_VenomDrenchTryLowerEvasion::
 BattleScript_VenomDrenchEnd::
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectNobleRoar:
+BattleScript_EffectTearfulLook:
+	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ATK, MIN_STAT_STAGE, BattleScript_NobleRoarDoMoveAnim
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ATK, MIN_STAT_STAGE, BattleScript_TearfulLookDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
-BattleScript_NobleRoarDoMoveAnim::
+BattleScript_TearfulLookDoMoveAnim::
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	attackanimation
 	waitanimation
@@ -3479,18 +3481,18 @@ BattleScript_NobleRoarDoMoveAnim::
 	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_SPEED, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_ATK, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_NobleRoarTryLowerSpAtk
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_NobleRoarTryLowerSpAtk
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_TearfulLookTryLowerSpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_TearfulLookTryLowerSpAtk
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_NobleRoarTryLowerSpAtk::
+BattleScript_TearfulLookTryLowerSpAtk::
 	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_SPEED, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_NobleRoarEnd
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_NobleRoarEnd
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_TearfulLookEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_TearfulLookEnd
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_NobleRoarEnd::
+BattleScript_TearfulLookEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectShellSmash:
@@ -6800,7 +6802,7 @@ BattleScript_EffectFakeOut::
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
 	setmoveeffect MOVE_EFFECT_FLINCH | MOVE_EFFECT_CERTAIN
 	seteffectwithchance
-	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectNobleRoar
+	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectSpeedDown
 	goto BattleScript_EffectHit
 
 BattleScript_FailedFromAtkCanceler::
