@@ -2,6 +2,8 @@
 #include "battle_anim.h"
 #include "trig.h"
 #include "constants/rgb.h"
+#include "constants/moves.h"
+#include "constants/battle.h"
 
 static void AnimSludgeProjectile(struct Sprite *);
 static void AnimSludgeProjectile_Step(struct Sprite *);
@@ -528,7 +530,7 @@ static void AnimAcidPoisonDroplet(struct Sprite *sprite)
 // arg 2: 0 = single-target, 1 = multi-target
 void AnimBubbleEffect(struct Sprite *sprite)
 {
-    if (!gBattleAnimArgs[2])
+    if ((!gBattleAnimArgs[2]) || (gCurrentMove = MOVE_BOUNCY_BUBBLE))
     {
         InitSpritePosToAnimTarget(sprite, TRUE);
     }

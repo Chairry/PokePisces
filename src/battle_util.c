@@ -3668,6 +3668,10 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 {
                     BattleScriptPushCursor();
                 }
+                else if (gCurrentMove == MOVE_HEART_CARVE)
+                {
+                    BattleScriptPushCursor();
+                }
                 else
                 {
                     BattleScriptPush(BattleScript_MoveUsedIsInLoveCantAttack);
@@ -5371,13 +5375,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         switch (gLastUsedAbility)
         {
         case ABILITY_GHOULISH:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && !BATTLER_MAX_HP(battler) && gBattlerAttacker != gBattlerTarget)
             {
                 gEffectBattler = battler;
-                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / 3) * -1;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / 3);
                 if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = -1;
-                gSpecialStatuses[gBattlerTarget].dmg = 0;
+                    gBattleMoveDamage = 1;
+                gBattleMoveDamage *= -1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, GetBattlerAbility(gBattlerTarget));
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AbilityHealHP_Ret;
@@ -10081,7 +10085,8 @@ static inline uq4_12_t GetBurnOrFrostBiteOrPanicModifier(u32 battlerAtk, u32 mov
     if (gBattleMons[battlerAtk].status1 & STATUS1_FROSTBITE && IS_MOVE_SPECIAL(move) && !FACADE_PREVENTS_BURN_MALUS(move) && abilityAtk != ABILITY_GUTS)
         return UQ_4_12(0.5);
     if (gBattleMons[battlerAtk].status1 & STATUS1_PANIC
-        && abilityAtk != ABILITY_GUTS)
+        && abilityAtk != ABILITY_GUTS
+        && !FACADE_PREVENTS_BURN_MALUS(move))
         return UQ_4_12(0.9);
     return UQ_4_12(1.0);
 }

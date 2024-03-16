@@ -598,13 +598,11 @@ BattleScript_EffectSandTombLowerDefense::
 	goto BattleScript_EffectHit
 
 BattleScript_EffectScorpFang::
-	setmoveeffect MOVE_EFFECT_SMACK_DOWN
+	setmoveeffect MOVE_EFFECT_SMACK_DOWN | MOVE_EFFECT_CERTAIN
 	seteffectprimary
-	seteffectwithchance
 	call BattleScript_EffectHit_Ret
-	setmoveeffect MOVE_EFFECT_TOXIC
+	setmoveeffect MOVE_EFFECT_TOXIC | MOVE_EFFECT_CERTAIN
 	seteffectsecondary
-	seteffectwithchance
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
@@ -618,31 +616,31 @@ BattleScript_AllStatsDownAtk::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
 	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_ATK, 1, FALSE
+	setstatchanger STAT_ATK, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsDownDef
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_AllStatsDownDef::
 	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_DEF, 1, FALSE
+	setstatchanger STAT_DEF, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsDownSpeed
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_AllStatsDownSpeed::
 	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_SPEED, 1, FALSE
+	setstatchanger STAT_SPEED, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsDownSpAtk
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_AllStatsDownSpAtk::
 	playstatchangeanimation BS_TARGET, BIT_SPATK, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_SPATK, 1, FALSE
+	setstatchanger STAT_SPATK, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsDownSpDef
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_AllStatsDownSpDef::
 	playstatchangeanimation BS_TARGET, BIT_SPDEF, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_SPDEF, 1, FALSE
+	setstatchanger STAT_SPDEF, 1, TRUE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsDownRet
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -1042,7 +1040,14 @@ BattleScript_MeditateEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectHeartStamp:
-	setmoveeffect MOVE_EFFECT_HEART_STAMP
+	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_HeartStampAgainstInfatuated
+	setmoveeffect MOVE_EFFECT_FLINCH
+	goto BattleScript_EffectHit
+BattleScript_HeartStampAgainstInfatuated::
+	setmoveeffect MOVE_EFFECT_FLINCH
+	seteffectprimary
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_2 | MOVE_EFFECT_CERTAIN
+	seteffectsecondary
 	goto BattleScript_EffectHit
 
 BattleScript_EffectCharm:
@@ -1504,6 +1509,7 @@ BattleScript_EffectFilletAway:
 	attackstring
 	ppreduce
 	cutonethirdhpraisestats BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
@@ -2580,11 +2586,6 @@ BattleScript_DoubleShockRemoveType::
 BattleScript_DefDown::
 	modifybattlerstatstage BS_TARGET, STAT_DEF, DECREASE, 1, BattleScript_DefDown_Ret, ANIM_ON
 BattleScript_DefDown_Ret:
-	return
-
-BattleScript_HeartStampDefDown2::
-	modifybattlerstatstage BS_TARGET, STAT_DEF, DECREASE, 2, BattleScript_HeartStampDefDown2_Ret, ANIM_ON
-BattleScript_HeartStampDefDown2_Ret:
 	return
 
 BattleScript_EffectPurify:
@@ -4362,8 +4363,12 @@ BattleScript_EffectRoost:
 	goto BattleScript_PresentHealTarget
 
 BattleScript_EffectCaptivate:
-	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectSpecialAttackDown2 
-	setstatchanger STAT_ATK, 2, TRUE
+	jumpifstatus2 BS_TARGET, STATUS2_INFATUATION, BattleScript_EffectSpecialAttackDown3 
+	setstatchanger STAT_SPATK, 2, TRUE
+	goto BattleScript_EffectStatDown
+
+BattleScript_EffectSpecialAttackDown3:
+	setstatchanger STAT_SPATK, 3, TRUE
 	goto BattleScript_EffectStatDown
 
 BattleScript_EffectHealBlock:
@@ -6794,6 +6799,7 @@ BattleScript_EffectFakeOut::
 	attackcanceler
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
 	setmoveeffect MOVE_EFFECT_FLINCH | MOVE_EFFECT_CERTAIN
+	seteffectwithchance
 	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectNobleRoar
 	goto BattleScript_EffectHit
 
@@ -11477,6 +11483,7 @@ BattleScript_AbilityHealHP_Ret::
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNRESTOREDHPUSING
 	waitmessage B_WAIT_TIME_SHORTEST
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	return

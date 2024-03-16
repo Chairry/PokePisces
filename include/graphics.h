@@ -11044,7 +11044,6 @@ extern const u32 gBattleAnimSpriteGfx_Bubble[];
 extern const u32 gBattleAnimSpriteGfx_Orbs[];
 extern const u32 gBattleAnimSpriteGfx_WaterImpact[];
 extern const u32 gBattleAnimSpriteGfx_DragonHead[];
-extern const u32 gBattleAnimSpriteGfx_DragonHeadWhat[];
 extern const u32 gBattleAnimSpriteGfx_DragonHeadOpponent[];
 extern const u32 gBattleAnimSpriteGfx_RealDragonOrb[];
 extern const u32 gBattleAnimSpriteGfx_WaterOrb[];

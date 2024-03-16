@@ -903,8 +903,8 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_TOXIC]          = STATUS1_TOXIC_POISON,
     [MOVE_EFFECT_FROSTBITE]      = STATUS1_FROSTBITE,
     [MOVE_EFFECT_PANIC]          = STATUS1_PANIC,
-    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING_TURN(3),
     [MOVE_EFFECT_EXPOSED]        = STATUS1_EXPOSED,
+    [MOVE_EFFECT_BLOOMING]       = STATUS1_BLOOMING_TURN(3),
     [MOVE_EFFECT_CONFUSION]      = STATUS2_CONFUSION,
     [MOVE_EFFECT_FLINCH]         = STATUS2_FLINCHED,
     [MOVE_EFFECT_UPROAR]         = STATUS2_UPROAR,
@@ -930,8 +930,8 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
     [MOVE_EFFECT_PANIC]            = BattleScript_MoveEffectPanic,
-    [MOVE_EFFECT_BLOOMING]         = BattleScript_MoveEffectBlooming,
     [MOVE_EFFECT_EXPOSED]          = BattleScript_MoveEffectExposed,
+    [MOVE_EFFECT_BLOOMING]         = BattleScript_MoveEffectBlooming,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -3172,8 +3172,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
             if (gBattleMons[gEffectBattler].status1)
                 break;     
-            statusChanged = TRUE;    
-            break;
+            if (CanGetFrostbite(gEffectBattler))
+                statusChanged = TRUE;
+                break;
         case STATUS1_PANIC:
             if (!CanGetPanicked(gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
@@ -3187,9 +3188,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             if (gBattleMons[gEffectBattler].status1)
                 break;     
-            //if (CanGetPanicked(gEffectBattler))
+            if (CanGetPanicked(gEffectBattler))
             statusChanged = TRUE;
-                //break;
+                break;
             break;
         case STATUS1_BLOOMING:
             if (!CanStartBlooming(gEffectBattler)
@@ -4033,25 +4034,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDown;
-                    }
-                    else
-                    {
-                        gBattlescriptCurrInstr++;
-                    }
-                }
-                break;
-            case MOVE_EFFECT_HEART_STAMP:
-                {
-                    u32 HeartStamprandomFlinchChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
-
-                    if (HeartStamprandomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
-                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
-                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
-
-                    if (gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
-                    {
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_HeartStampDefDown2;
                     }
                     else
                     {
@@ -13595,7 +13577,7 @@ static void Cmd_healpartystatus(void)
 
         if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SOUNDPROOF)
         {
-            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
+            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
         }
         else
@@ -13611,7 +13593,7 @@ static void Cmd_healpartystatus(void)
         {
             if (GetBattlerAbility(battler) != ABILITY_SOUNDPROOF)
             {
-                gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+                gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
                 gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
             }
             else
@@ -13651,14 +13633,14 @@ static void Cmd_healpartystatus(void)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOOTHING_AROMA;
         toHeal = (1 << PARTY_SIZE) - 1;
 
-        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_BLOOMING;
+        gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
 
         battler = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gBattlerAttacker)));
         if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
             && !(gAbsentBattlerFlags & gBitTable[battler]))
         {
-            gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+            gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
             gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
         }
 

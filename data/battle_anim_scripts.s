@@ -13433,16 +13433,27 @@ Move_PIKA_PAPOW::
 Move_BOUNCY_BUBBLE::
 	loadspritegfx ANIM_TAG_BUBBLE
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
 	delay 1
-	call BulbblebeamCreateBubbles
-	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 12, RGB(13, 12, 31)
+	waitforvisualfinish
+	playsewithpan SE_M_ABSORB, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 0
+	delay 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
 	waitforvisualfinish
 	call WaterBubblesEffectLong
+	call GigaDrainAbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 12, 0, RGB(13, 12, 31)
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
@@ -17336,6 +17347,9 @@ Move_POUNCE:
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0xffce, 0xffd8, 0x6
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0xffd8, 0x28, 0x6
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0x32, 0xffce, 0x6
+	delay 1
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -16, 0, 0, 4
+	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 11, 1
 	delay 0x2
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0x32, 0xffe2, 0x6
@@ -17355,6 +17369,11 @@ Move_POUNCE:
 	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
 	createsprite gLungeGreenImpactTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0x1, 0x2
 	waitforvisualfinish
+	delay 2
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
+	delay 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
+	waitforvisualfinish	
 	visible ANIM_ATTACKER
 	clearmonbg ANIM_DEF_PARTNER
 	end
@@ -24228,7 +24247,7 @@ Move_AROMATHERAPY:
 	createsprite gSparklingStarsSpriteTemplate, ANIM_ATTACKER, 16, 12, -5, 0, 0, 32, 60, 1
 	waitforvisualfinish
 	playsewithpan SE_SHINY, SOUND_PAN_ATTACKER
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG | F_PAL_ATK_SIDE | F_PAL_ANIM_1, 3, 10, 0, RGB(13, 31, 12)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG, 3, 10, 0, RGB(13, 31, 12)
 	createsprite gBlendThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 16, 0, 0, 0, 1
 	waitforvisualfinish
 	end
@@ -25156,31 +25175,21 @@ Move_BUBBLE:
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	delay 1
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 128, 100
+	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 15, -15, 10, 20, 20
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	delay 6
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 37, 40, 128, 100
+	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 20
+	delay 1
+	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 37, 40, 20, 20
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	delay 6
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 10, -37, 30, 128, 100
+	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 20
+	delay 1
+	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 33, 20, 20, 20
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	delay 6
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 30, 10, 15, 128, 100
+	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 20
+	delay 1
+	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 20, 20
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	delay 6
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 20, 33, 20, 128, 100
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	delay 6
-	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 25, -30, 10, 128, 100
-	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
-	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 100
-	waitforvisualfinish
-	call WaterBubblesEffectLong
+	waitplaysewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET, 20
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
