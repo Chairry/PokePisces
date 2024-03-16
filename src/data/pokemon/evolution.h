@@ -548,7 +548,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_MANDIMYTE]             = {{EVO_LEVEL, 20, SPECIES_TERMINYTE}},
     [SPECIES_SNOTLOUD]              = {{EVO_LEVEL, 38, SPECIES_SICKBEAT}},
     [SPECIES_SPRYTE]                = {{EVO_HIT_BY_SLASH_MOVE, 0, SPECIES_GUMONA},
-                                       //{EVO_HIT_BY_PIERCE_MOVE, 0, SPECIES_NANGGAL},
+                                       {EVO_HIT_BY_PIERCE_MOVE, 0, SPECIES_NANGGAL},
                                        {EVO_HIT_BY_BLUNT_MOVE, 0, SPECIES_SHEEDRAKE}},
     [SPECIES_BIVAGUE]               = {{EVO_LEVEL, 38, SPECIES_LUSCKAW},
                                        {EVO_ITEM_HOLD, ITEM_BIG_PEARL, SPECIES_SHELLYLOUH}},
