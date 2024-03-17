@@ -42,10 +42,11 @@
 #define MAP_SOOTO_RESTAURANT                  (21 | (1 << 8))
 
 // gMapGroup_PiscesPart2Major
-#define MAP_CAVE_OF_ORIGIN    (0 | (2 << 8))
-#define MAP_MANGROTTO_TUNNEL  (1 | (2 << 8))
-#define MAP_MOSSDEEP_CITY     (2 | (2 << 8))
-#define MAP_MOSSDEEP_CITY_GYM (3 | (2 << 8))
+#define MAP_CAVE_OF_ORIGIN       (0 | (2 << 8))
+#define MAP_MANGROTTO_TUNNEL     (1 | (2 << 8))
+#define MAP_MOSSDEEP_CITY        (2 | (2 << 8))
+#define MAP_MOSSDEEP_CITY_GYM    (3 | (2 << 8))
+#define MAP_COSMOSS_SPACE_CENTER (4 | (2 << 8))
 
 // gMapGroup_PiscesPart2Minor
 #define MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_2F (0 | (3 << 8))

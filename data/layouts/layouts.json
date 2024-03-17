@@ -5130,6 +5130,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/SootoRestaurant/border.bin",
       "blockdata_filepath": "data/layouts/SootoRestaurant/map.bin"
+    },
+    {
+      "id": "LAYOUT_COSMOSS_SPACE_CENTER",
+      "name": "CosmossSpaceCenter_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/CosmossSpaceCenter/border.bin",
+      "blockdata_filepath": "data/layouts/CosmossSpaceCenter/map.bin"
     }
   ]
 }

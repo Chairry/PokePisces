@@ -3256,3 +3256,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SootopolisInteriors/scripts.inc"
 
 	.include "data/maps/SootoRestaurant/scripts.inc"
+
+	.include "data/maps/CosmossSpaceCenter/scripts.inc"
