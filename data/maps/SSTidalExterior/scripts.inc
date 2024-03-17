@@ -8,7 +8,7 @@ SSTidalExterior_OnFrame:
 
 SSTidalExterior_EventScript_AllowedToLeave::
 	lockall
-	playse SE_SUCCESS
+	playse SE_RG_SS_ANNE_HORN
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	setflag FLAG_HIDE_SSTIDAL_SAILOR
 	msgbox SSTidalExterior_Text_AllowedToLeave, MSGBOX_DEFAULT
