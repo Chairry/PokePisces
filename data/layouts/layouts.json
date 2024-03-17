@@ -5134,8 +5134,8 @@
     {
       "id": "LAYOUT_COSMOSS_SPACE_CENTER",
       "name": "CosmossSpaceCenter_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 16,
+      "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/CosmossSpaceCenter/border.bin",
