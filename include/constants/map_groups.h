@@ -39,6 +39,7 @@
 #define MAP_SOOTOPOLIS_CITY                   (18 | (1 << 8))
 #define MAP_ROUTE131                          (19 | (1 << 8))
 #define MAP_ROUTE129                          (20 | (1 << 8))
+#define MAP_SOOTO_RESTAURANT                  (21 | (1 << 8))
 
 // gMapGroup_PiscesPart2Major
 #define MAP_CAVE_OF_ORIGIN    (0 | (2 << 8))
