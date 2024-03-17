@@ -97,53 +97,53 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 # 49 "data/maps/PacifidlogTown/scripts.pory"
 	clearflag FLAG_PISCES_F
 # 50 "data/maps/PacifidlogTown/scripts.pory"
-	setflag FLAG_HIDE_LAB_RANGERS
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
 # 51 "data/maps/PacifidlogTown/scripts.pory"
-	warp MAP_BIRCH_MARITIME_LAB, 9, 14
+	setflag FLAG_HIDE_LAB_RANGERS
 # 52 "data/maps/PacifidlogTown/scripts.pory"
-	waitstate
+	warp MAP_BIRCH_MARITIME_LAB, 9, 14
 # 53 "data/maps/PacifidlogTown/scripts.pory"
-	release
+	waitstate
 # 54 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	release
 # 55 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 56 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_BirchNotice:
+
 # 57 "data/maps/PacifidlogTown/scripts.pory"
-	emote_exclamation_mark
+PacifidlogTown_Movement_BirchNotice:
 # 58 "data/maps/PacifidlogTown/scripts.pory"
-	jump_in_place_right
+	emote_exclamation_mark
 # 59 "data/maps/PacifidlogTown/scripts.pory"
-	walk_fast_right
+	jump_in_place_right
 # 60 "data/maps/PacifidlogTown/scripts.pory"
 	walk_fast_right
 # 61 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
+	walk_fast_right
 # 62 "data/maps/PacifidlogTown/scripts.pory"
-
+	step_end
 # 63 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_PlayerNotice:
+
 # 64 "data/maps/PacifidlogTown/scripts.pory"
-	face_left
+PacifidlogTown_Movement_PlayerNotice:
 # 65 "data/maps/PacifidlogTown/scripts.pory"
-	delay_8
+	face_left
 # 66 "data/maps/PacifidlogTown/scripts.pory"
-	walk_left
+	delay_8
 # 67 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 68 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
-# 69 "data/maps/PacifidlogTown/scripts.pory"
-
-# 70 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_BirchWalk1:
-# 71 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
+# 69 "data/maps/PacifidlogTown/scripts.pory"
+	step_end
+# 70 "data/maps/PacifidlogTown/scripts.pory"
+
+# 71 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Movement_BirchWalk1:
 # 72 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 73 "data/maps/PacifidlogTown/scripts.pory"
-	walk_up
+	walk_left
 # 74 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 75 "data/maps/PacifidlogTown/scripts.pory"
@@ -163,7 +163,7 @@ PacifidlogTown_Movement_BirchWalk1:
 # 82 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 83 "data/maps/PacifidlogTown/scripts.pory"
-	walk_left
+	walk_up
 # 84 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 85 "data/maps/PacifidlogTown/scripts.pory"
@@ -185,21 +185,21 @@ PacifidlogTown_Movement_BirchWalk1:
 # 93 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 94 "data/maps/PacifidlogTown/scripts.pory"
-	face_right
-# 95 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
-# 96 "data/maps/PacifidlogTown/scripts.pory"
-
-# 97 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_PlayerWalk1:
-# 98 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
+# 95 "data/maps/PacifidlogTown/scripts.pory"
+	face_right
+# 96 "data/maps/PacifidlogTown/scripts.pory"
+	step_end
+# 97 "data/maps/PacifidlogTown/scripts.pory"
+
+# 98 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Movement_PlayerWalk1:
 # 99 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 100 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 101 "data/maps/PacifidlogTown/scripts.pory"
-	walk_up
+	walk_left
 # 102 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 103 "data/maps/PacifidlogTown/scripts.pory"
@@ -219,7 +219,7 @@ PacifidlogTown_Movement_PlayerWalk1:
 # 110 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 111 "data/maps/PacifidlogTown/scripts.pory"
-	walk_left
+	walk_up
 # 112 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 113 "data/maps/PacifidlogTown/scripts.pory"
@@ -239,13 +239,13 @@ PacifidlogTown_Movement_PlayerWalk1:
 # 120 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 121 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
-# 122 "data/maps/PacifidlogTown/scripts.pory"
-
-# 123 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_BirchWalk2:
-# 124 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
+# 122 "data/maps/PacifidlogTown/scripts.pory"
+	step_end
+# 123 "data/maps/PacifidlogTown/scripts.pory"
+
+# 124 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Movement_BirchWalk2:
 # 125 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 126 "data/maps/PacifidlogTown/scripts.pory"
@@ -267,17 +267,17 @@ PacifidlogTown_Movement_BirchWalk2:
 # 134 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 135 "data/maps/PacifidlogTown/scripts.pory"
-	walk_up
-# 136 "data/maps/PacifidlogTown/scripts.pory"
-	face_left
-# 137 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
-# 138 "data/maps/PacifidlogTown/scripts.pory"
-
-# 139 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_PlayerWalk2:
-# 140 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
+# 136 "data/maps/PacifidlogTown/scripts.pory"
+	walk_up
+# 137 "data/maps/PacifidlogTown/scripts.pory"
+	face_left
+# 138 "data/maps/PacifidlogTown/scripts.pory"
+	step_end
+# 139 "data/maps/PacifidlogTown/scripts.pory"
+
+# 140 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Movement_PlayerWalk2:
 # 141 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 142 "data/maps/PacifidlogTown/scripts.pory"
@@ -301,21 +301,21 @@ PacifidlogTown_Movement_PlayerWalk2:
 # 151 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 152 "data/maps/PacifidlogTown/scripts.pory"
-	face_left
+	walk_left
 # 153 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
+	face_left
 # 154 "data/maps/PacifidlogTown/scripts.pory"
-
+	step_end
 # 155 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_BirchWalk3:
+
 # 156 "data/maps/PacifidlogTown/scripts.pory"
-	walk_up
+PacifidlogTown_Movement_BirchWalk3:
 # 157 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 158 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 159 "data/maps/PacifidlogTown/scripts.pory"
-	walk_left
+	walk_up
 # 160 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 161 "data/maps/PacifidlogTown/scripts.pory"
@@ -323,17 +323,17 @@ PacifidlogTown_Movement_BirchWalk3:
 # 162 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 163 "data/maps/PacifidlogTown/scripts.pory"
-	walk_up
+	walk_left
 # 164 "data/maps/PacifidlogTown/scripts.pory"
-	face_down
-# 165 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
-# 166 "data/maps/PacifidlogTown/scripts.pory"
-
-# 167 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Movement_PlayerWalk3:
-# 168 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
+# 165 "data/maps/PacifidlogTown/scripts.pory"
+	face_down
+# 166 "data/maps/PacifidlogTown/scripts.pory"
+	step_end
+# 167 "data/maps/PacifidlogTown/scripts.pory"
+
+# 168 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Movement_PlayerWalk3:
 # 169 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 170 "data/maps/PacifidlogTown/scripts.pory"
@@ -341,7 +341,7 @@ PacifidlogTown_Movement_PlayerWalk3:
 # 171 "data/maps/PacifidlogTown/scripts.pory"
 	walk_up
 # 172 "data/maps/PacifidlogTown/scripts.pory"
-	walk_left
+	walk_up
 # 173 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 174 "data/maps/PacifidlogTown/scripts.pory"
@@ -349,794 +349,796 @@ PacifidlogTown_Movement_PlayerWalk3:
 # 175 "data/maps/PacifidlogTown/scripts.pory"
 	walk_left
 # 176 "data/maps/PacifidlogTown/scripts.pory"
-	face_up
+	walk_left
 # 177 "data/maps/PacifidlogTown/scripts.pory"
-	step_end
+	face_up
 # 178 "data/maps/PacifidlogTown/scripts.pory"
-
+	step_end
 # 179 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_NinjaBoy::
+
 # 180 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
+PacifidlogTown_EventScript_NinjaBoy::
 # 181 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
 # 182 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 183 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_Girl::
+
 # 184 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_FastRunningCurrent, MSGBOX_NPC
+PacifidlogTown_EventScript_Girl::
 # 185 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_FastRunningCurrent, MSGBOX_NPC
 # 186 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 187 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_Fisherman::
+
 # 188 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_SkyPillarTooScary, MSGBOX_NPC
+PacifidlogTown_EventScript_Fisherman::
 # 189 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_SkyPillarTooScary, MSGBOX_NPC
 # 190 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 191 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_TownSign::
+
 # 192 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
+PacifidlogTown_EventScript_TownSign::
 # 193 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
 # 194 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 195 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_RoadblockingFisherman_1::
+
 # 196 "data/maps/PacifidlogTown/scripts.pory"
-	lockall
+PacifidlogTown_EventScript_RoadblockingFisherman_1::
 # 197 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_CantGoPastUs1
-# 198 "data/maps/PacifidlogTown/scripts.pory"
-	releaseall
-# 199 "data/maps/PacifidlogTown/scripts.pory"
-	end
-# 200 "data/maps/PacifidlogTown/scripts.pory"
-
-# 201 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_RoadblockingFisherman_2::
-# 202 "data/maps/PacifidlogTown/scripts.pory"
 	lockall
-# 203 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_CantGoPastUs2
-# 204 "data/maps/PacifidlogTown/scripts.pory"
+# 198 "data/maps/PacifidlogTown/scripts.pory"
+	msgbox PacifidlogTown_Text_CantGoPastUs1
+# 199 "data/maps/PacifidlogTown/scripts.pory"
 	releaseall
+# 200 "data/maps/PacifidlogTown/scripts.pory"
+	end
+# 201 "data/maps/PacifidlogTown/scripts.pory"
+
+# 202 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_EventScript_RoadblockingFisherman_2::
+# 203 "data/maps/PacifidlogTown/scripts.pory"
+	lockall
+# 204 "data/maps/PacifidlogTown/scripts.pory"
+	msgbox PacifidlogTown_Text_CantGoPastUs2
 # 205 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	releaseall
 # 206 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 207 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_BetatestingRoadblock::
+
 # 208 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_Roadblockdeactivated, MSGBOX_NPC
+PacifidlogTown_EventScript_BetatestingRoadblock::
 # 209 "data/maps/PacifidlogTown/scripts.pory"
-	setflag FLAG_PACIFIDLOG_ROADBLOCK
+	msgbox PacifidlogTown_Text_Roadblockdeactivated, MSGBOX_NPC
 # 210 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	setflag FLAG_PACIFIDLOG_ROADBLOCK
 # 211 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 212 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_RestingSailor::
+
 # 213 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_RestingSailor, MSGBOX_NPC
+PacifidlogTown_EventScript_RestingSailor::
 # 214 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_RestingSailor, MSGBOX_NPC
 # 215 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 216 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_SwimmerF1::
+
 # 217 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_SwimmerF1, MSGBOX_NPC
+PacifidlogTown_EventScript_SwimmerF1::
 # 218 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_SwimmerF1, MSGBOX_NPC
 # 219 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 220 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_SwimmerF2::
+
 # 221 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_SwimmerF2, MSGBOX_NPC
+PacifidlogTown_EventScript_SwimmerF2::
 # 222 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_SwimmerF2, MSGBOX_NPC
 # 223 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 224 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_StockingSailor::
+
 # 225 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_StockingSailor, MSGBOX_NPC
+PacifidlogTown_EventScript_StockingSailor::
 # 226 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_StockingSailor, MSGBOX_NPC
 # 227 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 228 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_Wayfarer::
+
 # 229 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_Wayfarer, MSGBOX_NPC
+PacifidlogTown_EventScript_Wayfarer::
 # 230 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_Wayfarer, MSGBOX_NPC
 # 231 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 232 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_Seasheller1::
+
 # 233 "data/maps/PacifidlogTown/scripts.pory"
-	lock
+PacifidlogTown_EventScript_Seasheller1::
 # 234 "data/maps/PacifidlogTown/scripts.pory"
-	faceplayer
+	lock
 # 235 "data/maps/PacifidlogTown/scripts.pory"
-	goto_if_set FLAG_RECEIVED_SEASHELL_1, PacifidlogTown_EventScript_GaveShell
+	faceplayer
 # 236 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_HaveThisShell, MSGBOX_DEFAULT
+	goto_if_set FLAG_RECEIVED_SEASHELL_1, PacifidlogTown_EventScript_GaveShell
 # 237 "data/maps/PacifidlogTown/scripts.pory"
-	giveitem ITEM_SHOAL_SHELL
+	msgbox PacifidlogTown_Text_HaveThisShell, MSGBOX_DEFAULT
 # 238 "data/maps/PacifidlogTown/scripts.pory"
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_SHOAL_SHELL
 # 239 "data/maps/PacifidlogTown/scripts.pory"
-	setflag FLAG_RECEIVED_SEASHELL_1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 # 240 "data/maps/PacifidlogTown/scripts.pory"
-	release
+	setflag FLAG_RECEIVED_SEASHELL_1
 # 241 "data/maps/PacifidlogTown/scripts.pory"
-	end
-# 242 "data/maps/PacifidlogTown/scripts.pory"
-
-# 243 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_GaveShell::
-# 244 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_Seasheller1, MSGBOX_DEFAULT
-# 245 "data/maps/PacifidlogTown/scripts.pory"
 	release
+# 242 "data/maps/PacifidlogTown/scripts.pory"
+	end
+# 243 "data/maps/PacifidlogTown/scripts.pory"
+
+# 244 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_EventScript_GaveShell::
+# 245 "data/maps/PacifidlogTown/scripts.pory"
+	msgbox PacifidlogTown_Text_Seasheller1, MSGBOX_DEFAULT
 # 246 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	release
 # 247 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 248 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_Seasheller2::
+
 # 249 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_Seasheller2, MSGBOX_NPC
+PacifidlogTown_EventScript_Seasheller2::
 # 250 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_Seasheller2, MSGBOX_NPC
 # 251 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 252 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_GiddyWoman::
+
 # 253 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_GiddyWoman, MSGBOX_NPC
+PacifidlogTown_EventScript_GiddyWoman::
 # 254 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_GiddyWoman, MSGBOX_NPC
 # 255 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 256 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_ManWorkingOut::
+
 # 257 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_ManWorkingOut, MSGBOX_NPC
+PacifidlogTown_EventScript_ManWorkingOut::
 # 258 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_ManWorkingOut, MSGBOX_NPC
 # 259 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 260 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_WaterFisher1::
+
 # 261 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_WaterFisher1, MSGBOX_NPC
+PacifidlogTown_EventScript_WaterFisher1::
 # 262 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_WaterFisher1, MSGBOX_NPC
 # 263 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 264 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_WaterFisher2::
+
 # 265 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_WaterFisher2, MSGBOX_NPC
+PacifidlogTown_EventScript_WaterFisher2::
 # 266 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_WaterFisher2, MSGBOX_NPC
 # 267 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 268 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_CoralScientist::
+
 # 269 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_CoralScientist, MSGBOX_NPC
+PacifidlogTown_EventScript_CoralScientist::
 # 270 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_CoralScientist, MSGBOX_NPC
 # 271 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 272 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_FishScientist::
+
 # 273 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_FishScientist, MSGBOX_NPC
+PacifidlogTown_EventScript_FishScientist::
 # 274 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_FishScientist, MSGBOX_NPC
 # 275 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 276 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_RunningTuber::
+
 # 277 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_RunningTuber, MSGBOX_NPC
+PacifidlogTown_EventScript_RunningTuber::
 # 278 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_RunningTuber, MSGBOX_NPC
 # 279 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 280 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_NorthToSkyPillar::
+
 # 281 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_NorthToSkyPillar, MSGBOX_SIGN
+PacifidlogTown_EventScript_NorthToSkyPillar::
 # 282 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_NorthToSkyPillar, MSGBOX_SIGN
 # 283 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 284 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_EastToFlotshoreTrail::
+
 # 285 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_EastToFlotshoreTrail, MSGBOX_SIGN
+PacifidlogTown_EventScript_EastToFlotshoreTrail::
 # 286 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_EastToFlotshoreTrail, MSGBOX_SIGN
 # 287 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 288 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_LabSign::
+
 # 289 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_LabSign, MSGBOX_SIGN
+PacifidlogTown_EventScript_LabSign::
 # 290 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_LabSign, MSGBOX_SIGN
 # 291 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 292 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_SadFisherHouse::
+
 # 293 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_SadFisherHouse, MSGBOX_SIGN
+PacifidlogTown_EventScript_SadFisherHouse::
 # 294 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_SadFisherHouse, MSGBOX_SIGN
 # 295 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 296 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_PacifidlogTownSign::
+
 # 297 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_PacifidlogTownSign, MSGBOX_SIGN
+PacifidlogTown_EventScript_PacifidlogTownSign::
 # 298 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_PacifidlogTownSign, MSGBOX_SIGN
 # 299 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 300 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_BigCoral::
+
 # 301 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_BigCoral, MSGBOX_SIGN
+PacifidlogTown_EventScript_BigCoral::
 # 302 "data/maps/PacifidlogTown/scripts.pory"
-	end
+	msgbox PacifidlogTown_Text_BigCoral, MSGBOX_SIGN
 # 303 "data/maps/PacifidlogTown/scripts.pory"
-
-# 304 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_EventScript_BoxLabel::
-# 305 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_Text_BoxLabel, MSGBOX_SIGN
-# 306 "data/maps/PacifidlogTown/scripts.pory"
 	end
+# 304 "data/maps/PacifidlogTown/scripts.pory"
+
+# 305 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_EventScript_BoxLabel::
+# 306 "data/maps/PacifidlogTown/scripts.pory"
+	msgbox PacifidlogTown_Text_BoxLabel, MSGBOX_SIGN
 # 307 "data/maps/PacifidlogTown/scripts.pory"
-
+	end
 # 308 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_FastRunningCurrent:
+
 # 309 "data/maps/PacifidlogTown/scripts.pory"
-	.string "The sea between PACIFIDLOG and\n"
+PacifidlogTown_Text_FastRunningCurrent:
 # 310 "data/maps/PacifidlogTown/scripts.pory"
-	.string "SLATEPORT has a fast-running tide.\p"
+	.string "The sea between PACIFIDLOG and\n"
 # 311 "data/maps/PacifidlogTown/scripts.pory"
-	.string "If you decide to SURF, you could end\n"
+	.string "SLATEPORT has a fast-running tide.\p"
 # 312 "data/maps/PacifidlogTown/scripts.pory"
-	.string "up swept away somewhere else.$"
+	.string "If you decide to SURF, you could end\n"
 # 313 "data/maps/PacifidlogTown/scripts.pory"
-
+	.string "up swept away somewhere else.$"
 # 314 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_NeatHousesOnWater:
+
 # 315 "data/maps/PacifidlogTown/scripts.pory"
-	.string "See, isn't it neat?\n"
+PacifidlogTown_Text_NeatHousesOnWater:
 # 316 "data/maps/PacifidlogTown/scripts.pory"
-	.string "These houses are on water!\p"
+	.string "See, isn't it neat?\n"
 # 317 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I was born here!$"
+	.string "These houses are on water!\p"
 # 318 "data/maps/PacifidlogTown/scripts.pory"
-
+	.string "I was born here!$"
 # 319 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_SkyPillarTooScary:
+
 # 320 "data/maps/PacifidlogTown/scripts.pory"
-	.string "The SKY PILLAR?\p"
+PacifidlogTown_Text_SkyPillarTooScary:
 # 321 "data/maps/PacifidlogTown/scripts.pory"
-	.string "…Oh, you must mean that tall, tall\n"
+	.string "The SKY PILLAR?\p"
 # 322 "data/maps/PacifidlogTown/scripts.pory"
-	.string "tower a little further out.\p"
+	.string "…Oh, you must mean that tall, tall\n"
 # 323 "data/maps/PacifidlogTown/scripts.pory"
-	.string "If you asked me, I wouldn't climb it.\n"
+	.string "tower a little further out.\p"
 # 324 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It's too scary to get up that high.\p"
+	.string "If you asked me, I wouldn't climb it.\n"
 # 325 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Life at sea level in PACIFIDLOG,\n"
+	.string "It's too scary to get up that high.\p"
 # 326 "data/maps/PacifidlogTown/scripts.pory"
-	.string "that suits me fine.$"
+	.string "Life at sea level in PACIFIDLOG,\n"
 # 327 "data/maps/PacifidlogTown/scripts.pory"
-
+	.string "that suits me fine.$"
 # 328 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_TownSign:
+
 # 329 "data/maps/PacifidlogTown/scripts.pory"
-	.string "PACIFIDLOG TOWN\p"
+PacifidlogTown_Text_TownSign:
 # 330 "data/maps/PacifidlogTown/scripts.pory"
-	.string "“Where the morning sun smiles upon\n"
-# 331 "data/maps/PacifidlogTown/scripts.pory"
-	.string "the waters.”$"
-# 332 "data/maps/PacifidlogTown/scripts.pory"
-
-# 333 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_GladToSeeYou:
-# 334 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Welcome home, kiddo!\p"
-# 335 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(Your dad looks a bit tired.)\p"
-# 336 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Your… uh… your vessel was a mighty bit\n"
-# 337 "data/maps/PacifidlogTown/scripts.pory"
-	.string "off-schedule.\l"
-# 338 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I've been planted here for a while!\l"
-# 339 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It's all worth it in the end to see my\l"
-# 340 "data/maps/PacifidlogTown/scripts.pory"
-	.string "little professor prodigy!\p"
-# 341 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Listen, I know it's not Littleroot,\n"
-# 342 "data/maps/PacifidlogTown/scripts.pory"
-	.string "but Pacifidlog is a lovely town that has\l"
-# 343 "data/maps/PacifidlogTown/scripts.pory"
-	.string "welcomed me with open arms.\l"
-# 344 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Let's take a quick jog to the lab!$"
-# 345 "data/maps/PacifidlogTown/scripts.pory"
-
-# 346 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_PacifidlogTownIsNice:
-# 347 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Feeling a bit nostalgic, huh?\n"
-# 348 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Ha, it feels like just yesterday when you\l"
-# 349 "data/maps/PacifidlogTown/scripts.pory"
-	.string "left the nest to go on your journey!\p"
-# 350 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(You think about how you\n"
-# 351 "data/maps/PacifidlogTown/scripts.pory"
-	.string "cut your journey short last time.\l"
-# 352 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It makes you wistful…)\p"
-# 353 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Aw, why the frown, {PLAYER}?\n"
-# 354 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Don't ever think you let your old man down.\l"
-# 355 "data/maps/PacifidlogTown/scripts.pory"
-	.string "You've done well for yourself.\p"
-# 356 "data/maps/PacifidlogTown/scripts.pory"
-	.string "…\p"
-# 357 "data/maps/PacifidlogTown/scripts.pory"
-	.string "…What happened to Norman's kid?\p"
-# 358 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Hmm…\n"
-# 359 "data/maps/PacifidlogTown/scripts.pory"
-	.string "good question.\p"
-# 360 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Shortly into their reign as the\n"
-# 361 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Champion, they disappeared.\l"
-# 362 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Their family seems to know what's up,\l"
-# 363 "data/maps/PacifidlogTown/scripts.pory"
-	.string "but they haven't divulged anything.\l"
-# 364 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It's been left a mystery.\p"
-# 365 "data/maps/PacifidlogTown/scripts.pory"
-	.string "…I can see that you\n"
-# 366 "data/maps/PacifidlogTown/scripts.pory"
-	.string "probably wanted to reconnect with them,\l"
-# 367 "data/maps/PacifidlogTown/scripts.pory"
-	.string "kiddo.\p"
-# 368 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I'll try and pry some more\n"
-# 369 "data/maps/PacifidlogTown/scripts.pory"
-	.string "with Norman later.$"
-# 370 "data/maps/PacifidlogTown/scripts.pory"
-
-# 371 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_ResearchingTheLegends:
-# 372 "data/maps/PacifidlogTown/scripts.pory"
-	.string "You know…\p"
-# 373 "data/maps/PacifidlogTown/scripts.pory"
-	.string "…Hoenn has changed a lot since\n"
-# 374 "data/maps/PacifidlogTown/scripts.pory"
-	.string "last time, {PLAYER}.\l"
-# 375 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It's practically a new region!\p"
-# 376 "data/maps/PacifidlogTown/scripts.pory"
-	.string "And, y'know, I think it'd be very\n"
-# 377 "data/maps/PacifidlogTown/scripts.pory"
-	.string "fulfilling to explore it again!\p"
-# 378 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(You begin to feel a deep\n"
-# 379 "data/maps/PacifidlogTown/scripts.pory"
-	.string "resolve brewing…)\p"
-# 380 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Of course, I'd love to\n"
-# 381 "data/maps/PacifidlogTown/scripts.pory"
-	.string "have us stay here and have\l"
-# 382 "data/maps/PacifidlogTown/scripts.pory"
-	.string "a quiet vacation.\l"
-# 383 "data/maps/PacifidlogTown/scripts.pory"
-	.string "But there's always time to relax and\l"
-# 384 "data/maps/PacifidlogTown/scripts.pory"
-	.string "catch up.\p"
-# 385 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I sense that you want a do-over.\n"
-# 386 "data/maps/PacifidlogTown/scripts.pory"
-	.string "A chance to go above and beyond!\l"
-# 387 "data/maps/PacifidlogTown/scripts.pory"
-	.string "That's the {PLAYER} I love.$"
-# 388 "data/maps/PacifidlogTown/scripts.pory"
-
-# 389 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_CouldUseYourHelp:
-# 390 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(You nod, determined, at your dad.)\p"
-# 391 "data/maps/PacifidlogTown/scripts.pory"
-	.string "That look in your eye!\n"
-# 392 "data/maps/PacifidlogTown/scripts.pory"
-	.string "It's tenacious!\p"
-# 393 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Well, let's get this show on the road.\p"
-# 394 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Come on in; I'll get you set up.$"
-# 395 "data/maps/PacifidlogTown/scripts.pory"
-
-# 396 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_CantGoPastUs1:
-# 397 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(There are two men attempting\n"
-# 398 "data/maps/PacifidlogTown/scripts.pory"
-	.string "to lift a box.)\p"
-# 399 "data/maps/PacifidlogTown/scripts.pory"
-	.string "W-What did the boss stuff into\n"
-# 400 "data/maps/PacifidlogTown/scripts.pory"
-	.string "this box again?\p"
-# 401 "data/maps/PacifidlogTown/scripts.pory"
-	.string "...200 pounds of fish!? Ridiculous!\p"
-# 402 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(Perhaps it is best to leave them be.)$"
-# 403 "data/maps/PacifidlogTown/scripts.pory"
-
-# 404 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_CantGoPastUs2:
-# 405 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(There are two men attempting\n"
-# 406 "data/maps/PacifidlogTown/scripts.pory"
-	.string "to lift a box.)\p"
-# 407 "data/maps/PacifidlogTown/scripts.pory"
-	.string "You know, I wish we could just push\n"
-# 408 "data/maps/PacifidlogTown/scripts.pory"
-	.string "the crate off the dock and let\l"
-# 409 "data/maps/PacifidlogTown/scripts.pory"
-	.string "the Vangar have at it.\p"
-# 410 "data/maps/PacifidlogTown/scripts.pory"
-	.string "...But then I'd get fired.\p"
-# 411 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(Perhaps it is best to leave them be.)$"
-# 412 "data/maps/PacifidlogTown/scripts.pory"
-
-# 413 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_Roadblockdeactivated:
-# 414 "data/maps/PacifidlogTown/scripts.pory"
-	.string "roadblock off$"
-# 415 "data/maps/PacifidlogTown/scripts.pory"
-
-# 416 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_RestingSailor:
-# 417 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Takin' the load off today before\n"
-# 418 "data/maps/PacifidlogTown/scripts.pory"
-	.string "me n' the other sailors\l"
-# 419 "data/maps/PacifidlogTown/scripts.pory"
-	.string "head out westward.\p"
-# 420 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Pacifidlog is the perfect lazy town\n"
-# 421 "data/maps/PacifidlogTown/scripts.pory"
-	.string "to forget about work in, I'd say!$"
-# 422 "data/maps/PacifidlogTown/scripts.pory"
-
-# 423 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_SwimmerF1:
-# 424 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Pacifidlog's water is a breathtaking\n"
-# 425 "data/maps/PacifidlogTown/scripts.pory"
-	.string "place to take a dip in!\p"
-# 426 "data/maps/PacifidlogTown/scripts.pory"
-	.string "These coral structures blow my mind!$"
-# 427 "data/maps/PacifidlogTown/scripts.pory"
-
-# 428 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_SwimmerF2:
-# 429 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Last week I stubbed my toe hopping\n"
-# 430 "data/maps/PacifidlogTown/scripts.pory"
-	.string "into the water on these docks.\l"
-# 431 "data/maps/PacifidlogTown/scripts.pory"
-	.string "There's untold amounts of jagged\l"
-# 432 "data/maps/PacifidlogTown/scripts.pory"
-	.string "coral strewn about down there...$"
-# 433 "data/maps/PacifidlogTown/scripts.pory"
-
-# 434 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_StockingSailor:
-# 435 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Dum-dee-dum-dee-dum...\p"
-# 436 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Oh? Why am I stocking\n"
-# 437 "data/maps/PacifidlogTown/scripts.pory"
-	.string "lox into this barrel?\p"
-# 438 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Strict orders from my superior!\n"
-# 439 "data/maps/PacifidlogTown/scripts.pory"
-	.string "He said it'd be kinda funny.$"
-# 440 "data/maps/PacifidlogTown/scripts.pory"
-
-# 441 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_Wayfarer:
-# 442 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Rumor has it that there's a land full\n"
-# 443 "data/maps/PacifidlogTown/scripts.pory"
-	.string "of really tough battlers due south.\p"
-# 444 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(You look southward and can make out\n"
-# 445 "data/maps/PacifidlogTown/scripts.pory"
-	.string "a few islands made of golden rocks.)\p"
-# 446 "data/maps/PacifidlogTown/scripts.pory"
-	.string "What, are you wanting to check it out\n"
-# 447 "data/maps/PacifidlogTown/scripts.pory"
-	.string "someday? Be my guest!$"
-# 448 "data/maps/PacifidlogTown/scripts.pory"
-
-# 449 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_HaveThisShell:
-# 450 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Hey! Lookit one of these cool\n"
-# 451 "data/maps/PacifidlogTown/scripts.pory"
-	.string "seashells I found in the water!\p"
-# 452 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Do you like collecting shells too?\n"
-# 453 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I'll let you keep it if you promise\l"
-# 454 "data/maps/PacifidlogTown/scripts.pory"
-	.string "to take care of it!$"
-# 455 "data/maps/PacifidlogTown/scripts.pory"
-
-# 456 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_Seasheller1:
-# 457 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I heard from my friend that\n"
-# 458 "data/maps/PacifidlogTown/scripts.pory"
-	.string "there's a nice lady in Sootopolis\l"
-# 459 "data/maps/PacifidlogTown/scripts.pory"
-	.string "that makes a special item\l"
-# 460 "data/maps/PacifidlogTown/scripts.pory"
-	.string "out of sea shells!\p"
-# 461 "data/maps/PacifidlogTown/scripts.pory"
-	.string "And I think something else, but...\n"
-# 462 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I forgot that part.$"
-# 463 "data/maps/PacifidlogTown/scripts.pory"
-
-# 464 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_Seasheller2:
-# 465 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Mom told me to stop runnin' on\n"
-# 466 "data/maps/PacifidlogTown/scripts.pory"
-	.string "the docks. Hah! No way that I'll get\l"
-# 467 "data/maps/PacifidlogTown/scripts.pory"
-	.string "hurt! The wood isn't THAT slippery!\p"
-# 468 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(His ankles and shins are clearly\n"
-# 469 "data/maps/PacifidlogTown/scripts.pory"
-	.string "bruised all over.)$"
-# 470 "data/maps/PacifidlogTown/scripts.pory"
-
-# 471 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_GiddyWoman:
-# 472 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I'm positively BEAMING!\n"
-# 473 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Pacifidlog is such an underrated,\l"
-# 474 "data/maps/PacifidlogTown/scripts.pory"
-	.string "beautiful Hoenn locale!$"
-# 475 "data/maps/PacifidlogTown/scripts.pory"
-
-# 476 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_ManWorkingOut:
-# 477 "data/maps/PacifidlogTown/scripts.pory"
-	.string "These coral branches can double as\n"
-# 478 "data/maps/PacifidlogTown/scripts.pory"
-	.string "pull-up bars! I know, I've tried!\p"
-# 479 "data/maps/PacifidlogTown/scripts.pory"
-	.string "They're surprisingly rock solid.\p"
-# 480 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Except when they're not. You kinda\n"
-# 481 "data/maps/PacifidlogTown/scripts.pory"
-	.string "have to figure that out through\l"
-# 482 "data/maps/PacifidlogTown/scripts.pory"
-	.string "trial and error.$"
-# 483 "data/maps/PacifidlogTown/scripts.pory"
-
-# 484 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_WaterFisher1:
-# 485 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I don't know about you, but I feel like\n"
-# 486 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I pull better catches the higher up\l"
-# 487 "data/maps/PacifidlogTown/scripts.pory"
-	.string "my post is.\p"
-# 488 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I got a long enough rod to pull it off!\p"
-# 489 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Stop snickering!$"
-# 490 "data/maps/PacifidlogTown/scripts.pory"
-
-# 491 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_WaterFisher2:
-# 492 "data/maps/PacifidlogTown/scripts.pory"
-	.string "The Snelfrend around here are too nice\n"
-# 493 "data/maps/PacifidlogTown/scripts.pory"
-	.string "for their own good. I want to reel up\l"
-# 494 "data/maps/PacifidlogTown/scripts.pory"
-	.string "some actual fish, but every time\l"
-# 495 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I cast out, one of these friendly\l"
-# 496 "data/maps/PacifidlogTown/scripts.pory"
-	.string "buggers clings to the hook\l"
-# 497 "data/maps/PacifidlogTown/scripts.pory"
-	.string "and won't let go!$"
-# 498 "data/maps/PacifidlogTown/scripts.pory"
-
-# 499 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_CoralScientist:
-# 500 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Hello, {PLAYER}. I've been helping\n"
-# 501 "data/maps/PacifidlogTown/scripts.pory"
-	.string "your dad with researching the biology\l"
-# 502 "data/maps/PacifidlogTown/scripts.pory"
-	.string "of the healthy coral deposits in\l"
-# 503 "data/maps/PacifidlogTown/scripts.pory"
-	.string "the waters surrounding Pacifidlog.\p"
-# 504 "data/maps/PacifidlogTown/scripts.pory"
-	.string "He seems to think that they can\n"
-# 505 "data/maps/PacifidlogTown/scripts.pory"
-	.string "be used as part of a plan to\l"
-# 506 "data/maps/PacifidlogTown/scripts.pory"
-	.string "clean up the water pollution\l"
-# 507 "data/maps/PacifidlogTown/scripts.pory"
-	.string "in the bigger cities, but\l"
-# 508 "data/maps/PacifidlogTown/scripts.pory"
-	.string "I'm not so sure it's that easy...$"
-# 509 "data/maps/PacifidlogTown/scripts.pory"
-
-# 510 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_FishScientist:
-# 511 "data/maps/PacifidlogTown/scripts.pory"
-	.string "The Water and Rock type POKéMON\n"
-# 512 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Marinaroc are likely the cause\l"
-# 513 "data/maps/PacifidlogTown/scripts.pory"
-	.string "of Pacifidlog Town's extremely\l"
-# 514 "data/maps/PacifidlogTown/scripts.pory"
-	.string "healthy oceanic habitat.\p"
-# 515 "data/maps/PacifidlogTown/scripts.pory"
-	.string "You see, {PLAYER}, they are able to\n"
-# 516 "data/maps/PacifidlogTown/scripts.pory"
-	.string "filter the water they swim through.\l"
-# 517 "data/maps/PacifidlogTown/scripts.pory"
-	.string "They love doing their part to\l"
-# 518 "data/maps/PacifidlogTown/scripts.pory"
-	.string "keep the natural coral here healthy.\p"
-# 519 "data/maps/PacifidlogTown/scripts.pory"
-	.string "They prove very hard to fish\n"
-# 520 "data/maps/PacifidlogTown/scripts.pory"
-	.string "up because of their weight, too;\l"
-# 521 "data/maps/PacifidlogTown/scripts.pory"
-	.string "perfect for avoiding trophy hunting\l"
-# 522 "data/maps/PacifidlogTown/scripts.pory"
-	.string "or a potential overfishing problem!$"
-# 523 "data/maps/PacifidlogTown/scripts.pory"
-
-# 524 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_RunningTuber:
-# 525 "data/maps/PacifidlogTown/scripts.pory"
-	.string "VAN-GUARD!\p"
-# 526 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(The child brandishes a balloon\n"
-# 527 "data/maps/PacifidlogTown/scripts.pory"
-	.string "cutlass at you.\l"
-# 528 "data/maps/PacifidlogTown/scripts.pory"
-	.string "You dramatically feign surrender.)\p"
-# 529 "data/maps/PacifidlogTown/scripts.pory"
-	.string "That's right! I'M the pirate captain!\n"
-# 530 "data/maps/PacifidlogTown/scripts.pory"
-	.string "YARRR!$"
-# 531 "data/maps/PacifidlogTown/scripts.pory"
-
-# 532 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_NorthToSkyPillar:
-# 533 "data/maps/PacifidlogTown/scripts.pory"
-	.string "NORTH: SKY PILLAR\p"
-# 534 "data/maps/PacifidlogTown/scripts.pory"
-	.string "We ask you to respect this historical\n"
-# 535 "data/maps/PacifidlogTown/scripts.pory"
-	.string "monument and to keep it clean.$"
-# 536 "data/maps/PacifidlogTown/scripts.pory"
-
-# 537 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_EastToFlotshoreTrail:
-# 538 "data/maps/PacifidlogTown/scripts.pory"
-	.string "EAST: FLOTSHORE TRAIL\p"
-# 539 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Mondays through Thursdays are\n"
-# 540 "data/maps/PacifidlogTown/scripts.pory"
-	.string "scheduled bulk-fishing days.\l"
-# 541 "data/maps/PacifidlogTown/scripts.pory"
-	.string "All recreational fishers and swimmers\l"
-# 542 "data/maps/PacifidlogTown/scripts.pory"
-	.string "should be respectful and stay out\l"
-# 543 "data/maps/PacifidlogTown/scripts.pory"
-	.string "of the way on those dates.$"
-# 544 "data/maps/PacifidlogTown/scripts.pory"
-
-# 545 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_LabSign:
-# 546 "data/maps/PacifidlogTown/scripts.pory"
-	.string "PROFESSOR BIRCH'S\n"
-# 547 "data/maps/PacifidlogTown/scripts.pory"
-	.string "MARITIME POKéMON LAB$"
-# 548 "data/maps/PacifidlogTown/scripts.pory"
-
-# 549 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_SadFisherHouse:
-# 550 "data/maps/PacifidlogTown/scripts.pory"
-	.string "See me if you're serious about\n"
-# 551 "data/maps/PacifidlogTown/scripts.pory"
-	.string "fishing for strong POKéMON.$"
-# 552 "data/maps/PacifidlogTown/scripts.pory"
-
-# 553 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_PacifidlogTownSign:
-# 554 "data/maps/PacifidlogTown/scripts.pory"
 	.string "PACIFIDLOG TOWN\p"
+# 331 "data/maps/PacifidlogTown/scripts.pory"
+	.string "“Where the morning sun smiles upon\n"
+# 332 "data/maps/PacifidlogTown/scripts.pory"
+	.string "the waters.”$"
+# 333 "data/maps/PacifidlogTown/scripts.pory"
+
+# 334 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_GladToSeeYou:
+# 335 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Welcome home, kiddo!\p"
+# 336 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(Your dad looks a bit tired.)\p"
+# 337 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Your… uh… your vessel was a mighty bit\n"
+# 338 "data/maps/PacifidlogTown/scripts.pory"
+	.string "off-schedule.\l"
+# 339 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I've been planted here for a while!\l"
+# 340 "data/maps/PacifidlogTown/scripts.pory"
+	.string "It's all worth it in the end to see my\l"
+# 341 "data/maps/PacifidlogTown/scripts.pory"
+	.string "little professor prodigy!\p"
+# 342 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Listen, I know it's not Littleroot,\n"
+# 343 "data/maps/PacifidlogTown/scripts.pory"
+	.string "but Pacifidlog is a lovely town that has\l"
+# 344 "data/maps/PacifidlogTown/scripts.pory"
+	.string "welcomed me with open arms.\l"
+# 345 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Let's take a quick jog to the lab!$"
+# 346 "data/maps/PacifidlogTown/scripts.pory"
+
+# 347 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_PacifidlogTownIsNice:
+# 348 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Feeling a bit nostalgic, huh?\n"
+# 349 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Ha, it feels like just yesterday when you\l"
+# 350 "data/maps/PacifidlogTown/scripts.pory"
+	.string "left the nest to go on your journey!\p"
+# 351 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(You think about how you\n"
+# 352 "data/maps/PacifidlogTown/scripts.pory"
+	.string "cut your journey short last time.\l"
+# 353 "data/maps/PacifidlogTown/scripts.pory"
+	.string "It makes you wistful…)\p"
+# 354 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Aw, why the frown, {PLAYER}?\n"
+# 355 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Don't ever think you let your old man down.\l"
+# 356 "data/maps/PacifidlogTown/scripts.pory"
+	.string "You've done well for yourself.\p"
+# 357 "data/maps/PacifidlogTown/scripts.pory"
+	.string "…\p"
+# 358 "data/maps/PacifidlogTown/scripts.pory"
+	.string "…What happened to Norman's kid?\p"
+# 359 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Hmm…\n"
+# 360 "data/maps/PacifidlogTown/scripts.pory"
+	.string "good question.\p"
+# 361 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Shortly into their reign as the\n"
+# 362 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Champion, they disappeared.\l"
+# 363 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Their family seems to know what's up,\l"
+# 364 "data/maps/PacifidlogTown/scripts.pory"
+	.string "but they haven't divulged anything.\l"
+# 365 "data/maps/PacifidlogTown/scripts.pory"
+	.string "It's been left a mystery.\p"
+# 366 "data/maps/PacifidlogTown/scripts.pory"
+	.string "…I can see that you\n"
+# 367 "data/maps/PacifidlogTown/scripts.pory"
+	.string "probably wanted to reconnect with them,\l"
+# 368 "data/maps/PacifidlogTown/scripts.pory"
+	.string "kiddo.\p"
+# 369 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I'll try and pry some more\n"
+# 370 "data/maps/PacifidlogTown/scripts.pory"
+	.string "with Norman later.$"
+# 371 "data/maps/PacifidlogTown/scripts.pory"
+
+# 372 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_ResearchingTheLegends:
+# 373 "data/maps/PacifidlogTown/scripts.pory"
+	.string "You know…\p"
+# 374 "data/maps/PacifidlogTown/scripts.pory"
+	.string "…Hoenn has changed a lot since\n"
+# 375 "data/maps/PacifidlogTown/scripts.pory"
+	.string "last time, {PLAYER}.\l"
+# 376 "data/maps/PacifidlogTown/scripts.pory"
+	.string "It's practically a new region!\p"
+# 377 "data/maps/PacifidlogTown/scripts.pory"
+	.string "And, y'know, I think it'd be very\n"
+# 378 "data/maps/PacifidlogTown/scripts.pory"
+	.string "fulfilling to explore it again!\p"
+# 379 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(You begin to feel a deep\n"
+# 380 "data/maps/PacifidlogTown/scripts.pory"
+	.string "resolve brewing…)\p"
+# 381 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Of course, I'd love to\n"
+# 382 "data/maps/PacifidlogTown/scripts.pory"
+	.string "have us stay here and have\l"
+# 383 "data/maps/PacifidlogTown/scripts.pory"
+	.string "a quiet vacation.\l"
+# 384 "data/maps/PacifidlogTown/scripts.pory"
+	.string "But there's always time to relax and\l"
+# 385 "data/maps/PacifidlogTown/scripts.pory"
+	.string "catch up.\p"
+# 386 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I sense that you want a do-over.\n"
+# 387 "data/maps/PacifidlogTown/scripts.pory"
+	.string "A chance to go above and beyond!\l"
+# 388 "data/maps/PacifidlogTown/scripts.pory"
+	.string "That's the {PLAYER} I love.$"
+# 389 "data/maps/PacifidlogTown/scripts.pory"
+
+# 390 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_CouldUseYourHelp:
+# 391 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(You nod, determined, at your dad.)\p"
+# 392 "data/maps/PacifidlogTown/scripts.pory"
+	.string "That look in your eye!\n"
+# 393 "data/maps/PacifidlogTown/scripts.pory"
+	.string "It's tenacious!\p"
+# 394 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Well, let's get this show on the road.\p"
+# 395 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Come on in; I'll get you set up.$"
+# 396 "data/maps/PacifidlogTown/scripts.pory"
+
+# 397 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_CantGoPastUs1:
+# 398 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(There are two men attempting\n"
+# 399 "data/maps/PacifidlogTown/scripts.pory"
+	.string "to lift a box.)\p"
+# 400 "data/maps/PacifidlogTown/scripts.pory"
+	.string "W-What did the boss stuff into\n"
+# 401 "data/maps/PacifidlogTown/scripts.pory"
+	.string "this box again?\p"
+# 402 "data/maps/PacifidlogTown/scripts.pory"
+	.string "...200 pounds of fish!? Ridiculous!\p"
+# 403 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(Perhaps it is best to leave them be.)$"
+# 404 "data/maps/PacifidlogTown/scripts.pory"
+
+# 405 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_CantGoPastUs2:
+# 406 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(There are two men attempting\n"
+# 407 "data/maps/PacifidlogTown/scripts.pory"
+	.string "to lift a box.)\p"
+# 408 "data/maps/PacifidlogTown/scripts.pory"
+	.string "You know, I wish we could just push\n"
+# 409 "data/maps/PacifidlogTown/scripts.pory"
+	.string "the crate off the dock and let\l"
+# 410 "data/maps/PacifidlogTown/scripts.pory"
+	.string "the Vangar have at it.\p"
+# 411 "data/maps/PacifidlogTown/scripts.pory"
+	.string "...But then I'd get fired.\p"
+# 412 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(Perhaps it is best to leave them be.)$"
+# 413 "data/maps/PacifidlogTown/scripts.pory"
+
+# 414 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_Roadblockdeactivated:
+# 415 "data/maps/PacifidlogTown/scripts.pory"
+	.string "roadblock off$"
+# 416 "data/maps/PacifidlogTown/scripts.pory"
+
+# 417 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_RestingSailor:
+# 418 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Takin' the load off today before\n"
+# 419 "data/maps/PacifidlogTown/scripts.pory"
+	.string "me n' the other sailors\l"
+# 420 "data/maps/PacifidlogTown/scripts.pory"
+	.string "head out westward.\p"
+# 421 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Pacifidlog is the perfect lazy town\n"
+# 422 "data/maps/PacifidlogTown/scripts.pory"
+	.string "to forget about work in, I'd say!$"
+# 423 "data/maps/PacifidlogTown/scripts.pory"
+
+# 424 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_SwimmerF1:
+# 425 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Pacifidlog's water is a breathtaking\n"
+# 426 "data/maps/PacifidlogTown/scripts.pory"
+	.string "place to take a dip in!\p"
+# 427 "data/maps/PacifidlogTown/scripts.pory"
+	.string "These coral structures blow my mind!$"
+# 428 "data/maps/PacifidlogTown/scripts.pory"
+
+# 429 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_SwimmerF2:
+# 430 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Last week I stubbed my toe hopping\n"
+# 431 "data/maps/PacifidlogTown/scripts.pory"
+	.string "into the water on these docks.\l"
+# 432 "data/maps/PacifidlogTown/scripts.pory"
+	.string "There's untold amounts of jagged\l"
+# 433 "data/maps/PacifidlogTown/scripts.pory"
+	.string "coral strewn about down there...$"
+# 434 "data/maps/PacifidlogTown/scripts.pory"
+
+# 435 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_StockingSailor:
+# 436 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Dum-dee-dum-dee-dum...\p"
+# 437 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Oh? Why am I stocking\n"
+# 438 "data/maps/PacifidlogTown/scripts.pory"
+	.string "lox into this barrel?\p"
+# 439 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Strict orders from my superior!\n"
+# 440 "data/maps/PacifidlogTown/scripts.pory"
+	.string "He said it'd be kinda funny.$"
+# 441 "data/maps/PacifidlogTown/scripts.pory"
+
+# 442 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_Wayfarer:
+# 443 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Rumor has it that there's a land full\n"
+# 444 "data/maps/PacifidlogTown/scripts.pory"
+	.string "of really tough battlers due south.\p"
+# 445 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(You look southward and can make out\n"
+# 446 "data/maps/PacifidlogTown/scripts.pory"
+	.string "a few islands made of golden rocks.)\p"
+# 447 "data/maps/PacifidlogTown/scripts.pory"
+	.string "What, are you wanting to check it out\n"
+# 448 "data/maps/PacifidlogTown/scripts.pory"
+	.string "someday? Be my guest!$"
+# 449 "data/maps/PacifidlogTown/scripts.pory"
+
+# 450 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_HaveThisShell:
+# 451 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Hey! Lookit one of these cool\n"
+# 452 "data/maps/PacifidlogTown/scripts.pory"
+	.string "seashells I found in the water!\p"
+# 453 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Do you like collecting shells too?\n"
+# 454 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I'll let you keep it if you promise\l"
+# 455 "data/maps/PacifidlogTown/scripts.pory"
+	.string "to take care of it!$"
+# 456 "data/maps/PacifidlogTown/scripts.pory"
+
+# 457 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_Seasheller1:
+# 458 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I heard from my friend that\n"
+# 459 "data/maps/PacifidlogTown/scripts.pory"
+	.string "there's a nice lady in Sootopolis\l"
+# 460 "data/maps/PacifidlogTown/scripts.pory"
+	.string "that makes a special item\l"
+# 461 "data/maps/PacifidlogTown/scripts.pory"
+	.string "out of sea shells!\p"
+# 462 "data/maps/PacifidlogTown/scripts.pory"
+	.string "And I think something else, but...\n"
+# 463 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I forgot that part.$"
+# 464 "data/maps/PacifidlogTown/scripts.pory"
+
+# 465 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_Seasheller2:
+# 466 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Mom told me to stop runnin' on\n"
+# 467 "data/maps/PacifidlogTown/scripts.pory"
+	.string "the docks. Hah! No way that I'll get\l"
+# 468 "data/maps/PacifidlogTown/scripts.pory"
+	.string "hurt! The wood isn't THAT slippery!\p"
+# 469 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(His ankles and shins are clearly\n"
+# 470 "data/maps/PacifidlogTown/scripts.pory"
+	.string "bruised all over.)$"
+# 471 "data/maps/PacifidlogTown/scripts.pory"
+
+# 472 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_GiddyWoman:
+# 473 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I'm positively BEAMING!\n"
+# 474 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Pacifidlog is such an underrated,\l"
+# 475 "data/maps/PacifidlogTown/scripts.pory"
+	.string "beautiful Hoenn locale!$"
+# 476 "data/maps/PacifidlogTown/scripts.pory"
+
+# 477 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_ManWorkingOut:
+# 478 "data/maps/PacifidlogTown/scripts.pory"
+	.string "These coral branches can double as\n"
+# 479 "data/maps/PacifidlogTown/scripts.pory"
+	.string "pull-up bars! I know, I've tried!\p"
+# 480 "data/maps/PacifidlogTown/scripts.pory"
+	.string "They're surprisingly rock solid.\p"
+# 481 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Except when they're not. You kinda\n"
+# 482 "data/maps/PacifidlogTown/scripts.pory"
+	.string "have to figure that out through\l"
+# 483 "data/maps/PacifidlogTown/scripts.pory"
+	.string "trial and error.$"
+# 484 "data/maps/PacifidlogTown/scripts.pory"
+
+# 485 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_WaterFisher1:
+# 486 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I don't know about you, but I feel like\n"
+# 487 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I pull better catches the higher up\l"
+# 488 "data/maps/PacifidlogTown/scripts.pory"
+	.string "my post is.\p"
+# 489 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I got a long enough rod to pull it off!\p"
+# 490 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Stop snickering!$"
+# 491 "data/maps/PacifidlogTown/scripts.pory"
+
+# 492 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_WaterFisher2:
+# 493 "data/maps/PacifidlogTown/scripts.pory"
+	.string "The Snelfrend around here are too nice\n"
+# 494 "data/maps/PacifidlogTown/scripts.pory"
+	.string "for their own good. I want to reel up\l"
+# 495 "data/maps/PacifidlogTown/scripts.pory"
+	.string "some actual fish, but every time\l"
+# 496 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I cast out, one of these friendly\l"
+# 497 "data/maps/PacifidlogTown/scripts.pory"
+	.string "buggers clings to the hook\l"
+# 498 "data/maps/PacifidlogTown/scripts.pory"
+	.string "and won't let go!$"
+# 499 "data/maps/PacifidlogTown/scripts.pory"
+
+# 500 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_CoralScientist:
+# 501 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Hello, {PLAYER}. I've been helping\n"
+# 502 "data/maps/PacifidlogTown/scripts.pory"
+	.string "your dad with researching the biology\l"
+# 503 "data/maps/PacifidlogTown/scripts.pory"
+	.string "of the healthy coral deposits in\l"
+# 504 "data/maps/PacifidlogTown/scripts.pory"
+	.string "the waters surrounding Pacifidlog.\p"
+# 505 "data/maps/PacifidlogTown/scripts.pory"
+	.string "He seems to think that they can\n"
+# 506 "data/maps/PacifidlogTown/scripts.pory"
+	.string "be used as part of a plan to\l"
+# 507 "data/maps/PacifidlogTown/scripts.pory"
+	.string "clean up the water pollution\l"
+# 508 "data/maps/PacifidlogTown/scripts.pory"
+	.string "in the bigger cities, but\l"
+# 509 "data/maps/PacifidlogTown/scripts.pory"
+	.string "I'm not so sure it's that easy...$"
+# 510 "data/maps/PacifidlogTown/scripts.pory"
+
+# 511 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_FishScientist:
+# 512 "data/maps/PacifidlogTown/scripts.pory"
+	.string "The Water and Rock type POKéMON\n"
+# 513 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Marinaroc are likely the cause\l"
+# 514 "data/maps/PacifidlogTown/scripts.pory"
+	.string "of Pacifidlog Town's extremely\l"
+# 515 "data/maps/PacifidlogTown/scripts.pory"
+	.string "healthy oceanic habitat.\p"
+# 516 "data/maps/PacifidlogTown/scripts.pory"
+	.string "You see, {PLAYER}, they are able to\n"
+# 517 "data/maps/PacifidlogTown/scripts.pory"
+	.string "filter the water they swim through.\l"
+# 518 "data/maps/PacifidlogTown/scripts.pory"
+	.string "They love doing their part to\l"
+# 519 "data/maps/PacifidlogTown/scripts.pory"
+	.string "keep the natural coral here healthy.\p"
+# 520 "data/maps/PacifidlogTown/scripts.pory"
+	.string "They prove very hard to fish\n"
+# 521 "data/maps/PacifidlogTown/scripts.pory"
+	.string "up because of their weight, too;\l"
+# 522 "data/maps/PacifidlogTown/scripts.pory"
+	.string "perfect for avoiding trophy hunting\l"
+# 523 "data/maps/PacifidlogTown/scripts.pory"
+	.string "or a potential overfishing problem!$"
+# 524 "data/maps/PacifidlogTown/scripts.pory"
+
+# 525 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_RunningTuber:
+# 526 "data/maps/PacifidlogTown/scripts.pory"
+	.string "VAN-GUARD!\p"
+# 527 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(The child brandishes a balloon\n"
+# 528 "data/maps/PacifidlogTown/scripts.pory"
+	.string "cutlass at you.\l"
+# 529 "data/maps/PacifidlogTown/scripts.pory"
+	.string "You dramatically feign surrender.)\p"
+# 530 "data/maps/PacifidlogTown/scripts.pory"
+	.string "That's right! I'M the pirate captain!\n"
+# 531 "data/maps/PacifidlogTown/scripts.pory"
+	.string "YARRR!$"
+# 532 "data/maps/PacifidlogTown/scripts.pory"
+
+# 533 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_NorthToSkyPillar:
+# 534 "data/maps/PacifidlogTown/scripts.pory"
+	.string "NORTH: SKY PILLAR\p"
+# 535 "data/maps/PacifidlogTown/scripts.pory"
+	.string "We ask you to respect this historical\n"
+# 536 "data/maps/PacifidlogTown/scripts.pory"
+	.string "monument and to keep it clean.$"
+# 537 "data/maps/PacifidlogTown/scripts.pory"
+
+# 538 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_EastToFlotshoreTrail:
+# 539 "data/maps/PacifidlogTown/scripts.pory"
+	.string "EAST: FLOTSHORE TRAIL\p"
+# 540 "data/maps/PacifidlogTown/scripts.pory"
+	.string "Mondays through Thursdays are\n"
+# 541 "data/maps/PacifidlogTown/scripts.pory"
+	.string "scheduled bulk-fishing days.\l"
+# 542 "data/maps/PacifidlogTown/scripts.pory"
+	.string "All recreational fishers and swimmers\l"
+# 543 "data/maps/PacifidlogTown/scripts.pory"
+	.string "should be respectful and stay out\l"
+# 544 "data/maps/PacifidlogTown/scripts.pory"
+	.string "of the way on those dates.$"
+# 545 "data/maps/PacifidlogTown/scripts.pory"
+
+# 546 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_LabSign:
+# 547 "data/maps/PacifidlogTown/scripts.pory"
+	.string "PROFESSOR BIRCH'S\n"
+# 548 "data/maps/PacifidlogTown/scripts.pory"
+	.string "MARITIME POKéMON LAB$"
+# 549 "data/maps/PacifidlogTown/scripts.pory"
+
+# 550 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_SadFisherHouse:
+# 551 "data/maps/PacifidlogTown/scripts.pory"
+	.string "See me if you're serious about\n"
+# 552 "data/maps/PacifidlogTown/scripts.pory"
+	.string "fishing for strong POKéMON.$"
+# 553 "data/maps/PacifidlogTown/scripts.pory"
+
+# 554 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_PacifidlogTownSign:
 # 555 "data/maps/PacifidlogTown/scripts.pory"
-	.string "Where the morning sun\n"
+	.string "PACIFIDLOG TOWN\p"
 # 556 "data/maps/PacifidlogTown/scripts.pory"
-	.string "smiles upon the waters.$"
+	.string "Where the morning sun\n"
 # 557 "data/maps/PacifidlogTown/scripts.pory"
-
+	.string "smiles upon the waters.$"
 # 558 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_BigCoral:
-# 559 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(It's a large natural\n"
-# 560 "data/maps/PacifidlogTown/scripts.pory"
-	.string "structure made of coral.)$"
-# 561 "data/maps/PacifidlogTown/scripts.pory"
 
+# 559 "data/maps/PacifidlogTown/scripts.pory"
+PacifidlogTown_Text_BigCoral:
+# 560 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(It's a large natural\n"
+# 561 "data/maps/PacifidlogTown/scripts.pory"
+	.string "structure made of coral.)$"
 # 562 "data/maps/PacifidlogTown/scripts.pory"
-PacifidlogTown_Text_BoxLabel:
+
 # 563 "data/maps/PacifidlogTown/scripts.pory"
-	.string "(The box is labelled...)\p"
+PacifidlogTown_Text_BoxLabel:
 # 564 "data/maps/PacifidlogTown/scripts.pory"
+	.string "(The box is labelled...)\p"
+# 565 "data/maps/PacifidlogTown/scripts.pory"
 	.string "DINNER FOR THREE$"
 
 PacifidlogTown_EventScript_TestSign::
-# 568 "data/maps/PacifidlogTown/scripts.pory"
-	lockall
 # 569 "data/maps/PacifidlogTown/scripts.pory"
-	msgbox PacifidlogTown_EventScript_TestSign_Text_0
+	lockall
 # 570 "data/maps/PacifidlogTown/scripts.pory"
+	msgbox PacifidlogTown_EventScript_TestSign_Text_0
+# 571 "data/maps/PacifidlogTown/scripts.pory"
 	releaseall
 	return
 
 
 PacifidlogTown_EventScript_TestSign_Text_0:
-# 569 "data/maps/PacifidlogTown/scripts.pory"
+# 570 "data/maps/PacifidlogTown/scripts.pory"
 	.string "The Holy Diver Mod$"
