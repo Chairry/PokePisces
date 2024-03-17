@@ -248,15 +248,15 @@
       "x": 21,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_MANGROTTO_TUNNEL",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_CAVE_OF_ORIGIN",
+      "dest_warp_id": "1"
     },
     {
       "x": 81,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_MANGROTTO_TUNNEL",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_MOSSDEEP_CITY",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

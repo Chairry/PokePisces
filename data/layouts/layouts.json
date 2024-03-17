@@ -5140,6 +5140,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/CosmossSpaceCenter/border.bin",
       "blockdata_filepath": "data/layouts/CosmossSpaceCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_INTERIORS",
+      "name": "MossdeepInteriors_Layout",
+      "width": 48,
+      "height": 36,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MossdeepInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepInteriors/map.bin"
     }
   ]
 }

@@ -46,8 +46,8 @@
       "x": 8,
       "y": 9,
       "elevation": 4,
-      "dest_map": "MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_MOSSDEEP_CITY",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
