@@ -232,8 +232,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ARTIST",
-      "x": 54,
-      "y": 12,
+      "x": 45,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -258,7 +258,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 50,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_FLOTSHORE",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
