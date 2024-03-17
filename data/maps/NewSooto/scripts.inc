@@ -158,10 +158,11 @@ NewSooto_EventScript_CheckMoneyForBP::
 	playse SE_SHOP
 	removemoney 1000
 	updatemoneybox
+	delay 40
+	hidemoneybox
 	giveitem ITEM_BLUNDER_POLICY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_BLUNDER_POLICY
-	hidemoneybox
 	msgbox NewSooto_Text_ThanksForBuying, MSGBOX_AUTOCLOSE
 	release
 	end

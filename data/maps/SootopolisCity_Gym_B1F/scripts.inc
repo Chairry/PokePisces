@@ -1,5 +1,5 @@
-.set LOCALID_JUAN, 14
-.set LOCALID_SEBASTIAN, 15
+.set LOCALID_JUAN, 13
+.set LOCALID_SEBASTIAN, 14
 
 SootopolisCity_Gym_B1F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_Gym_B1F_OnFrame
