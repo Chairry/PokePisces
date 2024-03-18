@@ -20366,9 +20366,10 @@ Move_HULLBREAKER::
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS @Bubbles on attacker
 	loadspritegfx ANIM_TAG_HORN_HIT
-	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
-	createvisualtask AnimTask_MetallicShine, 5, 0, 0, RGB_BLACK
-	waitforvisualfinish
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
+	loadspritegfx ANIM_TAG_TORN_METAL
+	choosetwoturnanim HullbreakerNormal, HullbreakerShatteredWall
+HullbreakerNormal:
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0xB, 0x726A
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
 	call WaterfallBubblesOnAttacker
@@ -20385,6 +20386,37 @@ Move_HULLBREAKER::
 	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x1, 0xB, 0x0, 0x726A
 	waitforvisualfinish
+	end
+HullbreakerShatteredWall:
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0xB, 0x726A
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	call WaterfallBubblesOnAttacker
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	createsprite gBrickBreakWallSpriteTemplate, ANIM_ATTACKER, 3, ANIM_TARGET, 0, 0, 20, 10
+	delay 1
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	createsprite gHornHitSpriteTemplate, ANIM_TARGET, 4, 0, 0, 10
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 5, 1
+	call RisingWaterHitEffect
+	waitforvisualfinish
+	delay 0x5
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	waitforvisualfinish
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, -8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 1, 8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 2, -8, 12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 3, 8, 12
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x1, 0xB, 0x0, 0x726A
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
 	end
 
 Move_CHROMA_BEAM::
