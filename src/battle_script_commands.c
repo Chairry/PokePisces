@@ -6225,21 +6225,6 @@ static void Cmd_moveend(void)
                         gBattlescriptCurrInstr = BattleScript_DefDownSpeedUp;
                     }
 
-                    if ((gBattleMoves[gCurrentMove].argument == MOVE_EFFECT_BARB_BARRAGE
-                    && !NoAliveMonsForEitherParty())
-                    && gBattleMoveDamage != 0  // Need to have done damage
-                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-                    && TARGET_TURN_DAMAGED
-                    && (Random() % 2) == 0
-                    && gBattleMons[gBattlerTarget].hp)
-                    {
-                        gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
-                        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BARB_BARRAGE);
-                        BattleScriptPushCursor();
-                        gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
-                        effect = 1;
-                    }
-
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MultiHitPrintStrings;
                     effect = TRUE;

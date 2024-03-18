@@ -3818,7 +3818,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_MULTIHIT_MOVES:
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT)
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
 
@@ -8822,10 +8822,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
 
     if (gBattleStruct->zmove.active)
         return GetZMovePower(gBattleStruct->zmove.baseMoves[battlerAtk]);
-
-    if ((gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE) && (gCurrentMove == MOVE_BARB_BARRAGE))
-        basePower *= 2;
-
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_PLEDGE:
@@ -8948,6 +8944,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_HEX:
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
+    case EFFECT_BARB_BARRAGE:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE)
             basePower *= 2;
         break;
