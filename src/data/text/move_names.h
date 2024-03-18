@@ -919,6 +919,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CREEPY_CRAWL] = _("Creepy Crawl"),
     [MOVE_PESTER_RAID] = _("Pester Raid"),
     [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
+    [MOVE_BLACK_BUFFET] = _("Black Buffet"),
 };
 #else
 // 12 letters
@@ -1841,6 +1842,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CREEPY_CRAWL] = _("Creepy Crawl"),
     [MOVE_PESTER_RAID] = _("Pester Raid"),
     [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
+    [MOVE_BLACK_BUFFET] = _("Black Buffet"),
 };
 #endif
 

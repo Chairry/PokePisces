@@ -492,6 +492,7 @@
 #define EFFECT_BLOOMING_HIT                 486
 #define EFFECT_EXPOSED_HIT                  487
 #define EFFECT_TEARFUL_LOOK                 488
-#define NUM_BATTLE_MOVE_EFFECTS             489
+#define EFFECT_BLACK_BUFFET                 489
+#define NUM_BATTLE_MOVE_EFFECTS             490
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

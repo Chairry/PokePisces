@@ -15256,6 +15256,25 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
     },
 
+    [MOVE_BLACK_BUFFET] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .power = 30,
+            .accuracy = 100,
+        #else
+            .power = 30,
+            .accuracy = 100,
+        #endif
+        .effect = EFFECT_BLACK_BUFFET,
+        .type = TYPE_DARK,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

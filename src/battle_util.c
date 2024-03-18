@@ -1554,6 +1554,10 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     case EFFECT_WISH:
     case EFFECT_HEAL_PULSE:
     case EFFECT_JUNGLE_HEALING:
+    case EFFECT_DRAINING_KISS:
+    case EFFECT_BLACK_BUFFET:
+    case EFFECT_LONE_SHARK:
+    case EFFECT_VENOM_DRAIN:
         return TRUE;
     default:
         return FALSE;
@@ -3818,7 +3822,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_MULTIHIT_MOVES:
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE)
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE || gBattleMoves[gCurrentMove].effect == EFFECT_BLACK_BUFFET)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
 
@@ -9568,6 +9572,10 @@ static inline bool32 IsMoveDraining(u32 move)
     case EFFECT_ABSORB:
     case EFFECT_ROOST:
     case EFFECT_JUNGLE_HEALING:
+    case EFFECT_DRAINING_KISS:
+    case EFFECT_BLACK_BUFFET:
+    case EFFECT_LONE_SHARK:
+    case EFFECT_VENOM_DRAIN:
         ret = TRUE;
         break;
     default:

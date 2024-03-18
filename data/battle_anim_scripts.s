@@ -945,6 +945,7 @@ gBattleAnims_Moves::
 	.4byte Move_CREEPY_CRAWL
 	.4byte Move_PESTER_RAID
 	.4byte Move_BENTHIC_WHIP
+	.4byte Move_BLACK_BUFFET
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16266,11 +16267,9 @@ Move_BARB_BARRAGE::
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_TARGET
 	call BarbBarrageSpikeShoot
-	loopsewithpan SE_M_DIG, SOUND_PAN_ATTACKER, 0x7, 0x3
-	createvisualtask AnimTask_FlailMovement, 2, ANIM_ATTACKER
-	delay 0x14
+	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_ATTACKER, 0x7, 0x3
+	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 7, 0, 32, 1
-	call PoisonBubblesEffect
 	clearmonbg ANIM_TARGET
 	end
 BarbBarrageSpikeShoot:
@@ -20598,6 +20597,9 @@ Move_PESTER_RAID::
 
 Move_BENTHIC_WHIP::
 	goto Move_VINE_WHIP
+
+Move_BLACK_BUFFET::
+	goto Move_FURY_ATTACK
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

@@ -3552,6 +3552,9 @@ static const u8 sBenthicWhipDescription[] = _(
     "This move's power is greatly\n"
     "boosted when it is resisted.");
 
+static const u8 sBlackBuffetDescription[] = _(
+    "Pecks at the foe to eat them.\n"
+    "Hits 2 to 5 times. Drains HP.");
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4479,4 +4482,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CREEPY_CRAWL - 1] = sCreepyCrawlDescription,
     [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
     [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
+    [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
 };

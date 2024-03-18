@@ -515,6 +515,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBloomingHit             @ EFFECT_BLOOMING_HIT
 	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
 	.4byte BattleScript_EffectTearfulLook             @ EFFECT_TEARFUL_LOOK
+	.4byte BattleScript_EffectAbsorb                  @ EFFECT_BLACK_BUFFET
 
 BattleScript_EffectWickedWinds::
 	call BattleScript_EffectHit_Ret
