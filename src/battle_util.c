@@ -1554,6 +1554,10 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     case EFFECT_WISH:
     case EFFECT_HEAL_PULSE:
     case EFFECT_JUNGLE_HEALING:
+    case EFFECT_DRAINING_KISS:
+    case EFFECT_BLACK_BUFFET:
+    case EFFECT_LONE_SHARK:
+    case EFFECT_VENOM_DRAIN:
         return TRUE;
     default:
         return FALSE;
@@ -3818,7 +3822,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_MULTIHIT_MOVES:
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT)
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE || gBattleMoves[gCurrentMove].effect == EFFECT_BLACK_BUFFET)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
 
@@ -5633,7 +5637,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_IRON_BARBS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && IsMoveMakingContact(move, gBattlerAttacker))
             {
-                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
+                gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 12;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -6007,7 +6011,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_IRON_BARBS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && IsMoveMakingContact(move, gBattlerAttacker))
             {
-                gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 8;
+                gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 12;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -8822,7 +8826,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
 
     if (gBattleStruct->zmove.active)
         return GetZMovePower(gBattleStruct->zmove.baseMoves[battlerAtk]);
-
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_PLEDGE:
@@ -8945,11 +8948,8 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_HEX:
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
+    case EFFECT_BARB_BARRAGE:
         if (gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE)
-            basePower *= 2;
-        break;
-    case EFFECT_MULTI_HIT:
-        if ((gBattleMons[battlerDef].status1 & STATUS1_ANY_NEGATIVE || abilityDef == ABILITY_COMATOSE) && (gCurrentMove == MOVE_BARB_BARRAGE))
             basePower *= 2;
         break;
     case EFFECT_ASSURANCE:
@@ -9572,6 +9572,10 @@ static inline bool32 IsMoveDraining(u32 move)
     case EFFECT_ABSORB:
     case EFFECT_ROOST:
     case EFFECT_JUNGLE_HEALING:
+    case EFFECT_DRAINING_KISS:
+    case EFFECT_BLACK_BUFFET:
+    case EFFECT_LONE_SHARK:
+    case EFFECT_VENOM_DRAIN:
         ret = TRUE;
         break;
     default:
@@ -10177,6 +10181,13 @@ static inline uq4_12_t GetCollisionCourseElectroDriftModifier(u32 move, uq4_12_t
     return UQ_4_12(1.0);
 }
 
+static inline uq4_12_t GetBenthicWhipModifier(u32 move, uq4_12_t typeEffectivenessModifier)
+{
+    if (gCurrentMove == MOVE_BENTHIC_WHIP && (typeEffectivenessModifier < UQ_4_12(1.0)))
+        return UQ_4_12(2.5);
+    return UQ_4_12(1.0);
+}
+
 static inline uq4_12_t GetAttackerAbilitiesModifier(u32 battlerAtk, uq4_12_t typeEffectivenessModifier, bool32 isCrit, u32 abilityAtk)
 {
     switch (abilityAtk)
@@ -10348,6 +10359,7 @@ static inline uq4_12_t GetOtherModifiers(u32 move, u32 moveType, u32 battlerAtk,
     DAMAGE_MULTIPLY_MODIFIER(GetAirborneModifier(move, battlerDef));
     DAMAGE_MULTIPLY_MODIFIER(GetScreensModifier(move, battlerAtk, battlerDef, isCrit, abilityAtk));
     DAMAGE_MULTIPLY_MODIFIER(GetCollisionCourseElectroDriftModifier(move, typeEffectivenessModifier));
+    DAMAGE_MULTIPLY_MODIFIER(GetBenthicWhipModifier(move, typeEffectivenessModifier));
 
     if (unmodifiedAttackerSpeed >= unmodifiedDefenderSpeed)
     {

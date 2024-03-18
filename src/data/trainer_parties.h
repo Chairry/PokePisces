@@ -7309,11 +7309,23 @@ static const struct TrainerMon sParty_Marc[] = {
     },
     {
     .lvl = 8,
+    .species = SPECIES_COMBUSKEN,
+    },
+    {
+    .lvl = 8,
     .species = SPECIES_MUDKIP,
     },
     {
     .lvl = 8,
-    .species = SPECIES_COMBUSKEN,
+    .species = SPECIES_CASTFORM,
+    },
+    {
+    .lvl = 8,
+    .species = SPECIES_CRADILY,
+    },
+    {
+    .lvl = 8,
+    .species = SPECIES_ARMALDO,
     }
 };
 

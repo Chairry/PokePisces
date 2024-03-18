@@ -399,18 +399,17 @@
 #define MOVE_EFFECT_ALL_STATS_UP_2      83              
 #define MOVE_EFFECT_SIGNAL_BEAM         84              
 #define MOVE_EFFECT_ATK_TWO_DOWN        85              
-#define MOVE_EFFECT_BARB_BARRAGE        86              
-#define MOVE_EFFECT_METEOR_MASH         87              
-#define MOVE_EFFECT_DEF_SPDEF_UP        88              
-#define MOVE_EFFECT_CINDER_TWIRL        89              
-#define MOVE_EFFECT_CINDER_DRILL        90              
-#define MOVE_EFFECT_RADIOACID           91              
-#define MOVE_EFFECT_HEART_CARVE         92              
-#define MOVE_EFFECT_DEF_ACC_DOWN        93              
-#define MOVE_EFFECT_ALL_STATS_DOWN      94              
-#define MOVE_EFFECT_TOXIC_SPIKES        95
+#define MOVE_EFFECT_METEOR_MASH         86              
+#define MOVE_EFFECT_DEF_SPDEF_UP        87              
+#define MOVE_EFFECT_CINDER_TWIRL        88              
+#define MOVE_EFFECT_CINDER_DRILL        89              
+#define MOVE_EFFECT_RADIOACID           90              
+#define MOVE_EFFECT_HEART_CARVE         91              
+#define MOVE_EFFECT_DEF_ACC_DOWN        92              
+#define MOVE_EFFECT_ALL_STATS_DOWN      93              
+#define MOVE_EFFECT_TOXIC_SPIKES        94
 
-#define NUM_MOVE_EFFECTS                96              
+#define NUM_MOVE_EFFECTS                95              
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
