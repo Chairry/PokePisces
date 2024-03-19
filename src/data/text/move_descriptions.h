@@ -3555,6 +3555,15 @@ static const u8 sBenthicWhipDescription[] = _(
 static const u8 sBlackBuffetDescription[] = _(
     "Pecks at the foe to eat them.\n"
     "Hits 2 to 5 times. Drains HP.");
+
+static const u8 sFinishOffDescription[] = _(
+    "Stronger if the foe is not at\n"
+    "full HP. Also lowers user's Atk.");
+
+static const u8 sSeizeChanceDescription[] = _(
+    "Fails if the target didnt use\n"
+    "a status move. Always crits.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4483,4 +4492,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
     [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
     [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
+    [MOVE_FINISH_OFF - 1] = sFinishOffDescription,
+    [MOVE_SEIZE_CHANCE - 1] = sSeizeChanceDescription,
 };

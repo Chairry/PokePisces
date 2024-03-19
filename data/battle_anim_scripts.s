@@ -946,6 +946,8 @@ gBattleAnims_Moves::
 	.4byte Move_PESTER_RAID
 	.4byte Move_BENTHIC_WHIP
 	.4byte Move_BLACK_BUFFET
+	.4byte Move_FINISH_OFF
+	.4byte Move_SEIZE_CHANCE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -20752,6 +20754,12 @@ Move_BENTHIC_WHIP::
 Move_BLACK_BUFFET::
 	goto Move_FURY_ATTACK
 
+Move_FINISH_OFF::
+	goto Move_NIGHT_SLASH
+
+Move_SEIZE_CHANCE::
+	goto Move_SUCKER_PUNCH
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_LUMINA_CRASH::
@@ -27850,14 +27858,6 @@ SpiderWebThread:
 
 Move_RAZOR_WIND::
 	loadspritegfx ANIM_TAG_GUST
-	playsewithpan SE_M_GUST, SOUND_PAN_ATTACKER
-	createsprite gRazorWindTornadoSpriteTemplate, ANIM_ATTACKER, 2, 32, 0, 16, 16, 0, 7, 40
-	createsprite gRazorWindTornadoSpriteTemplate, ANIM_ATTACKER, 2, 32, 0, 16, 16, 85, 7, 40
-	createsprite gRazorWindTornadoSpriteTemplate, ANIM_ATTACKER, 2, 32, 0, 16, 16, 170, 7, 40
-	waitforvisualfinish
-	playsewithpan SE_M_GUST2, SOUND_PAN_ATTACKER
-	jumpifmoveturn 1, RazorWindUnleash
-RazorWindUnleash:
 	loadspritegfx ANIM_TAG_AIR_WAVE_2
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
@@ -27866,11 +27866,8 @@ RazorWindUnleash:
 	createsprite gAirWaveCrescentSpriteTemplate, ANIM_ATTACKER, 2, 14, 8, 0, 0, 22, 2, 1
 	delay 2
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gAirWaveCrescentSpriteTemplate, ANIM_ATTACKER, 2, 14, -8, 16, 14, 22, 1, 1
-	delay 2
-	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
 	createsprite gAirWaveCrescentSpriteTemplate, ANIM_ATTACKER, 2, 14, 12, -16, -14, 22, 0, 1
-	delay 17
+	delay 2
 	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 10, 1
 	waitforvisualfinish

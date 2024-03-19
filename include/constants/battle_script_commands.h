@@ -251,6 +251,7 @@
 #define VARIOUS_SET_SPIDER_WEB                       158
 #define VARIOUS_TRY_ACTIVATE_APPETITE                159
 #define VARIOUS_SET_SILENCE                          160
+#define VARIOUS_SEIZE_CHANCE_CHECK                   161
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

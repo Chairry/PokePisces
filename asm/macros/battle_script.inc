@@ -1652,6 +1652,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro seizechancecheck failInstr:req
+	various BS_ATTACKER, VARIOUS_SEIZE_CHANCE_CHECK
+	.4byte \failInstr
+	.endm
+
 	.macro setabilitysimple battler:req, failInstr:req
 	various \battler VARIOUS_SET_SIMPLE_BEAM
 	.4byte \failInstr

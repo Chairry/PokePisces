@@ -21282,11 +21282,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_TERMINYTE] =
     {
         .baseHP        = 50,
-        .baseAttack    = 90,
-        .baseDefense   = 60,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 60,
+        .baseAttack    = 95,
+        .baseDefense   = 50,
+        .baseSpeed     = 105,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 50,
         .types = { TYPE_BUG, TYPE_FIRE },
         .catchRate = 45,
         .expYield = 161,
