@@ -10321,6 +10321,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .damagesAirborne = TRUE,
         .ignoreTypeIfFlyingAndUngrounded = TRUE,
         .metronomeBanned = TRUE,
+        .piercingMove = TRUE,
     },
 
     [MOVE_THOUSAND_WAVES] =
@@ -10494,6 +10495,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .piercingMove = TRUE,
     },
 
     [MOVE_DARKEST_LARIAT] =
@@ -11699,6 +11701,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .strikeCount = 2,
+        .piercingMove = TRUE,
     },
 
     [MOVE_TEATIME] =
@@ -11956,6 +11959,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .metronomeBanned = TRUE,
+        .piercingMove = TRUE,
     },
 
     [MOVE_OVERDRIVE] =
@@ -12828,18 +12832,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BARB_BARRAGE] =
     {
-        .effect = EFFECT_MULTI_HIT,
+        .effect = EFFECT_BARB_BARRAGE,
         .power = 20,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
-        .argument = MOVE_EFFECT_BARB_BARRAGE,
     },
 
     [MOVE_ESPER_WING] =
@@ -12918,6 +12921,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .highCritRatio = TRUE,
         .sheerForceBoost = TRUE,
         .kickingMove = TRUE,
+        .piercingMove = TRUE,
     },
 
     [MOVE_INFERNAL_PARADE] =
@@ -13389,6 +13393,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
         .danceMove = TRUE,
+        .kickingMove = TRUE,
     },
 
     [MOVE_RAGING_BULL] =
@@ -14337,7 +14342,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 30,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -15053,6 +15058,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .kickingMove = TRUE,
     },
 
     [MOVE_VERGLASTROM] =
@@ -15202,6 +15208,71 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+    },
+
+    [MOVE_CREEPY_CRAWL] =
+    {
+        .effect = EFFECT_PANIC_HIT,
+        .power = 50,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_PESTER_RAID] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .ignoresTargetDefenseEvasionStages = TRUE,
+        .ignoresProtect = TRUE,
+    },
+
+    [MOVE_BENTHIC_WHIP] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_BLACK_BUFFET] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .power = 30,
+            .accuracy = 100,
+        #else
+            .power = 30,
+            .accuracy = 100,
+        #endif
+        .effect = EFFECT_BLACK_BUFFET,
+        .type = TYPE_DARK,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
     },
 
     // Z-Moves

@@ -942,6 +942,10 @@ gBattleAnims_Moves::
 	.4byte Move_DARK_TIDE
 	.4byte Move_SOLAR_FLARE
 	.4byte Move_ODD_STEP
+	.4byte Move_CREEPY_CRAWL
+	.4byte Move_PESTER_RAID
+	.4byte Move_BENTHIC_WHIP
+	.4byte Move_BLACK_BUFFET
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -16263,11 +16267,9 @@ Move_BARB_BARRAGE::
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_TARGET
 	call BarbBarrageSpikeShoot
-	loopsewithpan SE_M_DIG, SOUND_PAN_ATTACKER, 0x7, 0x3
-	createvisualtask AnimTask_FlailMovement, 2, ANIM_ATTACKER
-	delay 0x14
+	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_ATTACKER, 0x7, 0x3
+	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 7, 0, 32, 1
-	call PoisonBubblesEffect
 	clearmonbg ANIM_TARGET
 	end
 BarbBarrageSpikeShoot:
@@ -20333,13 +20335,123 @@ SerpentSurgeBeamsSpecialOpponent3:
 	return
 
 Move_FLARE_CRUSH::
-	goto Move_FIRE_PUNCH
+	loadspritegfx ANIM_TAG_CLAW_SLASH
+	loadspritegfx ANIM_TAG_WISP_FIRE
+	createvisualtask AnimTask_BlendParticle, 0x5, ANIM_TAG_WISP_FIRE, 0x4, 0x0, 0xE, 0x3006
+	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 4, 0, 8, RGB(0, 0, 0)
+	waitforvisualfinish
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gClawSlashSpriteTemplate, ANIM_TARGET, 2, -10, -10, 0
+	createsprite gClawSlashSpriteTemplate, ANIM_TARGET, 2, -10, 10, 0
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gClawSlashSpriteTemplate, ANIM_TARGET, 2, 10, -10, 1
+	createsprite gClawSlashSpriteTemplate, ANIM_TARGET, 2, 10, 10, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 4, 8, 0, RGB(0, 0, 0)
+	waitforvisualfinish
+	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 13, 1
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 0
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 42
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 84
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 126
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 168
+	createsprite gWillOWispFireSpriteTemplate, ANIM_ATTACKER, 2, 210
+	waitforvisualfinish
+	end
 
 Move_HULLBREAKER::
-	goto Move_WAVE_CRASH
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS @Bubbles on attacker
+	loadspritegfx ANIM_TAG_HORN_HIT
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
+	loadspritegfx ANIM_TAG_TORN_METAL
+	choosetwoturnanim HullbreakerNormal, HullbreakerShatteredWall
+HullbreakerNormal:
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0xB, 0x726A
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	call WaterfallBubblesOnAttacker
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	createsprite gHornHitSpriteTemplate, ANIM_TARGET, 4, 0, 0, 10
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 5, 1
+	call RisingWaterHitEffect
+	waitforvisualfinish
+	delay 0x5
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x1, 0xB, 0x0, 0x726A
+	waitforvisualfinish
+	end
+HullbreakerShatteredWall:
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x2, 0x0, 0xB, 0x726A
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	call WaterfallBubblesOnAttacker
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	createsprite gBrickBreakWallSpriteTemplate, ANIM_ATTACKER, 3, ANIM_TARGET, 0, 0, 20, 10
+	delay 1
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	createsprite gHornHitSpriteTemplate, ANIM_TARGET, 4, 0, 0, 10
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 5, 1
+	call RisingWaterHitEffect
+	waitforvisualfinish
+	delay 0x5
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	waitforvisualfinish
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, -8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 1, 8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 2, -8, 12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 3, 8, 12
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_ATTACKER, 0x1, 0xB, 0x0, 0x726A
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
+	end
 
 Move_CHROMA_BEAM::
-	goto Move_AURORA_BEAM
+	loadspritegfx ANIM_TAG_RAINBOW_RINGS
+	playsewithpan SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER
+	fadetobg BG_BLACKHOLE_ECLIPSE
+	waitbgfadeout
+	createvisualtask AnimTask_RotateAuroraRingColors, 10, 130
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 17, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	setarg 7, 0xFFFF
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 6, 0, 20
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 40, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings	
+	waitforvisualfinish
+	delay 1
+	call UnsetPsychicBg
+	end
 
 Move_HEART_CARVE::
 	goto Move_POISON_JAB
@@ -20476,6 +20588,18 @@ Move_SOLAR_FLARE::
 
 Move_ODD_STEP::
 	goto Move_AQUA_STEP
+
+Move_CREEPY_CRAWL::
+	goto Move_SAVAGE_SPIN_OUT
+
+Move_PESTER_RAID::
+	goto Move_INFESTATION
+
+Move_BENTHIC_WHIP::
+	goto Move_VINE_WHIP
+
+Move_BLACK_BUFFET::
+	goto Move_FURY_ATTACK
 
 Move_TERA_BLAST::
 Move_AXE_KICK::
