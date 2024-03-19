@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Woman2",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
@@ -168,7 +168,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Maniac",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Girl",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
@@ -194,7 +194,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_BlackBelt",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -207,7 +207,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "SootopolisCity_EventScript_Boy2",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAXIE",

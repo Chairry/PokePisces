@@ -46,7 +46,7 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 	clearflag FLAG_PISCES_D
 	clearflag FLAG_PISCES_E
 	clearflag FLAG_PISCES_F
-	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
+	clearflag FLAG_HIDE_TEAM_OZONE_COSMOSS
 	setflag FLAG_HIDE_LAB_RANGERS
 	warp MAP_BIRCH_MARITIME_LAB, 9, 14
 	waitstate

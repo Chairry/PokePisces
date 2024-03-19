@@ -132,8 +132,8 @@
 //11 = Shunyong Beaten
 #define VAR_BALL_QUEST_STATE                             0x4065 // Unused Var normally, used in PISCES
 #define VAR_NEW_COO_STATE                                0x4066 // Unused Var normally, used in PISCES
-#define VAR_ROUTE108_STATE                               0x4067 // Unused Var
-#define VAR_ROUTE109_STATE                               0x4068 // Unused Var
+#define VAR_SPACE_CENTER_QUEST_STATE                               0x4067 // Unused Var normally, used in PISCES
+#define VAR_RAY_STATE                               0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_ROUTE111_STATE                               0x406A // Unused Var
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var

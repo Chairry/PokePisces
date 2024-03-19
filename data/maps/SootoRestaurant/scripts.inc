@@ -1,6 +1,27 @@
 SootoRestaurant_MapScripts::
 	.byte 0
 
+SootoRestaurant_EventScript_Chef::
+	lock
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, SootoRestaurant_EventScript_NotServing
+	goto_if_unset FLAG_RECEIVED_SALT, SootoRestaurant_EventScript_HaveSomeSalt
+	msgbox SootoRestaurant_Text_ChefPostSalt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SootoRestaurant_EventScript_NotServing::
+	msgbox SootoRestaurant_Text_ChefPreGym, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SootoRestaurant_EventScript_HaveSomeSalt::
+	msgbox SootoRestaurant_Text_ChefPostGym, MSGBOX_AUTOCLOSE
+	giveitem ITEM_SHOAL_SALT
+	setflag FLAG_RECEIVED_SALT
+	closemessage
+	release
+	end
+
 SootoRestaurant_EventScript_SaltShaker::
 	lock
 	goto_if_unset FLAG_RECEIVED_SEASHELL_1, SootoRestaurant_EventScript_DontTakeSalt

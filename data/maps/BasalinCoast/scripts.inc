@@ -1,3 +1,5 @@
+.set LOCALID_STUDENT, 27
+
 BasalinCoast_MapScripts::
 	.byte 0
 
@@ -103,6 +105,147 @@ BasalinCoast_EventScript_GaveSeashellAlr::
     release
     end
 
+BasalinCoast_EventScript_BluePKMNCenters1::
+    lock
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentMeet1
+    waitmovement 0
+    msgbox BasalinCoast_Text_ILikeRouteCenters, MSGBOX_DEFAULT
+    closemessage
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentTakeYou1
+    applymovement OBJ_EVENT_ID_PLAYER, BasalinCoast_Movement_PlayerTakeYou1
+    waitmovement 0
+    msgbox BasalinCoast_Text_ExplainRouteCenters, MSGBOX_DEFAULT
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentLeaves
+    setvar VAR_BALL_QUEST_STATE, 0
+    clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
+    waitmovement 0
+    setflag FLAG_HIDE_LAB_RANGERS
+    release
+    end
+
+BasalinCoast_Movement_StudentMeet1:
+    walk_down
+    walk_down
+    walk_down
+    walk_left
+    walk_down
+    walk_down
+    step_end
+
+BasalinCoast_Movement_StudentTakeYou1:
+    walk_up
+    walk_up
+    walk_right
+    walk_up
+    walk_up
+    face_down
+    step_end
+
+BasalinCoast_Movement_PlayerTakeYou1:
+    walk_up
+    walk_up
+    walk_up
+    walk_right
+    walk_up
+    step_end
+
+BasalinCoast_Movement_StudentLeaves:
+    walk_right
+    walk_right
+    walk_right
+    walk_down
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    walk_right
+    step_end
+
+BasalinCoast_EventScript_BluePKMNCenters2::
+    lock
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentMeet2
+    waitmovement 0
+    msgbox BasalinCoast_Text_ILikeRouteCenters, MSGBOX_DEFAULT
+    closemessage
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentTakeYou2
+    applymovement OBJ_EVENT_ID_PLAYER, BasalinCoast_Movement_PlayerTakeYou2
+    waitmovement 0
+    msgbox BasalinCoast_Text_ExplainRouteCenters, MSGBOX_DEFAULT
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentLeaves
+    setvar VAR_BALL_QUEST_STATE, 0
+    clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
+    waitmovement 0
+    setflag FLAG_HIDE_LAB_RANGERS
+    release
+    end
+
+BasalinCoast_Movement_StudentMeet2:
+    walk_down
+    walk_down
+    walk_down
+    walk_down
+    walk_down
+    step_end
+
+BasalinCoast_Movement_StudentTakeYou2:
+    walk_up
+    walk_up
+    walk_up
+    walk_up
+    face_down
+    step_end
+
+BasalinCoast_Movement_PlayerTakeYou2:
+    walk_up
+    walk_up
+    walk_up
+    walk_up
+    step_end
+
+BasalinCoast_EventScript_BluePKMNCenters3::
+    lock
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentMeet3
+    waitmovement 0
+    msgbox BasalinCoast_Text_ILikeRouteCenters, MSGBOX_DEFAULT
+    closemessage
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentTakeYou3
+    applymovement OBJ_EVENT_ID_PLAYER, BasalinCoast_Movement_PlayerTakeYou3
+    waitmovement 0
+    msgbox BasalinCoast_Text_ExplainRouteCenters, MSGBOX_DEFAULT
+    applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentLeaves
+    setvar VAR_BALL_QUEST_STATE, 0
+    clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
+    waitmovement 0
+    setflag FLAG_HIDE_LAB_RANGERS
+    release
+    end
+
+BasalinCoast_Movement_StudentMeet3:
+    walk_down
+    walk_down
+    walk_down
+    walk_right
+    walk_down
+    walk_down
+    step_end
+
+BasalinCoast_Movement_StudentTakeYou3:
+    walk_up
+    walk_up
+    walk_left
+    walk_up
+    walk_up
+    face_down
+    step_end
+
+BasalinCoast_Movement_PlayerTakeYou3:
+    walk_up
+    walk_up
+    walk_up
+    walk_left
+    walk_up
+    step_end
+
 BasalinCoast_Text_GugumbirIntro:
 	.string "intro$"
 
@@ -197,3 +340,9 @@ BasalinCoast_Text_HaveMyShell:
 BasalinCoast_Text_GaveSeashellAlr:
     .string "I'm gonna go dive and snatch that\n"
     .string "shell back later.$"
+
+BasalinCoast_Text_ILikeRouteCenters:
+    .string "I like peanuts without the t$"
+
+BasalinCoast_Text_ExplainRouteCenters:
+    .string "looky looky blue roof$"

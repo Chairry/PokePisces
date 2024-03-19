@@ -178,6 +178,7 @@ BirchMaritimeLab_EventScript_BeatenRangers::
 	msgbox BirchMaritimeLab_Text_HaveEXPShare, MSGBOX_DEFAULT
 	giveitem ITEM_EXP_SHARE
 	setflag FLAG_RECEIVED_EXP_SHARE
+	setvar VAR_BALL_QUEST_STATE, 69
 	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE
 	releaseall
 	end
