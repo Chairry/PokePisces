@@ -180,19 +180,50 @@ NewSooto_EventScript_NotEnoughMoney::
 	end
 
 NewSooto_Text_CheckOutTheCave:
-	.string "go to the cave bro$"
+	.string "Hurrumph!\n"
+	.string "If it isn't that {PLAYER} fellow.\p"
+	.string "I hope you have been faring well.\p"
+	.string "What begets my audience in Sootopolis?…\n"
+	.string "The Legends I had discussed with you\l"
+	.string "aboard the Tidal, of course.\p"
+	.string "This borough has seen many an\n"
+	.string "encounter with the divine and\l"
+	.string "powerful, after all.\p"
+	.string "You seem interested, my friend.\p"
+	.string "Head forth into the Cave of Origin,\n"
+	.string "{PLAYER}.\p"
+	.string "You will meet a man who bore witness\n"
+	.string "to the clash between the Behemoth\l"
+	.string "and the Leviathan…\p"
+	.string "I just finished up conversing with the\n"
+	.string "fellow, I believe it will\l"
+	.string "pique your curiosity.$"
 
 NewSooto_Text_WantAPaper:
-	.string "want a paper$"
+	.string "Papers! Papers!\n"
+	.string "Get'cha mornin' papers here!\p"
+	.string "Hey! I can tell ya wanna paper.\n"
+	.string "How's ¥1000 sound?\l"
+	.string "It's a great deal!$"
 
 NewSooto_Text_ThanksForBuying:
-	.string "thanks$"
+	.string "Alrighty!\p"
+	.string "(The Paper Boy shuffles\n"
+	.string "through his pack.)\p"
+	.string "Ah, here's one'a the best!$"
 
 NewSooto_Text_NoMorePolicies:
-	.string "no more policies$"
+	.string "Hmm? Nah, I ain't got no news papers.\p"
+	.string "I got, uh… let's see here…\p"
+	.string "Old tax return…\n"
+	.string "condemned buildin' notice…\l"
+	.string "D- math test…$"
 
 NewSooto_Text_NotEnoughMoney:
-	.string "poor LOL$"
+	.string "Ah, maybe next time.\n"
+	.string "Won't nab a better paper anywhere else!$"
 
 NewSooto_Text_BestNotTo:
-	.string "Not strong enough yet$"
+	.string "(Looks like an intimidating cave.\n"
+	.string "...best to wait until you're\l"
+	.string "a bit stronger.)$"

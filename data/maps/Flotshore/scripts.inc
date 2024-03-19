@@ -71,13 +71,16 @@ Flotshore_Text_JanicePostBattle:
 	.string "test$"
 
 Flotshore_Text_JimmyIntro:
-	.string "test$"
+	.string "I'm something of a boy\n"
+	.string "genius, y'know!$"
 
 Flotshore_Text_JimmyDefeated:
-	.string "test$"
+	.string "Even my super-powered mind\n"
+	.string "couldn't measure up…$"
 
 Flotshore_Text_JimmyPostBattle:
-	.string "test$"
+	.string "Hope you have a knack for adventure!\n"
+	.string "The route branches off up ahead.$"
 
 Flotshore_Text_DanIntro:
 	.string "test$"
@@ -116,7 +119,11 @@ Flotshore_Text_BarbaraPostBattle:
 	.string "test$"
 
 Flotshore_Text_HaveMyShell:
-	.string "have this shell$"
+	.string "I love searchin' underneath\n"
+	.string "the boards!\p"
+	.string "Here, take this shell\n"
+	.string "I found down there.$"
 
 Flotshore_Text_GaveSeashellAlr:
-	.string "goody gum$"
+	.string "I think I'll make a fort\n"
+	.string "down there… just for me!$"

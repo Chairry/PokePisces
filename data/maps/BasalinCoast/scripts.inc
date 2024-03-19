@@ -17,18 +17,18 @@ BasalinCoast_EventScript_Sadie::
     end
 
 BasalinCoast_EventScript_Melanie::
-    trainerbattle_single TRAINER_P_MELANIE, BasalinCoast_Text_GugumbirIntro, BasalinCoast_Text_GugumbirDefeated
-    msgbox BasalinCoast_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    trainerbattle_single TRAINER_P_MELANIE, BasalinCoast_Text_MelanieIntro, BasalinCoast_Text_MelanieDefeated
+    msgbox BasalinCoast_Text_MelaniePostBattle, MSGBOX_AUTOCLOSE
     end
 
 BasalinCoast_EventScript_Timmy::
-    trainerbattle_single TRAINER_P_TIMMY, BasalinCoast_Text_GugumbirIntro, BasalinCoast_Text_GugumbirDefeated
-    msgbox BasalinCoast_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    trainerbattle_single TRAINER_P_TIMMY, BasalinCoast_Text_TimmyIntro, BasalinCoast_Text_TimmyDefeated
+    msgbox BasalinCoast_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
     end
 
 BasalinCoast_EventScript_Wadelle::
-    trainerbattle_single TRAINER_P_WADELLE, BasalinCoast_Text_GugumbirIntro, BasalinCoast_Text_GugumbirDefeated
-    msgbox BasalinCoast_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    trainerbattle_single TRAINER_P_WADELLE, BasalinCoast_Text_CatIntro, BasalinCoast_Text_CatDefeated
+    msgbox BasalinCoast_Text_CatPostBattle, MSGBOX_AUTOCLOSE
     end
 
 BasalinCoast_EventScript_Yanny::
@@ -51,7 +51,7 @@ BasalinCoast_EventScript_Selko::
 	end
 
 BasalinCoast_EventScript_BattleSelko::
-	trainerbattle_single TRAINER_P_SELKO, BasalinCoast_Text_GugumbirIntro, BasalinCoast_Text_GugumbirDefeated, BasalinCoast_EventScript_GiveSelkoShell
+	trainerbattle_single TRAINER_P_SELKO, BasalinCoast_Text_SelkoIntro, BasalinCoast_Text_SelkoDefeated, BasalinCoast_EventScript_GiveSelkoShell
 	release
 	end
 
@@ -112,26 +112,88 @@ BasalinCoast_Text_GugumbirDefeated:
 BasalinCoast_Text_GugumbirPostBattle:
 	.string "post$"
 
+BasalinCoast_Text_MelanieIntro:
+	.string "Have you found a Fluffsir? I can't\n"
+    .string "find one! Hand it over!$"
+
+BasalinCoast_Text_MelanieDefeated:
+	.string "Alright! I'll back off!$"
+
+BasalinCoast_Text_MelaniePostBattle:
+	.string "Watch out on the stairs… I tumbled\n"
+    .string "down 'em once. It really hurt!$"
+
+BasalinCoast_Text_TimmyIntro:
+	.string "I'm just your average kid… that no one\n"
+    .string "understands!$"
+
+BasalinCoast_Text_TimmyDefeated:
+	.string "You're such an odd trainer!\n"
+    .string "Fairly odd trainer!$"
+
+BasalinCoast_Text_TimmyPostBattle:
+	.string "I should shop for a new hat.\n"
+    .string "I'm thinking pink!$"
+
+BasalinCoast_Text_CatIntro:
+	.string "My mother always told me there'd be\n"
+    .string "days like this…$"
+
+BasalinCoast_Text_CatDefeated:
+	.string "Express elevator going\n"
+    .string "doooooown…!$"
+
+BasalinCoast_Text_CatPostBattle:
+	.string "How could a Cat have such a\n"
+    .string "dog of a day…?$"
+
 BasalinCoast_Text_WantMySeashell:
-    .string "want my shell?$"
+    .string "Hee-hee-hee...\p"
+    .string "I can tell you're lookin' for shells.\n"
+    .string "Wanna try takin' mine?$"
+
+BasalinCoast_Text_SelkoIntro:
+	.string "Hah-hah-hah!\n"
+    .string "I've caught you! You want my shell?\l"
+    .string "You're gonna have to get through...\l"
+    .string "THIS!$"
+
+BasalinCoast_Text_SelkoDefeated:
+	.string "I didn't expect THAT!$"
 
 BasalinCoast_Text_YouEarnedThisShell:
-    .string "you earned this$"
+    .string "Yeah, yeah... take it.$"
 
 BasalinCoast_Text_AreYaSure:
-    .string "you suuuuuuuuure?$"
+    .string "Are you suuuuuuuuure?$"
 
 BasalinCoast_Text_SelkoPostBattle:
-    .string "selko post battle lol$"
+    .string "Look, I take shell collecting VERY\n"
+    .string "seriously. Please treat that\l"
+    .string "shell with care.$"
 
 BasalinCoast_Text_HaveShedShell:
-    .string "have this shell haha$"
+    .string "I hear some peeps have been looking\n"
+    .string "for shells to make into a Shell Bell.\p"
+    .string "Well, my bug Pokémon leave behind\n"
+    .string "a lot of those!\p"
+    .string "Here; you can take one.$"
 
 BasalinCoast_Text_GaveShedShell:
-    .string "already gave ya one$"
+    .string "Y'know, I AM a bit confused as to how\n"
+    .string "that's gonna make a good bell…$"
 
 BasalinCoast_Text_HaveMyShell:
-    .string "have my sneed shell$"
+    .string "(This boy is skipping the water with a\n"
+    .string "seashell you might need.)\p"
+    .string "Hey there! Bet you can't skip this\n"
+    .string "shell further'n me!\p"
+    .string "(You take the shell and swap it with\n"
+    .string "a rock while he isn't looking.\l"
+    .string "Then, you let it rip. It goes dozens\l"
+    .string "of meters into the ocean.)\p"
+    .string "WOAH! You're strong!$"
 
 BasalinCoast_Text_GaveSeashellAlr:
-    .string "i like rocks$"
+    .string "I'm gonna go dive and snatch that\n"
+    .string "shell back later.$"

@@ -20,8 +20,10 @@ SootopolisCity_Gym_B1F_EventScript_JuanBattleStart::
 	applymovement LOCALID_SEBASTIAN, SootopolisCity_Gym_B1F_Movement_SebastianMoveIntoPlace
 	waitmovement 0
 	msgbox SootopolisCity_Gym_B1F_Text_ImSebastian, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_Talking
 	msgbox SootopolisCity_Gym_B1F_Text_BattleBegins, MSGBOX_DEFAULT
 	playse SE_APPLAUSE
+	delay 30
 	delay 30
 	delay 30
 	delay 30
@@ -58,7 +60,14 @@ SootopolisCity_Gym_B1F_Movement_SebastianMoveIntoPlace:
 	face_down
 	step_end
 
+SootopolisCity_Gym_B1F_Movement_Talking:
+	walk_in_place_slow_down
+	step_end
+
 SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
+	msgbox SootopolisCity_Gym_B1F_Text_GivePlayerTheWinnings, MSGBOX_DEFAULT
+	applymovement LOCALID_SEBASTIAN, SootopolisCity_Gym_B1F_Movement_SebastianGiveItems
+	msgbox SootopolisCity_Gym_B1F_Text_GivePlayerBadge, MSGBOX_DEFAULT
 	message SootopolisCity_Gym_B1F_Text_ReceivedRainBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -79,21 +88,30 @@ SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
 	call SootopolisCity_Gym_B1F_EventScript_GiveWaterPulse
 	closemessage
 	delay 30
+	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_Talking
 	msgbox SootopolisCity_Gym_B1F_Text_GetOuttaHere, MSGBOX_DEFAULT
 	warp MAP_NEW_SOOTO, 41, 16
 	release
 	end
 
+SootopolisCity_Gym_B1F_Movement_SebastianGiveItems:
+	walk_left
+	face_down
+	step_end
+
 SootopolisCity_Gym_B1F_EventScript_GiveWaterPulse::
-	giveitem ITEM_TM_WATER_PULSE
+	giveitem ITEM_TM_AVALANCHE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox SootopolisCity_Gym_B1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
+	giveitem ITEM_TM_COVET
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
 	return
 
 SootopolisCity_Gym_B1F_EventScript_GiveWaterPulse2::
-	giveitem ITEM_TM_WATER_PULSE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_TM_AVALANCHE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	giveitem ITEM_TM_COVET
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox SootopolisCity_Gym_B1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
 	release
@@ -202,58 +220,67 @@ SootopolisCity_Gym_B1F_Text_MiikachanPostBattle:
 	.string "before I can manage an “Oops!”$"
 
 SootopolisCity_Gym_B1F_Text_JuanIntro:
-	.string "wtf !! (two)$"
+	.string "Hmph. You weathered my harsh winter…$"
 
 SootopolisCity_Gym_B1F_Text_JuanDefeat:
-	.string "sebeta male$"
+	.string "'Twas an honor.$"
+
+SootopolisCity_Gym_B1F_Text_GivePlayerTheWinnings:
+	.string "Sebastian. Please give our guest\n"
+	.string "their winnings.$"
+
+SootopolisCity_Gym_B1F_Text_GivePlayerBadge:
+	.string "It is my pleasure to bestow upon you…\n"
+	.string "the Magarita Badge.$"
 
 SootopolisCity_Gym_B1F_Text_ReceivedRainBadge:
-	.string "{PLAYER} received the RAIN BADGE\n"
-	.string "from JUAN.$"
+	.string "{PLAYER} received the\n"
+	.string "Margarita Badge\l"
+	.string "from Juan and Sebastian.$"
 
 SootopolisCity_Gym_B1F_Text_ExplainRainBadgeTakeThis:
-	.string "Having the RAIN BADGE shall assure you\n"
-	.string "the full obedience of all your POKéMON\l"
-	.string "to your every command.\p"
-	.string "The RAIN BADGE also allows the use\n"
-	.string "of the HM move WATERFALL to scale\l"
-	.string "walls of cascading water.\p"
-	.string "And, so that you never forget the\n"
-	.string "battle we shared, take this…$"
+	.string "This badge gives you the privelege of\n"
+	.string "being able to utilize the field move,\l"
+	.string "Rock Smash.\p"
+	.string "In addition, Master Juan would like\n"
+	.string "you to have these two TMs.$"
 
 SootopolisCity_Gym_B1F_Text_ExplainWaterPulse:
-	.string "The TECHNICAL MACHINE I handed you\n"
-	.string "contains WATER PULSE.\p"
-	.string "In use, it will occasionally confuse\n"
-	.string "the target with ultrasonic waves.\p"
-	.string "… … … … … …$"
+	.string "tesat$"
 
 SootopolisCity_Gym_B1F_Text_RegisteredJuan:
-	.string "Registered GYM LEADER JUAN\n"
-	.string "in the POKéNAV.$"
+	.string "shouldnt appear$"
 
 SootopolisCity_Gym_B1F_Text_JuanPostBattle:
-	.string "The TRAINERS who have gathered all\n"
-	.string "the GYM BADGES of HOENN should make\l"
-	.string "way to the ultimate destination.\p"
-	.string "The POKéMON LEAGUE.\p"
-	.string "Travel to the easternmost reaches\n"
-	.string "of HOENN, to the island EVER GRANDE.\p"
-	.string "There, you shall find the POKéMON\n"
-	.string "LEAGUE.$"
+	.string "shouldnt appear$"
 
 SootopolisCity_Gym_B1F_Text_JuanNotices:
-	.string "wtf !!\p"
-	.string "sebastian help!$"
+	.string "Heavens above!\p"
+	.string "Challenger, how DARE you drop in on\n"
+	.string "this performance unnanounced!\p"
+	.string "Hmph.\n"
+	.string "And here I was, thinking I was going\l"
+	.string "to hold back on today's challengers\l"
+	.string "for once…\p"
+	.string "(Juan claps his hands together twice.)\n"
+	.string "Sebastian! Come hither!$"
 
 SootopolisCity_Gym_B1F_Text_ImSebastian:
-	.string "im sebastian btw$"
+	.string "I am pleased to assist, m'lord.$"
 
 SootopolisCity_Gym_B1F_Text_BattleBegins:
-	.string "time to battle bruv$"
+	.string "Trainer… do you know why I adore the\n"
+	.string "Ice type so?\p"
+	.string "It is cold, calculated.\n"
+	.string "Weakening and debilitating.\p"
+	.string "When I give it my all in this gym, the\n"
+	.string "challengers… they shiver.\p"
+	.string "Have you what it takes?\n"
+	.string "Let us find out.$"
 
 SootopolisCity_Gym_B1F_Text_GetOuttaHere:
-	.string "now please scram thx$"
+	.string "You showed us your meddle, challenger.\p"
+	.string "And now, I ask you to bid us adieu.$"
 
 SootopolisCity_Gym_B1F_Text_DontGoOnStage:
 	.string "dont go up there$"
