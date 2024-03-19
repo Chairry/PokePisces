@@ -556,7 +556,7 @@ static void SetupRoomObjectEvents(void)
     u32 objGfx1;
     u16 objGfx2;
 
-    VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LINK_RECEPTIONIST);
+    VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SHRINE_MAIDEN);
     VarSet(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_DUSCLOPS);
     setObjGfx1 = TRUE;
     setObjGfx2 = FALSE;
@@ -570,7 +570,7 @@ static void SetupRoomObjectEvents(void)
         setObjGfx1 = FALSE;
         break;
     case PIKE_ROOM_HEAL_FULL:
-        objGfx1 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx1 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         break;
     case PIKE_ROOM_NPC:
         objGfx1 = (u8)(GetNPCRoomGraphicsId());
@@ -591,7 +591,7 @@ static void SetupRoomObjectEvents(void)
         break;
     case PIKE_ROOM_HARD_BATTLE:
         PrepareOneTrainer(TRUE);
-        objGfx2 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx2 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         setObjGfx1 = FALSE;
         setObjGfx2 = TRUE;
         break;
@@ -601,7 +601,7 @@ static void SetupRoomObjectEvents(void)
         break;
     case PIKE_ROOM_BRAIN:
         SetFrontierBrainObjEventGfx(FRONTIER_FACILITY_PIKE);
-        objGfx2 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx2 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         setObjGfx1 = FALSE;
         setObjGfx2 = TRUE;
         break;

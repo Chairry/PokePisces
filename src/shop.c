@@ -85,7 +85,7 @@ enum
 {
     MUGSHOT_JERRY, // OBJ_EVENT_GFX_MART_EMPLOYEE
     MUGSHOT_JENNIE, // OBJ_EVENT_GFX_TEALA
-    MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_UNION_ROOM_NURSE
+    MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_PURPLINA
     MUGSHOT_KODOUGH, // OBJ_EVENT_GFX_WINGULL
     MUGSHOT_COUNT,
 };
@@ -565,7 +565,7 @@ static const struct SellerMugshot sSellerMugshots[] = {
     // both are same thing btw, is just one is shortened with macro and others are pure
     MUGSHOT(JERRY, MART_EMPLOYEE, Jerry),
     {{.gfxId=OBJ_EVENT_GFX_TEALA}, .gfx=gShopMenuSellerMugshotGfx_Jennie, .pal=gShopMenuSellerMugshotPal_Jennie},
-    {{.gfxId=OBJ_EVENT_GFX_UNION_ROOM_NURSE}, .gfx=gShopMenuSellerMugshotGfx_Purplina, .pal=gShopMenuSellerMugshotPal_Purplina},
+    {{.gfxId=OBJ_EVENT_GFX_PURPLINA}, .gfx=gShopMenuSellerMugshotGfx_Purplina, .pal=gShopMenuSellerMugshotPal_Purplina},
     {{.gfxId=OBJ_EVENT_GFX_WINGULL}, .gfx=gShopMenuSellerMugshotGfx_Kodough, .pal=gShopMenuSellerMugshotPal_Kodough},
 };
 
