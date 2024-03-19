@@ -4108,9 +4108,8 @@ static const struct TrainerMon sParty_Josh[] = {
 
 static const struct TrainerMon sParty_Tommy[] = {
     {
-    .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .lvl = 8,
-    .species = SPECIES_GEODUDE,
+    .lvl = 100,
+    .species = SPECIES_MEGANIUM,
     },
     {
     .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
@@ -7304,7 +7303,7 @@ static const struct TrainerMon sParty_GruntJaggedPass[] = {
 
 static const struct TrainerMon sParty_Marc[] = {
     {
-    .lvl = 8,
+    .lvl = 100,
     .species = SPECIES_SCEPTILE,
     },
     {

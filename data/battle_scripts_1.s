@@ -7520,7 +7520,7 @@ BattleScript_DoOverheat::
 	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 BattleScript_CheckOverheatDoubles::
-jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
+	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
 	goto BattleScript_DoOverheat
 BattleScript_OverheatDoubles::
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect

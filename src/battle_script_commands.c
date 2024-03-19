@@ -14000,7 +14000,7 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
     else
     {
-        gBattleStruct->dragonpokerBasePower = 180;
+        gBattleStruct->dragonpokerBasePower = 200;
         gBattlescriptCurrInstr = BattleScript_DragonPokerRoyalFlush;
     }
 }

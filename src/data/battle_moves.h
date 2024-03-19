@@ -14727,6 +14727,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .argument = 100,
+        .bitingMove = TRUE,
     },
 
     [MOVE_HEART_STEAL] =
