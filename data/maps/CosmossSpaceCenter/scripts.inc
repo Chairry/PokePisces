@@ -215,55 +215,55 @@ CosmossSpaceCenter_EventScript_ExplainShinyMinior::
 	end
 
 CosmossSpaceCenter_Text_NeedHelpFunding:
-	.string "test$"
+	.string "need help funding fuel$"
 
 CosmossSpaceCenter_Text_WillYouFund:
-	.string "test$"
+	.string "will cost 5000$"
 
 CosmossSpaceCenter_Text_ThanksForFunding:
-	.string "test$"
+	.string "thanks for funding$"
 
 CosmossSpaceCenter_Text_YouCanNowGoUpstairs:
-	.string "test$"
+	.string "you can go upstairs now$"
 
 CosmossSpaceCenter_Text_NotEnoughMoney:
-	.string "test$"
+	.string "poor ! lol$"
 
 CosmossSpaceCenter_Text_RocketFuel:
-	.string "test$"
+	.string "jet fuel cant melt$"
 
 CosmossSpaceCenter_Text_BattleMyCryplin:
-	.string "test$"
+	.string "battle my cryplin$"
 
 CosmossSpaceCenter_Text_PonsonbyIntro:
-	.string "test$"
+	.string "cryplin depression$"
 
 CosmossSpaceCenter_Text_PonsonbyDefeat:
-	.string "test$"
+	.string "cryplin deez$"
 
 CosmossSpaceCenter_Text_LearnedALot:
-	.string "test$"
+	.string "wow that was cool huh$"
 
 CosmossSpaceCenter_Text_HelpMyFriend:
-	.string "test$"
+	.string "help my boy on the left$"
 
 CosmossSpaceCenter_Text_AboutCryplin:
-	.string "test$"
+	.string "cryplin ate my lunch$"
 
 CosmossSpaceCenter_Text_HelpFightUFO:
-	.string "test$"
+	.string "we are being invaded chat$"
 
 CosmossSpaceCenter_Text_RadioWaves:
-	.string "test$"
+	.string "gaydio waves haha$"
 
 CosmossSpaceCenter_Text_SavedTheRocket:
-	.string "test$"
+	.string "you so cool$"
 
 CosmossSpaceCenter_Text_MeteorsFallen:
-	.string "test$"
+	.string "meteors just fell outside$"
 
 CosmossSpaceCenter_Text_AboutUhefoe:
-	.string "test$"
+	.string "u heffer$"
 
 CosmossSpaceCenter_Text_GoCollectMinior:
 	.string "go get some minior$"

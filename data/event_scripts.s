@@ -676,6 +676,15 @@ Common_EventScript_ReadyPetalburgGymForBattle::
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
 	return
 
+Common_EventScript_TannerShop::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
 Common_EventScript_BallShop::
 	lock
 	faceplayer
