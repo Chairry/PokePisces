@@ -60,6 +60,8 @@
 #define BAG_POKEBALLS_COUNT 16
 #define BAG_TMHM_COUNT 100
 #define BAG_BERRIES_COUNT 46
+#define BAG_MEDICINE_COUNT 10 // adjust saveblock to expand this e.g. remove unused save space
+#define BAG_BATTLEITEMS_COUNT 10 // adjust saveblock to expand this e.g. remove unused save space
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
 #define DECOR_MAX_SECRET_BASE 16
 #define DECOR_MAX_PLAYERS_HOUSE 12
