@@ -119,7 +119,49 @@ CosmossSpaceCenter_EventScript_AsteroidResearcher::
 	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_AboutCryplin
 	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_AboutCryplin
 	msgbox CosmossSpaceCenter_Text_GoCollectMinior, MSGBOX_DEFAULT
-	goto CosmossSpaceCenter_EventScript_ReceiveShinyMinior
+	specialvar VAR_RESULT, CheckMiniorRed
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckOrange
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_CheckOrange::
+	specialvar VAR_RESULT, CheckMiniorOrange
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckYellow
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_CheckYellow::
+	specialvar VAR_RESULT, CheckMiniorYellow
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckGreen
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_CheckGreen::
+	specialvar VAR_RESULT, CheckMiniorGreen
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckBlue
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_CheckBlue::
+	specialvar VAR_RESULT, CheckMiniorBlue
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckViolet
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_CheckViolet::
+	specialvar VAR_RESULT, CheckMiniorViolet
+	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_ReceiveShinyMinior
+	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
@@ -224,13 +266,16 @@ CosmossSpaceCenter_Text_AboutUhefoe:
 	.string "test$"
 
 CosmossSpaceCenter_Text_GoCollectMinior:
-	.string "test$"
+	.string "go get some minior$"
 
 CosmossSpaceCenter_Text_HaveThisShinyMinior:
-	.string "test$"
+	.string "have this shiny minior$"
 
 CosmossSpaceCenter_Text_PlayerReceivedShinyMinior:
-	.string "test$"
+	.string "you got it$"
 
 CosmossSpaceCenter_Text_YoureTheBest:
-	.string "test$"
+	.string "yas queen$"
+
+CosmossSpaceCenter_Text_NotEnoughMinior:
+	.string "not enough$"

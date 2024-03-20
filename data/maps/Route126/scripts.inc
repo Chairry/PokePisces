@@ -20,6 +20,7 @@ Route126_EventScript_StartInvasion::
 	waitmoncry
 	msgbox Route126_Text_UhefoeAppears, MSGBOX_DEFAULT
 	dowildbattle
+	goto Route126_EventScript_YouDidIt
 	release
 	end
 
@@ -225,10 +226,10 @@ Route126_Text_VarTest:
 	.string "space center var set 3$"
 
 Route126_Text_TheyreInvading:
-	.string "test$"
+	.string "theyre invading dood!$"
 
 Route126_Text_UhefoeAppears:
-	.string "test$"
+	.string "its a wild uhefoe$"
 
 Route126_Text_YouDidIt:
-	.string "test$"
+	.string "you did it$"
