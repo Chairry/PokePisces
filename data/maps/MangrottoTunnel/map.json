@@ -273,7 +273,24 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_BREADWINNER_STATE",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_BreadwinnerEnc1"
+    },
+    {
+      "type": "trigger",
+      "x": 84,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_BREADWINNER_STATE",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_BreadwinnerEnc2"
+    }
   ],
   "bg_events": [
 

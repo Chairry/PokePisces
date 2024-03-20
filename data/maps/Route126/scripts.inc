@@ -1,7 +1,41 @@
 .set LOCALID_RAY, 5
 
 Route126_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route126_OnFrame
 	.byte 0
+
+Route126_OnFrame:
+	map_script_2 VAR_SPACE_CENTER_QUEST_STATE, 69, Route126_EventScript_StartInvasion
+
+Route126_EventScript_StartInvasion::
+	lock
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 2
+	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_WalkToRocket
+	waitmovement 0
+	msgbox Route126_Text_TheyreInvading, MSGBOX_DEFAULT
+	setwildbattle SPECIES_UHEFOE, 20
+	settotemboost B_POSITION_OPPONENT_LEFT, 0, 2, 0, 0, 2
+	playmoncry SPECIES_BEHEEYEM, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	msgbox Route126_Text_UhefoeAppears, MSGBOX_DEFAULT
+	dowildbattle
+	release
+	end
+
+Route126_Movement_WalkToRocket:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route126_EventScript_YouDidIt::
+	msgbox Route126_Text_YouDidIt, MSGBOX_DEFAULT
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 50
+	warp MAP_COSMOSS_SPACE_CENTER, 3, 28
+	waitstate
+	release
+	end
 
 Route126_EventScript_Barry::
 	trainerbattle_single TRAINER_BARRY, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
@@ -189,3 +223,12 @@ Route126_Text_RayLeaves:
 
 Route126_Text_VarTest:
 	.string "space center var set 3$"
+
+Route126_Text_TheyreInvading:
+	.string "test$"
+
+Route126_Text_UhefoeAppears:
+	.string "test$"
+
+Route126_Text_YouDidIt:
+	.string "test$"
