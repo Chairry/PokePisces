@@ -463,11 +463,11 @@ const u16 DecorGfx_KISS_POSTER[] = {
 };
 
 const u16 DecorGfx_PICHU_DOLL[] = {
-    OBJ_EVENT_GFX_PICHU_DOLL
+    OBJ_EVENT_GFX_COURTNEY
 };
 
 const u16 DecorGfx_PIKACHU_DOLL[] = {
-    OBJ_EVENT_GFX_PIKACHU_DOLL
+    OBJ_EVENT_GFX_SEBASTIAN
 };
 
 const u16 DecorGfx_MARILL_DOLL[] = {

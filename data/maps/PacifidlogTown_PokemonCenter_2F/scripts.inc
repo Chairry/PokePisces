@@ -20,9 +20,9 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
 	goto_if_eq VAR_BALL_QUEST_STATE, 1, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_BERM
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
-	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
 	release
 	end

@@ -898,7 +898,7 @@
 #define FLAG_HIDE_ROUTE_119_RIVAL                                   0x353
 #define FLAG_HIDE_LILYCOVE_CITY_AQUA_GRUNTS                         0x354
 #define FLAG_HIDE_MAGMA_HIDEOUT_4F_GROUDON                          0x355
-#define FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS                         0x356
+#define FLAG_HIDE_TEAM_OZONE_COSMOSS                         0x356
 #define FLAG_HIDE_SKY_PILLAR_WALLACE                                0x357
 #define FLAG_HIDE_MT_PYRE_SUMMIT_MAXIE                              0x358
 #define FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS                              0x359
@@ -1218,8 +1218,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_HIDE_RAY                                           0x493 // Unused Flag, used in Pisces
+#define FLAG_FORCED_SHINY                                           0x494 // DO NOT USE!! Used for P_FLAG_FORCE_SHINY
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag

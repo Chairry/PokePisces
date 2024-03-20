@@ -1,9 +1,40 @@
+.set LOCALID_RAY, 5
+
 Route126_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route126_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route126_OnFrame
 	.byte 0
 
-Route126_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+Route126_OnFrame:
+	map_script_2 VAR_SPACE_CENTER_QUEST_STATE, 69, Route126_EventScript_StartInvasion
+
+Route126_EventScript_StartInvasion::
+	lock
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 2
+	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_WalkToRocket
+	waitmovement 0
+	msgbox Route126_Text_TheyreInvading, MSGBOX_DEFAULT
+	setwildbattle SPECIES_UHEFOE, 20
+	settotemboost B_POSITION_OPPONENT_LEFT, 0, 2, 0, 0, 2
+	playmoncry SPECIES_BEHEEYEM, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	msgbox Route126_Text_UhefoeAppears, MSGBOX_DEFAULT
+	dowildbattle
+	release
+	end
+
+Route126_Movement_WalkToRocket:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route126_EventScript_YouDidIt::
+	msgbox Route126_Text_YouDidIt, MSGBOX_DEFAULT
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 50
+	warp MAP_COSMOSS_SPACE_CENTER, 3, 28
+	waitstate
+	release
 	end
 
 Route126_EventScript_Barry::
@@ -62,3 +93,142 @@ Route126_EventScript_RematchPablo::
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route126_EventScript_LoadMeteors::
+	lock
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
+	setflag FLAG_TEMP_15
+	msgbox Route126_Text_MeteorsTest, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route126_EventScript_RayEncounterNorth::
+	lock
+	setflag FLAG_TEMP_16
+	applymovement LOCALID_RAY, Route126_Movement_RayEncounterNorth
+	waitmovement 0
+	goto Route126_EventScript_RayBattleStart
+	release
+	end
+
+Route126_Movement_RayEncounterNorth:
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route126_EventScript_RayEncounterSouth::
+	lock
+	setflag FLAG_TEMP_17
+	applymovement LOCALID_RAY, Route126_Movement_RayEncounterSouth
+	waitmovement 0
+	goto Route126_EventScript_RayBattleStart
+	release
+	end
+
+Route126_Movement_RayEncounterSouth:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Route126_EventScript_RayBattleStart::
+	trainerbattle_single TRAINER_P_JIMMY, Route126_Text_RayIntro, Route126_Text_RayDefeat, Route126_EventScript_RayLeaves
+	release
+	end
+
+Route126_EventScript_RayLeaves::
+	msgbox Route126_Text_RayLeaves, MSGBOX_DEFAULT
+	closemessage
+	goto_if_set FLAG_TEMP_16, Route126_EventScript_RayLeavesNorth
+	goto_if_set FLAG_TEMP_17, Route126_EventScript_RayLeavesSouth
+	release
+	end
+
+Route126_EventScript_RayLeavesNorth::
+	applymovement LOCALID_RAY, Route126_Movement_RayLeavesNorth
+	waitmovement 0
+	setflag FLAG_HIDE_RAY
+	setvar VAR_RAY_STATE, 1
+	release
+	end
+
+Route126_Movement_RayLeavesNorth:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route126_EventScript_RayLeavesSouth::
+	applymovement LOCALID_RAY, Route126_Movement_RayLeavesSouth
+	waitmovement 0
+	setflag FLAG_HIDE_RAY
+	setvar VAR_RAY_STATE, 1
+	release
+	end
+
+Route126_Movement_RayLeavesSouth:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route126_EventScript_SpaceCenterVarTest::
+	lock
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 3
+	msgbox Route126_Text_VarTest, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route126_Text_MeteorsTest:
+	.string "meteors unset$"
+
+Route126_Text_RayIntro:
+	.string "hey its me ray lets battle$"
+
+Route126_Text_RayDefeat:
+	.string "oof$"
+
+Route126_Text_RayLeaves:
+	.string "outie$"
+
+Route126_Text_VarTest:
+	.string "space center var set 3$"
+
+Route126_Text_TheyreInvading:
+	.string "test$"
+
+Route126_Text_UhefoeAppears:
+	.string "test$"
+
+Route126_Text_YouDidIt:
+	.string "test$"

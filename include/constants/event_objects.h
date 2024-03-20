@@ -29,7 +29,7 @@
 #define OBJ_EVENT_GFX_POKEFAN_M                   25
 #define OBJ_EVENT_GFX_WOMAN_4                     26
 #define OBJ_EVENT_GFX_COOK                        27
-#define OBJ_EVENT_GFX_LINK_RECEPTIONIST           28
+#define OBJ_EVENT_GFX_SHRINE_MAIDEN           28
 #define OBJ_EVENT_GFX_OLD_MAN                     29
 #define OBJ_EVENT_GFX_OLD_WOMAN                   30
 #define OBJ_EVENT_GFX_CAMPER                      31
@@ -120,8 +120,8 @@
 #define OBJ_EVENT_GFX_DEVON_EMPLOYEE             116
 #define OBJ_EVENT_GFX_AQUA_MEMBER_M              117
 #define OBJ_EVENT_GFX_AQUA_MEMBER_F              118
-#define OBJ_EVENT_GFX_MAGMA_MEMBER_M             119
-#define OBJ_EVENT_GFX_MAGMA_MEMBER_F             120
+#define OBJ_EVENT_GFX_OZONE_M             119
+#define OBJ_EVENT_GFX_OZONE_F             120
 #define OBJ_EVENT_GFX_SIDNEY                     121
 #define OBJ_EVENT_GFX_PHOEBE                     122
 #define OBJ_EVENT_GFX_GLACIA                     123
@@ -133,7 +133,7 @@
 #define OBJ_EVENT_GFX_NORMAN                     129
 #define OBJ_EVENT_GFX_WINONA                     130
 #define OBJ_EVENT_GFX_LIZA                       131
-#define OBJ_EVENT_GFX_TATE                       132
+#define OBJ_EVENT_GFX_LANETTE                       132
 #define OBJ_EVENT_GFX_WALLACE                    133
 #define OBJ_EVENT_GFX_STEVEN                     134
 #define OBJ_EVENT_GFX_WALLY                      135
@@ -143,8 +143,8 @@
 #define OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN      139
 #define OBJ_EVENT_GFX_SS_TIDAL                   140
 #define OBJ_EVENT_GFX_SUBMARINE_SHADOW           141
-#define OBJ_EVENT_GFX_PICHU_DOLL                 142
-#define OBJ_EVENT_GFX_PIKACHU_DOLL               143
+#define OBJ_EVENT_GFX_COURTNEY                 142
+#define OBJ_EVENT_GFX_SEBASTIAN               143
 #define OBJ_EVENT_GFX_DARKSKIN_WOMAN                144
 #define OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT                145
 #define OBJ_EVENT_GFX_WOMAN_WHITE_HAIR             146
@@ -228,7 +228,7 @@
 #define OBJ_EVENT_GFX_TRICK_HOUSE_STATUE         224
 #define OBJ_EVENT_GFX_KIRLIA                     225
 #define OBJ_EVENT_GFX_DUSCLOPS                   226
-#define OBJ_EVENT_GFX_UNION_ROOM_NURSE           227
+#define OBJ_EVENT_GFX_PURPLINA           227
 #define OBJ_EVENT_GFX_SUDOWOODO                  228
 #define OBJ_EVENT_GFX_MEW                        229
 #define OBJ_EVENT_GFX_RED                        230
@@ -286,7 +286,7 @@
 #define TRACKS_FOOT       1
 #define TRACKS_BIKE_TIRE  2
 
-#define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_PICHU_DOLL
+#define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_COURTNEY
 
 #define OBJ_KIND_NORMAL 0
 #define OBJ_KIND_CLONE  255 // Exclusive to FRLG

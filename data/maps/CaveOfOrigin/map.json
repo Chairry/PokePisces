@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
+      "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
     }
   ],
   "warp_events": [

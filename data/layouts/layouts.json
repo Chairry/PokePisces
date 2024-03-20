@@ -5120,6 +5120,36 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/SootopolisInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTO_RESTAURANT",
+      "name": "SootoRestaurant_Layout",
+      "width": 8,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SootoRestaurant/border.bin",
+      "blockdata_filepath": "data/layouts/SootoRestaurant/map.bin"
+    },
+    {
+      "id": "LAYOUT_COSMOSS_SPACE_CENTER",
+      "name": "CosmossSpaceCenter_Layout",
+      "width": 16,
+      "height": 46,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/CosmossSpaceCenter/border.bin",
+      "blockdata_filepath": "data/layouts/CosmossSpaceCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_INTERIORS",
+      "name": "MossdeepInteriors_Layout",
+      "width": 48,
+      "height": 36,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MossdeepInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepInteriors/map.bin"
     }
   ]
 }
