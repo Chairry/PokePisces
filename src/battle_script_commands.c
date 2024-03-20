@@ -4054,15 +4054,15 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     u32 MeteorMashrandomRaiseAttackChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
 
-                    if (MeteorMashrandomRaiseAttackChance)
+                    if (gFieldStatuses & STATUS_FIELD_GRAVITY)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
+                        gBattlescriptCurrInstr = BattleScript_AtkUp;
                     }
-                    else if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+                    else if (MeteorMashrandomRaiseAttackChance)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
+                        gBattlescriptCurrInstr = BattleScript_AtkUp;
                     }
                     else
                     {
@@ -14134,6 +14134,21 @@ static void Cmd_copyfoestats(void)
     for (i = 0; i < NUM_BATTLE_STATS; i++)
     {
         gBattleMons[gBattlerAttacker].statStages[i] = gBattleMons[gBattlerTarget].statStages[i];
+    }
+
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_FOCUS_ENERGY)
+    {
+        gBattleMons[gBattlerAttacker].status2 |= STATUS2_FOCUS_ENERGY;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
+    }
+    else if (gBattleMons[gBattlerTarget].status2 & STATUS2_DRAGON_CHEER)
+    {
+        gBattleMons[gBattlerAttacker].status2 |= STATUS2_DRAGON_CHEER;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
+    }
+    else 
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;    
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr; // Has an unused jump ptr(possibly for a failed attempt) parameter.

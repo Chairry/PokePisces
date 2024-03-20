@@ -6063,7 +6063,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_DOOM_DESIRE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .power = 120,
+            .power = 140,
             .accuracy = 100,
         #else
             .power = 120,
@@ -6071,7 +6071,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #endif
         .effect = EFFECT_FUTURE_SIGHT,
         .type = TYPE_STEEL,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14357,7 +14357,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 50,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,

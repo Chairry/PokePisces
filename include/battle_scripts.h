@@ -531,6 +531,7 @@ extern const u8 BattleScript_SpikesActivates[];
 extern const u8 BattleScript_BerserkGeneRet[];
 extern const u8 BattleScript_TargetFormChangeWithStringNoPopup[];
 extern const u8 BattleScript_DefDown[];
+extern const u8 BattleScript_AtkUp[];
 extern const u8 BattleScript_HeartStampDefDown2[];
 extern const u8 BattleScript_EffectAttackUpHit[];
 extern const u8 BattleScript_UltraBurst[];
