@@ -8463,6 +8463,9 @@ u32 GetBattlerHoldEffectParam(u32 battler)
 bool32 IsMoveMakingContact(u32 move, u32 battlerAtk)
 {
     u32 atkHoldEffect = GetBattlerHoldEffect(battlerAtk, TRUE);
+    u16 atkBaseSpeciesId;
+
+    atkBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species);
 
     if (!gBattleMoves[move].makesContact)
     {
@@ -8471,7 +8474,7 @@ bool32 IsMoveMakingContact(u32 move, u32 battlerAtk)
         else
             return FALSE;
     }
-    else if ((atkHoldEffect == HOLD_EFFECT_PUNCHING_GLOVE && gBattleMoves[move].punchingMove) || atkHoldEffect == HOLD_EFFECT_PROTECTIVE_PADS || GetBattlerAbility(battlerAtk) == ABILITY_LONG_REACH)
+    else if ((atkHoldEffect == HOLD_EFFECT_PUNCHING_GLOVE && gBattleMoves[move].punchingMove) || ((atkBaseSpeciesId == SPECIES_PAWNIARD || atkBaseSpeciesId == SPECIES_BISHARP || atkBaseSpeciesId == SPECIES_KINGAMBIT) && (gBattleMoves[move].slicingMove)) || atkHoldEffect == HOLD_EFFECT_PROTECTIVE_PADS || GetBattlerAbility(battlerAtk) == ABILITY_LONG_REACH)
     {
         return FALSE;
     }
@@ -9797,6 +9800,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (IS_MOVE_SPECIAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
+    case HOLD_EFFECT_LEADERS_CREST:
+        if ((atkBaseSpeciesId == SPECIES_PAWNIARD || atkBaseSpeciesId == SPECIES_BISHARP || atkBaseSpeciesId == SPECIES_KINGAMBIT) && (gBattleMoves[move].slicingMove))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
+        break;
     }
 
     // The offensive stats of a Player's Pok?mon are boosted by x1.1 (+10%) if they have the 1st badge and 7th badges.
@@ -9969,6 +9976,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
 #endif
+    case HOLD_EFFECT_RING_TARGET:
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.75));
+        break;
     }
 
     // sandstorm sp.def boost for rock types
@@ -10062,10 +10072,16 @@ static uq4_12_t GetWeatherDamageModifier(u32 battlerAtk, u32 move, u32 moveType,
 {
     if (weather == B_WEATHER_NONE)
         return UQ_4_12(1.0);
-    if (gBattleMoves[move].effect == EFFECT_HYDRO_STEAM && (weather & B_WEATHER_SUN) && holdEffectAtk != HOLD_EFFECT_UTILITY_UMBRELLA)
+    if (gBattleMoves[move].effect == EFFECT_HYDRO_STEAM && (weather & B_WEATHER_SUN))
         return UQ_4_12(1.5);
-    if (holdEffectDef == HOLD_EFFECT_UTILITY_UMBRELLA)
-        return UQ_4_12(1.0);
+    if (holdEffectDef == HOLD_EFFECT_UTILITY_UMBRELLA && ((weather & B_WEATHER_SUN) || (weather & B_WEATHER_SUN_PRIMAL)) && (moveType == TYPE_FIRE))
+        return UQ_4_12(0.5);
+    if (holdEffectDef == HOLD_EFFECT_UTILITY_UMBRELLA && ((weather & B_WEATHER_RAIN) || (weather & B_WEATHER_RAIN_PRIMAL)) && (moveType == TYPE_WATER))
+        return UQ_4_12(0.5);
+    if (holdEffectDef == HOLD_EFFECT_UTILITY_UMBRELLA && (weather & B_WEATHER_HAIL) && (moveType == TYPE_ICE))
+        return UQ_4_12(0.5);
+    if (holdEffectDef == HOLD_EFFECT_UTILITY_UMBRELLA && (weather & B_WEATHER_SANDSTORM) && (moveType == TYPE_ROCK))
+        return UQ_4_12(0.5);
 
     if (weather & B_WEATHER_RAIN)
     {
@@ -11709,10 +11725,6 @@ bool32 IsBattlerWeatherAffected(u32 battler, u32 weatherFlags)
 {
     if (gBattleWeather & weatherFlags && WEATHER_HAS_EFFECT)
     {
-        // given weather is active -> check if its sun, rain against utility umbrella ( since only 1 weather can be active at once)
-        if (gBattleWeather & (B_WEATHER_SUN | B_WEATHER_RAIN) && GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_UTILITY_UMBRELLA)
-            return FALSE; // utility umbrella blocks sun, rain effects
-
         return TRUE;
     }
     return FALSE;

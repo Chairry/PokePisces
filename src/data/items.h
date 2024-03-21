@@ -5794,7 +5794,7 @@ const struct Item gItems[] =
         .name = _("Shell Bell"),
         .price = 4000,
         .holdEffect = HOLD_EFFECT_SHELL_BELL,
-        .holdEffectParam = 8,
+        .holdEffectParam = 4,
         .description = sShellBellDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -6288,7 +6288,7 @@ const struct Item gItems[] =
 
     [ITEM_UTILITY_UMBRELLA] =
     {
-        .name = _("UtltyUmbrlla"),
+        .name = _("Umbrella"),
         .price = 4000,
         .holdEffect = HOLD_EFFECT_UTILITY_UMBRELLA,
         .description = sUtilityUmbrellaDesc,
@@ -9317,8 +9317,9 @@ const struct Item gItems[] =
 
     [ITEM_LEADERS_CREST] =
     {
-        .name = _("Leader'sCrest"),
+        .name = _("Blade Shard"),
         .price = 3000,
+        .holdEffect = HOLD_EFFECT_LEADERS_CREST,
         .description = sLeadersCrestDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,

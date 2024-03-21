@@ -167,6 +167,7 @@
 // New Hold effects
 #define HOLD_EFFECT_BURNT_STICK         183
 #define HOLD_EFFECT_CURSED_AMULET       184
+#define HOLD_EFFECT_LEADERS_CREST       185
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
