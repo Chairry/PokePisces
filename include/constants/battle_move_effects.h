@@ -495,6 +495,8 @@
 #define EFFECT_BLACK_BUFFET                 489
 #define EFFECT_FINISH_OFF                   490
 #define EFFECT_SEIZE_CHANCE                 491
-#define NUM_BATTLE_MOVE_EFFECTS             492
+#define EFFECT_RAZING_SUN                   492
+#define EFFECT_TERRORIZE                    493
+#define NUM_BATTLE_MOVE_EFFECTS             494
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

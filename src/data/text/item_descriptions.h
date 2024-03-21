@@ -2056,7 +2056,7 @@ static const u8 sLeekDesc[] = _(
     "critical-hit ratio.");
 
 static const u8 sThickClubDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises Cubone or\n"
     "Marowak's Attack.");
 
@@ -4064,22 +4064,22 @@ static const u8 sShellPolishDesc[] = _(
     "damage for allies.");
 
 static const u8 sVibrantScaleDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises Bivague's\n"
     "Sp. Atk and Speed.");
 
 static const u8 sTriumphStarDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises the Ledyba\n"
     "line's Attack.");
 
 static const u8 sZigSashDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises Zigzagoon's\n"
     "Atk/Sp. Atk/Spd.");
 
 static const u8 sDoughStickDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises Kodough's Sp.\n"
     "Atk and defenses.");
 
@@ -4134,7 +4134,7 @@ static const u8 sPanicOrbDesc[] = _(
     "panic in battle.");
 
 static const u8 sSolarSwordDesc[] = _(
-    "A held item that \n"
+    "A held item that\n"
     "raises Solrock's\n"
     "Special Attack.");
 

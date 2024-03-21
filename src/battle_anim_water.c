@@ -193,7 +193,7 @@ const struct SpriteTemplate gHydroPumpOrbSpriteTemplate =
 const struct SpriteTemplate gDragonOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DRAGON_ORB,
-    .paletteTag = ANIM_TAG_DRAGON_HEAD,
+    .paletteTag = ANIM_TAG_DRAGON_ORB,
     .oam = &gOamData_AffineOff_ObjBlend_16x16,
     .anims = gAnims_WaterMudOrb,
     .images = NULL,
@@ -258,39 +258,6 @@ static const union AnimCmd sAnimDragonHead2[] = {
 };
 static const union AnimCmd *const sAnimDragonHead_2[] = {
 	sAnimDragonHead2,
-};
-
-const struct SpriteTemplate gRealDragonHeadSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
-    .paletteTag = ANIM_TAG_REAL_DRAGON_HEAD,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = sAnimDragonHead_2,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimToTargetInSinWave,
-};
-
-const struct SpriteTemplate gRealDragonHeadOpponentSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_DRAGON_HEAD_OPPONENT,
-    .paletteTag = ANIM_TAG_REAL_DRAGON_HEAD,
-    .oam = &gOamData_AffineOff_ObjNormal_32x32,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimToTargetInSinWave,
-};
-
-const struct SpriteTemplate gRealDragonOrbSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_REAL_DRAGON_ORB,
-    .paletteTag = ANIM_TAG_REAL_DRAGON_ORB,
-    .oam = &gOamData_AffineOff_ObjBlend_16x16,
-    .anims = gAnims_WaterMudOrb,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimToTargetInSinWave,
 };
 
 const struct SpriteTemplate gWaterPledgeOrbSpriteTemplate =
