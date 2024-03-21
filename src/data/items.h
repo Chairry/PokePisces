@@ -8668,7 +8668,7 @@ const struct Item gItems[] =
 
     [ITEM_OLD_ROD] =
     {
-        .name = _("Old Rod"),
+        .name = _("Good Ol' Bait"),
         .price = 0,
         .description = sOldRodDesc,
         .importance = 1,
@@ -8680,7 +8680,7 @@ const struct Item gItems[] =
 
     [ITEM_GOOD_ROD] =
     {
-        .name = _("Good Rod"),
+        .name = _("Just A Rod"),
         .price = 0,
         .description = sGoodRodDesc,
         .importance = 1,
@@ -8692,7 +8692,7 @@ const struct Item gItems[] =
 
     [ITEM_SUPER_ROD] =
     {
-        .name = _("Super Rod"),
+        .name = _("Netting Pole"),
         .price = 0,
         .description = sSuperRodDesc,
         .importance = 1,
@@ -9711,7 +9711,7 @@ const struct Item gItems[] =
         .description = sSandbag,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .flingPower = 10,
     },
     [ITEM_SANDSTONE] =
@@ -9721,7 +9721,7 @@ const struct Item gItems[] =
         .description = sSandstone,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .flingPower = 10,
     },
     [ITEM_COMEDY_MASK] =
@@ -9752,6 +9752,357 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 10,
+    },
+
+    [ITEM_CHEESE] =
+    {
+        .name = _("Cheese"),
+        .price = 2000,
+        .description = sCheeseDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FROTHY_CHEESE] =
+    {
+        .name = _("Frothy Cheese"),
+        .price = 2000,
+        .description = sFrothyCheeseDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_KEYCHAIN] =
+    {
+        .name = _("Keychain"),
+        .price = 2000,
+        .description = sKeychainDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FLIP_COIN] =
+    {
+        .name = _("Flip Coin"),
+        .price = 2000,
+        .description = sFlipCoinDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_WARP_RIBBON] =
+    {
+        .name = _("Warp Ribbon"),
+        .price = 2000,
+        .description = sWarpRibbonDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_GRAVITY_CORE] =
+    {
+        .name = _("Gravity Core"),
+        .price = 2000,
+        .description = sGravityCoreDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FAVOR_SCARF] =
+    {
+        .name = _("Favor Scarf"),
+        .price = 2000,
+        .description = sFavorScarfDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_WIDE_ARMOR] =
+    {
+        .name = _("Wide Armor"),
+        .price = 2000,
+        .description = sWideArmorDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_LOST_MANTLE] =
+    {
+        .name = _("Lost Mantle"),
+        .price = 2000,
+        .description = sLostMantleDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_BATTLE_HELM] =
+    {
+        .name = _("Battle Helm"),
+        .price = 2000,
+        .description = sBattleHelmDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SPECTRAL_IDOL] =
+    {
+        .name = _("Spectral Idol"),
+        .price = 2000,
+        .description = sSpectralIdolDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_GLUE_TUBE] =
+    {
+        .name = _("Glue Tube"),
+        .price = 2000,
+        .description = sGlueTubeDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FROST_ORB] =
+    {
+        .name = _("Frost Orb"),
+        .price = 2000,
+        .description = sFrostOrbDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_POISON_ORB] =
+    {
+        .name = _("Poison Orb"),
+        .price = 2000,
+        .description = sPoisonOrbDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_DILATANT_MOD] =
+    {
+        .name = _("Dilatant Mod"),
+        .price = 2000,
+        .description = sDilatantModDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_ODD_STONE] =
+    {
+        .name = _("Odd Stone"),
+        .price = 2000,
+        .description = sOddStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SHELL_POLISH] =
+    {
+        .name = _("Shell Polish"),
+        .price = 2000,
+        .description = sShellPolishDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_VIBRANT_SCALE] =
+    {
+        .name = _("Vibrant Scale"),
+        .price = 2000,
+        .description = sVibrantScaleDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_TRIUMPH_STAR] =
+    {
+        .name = _("Triumph Star"),
+        .price = 2000,
+        .description = sTriumphStarDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_ZIG_SASH] =
+    {
+        .name = _("Zig Sash"),
+        .price = 2000,
+        .description = sZigSashDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_DOUGH_STICK] =
+    {
+        .name = _("Dough Stick"),
+        .price = 2000,
+        .description = sDoughStickDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_YELLOW_SODA] =
+    {
+        .name = _("Yellow Soda"),
+        .price = 2000,
+        .description = sYellowSodaDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_ICY_CAPE] =
+    {
+        .name = _("Icy Cape"),
+        .price = 2000,
+        .description = sIcyCapeDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_DRIP_SHOES] =
+    {
+        .name = _("Drip Shoes"),
+        .price = 2000,
+        .description = sDripShoesDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_COARSE_SAND] =
+    {
+        .name = _("Coarse Sand"),
+        .price = 2000,
+        .description = sCoarseSandDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_OBJECT_D_ARC] =
+    {
+        .name = _("Object D'arc"),
+        .price = 2000,
+        .description = sObjectDarcDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FAMILY_MOSS] =
+    {
+        .name = _("Family Moss"),
+        .price = 2000,
+        .description = sFamilyMossDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_A_THING] =
+    {
+        .name = _("A Thing"),
+        .price = 2000,
+        .description = sAThingDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SALTY_TEAR] =
+    {
+        .name = _("Salty Tear"),
+        .price = 2000,
+        .description = sSaltyTearDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_BLOOM_ORB] =
+    {
+        .name = _("Bloom Orb"),
+        .price = 2000,
+        .description = sBloomOrbDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_PANIC_ORB] =
+    {
+        .name = _("Panic Orb"),
+        .price = 2000,
+        .description = sPanicOrbDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_SOLAR_SWORD] =
+    {
+        .name = _("Solar Sword"),
+        .price = 2000,
+        .description = sSolarSwordDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_MOON_MIRROR] =
+    {
+        .name = _("Moon Mirror"),
+        .price = 2000,
+        .description = sMoonMirrorDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_CROSSBONES] =
+    {
+        .name = _("Crossbones"),
+        .price = 2000,
+        .description = sCrossbonesDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_FRIEND_RIBBON] =
+    {
+        .name = _("Friend Ribbon"),
+        .price = 2000,
+        .description = sFriendRibbonDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
 };

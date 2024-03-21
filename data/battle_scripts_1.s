@@ -516,6 +516,18 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectExposedHit              @ EFFECT_EXPOSED_HIT
 	.4byte BattleScript_EffectTearfulLook             @ EFFECT_TEARFUL_LOOK
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_BLACK_BUFFET
+	.4byte BattleScript_EffectFinishOff               @ EFFECT_FINISH_OFF
+	.4byte BattleScript_EffectSeizeChance             @ EFFECT_SEIZE_CHANCE
+
+BattleScript_EffectSeizeChance:
+	attackcanceler
+	seizechancecheck BattleScript_FailedFromAtkString
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	goto BattleScript_HitFromAtkString
+
+BattleScript_EffectFinishOff::
+	setmoveeffect MOVE_EFFECT_ATK_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
 
 BattleScript_EffectWickedWinds::
 	call BattleScript_EffectHit_Ret
@@ -2582,6 +2594,11 @@ BattleScript_DoubleShockRemoveType::
 BattleScript_DefDown::
 	modifybattlerstatstage BS_TARGET, STAT_DEF, DECREASE, 1, BattleScript_DefDown_Ret, ANIM_ON
 BattleScript_DefDown_Ret:
+	return
+
+BattleScript_AtkUp::
+	modifybattlerstatstage BS_ATTACKER, STAT_ATK, INCREASE, 1, BattleScript_AtkUp_Ret, ANIM_ON
+BattleScript_AtkUp_Ret:
 	return
 
 BattleScript_EffectPurify:
@@ -6539,8 +6556,16 @@ BattleScript_EffectStickyHold::
 	end
 
 BattleScript_EffectDefenseUpHit::
-	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	jumpifmove MOVE_GEO_PULSE, BattleScript_CheckDefenseUpHitDoubles
+BattleScript_DoDefenseUpHit::
+	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
+BattleScript_CheckDefenseUpHitDoubles::
+	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_DefenseUpHitDoubles
+	goto BattleScript_DoDefenseUpHit
+BattleScript_DefenseUpHitDoubles::
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
+	goto BattleScript_DoDefenseUpHit
 
 BattleScript_EffectAttackUpHit::
 	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
@@ -7520,7 +7545,7 @@ BattleScript_DoOverheat::
 	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 BattleScript_CheckOverheatDoubles::
-jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
+	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
 	goto BattleScript_DoOverheat
 BattleScript_OverheatDoubles::
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
@@ -9280,6 +9305,17 @@ BattleScript_SAtkDown2::
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SAtkDown2End::
+	return
+
+BattleScript_AtkDown::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_ATK, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_AtkDownEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_AtkDownEnd
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AtkDownEnd::
 	return
 
 BattleScript_AtkDown2::
