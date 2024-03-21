@@ -8824,6 +8824,12 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     u32 basePower = gBattleMoves[move].power;
     u32 weight, hpFraction, speed;
 
+    if ((gFieldStatuses & STATUS_FIELD_GRAVITY) && (move == MOVE_PSYCHIC))
+        basePower = 120;
+
+    if (DoBattlersShareType(gBattlerAttacker, gBattlerTarget) && (move == MOVE_SYNCHRONOISE))
+        basePower *= 2;
+
     if (gBattleStruct->zmove.active)
         return GetZMovePower(gBattleStruct->zmove.baseMoves[battlerAtk]);
     switch (gBattleMoves[move].effect)
@@ -8941,10 +8947,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_WRING_OUT:
         basePower = 120 * gBattleMons[battlerDef].hp / gBattleMons[battlerDef].maxHP;
         break;
-    case MOVE_SYNCHRONOISE:
-        if (DoBattlersShareType(gBattlerAttacker, gBattlerTarget))
-            basePower *= 2;
-        break;
     case EFFECT_HEX:
     case EFFECT_INFERNAL_PARADE:
     case EFFECT_BITTER_MALICE:
@@ -9053,10 +9055,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (move == MOVE_MISTY_EXPLOSION && gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN && IsBattlerGrounded(battlerAtk))
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
-    case MOVE_PSYCHIC:
-        if (gFieldStatuses & STATUS_FIELD_GRAVITY)
-            basePower = 120;
-        break;
     case EFFECT_DYNAMAX_DOUBLE_DMG:
 #ifdef B_DYNAMAX
         if (IsDynamaxed(battlerDef))
@@ -9152,6 +9150,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_BRINE:
         if (gBattleMons[battlerDef].hp <= (gBattleMons[battlerDef].maxHP / 2))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
+    case EFFECT_FINISH_OFF:
+        if (gBattleMons[battlerDef].hp < gBattleMons[battlerDef].maxHP)
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
     case EFFECT_BARB_BARRAGE:

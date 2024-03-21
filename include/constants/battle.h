@@ -408,8 +408,9 @@
 #define MOVE_EFFECT_DEF_ACC_DOWN        92              
 #define MOVE_EFFECT_ALL_STATS_DOWN      93              
 #define MOVE_EFFECT_TOXIC_SPIKES        94
+#define MOVE_EFFECT_ATK_DOWN            95
 
-#define NUM_MOVE_EFFECTS                95              
+#define NUM_MOVE_EFFECTS                96              
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

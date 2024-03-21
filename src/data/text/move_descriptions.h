@@ -3555,6 +3555,15 @@ static const u8 sBenthicWhipDescription[] = _(
 static const u8 sBlackBuffetDescription[] = _(
     "Pecks at the foe to eat them.\n"
     "Hits 2 to 5 times. Drains HP.");
+
+static const u8 sFinishOffDescription[] = _(
+    "Stronger if the foe is not at\n"
+    "full HP. Also lowers user's Atk.");
+
+static const u8 sSeizeChanceDescription[] = _(
+    "Fails if the target didnt use\n"
+    "a status move. Always crits.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -3578,7 +3587,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GUILLOTINE - 1] = sGuillotineDescription,
     [MOVE_RAZOR_WIND - 1] = sRazorWindDescription,
     [MOVE_SWORDS_DANCE - 1] = sSwordsDanceDescription,
-    [MOVE_CUT - 1] = sCutDescription,
+    [MOVE_CUT - 1] = sReturnDescription,
     [MOVE_GUST - 1] = sGustDescription,
     [MOVE_WING_ATTACK - 1] = sWingAttackDescription,
     [MOVE_WHIRLWIND - 1] = sWhirlwindDescription,
@@ -3994,7 +4003,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ZEN_HEADBUTT - 1] = sZenHeadbuttDescription,
     [MOVE_MIRROR_SHOT - 1] = sMirrorShotDescription,
     [MOVE_FLASH_CANNON - 1] = sFlashCannonDescription,
-    [MOVE_ROCK_CLIMB - 1] = sRockClimbDescription,
+    [MOVE_ROCK_CLIMB - 1] = sReturnDescription,
     [MOVE_DEFOG - 1] = sDefogDescription,
     [MOVE_TRICK_ROOM - 1] = sTrickRoomDescription,
     [MOVE_DRACO_METEOR - 1] = sDracoMeteorDescription,
@@ -4483,4 +4492,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
     [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
     [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
+    [MOVE_FINISH_OFF - 1] = sFinishOffDescription,
+    [MOVE_SEIZE_CHANCE - 1] = sSeizeChanceDescription,
+    [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
 };

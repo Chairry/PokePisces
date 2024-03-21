@@ -1513,7 +1513,8 @@ static void Cmd_attackcanceler(void)
     else if (IsBattlerProtected(gBattlerTarget, gCurrentMove)
      && (gCurrentMove != MOVE_CURSE || IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_GHOST))
      && ((!IsTwoTurnsMove(gCurrentMove) || (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)))
-     && gBattleMoves[gCurrentMove].effect != EFFECT_SUCKER_PUNCH)
+     && gBattleMoves[gCurrentMove].effect != EFFECT_SUCKER_PUNCH
+     && gBattleMoves[gCurrentMove].effect != EFFECT_SEIZE_CHANCE)
     {
         if (IsMoveMakingContact(gCurrentMove, gBattlerAttacker))
             gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
@@ -2000,6 +2001,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     }
     else if (gStatuses3[battlerAtk] & STATUS3_LASER_FOCUS
              || gBattleMoves[move].effect == EFFECT_ALWAYS_CRIT
+             || gBattleMoves[move].effect == EFFECT_SEIZE_CHANCE
              || gBattleMoves[move].effect == EFFECT_VITAL_THROW
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
@@ -3763,6 +3765,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AtkDown2;
                 }
                 break;
+            case MOVE_EFFECT_ATK_DOWN: // Superpower
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AtkDown;
+                }
+                break;
             case MOVE_EFFECT_CLEAR_SMOG:
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
@@ -4045,15 +4054,15 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     u32 MeteorMashrandomRaiseAttackChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
 
-                    if (MeteorMashrandomRaiseAttackChance)
+                    if (gFieldStatuses & STATUS_FIELD_GRAVITY)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
+                        gBattlescriptCurrInstr = BattleScript_AtkUp;
                     }
-                    else if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+                    else if (MeteorMashrandomRaiseAttackChance)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_EffectAttackUpHit;
+                        gBattlescriptCurrInstr = BattleScript_AtkUp;
                     }
                     else
                     {
@@ -9751,6 +9760,19 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
+    case VARIOUS_SEIZE_CHANCE_CHECK:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            gBattlescriptCurrInstr = cmd->failInstr;
+        else if (IS_MOVE_PHYSICAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            gBattlescriptCurrInstr = cmd->failInstr;
+        else if (IS_MOVE_SPECIAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            gBattlescriptCurrInstr = cmd->failInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
     case VARIOUS_SET_SIMPLE_BEAM:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -12206,6 +12228,16 @@ static void Cmd_normalisebuffs(void)
 
     s32 i, j;
 
+    if ((gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE) && (gCurrentMove == MOVE_MIRACLE_EYE))
+    {
+        gBattleMons[gBattlerTarget].statStages[i] = DEFAULT_STAT_STAGE;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+
     for (i = 0; i < gBattlersCount; i++)
         TryResetBattlerStatChanges(i);
 
@@ -14000,7 +14032,7 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
     else
     {
-        gBattleStruct->dragonpokerBasePower = 180;
+        gBattleStruct->dragonpokerBasePower = 200;
         gBattlescriptCurrInstr = BattleScript_DragonPokerRoyalFlush;
     }
 }
@@ -14102,6 +14134,21 @@ static void Cmd_copyfoestats(void)
     for (i = 0; i < NUM_BATTLE_STATS; i++)
     {
         gBattleMons[gBattlerAttacker].statStages[i] = gBattleMons[gBattlerTarget].statStages[i];
+    }
+
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_FOCUS_ENERGY)
+    {
+        gBattleMons[gBattlerAttacker].status2 |= STATUS2_FOCUS_ENERGY;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
+    }
+    else if (gBattleMons[gBattlerTarget].status2 & STATUS2_DRAGON_CHEER)
+    {
+        gBattleMons[gBattlerAttacker].status2 |= STATUS2_DRAGON_CHEER;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
+    }
+    else 
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;    
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr; // Has an unused jump ptr(possibly for a failed attempt) parameter.
