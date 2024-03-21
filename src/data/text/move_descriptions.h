@@ -3564,6 +3564,14 @@ static const u8 sSeizeChanceDescription[] = _(
     "Fails if the target didnt use\n"
     "a status move. Always crits.");
 
+static const u8 sBrutalizeDescription[] = _(
+    "Sharply lowers the user's\n"
+    "Attack. May cause Panic.");
+
+static const u8 sTerrorizeDescription[] = _(
+    "Makes the foe panic\n"
+    "with intense imagery.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4495,4 +4503,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_FINISH_OFF - 1] = sFinishOffDescription,
     [MOVE_SEIZE_CHANCE - 1] = sSeizeChanceDescription,
     [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
+    [MOVE_BRUTALIZE - 1] = sBrutalizeDescription,
+    [MOVE_TERRORIZE - 1] = sTerrorizeDescription,
 };

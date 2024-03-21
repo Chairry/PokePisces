@@ -15350,10 +15350,6 @@ static void Cmd_pickup(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_setsilence2(void)
-{
-}
-
 static void Cmd_unused3(void)
 {
 }

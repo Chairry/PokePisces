@@ -949,6 +949,8 @@ gBattleAnims_Moves::
 	.4byte Move_FINISH_OFF
 	.4byte Move_SEIZE_CHANCE
 	.4byte Move_CASTLE_CRASH
+	.4byte Move_BRUTALIZE
+	.4byte Move_TERRORIZE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21001,6 +21003,12 @@ Move_SEIZE_CHANCE::
 
 Move_CASTLE_CRASH::
 	goto Move_DEMOLISHER
+
+Move_BRUTALIZE::
+	goto Move_SUPERPOWER
+
+Move_TERRORIZE::
+	goto Status_Panic
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

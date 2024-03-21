@@ -519,6 +519,41 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFinishOff               @ EFFECT_FINISH_OFF
 	.4byte BattleScript_EffectSeizeChance             @ EFFECT_SEIZE_CHANCE
 	.4byte BattleScript_EffectRazingSun               @ EFFECT_RAZING_SUN
+	.4byte BattleScript_EffectTerrorize               @ EFFECT_TERRORIZE
+
+BattleScript_EffectTerrorize::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_PANIC, BattleScript_AlreadyPanicking
+	jumpiftype BS_TARGET, TYPE_DARK, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_NotAffected
+	jumpifability BS_TARGET, ABILITY_UNAWARE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_ZEN_INCENSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
+	jumpifflowerveil BattleScript_FlowerVeilProtects
+	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_PANIC
+	seteffectprimary
+	goto BattleScript_MoveEnd
+
+BattleScript_AlreadyPanicking::
+	setalreadystatusedmoveattempt BS_ATTACKER
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNISALREADYPANICKING
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectRazingSun::
 	attackcanceler
@@ -7304,6 +7339,7 @@ BattleScript_EffectIngrain:
 
 BattleScript_EffectSuperpower::
 	setmoveeffect MOVE_EFFECT_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	jumpifmove MOVE_BRUTALIZE, BattleScript_EffectPanicHit
 	goto BattleScript_EffectHit
 
 BattleScript_EffectCloseCombat:
