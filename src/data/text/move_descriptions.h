@@ -4494,4 +4494,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
     [MOVE_FINISH_OFF - 1] = sFinishOffDescription,
     [MOVE_SEIZE_CHANCE - 1] = sSeizeChanceDescription,
+    [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
 };

@@ -948,6 +948,7 @@ gBattleAnims_Moves::
 	.4byte Move_BLACK_BUFFET
 	.4byte Move_FINISH_OFF
 	.4byte Move_SEIZE_CHANCE
+	.4byte Move_CASTLE_CRASH
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21154,6 +21155,9 @@ Move_FINISH_OFF::
 
 Move_SEIZE_CHANCE::
 	goto Move_SUCKER_PUNCH
+
+Move_CASTLE_CRASH::
+	goto Move_DEMOLISHER
 
 Move_TERA_BLAST::
 Move_AXE_KICK::
