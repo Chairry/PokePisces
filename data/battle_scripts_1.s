@@ -518,6 +518,30 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_BLACK_BUFFET
 	.4byte BattleScript_EffectFinishOff               @ EFFECT_FINISH_OFF
 	.4byte BattleScript_EffectSeizeChance             @ EFFECT_SEIZE_CHANCE
+	.4byte BattleScript_EffectRazingSun               @ EFFECT_RAZING_SUN
+
+BattleScript_EffectRazingSun::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifbyte CMP_GREATER_THAN, sB_ANIM_TARGETS_HIT, 0, BattleScript_EffectRazingSun_NoHpLoss
+	jumpifmorethanthirdHP BS_ATTACKER, BattleScript_EffectRazingSun_HpDown
+	setbyte sMULTIHIT_EFFECT, 0 @ Note to faint the attacker
+	instanthpdrop BS_ATTACKER
+	waitstate
+	goto BattleScript_EffectExplosion_AnimDmgFaintAttacker
+BattleScript_EffectRazingSun_NoHpLoss:
+	jumpifbyte CMP_EQUAL, sMULTIHIT_EFFECT, 0, BattleScript_EffectExplosion_AnimDmgFaintAttacker
+	goto BattleScript_EffectRazingSun_AnimDmgNoFaint
+BattleScript_EffectRazingSun_HpDown:
+	setbyte sMULTIHIT_EFFECT, 1 @ Note to not faint the attacker
+	dmg_1_3_attackerhp
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	waitstate
+BattleScript_EffectRazingSun_AnimDmgNoFaint:
+	call BattleScript_EffectExplosion_AnimDmgRet
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSeizeChance:
 	attackcanceler

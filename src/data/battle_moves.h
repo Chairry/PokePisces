@@ -14679,7 +14679,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAZING_SUN] =
     {
-        .effect = EFFECT_RECOIL_33,
+        .effect = EFFECT_RAZING_SUN,
         .power = 110,
         .type = TYPE_FIRE,
         .accuracy = 100,

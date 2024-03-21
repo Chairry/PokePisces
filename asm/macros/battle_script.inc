@@ -1337,6 +1337,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifmorethanthirdHP battler:req, jumpInstr:req
+	callnative BS_JumpIfMoreThanThirdHP
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
 	.macro itemrestorehp
 	callnative BS_ItemRestoreHP
 	.endm
@@ -2267,6 +2273,10 @@
 
 	.macro dmg_1_2_attackerhp
 	manipulatedamage DMG_1_2_ATTACKER_HP
+	.endm
+
+	.macro dmg_1_3_attackerhp
+	manipulatedamage DMG_1_3_ATTACKER_HP
 	.endm
 
 	.macro jumpifflowerveil jumpInstr:req
