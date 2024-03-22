@@ -35,7 +35,7 @@ Route126_EventScript_YouDidIt::
 	giveitem ITEM_GRAVITY_CORE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setvar VAR_SPACE_CENTER_QUEST_STATE, 50
-	warp MAP_COSMOSS_SPACE_CENTER, 3, 28
+	warp MAP_COSMOSS_SPACE_CENTER, 10, 28
 	waitstate
 	release
 	end

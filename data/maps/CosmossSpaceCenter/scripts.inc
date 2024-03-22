@@ -32,6 +32,7 @@ CosmossSpaceCenter_EventScript_RocketResearcher::
 	lock
 	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 0, CosmossSpaceCenter_EventScript_RocketFunded
 	msgbox CosmossSpaceCenter_Text_NeedHelpFunding, MSGBOX_DEFAULT
+	faceplayer
 	showmoneybox 0, 0
 	msgbox CosmossSpaceCenter_Text_WillYouFund, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, CosmossSpaceCenter_EventScript_CheckMoneyForFund
@@ -83,6 +84,7 @@ CosmossSpaceCenter_EventScript_RocketFunded::
 
 CosmossSpaceCenter_EventScript_AlienResearcher::
 	lock
+	faceplayer
 	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 1, CosmossSpaceCenter_EventScript_AboutCryplin
 	msgbox CosmossSpaceCenter_Text_BattleMyCryplin, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, CosmossSpaceCenter_EventScript_MinkowskiBattle
@@ -119,6 +121,7 @@ CosmossSpaceCenter_EventScript_AboutCryplin::
 
 CosmossSpaceCenter_EventScript_UFOResearcher::
 	lock
+	faceplayer
 	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 2, CosmossSpaceCenter_EventScript_RadioWaves
 	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 2, CosmossSpaceCenter_EventScript_AboutUhefoe
 	msgbox CosmossSpaceCenter_Text_HelpFightUFO, MSGBOX_YESNO
@@ -156,15 +159,27 @@ CosmossSpaceCenter_EventScript_AboutUhefoe::
 
 CosmossSpaceCenter_EventScript_AsteroidResearcher::
 	lock
-	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_AboutCryplin
-	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_AboutCryplin
-	msgbox CosmossSpaceCenter_Text_GoCollectMinior, MSGBOX_DEFAULT
+	faceplayer
+	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_CivilianNo
+	call_if_eq VAR_SPACE_CENTER_QUEST_STATE, 3, CosmossSpaceCenter_EventScript_GoCollectMinior
+	goto_if_gt VAR_SPACE_CENTER_QUEST_STATE, 4, CosmossSpaceCenter_EventScript_ThankYou
 	specialvar VAR_RESULT, CheckMiniorRed
 	goto_if_eq VAR_RESULT, TRUE, CosmossSpaceCenter_EventScript_CheckOrange
 	msgbox CosmossSpaceCenter_Text_NotEnoughMinior, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
+
+CosmossSpaceCenter_EventScript_CivilianNo::
+	msgbox CosmossSpaceCenter_Text_CivilianNo, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_GoCollectMinior::
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 4
+	msgbox CosmossSpaceCenter_Text_GoCollectMinior, MSGBOX_DEFAULT
+	return
 
 CosmossSpaceCenter_EventScript_CheckOrange::
 	specialvar VAR_RESULT, CheckMiniorOrange
@@ -249,7 +264,13 @@ CosmossSpaceCenter_EventScript_ReceivedShinyMiniorFanfare::
 
 CosmossSpaceCenter_EventScript_ExplainShinyMinior::
 	msgbox CosmossSpaceCenter_Text_YoureTheBest, MSGBOX_DEFAULT
-	setvar VAR_SPACE_CENTER_QUEST_STATE, 4
+	setvar VAR_SPACE_CENTER_QUEST_STATE, 5
+	closemessage
+	release
+	end
+
+CosmossSpaceCenter_EventScript_ThankYou::
+	msgbox CosmossSpaceCenter_Text_YoureTheBest, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
@@ -415,6 +436,14 @@ CosmossSpaceCenter_Text_AboutUhefoe:
 	.string "Yawn… back on the nada grind.\p"
 	.string "Should steal myself more coffee\n"
 	.string "when Minkowski isn't looking…$"
+
+CosmossSpaceCenter_Text_CivilianNo:
+	.string "Ah, hello there.\p"
+	.string "You're a civilian, no?\p"
+	.string "As the boss, I have to ask you to\n"
+	.string "leave my team to their work.\l"
+	.string "No distractions when we're making\l"
+	.string "so much progress!$"
 
 CosmossSpaceCenter_Text_GoCollectMinior:
 	.string "Well, now, if it isn't Officer\n"
