@@ -9849,12 +9849,14 @@ const struct Item gItems[] =
     [ITEM_BATTLE_HELM] =
     {
         .name = _("Battle Helm"),
-        .price = 2000,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_BATTLE_HELM,
+        .holdEffectParam = 50,
         .description = sBattleHelmDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 80,
     },
     [ITEM_SPECTRAL_IDOL] =
     {
@@ -9869,10 +9871,11 @@ const struct Item gItems[] =
     [ITEM_GLUE_TUBE] =
     {
         .name = _("Glue Tube"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_GLUE_TUBE,
         .description = sGlueTubeDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
