@@ -10,6 +10,14 @@ MossdeepCity_Gym_OnLoad:
 	goto MossdeepCity_Gym_EventScript_CheckSwitch2
 	end
 
+MossdeepCity_Gym_EventScript_FadeOutMusic::
+	fadeoutbgm 1
+	end
+
+MossdeepCity_Gym_EventScript_FadeInMusic::
+	fadeinbgm 1
+	end
+
 MossdeepCity_Gym_EventScript_CheckSwitch2::
 	goto_if_set FLAG_MOSSDEEP_GYM_SWITCH_2, MossdeepCity_Gym_EventScript_SetSwitch2Metatiles
 	goto MossdeepCity_Gym_EventScript_CheckSwitch3
