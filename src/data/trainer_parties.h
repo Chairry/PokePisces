@@ -461,6 +461,8 @@ static const struct TrainerMon sParty_PDundee[] = {
     {
     .lvl = 15,
     .species = SPECIES_DUNSPARCE,
+    .ability = ABILITY_UNAWARE,
+    .moves = {MOVE_DIG, MOVE_GLARE, MOVE_ANCIENT_POWER, MOVE_NONE},
     }
 };
 
@@ -468,6 +470,7 @@ static const struct TrainerMon sParty_PMoka[] = {
     {
     .lvl = 14,
     .species = SPECIES_SPRYTE,
+    .ability = ABILITY_KLUTZ,
     },
     {
     .lvl = 14,
@@ -643,6 +646,7 @@ static const struct TrainerMon sParty_PPandou1[] = {
     {
     .lvl = 16,
     .species = SPECIES_KODOUGH,
+    .ability = ABILITY_GOOEY,
     }
 };
 
@@ -726,14 +730,20 @@ static const struct TrainerMon sParty_PMinkowski[] = {
     {
     .lvl = 17,
     .species = SPECIES_CRYPLIN,
+    .ability = ABILITY_ANALYTIC,
+    .moves = {MOVE_CONFUSION, MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE},
     },
     {
     .lvl = 18,
     .species = SPECIES_CRYPLIN,
+    .ability = ABILITY_SYNCHRONIZE,
+    .moves = {MOVE_ZEN_HEADBUTT, MOVE_REST, MOVE_SLEEP_TALK, MOVE_NONE},
     },
     {
     .lvl = 19,
     .species = SPECIES_CRYPLIN,
+    .ability = ABILITY_TELEPATHY,
+    .moves = {MOVE_THINK_FAST, MOVE_KNOCK_OFF, MOVE_SWIFT, MOVE_NONE},
     }
 };
 
@@ -741,6 +751,7 @@ static const struct TrainerMon sParty_PRay1[] = {
     {
     .lvl = 18,
     .species = SPECIES_MOODA,
+    .ability = ABILITY_GRASSY_SURGE,
     }
 };
 
@@ -748,10 +759,14 @@ static const struct TrainerMon sParty_PPlanck[] = {
     {
     .lvl = 20,
     .species = SPECIES_PIDIUM,
+    .ability = ABILITY_FOREWARN,
+    .moves = {MOVE_FUTURE_SIGHT, MOVE_DETECT, MOVE_GUST, MOVE_PSYWAVE},
     },
     {
     .lvl = 20,
     .species = SPECIES_SPOINK,
+    .ability = ABILITY_THICK_FAT,
+    .moves = {MOVE_GEM_BLASTER, MOVE_PAIN_SPLIT, MOVE_CONFUSE_RAY, MOVE_PSYWAVE},
     }
 };
 
@@ -759,6 +774,8 @@ static const struct TrainerMon sParty_PLegri[] = {
     {
     .lvl = 21,
     .species = SPECIES_CRYPLIN,
+    .ability = ABILITY_ANALYTIC,
+    .moves = {MOVE_PSYBEAM, MOVE_BARRIER, MOVE_THINK_FAST, MOVE_MIRACLE_EYE},
     }
 };
 
@@ -766,14 +783,20 @@ static const struct TrainerMon sParty_PSpitzer[] = {
     {
     .lvl = 19,
     .species = SPECIES_COLFIN,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_CONFUSION, MOVE_NONE},
     },
     {
     .lvl = 20,
     .species = SPECIES_SNELFREND,
+    .ability = ABILITY_WATER_ABSORB,
+    .moves = {MOVE_ACID_SPRAY, MOVE_RAPID_SPIN, MOVE_WATER_PULSE, MOVE_NONE},
     },
     {
     .lvl = 19,
     .species = SPECIES_STOMAWAY,
+    .ability = ABILITY_TINTED_LENS,
+    .moves = {MOVE_MIRROR_SHOT, MOVE_COSMIC_POWER, MOVE_PSYBEAM, MOVE_NONE}, //MISSING MOVE: DUNE SLICER
     }
 };
 
@@ -781,6 +804,8 @@ static const struct TrainerMon sParty_PTess[] = {
     {
     .lvl = 21,
     .species = SPECIES_SYCOPLOD,
+    .ability = ABILITY_FRIENDLY_AURA,
+    .moves = {MOVE_PSYBEAM, MOVE_ACID_SPRAY, MOVE_CONFUSE_RAY, MOVE_DEFENSE_CURL},
     }
 };
 
@@ -788,6 +813,8 @@ static const struct TrainerMon sParty_PHitomi[] = {
     {
     .lvl = 20,
     .species = SPECIES_LAWPARD,
+    .ability = ABILITY_PSYCHIC_SURGE,
+    .moves = {MOVE_SKILL_SWAP, MOVE_CONFUSION, MOVE_ICE_FANG, MOVE_NONE},
     }
 };
 
@@ -795,10 +822,14 @@ static const struct TrainerMon sParty_PLiza[] = {
     {
     .lvl = 23,
     .species = SPECIES_LUNATONE,
+    .ability = ABILITY_LEVITATE,
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_CHILLY_AIR, MOVE_HYPNOSIS, MOVE_GEM_BLASTER},
     },
     {
     .lvl = 23,
     .species = SPECIES_SOLROCK,
+    .ability = ABILITY_LEVITATE,
+    .moves = {MOVE_REFLECT, MOVE_ROCK_THROW, MOVE_CONFUSION, MOVE_ROCK_POLISH},
     }
 };
 
