@@ -124,8 +124,8 @@ static const u8 sText_PkmnWasParalyzedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'
 static const u8 sText_PkmnIsParalyzed[] = _("{B_ATK_NAME_WITH_PREFIX} is paralyzed!\nIt can't move!");
 static const u8 sText_PkmnIsAlreadyParalyzed[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready paralyzed!");
 static const u8 sText_PkmnHealedParalysis[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of paralysis!");
-static const u8 sText_PkmnGotPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} got panicked!");
-static const u8 sText_PkmnPanickedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nmade {B_EFF_NAME_WITH_PREFIX} panicked!");
+static const u8 sText_PkmnGotPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} is panicking!");
+static const u8 sText_PkmnPanickedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nmade {B_EFF_NAME_WITH_PREFIX} start panicking!");
 static const u8 sText_PkmnDreamEaten[] = _("{B_DEF_NAME_WITH_PREFIX}'s\ndream was eaten!");
 static const u8 sText_StatsWontIncrease[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
 static const u8 sText_StatsWontDecrease[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go lower!");
@@ -308,7 +308,7 @@ static const u8 sText_PkmnHurtsWithInAttk[] = _("{B_DEF_NAME_WITH_PREFIX} was hu
 static const u8 sText_PkmnTraced[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} TRACED\n{B_BUFF1}'s {B_BUFF2}!");
 static const u8 sText_PkmnsXPreventsBurns[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents burns!");
 static const u8 sText_PkmnsXPreventsPanic[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents panic!");
-static const u8 sText_PkmnIsPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} is panicked!");
+static const u8 sText_PkmnIsPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} is panicking!");
 static const u8 sText_PkmnsXBlocksY[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nblocks {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnsXBlocksY2[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nblocks {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnsXRestoredHPALittle2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nrestored its HP a little!");
@@ -882,6 +882,7 @@ static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_A
 static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
 static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1615,6 +1616,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSXPREVENTSEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PreventExposed,
     [STRINGID_PKMNSISBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsBlooming,
     [STRINGID_PKMNCONSTRICTED - BATTLESTRINGS_TABLE_START] = sText_PkmnConstricted,
+    [STRINGID_PKMNISALREADYPANICKING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyPanicking,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

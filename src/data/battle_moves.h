@@ -14679,7 +14679,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAZING_SUN] =
     {
-        .effect = EFFECT_RECOIL_33,
+        .effect = EFFECT_RAZING_SUN,
         .power = 110,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -15324,6 +15324,40 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .argument = ARG_TRY_REMOVE_TERRAIN_HIT, // Remove the active field terrain if there is one.
+    },
+
+    [MOVE_BRUTALIZE] =
+    {
+        .effect = EFFECT_SUPERPOWER,
+        .power = 130,
+        .type = TYPE_DARK,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_TERRORIZE] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 85,
+        #else
+            .accuracy = 75,
+        #endif
+        .effect = EFFECT_TERRORIZE,
+        .power = 0,
+        .type = TYPE_DARK,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_ATK_UP_1,
+        .magicCoatAffected = TRUE,
     },
 
     // Z-Moves

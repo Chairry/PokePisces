@@ -11626,6 +11626,9 @@ static void Cmd_manipulatedamage(void)
     case DMG_1_2_ATTACKER_HP:
         gBattleMoveDamage = (gBattleMons[gBattlerAttacker].maxHP + 1) / 2; // Half of Max HP Rounded UP
         break;
+    case DMG_1_3_ATTACKER_HP:
+        gBattleMoveDamage = (gBattleMons[gBattlerAttacker].maxHP + 1) / 3; // Half of Max HP Rounded UP
+        break;
     case DMG_RECOIL_FROM_IMMUNE:
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 2;
         break;
@@ -15347,10 +15350,6 @@ static void Cmd_pickup(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_setsilence2(void)
-{
-}
-
 static void Cmd_unused3(void)
 {
 }
@@ -16530,6 +16529,17 @@ void BS_JumpIfMoreThanHalfHP(void)
 
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     if (gBattleMons[battler].hp > (gBattleMons[battler].maxHP + 1) / 2)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfMoreThanThirdHP(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    if (gBattleMons[battler].hp > (gBattleMons[battler].maxHP + 1) / 3)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

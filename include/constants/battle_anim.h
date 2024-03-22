@@ -408,8 +408,6 @@
 #define ANIM_TAG_DRAGON_HEAD                (ANIM_SPRITES_START + 394)
 #define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
-#define ANIM_TAG_REAL_DRAGON_HEAD           (ANIM_SPRITES_START + 397)
-#define ANIM_TAG_REAL_DRAGON_ORB            (ANIM_SPRITES_START + 398)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -521,6 +519,7 @@
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
 #define BG_URANIUM 81
+#define BG_THUNDER_2 82
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
