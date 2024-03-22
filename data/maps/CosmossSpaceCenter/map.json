@@ -266,9 +266,9 @@
       "x": 13,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_SPACE_CENTER_QUEST_STATE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "CosmossSpaceCenter_EventScript_AIBlock"
     }
   ],
   "bg_events": [

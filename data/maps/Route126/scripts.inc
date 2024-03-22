@@ -32,10 +32,16 @@ Route126_Movement_WalkToRocket:
 
 Route126_EventScript_YouDidIt::
 	msgbox Route126_Text_YouDidIt, MSGBOX_DEFAULT
+	giveitem ITEM_GRAVITY_CORE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setvar VAR_SPACE_CENTER_QUEST_STATE, 50
 	warp MAP_COSMOSS_SPACE_CENTER, 3, 28
 	waitstate
 	release
+	end
+
+Route126_EventScript_Lovelace::
+	msgbox Route126_Text_Lovelace, MSGBOX_NPC
 	end
 
 Route126_EventScript_Barry::
@@ -225,11 +231,25 @@ Route126_Text_RayLeaves:
 Route126_Text_VarTest:
 	.string "space center var set 3$"
 
+Route126_Text_Lovelace:
+	.string "All systems nominal here.\n"
+	.string "Itching to embark whenever it's time.$"
+
 Route126_Text_TheyreInvading:
-	.string "theyre invading dood!$"
+	.string "…Hmm?\p"
+	.string "Eiffel's reporting some\n"
+	.string "kind of problem? Nonsense.\p"
+	.string "His lazy bum is probably using this as\n"
+	.string "an excuse to get sent home early.$"
 
 Route126_Text_UhefoeAppears:
-	.string "its a wild uhefoe$"
+	.string "(You hear a Pokémon's cry.)\p"
+	.string "Crud, watch out…\n"
+	.string "looks like something wants to give us\l"
+	.string "a warm welcome…!$"
 
 Route126_Text_YouDidIt:
-	.string "you did it$"
+	.string "Thanks for taking care of that thing.\p"
+	.string "Here, take this;\n"
+	.string "the Pokémon was holding it.\p"
+	.string "Think of it as a… trophy.$"
