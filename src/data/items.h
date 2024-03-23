@@ -9655,12 +9655,12 @@ const struct Item gItems[] =
     [ITEM_BERRY_MIC] =
     {
         .name = _("Berry Mic"),
-        .price = 2000,
+        .price = 3000,
         .description = sBerryMic,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 30,
     },
     [ITEM_BURNT_STICK] =
     {
@@ -9698,62 +9698,62 @@ const struct Item gItems[] =
     [ITEM_NEO_BATTERY] =
     {
         .name = _("Neo Battery"),
-        .price = 2000,
+        .price = 3000,
         .description = sNeoBattery,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 30,
     },
     [ITEM_SANDBAG] =
     {
         .name = _("Sandbag"),
-        .price = 2000,
+        .price = 3000,
         .description = sSandbag,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_SANDSTONE] =
     {
         .name = _("Sandstone"),
-        .price = 2000,
+        .price = 3000,
         .description = sSandstone,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_COMEDY_MASK] =
     {
         .name = _("Comedy Mask"),
-        .price = 2000,
+        .price = 10000,
         .description = sComedyMaskDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_TRAGEDY_MASK] =
     {
         .name = _("Tragedy Mask"),
-        .price = 2000,
+        .price = 10000,
         .description = sTragedyMaskDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_PEBBLERITE] =
     {
         .name = _("Pebblerite"),
-        .price = 2000,
+        .price = 10000,
         .description = sPebbleriteDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
-        .flingPower = 10,
+        .flingPower = 30,
     },
 
     [ITEM_CHEESE] =
@@ -9779,10 +9779,10 @@ const struct Item gItems[] =
     [ITEM_KEYCHAIN] =
     {
         .name = _("Keychain"),
-        .price = 2000,
+        .price = 4000,
         .description = sKeychainDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
@@ -9809,12 +9809,12 @@ const struct Item gItems[] =
     [ITEM_GRAVITY_CORE] =
     {
         .name = _("Gravity Core"),
-        .price = 2000,
+        .price = 4000,
         .description = sGravityCoreDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 100,
     },
     [ITEM_FAVOR_SCARF] =
     {
@@ -9935,41 +9935,45 @@ const struct Item gItems[] =
     {
         .name = _("Vibrant Scale"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_VIBRANT_SCALE,
         .description = sVibrantScaleDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_TRIUMPH_STAR] =
     {
         .name = _("Triumph Star"),
-        .price = 2000,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_TRIUMPH_STAR,
         .description = sTriumphStarDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 90,
     },
     [ITEM_ZIG_SASH] =
     {
         .name = _("Zig Sash"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_ZIG_SASH,
         .description = sZigSashDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
     [ITEM_DOUGH_STICK] =
     {
         .name = _("Dough Stick"),
-        .price = 2000,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_DOUGH_STICK,
         .description = sDoughStickDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 60,
     },
     [ITEM_YELLOW_SODA] =
     {
@@ -9984,22 +9988,24 @@ const struct Item gItems[] =
     [ITEM_ICY_CAPE] =
     {
         .name = _("Icy Cape"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_ICY_CAPE,
         .description = sIcyCapeDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
     [ITEM_DRIP_SHOES] =
     {
         .name = _("Drip Shoes"),
-        .price = 2000,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_DRIP_SHOES,
         .description = sDripShoesDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 60,
     },
     [ITEM_COARSE_SAND] =
     {
@@ -10014,10 +10020,11 @@ const struct Item gItems[] =
     [ITEM_OBJECT_D_ARC] =
     {
         .name = _("Object D'arc"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_OBJECT_D_ARC,
         .description = sObjectDarcDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },

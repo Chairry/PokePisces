@@ -174,6 +174,15 @@
 #define HOLD_EFFECT_POISON_ORB          189
 #define HOLD_EFFECT_BLOOM_ORB           190
 #define HOLD_EFFECT_PANIC_ORB           191
+#define HOLD_EFFECT_TRIUMPH_STAR        192
+#define HOLD_EFFECT_VIBRANT_SCALE       193
+#define HOLD_EFFECT_ZIG_SASH            194
+#define HOLD_EFFECT_DOUGH_STICK         195
+#define HOLD_EFFECT_DRIP_SHOES          196
+#define HOLD_EFFECT_OBJECT_D_ARC        197
+#define HOLD_EFFECT_KEYCHAIN            198
+#define HOLD_EFFECT_GRAVITY_CORE        199
+#define HOLD_EFFECT_ICY_CAPE            200
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
