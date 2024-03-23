@@ -136,7 +136,7 @@
 #define VAR_RAY_STATE                               0x4068 // Unused Var normally, used in PISCES
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_BREADWINNER_STATE                               0x406A // Unused Var normally, used in PISCES
-#define VAR_ROUTE112_STATE                               0x406B // Unused Var
+#define VAR_ROUTE112_STATE                               0x406B // Unused Var normally, used in PISCES
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var
