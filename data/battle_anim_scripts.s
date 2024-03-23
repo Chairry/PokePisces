@@ -951,6 +951,8 @@ gBattleAnims_Moves::
 	.4byte Move_CASTLE_CRASH
 	.4byte Move_BRUTALIZE
 	.4byte Move_TERRORIZE
+	.4byte Move_STORM_CHASE
+	.4byte Move_DRAKEN_GUARD
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21009,6 +21011,12 @@ Move_BRUTALIZE::
 
 Move_TERRORIZE::
 	goto Status_Panic
+
+Move_STORM_CHASE::
+	goto Move_VOLT_TACKLE
+
+Move_DRAKEN_GUARD::
+	goto Move_DETECT
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

@@ -925,6 +925,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CASTLE_CRASH] = _("Castle Crash"),
     [MOVE_BRUTALIZE] = _("Brutalize"),
     [MOVE_TERRORIZE] = _("Terrorize"),
+    [MOVE_STORM_CHASE] = _("Storm Chase"),
+    [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
 };
 #else
 // 12 letters
@@ -1853,6 +1855,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CASTLE_CRASH] = _("Castle Crash"),
     [MOVE_BRUTALIZE] = _("Brutalize"),
     [MOVE_TERRORIZE] = _("Terrorize"),
+    [MOVE_STORM_CHASE] = _("Storm Chase"),
+    [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
 };
 #endif
 

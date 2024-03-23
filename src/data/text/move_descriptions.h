@@ -3572,6 +3572,14 @@ static const u8 sTerrorizeDescription[] = _(
     "Makes the foe panic\n"
     "with intense imagery.");
 
+static const u8 sStormChaseDescription[] = _(
+    "A fast but hard to aim attack\n"
+    "that always goes first.");
+
+static const u8 sDrakenGuardDescription[] = _(
+    "Evades damage, and reduces\n"
+    "Special Defense if struck.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4505,4 +4513,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
     [MOVE_BRUTALIZE - 1] = sBrutalizeDescription,
     [MOVE_TERRORIZE - 1] = sTerrorizeDescription,
+    [MOVE_STORM_CHASE - 1] = sStormChaseDescription,
+    [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
 };
