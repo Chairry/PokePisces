@@ -16,6 +16,7 @@ StevenHouse_EventScript_MeetSteven::
 	msgbox StevenHouse_Text_Blah1, MSGBOX_DEFAULT
 	applymovement LOCALID_STEVEN, StevenHouse_Movement_StevenPonders
 	waitmovement 0
+	msgbox StevenHouse_Text_Blah1, MSGBOX_DEFAULT
 	applymovement LOCALID_STEVEN, StevenHouse_Movement_StevenLeaves
 	waitmovement 0
 	setflag FLAG_HIDE_STEVEN_IN_HOUSE
@@ -34,3 +35,6 @@ StevenHouse_Movement_StevenPonders:
 
 StevenHouse_Movement_StevenLeaves:
 	step_end
+
+StevenHouse_Text_Blah1:
+	.string "test$"
