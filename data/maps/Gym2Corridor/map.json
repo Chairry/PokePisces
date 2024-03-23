@@ -59,7 +59,7 @@
       "elevation": 0,
       "var": "VAR_NEW_COO_STATE",
       "var_value": "2",
-      "script": "NULL"
+      "script": "Gym2Corridor_EventScript_DoorGuard"
     }
   ],
   "bg_events": [

@@ -22,7 +22,7 @@ Gym2Corridor_EventScript_WantToGoIn::
 	end
 
 Gym2Corridor_EventScript_PrepForGym::
-	setflag FLAG_PISCES_A
+	clearflag FLAG_PISCES_A
 	clearflag FLAG_PISCES_B
 	clearflag FLAG_PISCES_C
 	clearflag FLAG_PISCES_D
