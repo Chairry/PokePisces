@@ -52,6 +52,7 @@
 #define MAP_SOOTOPOLIS_CITY_POKEMON_CENTER_2F (0 | (3 << 8))
 #define MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F   (1 | (3 << 8))
 #define MAP_MOSSDEEP_INTERIORS                (2 | (3 << 8))
+#define MAP_GYM2CORRIDOR                      (3 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))

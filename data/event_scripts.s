@@ -3269,3 +3269,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/CosmossSpaceCenter/scripts.inc"
 
 	.include "data/maps/MossdeepInteriors/scripts.inc"
+
+	.include "data/maps/Gym2Corridor/scripts.inc"

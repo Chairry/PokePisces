@@ -5150,6 +5150,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MossdeepInteriors/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM2CORRIDOR",
+      "name": "Gym2Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym2Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym2Corridor/map.bin"
     }
   ]
 }

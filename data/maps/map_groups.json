@@ -101,7 +101,8 @@
   "gMapGroup_PiscesPart2Minor": [
     "SootopolisCity_PokemonCenter_2F",
     "MossdeepCity_PokemonCenter_1F",
-    "MossdeepInteriors"
+    "MossdeepInteriors",
+    "Gym2Corridor"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",

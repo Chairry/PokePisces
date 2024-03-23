@@ -100,7 +100,7 @@ CosmossSpaceCenter_EventScript_Understandable::
 	end
 
 CosmossSpaceCenter_EventScript_MinkowskiBattle::
-	trainerbattle_single TRAINER_P_JIMMY, CosmossSpaceCenter_Text_MinkowskiIntro, CosmossSpaceCenter_Text_MinkowskiDefeat, CosmossSpaceCenter_EventScript_LearnedALot
+	trainerbattle_single TRAINER_P_MINKOWSKI, CosmossSpaceCenter_Text_MinkowskiIntro, CosmossSpaceCenter_Text_MinkowskiDefeat, CosmossSpaceCenter_EventScript_LearnedALot
 	release
 	end
 

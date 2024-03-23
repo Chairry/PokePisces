@@ -44,6 +44,46 @@ Route126_EventScript_Lovelace::
 	msgbox Route126_Text_Lovelace, MSGBOX_NPC
 	end
 
+Route126_EventScript_Stella::
+    trainerbattle_single TRAINER_P_STELLA, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Isaac::
+    trainerbattle_single TRAINER_P_ISAAC, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Rise::
+    trainerbattle_single TRAINER_P_RISE, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Yu::
+    trainerbattle_single TRAINER_P_YU, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Geiger::
+    trainerbattle_single TRAINER_P_GEIGER, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_York::
+    trainerbattle_single TRAINER_P_YORK, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Rika::
+    trainerbattle_single TRAINER_P_RIKA, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route126_EventScript_Pete::
+    trainerbattle_single TRAINER_P_PETE, Route126_Text_GugumbirIntro, Route126_Text_GugumbirDefeated
+    msgbox Route126_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
 Route126_EventScript_Barry::
 	trainerbattle_single TRAINER_BARRY, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
 	msgbox Route126_Text_BarryPostBattle, MSGBOX_AUTOCLOSE
@@ -155,7 +195,7 @@ Route126_Movement_RayEncounterSouth:
 	step_end
 
 Route126_EventScript_RayBattleStart::
-	trainerbattle_single TRAINER_P_JIMMY, Route126_Text_RayIntro, Route126_Text_RayDefeat, Route126_EventScript_RayLeaves
+	trainerbattle_single TRAINER_P_RAY_1, Route126_Text_RayIntro, Route126_Text_RayDefeat, Route126_EventScript_RayLeaves
 	release
 	end
 
@@ -253,3 +293,15 @@ Route126_Text_YouDidIt:
 	.string "Here, take this;\n"
 	.string "the Pokémon was holding it.\p"
 	.string "Think of it as a… trophy.$"
+
+Route126_Text_GugumbirIntro:
+	.string "intro$"
+
+Route126_Text_GugumbirDefeated:
+	.string "defeat$"
+
+Route126_Text_GugumbirPostBattle:
+	.string "post$"
+
+Route126_Text_GugumbirNeedTwoMons:
+	.string "need 2 dood$"
