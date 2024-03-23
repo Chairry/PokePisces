@@ -170,6 +170,10 @@
 #define HOLD_EFFECT_LEADERS_CREST       185
 #define HOLD_EFFECT_BATTLE_HELM         186
 #define HOLD_EFFECT_GLUE_TUBE           187
+#define HOLD_EFFECT_FROST_ORB           188
+#define HOLD_EFFECT_POISON_ORB          189
+#define HOLD_EFFECT_BLOOM_ORB           190
+#define HOLD_EFFECT_PANIC_ORB           191
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

@@ -9882,22 +9882,24 @@ const struct Item gItems[] =
     [ITEM_FROST_ORB] =
     {
         .name = _("Frost Orb"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_FROST_ORB,
         .description = sFrostOrbDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_POISON_ORB] =
     {
         .name = _("Poison Orb"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_POISON_ORB,
         .description = sPoisonOrbDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_DILATANT_MOD] =
     {
@@ -10052,22 +10054,24 @@ const struct Item gItems[] =
     [ITEM_BLOOM_ORB] =
     {
         .name = _("Bloom Orb"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_BLOOM_ORB,
         .description = sBloomOrbDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_PANIC_ORB] =
     {
         .name = _("Panic Orb"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_PANIC_ORB,
         .description = sPanicOrbDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_SOLAR_SWORD] =
     {
