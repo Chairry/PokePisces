@@ -10084,6 +10084,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     bool32 usesDefStat;
     u8 defStage;
     u32 defStat, def, spDef;
+    u32 basePower = gBattleMoves[move].power;
     uq4_12_t modifier;
     u16 defBaseSpeciesId;
 
@@ -10211,6 +10212,10 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     case HOLD_EFFECT_DEEP_SEA_SCALE:
         if (gBattleMons[battlerDef].species == SPECIES_CLAMPERL && !usesDefStat)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
+    case HOLD_EFFECT_DILLATANT_MOD:
+        if ((basePower >= 90) && IS_BATTLER_OF_TYPE(battlerDef, TYPE_RELIC))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.75));
         break;
     case HOLD_EFFECT_SALTY_TEAR:
         if (gBattleMons[battlerDef].species == SPECIES_SADSOD)

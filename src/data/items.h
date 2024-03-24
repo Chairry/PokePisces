@@ -9908,12 +9908,13 @@ const struct Item gItems[] =
     [ITEM_DILATANT_MOD] =
     {
         .name = _("Dilatant Mod"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_DILLATANT_MOD,
         .description = sDilatantModDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 90,
     },
     [ITEM_ODD_STONE] =
     {
