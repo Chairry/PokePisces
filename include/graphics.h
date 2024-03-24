@@ -11922,6 +11922,7 @@ extern const u32 gBattleAnimBgImage_Waterfall[];
 extern const u32 gBattleAnimBgPalette_Waterfall[];
 extern const u32 gBattleAnimBgTilemap_Waterfall[];
 extern const u32 gBattleAnimBgPalette_WonderRoom[];
+extern const u32 gBattleAnimBgPalette_InverseRoom[];
 extern const u32 gBattleAnimBgImage_ZMoveActivate[];
 extern const u32 gBattleAnimBgPalette_ZMoveActivate[];
 extern const u32 gBattleAnimBgTilemap_ZMoveActivate[];
