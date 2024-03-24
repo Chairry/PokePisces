@@ -1054,7 +1054,8 @@ gBattleAnims_General::
 	.4byte General_WhiteSmoke               @ B_ANIM_WHITE_SMOKE
 	.4byte General_SwitchItems              @ B_ANIM_SWITCH_ITEMS
 	.4byte Move_TRICK_ROOM                  @ B_ANIM_TIME_TURN 
-	.4byte Move_FOLLOW_ME                  @ B_ANIM_ENTRANCING 
+	.4byte Move_FOLLOW_ME                   @ B_ANIM_ENTRANCING 
+	.4byte General_Reversi                  @ B_ANIM_REVERSI 
 
 	.align 2
 gBattleAnims_Special::
@@ -30948,6 +30949,16 @@ Status_Exposed:
 _RGeneral_TimeTurn::
 	call InitRoomAnimation
 	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
+	end
+
+General_Reversi::
+	call InitRoomAnimation
+	fadetobg BG_INVERSE_ROOM
 	waitbgfadein
 	delay 0x40
 	restorebg

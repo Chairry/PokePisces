@@ -520,6 +520,7 @@
 #define BG_CHLOROBLAST 80
 #define BG_URANIUM 81
 #define BG_THUNDER_2 82
+#define BG_INVERSE_ROOM 83
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -569,6 +570,7 @@
 #define B_ANIM_SWITCH_ITEMS             44
 #define B_ANIM_TIME_TURN                45
 #define B_ANIM_ENTRANCING               46
+#define B_ANIM_REVERSI                  47
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -2156,6 +2156,10 @@ BattleScript_EffectFling:
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonBarb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingToxicOrb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_FROST_ORB, BattleScript_FlingFrostOrb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_ORB, BattleScript_FlingPoisonOrb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_BLOOM_ORB, BattleScript_FlingBloomOrb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_PANIC_ORB, BattleScript_FlingPanicOrb
 BattleScript_EffectFlingConsumeBerry:
 	savebattleritem BS_TARGET
 	battleritemtolastuseditem BS_TARGET
@@ -2210,6 +2214,22 @@ BattleScript_FlingWhiteHerb:
 	printstring STRINGID_PKMNSTATUSNORMAL
 	waitmessage B_WAIT_TIME_MED
 	swapattackerwithtarget
+	goto BattleScript_FlingEnd
+BattleScript_FlingFrostOrb:
+	setmoveeffect MOVE_EFFECT_FROSTBITE
+	seteffectprimary
+	goto BattleScript_FlingEnd
+BattleScript_FlingPoisonOrb:
+	setmoveeffect MOVE_EFFECT_POISON
+	seteffectprimary
+	goto BattleScript_FlingEnd
+BattleScript_FlingBloomOrb:
+	setmoveeffect MOVE_EFFECT_BLOOMING
+	seteffectprimary
+	goto BattleScript_FlingEnd
+BattleScript_FlingPanicOrb:
+	setmoveeffect MOVE_EFFECT_PANIC
+	seteffectprimary
 	goto BattleScript_FlingEnd
 
 BattleScript_EffectShellSideArm:
@@ -4288,7 +4308,7 @@ BattleScript_TimeTurnActivated::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNTWISTEDDIMENSIONS
 	playanimation 0, B_ANIM_TIME_TURN
-	waitmessage B_WAIT_TIME_SHORT
+	waitmessage B_WAIT_TIME_LONG
 	savetarget
 	setbyte gBattlerTarget, 0
 BattleScript_TimeTurnRoomServiceLoop:
@@ -4305,7 +4325,7 @@ BattleScript_TimeTurnDeactivated::
 	call BattleScript_AbilityPopUp
 	playanimation 0, B_ANIM_TIME_TURN
 	printstring STRINGID_TRICKROOMENDS
-	waitmessage B_WAIT_TIME_SHORT
+	waitmessage B_WAIT_TIME_LONG
 	end3
 
 BattleScript_EffectWonderRoom:
@@ -4319,6 +4339,20 @@ BattleScript_EffectMagicRoom:
 	printfromtable gRoomsStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_ReversiActivated::	
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_THETYPECHARTINVERTED
+	playanimation 0, B_ANIM_REVERSI
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_ReversiDeactivated::
+	call BattleScript_AbilityPopUp
+	playanimation 0, B_ANIM_REVERSI
+	printstring STRINGID_INVERSEROOMENDS
+	waitmessage B_WAIT_TIME_LONG
+	end3
 
 BattleScript_EffectAquaRing:
 	attackcanceler
@@ -8321,6 +8355,11 @@ BattleScript_MagicRoomEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_InverseRoomEnds::
+	printstring STRINGID_INVERSEROOMENDS
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_TerrainEnds_Ret::
 	printfromtable gTerrainStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -8483,6 +8522,29 @@ BattleScript_WeaknessPolicySpAtk:
 BattleScript_WeaknessPolicyRemoveItem:
 	removeitem BS_TARGET
 BattleScript_WeaknessPolicyEnd:
+	return
+
+BattleScript_LostMantle::
+	copybyte sBATTLER, gBattlerTarget
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_LostMantleDef
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_LostMantleEnd
+BattleScript_LostMantleDef:
+	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_LostMantleSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LostMantleSpDef
+	printstring STRINGID_USINGITEMSTATOFPKMNROSE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_LostMantleSpDef:
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_LostMantleEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LostMantleEnd
+	printstring STRINGID_USINGITEMSTATOFPKMNROSE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_LostMantleEnd:
 	return
 
 BattleScript_TargetItemStatRaise::
@@ -9934,6 +9996,30 @@ BattleScript_FlameOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
 	call BattleScript_MoveEffectBurn
+	end2
+
+BattleScript_FrostOrb::
+	setbyte cMULTISTRING_CHOOSER, 0
+	copybyte gEffectBattler, gBattlerAttacker
+	call BattleScript_MoveEffectFrostbite
+	end2
+
+BattleScript_PoisonOrb::
+	setbyte cMULTISTRING_CHOOSER, 0
+	copybyte gEffectBattler, gBattlerAttacker
+	call BattleScript_MoveEffectPoison
+	end2
+
+BattleScript_BloomOrb::
+	setbyte cMULTISTRING_CHOOSER, 0
+	copybyte gEffectBattler, gBattlerAttacker
+	call BattleScript_MoveEffectBlooming
+	end2
+
+BattleScript_PanicOrb::
+	setbyte cMULTISTRING_CHOOSER, 0
+	copybyte gEffectBattler, gBattlerAttacker
+	call BattleScript_MoveEffectPanic
 	end2
 
 BattleScript_MoveEffectPoison::

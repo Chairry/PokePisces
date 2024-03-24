@@ -2610,9 +2610,9 @@ static const u8 sRedCardDesc[] = _(
     "holder.");
 
 static const u8 sRingTargetDesc[] = _(
-    "Moves that wouldn't\n"
-    "have effect will\n"
-    "land on its holder.");
+    "Immunities are\n"
+    "negated and user\n"
+    "takes more damage.");
 
 static const u8 sBindingBandDesc[] = _(
     "Increases the\n"
@@ -2681,8 +2681,8 @@ static const u8 sRoomServiceDesc[] = _(
 
 static const u8 sUtilityUmbrellaDesc[] = _(
     "An umbrella that\n"
-    "protects from\n"
-    "weather effects.");
+    "decreases damage\n"
+    "of weather types.");
 
 // Berries
 static const u8 sCheriBerryDesc[] = _(
@@ -3868,9 +3868,9 @@ static const u8 sGimmighoulCoinDesc[] = _(
     "curious coins.");
 
 static const u8 sLeadersCrestDesc[] = _(
-    "A shard of an old\n"
-    "blade of some sort.\n"
-    "Held by Bisharp.");
+    "Buffs the Pawniard\n"
+    "line's slicing\n"
+    "moves.");
 
 static const u8 sMaliciousArmorDesc[] = _(
     "Armor inhabited by\n"
@@ -4152,3 +4152,8 @@ static const u8 sFriendRibbonDesc[] = _(
     "Boosts user's Def\n"
     "and ally's moves.\n"
     "Only for Colfin.");
+
+static const u8 sRoomExtenderDesc[] = _(
+    "Extends the length\n"
+    "of all activated\n"
+    "rooms.");

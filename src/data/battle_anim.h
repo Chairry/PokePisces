@@ -2003,4 +2003,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_CHLOROBLAST]               = {gBattleAnimBgImage_HydroCannon,             gBattleAnimBgPalette_Chloroblast,             gBattleAnimBgTilemap_HydroCannon},
     [BG_URANIUM]                   = {gBattleAnimBgImage_FocusBlast,              gBattleAnimBgPalette_LeafStorm,               gBattleAnimBgTilemap_FocusBlast},
     [BG_THUNDER_2]                 = {gBattleAnimBgImage_Thunder,                 gBattleAnimBgPalette_Thunder2,                gBattleAnimBgTilemap_Thunder},
+    [BG_INVERSE_ROOM]              = {gBattleAnimBgImage_TrickRoom,               gBattleAnimBgPalette_MagicRoom,               gBattleAnimBgTilemap_TrickRoom},
 };

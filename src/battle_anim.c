@@ -1484,7 +1484,11 @@ static void LoadDefaultBg(void)
     }
     else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
     {
-        LoadMoveBg(BG_TRICK_ROOM);
+        LoadMoveBg(BG_MAGIC_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+    {
+        LoadMoveBg(BG_INVERSE_ROOM);
     }
     else
     {
