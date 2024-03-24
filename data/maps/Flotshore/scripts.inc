@@ -83,13 +83,17 @@ Flotshore_Text_JimmyPostBattle:
 	.string "The route branches off up ahead.$"
 
 Flotshore_Text_DanIntro:
-	.string "test$"
+	.string "Is there anythin' better than fishin'?$"
 
 Flotshore_Text_DanDefeated:
-	.string "test$"
+	.string "I suppose battlin' is a close second.$"
 
 Flotshore_Text_DanPostBattle:
-	.string "test$"
+	.string "Y'know, plenty o' people go fishin'\n"
+	.string "all of their lives, without knowin'\l"
+	.string "that it ain't the fish\l"
+	.string "they are really after.\p"
+	.string "There's a little wisdom for ya'.$"
 
 Flotshore_Text_LadIntro:
 	.string "test$"
@@ -110,13 +114,19 @@ Flotshore_Text_SammiePostBattle:
 	.string "test$"
 
 Flotshore_Text_BarbaraIntro:
-	.string "test$"
+	.string "I wonder, what kind of\n"
+	.string "Pokémon do you use?\p"
+	.string "Ones that are good at battle, or\n"
+	.string "ones that can help you outside of it?$"
 
 Flotshore_Text_BarbaraDefeated:
-	.string "test$"
+	.string "Hmm... Perhaps,\n"
+	.string "a healthy mix of both is best.$"
 
 Flotshore_Text_BarbaraPostBattle:
-	.string "test$"
+	.string "My Pokémon help me swim around\n"
+	.string "the local waterways when I\l"
+	.string "want to find a new fishing spot.$"
 
 Flotshore_Text_HaveMyShell:
 	.string "I love searchin' underneath\n"

@@ -128,12 +128,8 @@ SkyPillarNew_Text_GrangerEncourage:
 	.string "owe my buddies a bout, too!$"
 
 SkyPillarNew_Text_GrangerAllDone:
-	.string "Ah, {PLAYER}!\p"
-	.string "You've proven yourself a\n"
-	.string "blossoming talent!\p"
-	.string "We have nothing left to assist you\n"
-	.string "with. Explore Hoenn to your heart's\l"
-	.string "content. Be safe out there!$"
+	.string "Looks like that's all of us, clipped!\p"
+	.string "Allow us to escort you back to the lab.$"
 
 SkyPillarNew_Text_RickyIntro:
 	.string "I sense a FIRE'n you, trainer!\p"
@@ -153,12 +149,10 @@ SkyPillarNew_Text_RickyEncourage:
 	.string "pals are still itchin' to test ya.$"
 
 SkyPillarNew_Text_RickyAllDone:
-	.string "You're on FIRE!!\p"
-	.string "Burned through the three of us like\n"
-	.string "we was dry paper!\p"
-	.string "Keep it up, don't let that passion'a\n"
-	.string "yours die out. Go show Hoenn\l"
-	.string "what you're made of!$"
+	.string "Yyyowch!\n"
+	.string "You don' whipped us but good!\p"
+	.string "Let's scurry on back 'n tell the\n"
+	.string "Professor how ya smoked us!$"
 
 SkyPillarNew_Text_JeannieIntro:
 	.string "Oh-ho-ho! Crashing right on the scene\n"
@@ -178,13 +172,13 @@ SkyPillarNew_Text_JeannieEncourage:
 	.string "await their turn.$"
 
 SkyPillarNew_Text_JeannieAllDone:
-	.string "You sure cleaned house!\p"
+	.string "Well, well, now, what a show!\p"
 	.string "Take a moment, while you're up\n"
 	.string "here, to look down upon Hoenn.\p"
 	.string "...A truly grand view, isn't it?\p"
-	.string "Well, what are you waiting for?\n"
-	.string "the world's your oyster!\l"
-	.string "Make us proud!$"
+	.string "Let's scurry back.\n"
+	.string "I'm sure your father will be as\l"
+	.string "impressed as I am.$"
 
 SkyPillarNew_Text_Man:
 	.string "I've had this urge recently to hop\n"
