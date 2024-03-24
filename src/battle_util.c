@@ -7977,7 +7977,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_CURSED_AMULET:
-                if (TARGET_TURN_DAMAGED && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 3) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam
+                if (TARGET_TURN_DAMAGED && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam
                 {
                     gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                     gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -8014,6 +8014,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_STATS_CHANGE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_WeaknessPolicy;
+                }
+                break;
+            case HOLD_EFFECT_LOST_MANTLE:
+                if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && (Random() % 10) < 3)
+                {
+                    effect = ITEM_STATS_CHANGE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_LostMantle;
                 }
                 break;
             case HOLD_EFFECT_SNOWBALL:
@@ -10109,22 +10117,26 @@ static inline s32 CalculateBaseDamage(u32 power, u32 userFinalAttack, u32 level,
 
 static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 battlerDef)
 {
+    u32 holdEffectDef = GetBattlerHoldEffect(battlerDef, TRUE);
+
     if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2)
     {
         if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
         {
-            // WIDE_ARMOR Effect can go in this check too
             return UQ_4_12(0.5);
+        }
+        else if (holdEffectDef == HOLD_EFFECT_WIDE_ARMOR && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        {
+            return UQ_4_12(0.5);
+        }
+        else if ((holdEffectDef == HOLD_EFFECT_WIDE_ARMOR) && (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        {
+            return UQ_4_12(0.25);
         }
         else
         {
             return V_MULTIPLE_TARGETS_DMG;
         }
-    }
-    else if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
-    {
-        // WIDE_ARMOR Effect can go in this check too
-        return UQ_4_12(0.75);
     }
     else
     {

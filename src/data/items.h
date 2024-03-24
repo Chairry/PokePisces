@@ -9830,21 +9830,23 @@ const struct Item gItems[] =
     {
         .name = _("Wide Armor"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_WIDE_ARMOR,
         .description = sWideArmorDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_LOST_MANTLE] =
     {
         .name = _("Lost Mantle"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_LOST_MANTLE,
         .description = sLostMantleDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 60,
     },
     [ITEM_BATTLE_HELM] =
     {

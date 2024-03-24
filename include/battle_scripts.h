@@ -385,6 +385,7 @@ extern const u8 BattleScript_GemActivates[];
 extern const u8 BattleScript_BerryReduceDmg[];
 extern const u8 BattleScript_PrintBerryReduceString[];
 extern const u8 BattleScript_WeaknessPolicy[];
+extern const u8 BattleScript_LostMantle[];
 extern const u8 BattleScript_TargetItemStatRaise[];
 extern const u8 BattleScript_RockyHelmetActivates[];
 extern const u8 BattleScript_ItemHurtEnd2[];
