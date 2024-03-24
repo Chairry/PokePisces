@@ -11574,7 +11574,7 @@ BattleScript_FavorScarfCuredStatusEnd2::
 
 BattleScript_FavorScarfCuredStatusRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
-	printfromtable STRINGID_PKMNSITEMCUREDPROBLEM
+	printfromtable gBerryEffectStringIds
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_SCRIPTING
 	return
