@@ -8785,7 +8785,7 @@ BattleScript_GulpMissileGulping::
 	tryfaintmon BS_ATTACKER
 	jumpiffainted BS_ATTACKER, TRUE, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_CLEAR_AMULET, BattleScript_GulpMissileNoSecondEffectGulping
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_EERIE_MASK, BattleScript_GulpMissileCheckEerieMaskSpecies
+	jumpifeeriemaskprotected BS_ATTACKER, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_CLEAR_BODY, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_FULL_METAL_BODY, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_WHITE_SMOKE, BattleScript_GulpMissileNoSecondEffectGulping
@@ -8812,14 +8812,6 @@ BattleScript_GulpMissileGorgingTargetDefenseCantGoLower:
 	printstring STRINGID_STATSWONTDECREASE
 	waitmessage B_WAIT_TIME_LONG
 	return
-BattleScript_GulpMissileCheckEerieMaskSpecies:
-	jumpifspecies BS_ATTACKER, SPECIES_SEEDOT, BattleScript_GulpMissileCheckEerieMaskTailwind
-	jumpifspecies BS_ATTACKER, SPECIES_NUZLEAF, BattleScript_GulpMissileCheckEerieMaskTailwind
-	jumpifspecies BS_ATTACKER, SPECIES_SHIFTRY, BattleScript_GulpMissileCheckEerieMaskTailwind
-	goto BattleScript_GulpMissileNoDmgGulping
-BattleScript_GulpMissileCheckEerieMaskTailwind:
-	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_TAILWIND, BattleScript_GulpMissileNoSecondEffectGulping
-	goto BattleScript_GulpMissileNoDmgGulping
 
 BattleScript_SeedSowerActivates::
 	pause B_WAIT_TIME_SHORT
