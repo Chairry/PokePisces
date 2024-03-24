@@ -11549,11 +11549,11 @@ BattleScript_BerryCureChosenStatusRet::
 	removeitem BS_SCRIPTING
 	return
 
-BattleScript_FavorScarfCursedStatusEnd2::
-	call BattleScript_FavorScarfCursedStatusRet
+BattleScript_FavorScarfCuredStatusEnd2::
+	call BattleScript_FavorScarfCuredStatusRet
 	end2
 
-BattleScript_FavorScarfCursedStatusRet::
+BattleScript_FavorScarfCuredStatusRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printfromtable STRINGID_PKMNSITEMCUREDPROBLEM
 	waitmessage B_WAIT_TIME_LONG

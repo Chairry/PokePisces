@@ -7336,7 +7336,7 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             RemoveConfusionStatus(battler);
             BattleScriptPushCursor();
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
-            gBattlescriptCurrInstr = BattleScript_FavorScarfCursedStatusRet;
+            gBattlescriptCurrInstr = BattleScript_FavorScarfCuredStatusRet;
             effect = ITEM_STATUS_CHANGE;
         }
         break;
@@ -7614,7 +7614,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     }
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
-                    BattleScriptExecute(BattleScript_FavorScarfCursedStatusEnd2);
+                    BattleScriptExecute(BattleScript_FavorScarfCuredStatusEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -7959,7 +7959,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     }
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
-                    BattleScriptExecute(BattleScript_FavorScarfCursedStatusEnd2);
+                    BattleScriptExecute(BattleScript_FavorScarfCuredStatusEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
