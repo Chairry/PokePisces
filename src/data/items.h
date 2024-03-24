@@ -9688,12 +9688,13 @@ const struct Item gItems[] =
     [ITEM_EERIE_MASK] =
     {
         .name = _("Eerie Mask"),
-        .price = 2000,
+        .price = 3000,
+        .holdEffect = HOLD_EFFECT_EERIE_MASK,
         .description = sEerieMask,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_NEO_BATTERY] =
     {
@@ -9909,7 +9910,7 @@ const struct Item gItems[] =
     {
         .name = _("Dilatant Mod"),
         .price = 4000,
-        .holdEffect = HOLD_EFFECT_DILLATANT_MOD,
+        .holdEffect = HOLD_EFFECT_DILATANT_MOD,
         .description = sDilatantModDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -9929,10 +9930,11 @@ const struct Item gItems[] =
     [ITEM_SHELL_POLISH] =
     {
         .name = _("Shell Polish"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_SHELL_POLISH,
         .description = sShellPolishDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
@@ -10036,10 +10038,11 @@ const struct Item gItems[] =
     [ITEM_FAMILY_MOSS] =
     {
         .name = _("Family Moss"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_FAMILY_MOSS,
         .description = sFamilyMossDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },

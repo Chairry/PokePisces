@@ -252,6 +252,7 @@
 #define VARIOUS_TRY_ACTIVATE_APPETITE                159
 #define VARIOUS_SET_SILENCE                          160
 #define VARIOUS_SEIZE_CHANCE_CHECK                   161
+#define VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED         162
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

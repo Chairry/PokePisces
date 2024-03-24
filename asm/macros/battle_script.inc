@@ -2305,6 +2305,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifeeriemaskprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifsafeguard jumpInstr:req
 	jumpifability BS_ATTACKER, ABILITY_INFILTRATOR, 1f
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, \jumpInstr
