@@ -15469,8 +15469,6 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 #endif
     else if (gBattleMoves[move].ignoresSubstitute)
         return FALSE;
-    else if (gCurrentMove == MOVE_RAZING_SUN)
-        return FALSE;
     else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
         return FALSE;
     else

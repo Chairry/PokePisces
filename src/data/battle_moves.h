@@ -14696,6 +14696,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_6,
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
+        .ignoresSubstitute = TRUE,
     },
 
     [MOVE_DRAGON_POKER] =
@@ -15240,6 +15241,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .ignoresTargetDefenseEvasionStages = TRUE,
         .ignoresProtect = TRUE,
+        .ignoresSubstitute = TRUE,
     },
 
     [MOVE_BENTHIC_WHIP] =
