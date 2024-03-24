@@ -890,6 +890,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_MOON_MIRROR] = {gItemIcon_MoonMirror, gItemIconPalette_MoonMirror},
     [ITEM_CROSSBONES] = {gItemIcon_Crossbones, gItemIconPalette_Crossbones},
     [ITEM_FRIEND_RIBBON] = {gItemIcon_FriendRibbon, gItemIconPalette_FriendRibbon},
+    [ITEM_ROOM_EXTENDER] = {gItemIcon_RoomExtender, gItemIconPalette_RoomExtender},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

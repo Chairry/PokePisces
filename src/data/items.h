@@ -7926,7 +7926,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_THROAT_CHOP, // Todo
     },
 
-    [ITEM_TM_COOL_MIST] =
+    [ITEM_TM_HYDRO_PUMP] =
     {
         .name = _("TM65"),
         .price = 3000,
@@ -10053,12 +10053,13 @@ const struct Item gItems[] =
     [ITEM_SALTY_TEAR] =
     {
         .name = _("Salty Tear"),
-        .price = 2000,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_SALTY_TEAR,
         .description = sSaltyTearDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_BLOOM_ORB] =
     {
@@ -10121,5 +10122,16 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
+    },
+    [ITEM_ROOM_EXTENDER] =
+    {
+        .name = _("Room Extender"),
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_ROOM_EXTENDER,
+        .description = sRoomExtenderDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 60,
     },
 };

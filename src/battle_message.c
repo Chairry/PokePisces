@@ -883,6 +883,8 @@ static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_AB
 static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
+static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and the type\nchart returned to normal!");
+static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\nthe type chart is reversed!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1617,6 +1619,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSISBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsBlooming,
     [STRINGID_PKMNCONSTRICTED - BATTLESTRINGS_TABLE_START] = sText_PkmnConstricted,
     [STRINGID_PKMNISALREADYPANICKING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyPanicking,
+    [STRINGID_INVERSEROOMENDS - BATTLESTRINGS_TABLE_START] = sText_InverseRoomEnds,
+    [STRINGID_THETYPECHARTINVERTED - BATTLESTRINGS_TABLE_START] = sText_TheTypeChartInverted,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -2160,6 +2164,7 @@ const u16 gRoomsStringIds[] =
     STRINGID_PKMNTWISTEDDIMENSIONS, STRINGID_TRICKROOMENDS,
     STRINGID_SWAPSDEFANDSPDEFOFALLPOKEMON, STRINGID_WONDERROOMENDS,
     STRINGID_HELDITEMSLOSEEFFECTS, STRINGID_MAGICROOMENDS,
+    STRINGID_THETYPECHARTINVERTED, STRINGID_INVERSEROOMENDS,
     STRINGID_EMPTYSTRING3
 };
 

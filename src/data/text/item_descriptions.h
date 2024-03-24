@@ -4152,3 +4152,8 @@ static const u8 sFriendRibbonDesc[] = _(
     "Boosts user's Def\n"
     "and ally's moves.\n"
     "Only for Colfin.");
+
+static const u8 sRoomExtenderDesc[] = _(
+    "Extends the length\n"
+    "of all activated\n"
+    "rooms.");

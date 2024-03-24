@@ -120,6 +120,7 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_MOON_MIRROR
 	giveitem ITEM_CROSSBONES
 	giveitem ITEM_FRIEND_RIBBON
+	giveitem ITEM_ROOM_EXTENDER
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_POTION_OLDALE

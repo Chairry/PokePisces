@@ -4752,6 +4752,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed = (speed * 130) / 100;
     else if (holdEffect == HOLD_EFFECT_DRIP_SHOES && gBattleMons[battler].species == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
         speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_SALTY_TEAR && gBattleMons[battler].species == SPECIES_SADSOD)
+        speed /= 2;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED))
         speed *= 2;
 

@@ -8589,11 +8589,13 @@ static void RemoveAllTerrains(void)
     gFieldTimers.trickRoomTimer = 0;
     gFieldTimers.wonderRoomTimer = 0;
     gFieldTimers.magicRoomTimer = 0;
+    gFieldTimers.inverseRoomTimer = 0;
     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DESTROY_ROOM_AND_TERRAIN;
     gFieldStatuses &= ~STATUS_FIELD_TERRAIN_ANY;    // remove the terrain
     gFieldStatuses &= ~(STATUS_FIELD_TRICK_ROOM);
     gFieldStatuses &= ~(STATUS_FIELD_WONDER_ROOM);
     gFieldStatuses &= ~(STATUS_FIELD_MAGIC_ROOM);
+    gFieldStatuses &= ~(STATUS_FIELD_INVERSE_ROOM);
 }
 
 #define DEFOG_CLEAR(status, structField, battlescript, move)\
@@ -12240,7 +12242,9 @@ static void Cmd_normalisebuffs(void)
 
     if ((gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE) && (gCurrentMove == MOVE_MIRACLE_EYE))
     {
-        gBattleMons[gBattlerTarget].statStages[i] = DEFAULT_STAT_STAGE;
+        for (i = 0; i < gBattlersCount; i++)
+            TryResetBattlerStatChanges(i);
+
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
@@ -14873,6 +14877,8 @@ static void Cmd_setdamagetohealthdifference(void)
 
 static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
 {
+    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+
     if (gFieldStatuses & statusFlag)
     {
         gFieldStatuses &= ~statusFlag;
@@ -14882,7 +14888,7 @@ static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
     else
     {
         gFieldStatuses |= statusFlag;
-        *timer = 5;
+        *timer = (atkHoldEffect == HOLD_EFFECT_ROOM_EXTENDER) ? 8 : 5;
         gBattleCommunication[MULTISTRING_CHOOSER] = stringId;
     }
 }
@@ -17185,7 +17191,7 @@ void BS_SetRemoveTerrain(void)
             break;
         case ARG_TRY_REMOVE_TERRAIN_HIT: // Splintered Stormshards
         case ARG_TRY_REMOVE_TERRAIN_FAIL: // Steel Roller
-            if (gFieldStatuses & (STATUS_FIELD_TERRAIN_ANY | STATUS_FIELD_TRICK_ROOM | STATUS_FIELD_WONDER_ROOM | STATUS_FIELD_MAGIC_ROOM))
+            if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
             {
                 RemoveAllTerrains();
                 gBattlescriptCurrInstr = cmd->nextInstr;

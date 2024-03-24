@@ -4308,7 +4308,7 @@ BattleScript_TimeTurnActivated::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNTWISTEDDIMENSIONS
 	playanimation 0, B_ANIM_TIME_TURN
-	waitmessage B_WAIT_TIME_SHORT
+	waitmessage B_WAIT_TIME_LONG
 	savetarget
 	setbyte gBattlerTarget, 0
 BattleScript_TimeTurnRoomServiceLoop:
@@ -4325,7 +4325,7 @@ BattleScript_TimeTurnDeactivated::
 	call BattleScript_AbilityPopUp
 	playanimation 0, B_ANIM_TIME_TURN
 	printstring STRINGID_TRICKROOMENDS
-	waitmessage B_WAIT_TIME_SHORT
+	waitmessage B_WAIT_TIME_LONG
 	end3
 
 BattleScript_EffectWonderRoom:
@@ -4339,6 +4339,20 @@ BattleScript_EffectMagicRoom:
 	printfromtable gRoomsStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_ReversiActivated::	
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_THETYPECHARTINVERTED
+	playanimation 0, B_ANIM_REVERSI
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_ReversiDeactivated::
+	call BattleScript_AbilityPopUp
+	playanimation 0, B_ANIM_REVERSI
+	printstring STRINGID_INVERSEROOMENDS
+	waitmessage B_WAIT_TIME_LONG
+	end3
 
 BattleScript_EffectAquaRing:
 	attackcanceler
@@ -8338,6 +8352,11 @@ BattleScript_WonderRoomEnds::
 
 BattleScript_MagicRoomEnds::
 	printstring STRINGID_MAGICROOMENDS
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_InverseRoomEnds::
+	printstring STRINGID_INVERSEROOMENDS
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

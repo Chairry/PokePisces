@@ -1981,6 +1981,7 @@ enum
     ENDTURN_WEATHER_FORM,
     ENDTURN_STATUS_HEAL,
     ENDTURN_SILENCE,
+    ENDTURN_INVERSE_ROOM,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -2464,6 +2465,23 @@ u8 DoFieldEndTurnEffects(void)
                 else
                 {
                     gFieldTimers.magicRoomTimer = 1;
+                }
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+
+        case ENDTURN_INVERSE_ROOM:
+            if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM && --gFieldTimers.inverseRoomTimer == 0)
+            {
+                if (!IsAbilityOnField(ABILITY_ENDLESS))
+                {
+                    gFieldStatuses &= ~STATUS_FIELD_INVERSE_ROOM;
+                    BattleScriptExecute(BattleScript_InverseRoomEnds);
+                    effect++;
+                }
+                else
+                {
+                    gFieldTimers.inverseRoomTimer = 1;
                 }
             }
             gBattleStruct->turnCountersTracker++;
@@ -4864,7 +4882,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 {
                     // Enable Trick Room
                     gFieldStatuses |= STATUS_FIELD_TRICK_ROOM;
-                    gFieldTimers.trickRoomTimer = 5;
+
+                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_ROOM_EXTENDER)
+                    {
+                        gFieldTimers.trickRoomTimer = 8;
+                    }
+                    else
+                    {
+                        gFieldTimers.trickRoomTimer = 5;
+                    }
+
                     BattleScriptPushCursorAndCallback(BattleScript_TimeTurnActivated);
                     effect++;
                 }
@@ -4874,6 +4901,37 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gFieldTimers.trickRoomTimer = 0;
                     gFieldStatuses &= ~(STATUS_FIELD_TRICK_ROOM);
                     BattleScriptPushCursorAndCallback(BattleScript_TimeTurnDeactivated);
+                    effect++;
+                }
+            }
+            break;
+        case ABILITY_REVERSI:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                if (!(gFieldStatuses & STATUS_FIELD_INVERSE_ROOM))
+                {
+                    // Enable Inverse Room
+                    gFieldStatuses |= STATUS_FIELD_INVERSE_ROOM;
+
+                    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_ROOM_EXTENDER)
+                    {
+                        gFieldTimers.inverseRoomTimer = 8;
+                    }
+                    else
+                    {
+                        gFieldTimers.inverseRoomTimer = 5;
+                    }
+
+                    BattleScriptPushCursorAndCallback(BattleScript_ReversiActivated);
+                    effect++;
+                }
+                else
+                {
+                    // Removes Trick Room
+                    gFieldTimers.inverseRoomTimer = 0;
+                    gFieldStatuses &= ~(STATUS_FIELD_INVERSE_ROOM);
+                    BattleScriptPushCursorAndCallback(BattleScript_ReversiDeactivated);
                     effect++;
                 }
             }
@@ -8607,7 +8665,7 @@ static bool32 IsBattlerGrounded2(u32 battler, bool32 considerInverse)
         return FALSE;
     if (GetBattlerAbility(battler) == ABILITY_LEVITATE)
         return FALSE;
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_FLYING) && (!considerInverse || !FlagGet(B_FLAG_INVERSE_BATTLE)))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_FLYING) && (!considerInverse || !FlagGet(B_FLAG_INVERSE_BATTLE) || (!(gFieldStatuses & STATUS_FIELD_INVERSE_ROOM))))
         return FALSE;
     return TRUE;
 }
@@ -9138,7 +9196,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_HIT_SET_REMOVE_TERRAIN:
-        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
     case EFFECT_BEAT_UP:
@@ -9838,6 +9896,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].species == SPECIES_BIVAGUE && IS_MOVE_SPECIAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
+    case HOLD_EFFECT_SALTY_TEAR:
+        if (gBattleMons[battlerAtk].species == SPECIES_SADSOD)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
     case HOLD_EFFECT_OBJECT_D_ARC:
         if (gBattleMoves[move].type == TYPE_GHOST || gBattleMoves[move].type == TYPE_PSYCHIC || gBattleMoves[move].type == TYPE_DARK)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
@@ -10033,6 +10095,10 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         if (gBattleMons[battlerDef].species == SPECIES_CLAMPERL && !usesDefStat)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
+    case HOLD_EFFECT_SALTY_TEAR:
+        if (gBattleMons[battlerDef].species == SPECIES_SADSOD)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
     case HOLD_EFFECT_DOUGH_STICK:
         if (atkBaseSpeciesId == SPECIES_KODOUGH || atkBaseSpeciesId == SPECIES_KODOUGH_BLUNT)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.5));
@@ -10121,17 +10187,17 @@ static inline uq4_12_t GetTargetDamageModifier(u32 move, u32 battlerAtk, u32 bat
 
     if (GetMoveTargetCount(move, battlerAtk, battlerDef) >= 2)
     {
-        if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        if ((holdEffectDef == HOLD_EFFECT_WIDE_ARMOR) && (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
+        {
+            return UQ_4_12(0.25);
+        }
+        else if ((GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
         {
             return UQ_4_12(0.5);
         }
         else if (holdEffectDef == HOLD_EFFECT_WIDE_ARMOR && IsMoveMultipleTargetAndDamages(move, battlerAtk))
         {
             return UQ_4_12(0.5);
-        }
-        else if ((holdEffectDef == HOLD_EFFECT_WIDE_ARMOR) && (GetBattlerAbility(battlerDef) == ABILITY_TELEPATHY && GetBattlerAbility(battlerAtk) != ABILITY_MOLD_BREAKER) && IsMoveMultipleTargetAndDamages(move, battlerAtk))
-        {
-            return UQ_4_12(0.25);
         }
         else
         {
@@ -10887,6 +10953,8 @@ uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
     if (FlagGet(B_FLAG_INVERSE_BATTLE))
         return GetInverseTypeMultiplier(sTypeEffectivenessTable[atkType][defType]);
 #endif
+    if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+        return GetInverseTypeMultiplier(sTypeEffectivenessTable[atkType][defType]);
     return sTypeEffectivenessTable[atkType][defType];
 }
 

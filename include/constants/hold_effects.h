@@ -185,6 +185,8 @@
 #define HOLD_EFFECT_ICY_CAPE            200
 #define HOLD_EFFECT_LOST_MANTLE         201
 #define HOLD_EFFECT_WIDE_ARMOR          202
+#define HOLD_EFFECT_SALTY_TEAR          203
+#define HOLD_EFFECT_ROOM_EXTENDER       204
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

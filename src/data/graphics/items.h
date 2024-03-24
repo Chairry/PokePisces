@@ -2160,3 +2160,6 @@ const u32 gItemIconPalette_Crossbones[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_FriendRibbon[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
 const u32 gItemIconPalette_FriendRibbon[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+
+const u32 gItemIcon_RoomExtender[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
+const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
