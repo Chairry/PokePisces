@@ -883,8 +883,8 @@ static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_AB
 static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
-static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and the type\nchart returned to normal!");
-static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\nthe type chart is reversed!");
+static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and type\nmatchups returned to normal!");
+static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\ntype matchups are reversed!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
