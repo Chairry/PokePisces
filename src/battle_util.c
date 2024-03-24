@@ -7308,6 +7308,38 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             effect = ITEM_STATUS_CHANGE;
         }
         break;
+    case HOLD_EFFECT_FAVOR_SCARF:
+        if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].status2 & STATUS2_CONFUSION) && (Random() % 5) == 0)
+        {
+            if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+            {
+                gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+            }
+
+            if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_BURN)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+
+            if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
+
+            gBattleMons[battler].status1 = 0;
+            RemoveConfusionStatus(battler);
+            BattleScriptPushCursor();
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
+            gBattlescriptCurrInstr = BattleScript_FavorScarfCursedStatusRet;
+            effect = ITEM_STATUS_CHANGE;
+        }
+        break;
     case HOLD_EFFECT_RESTORE_STATS:
         for (i = 0; i < NUM_BATTLE_STATS; i++)
         {
@@ -7542,6 +7574,47 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
                     BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
+                break;
+            case HOLD_EFFECT_FAVOR_SCARF:
+                if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].status2 & STATUS2_CONFUSION) && (Random() % 5) == 0)
+                {
+                    i = 0;
+                    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    {
+                        gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
+                        i++;
+                    }
+                    gBattleMons[battler].status1 = 0;
+                    RemoveConfusionStatus(battler);
+                    BattleScriptExecute(BattleScript_FavorScarfCursedStatusEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -7846,6 +7919,47 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
                     BattleScriptExecute(BattleScript_BerryCureChosenStatusEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
+                break;
+            case HOLD_EFFECT_FAVOR_SCARF:
+                if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].status2 & STATUS2_CONFUSION) && (Random() % 5) == 0)
+                {
+                    i = 0;
+                    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    {
+                        gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
+                        i++;
+                    }
+                    gBattleMons[battler].status1 = 0;
+                    RemoveConfusionStatus(battler);
+                    BattleScriptExecute(BattleScript_FavorScarfCursedStatusEnd2);
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -9896,6 +10010,9 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (gBattleMons[battlerAtk].species == SPECIES_BIVAGUE && IS_MOVE_SPECIAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
+    case HOLD_EFFECT_FAVOR_SCARF:
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
+        break;
     case HOLD_EFFECT_SALTY_TEAR:
         if (gBattleMons[battlerAtk].species == SPECIES_SADSOD)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
@@ -9968,9 +10085,9 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     u8 defStage;
     u32 defStat, def, spDef;
     uq4_12_t modifier;
-    u16 atkBaseSpeciesId;
+    u16 defBaseSpeciesId;
 
-    atkBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species);
+    defBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerDef].species);
 
     if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM) // the defense stats are swapped
     {
@@ -10099,12 +10216,15 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         if (gBattleMons[battlerDef].species == SPECIES_SADSOD)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
+    case HOLD_EFFECT_FAVOR_SCARF:
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
+        break;
     case HOLD_EFFECT_DOUGH_STICK:
-        if (atkBaseSpeciesId == SPECIES_KODOUGH || atkBaseSpeciesId == SPECIES_KODOUGH_BLUNT)
+        if (defBaseSpeciesId == SPECIES_KODOUGH || defBaseSpeciesId == SPECIES_KODOUGH_BLUNT)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.5));
         break;
     case HOLD_EFFECT_ICY_CAPE:
-        if (gBattleMons[battlerAtk].species == SPECIES_SNORUNT && (gBattleWeather & B_WEATHER_HAIL))
+        if (gBattleMons[battlerDef].species == SPECIES_SNORUNT && (gBattleWeather & B_WEATHER_HAIL))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_METAL_POWDER:

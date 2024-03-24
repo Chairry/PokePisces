@@ -9810,6 +9810,7 @@ const struct Item gItems[] =
     {
         .name = _("Gravity Core"),
         .price = 4000,
+        .holdEffect = HOLD_EFFECT_GRAVITY_CORE,
         .description = sGravityCoreDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -9819,12 +9820,13 @@ const struct Item gItems[] =
     [ITEM_FAVOR_SCARF] =
     {
         .name = _("Favor Scarf"),
-        .price = 2000,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_FAVOR_SCARF,
         .description = sFavorScarfDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 100,
     },
     [ITEM_WIDE_ARMOR] =
     {
