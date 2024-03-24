@@ -7615,6 +7615,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
                         i++;
                     }
+                    if (i <= 1)
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
+                    else
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
                     BattleScriptExecute(BattleScript_FavorScarfCuredStatusEnd2);
@@ -7960,6 +7964,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
                         i++;
                     }
+                    if (i <= 1)
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
+                    else
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
                     gBattleMons[battler].status1 = 0;
                     RemoveConfusionStatus(battler);
                     BattleScriptExecute(BattleScript_FavorScarfCuredStatusEnd2);
