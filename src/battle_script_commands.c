@@ -1703,9 +1703,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     u8 defParam = GetBattlerHoldEffectParam(battlerDef);
     u8 atkAlly = BATTLE_PARTNER(battlerAtk);
     u16 atkAllyAbility = GetBattlerAbility(atkAlly);
-    u16 atkBaseSpeciesId;
+    u16 defBaseSpeciesId;
 
-    atkBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species);
+    defBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerDef].species);
 
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
@@ -1793,6 +1793,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     case HOLD_EFFECT_ZOOM_LENS:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
             calc = (calc * (100 + atkParam)) / 100;
+    case HOLD_EFFECT_FAVOR_SCARF:
+        if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
+            calc = (calc * 110) / 100;
         break;
     }
 
@@ -1802,9 +1805,12 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     case HOLD_EFFECT_EVASION_UP:
         calc = (calc * (100 - defParam)) / 100;
         break;
+    case HOLD_EFFECT_FAVOR_SCARF:
+        calc = (calc * 90) / 100;
+        break;
     case HOLD_EFFECT_DRIP_SHOES: 
-        if (atkBaseSpeciesId == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
-            calc = (calc * 75) / 100;
+        if (defBaseSpeciesId == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
+            calc = (calc * 80) / 100;
         break;
     }
 
@@ -2140,6 +2146,11 @@ static void Cmd_adjustdamage(void)
     gPotentialItemEffectBattler = gBattlerTarget;
 
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && rand < param)
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
+    }
+    if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && rand < 10)
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
@@ -5476,6 +5487,7 @@ static void Cmd_playstatchangeanimation(void)
                 }
                 else if (!gSideTimers[GetBattlerSide(battler)].mistTimer
                         && GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_CLEAR_AMULET
+                        && (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
                         && ability != ABILITY_CLEAR_BODY
                         && ability != ABILITY_FULL_METAL_BODY
                         && ability != ABILITY_WHITE_SMOKE
@@ -10882,6 +10894,19 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        return;
+    }
     case VARIOUS_SET_ATTACKER_STICKY_WEB_USER:
     {
         VARIOUS_ARGS();
@@ -12000,6 +12025,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             return STAT_CHANGE_DIDNT_WORK;
         }
         else if ((battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET
+                  || (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
                   || battlerAbility == ABILITY_CLEAR_BODY
                   || battlerAbility == ABILITY_FULL_METAL_BODY
                   || battlerAbility == ABILITY_WHITE_SMOKE)
@@ -12008,6 +12034,11 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET)
             {
                 RecordItemEffectBattle(battler, HOLD_EFFECT_CLEAR_AMULET);
+            }
+
+            if (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK)
+            {
+                RecordItemEffectBattle(battler, HOLD_EFFECT_EERIE_MASK);
             }
 
             if (flags == STAT_CHANGE_ALLOW_PTR)
@@ -12020,7 +12051,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
                 {
                     BattleScriptPush(BS_ptr);
                     gBattleScripting.battler = battler;
-                    if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET)
+                    if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET || battlerHoldEffect == HOLD_EFFECT_EERIE_MASK)
                     {
                         gBattlescriptCurrInstr = BattleScript_ItemNoStatLoss;
                     }
@@ -12667,6 +12698,11 @@ static void Cmd_tryKO(void)
     gPotentialItemEffectBattler = gBattlerTarget;
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND
         && (Random() % 100) < GetBattlerHoldEffectParam(gBattlerTarget))
+    {
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
+    else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && (Random() % 100) < 10)
     {
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
         RecordItemEffectBattle(gBattlerTarget, holdEffect);

@@ -256,7 +256,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_PSYSHOCK
 	.4byte BattleScript_EffectRoost                   @ EFFECT_ROOST
 	.4byte BattleScript_EffectGravity                 @ EFFECT_GRAVITY
-	.4byte BattleScript_EffectMircleEye               @ EFFECT_MIRACLE_EYE
+	.4byte BattleScript_EffectMiracleEye               @ EFFECT_MIRACLE_EYE
 	.4byte BattleScript_EffectTailwind                @ EFFECT_TAILWIND
 	.4byte BattleScript_EffectEmbargo                 @ EFFECT_EMBARGO
 	.4byte BattleScript_EffectAquaRing                @ EFFECT_AQUA_RING
@@ -537,6 +537,7 @@ BattleScript_EffectTerrorize::
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
@@ -1632,6 +1633,7 @@ BattleScript_EffectGlaciate::
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
@@ -4306,8 +4308,8 @@ BattleScript_RoomServiceLoop_NextBattler:
 
 BattleScript_TimeTurnActivated::	
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_PKMNTWISTEDDIMENSIONS
 	playanimation 0, B_ANIM_TIME_TURN
+	printstring STRINGID_PKMNTWISTEDDIMENSIONS
 	waitmessage B_WAIT_TIME_LONG
 	savetarget
 	setbyte gBattlerTarget, 0
@@ -4323,7 +4325,7 @@ BattleScript_TimeTurnRoomServiceLoop_NextBattler:
 
 BattleScript_TimeTurnDeactivated::
 	call BattleScript_AbilityPopUp
-	playanimation 0, B_ANIM_TIME_TURN
+	playanimation 0, B_ANIM_RESTORE_BG
 	printstring STRINGID_TRICKROOMENDS
 	waitmessage B_WAIT_TIME_LONG
 	end3
@@ -4342,14 +4344,14 @@ BattleScript_EffectMagicRoom:
 
 BattleScript_ReversiActivated::	
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_THETYPECHARTINVERTED
 	playanimation 0, B_ANIM_REVERSI
+	printstring STRINGID_THETYPECHARTINVERTED
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
 BattleScript_ReversiDeactivated::
 	call BattleScript_AbilityPopUp
-	playanimation 0, B_ANIM_REVERSI
+	playanimation 0, B_ANIM_RESTORE_BG
 	printstring STRINGID_INVERSEROOMENDS
 	waitmessage B_WAIT_TIME_LONG
 	end3
@@ -4417,12 +4419,12 @@ BattleScript_TryTailwindAbilitiesLoop_WindPower:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_TryTailwindAbilitiesLoop_Increment
 
-BattleScript_EffectMircleEye:
+BattleScript_EffectMiracleEye:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	setmiracleeye BattleScript_EffectMircleEyeStatClear
+	setmiracleeye BattleScript_EffectMiracleEyeStatClear
 	normalisebuffs
 	attackanimation
 	waitanimation
@@ -4430,7 +4432,7 @@ BattleScript_EffectMircleEye:
 	printstring STRINGID_PKMNIDENTIFIED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-BattleScript_EffectMircleEyeStatClear:
+BattleScript_EffectMiracleEyeStatClear:
 	normalisebuffs
 	attackanimation
 	waitanimation
@@ -4633,6 +4635,7 @@ BattleScript_EffectSleep::
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifability BS_TARGET_SIDE, ABILITY_SWEET_VEIL, BattleScript_SweetVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_ELECTRIC_TERRAIN, BattleScript_ElectricTerrainPrevents
@@ -4722,6 +4725,14 @@ BattleScript_AbilityProtectsDoesntAffectRet::
 
 BattleScript_AbilityProtectsDoesntAffect:
 	call BattleScript_AbilityProtectsDoesntAffectRet
+	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
+	goto BattleScript_MoveEnd
+
+BattleScript_ItemProtectsDoesntAffect:
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_ITDOESNTAFFECT
+	waitmessage B_WAIT_TIME_LONG
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
 
@@ -5242,6 +5253,7 @@ BattleScript_EffectToxic::
 	jumpifability BS_TARGET_SIDE, ABILITY_PASTEL_VEIL, BattleScript_PastelVeilProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_POISON | STATUS1_TOXIC_POISON, BattleScript_AlreadyPoisoned
@@ -5631,6 +5643,7 @@ BattleScript_EffectPoison::
 	jumpifability BS_TARGET_SIDE, ABILITY_PASTEL_VEIL, BattleScript_PastelVeilProtects
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_POISON, BattleScript_AlreadyPoisoned
@@ -5657,6 +5670,7 @@ BattleScript_EffectParalyze:
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	typecalc
@@ -7122,6 +7136,7 @@ BattleScript_EffectWillOWisp::
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
@@ -7444,6 +7459,7 @@ BattleScript_EffectYawn::
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
 	jumpifflowerveil BattleScript_FlowerVeilProtects
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_ItemProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifsafeguard BattleScript_SafeguardProtected
@@ -8769,6 +8785,7 @@ BattleScript_GulpMissileGulping::
 	tryfaintmon BS_ATTACKER
 	jumpiffainted BS_ATTACKER, TRUE, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_CLEAR_AMULET, BattleScript_GulpMissileNoSecondEffectGulping
+	jumpifeeriemaskprotected BS_ATTACKER, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_CLEAR_BODY, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_FULL_METAL_BODY, BattleScript_GulpMissileNoSecondEffectGulping
 	jumpifability BS_ATTACKER, ABILITY_WHITE_SMOKE, BattleScript_GulpMissileNoSecondEffectGulping
@@ -11549,6 +11566,17 @@ BattleScript_BerryCureChosenStatusRet::
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_SCRIPTING
 	removeitem BS_SCRIPTING
+	return
+
+BattleScript_FavorScarfCuredStatusEnd2::
+	call BattleScript_FavorScarfCuredStatusRet
+	end2
+
+BattleScript_FavorScarfCuredStatusRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printfromtable STRINGID_PKMNSITEMCUREDPROBLEM
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_SCRIPTING
 	return
 
 BattleScript_MentalHerbCureRet::
