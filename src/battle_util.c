@@ -6645,7 +6645,7 @@ bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag)
 bool32 CanSleep(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (ability == ABILITY_INSOMNIA || ability == ABILITY_VITAL_SPIRIT || ability == ABILITY_COMATOSE || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityOnSide(battler, ABILITY_SWEET_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+    if (ability == ABILITY_INSOMNIA || ability == ABILITY_VITAL_SPIRIT || ability == ABILITY_COMATOSE || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityOnSide(battler, ABILITY_SWEET_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6654,7 +6654,7 @@ bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget)
 {
     u16 ability = GetBattlerAbility(battlerTarget);
 
-    if (!(CanPoisonType(battlerAttacker, battlerTarget)) || gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battlerTarget].status1 & STATUS1_ANY || ability == ABILITY_IMMUNITY || ability == ABILITY_COMATOSE || IsAbilityOnSide(battlerTarget, ABILITY_PASTEL_VEIL) || IsAbilityStatusProtected(battlerTarget) || IsBattlerTerrainAffected(battlerTarget, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battlerTarget, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battlerTarget].species != SPECIES_SEEDOT || gBattleMons[battlerTarget].species != SPECIES_NUZLEAF || gBattleMons[battlerTarget].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_TAILWIND))))
+    if (!(CanPoisonType(battlerAttacker, battlerTarget)) || gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battlerTarget].status1 & STATUS1_ANY || ability == ABILITY_IMMUNITY || ability == ABILITY_COMATOSE || IsAbilityOnSide(battlerTarget, ABILITY_PASTEL_VEIL) || IsAbilityStatusProtected(battlerTarget) || IsBattlerTerrainAffected(battlerTarget, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battlerTarget, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battlerTarget].species == SPECIES_SEEDOT || gBattleMons[battlerTarget].species == SPECIES_NUZLEAF || gBattleMons[battlerTarget].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6662,7 +6662,7 @@ bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget)
 bool32 CanBeBurned(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || ability == ABILITY_WATER_BUBBLE || ability == ABILITY_COMATOSE || ability == ABILITY_THERMAL_EXCHANGE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || ability == ABILITY_WATER_BUBBLE || ability == ABILITY_COMATOSE || ability == ABILITY_THERMAL_EXCHANGE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6674,7 +6674,7 @@ bool32 CanBeParalyzed(u32 battler)
 #if B_PARALYZE_ELECTRIC >= GEN_6
         IS_BATTLER_OF_TYPE(battler, TYPE_ELECTRIC) ||
 #endif
-        gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_LIMBER || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+        gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_LIMBER || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6682,7 +6682,7 @@ bool32 CanBeParalyzed(u32 battler)
 bool32 CanBeFrozen(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6690,7 +6690,7 @@ bool32 CanBeFrozen(u32 battler)
 bool32 CanGetFrostbite(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6705,7 +6705,7 @@ bool32 CanGetPanicked(u32 battler)
       || gBattleMons[battler].status1 & STATUS1_ANY
       || IsAbilityStatusProtected(battler)
       || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN)
-    || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+      || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
@@ -6728,7 +6728,7 @@ bool32 CanBeExposed(u32 battler)
             || ability == ABILITY_COMATOSE
             || gBattleMons[battler].status1 & STATUS1_ANY
             || IsAbilityStatusProtected(battler)
-            || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+            || (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
         return FALSE;
     return TRUE;
 }
