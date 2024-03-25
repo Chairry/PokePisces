@@ -558,6 +558,7 @@ extern const u8 BattleScript_PanicTurn[];
 extern const u8 BattleScript_MoveEffectBlooming[];
 extern const u8 BattleScript_MoveEffectExposed[];
 extern const u8 BattleScript_BloomingHpGain[];
+extern const u8 BattleScript_BloomingHpGainEnd[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

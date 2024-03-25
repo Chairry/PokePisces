@@ -3213,13 +3213,27 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_BLOOMING:
-            if (gBattleMons[battler].status1 & STATUS1_BLOOMING && IsBattlerAlive(battler)) {
-                gBattleMons[gBattlerAttacker].status1 -= STATUS1_BLOOMING_TURN(1);
-                gBattleMoveDamage = -1 * gBattleMons[battler].maxHP / 10;
-                if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = -1;
-                BattleScriptExecute(BattleScript_BloomingHpGain);
-                effect++;
+            if ((gBattleMons[battler].status1 & STATUS1_BLOOMING) && IsBattlerAlive(battler))
+            {
+                if ((gBattleMons[battler].status1 & STATUS1_BLOOMING) != STATUS1_BLOOMING_TURN(1))
+                {
+                    gBattleMoveDamage = -1 * gBattleMons[battler].maxHP / 10;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = -1;
+                    if ((gBattleMons[battler].status1 & STATUS1_BLOOMING) != STATUS1_BLOOMING_TURN(1))
+                        gBattleMons[battler].status1 -= STATUS1_BLOOMING_TURN(1);
+                    BattleScriptExecute(BattleScript_BloomingHpGain);
+                    effect++;
+                }
+                else if ((gBattleMons[battler].status1 & STATUS1_BLOOMING) == STATUS1_BLOOMING_TURN(1))
+                {
+                    gBattleMons[gBattlerAttacker].status1 -= STATUS1_BLOOMING_TURN(1);
+                    gBattleMoveDamage = -1 * gBattleMons[battler].maxHP / 10;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = -1;
+                    BattleScriptExecute(BattleScript_BloomingHpGainEnd);
+                    effect++;
+                }
             }
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -6645,7 +6659,18 @@ bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag)
 bool32 CanSleep(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (ability == ABILITY_INSOMNIA || ability == ABILITY_VITAL_SPIRIT || ability == ABILITY_COMATOSE || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityOnSide(battler, ABILITY_SWEET_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+    if (ability == ABILITY_INSOMNIA 
+    || ability == ABILITY_VITAL_SPIRIT 
+    || ability == ABILITY_COMATOSE 
+    || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
+    || gBattleMons[battler].status1 & STATUS1_ANY 
+    || IsAbilityOnSide(battler, ABILITY_SWEET_VEIL) 
+    || IsAbilityStatusProtected(battler) 
+    || IsBattlerTerrainAffected(battler, STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN) 
+    || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6654,7 +6679,18 @@ bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget)
 {
     u16 ability = GetBattlerAbility(battlerTarget);
 
-    if (!(CanPoisonType(battlerAttacker, battlerTarget)) || gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battlerTarget].status1 & STATUS1_ANY || ability == ABILITY_IMMUNITY || ability == ABILITY_COMATOSE || IsAbilityOnSide(battlerTarget, ABILITY_PASTEL_VEIL) || IsAbilityStatusProtected(battlerTarget) || IsBattlerTerrainAffected(battlerTarget, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battlerTarget, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battlerTarget].species == SPECIES_SEEDOT || gBattleMons[battlerTarget].species == SPECIES_NUZLEAF || gBattleMons[battlerTarget].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_TAILWIND)))
+    if (!(CanPoisonType(battlerAttacker, battlerTarget)) 
+    || gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_SAFEGUARD 
+    || gBattleMons[battlerTarget].status1 & STATUS1_ANY 
+    || ability == ABILITY_IMMUNITY 
+    || ability == ABILITY_COMATOSE 
+    || IsAbilityOnSide(battlerTarget, ABILITY_PASTEL_VEIL) 
+    || IsAbilityStatusProtected(battlerTarget) 
+    || IsBattlerTerrainAffected(battlerTarget, STATUS_FIELD_MISTY_TERRAIN) 
+    || (GetBattlerHoldEffect(battlerTarget, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battlerTarget].species == SPECIES_SEEDOT || gBattleMons[battlerTarget].species == SPECIES_NUZLEAF || gBattleMons[battlerTarget].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battlerTarget)] & SIDE_STATUS_TAILWIND))
+    || gBattleMons[battlerTarget].status1 & STATUS1_BLOOMING_TURN(1) 
+    || gBattleMons[battlerTarget].status1 & STATUS1_BLOOMING_TURN(2) 
+    || gBattleMons[battlerTarget].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6662,7 +6698,19 @@ bool32 CanBePoisoned(u32 battlerAttacker, u32 battlerTarget)
 bool32 CanBeBurned(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || gBattleMons[battler].status1 & STATUS1_ANY || ability == ABILITY_WATER_BUBBLE || ability == ABILITY_COMATOSE || ability == ABILITY_THERMAL_EXCHANGE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE) 
+    || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
+    || gBattleMons[battler].status1 & STATUS1_ANY 
+    || ability == ABILITY_WATER_BUBBLE 
+    || ability == ABILITY_COMATOSE 
+    || ability == ABILITY_THERMAL_EXCHANGE 
+    || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) 
+    || IsAbilityStatusProtected(battler) 
+    || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) 
+    || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6674,7 +6722,15 @@ bool32 CanBeParalyzed(u32 battler)
 #if B_PARALYZE_ELECTRIC >= GEN_6
         IS_BATTLER_OF_TYPE(battler, TYPE_ELECTRIC) ||
 #endif
-        gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_LIMBER || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+        gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
+        || ability == ABILITY_LIMBER || ability == ABILITY_COMATOSE 
+        || gBattleMons[battler].status1 & STATUS1_ANY 
+        || IsAbilityStatusProtected(battler)
+        || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) 
+        || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+        || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+        || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+        || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6682,7 +6738,17 @@ bool32 CanBeParalyzed(u32 battler)
 bool32 CanBeFrozen(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || IsBattlerWeatherAffected(battler, B_WEATHER_SUN) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) 
+    || IsBattlerWeatherAffected(battler, B_WEATHER_SUN) 
+    || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
+    || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE 
+    || gBattleMons[battler].status1 & STATUS1_ANY 
+    || IsAbilityStatusProtected(battler) 
+    || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) 
+    || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6690,7 +6756,18 @@ bool32 CanBeFrozen(u32 battler)
 bool32 CanGetFrostbite(u32 battler)
 {
     u16 ability = GetBattlerAbility(battler);
-    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) || gBattleMons[battler].status1 & STATUS1_ANY || IsAbilityStatusProtected(battler) || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+    if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) 
+    || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
+    || ability == ABILITY_MAGMA_ARMOR 
+    || ability == ABILITY_COMATOSE 
+    || IsAbilityOnSide(battler, ABILITY_WATER_VEIL) 
+    || gBattleMons[battler].status1 & STATUS1_ANY 
+    || IsAbilityStatusProtected(battler) 
+    || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) 
+    || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6705,7 +6782,10 @@ bool32 CanGetPanicked(u32 battler)
       || gBattleMons[battler].status1 & STATUS1_ANY
       || IsAbilityStatusProtected(battler)
       || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN)
-      || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+      || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)) 
+      || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
+      || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
+      || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -6716,7 +6796,10 @@ bool32 CanStartBlooming(u32 battler)
     // NOT blocked by safeguard or flower veil, etc
     if (IS_BATTLER_OF_TYPE(battler, TYPE_FIRE)
             || ability == ABILITY_COMATOSE
-            || gBattleMons[battler].status1 & STATUS1_ANY)
+            || gBattleMons[battler].status1 & STATUS1_ANY
+            || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1)
+            || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2)
+            || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
         return FALSE;
     return TRUE;
 }
@@ -8343,7 +8426,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             if (CanStartBlooming(battler))
             {
                 effect = ITEM_STATUS_CHANGE;
-                gBattleMons[battler].status1 = STATUS1_BLOOMING;
+                gBattleMons[battler].status1 = STATUS1_BLOOMING_TURN(3);
                 BattleScriptExecute(BattleScript_BloomOrb);
                 RecordItemEffectBattle(battler, battlerHoldEffect);
             }

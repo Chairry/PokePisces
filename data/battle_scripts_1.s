@@ -12781,3 +12781,17 @@ BattleScript_BloomingHpGain::
 	printstring STRINGID_PKMNSISBLOOMING
     waitmessage B_WAIT_TIME_LONG
     goto BattleScript_DoStatusTurnDmg
+
+BattleScript_BloomingHpGainEnd::
+	statusanimation BS_ATTACKER
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
+	clearstatus BS_ATTACKER
+	waitstate
+	updatestatusicon BS_ATTACKER
+	printstring STRINGID_PKMNSISNOLONGERBLOOMING
+    waitmessage B_WAIT_TIME_LONG
+	end2
