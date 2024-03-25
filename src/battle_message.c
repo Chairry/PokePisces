@@ -886,6 +886,7 @@ static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is 
 static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and type\nmatchups returned to normal!");
 static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\ntype matchups are reversed!");
 static const u8 sText_PkmnIsNoLongerBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} is no\nlonger blooming!");
+static const u8 sText_AThingHappened[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is distracted and\nlooked at {B_LAST_ITEM}!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1623,6 +1624,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_INVERSEROOMENDS - BATTLESTRINGS_TABLE_START] = sText_InverseRoomEnds,
     [STRINGID_THETYPECHARTINVERTED - BATTLESTRINGS_TABLE_START] = sText_TheTypeChartInverted,
     [STRINGID_PKMNSISNOLONGERBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsNoLongerBlooming,
+    [STRINGID_ATHINGHAPPENED - BATTLESTRINGS_TABLE_START] = sText_AThingHappened,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

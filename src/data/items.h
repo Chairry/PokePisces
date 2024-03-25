@@ -10049,12 +10049,13 @@ const struct Item gItems[] =
     [ITEM_A_THING] =
     {
         .name = _("A Thing"),
-        .price = 2000,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_A_THING,
         .description = sAThingDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 100,
     },
     [ITEM_SALTY_TEAR] =
     {

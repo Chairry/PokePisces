@@ -11653,6 +11653,12 @@ BattleScript_ItemHealHP_End2::
 	call BattleScript_ItemHealHP_Ret
 	end2
 
+BattleScript_A_Thing_Happened::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_ATHINGHAPPENED
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_AirBaloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
