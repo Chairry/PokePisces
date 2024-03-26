@@ -1703,6 +1703,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     u8 defParam = GetBattlerHoldEffectParam(battlerDef);
     u8 atkAlly = BATTLE_PARTNER(battlerAtk);
     u16 atkAllyAbility = GetBattlerAbility(atkAlly);
+    u16 defBaseSpeciesId;
+
+    defBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerDef].species);
 
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
@@ -1790,6 +1793,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     case HOLD_EFFECT_ZOOM_LENS:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
             calc = (calc * (100 + atkParam)) / 100;
+    case HOLD_EFFECT_FAVOR_SCARF:
+        if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
+            calc = (calc * 110) / 100;
         break;
     }
 
@@ -1798,6 +1804,13 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     {
     case HOLD_EFFECT_EVASION_UP:
         calc = (calc * (100 - defParam)) / 100;
+        break;
+    case HOLD_EFFECT_FAVOR_SCARF:
+        calc = (calc * 90) / 100;
+        break;
+    case HOLD_EFFECT_DRIP_SHOES: 
+        if (defBaseSpeciesId == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
+            calc = (calc * 80) / 100;
         break;
     }
 
@@ -2133,6 +2146,11 @@ static void Cmd_adjustdamage(void)
     gPotentialItemEffectBattler = gBattlerTarget;
 
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && rand < param)
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
+    }
+    if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && rand < 10)
     {
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
@@ -5469,6 +5487,7 @@ static void Cmd_playstatchangeanimation(void)
                 }
                 else if (!gSideTimers[GetBattlerSide(battler)].mistTimer
                         && GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_CLEAR_AMULET
+                        && (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
                         && ability != ABILITY_CLEAR_BODY
                         && ability != ABILITY_FULL_METAL_BODY
                         && ability != ABILITY_WHITE_SMOKE
@@ -8582,11 +8601,13 @@ static void RemoveAllTerrains(void)
     gFieldTimers.trickRoomTimer = 0;
     gFieldTimers.wonderRoomTimer = 0;
     gFieldTimers.magicRoomTimer = 0;
+    gFieldTimers.inverseRoomTimer = 0;
     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DESTROY_ROOM_AND_TERRAIN;
     gFieldStatuses &= ~STATUS_FIELD_TERRAIN_ANY;    // remove the terrain
     gFieldStatuses &= ~(STATUS_FIELD_TRICK_ROOM);
     gFieldStatuses &= ~(STATUS_FIELD_WONDER_ROOM);
     gFieldStatuses &= ~(STATUS_FIELD_MAGIC_ROOM);
+    gFieldStatuses &= ~(STATUS_FIELD_INVERSE_ROOM);
 }
 
 #define DEFOG_CLEAR(status, structField, battlescript, move)\
@@ -10873,6 +10894,19 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        return;
+    }
     case VARIOUS_SET_ATTACKER_STICKY_WEB_USER:
     {
         VARIOUS_ARGS();
@@ -11991,6 +12025,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             return STAT_CHANGE_DIDNT_WORK;
         }
         else if ((battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET
+                  || (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
                   || battlerAbility == ABILITY_CLEAR_BODY
                   || battlerAbility == ABILITY_FULL_METAL_BODY
                   || battlerAbility == ABILITY_WHITE_SMOKE)
@@ -11999,6 +12034,11 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET)
             {
                 RecordItemEffectBattle(battler, HOLD_EFFECT_CLEAR_AMULET);
+            }
+
+            if (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK)
+            {
+                RecordItemEffectBattle(battler, HOLD_EFFECT_EERIE_MASK);
             }
 
             if (flags == STAT_CHANGE_ALLOW_PTR)
@@ -12011,7 +12051,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
                 {
                     BattleScriptPush(BS_ptr);
                     gBattleScripting.battler = battler;
-                    if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET)
+                    if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET || battlerHoldEffect == HOLD_EFFECT_EERIE_MASK)
                     {
                         gBattlescriptCurrInstr = BattleScript_ItemNoStatLoss;
                     }
@@ -12233,7 +12273,9 @@ static void Cmd_normalisebuffs(void)
 
     if ((gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE) && (gCurrentMove == MOVE_MIRACLE_EYE))
     {
-        gBattleMons[gBattlerTarget].statStages[i] = DEFAULT_STAT_STAGE;
+        for (i = 0; i < gBattlersCount; i++)
+            TryResetBattlerStatChanges(i);
+
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
@@ -12656,6 +12698,11 @@ static void Cmd_tryKO(void)
     gPotentialItemEffectBattler = gBattlerTarget;
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND
         && (Random() % 100) < GetBattlerHoldEffectParam(gBattlerTarget))
+    {
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
+    else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && (Random() % 100) < 10)
     {
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
@@ -14237,7 +14284,7 @@ static void Cmd_recoverbasedonsunlight(void)
         }
         else if (gCurrentMove == MOVE_COLD_MEND)
         {
-            if (!(gBattleWeather & B_WEATHER_ANY) || !WEATHER_HAS_EFFECT || GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_UTILITY_UMBRELLA)
+            if (!(gBattleWeather & B_WEATHER_ANY) || !WEATHER_HAS_EFFECT)
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
             else if (gBattleWeather & B_WEATHER_HAIL)
                 gBattleMoveDamage = 20 * gBattleMons[gBattlerAttacker].maxHP / 30;
@@ -14248,7 +14295,7 @@ static void Cmd_recoverbasedonsunlight(void)
         }
         else
         {
-            if (!(gBattleWeather & B_WEATHER_ANY) || !WEATHER_HAS_EFFECT || GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_UTILITY_UMBRELLA)
+            if (!(gBattleWeather & B_WEATHER_ANY) || !WEATHER_HAS_EFFECT)
                 gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
             else if (gBattleWeather & B_WEATHER_SUN)
                 gBattleMoveDamage = 20 * gBattleMons[gBattlerAttacker].maxHP / 30;
@@ -14866,6 +14913,8 @@ static void Cmd_setdamagetohealthdifference(void)
 
 static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
 {
+    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+
     if (gFieldStatuses & statusFlag)
     {
         gFieldStatuses &= ~statusFlag;
@@ -14875,7 +14924,7 @@ static void HandleRoomMove(u32 statusFlag, u8 *timer, u8 stringId)
     else
     {
         gFieldStatuses |= statusFlag;
-        *timer = 5;
+        *timer = (atkHoldEffect == HOLD_EFFECT_ROOM_EXTENDER) ? 8 : 5;
         gBattleCommunication[MULTISTRING_CHOOSER] = stringId;
     }
 }
@@ -17178,7 +17227,7 @@ void BS_SetRemoveTerrain(void)
             break;
         case ARG_TRY_REMOVE_TERRAIN_HIT: // Splintered Stormshards
         case ARG_TRY_REMOVE_TERRAIN_FAIL: // Steel Roller
-            if (gFieldStatuses & (STATUS_FIELD_TERRAIN_ANY | STATUS_FIELD_TRICK_ROOM | STATUS_FIELD_WONDER_ROOM | STATUS_FIELD_MAGIC_ROOM))
+            if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
             {
                 RemoveAllTerrains();
                 gBattlescriptCurrInstr = cmd->nextInstr;

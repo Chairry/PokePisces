@@ -4292,7 +4292,9 @@ static void HandleTurnActionSelectionState(void)
                         BtlController_EmitChoosePokemon(battler, BUFFER_A, PARTY_ACTION_CANT_SWITCH, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[battler]);
                     }
                     else if (ItemId_GetHoldEffect(gBattleMons[battler].item) != HOLD_EFFECT_SHED_SHELL
-                      && (i = IsAbilityPreventingEscape(battler)))   // must be last to keep i value integrity
+                      && (i = IsAbilityPreventingEscape(battler))   // must be last to keep i value integrity
+                      && (ItemId_GetHoldEffect(gBattleMons[battler].item) == HOLD_EFFECT_GLUE_TUBE))   // must be last to keep i value integrity
+
                     {
                         BtlController_EmitChoosePokemon(battler, BUFFER_A, ((i - 1) << 4) | PARTY_ACTION_ABILITY_PREVENTS, PARTY_SIZE, gBattleMons[i - 1].ability, gBattleStruct->battlerPartyOrders[battler]);
                     }
@@ -4685,9 +4687,9 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     // weather abilities
     if (WEATHER_HAS_EFFECT)
     {
-        if (ability == ABILITY_SWIFT_SWIM       && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_RAIN)
+        if (ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
             speed *= 2;
-        else if (ability == ABILITY_CHLOROPHYLL && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_SUN)
+        else if (ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
             speed *= 2;
         else if (ability == ABILITY_SAND_RUSH   && gBattleWeather & B_WEATHER_SANDSTORM)
             speed *= 2;
@@ -4742,6 +4744,18 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed /= 2;
     else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF)
         speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_VIBRANT_SCALE && gBattleMons[battler].species == SPECIES_BIVAGUE)
+        speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_ZIG_SASH && gBattleMons[battler].species == SPECIES_ZIGZAGOON)
+        speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_GRAVITY_CORE && gFieldStatuses & STATUS_FIELD_GRAVITY)
+        speed = (speed * 130) / 100;
+    else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF)
+        speed = (speed * 110) / 100;
+    else if (holdEffect == HOLD_EFFECT_DRIP_SHOES && gBattleMons[battler].species == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
+        speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_SALTY_TEAR && gBattleMons[battler].species == SPECIES_SADSOD)
+        speed /= 2;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED))
         speed *= 2;
 
@@ -5771,11 +5785,11 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     {
         if (WEATHER_HAS_EFFECT)
         {
-            if (gBattleWeather & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+            if (gBattleWeather & B_WEATHER_RAIN)
                 gBattleStruct->dynamicMoveType = TYPE_WATER | F_DYNAMIC_TYPE_2;
             else if (gBattleWeather & B_WEATHER_SANDSTORM)
                 gBattleStruct->dynamicMoveType = TYPE_ROCK | F_DYNAMIC_TYPE_2;
-            else if (gBattleWeather & B_WEATHER_SUN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+            else if (gBattleWeather & B_WEATHER_SUN)
                 gBattleStruct->dynamicMoveType = TYPE_FIRE | F_DYNAMIC_TYPE_2;
             else if (gBattleWeather & (B_WEATHER_HAIL |B_WEATHER_SNOW))
                 gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_2;

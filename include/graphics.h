@@ -10598,6 +10598,8 @@ extern const u32 gItemIcon_Crossbones[];
 extern const u32 gItemIconPalette_Crossbones[];
 extern const u32 gItemIcon_FriendRibbon[];
 extern const u32 gItemIconPalette_FriendRibbon[];
+extern const u32 gItemIcon_RoomExtender[];
+extern const u32 gItemIconPalette_RoomExtender[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
@@ -11920,6 +11922,7 @@ extern const u32 gBattleAnimBgImage_Waterfall[];
 extern const u32 gBattleAnimBgPalette_Waterfall[];
 extern const u32 gBattleAnimBgTilemap_Waterfall[];
 extern const u32 gBattleAnimBgPalette_WonderRoom[];
+extern const u32 gBattleAnimBgPalette_InverseRoom[];
 extern const u32 gBattleAnimBgImage_ZMoveActivate[];
 extern const u32 gBattleAnimBgPalette_ZMoveActivate[];
 extern const u32 gBattleAnimBgTilemap_ZMoveActivate[];
