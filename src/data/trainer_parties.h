@@ -835,11 +835,16 @@ static const struct TrainerMon sParty_PLiza[] = {
 
 static const struct TrainerMon sParty_Berke[] = {
     {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 26,
-    .species = SPECIES_VIGOROTH,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_FOCUS_ENERGY, MOVE_SLASH, MOVE_NONE, MOVE_NONE}
+    .lvl = 20,
+    .species = SPECIES_MISDREAVUS,
+    .ability = ABILITY_DREAD_VEIL,
+    .moves = {MOVE_FEAR_FACTOR, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    },
+    {
+    .lvl = 20,
+    .species = SPECIES_EERIKO,
+    .ability = ABILITY_DISDAIN,
+    .moves = {MOVE_FEAR_FACTOR, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     }
 };
 

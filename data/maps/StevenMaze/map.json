@@ -4,8 +4,8 @@
   "layout": "LAYOUT_STEVEN_MAZE",
   "music": "MUS_RG_ROCKET_HIDEOUT",
   "region_map_section": "MAPSEC_MOSSDEEP_CITY",
-  "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "requires_flash": true,
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_WOODEN_ROUTE",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "StevenMaze_EventScript_ShadowSteven",
       "flag": "0"
     },
     {
