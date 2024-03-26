@@ -19,7 +19,7 @@
     F(LIGHT_SCREEN) \
     F(ROTOTILLER) \
     F(REFLECT) \
-    F(HEX) \
+    F(FEAR_FACTOR) \
     F(GYRO_BALL) \
     F(NUZZLE) \
     F(ROLLOUT) \
@@ -62,7 +62,7 @@
     F(AURA_SPHERE) \
     F(DARK_PULSE) \
     F(SHADOW_BALL) \
-    F(PSYCHO_CUT) \
+    F(WILLPOWER) \
     F(IRON_HEAD) \
     F(DIRE_CLAW) \
     F(THROAT_CHOP) \

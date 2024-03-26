@@ -742,8 +742,11 @@
 #define STRINGID_PKMNSXPREVENTSEXPOSED                740
 #define STRINGID_PKMNSISBLOOMING                      741
 #define STRINGID_PKMNCONSTRICTED                      742
+#define STRINGID_PKMNISALREADYPANICKING               743
+#define STRINGID_INVERSEROOMENDS                      744
+#define STRINGID_THETYPECHARTINVERTED                 745
 
-#define BATTLESTRINGS_COUNT                           743
+#define BATTLESTRINGS_COUNT                           746
 
 
 // This is the string id that gBattleStringsTable starts with.

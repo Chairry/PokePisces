@@ -825,11 +825,7 @@ const u32 gBattleAnimSpriteGfx_DragonHeadOpponent[] = INCBIN_U32("graphics/battl
 const u32 gBattleAnimSpritePal_DragonHead[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_head.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_DragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_orb.4bpp.lz");
-
-const u32 gBattleAnimSpritePal_RealDragonHead[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_head.gbapal.lz");
-
-const u32 gBattleAnimSpriteGfx_RealDragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_orb.4bpp.lz");
-const u32 gBattleAnimSpritePal_RealDragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/real_dragon_orb.gbapal.lz");
+const u32 gBattleAnimSpritePal_DragonOrb[] = INCBIN_U32("graphics/battle_anims/sprites/dragon_orb.gbapal.lz");
 
 const u32 gBattleAnimSpritePal_BrownOrb[] = INCBIN_U32("graphics/battle_anims/sprites/brown_orb.gbapal.lz");
 
@@ -1180,6 +1176,7 @@ const u32 gBattleAnimBgPalette_Guillotine[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimBgImage_Thunder[] = INCBIN_U32("graphics/battle_anims/backgrounds/thunder.4bpp.lz");
 const u32 gBattleAnimBgPalette_Thunder[] = INCBIN_U32("graphics/battle_anims/backgrounds/thunder.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Thunder[] = INCBIN_U32("graphics/battle_anims/backgrounds/thunder.bin.lz");
+const u32 gBattleAnimBgPalette_Thunder2[] = INCBIN_U32("graphics/battle_anims/backgrounds/thunder2.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_PainSplit[] = INCBIN_U32("graphics/battle_anims/sprites/pain_split.4bpp.lz");
 const u32 gBattleAnimSpritePal_PainSplit[] = INCBIN_U32("graphics/battle_anims/sprites/pain_split.gbapal.lz");
@@ -1537,6 +1534,8 @@ const u32 gBattleAnimBgTilemap_TrickRoom[] = INCBIN_U32("graphics/battle_anims/b
 const u32 gBattleAnimBgPalette_MagicRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/magic_room.gbapal.lz");
 
 const u32 gBattleAnimBgPalette_WonderRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/wonder_room.gbapal.lz");
+
+const u32 gBattleAnimBgPalette_InverseRoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/inverse_room.gbapal.lz");
 
 const u32 gBattleAnimBgImage_TwinkleTackle[] = INCBIN_U32("graphics/battle_anims/backgrounds/twinkle_tackle.4bpp.lz");
 const u32 gBattleAnimBgPalette_TwinkleTackle[] = INCBIN_U32("graphics/battle_anims/backgrounds/twinkle_tackle.gbapal.lz");

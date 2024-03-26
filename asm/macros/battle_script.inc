@@ -1337,6 +1337,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifmorethanthirdHP battler:req, jumpInstr:req
+	callnative BS_JumpIfMoreThanThirdHP
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
 	.macro itemrestorehp
 	callnative BS_ItemRestoreHP
 	.endm
@@ -2269,6 +2275,10 @@
 	manipulatedamage DMG_1_2_ATTACKER_HP
 	.endm
 
+	.macro dmg_1_3_attackerhp
+	manipulatedamage DMG_1_3_ATTACKER_HP
+	.endm
+
 	.macro jumpifflowerveil jumpInstr:req
 	jumpifnottype BS_TARGET, TYPE_GRASS, 1f
 	jumpifability BS_TARGET_SIDE, ABILITY_FLOWER_VEIL, \jumpInstr
@@ -2292,6 +2302,11 @@
 
 	.macro jumpifleafguardprotected battler:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_LEAF_GUARD_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifeeriemaskprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED
 	.4byte \jumpInstr
 	.endm
 
