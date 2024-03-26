@@ -24,7 +24,7 @@ PetalburgCity_Gym_EventScript_OpenUnlockedDoors::
 	call_if_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors
 	call_if_defeated TRAINER_P_LIZA, PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
 	call_if_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors
-	call_if_defeated TRAINER_BERKE, PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
+	call_if_defeated TRAINER_P_S_STEVEN_1, PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
 	end
 
 PetalburgCity_Gym_EventScript_UnlockAllDoors::
@@ -864,7 +864,7 @@ PetalburgCity_Gym_EventScript_LeftGymLeadersRoomDoor::
 
 PetalburgCity_Gym_EventScript_RightGymLeadersRoomDoor::
 	lockall
-	goto_if_not_defeated TRAINER_BERKE, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_not_defeated TRAINER_P_S_STEVEN_1, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 7
 	msgbox PetalburgCity_Gym_Text_EnterGymLeadersRoom, MSGBOX_YESNO
@@ -924,7 +924,7 @@ PetalburgCity_Gym_EventScript_GeorgePostBadge::
 	end
 
 PetalburgCity_Gym_EventScript_Berke::
-	trainerbattle_single TRAINER_BERKE, PetalburgCity_Gym_Text_BerkeIntro, PetalburgCity_Gym_Text_BerkeDefeat, PetalburgCity_Gym_EventScript_SlideOpenOHKORoomDoors
+	trainerbattle_single TRAINER_P_S_STEVEN_1, PetalburgCity_Gym_Text_BerkeIntro, PetalburgCity_Gym_Text_BerkeDefeat, PetalburgCity_Gym_EventScript_SlideOpenOHKORoomDoors
 	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_BerkePostBadge
 	msgbox PetalburgCity_Gym_Text_BerkePostBattle, MSGBOX_AUTOCLOSE
 	end

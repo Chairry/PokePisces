@@ -48,7 +48,7 @@ PetalburgCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_P_TESS
 	settrainerflag TRAINER_P_HITOMI
 	settrainerflag TRAINER_P_LIZA
-	settrainerflag TRAINER_BERKE
+	settrainerflag TRAINER_P_S_STEVEN_1
 	settrainerflag TRAINER_MARY
 	settrainerflag TRAINER_ALEXIA
 	settrainerflag TRAINER_JODY

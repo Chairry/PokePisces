@@ -75,12 +75,12 @@
 #define TRAINER_P_TESS                       71
 #define TRAINER_P_HITOMI                     72
 #define TRAINER_P_LIZA                       73 //LEADER 2
-#define TRAINER_BERKE                        74
-#define TRAINER_BRAXTON                      75
-#define TRAINER_VINCENT                      76
-#define TRAINER_LEROY                        77
-#define TRAINER_WILTON_1                     78
-#define TRAINER_EDGAR                        79
+#define TRAINER_P_S_STEVEN_1                 74 //STEVEN DOJO PANIC TUTORIAL
+#define TRAINER_P_S_STEVEN_2                 75
+#define TRAINER_P_S_STEVEN_3                 76
+#define TRAINER_P_S_STEVEN_4                 77
+#define TRAINER_P_S_STEVEN_5                 78
+#define TRAINER_P_S_STEVEN_6                 79
 #define TRAINER_ALBERT                       80
 #define TRAINER_SAMUEL                       81
 #define TRAINER_VITO                         82

@@ -888,76 +888,76 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PLiza),
     },
 
-    [TRAINER_BERKE] =
+    [TRAINER_P_S_STEVEN_1] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
         .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
         .trainerName = _("Steven"),
-        .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Berke),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven1),
     },
 
-    [TRAINER_BRAXTON] =
+    [TRAINER_P_S_STEVEN_2] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("BRAXTON"),
-        .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
+        .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
+        .trainerName = _("Steven"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Braxton),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven2),
     },
 
-    [TRAINER_VINCENT] =
+    [TRAINER_P_S_STEVEN_3] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("VINCENT"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
+        .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
+        .trainerName = _("Steven"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Vincent),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven3),
     },
 
-    [TRAINER_LEROY] =
+    [TRAINER_P_S_STEVEN_4] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("LEROY"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
+        .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
+        .trainerName = _("Steven"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Leroy),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven4),
     },
 
-    [TRAINER_WILTON_1] =
+    [TRAINER_P_S_STEVEN_5] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("WILTON"),
-        .items = {ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
+        .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
+        .trainerName = _("Steven"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wilton1),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven5),
     },
 
-    [TRAINER_EDGAR] =
+    [TRAINER_P_S_STEVEN_6] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-        .trainerName = _("EDGAR"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
+        .trainerPic = TRAINER_PIC_SHADOWSTEVEN,
+        .trainerName = _("Steven"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Edgar),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY(sParty_PSSteven6),
     },
 
     [TRAINER_ALBERT] =
