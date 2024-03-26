@@ -3501,8 +3501,8 @@ static const u8 sSoulCutterDescription[] = _(
     "that does special damage.");
 
 static const u8 sVoidDescription[] = _(
-    "Quickly disables a foe's move.\n"
-    "Also ignores protect.");
+    "Quickly disables a foe's\n"
+    "move. Also ignores protect.");
 
 static const u8 sKerfuffleDescription[] = _(
     "Doubles power if the user is\n"

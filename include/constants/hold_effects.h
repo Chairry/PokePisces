@@ -193,6 +193,7 @@
 #define HOLD_EFFECT_FAMILY_MOSS         208
 #define HOLD_EFFECT_EERIE_MASK          209
 #define HOLD_EFFECT_A_THING             210
+#define HOLD_EFFECT_TRADING_CARD        211
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

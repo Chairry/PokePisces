@@ -571,6 +571,7 @@
 #define B_ANIM_TIME_TURN                45
 #define B_ANIM_ENTRANCING               46
 #define B_ANIM_REVERSI                  47
+#define B_ANIM_A_THING                  48
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

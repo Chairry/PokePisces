@@ -2101,9 +2101,27 @@ static void Cmd_damagecalc(void)
     CMD_ARGS();
 
     u8 moveType;
+    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
-    gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+
+    if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (!(gBattleMoves[gCurrentMove].piercingMove)))
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+    }
+    else if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (gBattleMoves[gCurrentMove].piercingMove))
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+    }
+    else
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+    }
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

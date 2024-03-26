@@ -10141,4 +10141,16 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 60,
     },
+    [ITEM_TRADING_CARD] =
+    {
+        .name = _("Trading Card"),
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_TRADING_CARD,
+        .description = sTradingCardDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+    },
+
 };

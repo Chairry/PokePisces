@@ -960,8 +960,9 @@
 #define ITEM_CROSSBONES 842
 #define ITEM_FRIEND_RIBBON 843
 #define ITEM_ROOM_EXTENDER 844
+#define ITEM_TRADING_CARD 845
 
-#define ITEMS_COUNT 845
+#define ITEMS_COUNT 846
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

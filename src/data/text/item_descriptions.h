@@ -4157,3 +4157,8 @@ static const u8 sRoomExtenderDesc[] = _(
     "Extends the length\n"
     "of all activated\n"
     "rooms.");
+
+static const u8 sTradingCardDesc[] = _(
+    "Shifts damage\n"
+    "based on foe's\n"
+    "stats.");

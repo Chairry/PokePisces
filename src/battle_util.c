@@ -7861,7 +7861,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 break;
             case HOLD_EFFECT_A_THING:
                 if ((gBattleMons[battler].species == SPECIES_CAPYBARA || gBattleMons[battler].species == SPECIES_ABARBINASH) && (Random() % 100) == 0 && !moveTurn)
-                {    
+                {
+                    BattleScriptExecute(BattleScript_A_Thing_HappenedFR);
+                    effect = ITEM_HP_CHANGE,
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                else if ((gBattleMons[battler].species == SPECIES_CAPYBARA || gBattleMons[battler].species == SPECIES_ABARBINASH) && !moveTurn)
+                {
                     BattleScriptExecute(BattleScript_A_Thing_Happened);
                     effect = ITEM_HP_CHANGE,
                     RecordItemEffectBattle(battler, battlerHoldEffect);

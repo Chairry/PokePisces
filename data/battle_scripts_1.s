@@ -11659,6 +11659,12 @@ BattleScript_A_Thing_Happened::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_A_Thing_HappenedFR::
+	playanimation BS_ATTACKER, B_ANIM_A_THING
+	printstring STRINGID_ATHINGHAPPENEDFR
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_AirBaloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
