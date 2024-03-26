@@ -770,7 +770,7 @@ u8 BattleSetup_GetTerrainId(void)
     case MAP_TYPE_WOODEN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_WATER;
-        return BATTLE_TERRAIN_WOODEN_ROUTE;
+        return BATTLE_TERRAIN_DARK_AREA;
     case MAP_TYPE_OCEAN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_WATER;
@@ -786,6 +786,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_MOUNTAIN;
     if (MetatileBehavior_IsWooden(tileBehavior))
         return BATTLE_TERRAIN_WOODEN_ROUTE;
+    if (MetatileBehavior_IsWhitePath(tileBehavior))
+        return BATTLE_TERRAIN_PATH;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
         // Is BRIDGE_TYPE_POND_*?

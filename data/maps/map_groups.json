@@ -103,7 +103,9 @@
     "MossdeepCity_PokemonCenter_1F",
     "MossdeepInteriors",
     "Gym2Corridor",
-    "StevenHouse"
+    "StevenHouse",
+    "StevenCorridor",
+    "StevenMaze"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",

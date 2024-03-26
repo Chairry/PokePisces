@@ -54,6 +54,8 @@
 #define MAP_MOSSDEEP_INTERIORS                (2 | (3 << 8))
 #define MAP_GYM2CORRIDOR                      (3 | (3 << 8))
 #define MAP_STEVEN_HOUSE                      (4 | (3 << 8))
+#define MAP_STEVEN_CORRIDOR                   (5 | (3 << 8))
+#define MAP_STEVEN_MAZE                       (6 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))

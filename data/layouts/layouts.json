@@ -5170,6 +5170,26 @@
       "secondary_tileset": "gTileset_MossdeepGameCorner",
       "border_filepath": "data/layouts/StevenHouse/border.bin",
       "blockdata_filepath": "data/layouts/StevenHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_CORRIDOR",
+      "name": "StevenCorridor_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenCorridor/border.bin",
+      "blockdata_filepath": "data/layouts/StevenCorridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_MAZE",
+      "name": "StevenMaze_Layout",
+      "width": 38,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenMaze/border.bin",
+      "blockdata_filepath": "data/layouts/StevenMaze/map.bin"
     }
   ]
 }
