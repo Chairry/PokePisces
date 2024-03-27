@@ -23363,7 +23363,7 @@ static const struct LevelUpMove sDeteriotlLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sClawlisticLevelUpLearnset[] = {
+static const struct LevelUpMove sDakkapodLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HEAL_PULSE),
     LEVEL_UP_MOVE( 1, MOVE_METAL_CLAW),
     LEVEL_UP_MOVE( 1, MOVE_VACUUM_WAVE),

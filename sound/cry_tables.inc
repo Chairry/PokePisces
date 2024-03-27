@@ -1386,7 +1386,6 @@ gCryTable::
 	cry Cry_Snurrowl
 	cry Cry_Stolyce
 	cry Cry_Dudunspars
-	cry Cry_Lottabats
 	cry Cry_Pomelonian
 	cry Cry_Gourdoug
 	cry Cry_Fogglehind
@@ -1538,6 +1537,7 @@ gCryTable::
 	cry Cry_Orrowhelm
 	cry Cry_ShaYon
 	cry Cry_LuoShan
+	cry Cry_Lottabats
 	cry Cry_Gaoterra
 	cry Cry_Bishoucha
 	cry Cry_Papypus
@@ -1548,7 +1548,7 @@ gCryTable::
 	cry Cry_Infairno
 	cry Cry_Purgatival
 	cry Cry_Deteriotl
-	cry Cry_Clawlistic
+	cry Cry_Dakkapod
 	cry Cry_Unberrable
 	cry Cry_Peblranium
 	cry Cry_Vaiking
@@ -3755,7 +3755,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Snurrowl
 	cry_reverse Cry_Stolyce
 	cry_reverse Cry_Dudunspars
-	cry_reverse Cry_Lottabats
 	cry_reverse Cry_Pomelonian
 	cry_reverse Cry_Gourdoug
 	cry_reverse Cry_Fogglehind
@@ -3907,6 +3906,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Orrowhelm
 	cry_reverse Cry_ShaYon
 	cry_reverse Cry_LuoShan
+	cry_reverse Cry_Lottabats
 	cry_reverse Cry_Gaoterra
 	cry_reverse Cry_Bishoucha
 	cry_reverse Cry_Papypus
@@ -3917,7 +3917,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Infairno
 	cry_reverse Cry_Purgatival
 	cry_reverse Cry_Deteriotl
-	cry_reverse Cry_Clawlistic
+	cry_reverse Cry_Dakkapod
 	cry_reverse Cry_Unberrable
 	cry_reverse Cry_Peblranium
 	cry_reverse Cry_Vaiking
