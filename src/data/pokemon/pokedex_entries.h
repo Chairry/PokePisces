@@ -13366,12 +13366,12 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 17,
     },
 
-    [NATIONAL_DEX_CLAWLISTIC] =
+    [NATIONAL_DEX_DAKKAPOD] =
     {
         .categoryName = _("Dracopod"),
         .height = 13,
         .weight = 353,
-        .description = gClawlisticPokedexText,
+        .description = gDakkapodPokedexText,
         .pokemonScale = 272,
         .pokemonOffset = 0,
         .trainerScale = 256,

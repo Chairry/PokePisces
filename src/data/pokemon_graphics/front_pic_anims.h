@@ -10626,7 +10626,7 @@ static const union AnimCmd sAnim_Deteriotl_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Clawlistic_1[] =
+static const union AnimCmd sAnim_Dakkapod_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -12882,7 +12882,7 @@ SINGLE_ANIMATION(Shellylouh);
 SINGLE_ANIMATION(Infairno);
 SINGLE_ANIMATION(Purgatival);
 SINGLE_ANIMATION(Deteriotl);
-SINGLE_ANIMATION(Clawlistic);
+SINGLE_ANIMATION(Dakkapod);
 SINGLE_ANIMATION(Unberrable);
 SINGLE_ANIMATION(Peblranium);
 SINGLE_ANIMATION(Vaiking);
@@ -14192,7 +14192,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_INFAIRNO] = sAnims_Infairno,
     [SPECIES_PURGATIVAL] = sAnims_Purgatival,
     [SPECIES_DETERIOTL] = sAnims_Deteriotl,
-    [SPECIES_CLAWLISTIC] = sAnims_Clawlistic,
+    [SPECIES_DAKKAPOD] = sAnims_Dakkapod,
     [SPECIES_UNBERRABLE] = sAnims_Unberrable,
     [SPECIES_PEBLRANIUM] = sAnims_Peblranium,
     [SPECIES_VAIKING] = sAnims_Vaiking,

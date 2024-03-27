@@ -25660,7 +25660,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_CLAWLISTIC] =
+    [SPECIES_DAKKAPOD] =
     {
         .baseHP        = 80,
         .baseAttack    = 100,
