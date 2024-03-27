@@ -1201,7 +1201,7 @@ void PressurePPLose(u8 target, u8 attacker, u16 move)
 {
     int moveIndex;
 
-    if (GetBattlerAbility(target) != ABILITY_PRESSURE)
+    if (GetBattlerAbility(target) != ABILITY_PRESSURE || GetBattlerHoldEffect(target, TRUE) != HOLD_EFFECT_SPECTRAL_IDOL)
         return;
 
     for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
@@ -1214,7 +1214,15 @@ void PressurePPLose(u8 target, u8 attacker, u16 move)
         return;
 
     if (gBattleMons[attacker].pp[moveIndex] != 0)
-        gBattleMons[attacker].pp[moveIndex]--;
+    {
+        if (GetBattlerAbility(target) == ABILITY_PRESSURE && GetBattlerHoldEffect(target, TRUE) != HOLD_EFFECT_SPECTRAL_IDOL)
+            gBattleMons[attacker].pp[moveIndex]--;
+        else if (GetBattlerAbility(target) != ABILITY_PRESSURE && GetBattlerHoldEffect(target, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL)
+            gBattleMons[attacker].pp[moveIndex]--;
+        else if (GetBattlerAbility(target) == ABILITY_PRESSURE && GetBattlerHoldEffect(target, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL)
+            gBattleMons[attacker].pp[moveIndex]--;
+            gBattleMons[attacker].pp[moveIndex]--;
+    }
 
     if (MOVE_IS_PERMANENT(attacker, moveIndex))
     {
@@ -1231,7 +1239,7 @@ void PressurePPLoseOnUsingImprison(u8 attacker)
 
     for (i = 0; i < gBattlersCount; i++)
     {
-        if (atkSide != GetBattlerSide(i) && GetBattlerAbility(i) == ABILITY_PRESSURE)
+        if (atkSide != GetBattlerSide(i) && (GetBattlerAbility(i) == ABILITY_PRESSURE || GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL))
         {
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
@@ -1242,7 +1250,15 @@ void PressurePPLoseOnUsingImprison(u8 attacker)
             {
                 imprisonPos = j;
                 if (gBattleMons[attacker].pp[j] != 0)
-                    gBattleMons[attacker].pp[j]--;
+                {
+                    if (GetBattlerAbility(i) == ABILITY_PRESSURE && GetBattlerHoldEffect(i, TRUE) != HOLD_EFFECT_SPECTRAL_IDOL)
+                        gBattleMons[attacker].pp[j]--;
+                    else if (GetBattlerAbility(i) != ABILITY_PRESSURE && GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL)
+                        gBattleMons[attacker].pp[j]--;
+                    else if (GetBattlerAbility(i) == ABILITY_PRESSURE && GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL)
+                        gBattleMons[attacker].pp[j]--;
+                        gBattleMons[attacker].pp[j]--;
+                }
             }
         }
     }
@@ -6644,6 +6660,7 @@ enum
     ITEM_PP_CHANGE,
     ITEM_HP_CHANGE,
     ITEM_STATS_CHANGE,
+    ITEM_HP_STATS_CHANGE,
 };
 
 bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag)
@@ -7856,6 +7873,38 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     gBattleMoveDamage *= -1;
                     BattleScriptExecute(BattleScript_ItemHealHP_End2);
                     effect = ITEM_HP_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_CHEESE:
+#if B_HEAL_BLOCKING >= GEN_5
+                if (gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+#else
+                if (gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn)
+#endif
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 3;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_Cheese_End2);
+                    effect = ITEM_HP_STATS_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_FROTHY_CHEESE:
+#if B_HEAL_BLOCKING >= GEN_5
+                if (gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+#else
+                if (gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn)
+#endif
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_FrothyCheese_End2);
+                    effect = ITEM_HP_STATS_CHANGE;
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
                 break;

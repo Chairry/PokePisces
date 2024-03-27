@@ -1828,6 +1828,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trycheesing battler:req, failInstr:req
+	various \battler, VARIOUS_CHEESING
+	.4byte \failInstr
+	.endm
+
 	.macro setpowder battler:req
 	various \battler, VARIOUS_SET_POWDER
 	.endm

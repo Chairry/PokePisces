@@ -9760,7 +9760,8 @@ const struct Item gItems[] =
     [ITEM_CHEESE] =
     {
         .name = _("Cheese"),
-        .price = 2000,
+        .price = 600,
+        .holdEffect = HOLD_EFFECT_CHEESE,
         .description = sCheeseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -9770,7 +9771,8 @@ const struct Item gItems[] =
     [ITEM_FROTHY_CHEESE] =
     {
         .name = _("Frothy Cheese"),
-        .price = 2000,
+        .price = 1200,
+        .holdEffect = HOLD_EFFECT_FROTHY_CHEESE,
         .description = sFrothyCheeseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -9781,6 +9783,7 @@ const struct Item gItems[] =
     {
         .name = _("Keychain"),
         .price = 4000,
+        .holdEffect = HOLD_EFFECT_KEYCHAIN,
         .description = sKeychainDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -9866,12 +9869,13 @@ const struct Item gItems[] =
     [ITEM_SPECTRAL_IDOL] =
     {
         .name = _("Spectral Idol"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_SPECTRAL_IDOL,
         .description = sSpectralIdolDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 80,
     },
     [ITEM_GLUE_TUBE] =
     {

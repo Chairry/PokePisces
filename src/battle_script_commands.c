@@ -1938,7 +1938,7 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -1946,12 +1946,12 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             }
             break;
         default:
-            if (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE)
-                ppToDeduct++;
+            if (gBattlerAttacker != gBattlerTarget)
+                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             break;
         }
     }
@@ -9396,6 +9396,32 @@ static void Cmd_various(void)
             } while (!(bits & gBitTable[statId]));
 
             SET_STATCHANGER(statId, 2, FALSE);
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        return;
+    }
+    case VARIOUS_CHEESING:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        bits = 0;
+        for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+        {
+            if (CompareStat(battler, i, MAX_STAT_STAGE, CMP_LESS_THAN))
+                bits |= gBitTable[i];
+        }
+        if (bits)
+        {
+            u32 statId;
+            do
+            {
+                statId = (Random() % (NUM_BATTLE_STATS - 1)) + 1;
+            } while (!(bits & gBitTable[statId]));
+
+            SET_STATCHANGER(statId, 1, FALSE);
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else

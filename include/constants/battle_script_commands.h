@@ -258,6 +258,7 @@
 #define VARIOUS_DESTINY_KNOT_TAUNT                   165
 #define VARIOUS_DESTINY_KNOT_ENCORE                  166
 #define VARIOUS_DESTINY_KNOT_HEAL_BLOCK              167
+#define VARIOUS_CHEESING                             168
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
