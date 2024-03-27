@@ -171,13 +171,23 @@ MangrottoTunnel_EventScript_Jo_And_Jo::
     end
 
 MangrottoTunnel_Text_BreadwinnerIntro:
-	.string "i'm late bro!$"
+	.string "Heavens to Betsy,\n"
+	.string "I am so sorry!\p"
+	.string "I'm in a HUGE rush to\n"
+	.string "get to work today.\l"
+	.string "I'll just squeeze on past here…\p"
+	.string "(You lock eyes with the man, glaring\n"
+	.string "directly into his very soul.)\p"
+	.string "Wh-what? I, Um, don't have time for a-$"
 
 MangrottoTunnel_Text_BreadwinnerDefeat:
-	.string "jimminy jillikers!$"
+	.string "I surrender!!\p"
+	.string "P-please just let me pass!$"
 
 MangrottoTunnel_Text_BreadwinnerRunAway:
-	.string "still late bro!$"
+	.string "Look, th-that was fun and all, but\n"
+	.string "now I am ever more minutes late!!\p"
+	.string "Excuse me…$"
 
 MangrottoTunnel_Text_GugumbirIntro:
 	.string "intro$"

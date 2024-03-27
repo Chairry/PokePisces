@@ -43,6 +43,7 @@ StevenMaze_EventScript_ShadowSteven6::
 StevenMaze_EventScript_FinalSteven::
 	lock
 	msgbox StevenMaze_Text_Gugumbir, MSGBOX_DEFAULT
+	setvar VAR_NEW_COO_STATE, 4
 	msgbox StevenMaze_Text_Gugumbir, MSGBOX_DEFAULT
 	warp MAP_STEVEN_HOUSE, 8, 3
 	waitstate

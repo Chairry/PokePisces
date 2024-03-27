@@ -40,7 +40,7 @@ StevenCorridor_EventScript_StevenYesNo::
 	end
 
 StevenCorridor_EventScript_StartPanicDojo::
-	setflag FLAG_PISCES_A
+	clearflag FLAG_PISCES_A
 	clearflag FLAG_PISCES_B
 	clearflag FLAG_PISCES_C
 	clearflag FLAG_PISCES_D

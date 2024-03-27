@@ -468,3 +468,75 @@ MossdeepCity_Gym_Text_GugumbirPostBattle:
 
 MossdeepCity_Gym_Text_GugumbirNeedTwoMons:
 	.string "need 2 dood$"
+
+MossdeepCity_Gym_Text_Narrator_1:
+	.string "(The atmosphere has become very quiet.\n"
+	.string "Through it all, you hear a very calm\l"
+	.string "and composed voice in your head.)\p"
+	.string "{PLAYER}…\p"
+	.string "Centralize your mind, body, and soul…\p"
+	.string "Concentrate on the path ahead…\p"
+	.string "And take the necessary steps\n"
+	.string "toward victory…$"
+
+MossdeepCity_Gym_Text_Narrator_2:
+	.string "Be mindful of the wills and struggles\n"
+	.string "of your Pokémon…\p"
+	.string "One imperfection in a house of cards…\p"
+	.string "Can crumble the entire structure…$"
+
+MossdeepCity_Gym_Text_Narrator_3:
+	.string "Deep breaths, {PLAYER}…\p"
+	.string "You approach an ending…\p"
+	.string "Keep focus…\p"
+	.string "Every small detail…\n"
+	.string "every tough call…\p"
+	.string "May affect your future…$"
+
+MossdeepCity_Gym_Text_LizaIntro:
+	.string "(There is a girl standing at the end\n"
+	.string "of this impossible space.\l"
+	.string "You recognize her as Liza,\l"
+	.string "the gym leader.)\p"
+	.string "(…It is strange that she is solo.)\p"
+	.string "(Without a word, Liza\n"
+	.string "holds out a Pokéball…)\p"
+	.string "(And the bout begins.)$"
+
+MossdeepCity_Gym_Text_LizaDefeat:
+	.string "…\p"
+	.string "…\p"
+	.string "…Oh! I can't hold it in any longer!\p"
+	.string "That was fun!\n"
+	.string "Congratulations on your victory!$"
+
+MossdeepCity_Gym_Text_LizaPostBattle:
+	.string "You know, I AM one of the most attuned\n"
+	.string "psychics in Hoenn.\l"
+	.string "That was actually me in your head\l"
+	.string "back there!\p"
+	.string "I could read those questions bouncing\n"
+	.string "around in your brain.\p"
+	.string "My brother Tate?\p"
+	.string "He is on a solitary journey to find a\n"
+	.string "unique place in this world.\p"
+	.string "While twins share a special connection,\n"
+	.string "it is nice and fulfilling to take on\l"
+	.string "some goals independent of each other.$"
+
+MossdeepCity_Gym_Text_LizaBadge:
+	.string "In the spirit of that, I'll give\n"
+	.string "you my gym's badge!$"
+
+MossdeepCity_Gym_Text_LizaExplain:
+	.string "The Serene Badge allows you to use the\n"
+	.string "“Flash” move in the field.\p"
+	.string "You have also earned these two TMS;\n"
+	.string "use 'em well to set up your\l"
+	.string "Pokémon for success!$"
+
+MossdeepCity_Gym_Text_LizaEnd:
+	.string "That's all for our time today,\n"
+	.string "{PLAYER}.\p"
+	.string "I sincerely hope you reach\n"
+	.string "an inner peace.$"

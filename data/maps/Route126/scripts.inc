@@ -260,13 +260,42 @@ Route126_Text_MeteorsTest:
 	.string "meteors unset$"
 
 Route126_Text_RayIntro:
-	.string "hey its me ray lets battle$"
+	.string "Woah, woah, woah, slow down\n"
+	.string "there, buster!\p"
+	.string "This bridge is supposed to be off\n"
+	.string "limits to non-Ozone-workers while we\l"
+	.string "conduct VERY valuable research.\l"
+	.string "I have to ask you to leave!\p"
+	.string "…The rest of my teammates left already?\p"
+	.string "Hah! Nice attempt. Trying to pull a\n"
+	.string "fast one… on me, THE Ray\l"
+	.string "(of Team Ozone)!\p"
+	.string "Hm… wait a tick.\p"
+	.string "I think I recognize you!\p"
+	.string "Yeah, that's right.\n"
+	.string "You're that (supposed) hotshot\l"
+	.string "(unconfirmed) from Littleroot!\p"
+	.string "Now I REALLY feel a desire to knock\n"
+	.string "you down a peg!\p"
+	.string "(Ray makes a “come at me” gesture.)\p"
+	.string "Let's tussle!!$"
 
 Route126_Text_RayDefeat:
-	.string "oof$"
+	.string "Are you KIDDING me!?$"
 
 Route126_Text_RayLeaves:
-	.string "outie$"
+	.string "Huff… that was a straight up fluke.\p"
+	.string "You cheated, I let you win, I'm feeling\n"
+	.string "under the weather, et cetera.\p"
+	.string "In my post-loss-clarity state, I am\n"
+	.string "now realzing that my team HAS left.\p"
+	.string "Mm.\p"
+	.string "Likely your fault.\p"
+	.string "As we established, you are THE dirty\n"
+	.string "cheat (worst of the worst) who\l"
+	.string "smells (bad)!\p"
+	.string "This won't be the last you see of Ray.\p"
+	.string "I'll make sure of THAT!$"
 
 Route126_Text_VarTest:
 	.string "space center var set 3$"
