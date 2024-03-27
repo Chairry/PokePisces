@@ -4161,4 +4161,4 @@ static const u8 sRoomExtenderDesc[] = _(
 static const u8 sTradingCardDesc[] = _(
     "Shifts damage\n"
     "based on foe's\n"
-    "stats.");
+    "and user's stats.");
