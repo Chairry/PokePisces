@@ -671,7 +671,7 @@
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_PKMNSITEMCAUSEBURN                   671
-#define STRINGID_CUSEDAMULETDISABLED                  672
+#define STRINGID_CURSEDAMULETDISABLED                  672
 // New strings
 #define STRINGID_PKMNMAKESPOISONMISS                  673
 #define STRINGID_WATERVEILPROTECTED                   674

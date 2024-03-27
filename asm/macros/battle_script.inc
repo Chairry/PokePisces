@@ -1934,6 +1934,31 @@
 	.byte \infatuateWith
 	.endm
 
+	.macro destinyknotdisable battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_DISABLE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottorment battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TORMENT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottaunt battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TAUNT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknotencore battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_ENCORE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknothealblock battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_HEAL_BLOCK
+	.4byte \failInstr
+	.endm
+
 	.macro setlastuseditem battler:req
 	various \battler, VARIOUS_SET_LAST_USED_ITEM
 	.endm

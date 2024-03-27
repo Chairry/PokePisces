@@ -9066,6 +9066,129 @@ static void Cmd_various(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
+    case VARIOUS_DESTINY_KNOT_DISABLE:
+    {
+        s32 i;
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+        if (gDisableStructs[battler].disabledMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, gBattleMons[battler].moves[i])
+
+            gDisableStructs[battler].disabledMove = gBattleMons[battler].moves[i];
+        #if B_DISABLE_TURNS == GEN_3
+            gDisableStructs[battler].disableTimer = (Random() & 3) + 2;
+        #elif B_DISABLE_TURNS == GEN_4
+            gDisableStructs[battler].disableTimer = (Random() & 3) + 4;
+        #else
+            gDisableStructs[battler].disableTimer = 4;
+        #endif
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+   case VARIOUS_DESTINY_KNOT_TORMENT:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gBattleMons[battler].status2 |= STATUS2_TORMENT;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_TAUNT:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gDisableStructs[battler].tauntTimer == 0)
+        {
+            #if B_TAUNT_TURNS >= GEN_5
+                u8 turns = 4;
+                if (GetBattlerTurnOrderNum(battler) > GetBattlerTurnOrderNum(gBattlerTarget))
+                    turns--; // If the target hasn't yet moved this turn, Taunt lasts for only three turns (source: Bulbapedia)
+            #elif B_TAUNT_TURNS == GEN_4
+                u8 turns = (Random() & 2) + 3;
+            #else
+                u8 turns = 2;
+            #endif
+
+            gDisableStructs[battler].tauntTimer = turns;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_ENCORE:
+    {
+        s32 i;
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+
+        if (gLastMoves[battler] == MOVE_NONE
+        || gLastMoves[battler] == MOVE_UNAVAILABLE
+        || gLastMoves[battler] == MOVE_STRUGGLE
+        || gLastMoves[battler] == MOVE_ENCORE
+        || gLastMoves[battler] == MOVE_MIRROR_MOVE
+        || gLastMoves[battler] == MOVE_SHELL_TRAP)
+        {
+            i = MAX_MON_MOVES;
+        }
+
+        if (gDisableStructs[battler].encoredMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            gDisableStructs[battler].encoredMove = gBattleMons[battler].moves[i];
+            gDisableStructs[battler].encoredMovePos = i;
+            gDisableStructs[battler].encoreTimer = 3;
+            gDisableStructs[battler].encoreTimer;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_HEAL_BLOCK:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gStatuses3[battler] |= STATUS3_HEAL_BLOCK;
+            gDisableStructs[battler].healBlockTimer = 5;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
     case VARIOUS_SET_LAST_USED_ITEM:
     {
         VARIOUS_ARGS();

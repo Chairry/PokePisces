@@ -2545,9 +2545,9 @@ static const u8 sLaggingTailDesc[] = _(
     "move slower.");
 
 static const u8 sDestinyKnotDesc[] = _(
-    "If the holder falls\n"
-    "in love, the foe\n"
-    "does too.");
+    "If the holder's\n"
+    "moves get limited\n"
+    "so does the foe's.");
 
 static const u8 sBlackSludgeDesc[] = _(
     "Gradually restores\n"

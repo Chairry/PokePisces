@@ -253,6 +253,11 @@
 #define VARIOUS_SET_SILENCE                          160
 #define VARIOUS_SEIZE_CHANCE_CHECK                   161
 #define VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED         162
+#define VARIOUS_DESTINY_KNOT_DISABLE                 163
+#define VARIOUS_DESTINY_KNOT_TORMENT                 164
+#define VARIOUS_DESTINY_KNOT_TAUNT                   165
+#define VARIOUS_DESTINY_KNOT_ENCORE                  166
+#define VARIOUS_DESTINY_KNOT_HEAL_BLOCK              167
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
