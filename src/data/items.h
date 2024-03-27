@@ -9924,12 +9924,14 @@ const struct Item gItems[] =
     [ITEM_ODD_STONE] =
     {
         .name = _("Odd Stone"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_ODD_STONE,
+        .holdEffectParam = 25,
         .description = sOddStoneDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_SHELL_POLISH] =
     {

@@ -10756,6 +10756,13 @@ static inline uq4_12_t GetAttackerItemsModifier(u32 battlerAtk, uq4_12_t typeEff
         percentBoost = min((gBattleStruct->sameMoveTurns[battlerAtk] * GetBattlerHoldEffectParam(battlerAtk)), 100);
         return uq4_12_add(sPercentToModifier[percentBoost], UQ_4_12(1.0));
         break;
+    case HOLD_EFFECT_ODD_STONE:
+        if (gBattleMoves[gCurrentMove].soundMove)
+        {
+            percentBoost = min((gBattleStruct->sameMoveTurns[battlerAtk] * GetBattlerHoldEffectParam(battlerAtk)), 100);
+            return uq4_12_add(sPercentToModifier[percentBoost], UQ_4_12(1.0));
+        }
+        break;
     case HOLD_EFFECT_EXPERT_BELT:
         if (typeEffectivenessModifier >= UQ_4_12(2.0))
             return UQ_4_12(1.2);

@@ -197,6 +197,7 @@
 #define HOLD_EFFECT_CHEESE              212
 #define HOLD_EFFECT_FROTHY_CHEESE       213
 #define HOLD_EFFECT_SPECTRAL_IDOL       214
+#define HOLD_EFFECT_ODD_STONE           215
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
