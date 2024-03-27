@@ -6523,18 +6523,16 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
-
-    [ITEM_BLUK_BERRY] =
+    [ITEM_YELLOW_SODA] =
     {
-        .name = _("Bluk Berry"),
-        .price = 20,
-        .description = sBlukBerryDesc,
+        .name = _("Yellow Soda"),
+        .price = 2000,
+        .description = sYellowSodaDesc,
         .pocket = POCKET_BERRIES,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
-
     [ITEM_NANAB_BERRY] =
     {
         .name = _("Nanab Berry"),
@@ -9987,16 +9985,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 60,
-    },
-    [ITEM_YELLOW_SODA] =
-    {
-        .name = _("Yellow Soda"),
-        .price = 2000,
-        .description = sYellowSodaDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
     },
     [ITEM_ICY_CAPE] =
     {
