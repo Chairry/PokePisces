@@ -226,12 +226,8 @@ static const u8 sEnergyPowderDesc[] = _(
 
 static const u8 sEnergyRootDesc[] = _(
     "A bitter root\n"
-    "that restores HP\n"
-#if I_HEALTH_RECOVERY >= GEN_7
-    "by 120 points.");
-#else
-    "by 200 points.");
-#endif
+    "that decrases\n"
+    "friendship.");
 
 static const u8 sHealPowderDesc[] = _(
     "A bitter powder\n"
@@ -4121,7 +4117,7 @@ static const u8 sAThingDesc[] = _(
 static const u8 sSaltyTearDesc[] = _(
     "Halves all of\n"
     "Sadsod's stats.\n"
-    "Drops Happiness.");
+    "Drops Friendship.");
 
 static const u8 sBloomOrbDesc[] = _(
     "A bizarre orb that\n"

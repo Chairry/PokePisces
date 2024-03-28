@@ -336,8 +336,8 @@ const struct Item gItems[] =
     [ITEM_POTION] =
     {
         .name = _("Potion"),
-        .price = 200,
-        .holdEffectParam = 20,
+        .price = 450,
+        .holdEffectParam = 60,
         .description = sPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -349,8 +349,8 @@ const struct Item gItems[] =
     [ITEM_SUPER_POTION] =
     {
         .name = _("Super Potion"),
-        .price = 700,
-        .holdEffectParam = 60,
+        .price = 750,
+        .holdEffectParam = 100,
         .description = sSuperPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -362,8 +362,8 @@ const struct Item gItems[] =
     [ITEM_HYPER_POTION] =
     {
         .name = _("Hyper Potion"),
-        .price = 1500,
-        .holdEffectParam = 120,
+        .price = 1200,
+        .holdEffectParam = 150,
         .description = sHyperPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -375,7 +375,7 @@ const struct Item gItems[] =
     [ITEM_MAX_POTION] =
     {
         .name = _("Max Potion"),
-        .price = 2500,
+        .price = 2000,
         .holdEffectParam = 255,
         .description = sMaxPotionDesc,
         .pocket = POCKET_ITEMS,
@@ -401,7 +401,7 @@ const struct Item gItems[] =
     [ITEM_REVIVE] =
     {
         .name = _("Revive"),
-        .price = 2000,
+        .price = 1500,
         .description = sReviveDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -413,7 +413,7 @@ const struct Item gItems[] =
     [ITEM_MAX_REVIVE] =
     {
         .name = _("Max Revive"),
-        .price = 4000,
+        .price = 3000,
         .description = sMaxReviveDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -438,8 +438,8 @@ const struct Item gItems[] =
     [ITEM_SODA_POP] =
     {
         .name = _("Soda Pop"),
-        .price = 300,
-        .holdEffectParam = 50,
+        .price = 150,
+        .holdEffectParam = 30,
         .description = sSodaPopDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -488,13 +488,12 @@ const struct Item gItems[] =
 
     [ITEM_ENERGY_ROOT] =
     {
-        .name = _("Energy Root"),
+        .name = _("Bitter Root"),
         .price = 1200,
         .description = sEnergyRootDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_RESTORE_HP,
         .flingPower = 30,
     },
 
@@ -597,8 +596,8 @@ const struct Item gItems[] =
     [ITEM_ETHER] =
     {
         .name = _("Ether"),
-        .price = 1200,
-        .holdEffectParam = 10,
+        .price = 200,
+        .holdEffectParam = 5,
         .description = sEtherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU_MOVES,
@@ -610,8 +609,8 @@ const struct Item gItems[] =
     [ITEM_MAX_ETHER] =
     {
         .name = _("Max Ether"),
-        .price = 2000,
-        .holdEffectParam = 255,
+        .price = 400,
+        .holdEffectParam = 10,
         .description = sMaxEtherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU_MOVES,
@@ -623,8 +622,8 @@ const struct Item gItems[] =
     [ITEM_ELIXIR] =
     {
         .name = _("Elixir"),
-        .price = 3000,
-        .holdEffectParam = 10,
+        .price = 750,
+        .holdEffectParam = 5,
         .description = sElixirDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -636,8 +635,8 @@ const struct Item gItems[] =
     [ITEM_MAX_ELIXIR] =
     {
         .name = _("Max Elixir"),
-        .price = 4500,
-        .holdEffectParam = 255,
+        .price = 1500,
+        .holdEffectParam = 10,
         .description = sMaxElixirDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
