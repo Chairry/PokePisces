@@ -1138,7 +1138,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[NUM_SPECIES + 1] =
     SPECIES_SPRITE(INFAIRNO, gMonFrontPic_Infairno),
     SPECIES_SPRITE(PURGATIVAL, gMonFrontPic_Purgatival),
     SPECIES_SPRITE(DETERIOTL, gMonFrontPic_Deteriotl),
-    SPECIES_SPRITE(CLAWLISTIC, gMonFrontPic_Clawlistic),
+    SPECIES_SPRITE(DAKKAPOD, gMonFrontPic_Dakkapod),
     SPECIES_SPRITE(UNBERRABLE, gMonFrontPic_Unberrable),
     SPECIES_SPRITE(PEBLRANIUM, gMonFrontPic_Peblranium),
     SPECIES_SPRITE(VAIKING, gMonFrontPic_Vaiking),

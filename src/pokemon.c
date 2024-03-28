@@ -381,7 +381,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(INFAIRNO),
     SPECIES_TO_HOENN(PURGATIVAL),
     SPECIES_TO_HOENN(DETERIOTL),
-    SPECIES_TO_HOENN(CLAWLISTIC),
+    SPECIES_TO_HOENN(DAKKAPOD),
     SPECIES_TO_HOENN(UNBERRABLE),
     SPECIES_TO_HOENN(VAIKING),
 };
@@ -1510,7 +1510,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(INFAIRNO),
     SPECIES_TO_NATIONAL(PURGATIVAL),
     SPECIES_TO_NATIONAL(DETERIOTL),
-    SPECIES_TO_NATIONAL(CLAWLISTIC),
+    SPECIES_TO_NATIONAL(DAKKAPOD),
     SPECIES_TO_NATIONAL(UNBERRABLE),
     SPECIES_TO_NATIONAL(PEBLRANIUM),
     SPECIES_TO_NATIONAL(VAIKING),
@@ -2227,7 +2227,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(INFAIRNO),
     HOENN_TO_NATIONAL(PURGATIVAL),
     HOENN_TO_NATIONAL(DETERIOTL),
-    HOENN_TO_NATIONAL(CLAWLISTIC),
+    HOENN_TO_NATIONAL(DAKKAPOD),
     HOENN_TO_NATIONAL(UNBERRABLE),
     HOENN_TO_NATIONAL(VAIKING),
 };
@@ -3408,7 +3408,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_INFAIRNO - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PURGATIVAL - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_DETERIOTL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
-    [SPECIES_CLAWLISTIC - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DAKKAPOD - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_UNBERRABLE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PEBLRANIUM - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_VAIKING - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
@@ -6759,10 +6759,10 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
 
     if (status & healMask)
     {
-        status &= ~healMask;
+        status &= ~(healMask);
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+            gBattleMons[battlerId].status1 = status;
         return FALSE;
     }
     else

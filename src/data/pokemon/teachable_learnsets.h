@@ -52087,7 +52087,7 @@ static const u16 sDeteriotlTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sClawlisticTeachableLearnset[] = {
+static const u16 sDakkapodTeachableLearnset[] = {
     //MOVE_COOL_MIST,
     //MOVE_HEARTHWARM,
     //MOVE_AQUASCADE,
