@@ -2813,9 +2813,9 @@ static const u8 sGrepaBerryDesc[] = _(
     "base Sp. Def.");
 
 static const u8 sTamatoBerryDesc[] = _(
-    "Makes a Pokémon\n"
-    "friendly but lowers\n"
-    "base Speed.");
+    "A unique berry\n"
+    "that bears love\n"
+    "a lot.");
 
 static const u8 sCornnBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"

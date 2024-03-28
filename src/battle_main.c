@@ -5903,6 +5903,13 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         gSpecialStatuses[battlerAtk].gemParam = GetBattlerHoldEffectParam(battlerAtk);
         gSpecialStatuses[battlerAtk].gemBoost = TRUE;
     }
+    if (holdEffect == HOLD_EFFECT_TAMATO_BERRY
+        && move == MOVE_BERRY_BAD_JOKE)
+    {
+        gSpecialStatuses[battlerAtk].gemParam = GetBattlerHoldEffectParam(battlerAtk);
+        gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+    }
+
 }
 
 // special to set a field's totem boost(s)

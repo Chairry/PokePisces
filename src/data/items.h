@@ -6623,11 +6623,12 @@ const struct Item gItems[] =
     [ITEM_TAMATO_BERRY] =
     {
         .name = _("Tamato Berry"),
-        .price = 20,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_TAMATO_BERRY,
+        .holdEffectParam = 50,
         .description = sTamatoBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .flingPower = 10,
     },
 
