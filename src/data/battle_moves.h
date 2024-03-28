@@ -15330,7 +15330,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BRUTALIZE] =
     {
-        .effect = EFFECT_SUPERPOWER,
+        .effect = EFFECT_BRUTALIZE,
         .power = 130,
         .type = TYPE_DARK,
         .accuracy = 90,
@@ -15341,6 +15341,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .argument = STATUS1_PANIC,
     },
 
     [MOVE_TERRORIZE] =

@@ -520,6 +520,16 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSeizeChance             @ EFFECT_SEIZE_CHANCE
 	.4byte BattleScript_EffectRazingSun               @ EFFECT_RAZING_SUN
 	.4byte BattleScript_EffectTerrorize               @ EFFECT_TERRORIZE
+	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
+
+BattleScript_EffectBrutalize::
+	call BattleScript_EffectHit_Ret
+	setmoveeffect MOVE_EFFECT_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	seteffectprimary
+	seteffectwithchance
+	argumentstatuseffect
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectTerrorize::
 	attackcanceler
@@ -7459,7 +7469,6 @@ BattleScript_EffectIngrain:
 
 BattleScript_EffectSuperpower::
 	setmoveeffect MOVE_EFFECT_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	jumpifmove MOVE_BRUTALIZE, BattleScript_EffectPanicHit
 	goto BattleScript_EffectHit
 
 BattleScript_EffectCloseCombat:
