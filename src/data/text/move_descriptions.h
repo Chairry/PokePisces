@@ -805,8 +805,8 @@ static const u8 sDetectDescription[] = _(
     "user's Accuracy if struck.");
 
 static const u8 sBoneRushDescription[] = _(
-    "Strikes the foe with a bone\n"
-    "in hand 2 to 5 times.");
+    "Strikes the foe with a\n"
+    "spirit bone 2 to 5 times.");
 
 static const u8 sLockOnDescription[] = _(
     "Locks on to the foe to\n"
