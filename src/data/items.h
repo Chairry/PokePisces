@@ -10010,12 +10010,13 @@ const struct Item gItems[] =
     [ITEM_COARSE_SAND] =
     {
         .name = _("Coarse Sand"),
-        .price = 2000,
-        .description = sCoarseSandDesc,
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_COARSE_SAND,
+        .holdEffectParam = 100,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_OBJECT_D_ARC] =
     {

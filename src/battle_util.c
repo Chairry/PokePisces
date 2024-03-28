@@ -8218,6 +8218,26 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             }
         }
         break;
+        case HOLD_EFFECT_COARSE_SAND:
+        {
+            u16 ability = GetBattlerAbility(gBattlerAttacker);
+            if (ability == ABILITY_SERENE_GRACE)
+                atkHoldEffectParam *= 2;
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && TARGET_TURN_DAMAGED 
+                && gBattleMoves[gCurrentMove].sandMove 
+                && gBattleMons[gBattlerTarget].hp 
+                && RandomPercentage(RNG_HOLD_EFFECT_COARSE_SAND, atkHoldEffectParam)
+                && CompareStat(gBattlerAttacker, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN))
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_DEF_MINUS_2;
+                BattleScriptPushCursor();
+                SetMoveEffect(FALSE, 0);
+                BattleScriptPop();
+            }
+        }
+        break;
         case HOLD_EFFECT_BURNT_STICK:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
