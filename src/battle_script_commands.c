@@ -13131,6 +13131,7 @@ static void Cmd_setmist(void)
 static void Cmd_setfocusenergy(void)
 {
     CMD_ARGS();
+    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
 
     if (((gBattleMoves[gCurrentMove].effect == EFFECT_DRAGON_CHEER || gBattleMoves[gCurrentMove].effect == EFFECT_COACHING) && (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE) || (gAbsentBattlerFlags & gBitTable[gBattlerTarget])))
      || gBattleMons[gBattlerTarget].status2 & STATUS2_FOCUS_ENERGY_ANY)
@@ -13145,8 +13146,15 @@ static void Cmd_setfocusenergy(void)
     }
     else
     {
-        gBattleMons[gBattlerTarget].status2 |= STATUS2_FOCUS_ENERGY;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
+        if (atkHoldEffect == HOLD_EFFECT_YELLOW_SODA && (gBattleMoves[gCurrentMove].effect != EFFECT_DRAGON_CHEER || gBattleMoves[gCurrentMove].effect != EFFECT_COACHING || gBattleMoves[gCurrentMove].effect != EFFECT_FOCUS_ENERGY))
+        {
+            gBattleMons[gBattlerAttacker].status2 |= STATUS2_FOCUS_ENERGY;
+        }
+        else
+        {
+            gBattleMons[gBattlerTarget].status2 |= STATUS2_FOCUS_ENERGY;
+        }
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
 

@@ -6526,6 +6526,7 @@ const struct Item gItems[] =
     {
         .name = _("Yellow Soda"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_YELLOW_SODA,
         .description = sYellowSodaDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,

@@ -7908,6 +7908,18 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
                 break;
+            case HOLD_EFFECT_YELLOW_SODA:
+                if (gBattleMons[battler].species == SPECIES_VOREON && gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 2;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_YellowSoda_End2);
+                    effect = ITEM_HP_STATS_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
             case HOLD_EFFECT_A_THING:
                 if ((gBattleMons[battler].species == SPECIES_CAPYBARA || gBattleMons[battler].species == SPECIES_ABARBINASH) && (Random() % 100) == 0 && !moveTurn)
                 {
