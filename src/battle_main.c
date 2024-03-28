@@ -5906,8 +5906,15 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     if (holdEffect == HOLD_EFFECT_TAMATO_BERRY
         && move == MOVE_BERRY_BAD_JOKE)
     {
-        gSpecialStatuses[battlerAtk].gemParam = GetBattlerHoldEffectParam(battlerAtk);
-        gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        if (attackerAbility == ABILITY_RIPEN)
+        {
+            gSpecialStatuses[battlerAtk].gemParam = 100;
+        }
+        else
+        {
+            gSpecialStatuses[battlerAtk].gemParam = 50;
+        }
+            gSpecialStatuses[battlerAtk].gemBoost = TRUE;
     }
 
 }
