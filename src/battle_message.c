@@ -729,7 +729,7 @@ static const u8 sText_HealerCure[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ABILI
 static const u8 sText_ReceiverAbilityTakeOver[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nwas taken over!");
 static const u8 sText_PkmnAbsorbingPower[] = _("{B_ATK_NAME_WITH_PREFIX} is absorbing power!");
 static const u8 sText_NoOneWillBeAbleToRun[] = _("No one will be able to run away\nduring the next turn!");
-static const u8 sText_DestinyKnotActivates[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} fell in love\nfrom the {B_LAST_ITEM}!");
+static const u8 sText_DestinyKnotActivates[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} shares the pain\nbecause of {B_LAST_ITEM}!");
 static const u8 sText_CloakedInAFreezingLight[] = _("{B_ATK_NAME_WITH_PREFIX} became cloaked\nin a freezing light!");
 static const u8 sText_StatWasNotLowered[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwas not lowered!");
 static const u8 sText_AuraFlaredToLife[] = _("{B_DEF_NAME_WITH_PREFIX}'s aura flared to life!");
@@ -880,11 +880,14 @@ static const u8 sText_PkmnExposedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was e
 static const u8 sText_ItemCausedExposed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} became exposed\nfrom its {B_LAST_ITEM}!");
 static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
 static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
-static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
+static const u8 sText_PkmnIsBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
 static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and type\nmatchups returned to normal!");
 static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\ntype matchups are reversed!");
+static const u8 sText_PkmnIsNoLongerBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} is no\nlonger blooming!");
+static const u8 sText_AThingHappened[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is distracted and\nlooked at {B_LAST_ITEM}!");
+static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is really distracted\nand looked at {B_LAST_ITEM}!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1497,7 +1500,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HEALINGWISHHEALED - BATTLESTRINGS_TABLE_START] = sText_HealingWishHealed,
     [STRINGID_LUNARDANCECAMETRUE - BATTLESTRINGS_TABLE_START] = sText_LunarDanceCameTrue,
     [STRINGID_CUSEDBODYDISABLED - BATTLESTRINGS_TABLE_START] = sText_CursedBodyDisabled,
-    [STRINGID_CUSEDAMULETDISABLED - BATTLESTRINGS_TABLE_START] = sText_CursedAmuletDisabled,
+    [STRINGID_CURSEDAMULETDISABLED - BATTLESTRINGS_TABLE_START] = sText_CursedAmuletDisabled,
     [STRINGID_ATTACKERACQUIREDABILITY - BATTLESTRINGS_TABLE_START] = sText_AttackerAquiredAbility,
     [STRINGID_TARGETABILITYSTATLOWER - BATTLESTRINGS_TABLE_START] = sText_TargetAbilityLoweredStat,
     [STRINGID_TARGETSTATWONTGOHIGHER - BATTLESTRINGS_TABLE_START] = sText_TargetStatWontGoHigher,
@@ -1621,6 +1624,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNISALREADYPANICKING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyPanicking,
     [STRINGID_INVERSEROOMENDS - BATTLESTRINGS_TABLE_START] = sText_InverseRoomEnds,
     [STRINGID_THETYPECHARTINVERTED - BATTLESTRINGS_TABLE_START] = sText_TheTypeChartInverted,
+    [STRINGID_PKMNSISNOLONGERBLOOMING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsNoLongerBlooming,
+    [STRINGID_ATHINGHAPPENED - BATTLESTRINGS_TABLE_START] = sText_AThingHappened,
+    [STRINGID_ATHINGHAPPENEDFR - BATTLESTRINGS_TABLE_START] = sText_AThingHappenedFr,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

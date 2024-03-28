@@ -132,6 +132,17 @@ const struct SpriteTemplate gSludgeBombHitParticleSpriteTemplate =
     .callback = AnimSludgeBombHitParticle,
 };
 
+const struct SpriteTemplate gCausticFinaleHitParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOXIC_SPIKES,
+    .paletteTag = ANIM_TAG_TOXIC_SPIKES,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSludgeBombHitParticle,
+};
+
 static const union AffineAnimCmd sAffineAnim_AcidPoisonDroplet[] =
 {
     AFFINEANIMCMD_FRAME(0xFFF0, 0x10, 0, 6),

@@ -1938,7 +1938,7 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -1946,12 +1946,12 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             }
             break;
         default:
-            if (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE)
-                ppToDeduct++;
+            if (gBattlerAttacker != gBattlerTarget)
+                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
             break;
         }
     }
@@ -2101,9 +2101,27 @@ static void Cmd_damagecalc(void)
     CMD_ARGS();
 
     u8 moveType;
+    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
-    gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+
+    if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (!(gBattleMoves[gCurrentMove].piercingMove)))
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+    }
+    else if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (gBattleMoves[gCurrentMove].piercingMove))
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+    }
+    else
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+    }
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -9048,6 +9066,129 @@ static void Cmd_various(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
+    case VARIOUS_DESTINY_KNOT_DISABLE:
+    {
+        s32 i;
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+        if (gDisableStructs[battler].disabledMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, gBattleMons[battler].moves[i])
+
+            gDisableStructs[battler].disabledMove = gBattleMons[battler].moves[i];
+        #if B_DISABLE_TURNS == GEN_3
+            gDisableStructs[battler].disableTimer = (Random() & 3) + 2;
+        #elif B_DISABLE_TURNS == GEN_4
+            gDisableStructs[battler].disableTimer = (Random() & 3) + 4;
+        #else
+            gDisableStructs[battler].disableTimer = 4;
+        #endif
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+   case VARIOUS_DESTINY_KNOT_TORMENT:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gBattleMons[battler].status2 |= STATUS2_TORMENT;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_TAUNT:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gDisableStructs[battler].tauntTimer == 0)
+        {
+            #if B_TAUNT_TURNS >= GEN_5
+                u8 turns = 4;
+                if (GetBattlerTurnOrderNum(battler) > GetBattlerTurnOrderNum(gBattlerTarget))
+                    turns--; // If the target hasn't yet moved this turn, Taunt lasts for only three turns (source: Bulbapedia)
+            #elif B_TAUNT_TURNS == GEN_4
+                u8 turns = (Random() & 2) + 3;
+            #else
+                u8 turns = 2;
+            #endif
+
+            gDisableStructs[battler].tauntTimer = turns;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_ENCORE:
+    {
+        s32 i;
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[battler].moves[i] == gLastMoves[battler])
+                break;
+        }
+
+        if (gLastMoves[battler] == MOVE_NONE
+        || gLastMoves[battler] == MOVE_UNAVAILABLE
+        || gLastMoves[battler] == MOVE_STRUGGLE
+        || gLastMoves[battler] == MOVE_ENCORE
+        || gLastMoves[battler] == MOVE_MIRROR_MOVE
+        || gLastMoves[battler] == MOVE_SHELL_TRAP)
+        {
+            i = MAX_MON_MOVES;
+        }
+
+        if (gDisableStructs[battler].encoredMove == MOVE_NONE
+            && i != MAX_MON_MOVES && gBattleMons[battler].pp[i] != 0)
+        {
+            gDisableStructs[battler].encoredMove = gBattleMons[battler].moves[i];
+            gDisableStructs[battler].encoredMovePos = i;
+            gDisableStructs[battler].encoreTimer = 3;
+            gDisableStructs[battler].encoreTimer;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
+    case VARIOUS_DESTINY_KNOT_HEAL_BLOCK:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        gBattleScripting.battler = battler;
+
+        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gStatuses3[battler] |= STATUS3_HEAL_BLOCK;
+            gDisableStructs[battler].healBlockTimer = 5;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
     case VARIOUS_SET_LAST_USED_ITEM:
     {
         VARIOUS_ARGS();
@@ -9255,6 +9396,32 @@ static void Cmd_various(void)
             } while (!(bits & gBitTable[statId]));
 
             SET_STATCHANGER(statId, 2, FALSE);
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        return;
+    }
+    case VARIOUS_CHEESING:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        bits = 0;
+        for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+        {
+            if (CompareStat(battler, i, MAX_STAT_STAGE, CMP_LESS_THAN))
+                bits |= gBitTable[i];
+        }
+        if (bits)
+        {
+            u32 statId;
+            do
+            {
+                statId = (Random() % (NUM_BATTLE_STATS - 1)) + 1;
+            } while (!(bits & gBitTable[statId]));
+
+            SET_STATCHANGER(statId, 1, FALSE);
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else
@@ -15468,8 +15635,6 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
         return FALSE;
 #endif
     else if (gBattleMoves[move].ignoresSubstitute)
-        return FALSE;
-    else if (gCurrentMove == MOVE_RAZING_SUN)
         return FALSE;
     else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
         return FALSE;

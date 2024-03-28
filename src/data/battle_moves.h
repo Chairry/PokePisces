@@ -3438,8 +3438,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #endif
         .effect = EFFECT_MULTI_HIT,
         .power = 25,
-        .type = TYPE_GROUND,
-        .pp = 10,
+        .type = TYPE_GHOST,
+        .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14696,6 +14696,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_6,
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
+        .ignoresSubstitute = TRUE,
     },
 
     [MOVE_DRAGON_POKER] =
@@ -15240,6 +15241,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .ignoresTargetDefenseEvasionStages = TRUE,
         .ignoresProtect = TRUE,
+        .ignoresSubstitute = TRUE,
     },
 
     [MOVE_BENTHIC_WHIP] =
@@ -15328,7 +15330,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BRUTALIZE] =
     {
-        .effect = EFFECT_SUPERPOWER,
+        .effect = EFFECT_BRUTALIZE,
         .power = 130,
         .type = TYPE_DARK,
         .accuracy = 90,
@@ -15339,6 +15341,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .argument = STATUS1_PANIC,
     },
 
     [MOVE_TERRORIZE] =
