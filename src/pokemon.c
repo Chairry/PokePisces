@@ -6759,10 +6759,10 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
 
     if (status & healMask)
     {
-        status &= ~healMask;
+        status &= ~(healMask);
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+            gBattleMons[battlerId].status1 = status;
         return FALSE;
     }
     else
