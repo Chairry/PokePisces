@@ -1925,7 +1925,7 @@ BattleScript_AffectionBasedEndurance::
 
 BattleScript_AffectionBasedStatusHeal::
 	jumpifstatus BS_ATTACKER, STATUS1_POISON | STATUS1_TOXIC_POISON, BattleScript_AffectionBasedStatus_HealPoisonString
-	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_AffectionBasedStatus_HealSleepString
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP_ANY, BattleScript_AffectionBasedStatus_HealSleepString
 	jumpifstatus BS_ATTACKER, STATUS1_PARALYSIS, BattleScript_AffectionBasedStatus_HealParalysisString
 	jumpifstatus BS_ATTACKER, STATUS1_BURN, BattleScript_AffectionBasedStatus_HealBurnString
 	jumpifstatus BS_ATTACKER, STATUS1_FREEZE, BattleScript_AffectionBasedStatus_HealFreezeString
@@ -4644,7 +4644,7 @@ BattleScript_EffectSleep::
 	attackstring
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_AlreadyAsleep
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_AlreadyAsleep
 	jumpifuproarwakes BattleScript_CantMakeAsleep
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
 	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
@@ -4934,7 +4934,7 @@ BattleScript_PreserveMissedBitDoMoveAnim:
 BattleScript_EffectDreamEater::
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_DreamEaterNoEffect
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_DreamEaterWorked
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_DreamEaterWorked
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_DreamEaterWorked
 BattleScript_DreamEaterNoEffect:
 	attackstring
@@ -5180,7 +5180,7 @@ BattleScript_MultiHitLoop::
 	jumpifhasnohp BS_ATTACKER, BattleScript_MultiHitEnd
 	jumpifhasnohp BS_TARGET, BattleScript_MultiHitPrintStrings
 	jumpifhalfword CMP_EQUAL, gChosenMove, MOVE_SLEEP_TALK, BattleScript_DoMultiHit
-	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_MultiHitPrintStrings
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP_ANY, BattleScript_MultiHitPrintStrings
 BattleScript_DoMultiHit::
 	movevaluescleanup
 	copyhword sMOVE_EFFECT, sMULTIHIT_EFFECT
@@ -5332,7 +5332,7 @@ BattleScript_EffectRest::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_RestIsAlreadyAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP_ANY, BattleScript_RestIsAlreadyAsleep
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_RestIsAlreadyAsleep
 	jumpifuproarwakes BattleScript_RestCantSleep
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
@@ -6034,7 +6034,7 @@ BattleScript_EffectPainSplit::
 BattleScript_EffectSnore::
 	attackcanceler
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_SnoreIsAsleep
-	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_SnoreIsAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP_ANY, BattleScript_SnoreIsAsleep
 	attackstring
 	ppreduce
 	goto BattleScript_ButItFailed
@@ -6088,7 +6088,7 @@ BattleScript_EffectSketch::
 BattleScript_EffectSleepTalk::
 	attackcanceler
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_SleepTalkIsAsleep
-	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_SleepTalkIsAsleep
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP_ANY, BattleScript_SleepTalkIsAsleep
 	attackstring
 	ppreduce
 	goto BattleScript_ButItFailed
@@ -6230,7 +6230,7 @@ BattleScript_EffectNightmare::
 	goto BattleScript_TrapSucceededCheckNightmare
 BattleScript_TrapFailedCheckNightmare::
 	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TrapFailedNightmareWorked
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_TrapFailedNightmareWorked
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_TrapFailedNightmareWorked
 	goto BattleScript_ButItFailed
 BattleScript_TrapFailedNightmareWorked::
@@ -6243,7 +6243,7 @@ BattleScript_TrapFailedNightmareWorked::
 	goto BattleScript_MoveEnd
 BattleScript_TrapSucceededCheckNightmare::
 	jumpifstatus2 BS_TARGET, STATUS2_NIGHTMARE, BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_TrapSucceededNightmareWorked
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_TrapSucceededNightmareWorked
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_TrapSucceededNightmareWorked
 	goto BattleScript_ButItFailed
 BattleScript_TrapSucceededNightmareWorked::
@@ -8493,6 +8493,34 @@ BattleScript_SafeguardEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TickedTurnDrain::
+	playanimation BS_ATTACKER, B_ANIM_LEECH_SEED_DRAIN, sB_ANIM_ARG1
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	copyword gBattleMoveDamage, gHpDealt
+	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_TickedTurnPrintLiquidOoze
+	setbyte cMULTISTRING_CHOOSER, B_MSG_LEECH_SEED_DRAIN
+	jumpifstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_TickedHealBlock
+	manipulatedamage DMG_BIG_ROOT
+	goto BattleScript_TickedTurnPrintAndUpdateHp
+BattleScript_TickedTurnPrintLiquidOoze::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	setbyte cMULTISTRING_CHOOSER, B_MSG_LEECH_SEED_OOZE
+BattleScript_TickedTurnPrintAndUpdateHp::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printfromtable gTickedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	tryfaintmon BS_TARGET
+	end2
+BattleScript_TickedHealBlock:
+	setword gBattleMoveDamage, 0
+	goto BattleScript_TickedTurnPrintAndUpdateHp
+
 BattleScript_LeechSeedTurnDrain::
 	playanimation BS_ATTACKER, B_ANIM_LEECH_SEED_DRAIN, sB_ANIM_ARG1
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
@@ -9855,6 +9883,14 @@ BattleScript_MoveUsedIsFrozen::
 	statusanimation BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_UnfrozeTargetWaitMessage::
+    waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNWASDEFROSTED
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_TARGET
+    return
+    
+    
 BattleScript_MoveUsedUnfroze::
 	printfromtable gGotDefrostedStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -10035,6 +10071,8 @@ BattleScript_TargetPRLZHeal::
 	updatestatusicon BS_TARGET
 	return
 
+BattleScript_TargetWokeUpWaitMessage::
+    waitmessage B_WAIT_TIME_LONG
 BattleScript_TargetWokeUp::
 	printstring STRINGID_TARGETWOKEUP
 	waitmessage B_WAIT_TIME_LONG
@@ -10764,7 +10802,7 @@ BattleScript_BadDreamsLoop:
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_SUGAR_COAT, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_BadDreams_Dmg
-	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_BadDreams_Dmg
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_BadDreams_Dmg
 	goto BattleScript_BadDreamsIncrement
 BattleScript_BadDreams_Dmg:
 	jumpifbyteequal sFIXED_ABILITY_POPUP, sZero, BattleScript_BadDreams_ShowPopUp
@@ -11751,6 +11789,28 @@ BattleScript_Cheese_End2Part2:
 	datahpupdate BS_ATTACKER
 	removeitem BS_ATTACKER
 	end2
+
+BattleScript_YellowSoda_End2::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_YellowSoda_End2Part2
+	setfocusenergy
+	printfromtable gFocusEnergyUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_YellowSoda_End2Part2:
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_YellowSoda_End2Part3
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_YellowSoda_End2Part3
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_YellowSoda_End2Part3:
+	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	return
 
 BattleScript_FrothyCheese_End2::
 	tryaccupressure BS_ATTACKER, BattleScript_ButItFailed

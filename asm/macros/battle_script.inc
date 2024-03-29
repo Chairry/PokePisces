@@ -1307,6 +1307,11 @@
 	.endm
 
 @ callnative macros
+    
+    .macro setticked
+    callnative BS_SetTicked
+    .endm
+
 	.macro metalburstdamagecalculator failInstr:req
 	callnative BS_CalcMetalBurstDmg
 	.4byte \failInstr

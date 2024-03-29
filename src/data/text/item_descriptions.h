@@ -84,8 +84,8 @@ static const u8 sLureBallDesc[] = _(
 
 static const u8 sMoonBallDesc[] = _(
     "A Ball that works\n"
-    "well on Moon\n"
-    "Stone users.");
+    "well on cosmic\n"
+    "Pokémon.");
 
 static const u8 sFriendBallDesc[] = _(
     "A Ball that makes\n"
@@ -2813,9 +2813,9 @@ static const u8 sGrepaBerryDesc[] = _(
     "base Sp. Def.");
 
 static const u8 sTamatoBerryDesc[] = _(
-    "Makes a Pokémon\n"
-    "friendly but lowers\n"
-    "base Speed.");
+    "A unique berry\n"
+    "that bears love\n"
+    "a lot.");
 
 static const u8 sCornnBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"

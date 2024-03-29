@@ -33,7 +33,13 @@ RivalRoom_Movement_PlayerFaceBriney:
 
 RivalRoom_EventScript_GetOut::
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, RivalRoom_EventScript_Docked
-	msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
+	
+    givemon 10, 20
+    givemon 25, 20
+    setwildbattle 20, 10, 0, 25, 10, 0
+    dowildbattle 
+    
+    @msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
 	end
 
 RivalRoom_EventScript_Docked::

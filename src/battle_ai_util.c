@@ -2310,7 +2310,7 @@ static u32 GetLeechSeedDamage(u32 battlerId)
 static u32 GetNightmareDamage(u32 battlerId)
 {
     u32 damage = 0;
-    if ((gBattleMons[battlerId].status2 & STATUS2_NIGHTMARE) && gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+    if ((gBattleMons[battlerId].status2 & STATUS2_NIGHTMARE) && gBattleMons[battlerId].status1 & STATUS1_SLEEP_ANY)
     {
         damage = gBattleMons[battlerId].maxHP / 4;
         if (damage == 0)
@@ -2761,7 +2761,7 @@ bool32 IsBattlerIncapacitated(u32 battler, u32 ability)
     if ((gBattleMons[battler].status1 & STATUS1_FREEZE) && !HasThawingMove(battler))
         return TRUE;    // if battler has thawing move we assume they will definitely use it, and thus being frozen should be neglected
 
-    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+    if (gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
         return TRUE;
 
     if (gBattleMons[battler].status2 & STATUS2_RECHARGE || (ability == ABILITY_TRUANT && gDisableStructs[battler].truantCounter != 0))
@@ -3032,7 +3032,7 @@ static u32 FindMoveUsedXTurnsAgo(u32 battlerId, u32 x)
 bool32 IsWakeupTurn(u32 battler)
 {
     // Check if rest was used 2 turns ago
-    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) == 1 && FindMoveUsedXTurnsAgo(battler, 2) == MOVE_REST)
+    if ((gBattleMons[battler].status1 & STATUS1_SLEEP_ANY) == 1 && FindMoveUsedXTurnsAgo(battler, 2) == MOVE_REST)
         return TRUE;
     else // no way to know
         return FALSE;
@@ -3839,5 +3839,5 @@ bool32 ShouldUseZMove(u32 battlerAtk, u32 battlerDef, u32 chosenMove)
 
 bool32 AI_IsBattlerAsleepOrComatose(u32 battlerId)
 {
-    return (gBattleMons[battlerId].status1 & STATUS1_SLEEP) || AI_DATA->abilities[battlerId] == ABILITY_COMATOSE;
+    return (gBattleMons[battlerId].status1 & STATUS1_SLEEP_ANY) || AI_DATA->abilities[battlerId] == ABILITY_COMATOSE;
 }

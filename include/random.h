@@ -97,6 +97,7 @@ enum RandomTag
     RNG_SIGNAL_BEAM,
     RNG_HEART_STAMP_FLINCH,
     RNG_RADIOACID,
+    RNG_HOLD_EFFECT_COARSE_SAND,
 };
 
 #define RandomWeighted(tag, ...) \
