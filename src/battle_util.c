@@ -3561,7 +3561,8 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_FROZEN: // check being frozen
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE && !(gBattleMoves[gCurrentMove].thawsUser))
             {
-                if (!RandomPercentage(RNG_FROZEN, 20))
+                gBattleMons[gBattlerAttacker].status1 -= STATUS1_FREEZE_TURN(1);
+                if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
                 {
                     gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
@@ -10284,6 +10285,10 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
         defStat /= 2;
 #endif
+    
+    // freeze status cuts defense in half
+    if (gBattleMons[battlerDef].status1 & STATUS1_FREEZE)
+        defStat /= 2;
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
         defStat = spDef;

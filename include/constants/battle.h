@@ -108,10 +108,10 @@
 #define STATUS1_NONE             0
 #define STATUS1_SLEEP            (1 << 0 | 1 << 1) // 2bits - lasts for 2-3 turns
 #define STATUS1_SLEEP_TURN(num)  ((num) << 0) // Just for readability (or if rearranging statuses)
-#define STATUS1_UNUSED_2         (1 << 2)
-#define STATUS1_POISON           (1 << 3)
-#define STATUS1_BURN             (1 << 4)
-#define STATUS1_FREEZE           (1 << 5)
+#define STATUS1_FREEZE           (1 << 2 | 1 << 3)  //2bits up to 3 turns
+#define STATUS1_FREEZE_TURN(num) ((num) << 2)
+#define STATUS1_POISON           (1 << 4)
+#define STATUS1_BURN             (1 << 5)
 #define STATUS1_PARALYSIS        (1 << 6)
 #define STATUS1_TOXIC_POISON     (1 << 7)
 #define STATUS1_TOXIC_COUNTER    (1 << 8 | 1 << 9 | 1 << 10 | 1 << 11)

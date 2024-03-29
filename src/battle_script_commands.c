@@ -2748,6 +2748,7 @@ static void Cmd_resultmessage(void)
     if (stringId)
         PrepareStringBattle(stringId, gBattlerAttacker);
 
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 
     // Print berry reducing message after result message.
@@ -2757,6 +2758,18 @@ static void Cmd_resultmessage(void)
         gSpecialStatuses[gBattlerTarget].berryReduced = FALSE;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_PrintBerryReduceString;
+    }
+    
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerTarget].hp > 0
+            && gBattleMons[gBattlerTarget].status1 & STATUS1_FREEZE
+            && (gSpecialStatuses[gBattlerTarget].physicalDmg > 0 || gBattleMoves[gCurrentMove].type == TYPE_FIRE)) {
+        // cure freeze from physical or fire damage
+        gBattleMons[gBattlerTarget].status1 = 0;
+        BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+        MarkBattlerForControllerExec(gBattlerTarget);
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_UnfrozeTargetWaitMessage;
     }
 }
 
@@ -3278,8 +3291,11 @@ void SetMoveEffect(bool32 primary, u32 certain)
 
             if (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_SLEEP)
                 gBattleMons[gEffectBattler].status1 |= STATUS1_SLEEP_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 2));    // 2-3 turns
+            else if (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_FREEZE)
+                gBattleMons[gEffectBattler].status1 |= STATUS1_FREEZE_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 2));    // 2-3 turns
             else
                 gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
+            
 
             gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
 

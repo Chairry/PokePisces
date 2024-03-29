@@ -9855,6 +9855,14 @@ BattleScript_MoveUsedIsFrozen::
 	statusanimation BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_UnfrozeTargetWaitMessage::
+    waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNWASDEFROSTED
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_TARGET
+    return
+    
+    
 BattleScript_MoveUsedUnfroze::
 	printfromtable gGotDefrostedStringIds
 	waitmessage B_WAIT_TIME_LONG
