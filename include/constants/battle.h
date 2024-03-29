@@ -200,6 +200,10 @@
 #define STATUS4_INFINITE_CONFUSION      (1 << 4)    // Used for Berserk Gene
 #define STATUS4_SALT_CURE               (1 << 5)
 #define STATUS4_GLAIVE_RUSH             (1 << 6)
+#define STATUS4_TICKED                  (1 << 7) 
+#define STATUS4_TICKED_BATTLER          (1 << 8 | 1 << 9) // The battler to receive HP from Ticked
+#define STATUS4_TICKED_BY(battler)      ((battler) << 8)
+
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)

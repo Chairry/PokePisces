@@ -8493,6 +8493,34 @@ BattleScript_SafeguardEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_TickedTurnDrain::
+	playanimation BS_ATTACKER, B_ANIM_LEECH_SEED_DRAIN, sB_ANIM_ARG1
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	copyword gBattleMoveDamage, gHpDealt
+	jumpifability BS_ATTACKER, ABILITY_LIQUID_OOZE, BattleScript_TickedTurnPrintLiquidOoze
+	setbyte cMULTISTRING_CHOOSER, B_MSG_LEECH_SEED_DRAIN
+	jumpifstatus3 BS_TARGET, STATUS3_HEAL_BLOCK, BattleScript_TickedHealBlock
+	manipulatedamage DMG_BIG_ROOT
+	goto BattleScript_TickedTurnPrintAndUpdateHp
+BattleScript_TickedTurnPrintLiquidOoze::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	setbyte cMULTISTRING_CHOOSER, B_MSG_LEECH_SEED_OOZE
+BattleScript_TickedTurnPrintAndUpdateHp::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printfromtable gTickedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	tryfaintmon BS_TARGET
+	end2
+BattleScript_TickedHealBlock:
+	setword gBattleMoveDamage, 0
+	goto BattleScript_TickedTurnPrintAndUpdateHp
+
 BattleScript_LeechSeedTurnDrain::
 	playanimation BS_ATTACKER, B_ANIM_LEECH_SEED_DRAIN, sB_ANIM_ARG1
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE

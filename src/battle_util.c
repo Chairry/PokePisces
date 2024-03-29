@@ -2642,6 +2642,7 @@ enum
     ENDTURN_PLASMA_FISTS,
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
+    ENDTURN_TICKED,
     ENDTURN_PANIC,
     ENDTURN_BLOOMING,
     ENDTURN_SPIDER_WEB,
@@ -3211,6 +3212,27 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = 1;
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SALT_CURE);
                 BattleScriptExecute(BattleScript_SaltCureExtraDamage);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_TICKED:
+            if ((gStatuses4[battler] & STATUS4_TICKED) && gBattleMons[gStatuses4[battler] & STATUS4_TICKED_BATTLER].hp != 0 && gBattleMons[battler].hp != 0)
+            {
+                MAGIC_GUARD_CHECK;
+
+                gBattlerTarget = gStatuses4[battler] & STATUS4_TICKED_BATTLER; // Notice gBattlerTarget is actually the HP receiver.
+                
+                if (IS_BATTLER_OF_TYPE(battler, TYPE_GRASS) || IS_BATTLER_OF_TYPE(battler, TYPE_DARK) || IS_BATTLER_OF_TYPE(battler, TYPE_PSYCHIC))
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
+                else
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+                gBattleScripting.animArg1 = gBattlerTarget;
+                gBattleScripting.animArg2 = gBattlerAttacker;
+                BattleScriptExecute(BattleScript_TickedTurnDrain);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;

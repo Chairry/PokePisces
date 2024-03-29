@@ -16713,6 +16713,23 @@ static void Cmd_callnative(void)
 }
 
 // Callnative Funcs
+void BS_SetTicked(void)
+{
+    NATIVE_ARGS();
+
+    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses4[gBattlerTarget] & STATUS4_TICKED)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+    }
+    else
+    {
+        gStatuses4[gBattlerTarget] |= STATUS4_TICKED_BY(gBattlerAttacker);
+        gStatuses4[gBattlerTarget] |= STATUS4_TICKED;
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_CalcMetalBurstDmg(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
