@@ -16061,6 +16061,13 @@ static void Cmd_handleballthrow(void)
                 || gBattleMons[gBattlerTarget].species == SPECIES_SUMMERASU)
                     ballMultiplier = 400;
                 break;
+            case ITEM_FRIEND_BALL:
+                for (i = 0; i < EVOS_PER_MON; i++)
+                {
+                    if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP
+                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP_MOVE_TYPE)
+                        ballMultiplier = 400;
+                }
             case ITEM_LOVE_BALL:
                 if (gBattleMons[gBattlerTarget].species == gBattleMons[gBattlerAttacker].species)
                 {
