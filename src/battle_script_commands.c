@@ -15928,12 +15928,15 @@ static void Cmd_handleballthrow(void)
                 ballMultiplier = 150;
                 break;
             case ITEM_NET_BALL:
-                if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_BUG))
-                #if B_NET_BALL_MODIFIER >= GEN_7
-                    ballMultiplier = 350;
-                #else
-                    ballMultiplier = 300;
-                #endif
+                i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 0);
+                if (i > 36)
+                    ballAddition = -20;
+                else if (i > 24)
+                    ballAddition = 0;
+                else if (i > 12)
+                    ballAddition = 20;
+                else
+                    ballAddition = 30;
                 break;
             case ITEM_DIVE_BALL:
                 if (GetCurrentMapType() == MAP_TYPE_UNDERWATER
