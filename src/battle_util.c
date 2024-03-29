@@ -7940,6 +7940,18 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
                 break;
+            case HOLD_EFFECT_YELLOW_SODA:
+                if (gBattleMons[battler].species == SPECIES_VOREON && gBattleMons[battler].hp < (gBattleMons[battler].maxHP / 2) && !moveTurn && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 2;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_YellowSoda_End2);
+                    effect = ITEM_HP_STATS_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
             case HOLD_EFFECT_A_THING:
                 if ((gBattleMons[battler].species == SPECIES_CAPYBARA || gBattleMons[battler].species == SPECIES_ABARBINASH) && (Random() % 100) == 0 && !moveTurn)
                 {
@@ -8244,6 +8256,26 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && !gBattleMoves[gCurrentMove].ignoresKingsRock && gBattleMons[gBattlerTarget].hp && RandomPercentage(RNG_HOLD_EFFECT_FLINCH, atkHoldEffectParam) && ability != ABILITY_STENCH)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
+                BattleScriptPushCursor();
+                SetMoveEffect(FALSE, 0);
+                BattleScriptPop();
+            }
+        }
+        break;
+        case HOLD_EFFECT_COARSE_SAND:
+        {
+            u16 ability = GetBattlerAbility(gBattlerAttacker);
+            if (ability == ABILITY_SERENE_GRACE)
+                atkHoldEffectParam *= 2;
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && TARGET_TURN_DAMAGED 
+                && gBattleMoves[gCurrentMove].sandMove 
+                && gBattleMons[gBattlerTarget].hp 
+                && RandomPercentage(RNG_HOLD_EFFECT_COARSE_SAND, atkHoldEffectParam)
+                && CompareStat(gBattlerAttacker, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN))
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_DEF_MINUS_2;
                 BattleScriptPushCursor();
                 SetMoveEffect(FALSE, 0);
                 BattleScriptPop();

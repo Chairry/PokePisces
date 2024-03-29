@@ -505,6 +505,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_EVSN_UP_1,
         .magicCoatAffected = TRUE,
+        .sandMove = TRUE,
     },
 
     [MOVE_HEADBUTT] =
@@ -5647,6 +5648,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .sandMove = TRUE,
     },
 
     [MOVE_SHEER_COLD] =
@@ -12428,6 +12430,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
         .thawsUser = TRUE,
+        .sandMove = TRUE,
     },
 
     [MOVE_JUNGLE_HEALING] =
@@ -13018,6 +13021,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
         .windMove = TRUE,
+        .sandMove = TRUE,
     },
 
     [MOVE_LUNAR_BLESSING] =

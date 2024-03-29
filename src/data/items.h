@@ -212,7 +212,7 @@ const struct Item gItems[] =
 
     [ITEM_MOON_BALL] =
     {
-        .name = _("Moon Ball"),
+        .name = _("Orbit Ball"),
         .price = 400,
         .description = sMoonBallDesc,
         .pocket = POCKET_POKE_BALLS,
@@ -6526,6 +6526,7 @@ const struct Item gItems[] =
     {
         .name = _("Yellow Soda"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_YELLOW_SODA,
         .description = sYellowSodaDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
@@ -6623,11 +6624,11 @@ const struct Item gItems[] =
     [ITEM_TAMATO_BERRY] =
     {
         .name = _("Tamato Berry"),
-        .price = 20,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_TAMATO_BERRY,
         .description = sTamatoBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .flingPower = 10,
     },
 
@@ -10010,12 +10011,13 @@ const struct Item gItems[] =
     [ITEM_COARSE_SAND] =
     {
         .name = _("Coarse Sand"),
-        .price = 2000,
-        .description = sCoarseSandDesc,
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_COARSE_SAND,
+        .holdEffectParam = 100,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_OBJECT_D_ARC] =
     {
