@@ -597,6 +597,7 @@
 #define B_ANIM_STATUS_PNC               10
 #define B_ANIM_STATUS_BLOOMING          11
 #define B_ANIM_STATUS_EXPOSED           12
+#define B_ANIM_STATUS_REST              13
 
 // Tasks with return values often assign them to gBattleAnimArgs[7].
 #define ARG_RET_ID 7

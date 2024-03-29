@@ -1005,6 +1005,7 @@ gBattleAnims_StatusConditions::
 	.4byte Status_Panic						@ B_ANIM_STATUS_PNC
 	.4byte Status_Blooming				    @ B_ANIM_STATUS_BLOOMING
 	.4byte Status_Exposed				    @ B_ANIM_STATUS_EXPOSED
+	.4byte Status_Sleep                     @ B_ANIM_STATUS_REST
 
 	.align 2
 gBattleAnims_General::
