@@ -1307,6 +1307,11 @@
 	.endm
 
 @ callnative macros
+    
+    .macro setticked
+    callnative BS_SetTicked
+    .endm
+
 	.macro metalburstdamagecalculator failInstr:req
 	callnative BS_CalcMetalBurstDmg
 	.4byte \failInstr
@@ -1333,6 +1338,12 @@
 
 	.macro jumpifmorethanhalfHP battler:req, jumpInstr:req
 	callnative BS_JumpIfMoreThanHalfHP
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifmorethanthirdHP battler:req, jumpInstr:req
+	callnative BS_JumpIfMoreThanThirdHP
 	.byte \battler
 	.4byte \jumpInstr
 	.endm
@@ -1652,6 +1663,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro seizechancecheck failInstr:req
+	various BS_ATTACKER, VARIOUS_SEIZE_CHANCE_CHECK
+	.4byte \failInstr
+	.endm
+
 	.macro setabilitysimple battler:req, failInstr:req
 	various \battler VARIOUS_SET_SIMPLE_BEAM
 	.4byte \failInstr
@@ -1817,6 +1833,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trycheesing battler:req, failInstr:req
+	various \battler, VARIOUS_CHEESING
+	.4byte \failInstr
+	.endm
+
 	.macro setpowder battler:req
 	various \battler, VARIOUS_SET_POWDER
 	.endm
@@ -1921,6 +1942,31 @@
 	.macro infatuatewithbattler battler:req, infatuateWith:req
 	various \battler, VARIOUS_INFATUATE_WITH_BATTLER
 	.byte \infatuateWith
+	.endm
+
+	.macro destinyknotdisable battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_DISABLE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottorment battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TORMENT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottaunt battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TAUNT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknotencore battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_ENCORE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknothealblock battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_HEAL_BLOCK
+	.4byte \failInstr
 	.endm
 
 	.macro setlastuseditem battler:req
@@ -2264,6 +2310,10 @@
 	manipulatedamage DMG_1_2_ATTACKER_HP
 	.endm
 
+	.macro dmg_1_3_attackerhp
+	manipulatedamage DMG_1_3_ATTACKER_HP
+	.endm
+
 	.macro jumpifflowerveil jumpInstr:req
 	jumpifnottype BS_TARGET, TYPE_GRASS, 1f
 	jumpifability BS_TARGET_SIDE, ABILITY_FLOWER_VEIL, \jumpInstr
@@ -2287,6 +2337,11 @@
 
 	.macro jumpifleafguardprotected battler:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_LEAF_GUARD_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifeeriemaskprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED
 	.4byte \jumpInstr
 	.endm
 

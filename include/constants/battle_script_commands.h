@@ -251,6 +251,14 @@
 #define VARIOUS_SET_SPIDER_WEB                       158
 #define VARIOUS_TRY_ACTIVATE_APPETITE                159
 #define VARIOUS_SET_SILENCE                          160
+#define VARIOUS_SEIZE_CHANCE_CHECK                   161
+#define VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED         162
+#define VARIOUS_DESTINY_KNOT_DISABLE                 163
+#define VARIOUS_DESTINY_KNOT_TORMENT                 164
+#define VARIOUS_DESTINY_KNOT_TAUNT                   165
+#define VARIOUS_DESTINY_KNOT_ENCORE                  166
+#define VARIOUS_DESTINY_KNOT_HEAL_BLOCK              167
+#define VARIOUS_CHEESING                             168
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
@@ -262,6 +270,7 @@
 #define DMG_BIG_ROOT               6
 #define DMG_1_2_ATTACKER_HP        7
 #define DMG_RECOIL_FROM_IMMUNE     8 // Used to calculate recoil for the Gen 4 version of Jump Kick
+#define DMG_1_3_ATTACKER_HP        9
 
 // Cmd_jumpifcantswitch
 #define SWITCH_IGNORE_ESCAPE_PREVENTION   (1 << 7)

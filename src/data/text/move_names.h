@@ -920,6 +920,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PESTER_RAID] = _("Pester Raid"),
     [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
     [MOVE_BLACK_BUFFET] = _("Black Buffet"),
+    [MOVE_FINISH_OFF] = _("Finish Off"),
+    [MOVE_SEIZE_CHANCE] = _("Seize Chance"),
+    [MOVE_CASTLE_CRASH] = _("Castle Crash"),
+    [MOVE_BRUTALIZE] = _("Brutalize"),
+    [MOVE_TERRORIZE] = _("Terrorize"),
 };
 #else
 // 12 letters
@@ -1843,6 +1848,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PESTER_RAID] = _("Pester Raid"),
     [MOVE_BENTHIC_WHIP] = _("Benthic Whip"),
     [MOVE_BLACK_BUFFET] = _("Black Buffet"),
+    [MOVE_FINISH_OFF] = _("Finish Off"),
+    [MOVE_SEIZE_CHANCE] = _("Seize Chance"),
+    [MOVE_CASTLE_CRASH] = _("Castle Crash"),
+    [MOVE_BRUTALIZE] = _("Brutalize"),
+    [MOVE_TERRORIZE] = _("Terrorize"),
 };
 #endif
 

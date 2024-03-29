@@ -408,8 +408,6 @@
 #define ANIM_TAG_DRAGON_HEAD                (ANIM_SPRITES_START + 394)
 #define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
-#define ANIM_TAG_REAL_DRAGON_HEAD           (ANIM_SPRITES_START + 397)
-#define ANIM_TAG_REAL_DRAGON_ORB            (ANIM_SPRITES_START + 398)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -521,6 +519,8 @@
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
 #define BG_URANIUM 81
+#define BG_THUNDER_2 82
+#define BG_INVERSE_ROOM 83
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -570,6 +570,8 @@
 #define B_ANIM_SWITCH_ITEMS             44
 #define B_ANIM_TIME_TURN                45
 #define B_ANIM_ENTRANCING               46
+#define B_ANIM_REVERSI                  47
+#define B_ANIM_A_THING                  48
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -595,6 +597,7 @@
 #define B_ANIM_STATUS_PNC               10
 #define B_ANIM_STATUS_BLOOMING          11
 #define B_ANIM_STATUS_EXPOSED           12
+#define B_ANIM_STATUS_REST              13
 
 // Tasks with return values often assign them to gBattleAnimArgs[7].
 #define ARG_RET_ID 7

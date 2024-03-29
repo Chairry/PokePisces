@@ -279,19 +279,56 @@ BirchMaritimeLab_Text_OhYourBagsFull:
 	.string "uh oh spaghettios$"
 
 BirchMaritimeLab_Text_HaveEXPShare:
-	.string "heres the exp share$"
+	.string "Great job, kiddo!\n"
+	.string "Heard they got a good whoopin'.\p"
+	.string "You should be off properly, now.\p"
+	.string "If you want to fill out the badge case,\n"
+	.string "Sootopolis City is the place to be!\p"
+	.string "You can get there by leaving via the\n"
+	.string "east exit of Pacifidlog,\l"
+	.string "and hiking up the coastal rocks.\p"
+	.string "Oh!\p"
+	.string "And I suspect you're going to want to\n"
+	.string "raise a lot of team members.\p"
+	.string "Here; this EXP Share should help\n"
+	.string "with that!$"
 
 BirchMaritimeLab_Text_GoToSootopolis:
-	.string "go east bestie$"
+	.string "You can turn on the EXP Share from your\n"
+	.string "bag, {PLAYER}.\l"
+	.string "When on, it'll share EXP to Pokémon\l"
+	.string "in your party, even if\l"
+	.string "they didn't battle.\p"
+	.string "Hah!\n"
+	.string "You look about ready\l"
+	.string "to take on anything!\p"
+	.string "Go get 'em, champ;\n"
+	.string "dear ol' dad is rooting you on!$"
 
 BirchMaritimeLab_Text_BirchPostSkyPillar:
-	.string "birch test$"
+	.string "{PLAYER}, don't forget;\n"
+	.string "your goal right now should be\l"
+	.string "getting to Sootopolis City.\p"
+	.string "It's a simple trek east!\n"
+	.string "Make me proud, and be safe!$"
 
 BirchMaritimeLab_Text_GrangerPostSkyPillar:
-	.string "granger test$"
+	.string "Ah, {PLAYER}!\p"
+	.string "You've proven yourself a\n"
+	.string "blossoming talent!\p"
+	.string "We have nothing left to assist you\n"
+	.string "with. Explore Hoenn to your heart's\l"
+	.string "content. Be safe out there!$"
 
 BirchMaritimeLab_Text_JeanniePostSkyPillar:
-	.string "jeannie test$"
+	.string "Well, what are you waiting for?\n"
+	.string "the world's your oyster!\l"
+	.string "Make us proud!$"
 
 BirchMaritimeLab_Text_RickyPostSkyPillar:
-	.string "ricky test$"
+	.string "You're on FIRE!!\p"
+	.string "Burned through the three of us like\n"
+	.string "we was dry paper!\p"
+	.string "Keep it up, don't let that passion'a\n"
+	.string "yours die out. Go show Hoenn\l"
+	.string "what you're made of!$"

@@ -430,6 +430,8 @@ void InitAndLaunchChosenStatusAnimation(u32 battler, bool32 isStatus2, u32 statu
             LaunchStatusAnimation(battler, B_ANIM_STATUS_BRN);
         else if (status & STATUS1_SLEEP)
             LaunchStatusAnimation(battler, B_ANIM_STATUS_SLP);
+        else if (status & STATUS1_REST)
+            LaunchStatusAnimation(battler, B_ANIM_STATUS_REST);
         else if (status == STATUS1_PARALYSIS)
             LaunchStatusAnimation(battler, B_ANIM_STATUS_PRZ);
         else if (status == STATUS1_PANIC)

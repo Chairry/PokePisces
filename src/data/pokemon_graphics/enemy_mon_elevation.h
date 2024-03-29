@@ -55,6 +55,7 @@ const u8 gEnemyMonElevation[NUM_SPECIES + 1] =
     [SPECIES_BANETTE] = 8,
     [SPECIES_CASTFORM] = 16,
     [SPECIES_BELDUM] = 8,
+    [SPECIES_SALAMENCE] = 8,
     [SPECIES_RAYQUAZA] = 6,
     [SPECIES_LATIAS] = 12,
     [SPECIES_LATIOS] = 6,

@@ -15,19 +15,6 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
-      "x": 1,
-      "y": 5,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 10,
       "y": 42,
@@ -50,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CosmossSpaceCenter_EventScript_RocketResearcher",
       "flag": "0"
     },
     {
@@ -80,21 +67,21 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
-      "x": 1,
-      "y": 12,
+      "graphics_id": "OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT",
+      "x": 2,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CosmossSpaceCenter_EventScript_AsteroidResearcher",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_F",
-      "x": 4,
+      "x": 2,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -119,16 +106,16 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
-      "x": 13,
-      "y": 29,
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_WHITE_HAIR",
+      "x": 3,
+      "y": 27,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CosmossSpaceCenter_EventScript_AlienResearcher",
       "flag": "0"
     },
     {
@@ -146,7 +133,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 5,
+      "x": 6,
       "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_LEFT_AND_RIGHT",
@@ -172,7 +159,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_F",
-      "x": 2,
+      "x": 9,
       "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -180,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CosmossSpaceCenter_EventScript_UFOResearcher",
       "flag": "0"
     }
   ],
@@ -232,7 +219,7 @@
     {
       "type": "trigger",
       "x": 2,
-      "y": 5,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
       "var_value": "0",
@@ -240,8 +227,8 @@
     },
     {
       "type": "trigger",
-      "x": 3,
-      "y": 5,
+      "x": 7,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
       "var_value": "0",
@@ -279,9 +266,9 @@
       "x": 13,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_SPACE_CENTER_QUEST_STATE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "CosmossSpaceCenter_EventScript_AIBlock"
     }
   ],
   "bg_events": [

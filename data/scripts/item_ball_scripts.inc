@@ -455,7 +455,7 @@ AbandonedShip_HiddenFloorRooms_EventScript_ItemWaterStone::
 	end
 
 AbandonedShip_HiddenFloorRooms_EventScript_ItemTMRainDance::
-	finditem ITEM_TM_HEX
+	finditem ITEM_TM_FEAR_FACTOR
 	end
 
 ScorchedSlab_EventScript_ItemTMSunnyDay::

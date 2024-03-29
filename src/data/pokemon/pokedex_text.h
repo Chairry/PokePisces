@@ -6627,7 +6627,7 @@ const u8 gDeteriotlPokedexText[] = _(
     "now completely different from what it\n"
     "once was.");
 
-const u8 gClawlisticPokedexText[] = _(
+const u8 gDakkapodPokedexText[] = _(
     "It uses its claws as fake heads to scare\n"
     "off larger predators. If that does not\n"
     "work, it can also blow them away with\n"

@@ -381,7 +381,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(INFAIRNO),
     SPECIES_TO_HOENN(PURGATIVAL),
     SPECIES_TO_HOENN(DETERIOTL),
-    SPECIES_TO_HOENN(CLAWLISTIC),
+    SPECIES_TO_HOENN(DAKKAPOD),
     SPECIES_TO_HOENN(UNBERRABLE),
     SPECIES_TO_HOENN(VAIKING),
 };
@@ -1510,7 +1510,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(INFAIRNO),
     SPECIES_TO_NATIONAL(PURGATIVAL),
     SPECIES_TO_NATIONAL(DETERIOTL),
-    SPECIES_TO_NATIONAL(CLAWLISTIC),
+    SPECIES_TO_NATIONAL(DAKKAPOD),
     SPECIES_TO_NATIONAL(UNBERRABLE),
     SPECIES_TO_NATIONAL(PEBLRANIUM),
     SPECIES_TO_NATIONAL(VAIKING),
@@ -2227,7 +2227,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(INFAIRNO),
     HOENN_TO_NATIONAL(PURGATIVAL),
     HOENN_TO_NATIONAL(DETERIOTL),
-    HOENN_TO_NATIONAL(CLAWLISTIC),
+    HOENN_TO_NATIONAL(DAKKAPOD),
     HOENN_TO_NATIONAL(UNBERRABLE),
     HOENN_TO_NATIONAL(VAIKING),
 };
@@ -3408,7 +3408,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_INFAIRNO - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PURGATIVAL - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_DETERIOTL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
-    [SPECIES_CLAWLISTIC - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DAKKAPOD - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_UNBERRABLE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PEBLRANIUM - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_VAIKING - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
@@ -6303,6 +6303,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
             friendship += 150 * friendshipChange / 100;                                                 \
+        else if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)                          \
+            friendship += friendshipChange * -1;                                                        \
         else                                                                                            \
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
@@ -6419,7 +6421,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
 
             // Cure status
-            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP_ANY, battlerId) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battlerId) == 0)
                 retVal = FALSE;
@@ -6757,10 +6759,10 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
 
     if (status & healMask)
     {
-        status &= ~healMask;
+        status &= ~(healMask);
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+            gBattleMons[battlerId].status1 = status;
         return FALSE;
     }
     else
@@ -7714,6 +7716,9 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
                 mod = (150 * mod) / 100;
             friendship += mod;
+            if (mod > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)
+                mod *= -1;
+            friendship += mod;
             if (mod > 0)
             {
                 if (GetMonData(mon, MON_DATA_POKEBALL, 0) == ITEM_LUXURY_BALL)
@@ -8189,7 +8194,7 @@ u16 GetBattleBGM(void)
     else if (gBattleTypeFlags & BATTLE_TYPE_REGI)
         return MUS_VS_REGI;
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-        return MUS_VS_TRAINER;
+        return MUS_VS_PTRAINER;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         u8 trainerClass;
@@ -8219,7 +8224,7 @@ u16 GetBattleBGM(void)
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
             if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gText_BattleWallyName))
-                return MUS_VS_TRAINER;
+                return MUS_VS_PTRAINER;
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
@@ -8232,7 +8237,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:
-            return MUS_VS_TRAINER;
+            return MUS_VS_PTRAINER;
         }
     }
     else

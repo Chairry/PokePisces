@@ -1456,10 +1456,8 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_DragonScale, 0x800, ANIM_TAG_DRAGON_SCALE},
     {gBattleAnimSpriteGfx_PurpleChain, 0x1000, ANIM_TAG_PURPLE_CHAIN},
     {gBattleAnimSpriteGfx_DragonHead, 0x0A00, ANIM_TAG_DRAGON_HEAD},
-    {gBattleAnimSpriteGfx_WaterOrb, 0x0200, ANIM_TAG_DRAGON_ORB},
+    {gBattleAnimSpriteGfx_DragonOrb, 0x0200, ANIM_TAG_DRAGON_ORB},
     {gBattleAnimSpriteGfx_DragonHeadOpponent, 0x0A00, ANIM_TAG_DRAGON_HEAD_OPPONENT},
-    {gBattleAnimSpriteGfx_WaterOrb, 0x0200, ANIM_TAG_REAL_DRAGON_ORB},
-    {gBattleAnimSpriteGfx_DragonHead, 0x0A00, ANIM_TAG_REAL_DRAGON_HEAD},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1916,9 +1914,7 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_DragonScale, ANIM_TAG_DRAGON_SCALE},
     {gBattleAnimSpritePal_PurpleChain, ANIM_TAG_PURPLE_CHAIN},
     {gBattleAnimSpritePal_DragonHead, ANIM_TAG_DRAGON_HEAD},
-    {gBattleAnimSpritePal_DragonHead, ANIM_TAG_DRAGON_ORB},
-    {gBattleAnimSpritePal_RealDragonHead, ANIM_TAG_REAL_DRAGON_HEAD},
-    {gBattleAnimSpritePal_RealDragonOrb, ANIM_TAG_REAL_DRAGON_ORB},
+    {gBattleAnimSpritePal_DragonOrb, ANIM_TAG_DRAGON_ORB},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2006,4 +2002,6 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_STEEL_BEAM_PLAYER]         = {gBattleAnimBgImage_Highspeed,               gBattleAnimBgPalette_SteelBeam,               gBattleAnimBgTilemap_HighspeedPlayer},
     [BG_CHLOROBLAST]               = {gBattleAnimBgImage_HydroCannon,             gBattleAnimBgPalette_Chloroblast,             gBattleAnimBgTilemap_HydroCannon},
     [BG_URANIUM]                   = {gBattleAnimBgImage_FocusBlast,              gBattleAnimBgPalette_LeafStorm,               gBattleAnimBgTilemap_FocusBlast},
+    [BG_THUNDER_2]                 = {gBattleAnimBgImage_Thunder,                 gBattleAnimBgPalette_Thunder2,                gBattleAnimBgTilemap_Thunder},
+    [BG_INVERSE_ROOM]              = {gBattleAnimBgImage_TrickRoom,               gBattleAnimBgPalette_InverseRoom,             gBattleAnimBgTilemap_TrickRoom},
 };
