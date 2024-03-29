@@ -4473,7 +4473,11 @@ static u32 GetMonHoldEffect(struct Pokemon *mon)
     u32 item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
     if (item == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    #else
+        holdEffect = 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = ItemId_GetHoldEffect(item);
 
@@ -12474,7 +12478,8 @@ static void Cmd_normalisebuffs(void)
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
-    else
+    
+    if ((!(gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE)) && (gCurrentMove == MOVE_MIRACLE_EYE))
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -13197,6 +13202,18 @@ static void Cmd_transformdataexecution(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TRANSFORMED
         || gBattleStruct->illusion[gBattlerTarget].on
+        || gBattleMons[gBattlerTarget].species == SPECIES_SCEPTILE
+        || gBattleMons[gBattlerTarget].species == SPECIES_COMBUSKEN
+        || gBattleMons[gBattlerTarget].species == SPECIES_MUDKIP
+        || gBattleMons[gBattlerTarget].species == SPECIES_METAGROSS
+        || gBattleMons[gBattlerTarget].species == SPECIES_SALAMENCE
+        || gBattleMons[gBattlerTarget].species == SPECIES_ARMALDO
+        || gBattleMons[gBattlerTarget].species == SPECIES_CRADILY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SUNNY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_RAINY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SNOWY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SANDY
         || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
