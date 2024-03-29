@@ -797,7 +797,7 @@ Common_Mart_TannerShop4:
 	.2byte ITEM_BURN_HEAL
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -825,7 +825,7 @@ Common_Mart_TannerShop5:
 	.2byte ITEM_BURN_HEAL
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -855,7 +855,7 @@ Common_Mart_TannerShop6:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -887,7 +887,7 @@ Common_Mart_TannerShop7:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -920,7 +920,7 @@ Common_Mart_TannerShop8:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -954,7 +954,7 @@ Common_Mart_TannerShop9:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end
@@ -989,7 +989,7 @@ Common_Mart_TannerShop10:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_LAVA_COOKIE
-	.2byte ITEM_BITTER_ROOT
+	.2byte ITEM_ENERGY_ROOT
 	.2byte ITEM_NONE
 	release
 	end

@@ -1,6 +1,6 @@
 const u8 gItemEffect_Potion[7] = {
     [4] = ITEM4_HEAL_HP,
-    [6] = 20, // Amount of HP to recover
+    [6] = 60, // Amount of HP to recover
 };
 
 const u8 gItemEffect_Antidote[6] = {
@@ -37,7 +37,7 @@ const u8 gItemEffect_MaxPotion[7] = {
 const u8 gItemEffect_HyperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 120, // Amount of HP to recover
+    [6] = 150, // Amount of HP to recover
 #else
     [6] = 200, // Amount of HP to recover
 #endif
@@ -46,7 +46,7 @@ const u8 gItemEffect_HyperPotion[7] = {
 const u8 gItemEffect_SuperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 60, // Amount of HP to recover
+    [6] = 100, // Amount of HP to recover
 #else
     [6] = 50, // Amount of HP to recover
 #endif
@@ -78,7 +78,7 @@ const u8 gItemEffect_FreshWater[7] = {
 const u8 gItemEffect_SodaPop[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 50, // Amount of HP to recover
+    [6] = 30, // Amount of HP to recover
 #else
     [6] = 60, // Amount of HP to recover
 #endif
@@ -99,29 +99,17 @@ const u8 gItemEffect_MoomooMilk[7] = {
 };
 
 const u8 gItemEffect_EnergyPowder[10] = {
-    [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
-#if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 60, // Amount of HP to recover
-#else
-    [6] = 50, // Amount of HP to recover
-#endif
     [7] = -5, // Friendship change, low
     [8] = -5, // Friendship change, mid
     [9] = -10, // Friendship change, high
 };
 
 const u8 gItemEffect_EnergyRoot[10] = {
-    [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
-#if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 120, // Amount of HP to recover
-#else
-    [6] = 200, // Amount of HP to recover
-#endif
-    [7] = -10, // Friendship change, low
-    [8] = -10, // Friendship change, mid
-    [9] = -15, // Friendship change, high
+    [7] = -30, // Friendship change, low
+    [8] = -35, // Friendship change, mid
+    [9] = -40, // Friendship change, high
 };
 
 const u8 gItemEffect_HealPowder[9] = {
