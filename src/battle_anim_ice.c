@@ -273,6 +273,39 @@ const struct SpriteTemplate gPowderSnowSnowballSpriteTemplate =
     .callback = AnimMoveParticleBeyondTarget,
 };
 
+const struct SpriteTemplate gSpinningPowderSnowSnowballSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICE_CRYSTALS,
+    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gAnims_Snowball,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex,
+};
+
+const struct SpriteTemplate gSpinningIceCrystalHitLargeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICE_CRYSTALS,
+    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
+    .oam = &gOamData_AffineNormal_ObjBlend_8x16,
+    .anims = gAnims_IceCrystalLarge,
+    .images = NULL,
+    .affineAnims = gAffineAnims_IceCrystalHit,
+    .callback = AnimParticleInVortex,
+};
+
+const struct SpriteTemplate gSpinningIceCrystalHitSmallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICE_CRYSTALS,
+    .paletteTag = ANIM_TAG_ICE_CRYSTALS,
+    .oam = &gOamData_AffineNormal_ObjBlend_8x8,
+    .anims = gAnims_IceCrystalSmall,
+    .images = NULL,
+    .affineAnims = gAffineAnims_IceCrystalHit,
+    .callback = AnimParticleInVortex,
+};
+
 static const union AnimCmd sAnim_IceGroundSpike[] =
 {
     ANIMCMD_FRAME(0, 5),

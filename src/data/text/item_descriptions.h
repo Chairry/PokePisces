@@ -226,12 +226,8 @@ static const u8 sEnergyPowderDesc[] = _(
 
 static const u8 sEnergyRootDesc[] = _(
     "A bitter root\n"
-    "that restores HP\n"
-#if I_HEALTH_RECOVERY >= GEN_7
-    "by 120 points.");
-#else
-    "by 200 points.");
-#endif
+    "that decrases\n"
+    "friendship.");
 
 static const u8 sHealPowderDesc[] = _(
     "A bitter powder\n"
@@ -2545,9 +2541,9 @@ static const u8 sLaggingTailDesc[] = _(
     "move slower.");
 
 static const u8 sDestinyKnotDesc[] = _(
-    "If the holder falls\n"
-    "in love, the foe\n"
-    "does too.");
+    "If the holder's\n"
+    "moves get limited\n"
+    "so does the foe's.");
 
 static const u8 sBlackSludgeDesc[] = _(
     "Gradually restores\n"
@@ -4121,7 +4117,7 @@ static const u8 sAThingDesc[] = _(
 static const u8 sSaltyTearDesc[] = _(
     "Halves all of\n"
     "Sadsod's stats.\n"
-    "Drops Happiness.");
+    "Drops Friendship.");
 
 static const u8 sBloomOrbDesc[] = _(
     "A bizarre orb that\n"
@@ -4157,3 +4153,8 @@ static const u8 sRoomExtenderDesc[] = _(
     "Extends the length\n"
     "of all activated\n"
     "rooms.");
+
+static const u8 sTradingCardDesc[] = _(
+    "Shifts damage\n"
+    "based on foe's\n"
+    "and user's stats.");

@@ -2163,3 +2163,6 @@ const u32 gItemIconPalette_FriendRibbon[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_RoomExtender[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
 const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+
+const u32 gItemIcon_TradingCard[] = INCBIN_U32("graphics/items/icons/trading_card.4bpp.lz");
+const u32 gItemIconPalette_TradingCard[] = INCBIN_U32("graphics/items/icon_palettes/trading_card.gbapal.lz");

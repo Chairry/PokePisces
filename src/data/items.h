@@ -336,8 +336,8 @@ const struct Item gItems[] =
     [ITEM_POTION] =
     {
         .name = _("Potion"),
-        .price = 200,
-        .holdEffectParam = 20,
+        .price = 450,
+        .holdEffectParam = 60,
         .description = sPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -349,8 +349,8 @@ const struct Item gItems[] =
     [ITEM_SUPER_POTION] =
     {
         .name = _("Super Potion"),
-        .price = 700,
-        .holdEffectParam = 60,
+        .price = 750,
+        .holdEffectParam = 100,
         .description = sSuperPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -362,8 +362,8 @@ const struct Item gItems[] =
     [ITEM_HYPER_POTION] =
     {
         .name = _("Hyper Potion"),
-        .price = 1500,
-        .holdEffectParam = 120,
+        .price = 1200,
+        .holdEffectParam = 150,
         .description = sHyperPotionDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -375,7 +375,7 @@ const struct Item gItems[] =
     [ITEM_MAX_POTION] =
     {
         .name = _("Max Potion"),
-        .price = 2500,
+        .price = 2000,
         .holdEffectParam = 255,
         .description = sMaxPotionDesc,
         .pocket = POCKET_ITEMS,
@@ -401,7 +401,7 @@ const struct Item gItems[] =
     [ITEM_REVIVE] =
     {
         .name = _("Revive"),
-        .price = 2000,
+        .price = 1500,
         .description = sReviveDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -413,7 +413,7 @@ const struct Item gItems[] =
     [ITEM_MAX_REVIVE] =
     {
         .name = _("Max Revive"),
-        .price = 4000,
+        .price = 3000,
         .description = sMaxReviveDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -438,8 +438,8 @@ const struct Item gItems[] =
     [ITEM_SODA_POP] =
     {
         .name = _("Soda Pop"),
-        .price = 300,
-        .holdEffectParam = 50,
+        .price = 150,
+        .holdEffectParam = 30,
         .description = sSodaPopDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -488,13 +488,12 @@ const struct Item gItems[] =
 
     [ITEM_ENERGY_ROOT] =
     {
-        .name = _("Energy Root"),
+        .name = _("Bitter Root"),
         .price = 1200,
         .description = sEnergyRootDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_RESTORE_HP,
         .flingPower = 30,
     },
 
@@ -597,8 +596,8 @@ const struct Item gItems[] =
     [ITEM_ETHER] =
     {
         .name = _("Ether"),
-        .price = 1200,
-        .holdEffectParam = 10,
+        .price = 200,
+        .holdEffectParam = 5,
         .description = sEtherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU_MOVES,
@@ -610,8 +609,8 @@ const struct Item gItems[] =
     [ITEM_MAX_ETHER] =
     {
         .name = _("Max Ether"),
-        .price = 2000,
-        .holdEffectParam = 255,
+        .price = 400,
+        .holdEffectParam = 10,
         .description = sMaxEtherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU_MOVES,
@@ -623,8 +622,8 @@ const struct Item gItems[] =
     [ITEM_ELIXIR] =
     {
         .name = _("Elixir"),
-        .price = 3000,
-        .holdEffectParam = 10,
+        .price = 750,
+        .holdEffectParam = 5,
         .description = sElixirDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -636,8 +635,8 @@ const struct Item gItems[] =
     [ITEM_MAX_ELIXIR] =
     {
         .name = _("Max Elixir"),
-        .price = 4500,
-        .holdEffectParam = 255,
+        .price = 1500,
+        .holdEffectParam = 10,
         .description = sMaxElixirDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -6523,18 +6522,16 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
-
-    [ITEM_BLUK_BERRY] =
+    [ITEM_YELLOW_SODA] =
     {
-        .name = _("Bluk Berry"),
-        .price = 20,
-        .description = sBlukBerryDesc,
+        .name = _("Yellow Soda"),
+        .price = 2000,
+        .description = sYellowSodaDesc,
         .pocket = POCKET_BERRIES,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
-
     [ITEM_NANAB_BERRY] =
     {
         .name = _("Nanab Berry"),
@@ -9760,7 +9757,8 @@ const struct Item gItems[] =
     [ITEM_CHEESE] =
     {
         .name = _("Cheese"),
-        .price = 2000,
+        .price = 600,
+        .holdEffect = HOLD_EFFECT_CHEESE,
         .description = sCheeseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -9770,7 +9768,8 @@ const struct Item gItems[] =
     [ITEM_FROTHY_CHEESE] =
     {
         .name = _("Frothy Cheese"),
-        .price = 2000,
+        .price = 1200,
+        .holdEffect = HOLD_EFFECT_FROTHY_CHEESE,
         .description = sFrothyCheeseDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -9781,6 +9780,7 @@ const struct Item gItems[] =
     {
         .name = _("Keychain"),
         .price = 4000,
+        .holdEffect = HOLD_EFFECT_KEYCHAIN,
         .description = sKeychainDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -9866,12 +9866,13 @@ const struct Item gItems[] =
     [ITEM_SPECTRAL_IDOL] =
     {
         .name = _("Spectral Idol"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_SPECTRAL_IDOL,
         .description = sSpectralIdolDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 80,
     },
     [ITEM_GLUE_TUBE] =
     {
@@ -9920,12 +9921,14 @@ const struct Item gItems[] =
     [ITEM_ODD_STONE] =
     {
         .name = _("Odd Stone"),
-        .price = 2000,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_ODD_STONE,
+        .holdEffectParam = 25,
         .description = sOddStoneDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 30,
     },
     [ITEM_SHELL_POLISH] =
     {
@@ -9981,16 +9984,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 60,
-    },
-    [ITEM_YELLOW_SODA] =
-    {
-        .name = _("Yellow Soda"),
-        .price = 2000,
-        .description = sYellowSodaDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
     },
     [ITEM_ICY_CAPE] =
     {
@@ -10049,12 +10042,13 @@ const struct Item gItems[] =
     [ITEM_A_THING] =
     {
         .name = _("A Thing"),
-        .price = 2000,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_A_THING,
         .description = sAThingDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 100,
     },
     [ITEM_SALTY_TEAR] =
     {
@@ -10140,4 +10134,16 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 60,
     },
+    [ITEM_TRADING_CARD] =
+    {
+        .name = _("Trading Card"),
+        .price = 5000,
+        .holdEffect = HOLD_EFFECT_TRADING_CARD,
+        .description = sTradingCardDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+    },
+
 };

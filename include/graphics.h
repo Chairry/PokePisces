@@ -10612,6 +10612,8 @@ extern const u32 gItemIcon_FriendRibbon[];
 extern const u32 gItemIconPalette_FriendRibbon[];
 extern const u32 gItemIcon_RoomExtender[];
 extern const u32 gItemIconPalette_RoomExtender[];
+extern const u32 gItemIcon_TradingCard[];
+extern const u32 gItemIconPalette_TradingCard[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
