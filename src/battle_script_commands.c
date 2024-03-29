@@ -13202,6 +13202,18 @@ static void Cmd_transformdataexecution(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_TRANSFORMED
         || gBattleStruct->illusion[gBattlerTarget].on
+        || gBattleMons[gBattlerTarget].species == SPECIES_SCEPTILE
+        || gBattleMons[gBattlerTarget].species == SPECIES_COMBUSKEN
+        || gBattleMons[gBattlerTarget].species == SPECIES_MUDKIP
+        || gBattleMons[gBattlerTarget].species == SPECIES_METAGROSS
+        || gBattleMons[gBattlerTarget].species == SPECIES_SALAMENCE
+        || gBattleMons[gBattlerTarget].species == SPECIES_ARMALDO
+        || gBattleMons[gBattlerTarget].species == SPECIES_CRADILY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SUNNY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_RAINY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SNOWY
+        || gBattleMons[gBattlerTarget].species == SPECIES_CASTFORM_SANDY
         || gStatuses3[gBattlerTarget] & STATUS3_SEMI_INVULNERABLE)
     {
         gMoveResultFlags |= MOVE_RESULT_FAILED;
