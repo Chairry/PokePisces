@@ -748,8 +748,9 @@
 #define STRINGID_PKMNSISNOLONGERBLOOMING              746
 #define STRINGID_ATHINGHAPPENED                       747
 #define STRINGID_ATHINGHAPPENEDFR                     748
+#define STRINGID_PKMNSAPPEDBYTICKED                   749
 
-#define BATTLESTRINGS_COUNT                           749
+#define BATTLESTRINGS_COUNT                           750
 
 
 // This is the string id that gBattleStringsTable starts with.

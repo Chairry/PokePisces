@@ -6421,7 +6421,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
 
             // Cure status
-            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP_ANY, battlerId) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battlerId) == 0)
                 retVal = FALSE;

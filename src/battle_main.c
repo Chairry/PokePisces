@@ -3218,7 +3218,7 @@ void SwitchInClearSetData(u32 battler)
         gStatuses3[battler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED
                                        | STATUS3_GASTRO_ACID | STATUS3_EMBARGO | STATUS3_TELEKINESIS | STATUS3_MAGNET_RISE | STATUS3_HEAL_BLOCK
                                        | STATUS3_AQUA_RING | STATUS3_POWER_TRICK);
-        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION);
+        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION | STATUS4_TICKED | STATUS4_TICKED_BATTLER);
         for (i = 0; i < gBattlersCount; i++)
         {
             if (GetBattlerSide(battler) != GetBattlerSide(i)
@@ -3958,7 +3958,7 @@ static void HandleEndTurn_ContinueBattle(void)
         for (i = 0; i < gBattlersCount; i++)
         {
             gBattleMons[i].status2 &= ~STATUS2_FLINCHED;
-            if ((gBattleMons[i].status1 & STATUS1_SLEEP) && (gBattleMons[i].status2 & STATUS2_MULTIPLETURNS))
+            if ((gBattleMons[i].status1 & STATUS1_SLEEP_ANY) && (gBattleMons[i].status2 & STATUS2_MULTIPLETURNS))
                 CancelMultiTurnMoves(i);
         }
         gBattleStruct->turnEffectsTracker = 0;
@@ -5208,7 +5208,7 @@ static bool32 TryDoMoveEffectsBeforeMoves(void)
         for (i = 0; i < gBattlersCount; i++)
         {
             if (!(gBattleStruct->focusPunchBattlers & gBitTable[battlers[i]])
-                && !(gBattleMons[battlers[i]].status1 & STATUS1_SLEEP)
+                && !(gBattleMons[battlers[i]].status1 & STATUS1_SLEEP_ANY)
                 && !(gDisableStructs[battlers[i]].truantCounter)
                 && !(gProtectStructs[battlers[i]].noValidMoves))
             {
@@ -5270,7 +5270,7 @@ static void CheckQuickClaw_CustapBerryActivation(void)
             if (gChosenActionByBattler[battler] == B_ACTION_USE_MOVE
              && gChosenMoveByBattler[battler] != MOVE_FOCUS_PUNCH   // quick claw message doesn't need to activate here
              && (gProtectStructs[battler].usedCustapBerry || gProtectStructs[battler].quickDraw)
-             && !(gBattleMons[battler].status1 & STATUS1_SLEEP)
+             && !(gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
              && !(gDisableStructs[gBattlerAttacker].truantCounter)
              && !(gProtectStructs[battler].noValidMoves))
             {

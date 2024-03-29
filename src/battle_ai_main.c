@@ -1749,7 +1749,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 score -= 10;
             else if (gBattleMons[battlerAtk].status1 & STATUS1_PARALYSIS && !AI_CanParalyze(battlerAtk, battlerDef, aiData->abilities[battlerDef], move, aiData->partnerMove))
                 score -= 10;
-            else if (gBattleMons[battlerAtk].status1 & STATUS1_SLEEP && !AI_CanPutToSleep(battlerAtk, battlerDef, aiData->abilities[battlerDef], move, aiData->partnerMove))
+            else if (gBattleMons[battlerAtk].status1 & STATUS1_SLEEP_ANY && !AI_CanPutToSleep(battlerAtk, battlerDef, aiData->abilities[battlerDef], move, aiData->partnerMove))
                 score -= 10;
             else
                 score -= 10;    // attacker has no status to transmit
@@ -1791,7 +1791,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_BIDE:
             if (!HasDamagingMove(battlerDef)
               || aiData->hpPercents[battlerAtk] < 30 //Close to death
-              || gBattleMons[battlerDef].status1 & (STATUS1_SLEEP | STATUS1_FREEZE)) //No point in biding if can't take damage
+              || gBattleMons[battlerDef].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE)) //No point in biding if can't take damage
                 score -= 10;
             break;
         case EFFECT_HIT_SWITCH_TARGET:
@@ -2329,7 +2329,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                   && gBattleMoves[aiData->partnerMove].effect == EFFECT_PLEDGE
                   && move != aiData->partnerMove) // Different pledge moves
                 {
-                    if (gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
+                    if (gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE))
                     // && gBattleMons[BATTLE_PARTNER(battlerAtk)].status1 != 1) // Will wake up this turn - how would AI know
                         score -= 10; // Don't use combo move if your partner will cause failure
                 }
@@ -3496,7 +3496,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             score -= 2;
         break;
     case EFFECT_DREAM_EATER:
-        if (!(gBattleMons[battlerDef].status1 & STATUS1_SLEEP))
+        if (!(gBattleMons[battlerDef].status1 & STATUS1_SLEEP_ANY))
             break;
         score++;    // if target is asleep, dream eater is a pretty good move even without draining
         // fallthrough
@@ -3801,7 +3801,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         break;
     case EFFECT_SLEEP_TALK:
     case EFFECT_SNORE:
-        if (!IsWakeupTurn(battlerAtk) && gBattleMons[battlerAtk].status1 & STATUS1_SLEEP)
+        if (!IsWakeupTurn(battlerAtk) && gBattleMons[battlerAtk].status1 & STATUS1_SLEEP_ANY)
             score += 10;
         break;
     case EFFECT_LOCK_ON:
@@ -4499,7 +4499,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             IncreaseBurnScore(battlerAtk, battlerDef, move, &score);
         else if (gBattleMons[battlerAtk].status1 & STATUS1_PARALYSIS)
             IncreaseParalyzeScore(battlerAtk, battlerDef, move, &score);
-        else if (gBattleMons[battlerAtk].status1 & STATUS1_SLEEP)
+        else if (gBattleMons[battlerAtk].status1 & STATUS1_SLEEP_ANY)
             IncreaseSleepScore(battlerAtk, battlerDef, move, &score);
         else if (gBattleMons[battlerAtk].status1 & STATUS1_FROSTBITE)
             IncreaseFrostbiteScore(battlerAtk, battlerDef, move, &score);
@@ -4908,11 +4908,11 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             score += 2;
         break;
     case EFFECT_WAKE_UP_SLAP:
-        if (gBattleMons[battlerDef].status1 & STATUS1_SLEEP)
+        if (gBattleMons[battlerDef].status1 & STATUS1_SLEEP_ANY)
             score += 2;
         break;
     case EFFECT_REVENGE:
-        if (!(gBattleMons[battlerDef].status1 & STATUS1_SLEEP)
+        if (!(gBattleMons[battlerDef].status1 & STATUS1_SLEEP_ANY)
           &&  !(gBattleMons[battlerDef].status2 & (STATUS2_INFATUATION | STATUS2_CONFUSION)))
             score += 2;
         break;

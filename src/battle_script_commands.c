@@ -2025,6 +2025,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN)
              || (abilityAtk == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battlerAtk].isFirstTurn || IsTwoTurnsMove(move)))
              || (abilityAtk == ABILITY_PRODIGY && IsMoveMakingContact(move, battlerAtk) )
+             || gBattleMons[battlerDef].status1 & STATUS1_SLEEP
              )
     {
         critChance = -2;
@@ -2569,7 +2570,16 @@ static void Cmd_critmessage(void)
 
             gBattleCommunication[MSG_DISPLAY] = 1;
         }
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        
+        if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP && gBattleMons[gBattlerTarget].hp > 0) {
+            gBattleMons[gBattlerTarget].status1 = 0;
+            BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+            MarkBattlerForControllerExec(gBattlerTarget);
+            BattleScriptPush(gBattlescriptCurrInstr = cmd->nextInstr);
+            gBattlescriptCurrInstr = BattleScript_TargetWokeUpWaitMessage;
+        } else {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
 }
 
@@ -2738,6 +2748,7 @@ static void Cmd_resultmessage(void)
     if (stringId)
         PrepareStringBattle(stringId, gBattlerAttacker);
 
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 
     // Print berry reducing message after result message.
@@ -2747,6 +2758,18 @@ static void Cmd_resultmessage(void)
         gSpecialStatuses[gBattlerTarget].berryReduced = FALSE;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_PrintBerryReduceString;
+    }
+    
+    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerTarget].hp > 0
+            && gBattleMons[gBattlerTarget].status1 & STATUS1_FREEZE
+            && (gSpecialStatuses[gBattlerTarget].physicalDmg > 0 || gBattleMoves[gCurrentMove].type == TYPE_FIRE)) {
+        // cure freeze from physical or fire damage
+        gBattleMons[gBattlerTarget].status1 = 0;
+        BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+        MarkBattlerForControllerExec(gBattlerTarget);
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_UnfrozeTargetWaitMessage;
     }
 }
 
@@ -3267,13 +3290,12 @@ void SetMoveEffect(bool32 primary, u32 certain)
             BattleScriptPush(gBattlescriptCurrInstr + 1);
 
             if (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_SLEEP)
-            #if B_SLEEP_TURNS >= GEN_5
-                gBattleMons[gEffectBattler].status1 |= STATUS1_SLEEP_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 3));
-            #else
-                gBattleMons[gEffectBattler].status1 |= STATUS1_SLEEP_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 2, 5));
-            #endif
+                gBattleMons[gEffectBattler].status1 |= STATUS1_SLEEP_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 2));    // 2-3 turns
+            else if (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_FREEZE)
+                gBattleMons[gEffectBattler].status1 |= STATUS1_FREEZE_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 2));    // 2-3 turns
             else
                 gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[gBattleScripting.moveEffect];
+            
 
             gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
 
@@ -5969,6 +5991,7 @@ static void Cmd_moveend(void)
                         gBattlescriptCurrInstr = BattleScript_TargetPRLZHeal;
                         break;
                     case STATUS1_SLEEP:
+                    case STATUS1_REST:
                         gBattlescriptCurrInstr = BattleScript_TargetWokeUp;
                         break;
                     case STATUS1_BURN:
@@ -6284,7 +6307,7 @@ static void Cmd_moveend(void)
 
                     if (gBattleMons[gBattlerAttacker].hp
                     && gBattleMons[gBattlerTarget].hp
-                    && (gChosenMove == MOVE_SLEEP_TALK || !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP))
+                    && (gChosenMove == MOVE_SLEEP_TALK || !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP_ANY))
                     && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE))
                     {
                         if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
@@ -6670,7 +6693,7 @@ static void Cmd_switchindataupdate(void)
     if (gBattleTypeFlags & BATTLE_TYPE_PALACE
         && gBattleMons[battler].maxHP / 2 >= gBattleMons[battler].hp
         && gBattleMons[battler].hp != 0
-        && !(gBattleMons[battler].status1 & STATUS1_SLEEP))
+        && !(gBattleMons[battler].status1 & STATUS1_SLEEP_ANY))
     {
         gBattleStruct->palaceFlags |= gBitTable[battler];
     }
@@ -9518,7 +9541,7 @@ static void Cmd_various(void)
         if (!(gBattleStruct->palaceFlags & gBitTable[battler])
             && gBattleMons[battler].maxHP / 2 >= gBattleMons[battler].hp
             && gBattleMons[battler].hp != 0
-            && !(gBattleMons[battler].status1 & STATUS1_SLEEP))
+            && !(gBattleMons[battler].status1 & STATUS1_SLEEP_ANY))
         {
             gBattleStruct->palaceFlags |= gBitTable[battler];
             gBattleCommunication[0] = TRUE;
@@ -10375,7 +10398,7 @@ static void Cmd_various(void)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 2;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS) && CanBeParalyzed(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 3;
-            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP) && CanSleep(gBattlerTarget))
+            else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP_ANY) && CanSleep(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 4;
             else if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_FROSTBITE) && CanBeFrozen(gBattlerTarget))
                 gBattleCommunication[MULTISTRING_CHOOSER] = 5;
@@ -11860,12 +11883,18 @@ static void Cmd_trysetrest(void)
     }
     else
     {
-        if (gBattleMons[gBattlerTarget].status1 & ((u8)(~STATUS1_SLEEP)))
+        if (gBattleMons[gBattlerTarget].status1 & ((u8)(~STATUS1_REST)))
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_REST_STATUSED;
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_REST;
 
-        gBattleMons[gBattlerTarget].status1 = STATUS1_SLEEP_TURN(3);
+        // rest is original sleep status
+        #if B_SLEEP_TURNS >= GEN_5
+            gBattleMons[gBattlerTarget].status1 |= STATUS1_REST_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 1, 3));
+        #else
+            gBattleMons[gBattlerTarget].status1 |= STATUS1_REST_TURN(1 + RandomUniform(RNG_SLEEP_TURNS, 2, 5));
+        #endif
+        
         BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
         MarkBattlerForControllerExec(gBattlerTarget);
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -14283,7 +14312,7 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
     if (gChosenActionByBattler[gBattlerTarget] == B_ACTION_USE_MOVE
         && gBattlerAttacker == *(gBattleStruct->moveTarget + gBattlerTarget)
-        && !(gBattleMons[gBattlerTarget].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
+        && !(gBattleMons[gBattlerTarget].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE))
         && gBattleMons[gBattlerAttacker].hp
         && !gDisableStructs[gBattlerTarget].truantCounter
         && gBattleMoves[gChosenMoveByBattler[gBattlerTarget]].effect == EFFECT_PURSUIT)
@@ -16070,7 +16099,7 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_DREAM_BALL:
             #if B_DREAM_BALL_MODIFIER >= GEN_8
-                if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP || GetBattlerAbility(gBattlerTarget) == ABILITY_COMATOSE)
+                if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP_ANY || GetBattlerAbility(gBattlerTarget) == ABILITY_COMATOSE)
                     ballMultiplier = 400;
             #else
                 ballMultiplier = 100;
@@ -16092,7 +16121,7 @@ static void Cmd_handleballthrow(void)
             * (gBattleMons[gBattlerTarget].maxHP * 3 - gBattleMons[gBattlerTarget].hp * 2)
             / (3 * gBattleMons[gBattlerTarget].maxHP);
 
-        if (gBattleMons[gBattlerTarget].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
+        if (gBattleMons[gBattlerTarget].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE))
             odds *= 2;
         if (gBattleMons[gBattlerTarget].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE))
             odds = (odds * 15) / 10;
@@ -16728,6 +16757,23 @@ static void Cmd_callnative(void)
 }
 
 // Callnative Funcs
+void BS_SetTicked(void)
+{
+    NATIVE_ARGS();
+
+    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses4[gBattlerTarget] & STATUS4_TICKED)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+    }
+    else
+    {
+        gStatuses4[gBattlerTarget] |= STATUS4_TICKED_BY(gBattlerAttacker);
+        gStatuses4[gBattlerTarget] |= STATUS4_TICKED;
+    }
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
 void BS_CalcMetalBurstDmg(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
@@ -17200,7 +17246,7 @@ void BS_ItemCureStatus(void)
         gBattlerTarget = BATTLE_PARTNER(gBattlerAttacker);
     }
 
-    if (GetItemStatus1Mask(gLastUsedItem) & STATUS1_SLEEP)
+    if (GetItemStatus1Mask(gLastUsedItem) & STATUS1_SLEEP_ANY)
         gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_NIGHTMARE;
     if (GetItemStatus2Mask(gLastUsedItem) & STATUS2_CONFUSION)
         gStatuses4[gBattlerAttacker] &= ~STATUS4_INFINITE_CONFUSION;

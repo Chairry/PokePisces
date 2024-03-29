@@ -993,7 +993,7 @@ u32 GetItemStatus1Mask(u16 itemId)
         case ITEM3_POISON:
             return STATUS1_POISON | STATUS1_TOXIC_POISON;
         case ITEM3_SLEEP:
-            return STATUS1_SLEEP;
+            return (STATUS1_SLEEP | STATUS1_REST);
         case ITEM3_STATUS_ALL:
             return STATUS1_ANY;
     }
