@@ -1455,6 +1455,90 @@ bool8 IsStarterInParty(void)
     return FALSE;
 }
 
+bool8 CheckMiniorRed(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorOrange(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_ORANGE)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorYellow(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_YELLOW)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorGreen(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_GREEN)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorBlue(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_BLUE)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorIndigo(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_INDIGO)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorViolet(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_VIOLET)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 bool8 ScriptCheckFreePokemonStorageSpace(void)
 {
     return CheckFreePokemonStorageSpace();
