@@ -11800,7 +11800,7 @@ BattleScript_Cheese_End2Part2:
 BattleScript_YellowSoda_End2::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_YellowSoda_End2Part2
-	setfocusenergy
+	tryyellowsodafocusenergy
 	printfromtable gFocusEnergyUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_YellowSoda_End2Part2:
