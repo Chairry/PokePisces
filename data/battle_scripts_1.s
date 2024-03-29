@@ -3957,6 +3957,7 @@ BattleScript_EffectTopsyTurvy:
 BattleScript_EffectTopsyTurvyWorks:
 	attackanimation
 	waitanimation
+BattleScript_InvertStats::
 	invertstatstages BS_TARGET
 	printstring STRINGID_TOPSYTURVYSWITCHEDSTATS
 	waitmessage B_WAIT_TIME_LONG

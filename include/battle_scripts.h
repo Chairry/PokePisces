@@ -266,6 +266,7 @@ extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_BerryConfuseHealEnd2[];
 extern const u8 BattleScript_BerryConfuseHealRet[];
 extern const u8 BattleScript_BerryStatRaiseEnd2[];
+extern const u8 BattleScript_InvertStats[];
 extern const u8 BattleScript_BerryStatRaiseRet[];
 extern const u8 BattleScript_BerryFocusEnergyRet[];
 extern const u8 BattleScript_BerryFocusEnergyEnd2[];

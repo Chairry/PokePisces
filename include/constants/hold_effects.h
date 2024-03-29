@@ -201,6 +201,8 @@
 #define HOLD_EFFECT_COARSE_SAND         216
 #define HOLD_EFFECT_TAMATO_BERRY        217
 #define HOLD_EFFECT_YELLOW_SODA         218
+#define HOLD_EFFECT_FLIP_COIN           219
+#define HOLD_EFFECT_WARP_RIBBON         220
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

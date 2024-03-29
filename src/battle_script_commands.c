@@ -12474,7 +12474,8 @@ static void Cmd_normalisebuffs(void)
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
-    else
+    
+    if ((!(gBattleMons[gBattlerTarget].statStages[i] > DEFAULT_STAT_STAGE)) && (gCurrentMove == MOVE_MIRACLE_EYE))
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
