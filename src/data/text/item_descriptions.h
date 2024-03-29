@@ -84,8 +84,8 @@ static const u8 sLureBallDesc[] = _(
 
 static const u8 sMoonBallDesc[] = _(
     "A Ball that works\n"
-    "well on Moon\n"
-    "Stone users.");
+    "well on cosmic\n"
+    "Pokémon.");
 
 static const u8 sFriendBallDesc[] = _(
     "A Ball that makes\n"

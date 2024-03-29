@@ -212,7 +212,7 @@ const struct Item gItems[] =
 
     [ITEM_MOON_BALL] =
     {
-        .name = _("Moon Ball"),
+        .name = _("Orbit Ball"),
         .price = 400,
         .description = sMoonBallDesc,
         .pocket = POCKET_POKE_BALLS,
