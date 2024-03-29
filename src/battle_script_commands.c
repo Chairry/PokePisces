@@ -15903,6 +15903,12 @@ static void Cmd_handleballthrow(void)
             case ITEM_ULTRA_BALL:
                 ballMultiplier = 200;
                 break;
+            case ITEM_PARK_BALL:
+                ballMultiplier = 250;
+                break;
+            case ITEM_CHERISH_BALL:
+                ballMultiplier = 300;
+                break;
             case ITEM_PREMIER_BALL:
                 ballMultiplier = 250;
                 break;
@@ -15999,12 +16005,42 @@ static void Cmd_handleballthrow(void)
                 #endif
                 break;
             case ITEM_MOON_BALL:
-                for (i = 0; i < EVOS_PER_MON; i++)
-                {
-                    if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_ITEM
-                        && gEvolutionTable[gBattleMons[gBattlerTarget].species][i].param == ITEM_MOON_STONE)
-                        ballMultiplier = 400;
-                }
+                if (gBattleMons[gBattlerTarget].species == SPECIES_LYORESA)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_SYCOPLOD)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_SYCOSTROM)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_MINIOR)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_GRIMER)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_SUDCUB)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_TARDRITCH)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_SOLROCK)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_KYUDI)
+                    ballMultiplier = 400;
+                else if (gBattleMons[gBattlerTarget].species == SPECIES_KOMBAKYU)
+                    ballMultiplier = 400;
                 break;
             case ITEM_LOVE_BALL:
                 if (gBattleMons[gBattlerTarget].species == gBattleMons[gBattlerAttacker].species)

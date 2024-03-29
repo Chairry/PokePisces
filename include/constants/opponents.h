@@ -42,45 +42,45 @@
 #define TRAINER_P_MIIKACHAN                  38
 #define TRAINER_P_JUAN                       39 //LEADERS 1
 #define TRAINER_P_SEBASTIAN                  40 //LEADERS 1
-#define TRAINER_ROSE_3                       41
-#define TRAINER_ROSE_4                       42
-#define TRAINER_ROSE_5                       43
-#define TRAINER_DUSTY_1                      44
-#define TRAINER_CHIP                         45
-#define TRAINER_FOSTER                       46
-#define TRAINER_DUSTY_2                      47
-#define TRAINER_DUSTY_3                      48
-#define TRAINER_DUSTY_4                      49
-#define TRAINER_DUSTY_5                      50
-#define TRAINER_GABBY_AND_TY_1               51
-#define TRAINER_GABBY_AND_TY_2               52
-#define TRAINER_GABBY_AND_TY_3               53
-#define TRAINER_GABBY_AND_TY_4               54
-#define TRAINER_GABBY_AND_TY_5               55
-#define TRAINER_GABBY_AND_TY_6               56
-#define TRAINER_LOLA_1                       57
-#define TRAINER_AUSTINA                      58
-#define TRAINER_GWEN                         59
-#define TRAINER_LOLA_2                       60
-#define TRAINER_LOLA_3                       61
-#define TRAINER_LOLA_4                       62
-#define TRAINER_LOLA_5                       63
-#define TRAINER_RICKY_1                      64
-#define TRAINER_SIMON                        65
-#define TRAINER_CHARLIE                      66
-#define TRAINER_RICKY_2                      67
-#define TRAINER_RICKY_3                      68
-#define TRAINER_RICKY_4                      69
-#define TRAINER_RICKY_5                      70
-#define TRAINER_RANDALL                      71
-#define TRAINER_PARKER                       72
-#define TRAINER_GEORGE                       73
-#define TRAINER_BERKE                        74
-#define TRAINER_BRAXTON                      75
-#define TRAINER_VINCENT                      76
-#define TRAINER_LEROY                        77
-#define TRAINER_WILTON_1                     78
-#define TRAINER_EDGAR                        79
+#define TRAINER_P_DUNDEE                     41 //MANGROTTO TUNNEL
+#define TRAINER_P_MOKA                       42
+#define TRAINER_P_WOODS                      43
+#define TRAINER_P_FAUNA                      44
+#define TRAINER_P_DECLAN                     45
+#define TRAINER_P_SHINJI                     46
+#define TRAINER_P_SKEETER                    47
+#define TRAINER_P_JAJA                       48
+#define TRAINER_P_JANE                       49
+#define TRAINER_P_JO_AND_JO                  50
+#define TRAINER_GABBY_AND_TY_1               51 //OUTLIERS
+#define TRAINER_GABBY_AND_TY_2               52 //
+#define TRAINER_GABBY_AND_TY_3               53 //
+#define TRAINER_GABBY_AND_TY_4               54 //
+#define TRAINER_GABBY_AND_TY_5               55 //
+#define TRAINER_GABBY_AND_TY_6               56 //
+#define TRAINER_P_PANDOU_1                   57 //BREADWINNER 1
+#define TRAINER_P_STELLA                     58 //COSMOSS BRIDGE
+#define TRAINER_P_ISAAC                      59
+#define TRAINER_P_RISE                       60
+#define TRAINER_P_YU                         61
+#define TRAINER_P_GEIGER                     62
+#define TRAINER_P_YORK                       63
+#define TRAINER_P_RIKA                       64
+#define TRAINER_P_PETE                       65
+#define TRAINER_P_MINKOWSKI                  66
+#define TRAINER_P_RAY_1                      67 //RAY ENCOUNTER 1
+#define TRAINER_P_PLANCK                     68 //MOSSDEEP GYM
+#define TRAINER_P_LEGRI                      69
+#define TRAINER_P_SPITZER                    70
+#define TRAINER_P_TESS                       71
+#define TRAINER_P_HITOMI                     72
+#define TRAINER_P_LIZA                       73 //LEADER 2
+#define TRAINER_P_S_STEVEN_1                 74 //STEVEN DOJO PANIC TUTORIAL
+#define TRAINER_P_S_STEVEN_2                 75
+#define TRAINER_P_S_STEVEN_3                 76
+#define TRAINER_P_S_STEVEN_4                 77
+#define TRAINER_P_S_STEVEN_5                 78
+#define TRAINER_P_S_STEVEN_6                 79
 #define TRAINER_ALBERT                       80
 #define TRAINER_SAMUEL                       81
 #define TRAINER_VITO                         82

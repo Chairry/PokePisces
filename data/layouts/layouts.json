@@ -1074,9 +1074,9 @@
     {
       "id": "LAYOUT_MOSSDEEP_CITY_GYM",
       "name": "MossdeepCity_Gym_Layout",
-      "width": 26,
-      "height": 36,
-      "primary_tileset": "gTileset_Building",
+      "width": 54,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MossdeepGym",
       "border_filepath": "data/layouts/MossdeepCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_Gym/map.bin"
@@ -5145,11 +5145,51 @@
       "id": "LAYOUT_MOSSDEEP_INTERIORS",
       "name": "MossdeepInteriors_Layout",
       "width": 48,
-      "height": 36,
+      "height": 22,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MossdeepInteriors/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM2CORRIDOR",
+      "name": "Gym2Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym2Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym2Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_HOUSE",
+      "name": "StevenHouse_Layout",
+      "width": 12,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "border_filepath": "data/layouts/StevenHouse/border.bin",
+      "blockdata_filepath": "data/layouts/StevenHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_CORRIDOR",
+      "name": "StevenCorridor_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenCorridor/border.bin",
+      "blockdata_filepath": "data/layouts/StevenCorridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_MAZE",
+      "name": "StevenMaze_Layout",
+      "width": 38,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenMaze/border.bin",
+      "blockdata_filepath": "data/layouts/StevenMaze/map.bin"
     }
   ]
 }

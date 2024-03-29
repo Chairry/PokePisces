@@ -1220,7 +1220,7 @@
 
 #define FLAG_HIDE_RAY                                           0x493 // Unused Flag, used in Pisces
 #define FLAG_FORCED_SHINY                                           0x494 // DO NOT USE!! Used for P_FLAG_FORCE_SHINY
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
+#define FLAG_HIDE_STEVEN_IN_HOUSE                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
