@@ -10035,6 +10035,8 @@ BattleScript_TargetPRLZHeal::
 	updatestatusicon BS_TARGET
 	return
 
+BattleScript_TargetWokeUpWaitMessage::
+    waitmessage B_WAIT_TIME_LONG
 BattleScript_TargetWokeUp::
 	printstring STRINGID_TARGETWOKEUP
 	waitmessage B_WAIT_TIME_LONG

@@ -2025,6 +2025,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN)
              || (abilityAtk == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battlerAtk].isFirstTurn || IsTwoTurnsMove(move)))
              || (abilityAtk == ABILITY_PRODIGY && IsMoveMakingContact(move, battlerAtk) )
+             || gBattleMons[battlerDef].status1 & STATUS1_SLEEP
              )
     {
         critChance = -2;
@@ -2569,7 +2570,16 @@ static void Cmd_critmessage(void)
 
             gBattleCommunication[MSG_DISPLAY] = 1;
         }
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        
+        if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP && gBattleMons[gBattlerTarget].hp > 0) {
+            gBattleMons[gBattlerTarget].status1 = 0;
+            BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+            MarkBattlerForControllerExec(gBattlerTarget);
+            BattleScriptPush(gBattlescriptCurrInstr = cmd->nextInstr);
+            gBattlescriptCurrInstr = BattleScript_TargetWokeUpWaitMessage;
+        } else {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
 }
 
