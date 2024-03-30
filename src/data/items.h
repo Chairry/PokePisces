@@ -9792,21 +9792,23 @@ const struct Item gItems[] =
     {
         .name = _("Flip Coin"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_FLIP_COIN,
         .description = sFlipCoinDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 100,
     },
     [ITEM_WARP_RIBBON] =
     {
         .name = _("Warp Ribbon"),
-        .price = 2000,
+        .price = 3000,
+        .holdEffect = HOLD_EFFECT_WARP_RIBBON,
         .description = sWarpRibbonDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
+        .flingPower = 50,
     },
     [ITEM_GRAVITY_CORE] =
     {

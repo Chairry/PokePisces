@@ -3962,6 +3962,13 @@ BattleScript_EffectTopsyTurvyWorks:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_InvertStats::
+	invertstatstages BS_TARGET
+	printstring STRINGID_TOPSYTURVYSWITCHEDSTATS
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_ATTACKER
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectIonDeluge:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
