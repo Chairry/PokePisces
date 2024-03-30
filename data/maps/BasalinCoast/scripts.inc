@@ -118,8 +118,8 @@ BasalinCoast_EventScript_BluePKMNCenters1::
     applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentLeaves
     setvar VAR_BALL_QUEST_STATE, 0
     clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
-    waitmovement 0
     setflag FLAG_HIDE_LAB_RANGERS
+    waitmovement 0
     release
     end
 

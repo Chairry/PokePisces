@@ -73,6 +73,7 @@ Flotshore_EventScript_GaveVacuumWave::
 Flotshore_EventScript_PounceBarrel::
     lock
 	clearflag FLAG_RECEIVED_TM_POUNCE
+	addobject LOCALID_BARRELFISHER
 	applymovement LOCALID_BARRELFISHER, Flotshore_Movement_JumpFromBarrel
 	waitmovement 0
 	checkitem ITEM_TM_POUNCE
