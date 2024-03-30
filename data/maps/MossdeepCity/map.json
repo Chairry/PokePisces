@@ -179,8 +179,8 @@
       "x": 36,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_INTERIORS",
-      "dest_warp_id": "12"
+      "dest_map": "MAP_STEVEN_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

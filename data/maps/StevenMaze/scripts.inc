@@ -19,32 +19,32 @@ StevenMaze_EventScript_CantUseFlash::
 
 StevenMaze_EventScript_ShadowSteven1::
     trainerbattle_single TRAINER_P_S_STEVEN_1, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowSteven2::
     trainerbattle_single TRAINER_P_S_STEVEN_2, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowSteven3::
     trainerbattle_single TRAINER_P_S_STEVEN_3, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowSteven4::
     trainerbattle_single TRAINER_P_S_STEVEN_4, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowSteven5::
     trainerbattle_single TRAINER_P_S_STEVEN_5, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowSteven6::
     trainerbattle_single TRAINER_P_S_STEVEN_6, StevenMaze_Text_Encounter, StevenMaze_Text_Defeat, StevenMaze_EventScript_ShadowStevenGone
-    msgbox StevenMaze_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    msgbox StevenMaze_Text_Darkness, MSGBOX_AUTOCLOSE
     end
 
 StevenMaze_EventScript_ShadowStevenGone::
@@ -123,8 +123,8 @@ StevenMaze_EventScript_ReceivedEerikoFanfare::
 	bufferspeciesname STR_VAR_1, SPECIES_EERIKO
 	return
 
-StevenMaze_Text_Gugumbir:
-	.string "boo$"
+StevenMaze_Text_Darkness:
+	.string "(Nothing but darkness…)$"
 
 StevenMaze_Text_Landing:
 	.string "(Your Pokémon are a bit\n"
