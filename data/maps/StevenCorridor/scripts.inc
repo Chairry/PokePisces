@@ -30,9 +30,15 @@ StevenCorridor_Movement_BackAway:
 	walk_down
 	step_end
 
-StevenCorridor_EventScript_StevenYesNo::
+StevenCorridor_EventScript_Steven::
 	lock
 	faceplayer
+	goto_if_lt VAR_NEW_COO_STATE, 4, StevenCorridor_EventScript_StevenYesNo
+	goto_if_eq VAR_NEW_COO_STATE, 4, StevenCorridor_EventScript_Idle
+	release
+	end
+
+StevenCorridor_EventScript_StevenYesNo::
 	msgbox StevenCorridor_Text_AreYouReady, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, StevenCorridor_EventScript_StartPanicDojo
 	msgbox StevenCorridor_Text_ThenGoPrepare, MSGBOX_AUTOCLOSE
@@ -58,14 +64,35 @@ StevenCorridor_EventScript_StartPanicDojo::
 	release
 	end
 
+StevenCorridor_EventScript_Idle::
+	msgbox StevenCorridor_Text_Idle, MSGBOX_AUTOCLOSE
+	release
+	end
+
 StevenCorridor_Text_TooDark:
-	.string "too dark$"
+	.string "(It's very dark in this room.\n"
+	.string "Best to turn back.)$"
 
 StevenCorridor_Text_AreYouReady:
-	.string "you ready bruv$"
+	.string "Welcome back, {PLAYER}.\p"
+	.string "I assume you are expecting something\n"
+	.string "from me, now that your eyes can pierce\l"
+	.string "the darkness.\p"
+	.string "Well, then, let me ask you\n"
+	.string "this question.\p"
+	.string "Is your team prepared?$"
 
 StevenCorridor_Text_ThenGoPrepare:
-	.string "then go prepare$"
+	.string "I see.\p"
+	.string "Please get them ready, then return.$"
 
 StevenCorridor_Text_LetsBegin:
-	.string "lets get goin$"
+	.string "(Steven closes his eyes and smiles.)\p"
+	.string "Think fast.$"
+
+StevenCorridor_Text_Idle:
+	.string "No room in this world for spinning\n"
+	.string "your wheels, {PLAYER}.\p"
+	.string "The path to your next badge should be\n"
+	.string "taking you northwards from Mossdeep.\p"
+	.string "Never stop improving.$"

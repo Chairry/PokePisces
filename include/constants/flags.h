@@ -1225,7 +1225,7 @@
 #define FLAG_RECEIVED_TM_SNARL                                           0x497 // Unused Flag
 #define FLAG_RECEIVED_TM_MUD_SHOT                                           0x498 // Unused Flag
 #define FLAG_RECEIVED_FLOAT_STONE                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
+#define FLAG_ITEM_DOJO_POKE_DOLL                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag

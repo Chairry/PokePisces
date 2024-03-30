@@ -179,6 +179,64 @@ NewSooto_EventScript_NotEnoughMoney::
 	release
 	end
 
+NewSooto_EventScript_Thief::
+    lock
+	faceplayer
+	checkitem ITEM_TM_THIEF
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GaveThief
+	msgbox NewSooto_Text_FinnaCheckCovet, MSGBOX_DEFAULT
+	checkpartynonhmmove MOVE_COVET
+	goto_if_eq VAR_RESULT, PARTY_SIZE, NewSooto_EventScript_NoCovet
+	msgbox NewSooto_Text_HereHaveThief, MSGBOX_DEFAULT
+	giveitem ITEM_TM_THIEF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+NewSooto_EventScript_GaveThief::
+    msgbox NewSooto_Text_GaveThief, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_EventScript_NoCovet::
+	msgbox NewSooto_Text_NoCovet, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_EventScript_FloatStone::
+    lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_FLOAT_STONE, NewSooto_EventScript_GaveFloatStone
+	msgbox NewSooto_Text_FloatStone, MSGBOX_DEFAULT
+	giveitem ITEM_FLOAT_STONE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_FLOAT_STONE
+	release
+	end
+
+NewSooto_EventScript_GaveFloatStone::
+    msgbox NewSooto_Text_GaveFloatStone, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_Text_FloatStone:
+	.string "have this float stone$"
+
+NewSooto_Text_GaveFloatStone:
+	.string "already gave float stone$"
+
+NewSooto_Text_FinnaCheckCovet:
+	.string "do your mons know covet$"
+
+NewSooto_Text_HereHaveThief:
+	.string "great have thief$"
+
+NewSooto_Text_GaveThief:
+	.string "you already have thief"
+
+NewSooto_Text_NoCovet:
+	.string "you do not covet thy neighboir$"
+
 NewSooto_Text_CheckOutTheCave:
 	.string "Hurrumph!\n"
 	.string "If it isn't that {PLAYER} fellow.\p"
