@@ -95,7 +95,7 @@ static const u16 sSkillSwapBannedAbilities[] =
         ABILITY_WONDER_GUARD,
         ABILITY_MULTITYPE,
         ABILITY_ILLUSION,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_HUDDLE_UP,
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
@@ -120,7 +120,7 @@ static const u16 sRolePlayBannedAbilities[] =
         ABILITY_ILLUSION,
         ABILITY_ZEN_MODE,
         ABILITY_IMPOSTER,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_POWER_OF_ALCHEMY,
         ABILITY_RECEIVER,
         ABILITY_HUDDLE_UP,
@@ -139,7 +139,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     {
         ABILITY_MULTITYPE,
         ABILITY_ZEN_MODE,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_HUDDLE_UP,
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
@@ -155,7 +155,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
 static const u16 sWorrySeedBannedAbilities[] =
     {
         ABILITY_MULTITYPE,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_HUDDLE_UP,
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
@@ -182,7 +182,7 @@ static const u16 sGastroAcidBannedAbilities[] =
         ABILITY_RKS_SYSTEM,
         ABILITY_HUDDLE_UP,
         ABILITY_SHIELDS_DOWN,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_ZEN_MODE,
 };
 
@@ -208,7 +208,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     {
         ABILITY_TRUANT,
         ABILITY_MULTITYPE,
-        ABILITY_STANCE_CHANGE,
+        ABILITY_STELLAR_BODY,
         ABILITY_HUDDLE_UP,
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
@@ -974,7 +974,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
         [ABILITY_RKS_SYSTEM] = 1,
         [ABILITY_HUDDLE_UP] = 1,
         [ABILITY_SHIELDS_DOWN] = 1,
-        [ABILITY_STANCE_CHANGE] = 1,
+        [ABILITY_STELLAR_BODY] = 1,
         [ABILITY_TRACE] = 1,
         [ABILITY_ZEN_MODE] = 1,
 };
@@ -5648,7 +5648,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_RKS_SYSTEM:
                 case ABILITY_HUDDLE_UP:
                 case ABILITY_SHIELDS_DOWN:
-                case ABILITY_STANCE_CHANGE:
+                case ABILITY_STELLAR_BODY:
                     break;
                 default:
                     if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
@@ -5680,7 +5680,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_RECEIVER:
                 case ABILITY_RKS_SYSTEM:
                 case ABILITY_HUDDLE_UP:
-                case ABILITY_STANCE_CHANGE:
+                case ABILITY_STELLAR_BODY:
                 case ABILITY_WONDER_GUARD:
                 case ABILITY_ZEN_MODE:
                     break;
@@ -6520,7 +6520,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     {
     case ABILITY_MULTITYPE:
     case ABILITY_ZEN_MODE:
-    case ABILITY_STANCE_CHANGE:
+    case ABILITY_STELLAR_BODY:
     case ABILITY_DORMANT:
     case ABILITY_HUDDLE_UP:
     case ABILITY_RKS_SYSTEM:
@@ -11574,13 +11574,6 @@ bool32 IsBattlerMegaEvolved(u32 battler)
     return (gSpeciesInfo[gBattleMons[battler].species].flags & SPECIES_FLAG_MEGA_EVOLUTION);
 }
 
-bool32 IsBattlerGaoterra(u32 battler)
-{
-    if (gBattleMons[battler].status2 & STATUS2_TRANSFORMED)
-        return FALSE;
-    return (gBattleMons[battler].species = SPECIES_GAOTERRA);
-}
-
 bool32 IsBattlerPrimalReverted(u32 battler)
 {
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
@@ -11652,7 +11645,9 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                 case FORM_CHANGE_BATTLE_WEATHER:
                     // Check if there is a required ability and if the battler's ability does not match it
                     // or is suppressed. If so, revert to the no weather form.
-                    if (formChanges[i].param2 && GetBattlerAbility(battler) != formChanges[i].param2 && formChanges[i].param1 == B_WEATHER_NONE)
+                    if (formChanges[i].param2
+                        && GetBattlerAbility(battler) != formChanges[i].param2
+                        && formChanges[i].param1 == B_WEATHER_NONE)
                     {
                         targetSpecies = formChanges[i].targetSpecies;
                     }
@@ -11662,7 +11657,8 @@ u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method)
                         targetSpecies = formChanges[i].targetSpecies;
                     }
                     // Otherwise, just check for a match between the weather and the form change table.
-                    else if (gBattleWeather & formChanges[i].param1 || (gBattleWeather == B_WEATHER_NONE && formChanges[i].param1 == B_WEATHER_NONE))
+                    else if (gBattleWeather & formChanges[i].param1
+                        || (gBattleWeather == B_WEATHER_NONE && formChanges[i].param1 == B_WEATHER_NONE))
                     {
                         targetSpecies = formChanges[i].targetSpecies;
                     }
@@ -11727,9 +11723,6 @@ bool32 TryBattleFormChange(u32 battler, u16 method)
 
         // Unlike Megas, Primal Reversion isn't canceled on fainting.
         else if (IsBattlerPrimalReverted(battler) && (method == FORM_CHANGE_END_BATTLE))
-            restoreSpecies = TRUE;
-
-        else if (IsBattlerGaoterra(battler) && (method == FORM_CHANGE_FAINT || method == FORM_CHANGE_END_BATTLE || method == FORM_CHANGE_BATTLE_SWITCH))
             restoreSpecies = TRUE;
 
         if (restoreSpecies)
