@@ -6471,14 +6471,19 @@ Move_FROST_BREATH:
 	delay 5
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 21, 1
 	call FrostBreathBreath
+	call FrostBreathBreath
+	call FrostBreathBreath
+	stopsound
+	call FrostBreathBreath
+	call FrostBreathBreath
 	waitforvisualfinish
 	call IceCrystalEffectShort
 	clearmonbg ANIM_DEF_PARTNER
 	end
 FrostBreathBreath:
-	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, 15, -30, 14, 0, 30
-	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, 0, 0, 14, 0, 0
-	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, -15, 30, 14, 0, -30
+	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, 10, 10, 25, 10, 10
+	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, 0, 0, 25, 0, 0
+	createsprite gStrangeSteamPinkCloudTemplate, ANIM_TARGET, 2, -10, 10, 25, -10, 10
 	return
 
 Move_DRAGON_TAIL:
@@ -21380,13 +21385,90 @@ Move_HEAT_SINK::
 	end
 
 Move_FROST_NOVA::
-	goto Move_FROST_BREATH
+	loadspritegfx ANIM_TAG_PINK_CLOUD
+	loadspritegfx ANIM_TAG_IMPACT
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PINK_CLOUD, 0, 15, 15, 0x7FFC
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 18
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 5, RGB(0, 0, 28)
+	waitforvisualfinish
+	createvisualtask AnimTask_AllocBackupPalBuffer, 5
+	waitforvisualfinish
+	createvisualtask AnimTask_CopyPalUnfadedToBackup, 5, 0, 1
+	delay 1
+	createvisualtask AnimTask_CopyPalFadedToUnfaded, 5, 0
+	delay 1
+	playsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_CopyPalUnfadedToBackup, 5, 1, 0
+	delay 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 1, 0, 13, RGB(0, 0, 28)
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 2, 0, 15, 1
+	waitforvisualfinish
+	playsewithpan SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 64, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 128, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 192, 30, 25, 0
+	delay 8
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 32, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 96, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 160, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 224, 30, 25, 0
+	delay 8
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 64, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 128, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 192, 30, 25, 0
+	delay 8
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 32, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 2, 1, 96, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 160, 30, 25, 0
+	createsprite gFrostNovaCloudSpriteTemplate, ANIM_ATTACKER, 66, 1, 224, 30, 25, 0
+	delay 8
+	waitforvisualfinish
+	createvisualtask AnimTask_CopyPalUnfadedFromBackup, 5, 0, 1
+	delay 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 5, 0, RGB(0, 0, 28)
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	waitforvisualfinish
+	createvisualtask AnimTask_CopyPalUnfadedFromBackup, 5, 1, 0
+	delay 1
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 0, 13, 0, RGB(18, 18, 18)
+	waitforvisualfinish
+	createvisualtask AnimTask_FreeBackupPalBuffer, 5
+	waitforvisualfinish
+	end
 
 Move_GEM_BLASTER::
-	goto Move_POWER_GEM
+	loadspritegfx ANIM_TAG_ZYGARDE_HEXES
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	loopsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER, 6, 2
+	createsprite gGemBlasterGemSpriteTemplate, ANIM_TARGET, 2, 16, -10, 0, -10, 25, 257
+	createsprite gGemBlasterGemSpriteTemplate, ANIM_TARGET, 2, 16, 10, 0, 10, 25, 257
+	delay 20
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 5, 1
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 
 Move_DARK_TIDE::
-	goto Move_DARK_PULSE
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_TARGET, 2, (F_PAL_BG | F_PAL_ATK_SIDE), 3, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_GrowAndGrayscale, 5
+	createvisualtask AnimTask_GrowAndGrayscale2, 5
+	loopsewithpan SE_M_BIND, SOUND_PAN_TARGET, 15, 4
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_TARGET, 2, (F_PAL_BG | F_PAL_ATK_SIDE), 3, 16, 0, RGB_BLACK
+	waitforvisualfinish
+	end
 
 Move_SOLAR_FLARE::
 	goto Move_SOLAR_BEAM

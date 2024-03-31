@@ -12,7 +12,7 @@
 #define ITEM_HEAL_BALL 6
 #define ITEM_NET_BALL 7
 #define ITEM_NEST_BALL 8
-#define ITEM_DIVE_BALL 9
+#define ITEM_DIVE_BALL 9 // replace: DA COOL BALL (works on da cool mons)
 #define ITEM_DUSK_BALL 10
 #define ITEM_TIMER_BALL 11
 #define ITEM_QUICK_BALL 12
