@@ -876,6 +876,7 @@
         .abilities = {ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_NONE}, \
         .bodyColor = BODY_COLOR_YELLOW, \
         .noFlip = FALSE, \
+        .flags = SPECIES_FLAG_LEGENDARY,                \
     }
 
 const struct SpeciesInfo gSpeciesInfo[] =
@@ -25445,6 +25446,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_RISING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .flags = SPECIES_FLAG_LEGENDARY,
     },
 
     [SPECIES_LUOSHAN] =
@@ -25468,6 +25470,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_FALLING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .flags = SPECIES_FLAG_LEGENDARY,
     },
 
     [SPECIES_GAOTERRA] =

@@ -7739,8 +7739,12 @@ BattleScript_EffectPoisonFang::
 BattleScript_EffectOverheat::
 	jumpifmove MOVE_DARK_TIDE, BattleScript_CheckOverheatDoubles
 BattleScript_DoOverheat::
-	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	goto BattleScript_EffectHit
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_2 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	seteffectprimary
+	goto BattleScript_MoveEnd
 BattleScript_CheckOverheatDoubles::
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_OverheatDoubles
 	goto BattleScript_DoOverheat

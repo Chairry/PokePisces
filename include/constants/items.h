@@ -9,9 +9,9 @@
 #define ITEM_ULTRA_BALL 3
 #define ITEM_MASTER_BALL 4
 #define ITEM_PREMIER_BALL 5
-#define ITEM_HEAL_BALL 6 // change: catch rate based on user's raw HP
+#define ITEM_HEAL_BALL 6
 #define ITEM_NET_BALL 7
-#define ITEM_NEST_BALL 8 // change: maxes pp of foe's moves
+#define ITEM_NEST_BALL 8
 #define ITEM_DIVE_BALL 9 // replace: DA COOL BALL (works on da cool mons)
 #define ITEM_DUSK_BALL 10
 #define ITEM_TIMER_BALL 11
@@ -22,11 +22,11 @@
 #define ITEM_LURE_BALL 16
 #define ITEM_MOON_BALL 17
 #define ITEM_FRIEND_BALL 18
-#define ITEM_LOVE_BALL 19 // change: works on attracted mons
+#define ITEM_LOVE_BALL 19
 #define ITEM_FAST_BALL 20
 #define ITEM_HEAVY_BALL 21
 #define ITEM_DREAM_BALL 22
-#define ITEM_SAFARI_BALL 23 // change: works better on certain terrain?
+#define ITEM_SAFARI_BALL 23
 #define ITEM_SPORT_BALL 24
 #define ITEM_PARK_BALL 25
 #define ITEM_BEAST_BALL 26

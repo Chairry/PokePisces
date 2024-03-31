@@ -28,19 +28,19 @@ static const u8 sPremierBallDesc[] = _(
     "than a Ultra Ball.");
 
 static const u8 sHealBallDesc[] = _(
-    "A remedial Ball\n"
-    "that restores\n"
-    "caught Pokémon.");
+    "A Ball that works\n"
+    "better the higher\n"
+    "the user's HP.");
 
 static const u8 sNetBallDesc[] = _(
     "A Ball that works\n"
-    "well on Water- and\n"
-    "Bug-type Pokémon.");
+    "better on smaller\n"
+    "Pokémon.");
 
 static const u8 sNestBallDesc[] = _(
     "A Ball that works\n"
-    "better on weaker\n"
-    "Pokémon.");
+    "better on flying or\n"
+    "levitating Pokémon.");
 
 static const u8 sDiveBallDesc[] = _(
     "A Ball that works\n"
@@ -94,8 +94,8 @@ static const u8 sFriendBallDesc[] = _(
 
 static const u8 sLoveBallDesc[] = _(
     "Works well on\n"
-    "Pokémon of the\n"
-    "opposite gender.");
+    "Pokémon who\n"
+    "are infatuated.");
 
 static const u8 sFastBallDesc[] = _(
     "Works well on\n"
@@ -119,8 +119,8 @@ static const u8 sDreamBallDesc[] = _(
 
 static const u8 sSafariBallDesc[] = _(
     "A special Ball that\n"
-    "is used only in the\n"
-    "Safari Zone.");
+    "only works well\n"
+    "on rarer Pokémon.");
 
 static const u8 sSportBallDesc[] = _(
     "A special Ball used\n"
@@ -128,17 +128,18 @@ static const u8 sSportBallDesc[] = _(
     "Contest.");
 
 static const u8 sParkBallDesc[] = _(
-    "A special Ball for\n"
-    "the Pal Park.");
+    "A rare Ball with\n"
+    "a higher catch rate\n"
+    "than a Ultra Ball.");
 
 static const u8 sBeastBallDesc[] = _(
     "A Ball designed to\n"
     "catch Ultra Beasts.");
 
 static const u8 sCherishBallDesc[] = _(
-    "A rare Ball made\n"
-    "in commemoration\n"
-    "of some event.");
+    "A rare Ball with\n"
+    "a higher catch rate\n"
+    "than a Gold Ball.");
 
 // Medicine
 static const u8 sPotionDesc[] = _(
