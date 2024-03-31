@@ -207,6 +207,19 @@ NewSooto_EventScript_FloatStone::
     lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_FLOAT_STONE, NewSooto_EventScript_GaveFloatStone
+	getcaughtmon SPECIES_BALBYRN
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_SAINTISOW
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_UMBRAT
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_DRAKULARK
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	msgbox NewSooto_Text_WantToSeeFlyingMon, MSGBOX_AUTOCLOSE
+	release
+	end
+
+NewSooto_EventScript_GiveFloatStone::
 	msgbox NewSooto_Text_FloatStone, MSGBOX_DEFAULT
 	giveitem ITEM_FLOAT_STONE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -219,8 +232,24 @@ NewSooto_EventScript_GaveFloatStone::
     release
     end
 
+NewSooto_Text_WantToSeeFlyingMon:
+	.string "I am doing important research\n$"
+	.string "on Hoenn's atmosphere on behalf\l"
+	.string "of Team Ozone.\p"
+	.string "If you can show me a Flying type\n"
+	.string "Pokémon in your dex, it\l"
+	.string "could potentially help me fill\l"
+	.string "in some blanks.$"
+
 NewSooto_Text_FloatStone:
-	.string "have this float stone$"
+	.string "Let me see your Pokédex for\n"
+	.string "a quick second...\p"
+	.string "Ah! You have caught at least\n"
+	.string "one Flying type! Let me just\l"
+	.string "jot down some notes...\p"
+	.string "...There. Now, in exchange, I'd\n"
+	.string "Like you to have this odd pebble\l"
+	.string "I've been studying.$"
 
 NewSooto_Text_GaveFloatStone:
 	.string "already gave float stone$"
