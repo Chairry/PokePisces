@@ -3996,8 +3996,8 @@ static const u8 sFlipCoinDesc[] = _(
 
 static const u8 sWarpRibbonDesc[] = _(
     "Resets foe's Speed\n"
-    "stat, but user\n"
-    "cannot raise stats.");
+    "boosts, but user\n"
+    "cannot raise Speed.");
 
 static const u8 sGravityCoreDesc[] = _(
     "A held item that\n"

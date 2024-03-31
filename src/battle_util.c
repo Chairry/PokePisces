@@ -3753,10 +3753,6 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 {
                     BattleScriptPushCursor();
                 }
-                else if (gCurrentMove == MOVE_HEART_CARVE)
-                {
-                    BattleScriptPushCursor();
-                }
                 else
                 {
                     BattleScriptPush(BattleScript_MoveUsedIsInLoveCantAttack);
