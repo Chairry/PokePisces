@@ -750,8 +750,21 @@ static const struct TrainerMon sParty_PMinkowski[] = {
 static const struct TrainerMon sParty_PRay1[] = {
     {
     .lvl = 18,
-    .species = SPECIES_MOODA,
-    .ability = ABILITY_GRASSY_SURGE,
+    .species = SPECIES_SPINDA,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_PROTECT, MOVE_COPYCAT, MOVE_TEETER_DANCE, MOVE_WISH},
+    },
+    {
+    .lvl = 18,
+    .species = SPECIES_GOLDEROCK,
+    .ability = ABILITY_INNER_FOCUS,
+    .moves = {MOVE_FOCUS_ENERGY, MOVE_ENDURE, MOVE_MACH_PUNCH, MOVE_ACCELEROCK},
+    },
+    {
+    .lvl = 19,
+    .species = SPECIES_RETROROACH,
+    .ability = ABILITY_TRANSISTOR,
+    .moves = {MOVE_BUG_SNACK, MOVE_ELECTROWEB, MOVE_THUNDER_WAVE, MOVE_DETECT},
     }
 };
 
