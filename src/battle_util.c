@@ -1111,7 +1111,7 @@ static const uq4_12_t sPercentToModifier[] =
 
 static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
     {
-        //   normal  fight   flying  poison  ground  rock    bug     ghost   steel   mystery fire    water   grass  electric psychic ice     dragon  dark    fairy   relic
+        //normal fight   flying  poison  ground  rock    bug     ghost   steel   mystery fire    water   grass   elec    psychic ice     dragon  dark    fairy   relic
         {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0)}, // normal
         {X(2.0), X(1.0), X(0.5), X(0.5), X(1.0), X(2.0), X(0.5), X(0.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(2.0), X(1.0), X(2.0), X(0.5), X(1.0)}, // fight
         {X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(0.5), X(2.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0)}, // flying
@@ -1119,25 +1119,17 @@ static const uq4_12_t sTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON
         {X(1.0), X(1.0), X(0.0), X(2.0), X(1.0), X(2.0), X(0.5), X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(0.5), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0)}, // ground
         {X(1.0), X(0.5), X(2.0), X(1.0), X(0.5), X(1.0), X(2.0), X(1.0), X(0.5), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0)}, // rock
         {X(1.0), X(0.5), X(0.5), X(0.5), X(1.0), X(1.0), X(1.0), X(0.5), X(0.5), X(1.0), X(0.5), X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(1.0), X(2.0), X(0.5), X(1.0)}, // bug
-#if B_STEEL_RESISTANCES >= GEN_6
         {X(0.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.5)}, // ghost
-#else
-        {X(0.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.5)}, // ghost
-#endif
         {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.5), X(0.5), X(1.0), X(0.5), X(1.0), X(2.0), X(1.0), X(1.0), X(2.0), X(1.0)}, // steel
         {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0)}, // mystery
         {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(2.0), X(1.0), X(2.0), X(1.0), X(0.5), X(0.5), X(2.0), X(1.0), X(1.0), X(2.0), X(0.5), X(1.0), X(1.0), X(0.5)}, // fire
-        {X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(0.5), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(0.5)}, // water
-        {X(1.0), X(1.0), X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), X(1.0), X(0.5), X(1.0), X(0.5), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(2.0)}, // grass
+        {X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(0.5), X(1.0), X(1.0), X(0.5), X(0.5), X(1.0), X(1.0), X(0.5)}, // water
+        {X(1.0), X(1.0), X(1.0), X(0.5), X(2.0), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(0.5), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(2.0)}, // grass
         {X(1.0), X(1.0), X(2.0), X(1.0), X(0.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(0.5), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0)}, // electric
-        {X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(0.0), X(1.0), X(2.0)}, // psychic
-        {X(1.0), X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.5), X(0.5), X(2.0), X(1.0), X(1.0), X(0.5), X(2.0), X(1.0), X(1.0), X(1.0)}, // ice
-        {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(0.0), X(1.0)}, // dragon
-#if B_STEEL_RESISTANCES >= GEN_6
+        {X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(0.0), X(1.0), X(2.0)}, // psychic
+        {X(1.0), X(1.0), X(2.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(0.5), X(2.0), X(1.0), X(1.0), X(0.5), X(2.0), X(1.0), X(1.0), X(1.0)}, // ice
+        {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(0.5), X(1.0)}, // dragon
         {X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(0.5), X(0.5), X(1.0)}, // dark
-#else
-        {X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(1.0), X(0.5), X(0.5), X(1.0)}, // dark
-#endif
         {X(1.0), X(2.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(2.0), X(2.0), X(1.0), X(1.0)}, // fairy
         {X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(1.0), X(0.5), X(1.0), X(1.0), X(1.0), X(2.0), X(1.0), X(2.0), X(1.0)}, // relic
 };
@@ -7780,6 +7772,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_STATS_CHANGE;
                 }
                 break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    BattleScriptExecute(BattleScript_ClearSpeed);
+                    effect = ITEM_STATS_CHANGE;
+                }
+                break;
             case HOLD_EFFECT_SEEDS:
                 switch (GetBattlerHoldEffectParam(battler))
                 {
@@ -7915,6 +7914,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
                 {
                     BattleScriptExecute(BattleScript_InvertStats);
+                    effect = ITEM_STATS_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    BattleScriptExecute(BattleScript_ClearSpeed);
                     effect = ITEM_STATS_CHANGE;
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
@@ -8394,9 +8401,18 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_FLIP_COIN:
                 if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
                 {
-                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
+                    effect = ITEM_STATS_CHANGE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_InvertStats;
+                    effect++;
+                }
+                break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    effect = ITEM_STATS_CHANGE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ClearSpeed;
                     effect++;
                 }
                 break;
@@ -10070,6 +10086,11 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             atkStat = gBattleMons[battlerDef].spAttack;
             atkStage = gBattleMons[battlerDef].statStages[STAT_SPATK];
         }
+    }
+    else if (gBattleMoves[move].effect == EFFECT_ROADBLOCK)
+    {
+        atkStat = gBattleMons[battlerDef].speed;
+        atkStage = gBattleMons[battlerDef].statStages[STAT_SPEED];
     }
     else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS)
     {

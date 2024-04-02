@@ -15367,6 +15367,50 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .magicCoatAffected = TRUE,
     },
 
+    [MOVE_COOL_MIST] =
+    {
+        .effect = EFFECT_FROSTBITE_HIT,
+        .power = 80,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_MIND_BREAK] =
+    {
+        .effect = EFFECT_FOUL_PLAY,
+        .power = 95,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_ROADBLOCK] =
+    {
+        .effect = EFFECT_ROADBLOCK,
+        .power = 95,
+        .type = TYPE_ROCK,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

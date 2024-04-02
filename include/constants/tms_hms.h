@@ -57,7 +57,7 @@
     F(AURORA_BEAM) \
     F(DRAGON_CLAW) \
     F(PSYSHOCK) \
-    F(POWER_GEM) \
+    F(GEO_PULSE) \
     F(DAZZLING_GLEAM) \
     F(AURA_SPHERE) \
     F(DARK_PULSE) \
@@ -66,7 +66,7 @@
     F(IRON_HEAD) \
     F(DIRE_CLAW) \
     F(THROAT_CHOP) \
-    F(HYDRO_PUMP) \
+    F(COOL_MIST) \
     F(SHADOW_CLAW) \
     F(ZEN_HEADBUTT) \
     F(LUNGE) \
@@ -91,8 +91,8 @@
     F(AQUA_TAIL) \
     F(FOUL_PLAY) \
     F(MOONBLAST) \
-    F(PSYCHIC_FANGS) \
-    F(STONE_EDGE) \
+    F(MIND_BREAK) \
+    F(ROADBLOCK) \
     F(RAZOR_WIND) \
     F(DUAL_WINGBEAT) \
     F(EARTHQUAKE) \

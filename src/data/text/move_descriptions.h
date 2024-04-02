@@ -3561,7 +3561,7 @@ static const u8 sFinishOffDescription[] = _(
     "full HP. Also lowers user's Atk.");
 
 static const u8 sSeizeChanceDescription[] = _(
-    "Fails if the target didnt use\n"
+    "Fails if the target didn't use\n"
     "a status move. Always crits.");
 
 static const u8 sBrutalizeDescription[] = _(
@@ -3571,6 +3571,18 @@ static const u8 sBrutalizeDescription[] = _(
 static const u8 sTerrorizeDescription[] = _(
     "Makes the foe panic\n"
     "with intense imagery.");
+
+static const u8 sCoolMistDescription[] = _(
+    "The user shoots out cold\n"
+    "water. May cause frostbite.");
+
+static const u8 sMindBreakDescription[] = _(
+    "The higher the foe's Sp. Atk\n"
+    "the more damage caused.");
+
+static const u8 sRoadblockDescription[] = _(
+    "Fails if the target didn't\n"
+    "attack. Uses foe's Speed.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4505,4 +4517,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
     [MOVE_BRUTALIZE - 1] = sBrutalizeDescription,
     [MOVE_TERRORIZE - 1] = sTerrorizeDescription,
+    [MOVE_COOL_MIST - 1] = sCoolMistDescription,
+    [MOVE_MIND_BREAK - 1] = sMindBreakDescription,
+    [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
 };

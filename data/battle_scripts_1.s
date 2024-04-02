@@ -521,6 +521,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRazingSun               @ EFFECT_RAZING_SUN
 	.4byte BattleScript_EffectTerrorize               @ EFFECT_TERRORIZE
 	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
+	.4byte BattleScript_EffectSuckerPunch             @ EFFECT_ROADBLOCK
 
 BattleScript_EffectBrutalize::
 	call BattleScript_EffectHit_Ret
@@ -3967,7 +3968,13 @@ BattleScript_InvertStats::
 	printstring STRINGID_TOPSYTURVYSWITCHEDSTATS
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
-	goto BattleScript_MoveEnd
+	end3
+
+BattleScript_ClearSpeed::
+	normalisespeed
+	printstring STRINGID_SPEEDSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
 
 BattleScript_EffectIonDeluge:
 	attackcanceler

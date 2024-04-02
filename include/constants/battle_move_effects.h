@@ -498,6 +498,7 @@
 #define EFFECT_RAZING_SUN                   492
 #define EFFECT_TERRORIZE                    493
 #define EFFECT_BRUTALIZE                    494
-#define NUM_BATTLE_MOVE_EFFECTS             495
+#define EFFECT_ROADBLOCK                    495
+#define NUM_BATTLE_MOVE_EFFECTS             496
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
