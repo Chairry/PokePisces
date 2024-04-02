@@ -49,6 +49,41 @@ SootopolisInteriors_EventScript_LunasterTale::
 	release
 	end
 
+SootopolisInteriors_EventScript_DragonResearcher::
+    lock
+	faceplayer
+	checkitem ITEM_TM_DRAGON_BREATH
+	goto_if_eq VAR_RESULT, TRUE, SootopolisInteriors_EventScript_GaveDB
+	msgbox SootopolisInteriors_Text_ResearchingDragons, MSGBOX_DEFAULT
+	giveitem ITEM_TM_DRAGON_BREATH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+SootopolisInteriors_EventScript_GaveDB::
+    msgbox SootopolisInteriors_Text_GaveDB, MSGBOX_AUTOCLOSE
+    release
+    end
+
+SootopolisInteriors_Text_ResearchingDragons:
+	.string "The Dragon type is, in my humble\n"
+	.string "opinion, the most eye-grabbing\l"
+	.string "of the whole lot.\p"
+	.string "Hulking, commanding creatures that\n"
+	.string "harness some sort of arcane power...\p"
+	.string "I can think of nothing cooler!\p"
+	.string "Not every Pokémon can be a Dragon,\n"
+	.string "but there's a bunch out there that\l"
+	.string "can conjure similar energy.\p"
+	.string "Here, have this TM; it'll allow\n"
+	.string "the taught Pokémon to spew\l"
+	.string "violent dragon breath!$"
+
+SootopolisInteriors_Text_GaveDB:
+	.string "Tales tell of the most powerful\n"
+	.string "of all Dragons, the great Rayquaza.\p"
+	.string "I'd love to see it someday.$"
+
 SootopolisInteriors_Text_IMakeShellBells:
 	.string "Welcome to my home.\p"
 	.string "My name is Bill L'Belle.\p"

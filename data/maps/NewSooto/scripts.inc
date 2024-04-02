@@ -252,19 +252,41 @@ NewSooto_Text_FloatStone:
 	.string "I've been studying.$"
 
 NewSooto_Text_GaveFloatStone:
-	.string "already gave float stone$"
+	.string "Utilizing the flight pattern of\n"
+	.string "the Pokémon you showed me, I've\l"
+	.string "been hard at work developing\l"
+	.string "revolutionary drone tech!$"
 
 NewSooto_Text_FinnaCheckCovet:
-	.string "do your mons know covet$"
+	.string "Ey! No snitchin'! I'm scopin'\n"
+	.string "out this property... for, uh,\l"
+	.string "tax purposes.\p"
+	.string "Look, I ain't yappin' on with\n"
+	.string "a kid who don't know nothin'\l"
+	.string "about my trade.\p"
+	.string "Now, if one of them Pokémon on\n"
+	.string "ya knew Covet, maybe I'd\l"
+	.string "sing a different tone.$"
 
 NewSooto_Text_HereHaveThief:
-	.string "great have thief$"
+	.string "Heh-heh-heh...\p"
+	.string "So ya DO have a knack for\n"
+	.string "stealin', kid...\p"
+	.string "(He pulls a disc from his pocket.)\p"
+	.string "This 'ere? My favorite move.\n"
+	.string "It's basically like Covet, but\l"
+	.string "for Dark type 'mons.\p"
+	.string "The ol' five finger discount!$"
 
 NewSooto_Text_GaveThief:
-	.string "you already have thief"
+	.string "I should hightail it on\n"
+	.string "outta here soon, kid.\l"
+	.string "Keep usin' Thief out there; some\l"
+	.string "of them 'mons are carrying\l"
+	.string "valuable goodies out there!$"
 
 NewSooto_Text_NoCovet:
-	.string "you do not covet thy neighboir$"
+	.string "So, scram!$"
 
 NewSooto_Text_CheckOutTheCave:
 	.string "Hurrumph!\n"

@@ -274,16 +274,26 @@ BasalinCoast_EventScript_GaveMagicalLeaf::
     end
 
 BasalinCoast_Text_WantToSeeGrassMon:
-    .string "i wanna see a grass type pokermen$"
+    .string "Aren't Grass type Pokémon magical?\p"
+    .string "If you've caught any, I would\n"
+    .string "love to see one!$"
 
 BasalinCoast_Text_NoGrassMon:
-    .string "loser go touch grass!$"
+    .string "Hmmm... dissapointing!\n"
+    .string "Not one for flowers, I assume?$"
 
 BasalinCoast_Text_MagicalLeaf:
-    .string "have magical leaf$"
+    .string "That is an amazing Grass type\n"
+    .string "Pokémon you've caught! I can\l"
+    .string "practically smell its sweet aroma...\p"
+    .string "Please, teach this move to them.\n"
+    .string "Spread magical leaves everywhere!$"
 
 BasalinCoast_Text_GaveMagicalLeaf:
-    .string "already gave magileaf$"
+    .string "My late grandpapa always told me\n"
+    .string "that tossing leaves into the\l"
+    .string "fields would help them grow\l"
+    .string "healthily.$"
 
 BasalinCoast_Text_GugumbirIntro:
 	.string "intro$"
