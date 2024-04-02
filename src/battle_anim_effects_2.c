@@ -84,6 +84,7 @@ static void AnimPerishSongMusicNote_Step2(struct Sprite *);
 static void AnimGuardRing(struct Sprite *);
 static void AnimTask_Withdraw_Step(u8);
 static void AnimTask_GrowAndGrayscale_Step(u8);
+static void AnimTask_GrowAndGrayscale_Step2(u8);
 static void AnimTask_Minimize_Step(u8);
 static void CreateMinimizeSprite(struct Task *, u8);
 static void ClonedMinizeSprite_Step(struct Sprite *);
@@ -2056,11 +2057,32 @@ void AnimTask_GrowAndGrayscale(u8 taskId)
     gTasks[taskId].func = AnimTask_GrowAndGrayscale_Step;
 }
 
+void AnimTask_GrowAndGrayscale2(u8 taskId)
+{
+    u8 spriteId = GetAnimBattlerSpriteId(ANIM_DEF_PARTNER);
+    PrepareBattlerSpriteForRotScale(spriteId, ST_OAM_OBJ_BLEND);
+    SetSpriteRotScale(spriteId, 0xD0, 0xD0, 0);
+    SetGrayscaleOrOriginalPalette(gSprites[spriteId].oam.paletteNum + 16, FALSE);
+    gTasks[taskId].data[0] = 80;
+    gTasks[taskId].func = AnimTask_GrowAndGrayscale_Step2;
+}
+
 static void AnimTask_GrowAndGrayscale_Step(u8 taskId)
 {
     if (--gTasks[taskId].data[0] == -1)
     {
         u8 spriteId = GetAnimBattlerSpriteId(ANIM_TARGET);
+        ResetSpriteRotScale(spriteId);
+        SetGrayscaleOrOriginalPalette(gSprites[spriteId].oam.paletteNum + 16, TRUE);
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimTask_GrowAndGrayscale_Step2(u8 taskId)
+{
+    if (--gTasks[taskId].data[0] == -1)
+    {
+        u8 spriteId = GetAnimBattlerSpriteId(ANIM_DEF_PARTNER);
         ResetSpriteRotScale(spriteId);
         SetGrayscaleOrOriginalPalette(gSprites[spriteId].oam.paletteNum + 16, TRUE);
         DestroyAnimVisualTask(taskId);

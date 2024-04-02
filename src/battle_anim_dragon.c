@@ -185,6 +185,17 @@ const struct SpriteTemplate gOverheatFlameSpriteTemplate =
     .callback = AnimOverheatFlame,
 };
 
+const struct SpriteTemplate gFrostNovaCloudSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PINK_CLOUD,
+    .paletteTag = ANIM_TAG_PINK_CLOUD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOverheatFlame,
+};
+
 const union AnimCmd gDragonRushAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 4),

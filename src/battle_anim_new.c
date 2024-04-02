@@ -1948,6 +1948,17 @@ const struct SpriteTemplate gThousandWavesGreenRecoverTemplate =
     .callback = AnimPowerAbsorptionOrb
 };
 
+const struct SpriteTemplate gGemBlasterGemSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ZYGARDE_HEXES,
+    .paletteTag = ANIM_TAG_ZYGARDE_HEXES,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRockBlastRock,
+};
+
 const struct SpriteTemplate gThousandWavesGreenWheelTemplate =
 {
     .tileTag = ANIM_TAG_ZYGARDE_HEXES,

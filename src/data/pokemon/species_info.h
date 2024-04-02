@@ -108,30 +108,6 @@
         .noFlip = TRUE, \
     }
 
-#define CASTFORM_SPECIES_INFO(type, color)            \
-    {                                                 \
-        .baseHP        = 70,                          \
-        .baseAttack    = 50,                          \
-        .baseDefense   = 95,                          \
-        .baseSpeed     = 100,                         \
-        .baseSpAttack  = 110,                         \
-        .baseSpDefense = 95,                          \
-        .types = { type, type },                      \
-        .catchRate = 45,                              \
-        .expYield = 182,                              \
-        .evYield_HP        = 1,                       \
-        .itemCommon = ITEM_MYSTIC_WATER,              \
-        .itemRare = ITEM_MYSTIC_WATER,                \
-        .genderRatio = PERCENT_FEMALE(50),            \
-        .eggCycles = 25,                              \
-        .friendship = STANDARD_FRIENDSHIP,                             \
-        .growthRate = GROWTH_MEDIUM_FAST,             \
-        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},             \
-        .abilities = {ABILITY_FORECAST, ABILITY_NONE},\
-        .bodyColor = color,                           \
-        .noFlip = FALSE,                              \
-    }
-
 #define CHERRIM_SPECIES_INFO(color)                      \
     {                                                    \
         .baseHP        = 70,                             \
@@ -900,6 +876,7 @@
         .abilities = {ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_GOLDEN_MEAN, ABILITY_NONE}, \
         .bodyColor = BODY_COLOR_YELLOW, \
         .noFlip = FALSE, \
+        .flags = SPECIES_FLAG_LEGENDARY,                \
     }
 
 const struct SpeciesInfo gSpeciesInfo[] =
@@ -9014,7 +8991,29 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
-    [SPECIES_CASTFORM] = CASTFORM_SPECIES_INFO(TYPE_NORMAL, BODY_COLOR_GRAY),
+    [SPECIES_CASTFORM] = 
+    {                                      
+        .baseHP        = 70,               
+        .baseAttack    = 95,               
+        .baseDefense   = 85,               
+        .baseSpeed     = 90,              
+        .baseSpAttack  = 95,              
+        .baseSpDefense = 85,               
+        .types = { TYPE_NORMAL, TYPE_NORMAL },           
+        .catchRate = 45,                   
+        .expYield = 182,                   
+        .evYield_HP = 1,            
+        .itemCommon = ITEM_MYSTIC_WATER,   
+        .itemRare = ITEM_MYSTIC_WATER,     
+        .genderRatio = PERCENT_FEMALE(50), 
+        .eggCycles = 25,                   
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_FAST,  
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},  
+        .abilities = {ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GRAY,                
+        .noFlip = FALSE,                   
+    },
 
     [SPECIES_KECLEON] =
     {
@@ -24948,12 +24947,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_YANDEMIC] =
     {
-        .baseHP        = 100,
+        .baseHP        = 90,
         .baseAttack    = 90,
-        .baseDefense   = 90,
+        .baseDefense   = 110,
         .baseSpeed     = 70,
-        .baseSpAttack  = 90,
-        .baseSpDefense = 90,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 110,
         .types = { TYPE_POISON,TYPE_FAIRY },
         .catchRate = 45,
         .expYield = 175,
@@ -25447,6 +25446,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_RISING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .flags = SPECIES_FLAG_LEGENDARY,
     },
 
     [SPECIES_LUOSHAN] =
@@ -25470,6 +25470,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = {ABILITY_FALLING, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .flags = SPECIES_FLAG_LEGENDARY,
     },
 
     [SPECIES_GAOTERRA] =
@@ -25490,7 +25491,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
-        .abilities = {ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_NONE},
+        .abilities = {ABILITY_STELLAR_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
     },
@@ -28223,10 +28224,100 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_UNOWN_EMARK] = UNOWN_SPECIES_INFO(FLIP),
     [SPECIES_UNOWN_QMARK] = UNOWN_SPECIES_INFO(NO_FLIP),
 
-    [SPECIES_CASTFORM_SUNNY] = CASTFORM_SPECIES_INFO(TYPE_FIRE, BODY_COLOR_RED),
-    [SPECIES_CASTFORM_RAINY] = CASTFORM_SPECIES_INFO(TYPE_WATER, BODY_COLOR_BLUE),
-    [SPECIES_CASTFORM_SNOWY] = CASTFORM_SPECIES_INFO(TYPE_ICE, BODY_COLOR_WHITE),
-    [SPECIES_CASTFORM_SANDY] = CASTFORM_SPECIES_INFO(TYPE_ROCK, BODY_COLOR_BROWN),
+    [SPECIES_CASTFORM_SUNNY] =
+    {                                      
+        .baseHP        = 70,               
+        .baseAttack    = 40,               
+        .baseDefense   = 115,               
+        .baseSpeed     = 90,              
+        .baseSpAttack  = 120,              
+        .baseSpDefense = 85,               
+        .types = { TYPE_FIRE, TYPE_FIRE },           
+        .catchRate = 45,                   
+        .expYield = 182,                   
+        .evYield_HP = 1,            
+        .itemCommon = ITEM_MYSTIC_WATER,   
+        .itemRare = ITEM_MYSTIC_WATER,     
+        .genderRatio = PERCENT_FEMALE(50), 
+        .eggCycles = 25,                   
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_FAST,  
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},  
+        .abilities = {ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_RED,                
+        .noFlip = FALSE,                   
+    },
+
+    [SPECIES_CASTFORM_RAINY] =
+    {                                      
+        .baseHP        = 70,               
+        .baseAttack    = 95,               
+        .baseDefense   = 110,               
+        .baseSpeed     = 40,              
+        .baseSpAttack  = 95,              
+        .baseSpDefense = 110,               
+        .types = { TYPE_WATER, TYPE_WATER },           
+        .catchRate = 45,                   
+        .expYield = 182,                   
+        .evYield_HP = 1,            
+        .itemCommon = ITEM_MYSTIC_WATER,   
+        .itemRare = ITEM_MYSTIC_WATER,     
+        .genderRatio = PERCENT_FEMALE(50), 
+        .eggCycles = 25,                   
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_FAST,  
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},  
+        .abilities = {ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BLUE,                
+        .noFlip = FALSE,                   
+    },
+
+    [SPECIES_CASTFORM_SNOWY] = 
+    {                                      
+        .baseHP        = 70,               
+        .baseAttack    = 120,               
+        .baseDefense   = 85,               
+        .baseSpeed     = 90,              
+        .baseSpAttack  = 40,              
+        .baseSpDefense = 115,               
+        .types = { TYPE_ICE, TYPE_ICE },           
+        .catchRate = 45,                   
+        .expYield = 182,                   
+        .evYield_HP = 1,            
+        .itemCommon = ITEM_MYSTIC_WATER,   
+        .itemRare = ITEM_MYSTIC_WATER,     
+        .genderRatio = PERCENT_FEMALE(50), 
+        .eggCycles = 25,                   
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_FAST,  
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},  
+        .abilities = {ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,                
+        .noFlip = FALSE,                   
+    },
+    [SPECIES_CASTFORM_SANDY] = 
+    {                                      
+        .baseHP        = 70,
+        .baseAttack    = 95,
+        .baseDefense   = 65,
+        .baseSpeed     = 130,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 65,
+        .types = { TYPE_ROCK, TYPE_ROCK },
+        .catchRate = 45, 
+        .expYield = 182,
+        .evYield_HP = 1,
+        .itemCommon = ITEM_MYSTIC_WATER,
+        .itemRare = ITEM_MYSTIC_WATER,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS},
+        .abilities = {ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = FALSE,
+    },
 
     [SPECIES_DEOXYS_ATTACK] =
     {
@@ -29425,7 +29516,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
-        .abilities = {ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_NONE},
+        .abilities = {ABILITY_STELLAR_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -29447,7 +29538,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MONSTER},
-        .abilities = {ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_STELLAR_BODY, ABILITY_NONE},
+        .abilities = {ABILITY_STELLAR_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
