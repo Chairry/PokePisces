@@ -3968,7 +3968,13 @@ BattleScript_InvertStats::
 	printstring STRINGID_TOPSYTURVYSWITCHEDSTATS
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
-	goto BattleScript_MoveEnd
+	end3
+
+BattleScript_ClearSpeed::
+	normalisespeed
+	printstring STRINGID_SPEEDSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
 
 BattleScript_EffectIonDeluge:
 	attackcanceler

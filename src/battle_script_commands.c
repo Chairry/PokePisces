@@ -11496,6 +11496,24 @@ static void Cmd_various(void)
         }
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+    case VARIOUS_TRY_NORMALISE_SPEED:
+    {
+        VARIOUS_ARGS();
+
+        s32 i, j;
+
+        if ((gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE))
+        {
+            for (i = 0; i < gBattlersCount; i++)
+                TryResetPositiveSpeedStatChanges(i);
+
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }    
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
     case VARIOUS_TRY_TRAINER_SLIDE_MSG_Z_MOVE:
     {
         VARIOUS_ARGS();
@@ -12494,6 +12512,23 @@ bool32 TryResetBattlerPositiveStatChanges(u8 battler)
 
         if (gBattleMons[battler].statStages[j] > DEFAULT_STAT_STAGE)
             gBattleMons[battler].statStages[j] = DEFAULT_STAT_STAGE;
+    }
+
+    return ret;
+}
+
+bool32 TryResetPositiveSpeedStatChanges(u8 battler)
+{
+    u32 j;
+    bool32 ret = FALSE;
+
+    for (j = 0; j < NUM_BATTLE_STATS; j++)
+    {
+        if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+            ret = TRUE; // returns TRUE if any stat was reset
+
+        if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+            gBattleMons[gBattlerTarget].statStages[STAT_SPEED] = DEFAULT_STAT_STAGE;
     }
 
     return ret;

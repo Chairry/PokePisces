@@ -7780,6 +7780,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_STATS_CHANGE;
                 }
                 break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    BattleScriptExecute(BattleScript_ClearSpeed);
+                    effect = ITEM_STATS_CHANGE;
+                }
+                break;
             case HOLD_EFFECT_SEEDS:
                 switch (GetBattlerHoldEffectParam(battler))
                 {
@@ -7915,6 +7922,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
                 {
                     BattleScriptExecute(BattleScript_InvertStats);
+                    effect = ITEM_STATS_CHANGE;
+                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                }
+                break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    BattleScriptExecute(BattleScript_ClearSpeed);
                     effect = ITEM_STATS_CHANGE;
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
@@ -8394,9 +8409,18 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_FLIP_COIN:
                 if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
                 {
-                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, gChosenMove);
+                    effect = ITEM_STATS_CHANGE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_InvertStats;
+                    effect++;
+                }
+                break;
+            case HOLD_EFFECT_WARP_RIBBON:
+                if (gBattleMons[gBattlerTarget].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE)
+                {
+                    effect = ITEM_STATS_CHANGE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ClearSpeed;
                     effect++;
                 }
                 break;
