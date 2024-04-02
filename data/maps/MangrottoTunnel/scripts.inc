@@ -547,6 +547,38 @@ MangrottoTunnel_EventScript_Jo_And_Jo::
     msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
     end
 
+MangrottoTunnel_EventScript_Infestation::
+    lock
+	faceplayer
+	checkitem ITEM_TM_INFESTATION
+	goto_if_eq VAR_RESULT, TRUE, MangrottoTunnel_EventScript_GaveInfestation
+	msgbox MangrottoTunnel_Text_InfestedTree, MSGBOX_DEFAULT
+	giveitem ITEM_TM_INFESTATION
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+MangrottoTunnel_EventScript_GaveInfestation::
+    msgbox MangrottoTunnel_Text_CuringTheTree, MSGBOX_AUTOCLOSE
+    release
+    end
+
+MangrottoTunnel_Text_InfestedTree:
+	.string "Ugh, this tree is INFESTED\n"
+	.string "with Mandimytes! They're eating\l"
+	.string "the poor thing to splinters...\p"
+	.string "(You look inside the trunk and see\l"
+	.string "a... TM? The Mandimytes are\l"
+	.string "crowding around. You reach in\l"
+	.string "and remove it.)\p"
+	.string "Oh? They're scattering now.\n"
+	.string "Well, thanks for the help!$"
+
+MangrottoTunnel_Text_CuringTheTree:
+	.string "Those critters did a number\n"
+	.string "on this tree... I'll try\l"
+	.string "my best to nurse it back to health.$"
+
 MangrottoTunnel_Text_DroppedEgg:
 	.string "(The strange wild Pokémon dropped\n"
 	.string "the egg it was holding!)$"
