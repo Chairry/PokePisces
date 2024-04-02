@@ -925,6 +925,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CASTLE_CRASH] = _("Castle Crash"),
     [MOVE_BRUTALIZE] = _("Brutalize"),
     [MOVE_TERRORIZE] = _("Terrorize"),
+    [MOVE_COOL_MIST] = _("Cool Mist"),
+    [MOVE_MIND_BREAK] = _("Mind Break"),
+    [MOVE_ROADBLOCK] = _("Roadblock"),
 };
 #else
 // 12 letters
@@ -1853,6 +1856,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CASTLE_CRASH] = _("Castle Crash"),
     [MOVE_BRUTALIZE] = _("Brutalize"),
     [MOVE_TERRORIZE] = _("Terrorize"),
+    [MOVE_COOL_MIST] = _("Cool Mist"),
+    [MOVE_MIND_BREAK] = _("Mind Break"),
+    [MOVE_ROADBLOCK] = _("Roadblock"),
 };
 #endif
 

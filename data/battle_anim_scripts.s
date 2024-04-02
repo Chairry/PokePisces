@@ -951,6 +951,9 @@ gBattleAnims_Moves::
 	.4byte Move_CASTLE_CRASH
 	.4byte Move_BRUTALIZE
 	.4byte Move_TERRORIZE
+	.4byte Move_COOL_MIST
+	.4byte Move_MIND_BREAK
+	.4byte Move_ROADBLOCK
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21596,6 +21599,15 @@ Move_BRUTALIZE::
 
 Move_TERRORIZE::
 	goto Status_Panic
+
+Move_COOL_MIST::
+	goto Move_SCALD
+
+Move_MIND_BREAK::
+	goto Move_FOUL_PLAY
+
+Move_ROADBLOCK::
+	goto Move_BLOCK
 
 Move_TERA_BLAST::
 Move_AXE_KICK::

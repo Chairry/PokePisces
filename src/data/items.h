@@ -7816,7 +7816,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_PSYSHOCK, // Todo
     },
 
-    [ITEM_TM_POWER_GEM] =
+    [ITEM_TM_GEO_PULSE] =
     {
         .name = _("TM56"),
         .price = 3000,
@@ -7825,7 +7825,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_POWER_GEM, // Todo
+        .secondaryId = MOVE_GEO_PULSE, // Todo
     },
 
     [ITEM_TM_DAZZLING_GLEAM] =
@@ -7924,7 +7924,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_THROAT_CHOP, // Todo
     },
 
-    [ITEM_TM_HYDRO_PUMP] =
+    [ITEM_TM_COOL_MIST] =
     {
         .name = _("TM65"),
         .price = 3000,
@@ -7933,7 +7933,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HYDRO_PUMP, // Todo
+        .secondaryId = MOVE_COOL_MIST, // Todo
     },
 
     [ITEM_TM_SHADOW_CLAW] =
@@ -8224,7 +8224,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_MOONBLAST, // Todo
     },
 
-    [ITEM_TM_PSYCHIC_FANGS] =
+    [ITEM_TM_MIND_BREAK] =
     {
         .name = _("TM90"),
         .price = 3000,
@@ -8233,10 +8233,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PSYCHIC_FANGS, // Todo
+        .secondaryId = MOVE_MIND_BREAK, // Todo
     },
 
-    [ITEM_TM_STONE_EDGE] =
+    [ITEM_TM_ROADBLOCK] =
     {
         .name = _("TM91"),
         .price = 3000,
@@ -8245,7 +8245,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_STONE_EDGE, // Todo
+        .secondaryId = MOVE_ROADBLOCK, // Todo
     },
 
     [ITEM_TM_RAZOR_WIND] =

@@ -521,6 +521,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRazingSun               @ EFFECT_RAZING_SUN
 	.4byte BattleScript_EffectTerrorize               @ EFFECT_TERRORIZE
 	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
+	.4byte BattleScript_EffectSuckerPunch             @ EFFECT_ROADBLOCK
 
 BattleScript_EffectBrutalize::
 	call BattleScript_EffectHit_Ret

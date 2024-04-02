@@ -10071,6 +10071,11 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             atkStage = gBattleMons[battlerDef].statStages[STAT_SPATK];
         }
     }
+    else if (gBattleMoves[move].effect == EFFECT_ROADBLOCK)
+    {
+        atkStat = gBattleMons[battlerDef].speed;
+        atkStage = gBattleMons[battlerDef].statStages[STAT_SPEED];
+    }
     else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS)
     {
         atkStat = gBattleMons[battlerAtk].defense;
