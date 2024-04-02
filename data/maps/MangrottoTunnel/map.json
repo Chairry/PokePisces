@@ -127,7 +127,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "MangrottoTunnel_EventScript_Jaja",
       "flag": "0"
     },
@@ -146,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLONDE_LASS",
-      "x": 64,
-      "y": 22,
+      "x": 60,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
@@ -247,6 +247,84 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_TEAM_OZONE_COSMOSS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 63,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 45,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 12,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 66,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_14"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 76,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_15"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GARZILLA",
+      "x": 51,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
+      "movement_range_x": 4,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "MangrottoTunnel_EventScript_Jaja",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -290,6 +368,186 @@
       "var": "VAR_BREADWINNER_STATE",
       "var_value": "0",
       "script": "MangrottoTunnel_EventScript_BreadwinnerEnc2"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MangrottoTunnel_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MangrottoTunnel_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MangrottoTunnel_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MangrottoTunnel_EventScript_EggEncounter3East"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MangrottoTunnel_EventScript_EggEncounter3East"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "MangrottoTunnel_EventScript_EggEncounter2West"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "MangrottoTunnel_EventScript_EggEncounter2East"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "MangrottoTunnel_EventScript_EggEncounter2East"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "MangrottoTunnel_EventScript_EggEncounter2East"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1North"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1North"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1North"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 29,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 65,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "3",
+      "script": "MangrottoTunnel_EventScript_EggEncounter4West"
+    },
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "3",
+      "script": "MangrottoTunnel_EventScript_EggEncounter4East"
+    },
+    {
+      "type": "trigger",
+      "x": 75,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "MangrottoTunnel_EventScript_EggEncounter5FinalLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 76,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "MangrottoTunnel_EventScript_EggEncounter5FinalMiddle"
+    },
+    {
+      "type": "trigger",
+      "x": 77,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "MangrottoTunnel_EventScript_EggEncounter5FinalRight"
     }
   ],
   "bg_events": [
