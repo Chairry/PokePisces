@@ -7,7 +7,7 @@ SkyPillarInteriors_EventScript_RockTombGuy::
 	checkitem ITEM_TM_ROCK_TOMB
 	goto_if_eq VAR_RESULT, TRUE, SkyPillarInteriors_EventScript_GaveRockTomb
 	msgbox SkyPillarInteriors_Text_DeltaStones, MSGBOX_DEFAULT
-	giveitem ITEM_
+	giveitem ITEM_TM_ROCK_TOMB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	release
 	end
