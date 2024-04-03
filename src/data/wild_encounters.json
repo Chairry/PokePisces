@@ -8887,6 +8887,36 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 17,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_GREEN"
+              },
+              {
+                "min_level": 17,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_ORANGE"
+              },
+              {
+                "min_level": 17,
+                "max_level": 17,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              },
+              {
+                "min_level": 18,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 10,
             "mons": [
@@ -8939,36 +8969,6 @@
                 "min_level": 40,
                 "max_level": 45,
                 "species": "SPECIES_WAILMER"
-              }
-            ]
-          },
-          "rock_smash_mons": {
-            "encounter_rate": 0,
-            "mons": [
-              {
-                "min_level": 17,
-                "max_level": 18,
-                "species": "SPECIES_MINIOR_METEOR_GREEN"
-              },
-              {
-                "min_level": 17,
-                "max_level": 18,
-                "species": "SPECIES_MINIOR_METEOR_ORANGE"
-              },
-              {
-                "min_level": 17,
-                "max_level": 17,
-                "species": "SPECIES_MINIOR_METEOR_VIOLET"
-              },
-              {
-                "min_level": 18,
-                "max_level": 18,
-                "species": "SPECIES_MINIOR_METEOR_VIOLET"
-              },
-              {
-                "min_level": 19,
-                "max_level": 19,
-                "species": "SPECIES_MINIOR_METEOR_VIOLET"
               }
             ]
           }

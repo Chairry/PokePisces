@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_STEVEN",
-      "x": 8,
+      "x": 7,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -60,7 +60,7 @@
       "x": 8,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_STEVEN_HOUSE",
+      "dest_map": "MAP_STEVEN_CORRIDOR",
       "dest_warp_id": "0"
     }
   ],

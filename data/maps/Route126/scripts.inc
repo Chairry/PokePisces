@@ -3,10 +3,25 @@
 
 Route126_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route126_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, Route126_OnTransition
 	.byte 0
+
+Route126_OnTransition:
+	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, Route126_EventScript_HideMeteors
+	end
+
+Route126_EventScript_HideMeteors::
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
+	setflag FLAG_TEMP_15
+	setflag FLAG_TEMP_16
+	end
 
 Route126_OnFrame:
 	map_script_2 VAR_SPACE_CENTER_QUEST_STATE, 69, Route126_EventScript_StartInvasion
+	.2byte 0
 
 Route126_EventScript_StartInvasion::
 	lock
@@ -139,17 +154,6 @@ Route126_EventScript_RegisterPablo::
 Route126_EventScript_RematchPablo::
 	trainerbattle_rematch TRAINER_PABLO_1, Route126_Text_PabloRematchIntro, Route126_Text_PabloRematchDefeat
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_LoadMeteors::
-	lock
-	setflag FLAG_TEMP_11
-	setflag FLAG_TEMP_12
-	setflag FLAG_TEMP_13
-	setflag FLAG_TEMP_14
-	setflag FLAG_TEMP_15
-	msgbox Route126_Text_MeteorsTest, MSGBOX_AUTOCLOSE
-	release
 	end
 
 Route126_EventScript_RayEncounterNorth::

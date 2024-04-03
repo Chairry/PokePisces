@@ -2,15 +2,14 @@
 .set LOCALID_FOLLOWER, 2
 
 StevenHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, StevenHouse_OnLoad
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, StevenHouse_OnFrame
 	.byte 0
 
-StevenHouse_OnLoad:
-	call_if_eq VAR_NEW_COO_STATE, 2, StevenHouse_EventScript_MeetSteven
-	end
+StevenHouse_OnFrame:
+	map_script_2 VAR_NEW_COO_STATE, 2, StevenHouse_EventScript_MeetSteven
+	.2byte 0
 
 StevenHouse_EventScript_MeetSteven::
-	lock
 	msgbox StevenHouse_Text_MonkIntroduce, MSGBOX_DEFAULT
 	applymovement LOCALID_STEVEN, StevenHouse_Movement_MeetSteven
 	applymovement LOCALID_FOLLOWER, StevenHouse_Movement_StandAside
@@ -84,7 +83,7 @@ StevenHouse_Text_StevenGreet:
 	.string "you may be thinking.\p"
 	.string "Professor Birch had contacted me…\n"
 	.string "to keep an eye on a certain\l"
-	.string "up-and-coming master trainer.\l"
+	.string "up-and-coming master trainer.\p"
 	.string "Trust me when I say that he thinks\n"
 	.string "quite highly of you.$"
 

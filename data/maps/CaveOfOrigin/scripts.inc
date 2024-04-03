@@ -5,13 +5,15 @@ CaveOfOrigin_MapScripts::
 	.byte 0
 
 CaveOfOrigin_OnFrame:
-	map_script_2 VAR_PISCES_STORY_PROGRESS, 1, CaveOfOrigin_EventScript_GoToRedWater
+	map_script_2 VAR_NEW_COO_STATE, 0, CaveOfOrigin_EventScript_GoToRedWater
 	.2byte 0
 
 CaveOfOrigin_EventScript_GoToRedWater::
 	lock
+	removeobject LOCALID_WALLACE
 	applymovement OBJ_EVENT_ID_PLAYER, CaveOfOrigin_Movement_PlayerWalkToWater
 	waitmovement 0
+	addobject LOCALID_WALLACE
 	applymovement LOCALID_WALLACE, CaveOfOrigin_Movement_WallaceWalkToWater
 	waitmovement 0
 	msgbox CaveOfOrigin_Text_AboutTheLegends, MSGBOX_AUTOCLOSE
@@ -48,15 +50,6 @@ CaveOfOrigin_Movement_PlayerWalkToWater:
 	step_end
 
 CaveOfOrigin_Movement_WallaceWalkToWater:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	walk_down
 	walk_down
 	walk_down
 	walk_down
