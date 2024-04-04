@@ -145,24 +145,24 @@ static const u8 sCherishBallDesc[] = _(
 static const u8 sPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
-    "20 points.");
+    "60 points.");
 
 static const u8 sSuperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "60 points.");
+    "100 points.");
 #else
-    "50 points.");
+    "100 points.");
 #endif
 
 static const u8 sHyperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "120 points.");
+    "150 points.");
 #else
-    "200 points.");
+    "150 points.");
 #endif
 
 static const u8 sMaxPotionDesc[] = _(
@@ -197,9 +197,9 @@ static const u8 sSodaPopDesc[] = _(
     "A fizzy soda drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 50 points.");
+    "by 30 points.");
 #else
-    "by 60 points.");
+    "by 30 points.");
 #endif
 
 static const u8 sLemonadeDesc[] = _(
@@ -268,21 +268,20 @@ static const u8 sFullHealDesc[] = _(
 static const u8 sEtherDesc[] = _(
     "Restores the PP\n"
     "of a selected move\n"
-    "by 10.");
+    "by 5.");
 
 static const u8 sMaxEtherDesc[] = _(
-    "Fully restores the\n"
-    "PP of a selected\n"
-    "move.");
+    "Restores the PP\n"
+    "of a selected move\n"
+    "by 10.");
 
 static const u8 sElixirDesc[] = _(
     "Restores the PP\n"
-    "of all moves by 10.");
+    "of all moves by 5.");
 
 static const u8 sMaxElixirDesc[] = _(
-    "Fully restores the\n"
-    "PP of a Pokémon's\n"
-    "moves.");
+    "Restores the PP\n"
+    "of all moves by 10.");
 
 static const u8 sBerryJuiceDesc[] = _(
     "A 100% pure juice\n"

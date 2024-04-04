@@ -438,6 +438,17 @@ const struct SpriteTemplate gBulletSeedSpriteTemplate =
     .callback = AnimBulletSeed,
 };
 
+const struct SpriteTemplate gGemBlasterGemSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ZYGARDE_HEXES,
+    .paletteTag = ANIM_TAG_ZYGARDE_HEXES,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBulletSeed,
+};
+
 const union AffineAnimCmd gRazorWindTornadoAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x100, 0, 0),

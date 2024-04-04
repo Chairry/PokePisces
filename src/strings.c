@@ -363,6 +363,7 @@ const u8 gText_SpaceForVar1Full[] = _("The space for\n{STR_VAR_1}\nis full.{PAUS
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
 const u8 gText_CanIHelpWithAnythingElse[] = _("Can I help you with anything else?");
 const u8 gText_ThrowInPremierBall[] = _("I'll throw in\na Premier Ball,\ntoo.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInSomePremierBalls[] = _("I'll throw in some\n Premier Balls,\ntoo.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantBuyKeyItem[] = _("{STR_VAR_2}? Oh, no.\nI can't buy that.{PAUSE_UNTIL_PRESS}");
 const u8 gText_HowManyToSell[] = _("{STR_VAR_2}?\nHow many would you like to sell?");
 const u8 gText_ICanPayVar1[] = _("I can pay ¥{STR_VAR_1}.\nWould that be okay?");
