@@ -179,6 +179,115 @@ NewSooto_EventScript_NotEnoughMoney::
 	release
 	end
 
+NewSooto_EventScript_Thief::
+    lock
+	faceplayer
+	checkitem ITEM_TM_THIEF
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GaveThief
+	msgbox NewSooto_Text_FinnaCheckCovet, MSGBOX_DEFAULT
+	checkpartynonhmmove MOVE_COVET
+	goto_if_eq VAR_RESULT, PARTY_SIZE, NewSooto_EventScript_NoCovet
+	msgbox NewSooto_Text_HereHaveThief, MSGBOX_DEFAULT
+	giveitem ITEM_TM_THIEF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+NewSooto_EventScript_GaveThief::
+    msgbox NewSooto_Text_GaveThief, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_EventScript_NoCovet::
+	msgbox NewSooto_Text_NoCovet, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_EventScript_FloatStone::
+    lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_FLOAT_STONE, NewSooto_EventScript_GaveFloatStone
+	getcaughtmon SPECIES_BALBYRN
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_SAINTISOW
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_UMBRAT
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	getcaughtmon SPECIES_DRAKULARK
+	goto_if_eq VAR_RESULT, TRUE, NewSooto_EventScript_GiveFloatStone
+	msgbox NewSooto_Text_WantToSeeFlyingMon, MSGBOX_AUTOCLOSE
+	release
+	end
+
+NewSooto_EventScript_GiveFloatStone::
+	msgbox NewSooto_Text_FloatStone, MSGBOX_DEFAULT
+	giveitem ITEM_FLOAT_STONE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_FLOAT_STONE
+	release
+	end
+
+NewSooto_EventScript_GaveFloatStone::
+    msgbox NewSooto_Text_GaveFloatStone, MSGBOX_AUTOCLOSE
+    release
+    end
+
+NewSooto_Text_WantToSeeFlyingMon:
+	.string "I am doing important research\n$"
+	.string "on Hoenn's atmosphere on behalf\l"
+	.string "of Team Ozone.\p"
+	.string "If you can show me a Flying type\n"
+	.string "Pokémon in your dex, it\l"
+	.string "could potentially help me fill\l"
+	.string "in some blanks.$"
+
+NewSooto_Text_FloatStone:
+	.string "Let me see your Pokédex for\n"
+	.string "a quick second...\p"
+	.string "Ah! You have caught at least\n"
+	.string "one Flying type! Let me just\l"
+	.string "jot down some notes...\p"
+	.string "...There. Now, in exchange, I'd\n"
+	.string "Like you to have this odd pebble\l"
+	.string "I've been studying.$"
+
+NewSooto_Text_GaveFloatStone:
+	.string "Utilizing the flight pattern of\n"
+	.string "the Pokémon you showed me, I've\l"
+	.string "been hard at work developing\l"
+	.string "revolutionary drone tech!$"
+
+NewSooto_Text_FinnaCheckCovet:
+	.string "Ey! No snitchin'! I'm scopin'\n"
+	.string "out this property... for, uh,\l"
+	.string "tax purposes.\p"
+	.string "Look, I ain't yappin' on with\n"
+	.string "a kid who don't know nothin'\l"
+	.string "about my trade.\p"
+	.string "Now, if one of them Pokémon on\n"
+	.string "ya knew Covet, maybe I'd\l"
+	.string "sing a different tone.$"
+
+NewSooto_Text_HereHaveThief:
+	.string "Heh-heh-heh...\p"
+	.string "So ya DO have a knack for\n"
+	.string "stealin', kid...\p"
+	.string "(He pulls a disc from his pocket.)\p"
+	.string "This 'ere? My favorite move.\n"
+	.string "It's basically like Covet, but\l"
+	.string "for Dark type 'mons.\p"
+	.string "The ol' five finger discount!$"
+
+NewSooto_Text_GaveThief:
+	.string "I should hightail it on\n"
+	.string "outta here soon, kid.\l"
+	.string "Keep usin' Thief out there; some\l"
+	.string "of them 'mons are carrying\l"
+	.string "valuable goodies out there!$"
+
+NewSooto_Text_NoCovet:
+	.string "So, scram!$"
+
 NewSooto_Text_CheckOutTheCave:
 	.string "Hurrumph!\n"
 	.string "If it isn't that {PLAYER} fellow.\p"

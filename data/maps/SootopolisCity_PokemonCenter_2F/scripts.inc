@@ -54,7 +54,7 @@ SootopolisCity_PokemonCenter_2F_EventScript_NoMoreQuest::
 	end
 
 SootopolisCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
-	.string "you needa catch uhh\n$"
+	.string "you needa catch uhh\n"
 	.string "spryte lumelmo snotloud$"
 
 SootopolisCity_PokemonCenter_2F_Text_GoCatchIt:

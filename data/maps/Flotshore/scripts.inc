@@ -1,3 +1,5 @@
+.set LOCALID_BARRELFISHER, 19
+
 Flotshore_MapScripts::
 	.byte 0
 
@@ -51,6 +53,86 @@ Flotshore_EventScript_GaveSeashellAlr::
     msgbox Flotshore_Text_GaveSeashellAlr, MSGBOX_AUTOCLOSE
     release
     end
+
+Flotshore_EventScript_PounceFlagTest::
+	lock
+	setflag FLAG_RECEIVED_TM_POUNCE
+	msgbox Flotshore_Text_Gugumbir, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Flotshore_EventScript_VacuumWaveJanitor::
+    lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TM_VACUUM_WAVE, Flotshore_EventScript_GaveVacuumWave
+	msgbox Flotshore_Text_Gugumbir, MSGBOX_DEFAULT
+	giveitem ITEM_TM_VACUUM_WAVE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM_VACUUM_WAVE
+	release
+	end
+
+Flotshore_EventScript_GaveVacuumWave::
+    msgbox Flotshore_Text_Gugumbir, MSGBOX_AUTOCLOSE
+    release
+    end
+
+Flotshore_EventScript_PounceBarrel::
+    lock
+	clearflag FLAG_RECEIVED_TM_POUNCE
+	addobject LOCALID_BARRELFISHER
+	applymovement LOCALID_BARRELFISHER, Flotshore_Movement_JumpFromBarrel
+	waitmovement 0
+	checkitem ITEM_TM_POUNCE
+	goto_if_eq VAR_RESULT, TRUE, Flotshore_EventScript_GavePounce
+	msgbox Flotshore_Text_GotYou, MSGBOX_DEFAULT
+	giveitem ITEM_TM_POUNCE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_RECEIVED_TM_POUNCE
+	applymovement LOCALID_BARRELFISHER, Flotshore_Movement_JumpIntoBarrel
+	waitmovement 0
+	release
+	end
+
+Flotshore_Movement_JumpFromBarrel:
+	set_visible
+	jump_right
+	face_right
+	step_end
+
+Flotshore_Movement_JumpIntoBarrel:
+	jump_left
+	face_left
+	set_invisible
+	step_end
+
+Flotshore_EventScript_GavePounce::
+    msgbox Flotshore_Text_AlreadyGotYou, MSGBOX_AUTOCLOSE
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_RECEIVED_TM_POUNCE
+	applymovement LOCALID_BARRELFISHER, Flotshore_Movement_JumpIntoBarrel
+	waitmovement 0
+    release
+    end
+
+Flotshore_Text_GotYou:
+	.string "BOOGA BOOGA BOOGA!!!\p"
+	.string "Haha! Did I getcha? Come on now,\n"
+	.string "lighten up! We're havin' as much\l"
+	.string "fun as a BARREL of monkeys!!\p"
+	.string "Haha! Here's my apology for\n"
+	.string "the sensory overload.\p"
+	.string "Take this and maybe YOU can get\n"
+	.string "the drop on someone else!$"
+
+Flotshore_Text_AlreadyGotYou:
+	.string "BOOGA...boo...ga...\p"
+	.string "Hey! I already jumpscared you\n"
+	.string "before! Leave room for another sucker!$"
+
+Flotshore_Text_Gugumbir:
+	.string "test$"
 
 Flotshore_Text_SeanIntro:
 	.string "test$"

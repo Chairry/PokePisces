@@ -118,8 +118,8 @@ BasalinCoast_EventScript_BluePKMNCenters1::
     applymovement LOCALID_STUDENT, BasalinCoast_Movement_StudentLeaves
     setvar VAR_BALL_QUEST_STATE, 0
     clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
-    waitmovement 0
     setflag FLAG_HIDE_LAB_RANGERS
+    waitmovement 0
     release
     end
 
@@ -159,6 +159,7 @@ BasalinCoast_Movement_StudentLeaves:
     walk_right
     walk_right
     walk_right
+    set_invisible
     step_end
 
 BasalinCoast_EventScript_BluePKMNCenters2::
@@ -245,6 +246,54 @@ BasalinCoast_Movement_PlayerTakeYou3:
     walk_left
     walk_up
     step_end
+
+BasalinCoast_EventScript_MagicalLeafAromaLady::
+    lock
+	faceplayer
+	checkitem ITEM_TM_MAGICAL_LEAF
+	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GaveMagicalLeaf
+    msgbox BasalinCoast_Text_WantToSeeGrassMon, MSGBOX_DEFAULT
+    getcaughtmon SPECIES_BERM
+	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GiveMagicalLeaf
+    getcaughtmon SPECIES_TIDPIT
+	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GiveMagicalLeaf
+    msgbox BasalinCoast_Text_NoGrassMon, MSGBOX_DEFAULT
+	release
+	end
+
+BasalinCoast_EventScript_GiveMagicalLeaf::
+    msgbox BasalinCoast_Text_MagicalLeaf, MSGBOX_DEFAULT
+    giveitem ITEM_TM_MAGICAL_LEAF
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+    release
+	end
+
+BasalinCoast_EventScript_GaveMagicalLeaf::
+    msgbox BasalinCoast_Text_GaveMagicalLeaf, MSGBOX_AUTOCLOSE
+    release
+    end
+
+BasalinCoast_Text_WantToSeeGrassMon:
+    .string "Aren't Grass type Pokémon magical?\p"
+    .string "If you've caught any, I would\n"
+    .string "love to see one!$"
+
+BasalinCoast_Text_NoGrassMon:
+    .string "Hmmm... dissapointing!\n"
+    .string "Not one for flowers, I assume?$"
+
+BasalinCoast_Text_MagicalLeaf:
+    .string "That is an amazing Grass type\n"
+    .string "Pokémon you've caught! I can\l"
+    .string "practically smell its sweet aroma...\p"
+    .string "Please, teach this move to them.\n"
+    .string "Spread magical leaves everywhere!$"
+
+BasalinCoast_Text_GaveMagicalLeaf:
+    .string "My late grandpapa always told me\n"
+    .string "that tossing leaves into the\l"
+    .string "fields would help them grow\l"
+    .string "healthily.$"
 
 BasalinCoast_Text_GugumbirIntro:
 	.string "intro$"

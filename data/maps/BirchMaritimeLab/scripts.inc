@@ -177,6 +177,7 @@ BirchMaritimeLab_EventScript_BeatenRangers::
 	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar
 	msgbox BirchMaritimeLab_Text_HaveEXPShare, MSGBOX_DEFAULT
 	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_TM_POUNCE
 	setflag FLAG_RECEIVED_EXP_SHARE
 	setvar VAR_BALL_QUEST_STATE, 69
 	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE

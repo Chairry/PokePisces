@@ -1,11 +1,27 @@
 .set LOCALID_RAY, 5
+.set LOCALID_PARRYER, 21
 
 Route126_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route126_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, Route126_OnTransition
 	.byte 0
+
+Route126_OnTransition:
+	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, Route126_EventScript_HideMeteors
+	end
+
+Route126_EventScript_HideMeteors::
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
+	setflag FLAG_TEMP_15
+	setflag FLAG_TEMP_16
+	end
 
 Route126_OnFrame:
 	map_script_2 VAR_SPACE_CENTER_QUEST_STATE, 69, Route126_EventScript_StartInvasion
+	.2byte 0
 
 Route126_EventScript_StartInvasion::
 	lock
@@ -140,17 +156,6 @@ Route126_EventScript_RematchPablo::
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
 	end
 
-Route126_EventScript_LoadMeteors::
-	lock
-	setflag FLAG_TEMP_11
-	setflag FLAG_TEMP_12
-	setflag FLAG_TEMP_13
-	setflag FLAG_TEMP_14
-	setflag FLAG_TEMP_15
-	msgbox Route126_Text_MeteorsTest, MSGBOX_AUTOCLOSE
-	release
-	end
-
 Route126_EventScript_RayEncounterNorth::
 	lock
 	setflag FLAG_TEMP_16
@@ -210,6 +215,7 @@ Route126_EventScript_RayLeaves::
 Route126_EventScript_RayLeavesNorth::
 	applymovement LOCALID_RAY, Route126_Movement_RayLeavesNorth
 	waitmovement 0
+	removeobject LOCALID_RAY
 	setflag FLAG_HIDE_RAY
 	setvar VAR_RAY_STATE, 1
 	release
@@ -231,6 +237,7 @@ Route126_Movement_RayLeavesNorth:
 Route126_EventScript_RayLeavesSouth::
 	applymovement LOCALID_RAY, Route126_Movement_RayLeavesSouth
 	waitmovement 0
+	removeobject LOCALID_RAY
 	setflag FLAG_HIDE_RAY
 	setvar VAR_RAY_STATE, 1
 	release
@@ -255,6 +262,187 @@ Route126_EventScript_SpaceCenterVarTest::
 	msgbox Route126_Text_VarTest, MSGBOX_AUTOCLOSE
 	release
 	end
+
+Route126_EventScript_ParryRocketScientist::
+	lock
+	faceplayer
+	checkitem ITEM_TM_DETECT
+	goto_if_eq VAR_RESULT, TRUE, Route126_EventScript_GaveDetectRS
+	goto_if_eq VAR_TEMP_5, 3, Route126_EventScript_HitTheRocket
+	msgbox Route126_Text_WorkingOnTheRocket, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route126_EventScript_GaveDetectRS::
+	msgbox Route126_Text_GaveDetectRS, MSGBOX_AUTOCLOSE
+    release
+    end
+
+Route126_EventScript_HitTheRocket::
+	msgbox Route126_Text_SayNoMore, MSGBOX_DEFAULT
+	applymovement LOCALID_PARRYER, Route126_Movement_BBWalkUp
+	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_PlayerWatch
+	waitmovement 0
+	msgbox Route126_Text_ReadyToParry, MSGBOX_DEFAULT
+	playse SE_M_MEGA_KICK
+	waitse
+	applymovement LOCALID_PARRYER, Route126_Movement_BBParry
+	waitmovement 0
+	playse SE_M_MEGA_KICK2
+	waitse
+	applymovement LOCALID_PARRYER, Route126_Movement_BBVictorious
+	msgbox Route126_Text_Victorious, MSGBOX_DEFAULT
+	giveitem ITEM_TM_DETECT
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	applymovement LOCALID_PARRYER, Route126_Movement_BBWalkAway
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_PlayerLookBack
+	waitmovement 0
+	msgbox Route126_Text_ThatWasEntertaining, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route126_Movement_BBWalkUp:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+Route126_Movement_PlayerWatch:
+	face_left
+	step_end
+
+Route126_Movement_BBParry:
+	face_up
+	delay_16
+	delay_16
+	delay_16
+	jump_in_place_up
+	walk_in_place_fast_up
+	delay_8
+	step_end
+
+Route126_Movement_BBVictorious:
+	face_right
+	walk_in_place_right
+	step_end
+
+Route126_Movement_BBWalkAway:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	face_down
+	step_end
+
+Route126_Movement_PlayerLookBack:
+	face_right
+	step_end
+
+Route126_EventScript_ParryBlackBelt::
+	lock
+	faceplayer
+	checkitem ITEM_TM_DETECT
+	goto_if_eq VAR_RESULT, TRUE, Route126_EventScript_GaveDetectBB
+	setvar VAR_TEMP_5, 3
+	msgbox Route126_Text_IWantToParry, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route126_EventScript_GaveDetectBB::
+	msgbox Route126_Text_GaveDetectBB, MSGBOX_AUTOCLOSE
+    release
+    end
+
+Route126_EventScript_SwiftGirl::
+    lock
+	faceplayer
+	checkitem ITEM_TM_SWIFT
+	goto_if_eq VAR_RESULT, TRUE, Route126_EventScript_GaveSwift
+	msgbox Route126_Text_ShootingStars, MSGBOX_DEFAULT
+	giveitem ITEM_TM_SWIFT
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+Route126_EventScript_GaveSwift::
+    msgbox Route126_Text_GaveSwift, MSGBOX_AUTOCLOSE
+    release
+    end
+
+Route126_Text_ShootingStars:
+	.string "Ah, the beauty of shooting stars...\p"
+	.string "You know, this bridge is a hotspot\n"
+	.string "for viewing them. How romantic!\p"
+	.string "Teach your Pokémon this move;\n"
+	.string "that way, you can make your own\l"
+	.string "personal meteor shower!$"
+
+Route126_Text_GaveSwift:
+	.string "I don't believe on making\n"
+	.string "more than one wish on a shooting\l"
+	.string "star. I'll save it for just\l"
+	.string "the right moment in my life!$"
+
+Route126_Text_WorkingOnTheRocket:
+	.string "Very much hoping that this\n"
+	.string "rocket's structural integrity\l"
+	.string "is sound enough for launch...$"
+
+Route126_Text_GaveDetectRS:
+	.string "Thanks to that parry, I KNOW\n"
+	.string "the rocket is sturdy as\l"
+	.string "all get out!$"
+
+Route126_Text_SayNoMore:
+	.string "...What's that you're telling me?\n"
+	.string "C-Can the rocket... fight?\p"
+	.string "Surely you're joking. This is\n"
+	.string "a state of the art vessel made of\l"
+	.string "many tonnes of steel.\p"
+	.string "Nothing could dent thi-\p"
+	.string "SAY NO MORE!$"
+
+Route126_Text_ReadyToParry:
+	.string "Rocket-kun... my new arch-nemesis...!\n"
+	.string "I have what it takes to match your\l"
+	.string "strikes...! You will NOT win!\p"
+	.string "(He is winding up...)$"
+
+Route126_Text_Victorious:
+	.string "(Blue energy is flaring around\n"
+	.string "the black belt...)\p"
+	.string "Victorious once again!\n"
+	.string "Seems you were all talk, Rocket-kun...\p"
+	.string "Allow me to pass some of my skills\n"
+	.string "to your Pokémon... in the form of a TM.$"
+
+Route126_Text_ThatWasEntertaining:
+	.string "???? Ok???\p"
+	.string "Didn't seem like he really did\n"
+	.string "anything???$"
+
+Route126_Text_IWantToParry:
+	.string "Hai. I have trained for eons in\n"
+	.string "the art... of parrying.\p"
+	.string "I have not been challenged in\n"
+	.string "quite some time.\p"
+	.string "Could you possibly find me...\n"
+	.string "a worthy opponent?$"
+
+Route126_Text_GaveDetectBB:
+	.string "The next opponent awaits me...$"
 
 Route126_Text_MeteorsTest:
 	.string "meteors unset$"
