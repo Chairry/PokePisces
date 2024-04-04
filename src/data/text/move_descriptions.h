@@ -3167,11 +3167,11 @@ static const u8 sRuinationDescription[] = _(
 
 static const u8 sCollisionCourseDescription[] = _(
     "Prehistoric explosion that's\n"
-    "stronger if supereffective.");
+    "stronger if super effective.");
 
 static const u8 sElectroDriftDescription[] = _(
     "Futuristic electricity. It's\n"
-    "stronger if supereffective.");
+    "stronger if super effective.");
 
 static const u8 sShedTailDescription[] = _(
     "Creates a Substitute for\n"

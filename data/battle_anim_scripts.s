@@ -17340,11 +17340,10 @@ Move_POUNCE:
 	loadspritegfx ANIM_TAG_LEAF @green
 	loadspritegfx ANIM_TAG_RAZOR_LEAF @green
 	loadspritegfx ANIM_TAG_SMALL_BUBBLES @ball
-	monbg ANIM_ATK_PARTNER
+	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_WindUpLunge, 5, ANIM_ATTACKER, -24, 8, 23, 10, 40, 10
 	delay 45
-	monbg ANIM_DEF_PARTNER
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0x46, 0x0, 0x6
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0x28, 0x28, 0x6
 	createsprite gTealAlertSpriteTemplate, ANIM_ATTACKER, 4, 0xa, 0xffc4, 0x6
@@ -17372,10 +17371,9 @@ Move_POUNCE:
 	createsprite gLungeGreenImpactTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0x1, 0x2
 	waitforvisualfinish
 	delay 2
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
-	delay 3
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
-	waitforvisualfinish	
+	delay 0x2
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x5
+	waitforvisualfinish
 	visible ANIM_ATTACKER
 	clearmonbg ANIM_DEF_PARTNER
 	end

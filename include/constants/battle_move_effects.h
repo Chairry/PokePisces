@@ -499,6 +499,7 @@
 #define EFFECT_TERRORIZE                    493
 #define EFFECT_BRUTALIZE                    494
 #define EFFECT_ROADBLOCK                    495
-#define NUM_BATTLE_MOVE_EFFECTS             496
+#define EFFECT_DEFENSE_DOWN_HIT_2           496
+#define NUM_BATTLE_MOVE_EFFECTS             497
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
