@@ -431,7 +431,7 @@ SSTidalInteriors_Text_Janitor:
 
 SSTidalInteriors_Text_LeftSailor:
 	.string "Ever hear of the Behemoth of\n"
-	.string "the mountain peaks, GROUDON?\p"
+	.string "the mountain peaks, Groudon?\p"
 	.string "It's a formidable lookin' one, I\n"
 	.string "tell ya! I've been tryin' to\l"
 	.string "convince my buddy here that\l"

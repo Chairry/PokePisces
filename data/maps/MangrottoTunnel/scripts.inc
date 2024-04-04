@@ -567,7 +567,7 @@ MangrottoTunnel_Text_InfestedTree:
 	.string "Ugh, this tree is INFESTED\n"
 	.string "with Mandimytes! They're eating\l"
 	.string "the poor thing to splinters...\p"
-	.string "(You look inside the trunk and see\l"
+	.string "(You look inside the trunk and see\n"
 	.string "a... TM? The Mandimytes are\l"
 	.string "crowding around. You reach in\l"
 	.string "and remove it.)\p"

@@ -222,7 +222,7 @@ MossdeepCity_Text_HaveMudShot:
 
 MossdeepCity_Text_GaveMudShot:
 	.string "I have a mud bath appointment\n"
-	.string "coming up soon..."
+	.string "coming up soon...$"
 
 MossdeepCity_Text_WantToSeeMonGrowl:
 	.string "Grr... Rrrraaarghhh...\p"

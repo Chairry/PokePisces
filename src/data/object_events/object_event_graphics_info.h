@@ -4636,19 +4636,19 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_HO_OH,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
     .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .paletteSlot = PALSLOT_NPC_4,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .disableReflectionPaletteLoad = FALSE,
-    .tracks = TRACKS_FOOT,
+    .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_HoOh,
+    .anims = sAnimTable_AcroBike,
     .images = sPicTable_HoOh,
     .affineAnims = gDummySpriteAffineAnimTable,
 };

@@ -4846,28 +4846,28 @@
             "encounter_rate": 180,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_MINIOR"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_MINIOR_METEOR_BLUE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_MINIOR_METEOR_YELLOW"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_MINIOR_METEOR_YELLOW"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 16,
+                "max_level": 16,
                 "species": "SPECIES_MINIOR_METEOR_YELLOW"
               }
             ]
@@ -12345,6 +12345,36 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 80,
+            "mons": [
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_MANDIMYTE"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 10,
             "mons": [
@@ -12397,36 +12427,6 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_SADSOD"
-              }
-            ]
-          },
-          "rock_smash_mons": {
-            "encounter_rate": 80,
-            "mons": [
-              {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_MANDIMYTE"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_MANDIMYTE"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_MANDIMYTE"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_MANDIMYTE"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_MANDIMYTE"
               }
             ]
           }

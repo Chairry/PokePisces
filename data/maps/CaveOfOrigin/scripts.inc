@@ -5,7 +5,7 @@ CaveOfOrigin_MapScripts::
 	.byte 0
 
 CaveOfOrigin_OnFrame:
-	map_script_2 VAR_NEW_COO_STATE, 0, CaveOfOrigin_EventScript_GoToRedWater
+	map_script_2 VAR_NEW_COO_STATE, 1, CaveOfOrigin_EventScript_GoToRedWater
 	.2byte 0
 
 CaveOfOrigin_EventScript_GoToRedWater::
