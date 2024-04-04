@@ -10,12 +10,26 @@ MossdeepCity_Gym_OnLoad:
 	goto MossdeepCity_Gym_EventScript_CheckSwitch2
 	end
 
-MossdeepCity_Gym_EventScript_FadeOutMusic::
+MossdeepCity_Gym_EventScript_Narrator1::
+	lock
 	fadeoutbgm 1
+	setvar VAR_TEMP_5, 1
+	msgbox MossdeepCity_Gym_Text_Narrator_1, MSGBOX_AUTOCLOSE
+	release
 	end
 
-MossdeepCity_Gym_EventScript_FadeInMusic::
-	fadeinbgm 1
+MossdeepCity_Gym_EventScript_Narrator2::
+	lock
+	setvar VAR_TEMP_5, 2
+	msgbox MossdeepCity_Gym_Text_Narrator_2, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MossdeepCity_Gym_EventScript_Narrator3::
+	lock
+	setvar VAR_TEMP_5, 3
+	msgbox MossdeepCity_Gym_Text_Narrator_3, MSGBOX_AUTOCLOSE
+	release
 	end
 
 MossdeepCity_Gym_EventScript_Planck::
@@ -306,13 +320,13 @@ MossdeepCity_Gym_Text_GymGuidePostVictory:
 	.string "You're one great TRAINER!$"
 
 MossdeepCity_Gym_Text_GugumbirIntro:
-	.string "intro$"
+	.string "…$"
 
 MossdeepCity_Gym_Text_GugumbirDefeated:
-	.string "defeat$"
+	.string "…$"
 
 MossdeepCity_Gym_Text_GugumbirPostBattle:
-	.string "post$"
+	.string "…$"
 
 MossdeepCity_Gym_Text_GugumbirNeedTwoMons:
 	.string "need 2 dood$"

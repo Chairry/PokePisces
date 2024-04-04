@@ -829,20 +829,29 @@
     {
       "type": "trigger",
       "x": 26,
-      "y": 24,
+      "y": 16,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
-      "script": "MossdeepCity_Gym_EventScript_FadeOutMusic"
+      "script": "MossdeepCity_Gym_EventScript_Narrator1"
     },
     {
       "type": "trigger",
-      "x": 26,
-      "y": 5,
+      "x": 11,
+      "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "MossdeepCity_Gym_EventScript_FadeInMusic"
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "MossdeepCity_Gym_EventScript_Narrator2"
+    },
+    {
+      "type": "trigger",
+      "x": 48,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "2",
+      "script": "MossdeepCity_Gym_EventScript_Narrator3"
     }
   ],
   "bg_events": [
