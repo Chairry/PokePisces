@@ -408,6 +408,7 @@
 #define ANIM_TAG_DRAGON_HEAD                (ANIM_SPRITES_START + 394)
 #define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
+#define ANIM_TAG_RED_SHADOW                 (ANIM_SPRITES_START + 397)
 
 // battlers
 #define ANIM_ATTACKER         0

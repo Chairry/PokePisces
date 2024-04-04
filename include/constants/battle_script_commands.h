@@ -260,6 +260,7 @@
 #define VARIOUS_DESTINY_KNOT_HEAL_BLOCK              167
 #define VARIOUS_CHEESING                             168
 #define VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY         169
+#define VARIOUS_TRY_NORMALISE_SPEED                  170
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

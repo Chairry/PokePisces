@@ -3985,7 +3985,7 @@ Cry_Komorode::
 
 	.align 2
 Cry_Annihilape::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/annihilape.bin"
 
 	.align 2
 Cry_Ebibi::
@@ -4197,7 +4197,7 @@ Cry_Stolyce::
 
 	.align 2
 Cry_Dudunspars::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/dudunsparce.bin"
 
 	.align 2
 Cry_Lottabats::
@@ -4833,7 +4833,7 @@ Cry_Shunyong::
 
 	.align 2
 Cry_Kingambit::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/kingambit.bin"
 
 	.align 2
 Cry_Shellylouh::
