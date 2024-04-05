@@ -522,6 +522,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTerrorize               @ EFFECT_TERRORIZE
 	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
 	.4byte BattleScript_EffectSuckerPunch             @ EFFECT_ROADBLOCK
+	.4byte BattleScript_EffectDefenseDownHit2         @ EFFECT_DEFENSE_DOWN_HIT_2
+
+BattleScript_EffectDefenseDownHit2::
+	setmoveeffect MOVE_EFFECT_DEF_MINUS_2
+	goto BattleScript_EffectHit
 
 BattleScript_EffectBrutalize::
 	call BattleScript_EffectHit_Ret
@@ -5515,7 +5520,7 @@ BattleScript_EffectFocusEnergy:
 	attackanimation
 	waitanimation
 	printfromtable gFocusEnergyUsedStringIds
-	waitmessage B_WAIT_TIME_SHORTEST
+	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_FocusEnergyTryToRaiseStats
 	goto BattleScript_MoveEnd
 BattleScript_FocusEnergyFailedCheckInnerFocus::

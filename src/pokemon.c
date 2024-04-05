@@ -7339,6 +7339,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         break;
     // Battle evolution without leveling; party slot is being passed into the evolutionItem arg.
     case EVO_MODE_BATTLE_SPECIAL:
+        level = GetMonData(mon, MON_DATA_LEVEL, 0);
+
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             switch (gEvolutionTable[species][i].method)
@@ -7348,15 +7350,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_SLASH_MOVE:
-                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].slicingMove)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_PIERCE_MOVE:
-                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].piercingMove)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_BLUNT_MOVE:
-                if (gLastHitBy[evolutionItem] == (gBattleMoves[evolutionItem].ballisticMove || gBattleMoves[evolutionItem].punchingMove || gBattleMoves[evolutionItem].kickingMove))
+                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].ballisticMove || gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove) && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
@@ -9285,7 +9287,7 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {11, 70}, // before level 10, can only get 70 EVs total
+    {11, 70}, // before level 11, can only get 70 EVs total
     {21, 140},
     {31, 210},
     {41, 280},
