@@ -3584,6 +3584,26 @@ static const u8 sRoadblockDescription[] = _(
     "Fails if the target didn't\n"
     "attack. Uses foe's Speed.");
 
+static const u8 sGattlingPinsDescription[] = _(
+    "The user shoots a flurry of\n"
+    "pins 5 times in a row.");
+
+static const u8 sEarthShatterDescription[] = _(
+    "Super effective against Rock/\n"
+    "Steel/Ground. Destroys Terrain.");
+
+static const u8 sMassBreakDescription[] = _(
+    "Super effective against Normal\n"
+    "and Fighting. Destroys Screens.");
+
+static const u8 sHeavyCannonDescription[] = _(
+    "Stronger for each Def and Sp.\n"
+    "Def boost. Lowers defenses.");
+
+static const u8 sGiantsSpearDescription[] = _(
+    "Lowers users Def and Sp. Def.\n"
+    "Stronger when super effective.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4520,4 +4540,10 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_COOL_MIST - 1] = sCoolMistDescription,
     [MOVE_MIND_BREAK - 1] = sMindBreakDescription,
     [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
+    [MOVE_GATTLING_PINS - 1] = sGattlingPinsDescription,
+    [MOVE_EARTH_SHATTER - 1] = sEarthShatterDescription,
+    [MOVE_MASS_BREAK - 1] = sMassBreakDescription,
+    [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
+    [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
+    [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,
 };

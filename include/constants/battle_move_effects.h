@@ -500,6 +500,10 @@
 #define EFFECT_BRUTALIZE                    494
 #define EFFECT_ROADBLOCK                    495
 #define EFFECT_DEFENSE_DOWN_HIT_2           496
-#define NUM_BATTLE_MOVE_EFFECTS             497
+#define EFFECT_EARTH_SHATTER                497
+#define EFFECT_PILGRIMAGE                   498
+#define EFFECT_HEAVY_CANNON                 499
+#define EFFECT_GIANTS_SPEAR                 500
+#define NUM_BATTLE_MOVE_EFFECTS             501
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

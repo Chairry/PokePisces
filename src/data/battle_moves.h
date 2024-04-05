@@ -14441,6 +14441,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .metronomeBanned = TRUE,
         .piercingMove = TRUE,
+        .makesContact = TRUE,
     },
 
     [MOVE_SILENCE] =
@@ -15405,6 +15406,96 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+    },
+
+    [MOVE_GATTLING_PINS] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_RELIC,
+        .accuracy = 70,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .strikeCount = 5,
+    },
+
+    [MOVE_EARTH_SHATTER] =
+    {
+        .effect = EFFECT_EARTH_SHATTER,
+        .power = 85,
+        .type = TYPE_RELIC,
+        .accuracy = 90,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_MASS_BREAK] =
+    {
+        .effect = EFFECT_BRICK_BREAK,
+        .power = 90,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_PILGRIMAGE] =
+    {
+        .effect = EFFECT_PILGRIMAGE,
+        .power = 90,
+        .type = TYPE_RELIC,
+        .accuracy = 90,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_HEAVY_CANNON] =
+    {
+        .effect = EFFECT_HEAVY_CANNON,
+        .power = 100,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .ballisticMove = TRUE,
+    },
+
+    [MOVE_GIANTS_SPEAR] =
+    {
+        .effect = EFFECT_GIANTS_SPEAR,
+        .power = 130,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .piercingMove = TRUE,
     },
 
     // Z-Moves

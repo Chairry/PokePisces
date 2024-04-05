@@ -523,6 +523,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
 	.4byte BattleScript_EffectSuckerPunch             @ EFFECT_ROADBLOCK
 	.4byte BattleScript_EffectDefenseDownHit2         @ EFFECT_DEFENSE_DOWN_HIT_2
+	.4byte BattleScript_EffectHitSetRemoveTerrain     @ EFFECT_EARTH_SHATTER
+	.4byte BattleScript_EffectHit                     @ EFFECT_PILGRIMAGE
+	.4byte BattleScript_EffectCloseCombat             @ EFFECT_HEAVY_CANNON
+	.4byte BattleScript_EffectCloseCombat             @ EFFECT_GIANTS_SPEAR
 
 BattleScript_EffectDefenseDownHit2::
 	setmoveeffect MOVE_EFFECT_DEF_MINUS_2

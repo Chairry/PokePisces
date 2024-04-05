@@ -954,6 +954,29 @@ gBattleAnims_Moves::
 	.4byte Move_COOL_MIST
 	.4byte Move_MIND_BREAK
 	.4byte Move_ROADBLOCK
+	.4byte Move_GATTLING_PINS
+	.4byte Move_EARTH_SHATTER
+	.4byte Move_MASS_BREAK
+	.4byte Move_PILGRIMAGE
+	.4byte Move_HEAVY_CANNON
+	.4byte Move_GIANTS_SPEAR
+	.4byte Move_REDLINE
+	.4byte Move_ZAPPER
+	.4byte Move_PURGE_RAY
+	.4byte Move_DIFFUSE_WAVE
+	.4byte Move_SKY_SPLITTER
+	.4byte Move_VAPORIZE
+	.4byte Move_RAILGUN
+	.4byte Move_DECIMATION
+	.4byte Move_POWER_JAM
+	.4byte Move_DEEP_GAZE
+	.4byte Move_ENERVATOR
+	.4byte Move_ERODE_FIELD
+	.4byte Move_HEAVY_CELL
+	.4byte Move_RECONSTRUCT
+	.4byte Move_REMODEL
+	.4byte Move_BARI_BARI_BEAM
+	.4byte Move_BARI_BARI_BASH
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -21670,6 +21693,75 @@ Move_LUMINA_CRASH::
 	clearmonbg ANIM_ATTACKER
 	blendoff
 	end
+
+Move_GATTLING_PINS::
+	goto Move_POISON_STING
+
+Move_EARTH_SHATTER::
+	goto Move_DEMOLISHER
+
+Move_MASS_BREAK::
+	goto Move_BRICK_BREAK
+
+Move_PILGRIMAGE::
+	goto Move_TRUMP_CARD
+
+Move_HEAVY_CANNON::
+	goto Move_FLASH_CANNON
+
+Move_GIANTS_SPEAR::
+	goto Move_ICICLE_SPEAR
+
+Move_REDLINE::
+	goto Move_PRISMATIC_LASER
+
+Move_ZAPPER::
+	goto Move_ZAP_CANNON
+
+Move_PURGE_RAY::
+	goto Move_LUSTER_PURGE
+
+Move_DIFFUSE_WAVE::
+	goto Move_PSYWAVE
+
+Move_SKY_SPLITTER::
+	goto Move_SKY_UPPERCUT
+
+Move_VAPORIZE::
+	goto Move_ZAP_CANNON
+
+Move_RAILGUN::
+	goto Move_WATER_GUN
+
+Move_DECIMATION::
+	goto Move_ZAP_CANNON
+
+Move_POWER_JAM::
+	goto Move_POWER_GEM
+
+Move_DEEP_GAZE::
+	goto Move_BABY_DOLL_EYES
+
+Move_ENERVATOR::
+	goto Move_FOCUS_ENERGY
+
+Move_ERODE_FIELD::
+	goto Move_GRASSY_TERRAIN
+
+Move_HEAVY_CELL::
+	goto Move_HEAVY_SLAM
+
+Move_RECONSTRUCT::
+	goto Move_RECOVER
+
+Move_REMODEL::
+	goto Move_RECOVER
+
+Move_BARI_BARI_BEAM::
+	goto Move_HYPER_BEAM
+
+Move_BARI_BARI_BASH::
+	goto Move_BEHEMOTH_BASH
 
 Move_TERA_BLAST::
 Move_AXE_KICK::
