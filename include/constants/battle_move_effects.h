@@ -504,6 +504,8 @@
 #define EFFECT_PILGRIMAGE                   498
 #define EFFECT_HEAVY_CANNON                 499
 #define EFFECT_GIANTS_SPEAR                 500
-#define NUM_BATTLE_MOVE_EFFECTS             501
+#define EFFECT_REDLINE                      501
+#define EFFECT_ZAPPER                       502
+#define NUM_BATTLE_MOVE_EFFECTS             503
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

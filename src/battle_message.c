@@ -891,6 +891,7 @@ static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is
 static const u8 sText_SappedByTicked[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\ndrained by its tick!");
 static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nby a tick!");
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
+static const u8 sText_UserStatChangesGone[] = _("The user's stat changes\nwere eliminated!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1633,6 +1634,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSAPPEDBYTICKED - BATTLESTRINGS_TABLE_START] = sText_SappedByTicked,
     [STRINGID_PKMNTICKED - BATTLESTRINGS_TABLE_START] = sText_PkmnTicked,
     [STRINGID_SPEEDSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_SpeedStatChangesGone,
+    [STRINGID_USERSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_UserStatChangesGone,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

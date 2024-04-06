@@ -3604,6 +3604,18 @@ static const u8 sGiantsSpearDescription[] = _(
     "Stronger if super effective.\n"
     "Lowers user's defenses.");
 
+static const u8 sRedlineDescription[] = _(
+    "Stronger for every stat drop.\n"
+    "Resets own stat changes.");
+
+static const u8 sZapperDescription[] = _(
+    "Drops Speed of foe. Stronger\n"
+    "Rebased on foe's stat drops.");
+
+static const u8 sPurgeRayDescription[] = _(
+    "A quick move that is super\n"
+    "effective against Dark/Poison.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4546,4 +4558,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
     [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
     [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,
+    [MOVE_REDLINE - 1] = sRedlineDescription,
+    [MOVE_ZAPPER - 1] = sZapperDescription,
+    [MOVE_PURGE_RAY - 1] = sPurgeRayDescription,
 };

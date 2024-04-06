@@ -41,6 +41,7 @@ u32 IsAbilityStatusProtected(u32 battler);
 bool32 TryResetBattlerStatChanges(u8 battler);
 bool32 TryResetBattlerPositiveStatChanges(u8 battler);
 bool32 TryResetPositiveSpeedStatChanges(u8 battler);
+bool32 TryResetAttackerStatChanges(u8 battler);
 bool32 CanCamouflage(u8 battlerId);
 u16 GetNaturePowerMove(void);
 u16 GetSecretPowerMoveEffect(void);

@@ -527,6 +527,16 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_PILGRIMAGE
 	.4byte BattleScript_EffectCloseCombat             @ EFFECT_HEAVY_CANNON
 	.4byte BattleScript_EffectCloseCombat             @ EFFECT_GIANTS_SPEAR
+	.4byte BattleScript_EffectRedline                 @ EFFECT_REDLINE
+	.4byte BattleScript_EffectSpeedDownHit            @ EFFECT_ZAPPER
+
+BattleScript_EffectRedline::
+	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	normaliseattackerbuffs
+	printstring STRINGID_USERSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectDefenseDownHit2::
 	setmoveeffect MOVE_EFFECT_DEF_MINUS_2
@@ -6417,6 +6427,7 @@ BattleScript_EffectSandstorm::
 	ppreduce
 	call BattleScript_CheckPrimalWeather
 	setsandstorm
+	call BattleScript_TryTailwindAbilitiesLoop
 	goto BattleScript_MoveWeatherChange
 
 BattleScript_EffectRollout::
@@ -10465,6 +10476,7 @@ BattleScript_SandstreamActivates::
 	printstring STRINGID_PKMNSXWHIPPEDUPSANDSTORM
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
+	call BattleScript_TryTailwindAbilitiesLoop
 	call BattleScript_ActivateWeatherAbilities
 	end3
 

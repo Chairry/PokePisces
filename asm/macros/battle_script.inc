@@ -2422,6 +2422,10 @@
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
 	.endm
 
+	.macro normaliseattackerbuffs
+	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS
+	.endm
+
 	@ Will jump to script pointer if the specified battler has or has not fainted.
 	.macro jumpiffainted battler:req, value:req, ptr:req
 	getbattlerfainted \battler

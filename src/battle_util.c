@@ -9120,6 +9120,22 @@ u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc)
     return count;
 }
 
+u32 CountBattlerStatDecreases(u32 battler, bool32 countEvasionAcc)
+{
+    u32 i;
+    u32 count = 0;
+
+    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    {
+        if ((i == STAT_ACC || i == STAT_EVASION) && !countEvasionAcc)
+            continue;
+        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
+            count += (gBattleMons[battler].statStages[i] + DEFAULT_STAT_STAGE) * -1;
+    }
+
+    return count;
+}
+
 u32 GetMoveTargetCount(u32 move, u32 battlerAtk, u32 battlerDef)
 {
     switch (GetBattlerMoveTargetType(gBattlerAttacker, move))
@@ -9490,6 +9506,12 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_STORED_POWER:
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
         break;
+    case EFFECT_REDLINE:
+        basePower += (CountBattlerStatDecreases(battlerAtk, TRUE) * 50);
+        break;
+    case EFFECT_ZAPPER:
+        basePower = 60 + (CountBattlerStatDecreases(battlerDef, TRUE) * 20);
+        break;
     case EFFECT_HEAVY_CANNON:
         if (gBattleMons[battlerAtk].statStages[STAT_DEF] > DEFAULT_STAT_STAGE || gBattleMons[battlerAtk].statStages[STAT_SPDEF] > DEFAULT_STAT_STAGE)
             basePower += 50 * ((gBattleMons[battlerAtk].statStages[STAT_DEF] - DEFAULT_STAT_STAGE) + (gBattleMons[battlerAtk].statStages[STAT_SPDEF] - DEFAULT_STAT_STAGE));
@@ -9597,11 +9619,11 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
     case EFFECT_LAST_RESPECTS:
-        basePower += 30 * gBattleStruct->faintedMonCount[GetBattlerSide(battlerAtk)];
+        basePower = 50 + (30 * gBattleStruct->faintedMonCount[GetBattlerSide(battlerAtk)]);
         basePower = (basePower > 200) ? 200 : basePower;
         break;
     case EFFECT_RAGE_FIST:
-        basePower += 30 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]];
+        basePower = 50 + (30 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
         basePower = (basePower > 200) ? 200 : basePower;
         break;
     case EFFECT_FICKLE_BEAM:
@@ -11148,6 +11170,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gCurrentMove == MOVE_CHROMA_BEAM && (typeEffectivenessModifier < UQ_4_12(2.0)))
         mod = UQ_4_12(2.0);
     if (gCurrentMove == MOVE_MASS_BREAK && (defType == TYPE_NORMAL || defType == TYPE_FIGHTING))
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_PURGE_RAY && (defType == TYPE_DARK || defType == TYPE_POISON))
         mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);

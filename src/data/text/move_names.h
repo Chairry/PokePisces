@@ -934,6 +934,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PILGRIMAGE] = _("Pilgrimage"),
     [MOVE_HEAVY_CANNON] = _("Heavy Cannon"),
     [MOVE_GIANTS_SPEAR] = _("Giant's Spear"),
+    [MOVE_REDLINE] = _("Redline"),
+    [MOVE_ZAPPER] = _("Zapper"),
+    [MOVE_PURGE_RAY] = _("Purge Ray"),
 };
 #else
 // 12 letters
@@ -1871,6 +1874,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PILGRIMAGE] = _("Pilgrimage"),
     [MOVE_HEAVY_CANNON] = _("Heavy Cannon"),
     [MOVE_GIANTS_SPEAR] = _("Giant's Spear"),
+    [MOVE_REDLINE] = _("Redline"),
+    [MOVE_ZAPPER] = _("Zapper"),
+    [MOVE_PURGE_RAY] = _("Purge Ray"),
 };
 #endif
 
