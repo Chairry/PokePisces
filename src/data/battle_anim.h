@@ -1459,6 +1459,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_DragonOrb, 0x0200, ANIM_TAG_DRAGON_ORB},
     {gBattleAnimSpriteGfx_DragonHeadOpponent, 0x0A00, ANIM_TAG_DRAGON_HEAD_OPPONENT},
     {gBattleAnimSpriteGfx_RedShadow, 0x0800, ANIM_TAG_RED_SHADOW},
+    {gBattleAnimSpriteGfx_Gem, 0x0080, ANIM_TAG_GEM_GREEN},
+    {gBattleAnimSpriteGfx_Gem, 0x0080, ANIM_TAG_GEM_BLUE},
+    {gBattleAnimSpriteGfx_Gem, 0x0080, ANIM_TAG_GEM_PINK},
+    {gBattleAnimSpriteGfx_Gem, 0x0080, ANIM_TAG_GEM_YELLOW},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1918,6 +1922,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_DragonOrb, ANIM_TAG_DRAGON_ORB},
     {gBattleAnimSpritePal_DragonHead, ANIM_TAG_DRAGON_HEAD_OPPONENT},
     {gBattleAnimSpritePal_RedShadow, ANIM_TAG_RED_SHADOW},
+    {gBattleAnimSpritePal_GemGreen, ANIM_TAG_GEM_GREEN},
+    {gBattleAnimSpritePal_GemBlue, ANIM_TAG_GEM_BLUE},
+    {gBattleAnimSpritePal_GemPink, ANIM_TAG_GEM_PINK},
+    {gBattleAnimSpritePal_GemYellow, ANIM_TAG_GEM_YELLOW},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =

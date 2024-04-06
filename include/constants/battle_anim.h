@@ -409,6 +409,10 @@
 #define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
 #define ANIM_TAG_RED_SHADOW                 (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_GEM_GREEN                  (ANIM_SPRITES_START + 398)
+#define ANIM_TAG_GEM_BLUE                   (ANIM_SPRITES_START + 399)
+#define ANIM_TAG_GEM_PINK                   (ANIM_SPRITES_START + 400)
+#define ANIM_TAG_GEM_YELLOW                 (ANIM_SPRITES_START + 401)
 
 // battlers
 #define ANIM_ATTACKER         0

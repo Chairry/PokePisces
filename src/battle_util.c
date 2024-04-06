@@ -9491,8 +9491,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
         break;
     case EFFECT_HEAVY_CANNON:
-        if (gBattleMons[battlerAtk].statStages[i] > DEFAULT_STAT_STAGE) // Stat is increased.
-            basePower += (gBattleMons[battlerAtk].statStages[STAT_DEF] - DEFAULT_STAT_STAGE) + (gBattleMons[battlerAtk].statStages[STAT_SPDEF] - DEFAULT_STAT_STAGE);
+        if (gBattleMons[battlerAtk].statStages[STAT_DEF] > DEFAULT_STAT_STAGE || gBattleMons[battlerAtk].statStages[STAT_SPDEF] > DEFAULT_STAT_STAGE)
+            basePower += 50 * ((gBattleMons[battlerAtk].statStages[STAT_DEF] - DEFAULT_STAT_STAGE) + (gBattleMons[battlerAtk].statStages[STAT_SPDEF] - DEFAULT_STAT_STAGE));
+            if (basePower < 100)
+                basePower = 100;
         break;
     case EFFECT_ELECTRO_BALL:
         speed = GetBattlerTotalSpeedStat(battlerAtk) / GetBattlerTotalSpeedStat(battlerDef);
@@ -9697,8 +9699,8 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_GRASSY_TERRAIN) && moveType == TYPE_GRASS)
         modifier = uq4_12_multiply(modifier, TERRAIN_TYPE_BOOST);
-    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN) && moveType == TYPE_DRAGON)
-        modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN) && (moveType == TYPE_DRAGON || moveType == TYPE_DARK || moveType == TYPE_FIGHTING))
+        modifier = uq4_12_multiply(modifier, UQ_4_12(0.8));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_ELECTRIC_TERRAIN) && moveType == TYPE_ELECTRIC)
         modifier = uq4_12_multiply(modifier, TERRAIN_TYPE_BOOST);
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_PSYCHIC_TERRAIN) && moveType == TYPE_PSYCHIC)
@@ -10756,8 +10758,10 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
 
 static inline uq4_12_t GetCollisionCourseElectroDriftModifier(u32 move, uq4_12_t typeEffectivenessModifier)
 {
-    if ((gBattleMoves[move].effect == EFFECT_COLLISION_COURSE || gBattleMoves[move].effect == EFFECT_GIANTS_SPEAR) && typeEffectivenessModifier >= UQ_4_12(2.0))
+    if ((gBattleMoves[move].effect == EFFECT_COLLISION_COURSE) && typeEffectivenessModifier >= UQ_4_12(2.0))
         return UQ_4_12(1.3333);
+    if ((gBattleMoves[move].effect == EFFECT_GIANTS_SPEAR) && typeEffectivenessModifier >= UQ_4_12(2.0))
+        return UQ_4_12(1.2);
     return UQ_4_12(1.0);
 }
 

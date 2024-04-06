@@ -5375,26 +5375,31 @@ Move_ACID_SPRAY:
 	end
 
 Move_FOUL_PLAY:
-	loadspritegfx ANIM_TAG_POISON_BUBBLE
-	loadspritegfx ANIM_TAG_THIN_RING
+	loadspritegfx ANIM_TAG_PURPLE_SCRATCH
 	loadspritegfx ANIM_TAG_IMPACT
-	loadspritegfx ANIM_TAG_HANDS_AND_FEET @Black colour
 	monbg ANIM_TARGET
-	setalpha 12, 8
-	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 0x4, 0x4
-	delay 0x6
+	fadetobg BG_DARK
+	waitbgfadein
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	createsprite gRevengeSmallScratchSpriteTemplate, ANIM_ATTACKER, 2, 10, -10
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 0, 4, 2, 8, RGB_RED
+	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_PURPLE_SCRATCH
+	loadspritegfx ANIM_TAG_PURPLE_SWIPE
+	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 6, 4
+	delay 4
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	createsprite gRevengeBigScratchSpriteTemplate, ANIM_TARGET, 2, 10, -10
+	waitforvisualfinish
 	createsprite gFoulPlayImpactTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0x1, 0x1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	playsewithpan SE_M_VITAL_THROW SOUND_PAN_TARGET
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_BG | F_PAL_BATTLERS), 0x3, 0xa, 0x0, 0x0
-	createsprite gFoulPlayRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x100, 0x0
-	delay 0x8
-	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_BG | F_PAL_BATTLERS), 0x3, 0xa, 0x0, 0x0
-	createsprite gFoulPlayRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x100, 0x0
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
+	restorebg
+	waitbgfadein
 	end
 
 Move_SIMPLE_BEAM:
@@ -9848,25 +9853,33 @@ Move_HOLD_HANDS::
 	end
 
 Move_BABY_DOLL_EYES::
+	loadspritegfx ANIM_TAG_MAGENTA_HEART
 	loadspritegfx ANIM_TAG_LEER
-	loadspritegfx ANIM_TAG_PINK_CLOUD
-	loadspritegfx ANIM_TAG_OPENING_EYE @eye
+	monbg ANIM_ATTACKER
+	splitbgprio ANIM_ATTACKER
 	setalpha 8, 8
-	monbg ANIM_DEF_PARTNER
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x0, 0x0, 0xA, 0x7FFF
+	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_ATTACKER, 2, 0
+	createsprite gMagentaHeartSpriteTemplate, ANIM_ATTACKER, 3, 0, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	delay 15
+	createsprite gMagentaHeartSpriteTemplate, ANIM_ATTACKER, 3, -20, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
+	delay 15
+	createsprite gMagentaHeartSpriteTemplate, ANIM_ATTACKER, 3, 20, 20
+	playsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER
 	waitforvisualfinish
-	createsprite gOpeningEyeSpriteTemplate, ANIM_ATTACKER, 5, 0x0, 0x0, 0x1, 0x0
-	delay 0x20
 	playsewithpan SE_M_LEER, SOUND_PAN_ATTACKER
+	createsprite gLeerSpriteTemplate, ANIM_ATTACKER, 2, 24, -12
 	createvisualtask AnimTask_ScaleMonAndRestore, 5, -5, -5, 10, ANIM_ATTACKER, 1
 	waitforvisualfinish
-	delay 0xa
+	delay 10
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 9, 1
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 9, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x0, 0xA, 0x0, 0x7FFF
 	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	clearmonbg ANIM_ATTACKER
 	blendoff
+	delay 1
+	waitforvisualfinish
 	end
 
 Move_NUZZLE::
@@ -21466,14 +21479,22 @@ Move_FROST_NOVA::
 	end
 
 Move_GEM_BLASTER::
-	loadspritegfx ANIM_TAG_ZYGARDE_HEXES
 	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_GEM_GREEN
+	loadspritegfx ANIM_TAG_GEM_BLUE
+	loadspritegfx ANIM_TAG_GEM_YELLOW
+	loadspritegfx ANIM_TAG_GEM_PINK
 	monbg ANIM_TARGET
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
 	loopsewithpan SE_M_ICY_WIND, SOUND_PAN_ATTACKER, 6, 2
-	createsprite gGemBlasterGemSpriteTemplate, ANIM_TARGET, 2, 16, -10, 0, -10, 25, 257
-	createsprite gGemBlasterGemSpriteTemplate, ANIM_TARGET, 2, 16, 10, 0, 10, 25, 257
+	createsprite gGemBlasterGemBlueSpriteTemplate, ANIM_TARGET, 2, 5, 30
+	delay 1
+	createsprite gGemBlasterGemYellowSpriteTemplate, ANIM_TARGET, 2, 5, 30
+	delay 1
+	createsprite gGemBlasterGemPinkSpriteTemplate, ANIM_TARGET, 2, 5, 30
+	delay 1
+	createsprite gGemBlasterGemGreenSpriteTemplate, ANIM_TARGET, 2, 5, 30
 	delay 20
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 5, 1
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2

@@ -3589,20 +3589,20 @@ static const u8 sGattlingPinsDescription[] = _(
     "pins 5 times in a row.");
 
 static const u8 sEarthShatterDescription[] = _(
-    "Super effective against Rock/\n"
-    "Steel/Ground. Destroys Terrain.");
+    "Removes Terrain. Stronger\n"
+    "against Rock/Ground/Steel.");
 
 static const u8 sMassBreakDescription[] = _(
-    "Super effective against Normal\n"
-    "and Fighting. Destroys Screens.");
+    "Stronger against Normal and\n"
+    "Fighting. Destroys Screens.");
 
 static const u8 sHeavyCannonDescription[] = _(
-    "Stronger for each Def and Sp.\n"
-    "Def boost. Lowers defenses.");
+    "Stronger for all Def and Sp.\n"
+    "Def boosts. Lowers defenses.");
 
 static const u8 sGiantsSpearDescription[] = _(
-    "Lowers users Def and Sp. Def.\n"
-    "Stronger when super effective.");
+    "Stronger if super effective.\n"
+    "Lowers user's defenses.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"

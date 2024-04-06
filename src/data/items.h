@@ -10016,6 +10016,7 @@ const struct Item gItems[] =
         .price = 5000,
         .holdEffect = HOLD_EFFECT_COARSE_SAND,
         .holdEffectParam = 100,
+        .description = sCoarseSandDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
