@@ -9671,7 +9671,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_FINISH_OFF:
         if (gBattleMons[battlerDef].hp < gBattleMons[battlerDef].maxHP)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(3.0));
         break;
     case EFFECT_BARB_BARRAGE:
     case EFFECT_VENOSHOCK:

@@ -3545,7 +3545,7 @@ static const u8 sCreepyCrawlDescription[] = _(
     "the foe, causing Panic.");
 
 static const u8 sPesterRaidDescription[] = _(
-    "Ignores foe's stats, barriers,\n"
+    "Ignores stats, barriers,\n"
     "protection, and substitute.");
 
 static const u8 sBenthicWhipDescription[] = _(
@@ -3605,16 +3605,16 @@ static const u8 sGiantsSpearDescription[] = _(
     "Lowers user's defenses.");
 
 static const u8 sRedlineDescription[] = _(
-    "Stronger for every stat drop.\n"
+    "Boosted for every stat drop.\n"
     "Resets own stat changes.");
 
 static const u8 sZapperDescription[] = _(
     "Drops Speed of foe. Stronger\n"
-    "Rebased on foe's stat drops.");
+    "based on foe's stat drops.");
 
 static const u8 sPurgeRayDescription[] = _(
-    "A quick move that is super\n"
-    "effective against Dark/Poison.");
+    "A quick move that is strong\n"
+    "against Dark and Poison.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"

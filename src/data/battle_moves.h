@@ -15283,7 +15283,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FINISH_OFF] =
     {
         .effect = EFFECT_FINISH_OFF,
-        .power = 80,
+        .power = 50,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 10,
