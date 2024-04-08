@@ -7350,15 +7350,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_SLASH_MOVE:
-                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_PIERCE_MOVE:
-                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_BLUNT_MOVE:
-                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].ballisticMove || gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove) && gBattlerTarget == SPECIES_SPRYTE && level >= 25)
+                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove) && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
