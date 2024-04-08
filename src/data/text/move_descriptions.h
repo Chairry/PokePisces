@@ -3616,6 +3616,30 @@ static const u8 sPurgeRayDescription[] = _(
     "A quick move that is strong\n"
     "against Dark and Poison.");
 
+static const u8 sDiffuseWaveDescription[] = _(
+    "Stronger against Fire and\n"
+    "Electric. Drops foe's Sp. Atk.");
+
+static const u8 sSkySplitterDescription[] = _(
+    "Super effective against\n"
+    "Flying. Removes Weather.");
+
+static const u8 sVaporizeDescription[] = _(
+    "Super effective against Ice\n"
+    "and Water. May lower Sp. Def.");
+
+static const u8 sRailgunDescription[] = _(
+    "Boosted if super effective.\n"
+    "Sharply drops user's Sp. Atk.");
+
+static const u8 sDecimationDescription[] = _(
+    "Launches a move for 2 turns\n"
+    "later then raises Sp. Attack.");
+
+static const u8 sPowerJamDescription[] = _(
+    "A powerful move that boosts\n"
+    "the foe if it fails to KO.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4561,4 +4585,10 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_REDLINE - 1] = sRedlineDescription,
     [MOVE_ZAPPER - 1] = sZapperDescription,
     [MOVE_PURGE_RAY - 1] = sPurgeRayDescription,
+    [MOVE_DIFFUSE_WAVE - 1] = sDiffuseWaveDescription,
+    [MOVE_SKY_SPLITTER - 1] = sSkySplitterDescription,
+    [MOVE_VAPORIZE - 1] = sVaporizeDescription,
+    [MOVE_RAILGUN - 1] = sRailgunDescription,
+    [MOVE_DECIMATION - 1] = sDecimationDescription,
+    [MOVE_POWER_JAM - 1] = sPowerJamDescription,
 };

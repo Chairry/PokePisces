@@ -752,8 +752,9 @@
 #define STRINGID_PKMNTICKED                           750
 #define STRINGID_SPEEDSTATCHANGESGONE                 751
 #define STRINGID_USERSTATCHANGESGONE                  752
+#define STRINGID_PKMNISPREPARINGFORDECIMATION         753
 
-#define BATTLESTRINGS_COUNT                           753
+#define BATTLESTRINGS_COUNT                           754
 
 
 // This is the string id that gBattleStringsTable starts with.
@@ -906,6 +907,7 @@
 // gFutureMoveUsedStringIds
 #define B_MSG_FUTURE_SIGHT 0
 #define B_MSG_DOOM_DESIRE  1
+#define B_MSG_DECIMATION   2
 
 // gItemSwapStringIds
 #define B_MSG_ITEM_SWAP_TAKEN 0

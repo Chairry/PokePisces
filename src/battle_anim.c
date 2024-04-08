@@ -272,6 +272,7 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
         case B_ANIM_SNATCH_MOVE:
         case B_ANIM_FUTURE_SIGHT_HIT:
         case B_ANIM_DOOM_DESIRE_HIT:
+        case B_ANIM_DECIMATION_HIT:
         case B_ANIM_WISH_HEAL:
         case B_ANIM_MEGA_EVOLUTION:
         case B_ANIM_PRIMAL_REVERSION:

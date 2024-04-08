@@ -3302,8 +3302,10 @@ bool32 HandleWishPerishSongOnTurnEnd(void)
             {
                 if (gWishFutureKnock.futureSightMove[battler] == MOVE_FUTURE_SIGHT)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
-                else
+                else if (gWishFutureKnock.futureSightMove[battler] == MOVE_DOOM_DESIRE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
+                else
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, gWishFutureKnock.futureSightMove[battler]);
 
@@ -9420,8 +9422,8 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_FUTURE_SIGHT:
-        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN)
-            basePower = 180;
+        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN && gCurrentMove != MOVE_DECIMATION)
+            basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
     case EFFECT_NATURAL_GIFT:
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
@@ -10424,7 +10426,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (gBattleMons[battlerDef].status1 & STATUS1_FREEZE)
         defStat /= 2;
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT && gCurrentMove != MOVE_DECIMATION)
         defStat = spDef;
     defStat /= 2;
 
@@ -10783,7 +10785,9 @@ static inline uq4_12_t GetCollisionCourseElectroDriftModifier(u32 move, uq4_12_t
     if ((gBattleMoves[move].effect == EFFECT_COLLISION_COURSE) && typeEffectivenessModifier >= UQ_4_12(2.0))
         return UQ_4_12(1.3333);
     if ((gBattleMoves[move].effect == EFFECT_GIANTS_SPEAR) && typeEffectivenessModifier >= UQ_4_12(2.0))
-        return UQ_4_12(1.2);
+        return UQ_4_12(1.3333);
+    if ((gCurrentMove == MOVE_RAILGUN) && typeEffectivenessModifier >= UQ_4_12(2.0))
+        return UQ_4_12(1.3333);
     return UQ_4_12(1.0);
 }
 
@@ -11172,6 +11176,12 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gCurrentMove == MOVE_MASS_BREAK && (defType == TYPE_NORMAL || defType == TYPE_FIGHTING))
         mod = UQ_4_12(2.0);
     if (gCurrentMove == MOVE_PURGE_RAY && (defType == TYPE_DARK || defType == TYPE_POISON))
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_DIFFUSE_WAVE && (defType == TYPE_FIRE || defType == TYPE_ELECTRIC))
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_SKY_SPLITTER && defType == TYPE_FLYING)
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_VAPORIZE && (defType == TYPE_ICE || defType == TYPE_WATER))
         mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);

@@ -2046,6 +2046,10 @@
 	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_PRIMAL_WEATHER
 	.endm
 
+	.macro trytoclearweather
+	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_WEATHER
+	.endm
+
 	.macro setattackertostickywebuser
 	various BS_TARGET, VARIOUS_SET_ATTACKER_STICKY_WEB_USER
 	.endm

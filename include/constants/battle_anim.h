@@ -577,6 +577,7 @@
 #define B_ANIM_ENTRANCING               46
 #define B_ANIM_REVERSI                  47
 #define B_ANIM_A_THING                  48
+#define B_ANIM_DECIMATION_HIT           49
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -937,6 +937,12 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_REDLINE] = _("Redline"),
     [MOVE_ZAPPER] = _("Zapper"),
     [MOVE_PURGE_RAY] = _("Purge Ray"),
+    [MOVE_DIFFUSE_WAVE] = _("Diffuse Wave"),
+    [MOVE_SKY_SPLITTER] = _("Sky Splitter"),
+    [MOVE_VAPORIZE] = _("Vaporize"),
+    [MOVE_RAILGUN] = _("Railgun"),
+    [MOVE_DECIMATION] = _("Decimation"),
+    [MOVE_POWER_JAM] = _("Power Jam"),
 };
 #else
 // 12 letters
@@ -1877,6 +1883,12 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_REDLINE] = _("Redline"),
     [MOVE_ZAPPER] = _("Zapper"),
     [MOVE_PURGE_RAY] = _("Purge Ray"),
+    [MOVE_DIFFUSE_WAVE] = _("Diffuse Wave"),
+    [MOVE_SKY_SPLITTER] = _("Sky Splitter"),
+    [MOVE_VAPORIZE] = _("Vaporize"),
+    [MOVE_RAILGUN] = _("Railgun"),
+    [MOVE_DECIMATION] = _("Decimation"),
+    [MOVE_POWER_JAM] = _("Power Jam"),
 };
 #endif
 

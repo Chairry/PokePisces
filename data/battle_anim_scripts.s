@@ -1084,6 +1084,7 @@ gBattleAnims_General::
 	.4byte Move_FOLLOW_ME                   @ B_ANIM_ENTRANCING 
 	.4byte General_Reversi                  @ B_ANIM_REVERSI 
 	.4byte Move_EXTREME_EVOBOOST            @ B_ANIM_A_THING
+	.4byte General_DecimationHit            @ B_ANIM_DECIMATION_HIT
 
 	.align 2
 gBattleAnims_Special::
@@ -32406,6 +32407,9 @@ General_DoomDesireHit:
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 16, 0, RGB_WHITE
 	waitforvisualfinish
 	end
+
+General_DecimationHit:
+	goto General_DoomDesireHit
 
 General_FocusPunchSetUp:
 	loadspritegfx ANIM_TAG_FOCUS_ENERGY

@@ -3741,6 +3741,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
                 }
                 break;
+            case MOVE_EFFECT_ALL_STATS_UP_2_FOE:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsUp2Foe;
+                }
+                break;
             case MOVE_EFFECT_ALL_STATS_DOWN:
                 if (!NoAliveMonsForEitherParty())
                 {
@@ -10910,6 +10917,45 @@ static void Cmd_various(void)
         }
         break;
     }
+    case VARIOUS_TRY_TO_CLEAR_WEATHER:
+    {
+        bool8 shouldNotClear = FALSE;
+
+        for (i = 0; i < gBattlersCount; i++)
+        {
+            if (((gBattleWeather & B_WEATHER_SUN)
+             || (gBattleWeather & B_WEATHER_HAIL)
+             || (gBattleWeather & B_WEATHER_RAIN)
+             || (gBattleWeather & B_WEATHER_SANDSTORM))
+             && IsBattlerAlive(i))
+                shouldNotClear = TRUE;
+        }
+        if (gBattleWeather & B_WEATHER_SUN && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_SUN;
+            PrepareStringBattle(STRINGID_SUNLIGHTFADED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_HAIL && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_HAIL;
+            PrepareStringBattle(STRINGID_RAINSTOPPED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_HAIL && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_HAIL;
+            PrepareStringBattle(STRINGID_HAILSTOPPED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_SANDSTORM && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_SANDSTORM;
+            PrepareStringBattle(STRINGID_SANDSTORMSUBSIDED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        break;
+    }
     case VARIOUS_TRY_END_NEUTRALIZING_GAS:
     {
         VARIOUS_ARGS();
@@ -14681,8 +14727,10 @@ static void Cmd_trysetfutureattack(void)
 
         if (gCurrentMove == MOVE_DOOM_DESIRE)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
-        else
+        else if (gCurrentMove == MOVE_FUTURE_SIGHT)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
