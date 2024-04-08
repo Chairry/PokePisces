@@ -261,6 +261,8 @@
 #define VARIOUS_CHEESING                             168
 #define VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY         169
 #define VARIOUS_TRY_NORMALISE_SPEED                  170
+#define VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS         171
+#define VARIOUS_TRY_TO_CLEAR_WEATHER                 172
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

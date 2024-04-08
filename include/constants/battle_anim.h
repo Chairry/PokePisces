@@ -409,6 +409,10 @@
 #define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
 #define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
 #define ANIM_TAG_RED_SHADOW                 (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_GEM_GREEN                  (ANIM_SPRITES_START + 398)
+#define ANIM_TAG_GEM_BLUE                   (ANIM_SPRITES_START + 399)
+#define ANIM_TAG_GEM_PINK                   (ANIM_SPRITES_START + 400)
+#define ANIM_TAG_GEM_YELLOW                 (ANIM_SPRITES_START + 401)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -573,6 +577,7 @@
 #define B_ANIM_ENTRANCING               46
 #define B_ANIM_REVERSI                  47
 #define B_ANIM_A_THING                  48
+#define B_ANIM_DECIMATION_HIT           49
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

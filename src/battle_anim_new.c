@@ -554,6 +554,17 @@ const struct SpriteTemplate gQuashArmHitTemplate =
     .callback = AnimStompFoot
 };
 
+const struct SpriteTemplate gPesterRaidArmHitTemplate =
+{
+    .tileTag = ANIM_TAG_ASSURANCE_HAND,
+    .paletteTag = ANIM_TAG_ENERGY_BALL,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStompFoot
+};
+
 //reflect type
 const struct SpriteTemplate gReflectTypeBlueStringTemplate =
 {

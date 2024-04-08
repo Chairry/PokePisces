@@ -3545,7 +3545,7 @@ static const u8 sCreepyCrawlDescription[] = _(
     "the foe, causing Panic.");
 
 static const u8 sPesterRaidDescription[] = _(
-    "Ignores foe's stats, barriers,\n"
+    "Ignores stats, barriers,\n"
     "protection, and substitute.");
 
 static const u8 sBenthicWhipDescription[] = _(
@@ -3583,6 +3583,62 @@ static const u8 sMindBreakDescription[] = _(
 static const u8 sRoadblockDescription[] = _(
     "Fails if the target didn't\n"
     "attack. Uses foe's Speed.");
+
+static const u8 sGattlingPinsDescription[] = _(
+    "The user shoots a flurry of\n"
+    "pins 5 times in a row.");
+
+static const u8 sEarthShatterDescription[] = _(
+    "Removes Terrain. Stronger\n"
+    "against Rock/Ground/Steel.");
+
+static const u8 sMassBreakDescription[] = _(
+    "Stronger against Normal and\n"
+    "Fighting. Destroys Screens.");
+
+static const u8 sHeavyCannonDescription[] = _(
+    "Stronger for all Def and Sp.\n"
+    "Def boosts. Lowers defenses.");
+
+static const u8 sGiantsSpearDescription[] = _(
+    "Stronger if super effective.\n"
+    "Lowers user's defenses.");
+
+static const u8 sRedlineDescription[] = _(
+    "Boosted for every stat drop.\n"
+    "Resets own stat changes.");
+
+static const u8 sZapperDescription[] = _(
+    "Drops Speed of foe. Stronger\n"
+    "based on foe's stat drops.");
+
+static const u8 sPurgeRayDescription[] = _(
+    "A quick move that is strong\n"
+    "against Dark and Poison.");
+
+static const u8 sDiffuseWaveDescription[] = _(
+    "Stronger against Fire and\n"
+    "Electric. Drops foe's Sp. Atk.");
+
+static const u8 sSkySplitterDescription[] = _(
+    "Super effective against\n"
+    "Flying. Removes Weather.");
+
+static const u8 sVaporizeDescription[] = _(
+    "Super effective against Ice\n"
+    "and Water. May lower Sp. Def.");
+
+static const u8 sRailgunDescription[] = _(
+    "Boosted if super effective.\n"
+    "Sharply drops user's Sp. Atk.");
+
+static const u8 sDecimationDescription[] = _(
+    "Launches a move for 2 turns\n"
+    "later then raises Sp. Attack.");
+
+static const u8 sPowerJamDescription[] = _(
+    "A powerful move that boosts\n"
+    "the foe if it fails to KO.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4520,4 +4576,19 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_COOL_MIST - 1] = sCoolMistDescription,
     [MOVE_MIND_BREAK - 1] = sMindBreakDescription,
     [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
+    [MOVE_GATTLING_PINS - 1] = sGattlingPinsDescription,
+    [MOVE_EARTH_SHATTER - 1] = sEarthShatterDescription,
+    [MOVE_MASS_BREAK - 1] = sMassBreakDescription,
+    [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
+    [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
+    [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,
+    [MOVE_REDLINE - 1] = sRedlineDescription,
+    [MOVE_ZAPPER - 1] = sZapperDescription,
+    [MOVE_PURGE_RAY - 1] = sPurgeRayDescription,
+    [MOVE_DIFFUSE_WAVE - 1] = sDiffuseWaveDescription,
+    [MOVE_SKY_SPLITTER - 1] = sSkySplitterDescription,
+    [MOVE_VAPORIZE - 1] = sVaporizeDescription,
+    [MOVE_RAILGUN - 1] = sRailgunDescription,
+    [MOVE_DECIMATION - 1] = sDecimationDescription,
+    [MOVE_POWER_JAM - 1] = sPowerJamDescription,
 };

@@ -3960,13 +3960,13 @@ static const u8 sSandstone[] = _(
     "Evolves Pebbler.");
 
 static const u8 sComedyMaskDesc[] = _(
-    "The mask of\n"
-    "silliness.\n"
+    "A mask filled\n"
+    "with glee.\n"
     "Evolves Zorua.");
 
 static const u8 sTragedyMaskDesc[] = _(
-    "The mask of\n"
-    "enragement.\n"
+    "A mask filled\n"
+    "with sorrow.\n"
     "Evolves Zorua.");
 
 static const u8 sPebbleriteDesc[] = _(

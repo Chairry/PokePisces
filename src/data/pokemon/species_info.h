@@ -13233,12 +13233,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_ZORUA] =
     {
-        .baseHP        = 50,
-        .baseAttack    = 75,
-        .baseDefense   = 50,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 50,
+        .baseHP        = 60,
+        .baseAttack    = 85,
+        .baseDefense   = 60,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 75,
+        .baseSpDefense = 60,
         .types = { TYPE_DARK, TYPE_GHOST},
         .catchRate = 75,
         .expYield = 66,

@@ -2198,6 +2198,17 @@ const struct SpriteTemplate gHornHitSpriteTemplate =
     .callback = AnimHornHit,
 };
 
+const struct SpriteTemplate gBlackBuffetHitSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HORN_HIT,
+    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHornHit,
+};
+
 const union AnimCmd gSuperFangAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 2),

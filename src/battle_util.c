@@ -3302,8 +3302,10 @@ bool32 HandleWishPerishSongOnTurnEnd(void)
             {
                 if (gWishFutureKnock.futureSightMove[battler] == MOVE_FUTURE_SIGHT)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
-                else
+                else if (gWishFutureKnock.futureSightMove[battler] == MOVE_DOOM_DESIRE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
+                else
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, gWishFutureKnock.futureSightMove[battler]);
 
@@ -9120,6 +9122,22 @@ u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc)
     return count;
 }
 
+u32 CountBattlerStatDecreases(u32 battler, bool32 countEvasionAcc)
+{
+    u32 i;
+    u32 count = 0;
+
+    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    {
+        if ((i == STAT_ACC || i == STAT_EVASION) && !countEvasionAcc)
+            continue;
+        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
+            count += (gBattleMons[battler].statStages[i] + DEFAULT_STAT_STAGE) * -1;
+    }
+
+    return count;
+}
+
 u32 GetMoveTargetCount(u32 move, u32 battlerAtk, u32 battlerDef)
 {
     switch (GetBattlerMoveTargetType(gBattlerAttacker, move))
@@ -9206,6 +9224,7 @@ static const u16 sWeightToDamageTable[] =
 static const u8 sSpeedDiffPowerTable[] = {40, 60, 80, 120, 150};
 static const u8 sHeatCrashPowerTable[] = {40, 40, 60, 80, 100, 120};
 static const u8 sTrumpCardPowerTable[] = {200, 80, 60, 50, 40};
+static const u8 sPilgrimagePowerTable[] = {170, 150, 130, 110, 90};
 
 const struct TypePower gNaturalGiftTable[] =
     {
@@ -9403,8 +9422,8 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_FUTURE_SIGHT:
-        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN)
-            basePower = 180;
+        if (GetBattlerAbility(battlerAtk) == ABILITY_FOREWARN && gCurrentMove != MOVE_DECIMATION)
+            basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
     case EFFECT_NATURAL_GIFT:
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
@@ -9446,6 +9465,16 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
                 basePower = sTrumpCardPowerTable[gBattleMons[battlerAtk].pp[i]];
         }
         break;
+    case EFFECT_PILGRIMAGE:
+        i = GetMoveSlot(gBattleMons[battlerAtk].moves, move);
+        if (i != MAX_MON_MOVES)
+        {
+            if (gBattleMons[battlerAtk].pp[i] >= ARRAY_COUNT(sPilgrimagePowerTable))
+                basePower = sPilgrimagePowerTable[ARRAY_COUNT(sPilgrimagePowerTable) - 1];
+            else
+                basePower = sPilgrimagePowerTable[gBattleMons[battlerAtk].pp[i]];
+        }
+        break;
     case EFFECT_ACROBATICS:
         if (gBattleMons[battlerAtk].item == ITEM_NONE
             // Edge case, because removal of items happens after damage calculation.
@@ -9478,6 +9507,18 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_STORED_POWER:
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
+        break;
+    case EFFECT_REDLINE:
+        basePower += (CountBattlerStatDecreases(battlerAtk, TRUE) * 50);
+        break;
+    case EFFECT_ZAPPER:
+        basePower = 60 + (CountBattlerStatDecreases(battlerDef, TRUE) * 20);
+        break;
+    case EFFECT_HEAVY_CANNON:
+        if (gBattleMons[battlerAtk].statStages[STAT_DEF] > DEFAULT_STAT_STAGE || gBattleMons[battlerAtk].statStages[STAT_SPDEF] > DEFAULT_STAT_STAGE)
+            basePower += 50 * ((gBattleMons[battlerAtk].statStages[STAT_DEF] - DEFAULT_STAT_STAGE) + (gBattleMons[battlerAtk].statStages[STAT_SPDEF] - DEFAULT_STAT_STAGE));
+            if (basePower < 100)
+                basePower = 100;
         break;
     case EFFECT_ELECTRO_BALL:
         speed = GetBattlerTotalSpeedStat(battlerAtk) / GetBattlerTotalSpeedStat(battlerDef);
@@ -9632,7 +9673,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_FINISH_OFF:
         if (gBattleMons[battlerDef].hp < gBattleMons[battlerDef].maxHP)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(3.0));
         break;
     case EFFECT_BARB_BARRAGE:
     case EFFECT_VENOSHOCK:
@@ -9682,8 +9723,8 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_GRASSY_TERRAIN) && moveType == TYPE_GRASS)
         modifier = uq4_12_multiply(modifier, TERRAIN_TYPE_BOOST);
-    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN) && moveType == TYPE_DRAGON)
-        modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN) && (moveType == TYPE_DRAGON || moveType == TYPE_DARK || moveType == TYPE_FIGHTING))
+        modifier = uq4_12_multiply(modifier, UQ_4_12(0.8));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_ELECTRIC_TERRAIN) && moveType == TYPE_ELECTRIC)
         modifier = uq4_12_multiply(modifier, TERRAIN_TYPE_BOOST);
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_PSYCHIC_TERRAIN) && moveType == TYPE_PSYCHIC)
@@ -10385,7 +10426,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     if (gBattleMons[battlerDef].status1 & STATUS1_FREEZE)
         defStat /= 2;
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT)
+    if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT && gCurrentMove != MOVE_DECIMATION)
         defStat = spDef;
     defStat /= 2;
 
@@ -10480,7 +10521,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         break;
     case HOLD_EFFECT_SHELL_POLISH:
         if (gBattleMons[battlerDef].species == SPECIES_SNELFREND)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(3.0));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.5));
         break;
     case HOLD_EFFECT_SALTY_TEAR:
         if (gBattleMons[battlerDef].species == SPECIES_SADSOD)
@@ -10741,7 +10782,11 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
 
 static inline uq4_12_t GetCollisionCourseElectroDriftModifier(u32 move, uq4_12_t typeEffectivenessModifier)
 {
-    if (gBattleMoves[move].effect == EFFECT_COLLISION_COURSE && typeEffectivenessModifier >= UQ_4_12(2.0))
+    if ((gBattleMoves[move].effect == EFFECT_COLLISION_COURSE) && typeEffectivenessModifier >= UQ_4_12(2.0))
+        return UQ_4_12(1.3333);
+    if ((gBattleMoves[move].effect == EFFECT_GIANTS_SPEAR) && typeEffectivenessModifier >= UQ_4_12(2.0))
+        return UQ_4_12(1.3333);
+    if ((gCurrentMove == MOVE_RAILGUN) && typeEffectivenessModifier >= UQ_4_12(2.0))
         return UQ_4_12(1.3333);
     return UQ_4_12(1.0);
 }
@@ -11112,6 +11157,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || defType == TYPE_ELECTRIC || defType == TYPE_STEEL))
         mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_EARTH_SHATTER && (defType == TYPE_ROCK || defType == TYPE_STEEL || defType == TYPE_GROUND))
+        mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_IGNA_STRIKE && (defType == TYPE_FIRE || defType == TYPE_FLYING))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && defType == TYPE_BUG)
@@ -11125,6 +11172,16 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gBattleMoves[move].effect == EFFECT_FALSE_SWIPE)
         mod = UQ_4_12(1.0);
     if (gCurrentMove == MOVE_CHROMA_BEAM && (typeEffectivenessModifier < UQ_4_12(2.0)))
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_MASS_BREAK && (defType == TYPE_NORMAL || defType == TYPE_FIGHTING))
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_PURGE_RAY && (defType == TYPE_DARK || defType == TYPE_POISON))
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_DIFFUSE_WAVE && (defType == TYPE_FIRE || defType == TYPE_ELECTRIC))
+        mod = UQ_4_12(2.0);
+    if (gBattleMoves[move].effect == EFFECT_SKY_SPLITTER && defType == TYPE_FLYING)
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_VAPORIZE && (defType == TYPE_ICE || defType == TYPE_WATER))
         mod = UQ_4_12(2.0);
     if (moveType == TYPE_GROUND && defType == TYPE_FLYING && IsBattlerGrounded(battlerDef) && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
