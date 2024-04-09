@@ -1227,9 +1227,9 @@
 #define FLAG_RECEIVED_FLOAT_STONE                                           0x499 // Unused Flag
 #define FLAG_ITEM_DOJO_POKE_DOLL                                           0x49A // Unused Flag
 #define FLAG_MANGROTTO_EGG                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
+#define FLAG_MOSSDEEP_EGG                                           0x49C // Unused Flag
+#define FLAG_PRECIPIKE_EGG                                           0x49D // Unused Flag
+#define FLAG_SCUTTILL_EGG                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
