@@ -201,35 +201,35 @@
 #define OBJ_EVENT_GFX_KYOGRE_FRONT               197
 #define OBJ_EVENT_GFX_GROUDON_FRONT              198
 #define OBJ_EVENT_GFX_FOSSIL                     199
-#define OBJ_EVENT_GFX_REGIROCK                   200
+#define OBJ_EVENT_GFX_KODOUGH                   200
 #define OBJ_EVENT_GFX_REGICE                     201
 #define OBJ_EVENT_GFX_REGISTEEL                  202
-#define OBJ_EVENT_GFX_SKITTY                     203
-#define OBJ_EVENT_GFX_KECLEON                    204
+#define OBJ_EVENT_GFX_MARINAROC                     203
+#define OBJ_EVENT_GFX_SHELLYLOUH                    204
 #define OBJ_EVENT_GFX_KYOGRE_ASLEEP              205
 #define OBJ_EVENT_GFX_GROUDON_ASLEEP             206
 #define OBJ_EVENT_GFX_RAYQUAZA                   207
-#define OBJ_EVENT_GFX_ZIGZAGOON_2                208
-#define OBJ_EVENT_GFX_PIKACHU                    209
-#define OBJ_EVENT_GFX_AZUMARILL                  210
+#define OBJ_EVENT_GFX_SADSOD                208
+#define OBJ_EVENT_GFX_HEMOKO                    209
+#define OBJ_EVENT_GFX_KITIKITI                  210
 #define OBJ_EVENT_GFX_WINGULL                    211
 #define OBJ_EVENT_GFX_KECLEON_BRIDGE_SHADOW      212
 #define OBJ_EVENT_GFX_TUBER_M_SWIMMING           213
-#define OBJ_EVENT_GFX_AZURILL                    214
+#define OBJ_EVENT_GFX_SAINTISOW                    214
 #define OBJ_EVENT_GFX_MOM                        215
 #define OBJ_EVENT_GFX_LINK_BRENDAN               216
 #define OBJ_EVENT_GFX_LINK_MAY                   217
 #define OBJ_EVENT_GFX_JUAN                       218
 #define OBJ_EVENT_GFX_SCOTT                      219
-#define OBJ_EVENT_GFX_POOCHYENA                  220
+#define OBJ_EVENT_GFX_SNELFREND                  220
 #define OBJ_EVENT_GFX_KYOGRE_SIDE                221
 #define OBJ_EVENT_GFX_GROUDON_SIDE               222
 #define OBJ_EVENT_GFX_MYSTERY_GIFT_MAN           223
 #define OBJ_EVENT_GFX_TRICK_HOUSE_STATUE         224
-#define OBJ_EVENT_GFX_KIRLIA                     225
+#define OBJ_EVENT_GFX_NYARLY                     225
 #define OBJ_EVENT_GFX_GARZILLA                   226
 #define OBJ_EVENT_GFX_PURPLINA           227
-#define OBJ_EVENT_GFX_SUDOWOODO                  228
+#define OBJ_EVENT_GFX_LITO                  228
 #define OBJ_EVENT_GFX_EGGNEGGMA                        229
 #define OBJ_EVENT_GFX_RED                        230
 #define OBJ_EVENT_GFX_LEAF                       231
@@ -238,8 +238,8 @@
 #define OBJ_EVENT_GFX_BRANDON                    234
 #define OBJ_EVENT_GFX_LINK_RS_BRENDAN            235
 #define OBJ_EVENT_GFX_LINK_RS_MAY                236
-#define OBJ_EVENT_GFX_LUGIA                      237
-#define OBJ_EVENT_GFX_HOOH                       238
+#define OBJ_EVENT_GFX_CINDRILLON                      237
+#define OBJ_EVENT_GFX_CHUNGRIM                       238
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
