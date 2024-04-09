@@ -23,6 +23,7 @@
 #include "field_message_box.h"
 #include "tv.h"
 #include "battle_factory.h"
+#include "battle_tent.h"
 #include "constants/abilities.h"
 #include "constants/apprentice.h"
 #include "constants/battle_dome.h"
@@ -1916,9 +1917,11 @@ static void FillFactoryFrontierTrainerParty(u16 trainerId, u8 firstMonId)
 static void FillFactoryTentTrainerParty(u16 trainerId, u8 firstMonId)
 {
     u8 i;
-    u8 level = TENT_MIN_LEVEL;
+    u8 level;
     u8 fixedIV = 0;
     u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+    
+    level = GetBattleTentLevel(GetBattleTentLeague());
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {
@@ -3469,8 +3472,9 @@ static u8 SetTentPtrsGetLevel(void)
 
     if (facility == FRONTIER_FACILITY_FACTORY)
     {
-        gFacilityTrainers = gSlateportBattleTentTrainers;
-        gFacilityTrainerMons = gSlateportBattleTentMons;
+        u32 league = GetBattleTentLeague();
+        SetBattleTentMonsTrainers(league);
+        level = GetBattleTentLevel(league);
     }
     else if (facility == FRONTIER_FACILITY_PALACE)
     {
