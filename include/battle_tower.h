@@ -35,7 +35,9 @@ extern const struct BattleFrontierTrainer gBattleFrontierTrainers[];
 extern const struct TrainerMon gBattleTentMons_ChampLeague[];
 extern const struct TrainerMon gBattleTentMons_MajorLeague[];
 extern const struct TrainerMon gBattleTentMons_MinorLeague[];
-extern const struct BattleFrontierTrainer gSlateportBattleTentTrainers[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_MajorLeague[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_ChampLeague[];
 
 // Temporary storage for monIds of the opponent team
 // during team generation in battle factory and similar facilities.

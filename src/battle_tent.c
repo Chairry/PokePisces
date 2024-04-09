@@ -300,21 +300,42 @@ u32 GetBattleTentLevel(u32 league)
     }
 }
 
+// sets trainer pointers
+// returns the number of trainers in given league set
+u32 SetBattleTentTrainers(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        gFacilityTrainers = gBattleTentTrainers_ChampLeague;
+        return NUM_BATTLE_TENT_CHAMP_TRAINERS;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        gFacilityTrainers = gBattleTentTrainers_MajorLeague;
+        return NUM_BATTLE_TENT_MAJOR_TRAINERS;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        gFacilityTrainers = gBattleTentTrainers_MinorLeague;
+        return NUM_BATTLE_TENT_MINOR_TRAINERS;
+    }
+}
+
+// sets both mons and trainer pointers
+// returns the number of mons in the given league set
 u32 SetBattleTentMonsTrainers(u32 league)
 {
     switch (league)
     {
     case BATTLE_TENT_LEAGUE_CHAMP:
-        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_ChampLeague;
+        gFacilityTrainers = gBattleTentTrainers_ChampLeague;
         gFacilityTrainerMons = gBattleTentMons_ChampLeague;
         return NUM_TENT_CHAMP_MONS;
     case BATTLE_TENT_LEAGUE_MAJOR:
-        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_MajorLeague;
+        gFacilityTrainers = gBattleTentTrainers_MajorLeague;
         gFacilityTrainerMons = gBattleTentMons_MajorLeague;
         return NUM_TENT_MAJOR_MONS;
     case BATTLE_TENT_LEAGUE_MINOR:
     default:
-        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_MinorLeague;
+        gFacilityTrainers = gBattleTentTrainers_MinorLeague;
         gFacilityTrainerMons = gBattleTentMons_MinorLeague;
         return NUM_TENT_MINOR_MONS;
     }
@@ -403,15 +424,17 @@ static void GenerateOpponentMons(void)
     u16 species[FRONTIER_PARTY_SIZE];
     u16 heldItems[FRONTIER_PARTY_SIZE];
     s32 numMons = 0;
+    u32 league = GetBattleTentLeague();
+    u32 nTrainers = SetBattleTentTrainers(league);
 
-    SetBattleTentMonsTrainers(GetBattleTentLeague());
+    SetBattleTentMonsTrainers(league);
 
     while (1)
     {
         do
         {
             // Choose a random trainer, ensuring no repeats in this challenge
-            trainerId = Random() % NUM_BATTLE_TENT_TRAINERS;
+            trainerId = Random() % nTrainers;
             for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
             {
                 if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)

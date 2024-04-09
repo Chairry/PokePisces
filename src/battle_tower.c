@@ -3458,7 +3458,10 @@ static u16 GetBattleTentTrainerId(void)
     else if (facility == FRONTIER_FACILITY_ARENA)   // Fallarbor Tent; uses Arena mechanics
         return Random() % NUM_BATTLE_TENT_TRAINERS;
     else if (facility == FRONTIER_FACILITY_FACTORY) // Slateport Tent; uses Factory mechanics
-        return Random() % NUM_BATTLE_TENT_TRAINERS;
+    {
+        u32 nTrainers = SetBattleTentTrainers(GetBattleTentLeague());
+        return Random() % nTrainers;
+    }
     else if (facility == FRONTIER_FACILITY_TOWER)
         return 0;
     else
