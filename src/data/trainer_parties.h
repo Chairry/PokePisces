@@ -1016,7 +1016,7 @@ static const struct TrainerMon sParty_PSSteven2[] = {
     .ev = TRAINER_PARTY_EVS(22, 22, 22, 22, 22, 20),
     .species = SPECIES_EERIKO,
     .ability = ABILITY_DISDAIN,
-    .moves = {MOVE_TERRORIZE, MOVE_SPITE, MOVE_SPOOK, MOVE_FOUL_PLAY},
+    .moves = {MOVE_TERRORIZE, MOVE_SPITE, MOVE_SPOOK, MOVE_MISERY_WAIL},
     }
 };
 
@@ -1038,7 +1038,7 @@ static const struct TrainerMon sParty_PSSteven4[] = {
     .ev = TRAINER_PARTY_EVS(22, 22, 22, 22, 22, 20),
     .species = SPECIES_EERIKO,
     .ability = ABILITY_DISDAIN,
-    .moves = {MOVE_TERRORIZE, MOVE_GRUDGE, MOVE_SHADOW_SNEAK, MOVE_FEINT_ATTACK},
+    .moves = {MOVE_TERRORIZE, MOVE_GRUDGE, MOVE_NIGHT_SHADE, MOVE_MISERY_WAIL},
     },
     {
     .lvl = 21,
