@@ -5190,6 +5190,16 @@
       "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/StevenMaze/border.bin",
       "blockdata_filepath": "data/layouts/StevenMaze/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_MOSSDEEP_CAVE",
+      "name": "SecretMossdeepCave_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MossdeepGym",
+      "border_filepath": "data/layouts/SecretMossdeepCave/border.bin",
+      "blockdata_filepath": "data/layouts/SecretMossdeepCave/map.bin"
     }
   ]
 }
