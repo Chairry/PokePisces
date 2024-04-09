@@ -8,6 +8,7 @@
 #include "frontier_util.h"
 #include "battle_tower.h"
 #include "random.h"
+#include "battle_tent.h"
 #include "constants/battle_ai.h"
 #include "constants/battle_factory.h"
 #include "constants/battle_frontier.h"
@@ -388,7 +389,7 @@ static void SetRentalsToOpponentParty(void)
     if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
         gFacilityTrainerMons = gBattleFrontierMons;
     else
-        gFacilityTrainerMons = gSlateportBattleTentMons;
+        SetBattleTentMonsTrainers(GetBattleTentLeague());
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {
@@ -409,8 +410,9 @@ static void SetPlayerAndOpponentParties(void)
 
     if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_TENT)
     {
-        gFacilityTrainerMons = gSlateportBattleTentMons;
-        monLevel = TENT_MIN_LEVEL;
+        u32 league = GetBattleTentLeague();
+        SetBattleTentMonsTrainers(league);
+        monLevel = GetBattleTentLevel(league);
     }
     else
     {
@@ -667,7 +669,7 @@ static void RestorePlayerPartyHeldItems(void)
     if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
         gFacilityTrainerMons = gBattleFrontierMons;
     else
-        gFacilityTrainerMons = gSlateportBattleTentMons;
+        SetBattleTentMonsTrainers(GetBattleTentLeague());
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {

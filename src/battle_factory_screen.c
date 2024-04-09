@@ -27,6 +27,7 @@
 #include "starter_choose.h"
 #include "strings.h"
 #include "graphics.h"
+#include "battle_tent.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_tent.h"
 #include "constants/songs.h"
@@ -1771,10 +1772,13 @@ static void CreateSlateportTentSelectableMons(u8 firstMonId)
 {
     u8 i;
     u8 ivs = 0;
-    u8 level = TENT_MIN_LEVEL;
+    u8 level, league;
     u32 otId = 0;
 
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    league = GetBattleTentLeague();
+    SetBattleTentMonsTrainers(league);
+    level = GetBattleTentLevel(league);
+    
     otId = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
 
     for (i = 0; i < SELECTABLE_MONS_COUNT; i++)

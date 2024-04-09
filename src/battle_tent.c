@@ -286,6 +286,50 @@ bool8 InSlateportBattleTent(void)
            && (gMapHeader.mapLayoutId == LAYOUT_BATTLE_TENT_CORRIDOR || gMapHeader.mapLayoutId == LAYOUT_BATTLE_TENT_BATTLE_ROOM);
 }
 
+u32 GetBattleTentLevel(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        return TENT_CHAMP_LEVEL;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        return TENT_MAJOR_LEVEL;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        return TENT_MINOR_LEVEL;
+    }
+}
+
+u32 SetBattleTentMonsTrainers(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_ChampLeague;
+        gFacilityTrainerMons = gBattleTentMons_ChampLeague;
+        return NUM_TENT_CHAMP_MONS;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_MajorLeague;
+        gFacilityTrainerMons = gBattleTentMons_MajorLeague;
+        return NUM_TENT_MAJOR_MONS;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        gFacilityTrainers = gSlateportBattleTentTrainers;   // TODO gBattleTentTrainers_MinorLeague;
+        gFacilityTrainerMons = gBattleTentMons_MinorLeague;
+        return NUM_TENT_MINOR_MONS;
+    }
+}
+
+u32 GetBattleTentLeague(void)
+{
+    if (FlagGet(FLAG_BADGE08_GET))
+        return BATTLE_TENT_LEAGUE_CHAMP;
+    else if (FlagGet(FLAG_BADGE05_GET))
+        return BATTLE_TENT_LEAGUE_MAJOR;
+    else
+        return BATTLE_TENT_LEAGUE_MINOR;
+}
+
 static void GenerateInitialRentalMons(void)
 {
     s32 i, j;
@@ -295,22 +339,25 @@ static void GenerateInitialRentalMons(void)
     u16 species[PARTY_SIZE];
     u16 monIds[PARTY_SIZE];
     u16 heldItems[PARTY_SIZE];
+    u32 league, nMons;
+    
+    league = GetBattleTentLeague();
+    nMons = SetBattleTentMonsTrainers(league);
 
     firstMonId = 0;
-    gFacilityTrainers = gSlateportBattleTentTrainers;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         species[i] = 0;
         monIds[i] = 0;
         heldItems[i] = 0;
     }
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    
     currSpecies = SPECIES_NONE;
     i = 0;
     while (i != PARTY_SIZE)
     {
         // Cannot have two pokemon of the same species.
-        monSetId = Random() % NUM_SLATEPORT_TENT_MONS;
+        monSetId = Random() % nMons;
         for (j = firstMonId; j < firstMonId + i; j++)
         {
             u16 monId = monIds[j];
@@ -357,8 +404,7 @@ static void GenerateOpponentMons(void)
     u16 heldItems[FRONTIER_PARTY_SIZE];
     s32 numMons = 0;
 
-    gFacilityTrainers = gSlateportBattleTentTrainers;
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    SetBattleTentMonsTrainers(GetBattleTentLeague());
 
     while (1)
     {
