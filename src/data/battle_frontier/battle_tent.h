@@ -1,6 +1,7 @@
 // Slateport Battle Tent.
-const u16 gSlateportBattleTentTrainerMons_Jolie[] =
-{
+
+// CHAMP LEAGUE - TODO temp data
+static const u16 sBattleTentTrainerMons_ChampLeague_Jolie[]  = {
     TENT_MINOR_MON_CACNEA_1,
     TENT_MINOR_MON_LOMBRE_1,
     TENT_MINOR_MON_NUZLEAF,
@@ -14,8 +15,7 @@ const u16 gSlateportBattleTentTrainerMons_Jolie[] =
     TENT_MINOR_MON_BRELOOM,
     -1
 };
-
-const u16 gSlateportBattleTentTrainerMons_Malachi[] =
+static const u16 sBattleTentTrainerMons_ChampLeague_Malachi[] =
 {
     TENT_MINOR_MON_CACNEA_1,
     TENT_MINOR_MON_GRAVELER,
@@ -31,7 +31,7 @@ const u16 gSlateportBattleTentTrainerMons_Malachi[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Kelsie[] =
+static const u16 sBattleTentTrainerMons_ChampLeague_Kelsie[] =
 {
     TENT_MINOR_MON_WAILMER_1,
     TENT_MINOR_MON_WAILMER_2,
@@ -47,7 +47,104 @@ const u16 gSlateportBattleTentTrainerMons_Kelsie[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Davon[] =
+
+// MAJOR LEAGUE - TODO temp data
+static const u16 sBattleTentTrainerMons_MajorLeague_Jolie[]  = {
+    TENT_MINOR_MON_CACNEA_1,
+    TENT_MINOR_MON_LOMBRE_1,
+    TENT_MINOR_MON_NUZLEAF,
+    TENT_MINOR_MON_CACNEA_2,
+    TENT_MINOR_MON_MAKUHITA,
+    TENT_MINOR_MON_BARBOACH,
+    TENT_MINOR_MON_SOLROCK,
+    TENT_MINOR_MON_KECLEON_2,
+    TENT_MINOR_MON_SHROOMISH_1,
+    TENT_MINOR_MON_SHROOMISH_2,
+    TENT_MINOR_MON_BRELOOM,
+    -1
+};
+static const u16 sBattleTentTrainerMons_MajorLeague_Malachi[] =
+{
+    TENT_MINOR_MON_CACNEA_1,
+    TENT_MINOR_MON_GRAVELER,
+    TENT_MINOR_MON_BALTOY,
+    TENT_MINOR_MON_CACNEA_2,
+    TENT_MINOR_MON_NUMEL_1,
+    TENT_MINOR_MON_VIGOROTH,
+    TENT_MINOR_MON_SOLROCK,
+    TENT_MINOR_MON_SHROOMISH_1,
+    TENT_MINOR_MON_NUMEL_2,
+    TENT_MINOR_MON_TRAPINCH_2,
+    TENT_MINOR_MON_SKITTY,
+    -1
+};
+
+static const u16 sBattleTentTrainerMons_MajorLeague_Kelsie[] =
+{
+    TENT_MINOR_MON_WAILMER_1,
+    TENT_MINOR_MON_WAILMER_2,
+    TENT_MINOR_MON_MARILL_1,
+    TENT_MINOR_MON_LOTAD,
+    TENT_MINOR_MON_TAILLOW,
+    TENT_MINOR_MON_WHISMUR,
+    TENT_MINOR_MON_MAKUHITA,
+    TENT_MINOR_MON_BARBOACH,
+    TENT_MINOR_MON_KECLEON_1,
+    TENT_MINOR_MON_WINGULL_2,
+    TENT_MINOR_MON_SKITTY,
+    -1
+};
+
+// MINOR LEAGUE
+const u16 gBattleTentTrainerMons_MinorLeague_Jolie[] =
+{
+    TENT_MINOR_MON_CACNEA_1,
+    TENT_MINOR_MON_LOMBRE_1,
+    TENT_MINOR_MON_NUZLEAF,
+    TENT_MINOR_MON_CACNEA_2,
+    TENT_MINOR_MON_MAKUHITA,
+    TENT_MINOR_MON_BARBOACH,
+    TENT_MINOR_MON_SOLROCK,
+    TENT_MINOR_MON_KECLEON_2,
+    TENT_MINOR_MON_SHROOMISH_1,
+    TENT_MINOR_MON_SHROOMISH_2,
+    TENT_MINOR_MON_BRELOOM,
+    -1
+};
+
+const u16 gBattleTentTrainerMons_MinorLeague_Malachi[] =
+{
+    TENT_MINOR_MON_CACNEA_1,
+    TENT_MINOR_MON_GRAVELER,
+    TENT_MINOR_MON_BALTOY,
+    TENT_MINOR_MON_CACNEA_2,
+    TENT_MINOR_MON_NUMEL_1,
+    TENT_MINOR_MON_VIGOROTH,
+    TENT_MINOR_MON_SOLROCK,
+    TENT_MINOR_MON_SHROOMISH_1,
+    TENT_MINOR_MON_NUMEL_2,
+    TENT_MINOR_MON_TRAPINCH_2,
+    TENT_MINOR_MON_SKITTY,
+    -1
+};
+
+const u16 gBattleTentTrainerMons_MinorLeague_Kelsie[] =
+{
+    TENT_MINOR_MON_WAILMER_1,
+    TENT_MINOR_MON_WAILMER_2,
+    TENT_MINOR_MON_MARILL_1,
+    TENT_MINOR_MON_LOTAD,
+    TENT_MINOR_MON_TAILLOW,
+    TENT_MINOR_MON_WHISMUR,
+    TENT_MINOR_MON_MAKUHITA,
+    TENT_MINOR_MON_BARBOACH,
+    TENT_MINOR_MON_KECLEON_1,
+    TENT_MINOR_MON_WINGULL_2,
+    TENT_MINOR_MON_SKITTY,
+    -1
+};
+
+const u16 gBattleTentTrainerMons_MinorLeague_Davon[] =
 {
     TENT_MINOR_MON_WAILMER_1,
     TENT_MINOR_MON_WAILMER_2,
@@ -64,7 +161,7 @@ const u16 gSlateportBattleTentTrainerMons_Davon[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Glenda[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Glenda[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_ZIGZAGOON_2,
@@ -82,7 +179,7 @@ const u16 gSlateportBattleTentTrainerMons_Glenda[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Helena[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Helena[] =
 {
     TENT_MINOR_MON_MIGHTYENA_1,
     TENT_MINOR_MON_MIGHTYENA_2,
@@ -98,7 +195,7 @@ const u16 gSlateportBattleTentTrainerMons_Helena[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Rodolfo[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Rodolfo[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_ZIGZAGOON_2,
@@ -116,7 +213,7 @@ const u16 gSlateportBattleTentTrainerMons_Rodolfo[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Davion[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Davion[] =
 {
     TENT_MINOR_MON_BALTOY,
     TENT_MINOR_MON_VOLTORB,
@@ -135,7 +232,7 @@ const u16 gSlateportBattleTentTrainerMons_Davion[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Kendall[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Kendall[] =
 {
     TENT_MINOR_MON_WAILMER_1,
     TENT_MINOR_MON_WINGULL_1,
@@ -154,7 +251,7 @@ const u16 gSlateportBattleTentTrainerMons_Kendall[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Colten[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Colten[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_BEAUTIFLY,
@@ -171,7 +268,7 @@ const u16 gSlateportBattleTentTrainerMons_Colten[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Irvin[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Irvin[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_ZIGZAGOON_2,
@@ -189,7 +286,7 @@ const u16 gSlateportBattleTentTrainerMons_Irvin[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Shaun[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Shaun[] =
 {
     TENT_MINOR_MON_BALTOY,
     TENT_MINOR_MON_MIGHTYENA_1,
@@ -207,7 +304,7 @@ const u16 gSlateportBattleTentTrainerMons_Shaun[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Kyler[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Kyler[] =
 {
     TENT_MINOR_MON_ELECTRIKE_1,
     TENT_MINOR_MON_VOLTORB,
@@ -224,7 +321,7 @@ const u16 gSlateportBattleTentTrainerMons_Kyler[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Maggie[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Maggie[] =
 {
     TENT_MINOR_MON_LOMBRE_1,
     TENT_MINOR_MON_NUZLEAF,
@@ -240,7 +337,7 @@ const u16 gSlateportBattleTentTrainerMons_Maggie[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Stephon[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Stephon[] =
 {
     TENT_MINOR_MON_PELIPPER_1,
     TENT_MINOR_MON_LOMBRE_1,
@@ -256,7 +353,7 @@ const u16 gSlateportBattleTentTrainerMons_Stephon[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Rebecca[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Rebecca[] =
 {
     TENT_MINOR_MON_PELIPPER_1,
     TENT_MINOR_MON_NUZLEAF,
@@ -272,7 +369,7 @@ const u16 gSlateportBattleTentTrainerMons_Rebecca[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Reggie[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Reggie[] =
 {
     TENT_MINOR_MON_MARILL_1,
     TENT_MINOR_MON_WINGULL_1,
@@ -289,7 +386,7 @@ const u16 gSlateportBattleTentTrainerMons_Reggie[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Janae[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Janae[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_ZIGZAGOON_2,
@@ -306,7 +403,7 @@ const u16 gSlateportBattleTentTrainerMons_Janae[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Caiden[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Caiden[] =
 {
     TENT_MINOR_MON_LOMBRE_1,
     TENT_MINOR_MON_NINJASK_1,
@@ -324,7 +421,7 @@ const u16 gSlateportBattleTentTrainerMons_Caiden[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Kirsten[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Kirsten[] =
 {
     TENT_MINOR_MON_LOMBRE_1,
     TENT_MINOR_MON_GRAVELER,
@@ -342,7 +439,7 @@ const u16 gSlateportBattleTentTrainerMons_Kirsten[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Kurtis[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Kurtis[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_1,
     TENT_MINOR_MON_ZIGZAGOON_2,
@@ -358,7 +455,7 @@ const u16 gSlateportBattleTentTrainerMons_Kurtis[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Stefan[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Stefan[] =
 {
     TENT_MINOR_MON_WAILMER_1,
     TENT_MINOR_MON_WAILMER_2,
@@ -374,7 +471,7 @@ const u16 gSlateportBattleTentTrainerMons_Stefan[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Avery[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Avery[] =
 {
     TENT_MINOR_MON_BEAUTIFLY,
     TENT_MINOR_MON_DUSTOX,
@@ -390,7 +487,7 @@ const u16 gSlateportBattleTentTrainerMons_Avery[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Dwane[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Dwane[] =
 {
     TENT_MINOR_MON_NINJASK_1,
     TENT_MINOR_MON_NINJASK_2,
@@ -406,7 +503,7 @@ const u16 gSlateportBattleTentTrainerMons_Dwane[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Mckenna[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Mckenna[] =
 {
     TENT_MINOR_MON_CACNEA_2,
     TENT_MINOR_MON_SWELLOW,
@@ -422,7 +519,7 @@ const u16 gSlateportBattleTentTrainerMons_Mckenna[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Camryn[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Camryn[] =
 {
     TENT_MINOR_MON_WAILMER_2,
     TENT_MINOR_MON_MARILL_1,
@@ -439,7 +536,7 @@ const u16 gSlateportBattleTentTrainerMons_Camryn[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Natasha[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Natasha[] =
 {
     TENT_MINOR_MON_ZIGZAGOON_2,
     TENT_MINOR_MON_DUSTOX,
@@ -455,7 +552,7 @@ const u16 gSlateportBattleTentTrainerMons_Natasha[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Austyn[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Austyn[] =
 {
     TENT_MINOR_MON_ARON_2,
     TENT_MINOR_MON_LOUDRED,
@@ -472,7 +569,7 @@ const u16 gSlateportBattleTentTrainerMons_Austyn[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Donovan[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Donovan[] =
 {
     TENT_MINOR_MON_LOMBRE_1,
     TENT_MINOR_MON_GRAVELER,
@@ -491,7 +588,7 @@ const u16 gSlateportBattleTentTrainerMons_Donovan[] =
     -1
 };
 
-const u16 gSlateportBattleTentTrainerMons_Tamia[] =
+const u16 gBattleTentTrainerMons_MinorLeague_Tamia[] =
 {
     TENT_MINOR_MON_BEAUTIFLY,
     TENT_MINOR_MON_MARILL_1,
@@ -507,247 +604,303 @@ const u16 gSlateportBattleTentTrainerMons_Tamia[] =
     -1
 };
 
-const struct BattleFrontierTrainer gSlateportBattleTentTrainers[NUM_BATTLE_TENT_TRAINERS] =
-{
-    [SLATEPORT_TENT_TRAINER_JOLIE] = {
+const struct BattleFrontierTrainer gBattleTentTrainers_ChampLeague[NUM_BATTLE_TENT_CHAMP_TRAINERS] = {
+    // TODO temp data
+    [BATTLE_TENT_CHAMP_TRAINER_JOLIE] = {
         .facilityClass = FACILITY_CLASS_AROMA_LADY,
         .trainerName = _("JOLIE"),
         .speechBefore = {EC_WORD_WHAT, EC_WORD_WILL, EC_WORD_I, EC_WORD_BE, EC_WORD_TOMORROW, EC_WORD_QUES},
         .speechWin = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_FRIDAY, EC_WORD_EXCL},
         .speechLose = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_MONDAY, EC_WORD_ELLIPSIS},
-        .monSet = gSlateportBattleTentTrainerMons_Jolie
+        .monSet = sBattleTentTrainerMons_ChampLeague_Jolie
     },
-    [SLATEPORT_TENT_TRAINER_MALACHI] = {
+    [BATTLE_TENT_CHAMP_TRAINER_MALACHI] = {
         .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
         .trainerName = _("MALACHI"),
         .speechBefore = {EC_WORD_BAD, EC_WORD_NEWS, EC_WORD_EXCL, EC_WORD_IT_S, EC_WORD_A, EC_MOVE(SAND_TOMB)},
         .speechWin = {EC_WORD_YEEHAW_EXCL, -1, -1, EC_WORD_I_VE, EC_WORD_DONE, EC_WORD_IT},
         .speechLose = {EC_WORD_I_VE, EC_WORD_LOST, EC_WORD_IN, EC_WORD_THIS, EC_MOVE(SAND_TOMB), EC_WORD_ELLIPSIS},
-        .monSet = gSlateportBattleTentTrainerMons_Malachi
+        .monSet = sBattleTentTrainerMons_ChampLeague_Malachi
     },
-    [SLATEPORT_TENT_TRAINER_KELSIE] = {
+    [BATTLE_TENT_CHAMP_TRAINER_KELSIE] = {
         .facilityClass = FACILITY_CLASS_TUBER_F,
         .trainerName = _("KELSIE"),
         .speechBefore = {EC_WORD_GO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
         .speechWin = {EC_WORD_YAHOO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
         .speechLose = {EC_WORD_GWAH, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
-        .monSet = gSlateportBattleTentTrainerMons_Kelsie
+        .monSet = sBattleTentTrainerMons_ChampLeague_Kelsie
     },
-    [SLATEPORT_TENT_TRAINER_DAVON] = {
+};
+
+const struct BattleFrontierTrainer gBattleTentTrainers_MajorLeague[NUM_BATTLE_TENT_MAJOR_TRAINERS] = {
+    // TODO temp data
+    [BATTLE_TENT_MAJOR_TRAINER_JOLIE] = {
+        .facilityClass = FACILITY_CLASS_AROMA_LADY,
+        .trainerName = _("JOLIE"),
+        .speechBefore = {EC_WORD_WHAT, EC_WORD_WILL, EC_WORD_I, EC_WORD_BE, EC_WORD_TOMORROW, EC_WORD_QUES},
+        .speechWin = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_FRIDAY, EC_WORD_EXCL},
+        .speechLose = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_MONDAY, EC_WORD_ELLIPSIS},
+        .monSet = sBattleTentTrainerMons_MajorLeague_Jolie
+    },
+    [BATTLE_TENT_MAJOR_TRAINER_MALACHI] = {
+        .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
+        .trainerName = _("MALACHI"),
+        .speechBefore = {EC_WORD_BAD, EC_WORD_NEWS, EC_WORD_EXCL, EC_WORD_IT_S, EC_WORD_A, EC_MOVE(SAND_TOMB)},
+        .speechWin = {EC_WORD_YEEHAW_EXCL, -1, -1, EC_WORD_I_VE, EC_WORD_DONE, EC_WORD_IT},
+        .speechLose = {EC_WORD_I_VE, EC_WORD_LOST, EC_WORD_IN, EC_WORD_THIS, EC_MOVE(SAND_TOMB), EC_WORD_ELLIPSIS},
+        .monSet = sBattleTentTrainerMons_MajorLeague_Malachi
+    },
+    [BATTLE_TENT_MAJOR_TRAINER_KELSIE] = {
+        .facilityClass = FACILITY_CLASS_TUBER_F,
+        .trainerName = _("KELSIE"),
+        .speechBefore = {EC_WORD_GO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .speechWin = {EC_WORD_YAHOO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .speechLose = {EC_WORD_GWAH, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .monSet = sBattleTentTrainerMons_MajorLeague_Kelsie
+    },
+};
+
+const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TENT_MINOR_TRAINERS] =
+{
+    [BATTLE_TENT_MINOR_TRAINER_JOLIE] = {
+        .facilityClass = FACILITY_CLASS_AROMA_LADY,
+        .trainerName = _("JOLIE"),
+        .speechBefore = {EC_WORD_WHAT, EC_WORD_WILL, EC_WORD_I, EC_WORD_BE, EC_WORD_TOMORROW, EC_WORD_QUES},
+        .speechWin = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_FRIDAY, EC_WORD_EXCL},
+        .speechLose = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_MONDAY, EC_WORD_ELLIPSIS},
+        .monSet = gBattleTentTrainerMons_MinorLeague_Jolie
+    },
+    [BATTLE_TENT_MINOR_TRAINER_MALACHI] = {
+        .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
+        .trainerName = _("MALACHI"),
+        .speechBefore = {EC_WORD_BAD, EC_WORD_NEWS, EC_WORD_EXCL, EC_WORD_IT_S, EC_WORD_A, EC_MOVE(SAND_TOMB)},
+        .speechWin = {EC_WORD_YEEHAW_EXCL, -1, -1, EC_WORD_I_VE, EC_WORD_DONE, EC_WORD_IT},
+        .speechLose = {EC_WORD_I_VE, EC_WORD_LOST, EC_WORD_IN, EC_WORD_THIS, EC_MOVE(SAND_TOMB), EC_WORD_ELLIPSIS},
+        .monSet = gBattleTentTrainerMons_MinorLeague_Malachi
+    },
+    [BATTLE_TENT_MINOR_TRAINER_KELSIE] = {
+        .facilityClass = FACILITY_CLASS_TUBER_F,
+        .trainerName = _("KELSIE"),
+        .speechBefore = {EC_WORD_GO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .speechWin = {EC_WORD_YAHOO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .speechLose = {EC_WORD_GWAH, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
+        .monSet = gBattleTentTrainerMons_MinorLeague_Kelsie
+    },
+    [BATTLE_TENT_MINOR_TRAINER_DAVON] = {
         .facilityClass = FACILITY_CLASS_TUBER_M,
         .trainerName = _("DAVON"),
         .speechBefore = {EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL, -1, EC_WORD_GREAT, EC_MOVE(WHIRLPOOL), EC_WORD_ISN_T_IT_QUES},
         .speechWin = {EC_WORD_THAT_WAS, EC_WORD_LIKE, EC_WORD_A, EC_MOVE(WHIRLPOOL), EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL},
         .speechLose = {EC_WORD_DON_T, EC_WORD_GET, EC_MOVE2(BEAT_UP), EC_WORD_IN, EC_WORD_THAT, EC_MOVE(WHIRLPOOL)},
-        .monSet = gSlateportBattleTentTrainerMons_Davon
+        .monSet = gBattleTentTrainerMons_MinorLeague_Davon
     },
-    [SLATEPORT_TENT_TRAINER_GLENDA] = {
+    [BATTLE_TENT_MINOR_TRAINER_GLENDA] = {
         .facilityClass = FACILITY_CLASS_LADY,
         .trainerName = _("GLENDA"),
         .speechBefore = {EC_WORD_CONVERSATION, EC_WORD_CAN, EC_WORD_WAIT, EC_WORD_UNTIL, EC_WORD_I, EC_WORD_WIN},
         .speechWin = {EC_WORD_FABULOUS, EC_WORD_EXCL, EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_ROCK},
         .speechLose = {EC_WORD_NO, EC_WORD_EXCL, -1, EC_WORD_I, EC_WORD_WASN_T, EC_WORD_SERIOUS},
-        .monSet = gSlateportBattleTentTrainerMons_Glenda
+        .monSet = gBattleTentTrainerMons_MinorLeague_Glenda
     },
-    [SLATEPORT_TENT_TRAINER_HELENA] = {
+    [BATTLE_TENT_MINOR_TRAINER_HELENA] = {
         .facilityClass = FACILITY_CLASS_BEAUTY,
         .trainerName = _("HELENA"),
         .speechBefore = {EC_WORD_DOES, EC_WORD_MY, EC_WORD_BEAUTY, EC_WORD_INTIMIDATE, EC_WORD_YOU, EC_WORD_QUES},
         .speechWin = {EC_WORD_I_AM, EC_WORD_SO, EC_WORD_SORRY, EC_WORD_BUT, EC_WORD_YOU_RE, EC_WORD_BORING},
         .speechLose = {EC_WORD_I, EC_WORD_DO, EC_WORD_SO, EC_WORD_ENJOY, EC_WORD_THIS, EC_WORD_EXCL},
-        .monSet = gSlateportBattleTentTrainerMons_Helena
+        .monSet = gBattleTentTrainerMons_MinorLeague_Helena
     },
-    [SLATEPORT_TENT_TRAINER_RODOLFO] = {
+    [BATTLE_TENT_MINOR_TRAINER_RODOLFO] = {
         .facilityClass = FACILITY_CLASS_RICH_BOY,
         .trainerName = _("RODOLFO"),
         .speechBefore = {EC_WORD_GO, EC_WORD_GET, EC_WORD_A, EC_POKEMON(WHISCASH), EC_WORD_FOR, EC_WORD_ME},
         .speechWin = {EC_WORD_AWW, EC_WORD_YOU, EC_WORD_DON_T, EC_WORD_HAVE, EC_WORD_A, EC_POKEMON(WHISCASH)},
         .speechLose = {EC_WORD_PLEASE, EC_WORD_I, EC_WORD_NEED, EC_WORD_A, EC_POKEMON(WHISCASH), EC_WORD_BADLY},
-        .monSet = gSlateportBattleTentTrainerMons_Rodolfo
+        .monSet = gBattleTentTrainerMons_MinorLeague_Rodolfo
     },
-    [SLATEPORT_TENT_TRAINER_DAVION] = {
+    [BATTLE_TENT_MINOR_TRAINER_DAVION] = {
         .facilityClass = FACILITY_CLASS_POKEMANIAC,
         .trainerName = _("DAVION"),
         .speechBefore = {EC_WORD_GRAAAH, EC_WORD_GRAAAH, EC_WORD_EXCL_EXCL, EC_WORD_GRAAAH, EC_WORD_GRAAAH, EC_WORD_EXCL_EXCL},
         .speechWin = {EC_MOVE2(ROAR), EC_WORD_EXCL, -1, EC_MOVE2(ROAR), EC_WORD_EXCL_EXCL, -1},
         .speechLose = {EC_WORD_URGH, EC_WORD_WAAAH, EC_WORD_EXCL_EXCL, -1, -1, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Davion
+        .monSet = gBattleTentTrainerMons_MinorLeague_Davion
     },
-    [SLATEPORT_TENT_TRAINER_KENDALL] = {
+    [BATTLE_TENT_MINOR_TRAINER_KENDALL] = {
         .facilityClass = FACILITY_CLASS_SWIMMER_M,
         .trainerName = _("KENDALL"),
         .speechBefore = {EC_WORD_A_LITTLE, EC_MOVE2(PETAL_DANCE), EC_WORD_TO, EC_WORD_PLEASE, EC_WORD_YOU, EC_WORD_EXCL},
         .speechWin = {EC_WORD_I, EC_WORD_DO, EC_WORD_THIS, EC_WORD_ONLY, EC_WORD_FOR, EC_WORD_WORK},
         .speechLose = {EC_WORD_HOW, EC_WORD_COULD, EC_WORD_YOU, EC_MOVE2(POUND), EC_WORD_ME, EC_WORD_QUES},
-        .monSet = gSlateportBattleTentTrainerMons_Kendall
+        .monSet = gBattleTentTrainerMons_MinorLeague_Kendall
     },
-    [SLATEPORT_TENT_TRAINER_COLTEN] = {
+    [BATTLE_TENT_MINOR_TRAINER_COLTEN] = {
         .facilityClass = FACILITY_CLASS_CAMPER,
         .trainerName = _("COLTEN"),
         .speechBefore = {EC_WORD_I, EC_WORD_WANT, EC_WORD_TO, EC_WORD_GO, EC_WORD_RUN, EC_WORD_AROUND},
         .speechWin = {EC_WORD_YAY, EC_WORD_EXCL, EC_WORD_WANT, EC_WORD_TO, EC_WORD_RUN, EC_WORD_QUES},
         .speechLose = {EC_WORD_A, EC_WORD_SWIFT_SWIM, EC_WORD_WOULD, EC_WORD_BE, EC_WORD_GOOD, EC_WORD_TOO},
-        .monSet = gSlateportBattleTentTrainerMons_Colten
+        .monSet = gBattleTentTrainerMons_MinorLeague_Colten
     },
-    [SLATEPORT_TENT_TRAINER_IRVIN] = {
+    [BATTLE_TENT_MINOR_TRAINER_IRVIN] = {
         .facilityClass = FACILITY_CLASS_BUG_MANIAC,
         .trainerName = _("IRVIN"),
         .speechBefore = {EC_WORD_HAVE, EC_WORD_A, EC_WORD_LOOK, EC_WORD_AT, EC_WORD_MY, EC_MOVE(CONFUSE_RAY)},
         .speechWin = {EC_WORD_YAHOO, EC_WORD_MY, EC_MOVE(CONFUSE_RAY), EC_WORD_IS, EC_WORD_THE, EC_WORD_BEST},
         .speechLose = {EC_WORD_GWAH, EC_WORD_EXCL_EXCL, -1, EC_WORD_I_AM, EC_WORD_SORRY, EC_WORD_EXCL},
-        .monSet = gSlateportBattleTentTrainerMons_Irvin
+        .monSet = gBattleTentTrainerMons_MinorLeague_Irvin
     },
-    [SLATEPORT_TENT_TRAINER_SHAUN] = {
+    [BATTLE_TENT_MINOR_TRAINER_SHAUN] = {
         .facilityClass = FACILITY_CLASS_GENTLEMAN,
         .trainerName = _("SHAUN"),
         .speechBefore = {EC_WORD_LISTEN, EC_WORD_ELLIPSIS, EC_WORD_YOU, EC_WORD_AREN_T, EC_WORD_VERY, EC_WORD_GOOD},
         .speechWin = {EC_WORD_YOU, EC_WORD_SEE, EC_WORD_QUES, EC_WORD_I, EC_WORD_WAS, EC_WORD_RIGHT},
         .speechLose = {EC_WORD_YES, EC_WORD_YES, EC_WORD_ELLIPSIS, EC_WORD_YOU_RE, EC_WORD_QUITE, EC_WORD_SOMETHING},
-        .monSet = gSlateportBattleTentTrainerMons_Shaun
+        .monSet = gBattleTentTrainerMons_MinorLeague_Shaun
     },
-    [SLATEPORT_TENT_TRAINER_KYLER] = {
+    [BATTLE_TENT_MINOR_TRAINER_KYLER] = {
         .facilityClass = FACILITY_CLASS_GUITARIST,
         .trainerName = _("KYLER"),
         .speechBefore = {EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_QUES},
         .speechWin = {EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_YAY},
         .speechLose = {EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_WOW},
-        .monSet = gSlateportBattleTentTrainerMons_Kyler
+        .monSet = gBattleTentTrainerMons_MinorLeague_Kyler
     },
-    [SLATEPORT_TENT_TRAINER_MAGGIE] = {
+    [BATTLE_TENT_MINOR_TRAINER_MAGGIE] = {
         .facilityClass = FACILITY_CLASS_SCHOOL_KID_F,
         .trainerName = _("MAGGIE"),
         .speechBefore = {EC_POKEMON(VULPIX), EC_POKEMON(XATU), EC_POKEMON_NATIONAL(UMBREON), EC_WORD_ELLIPSIS, EC_WORD_UM, EC_WORD_ELLIPSIS},
         .speechWin = {EC_POKEMON(NOSEPASS), EC_WORD_ELLIPSIS, EC_WORD_UM, EC_POKEMON(SEVIPER), EC_WORD_EXCL, -1},
         .speechLose = {EC_POKEMON(NOSEPASS), EC_WORD_ELLIPSIS, EC_WORD_UM, EC_POKEMON_NATIONAL(SNORLAX), EC_WORD_ELLIPSIS, EC_WORD_UH_OH},
-        .monSet = gSlateportBattleTentTrainerMons_Maggie
+        .monSet = gBattleTentTrainerMons_MinorLeague_Maggie
     },
-    [SLATEPORT_TENT_TRAINER_STEPHON] = {
+    [BATTLE_TENT_MINOR_TRAINER_STEPHON] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_M,
         .trainerName = _("STEPHON"),
         .speechBefore = {EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_ENJOY, EC_WORD_AN, EC_WORD_EGG},
         .speechWin = {EC_WORD_I, EC_WORD_WILL, EC_WORD_ENJOY, EC_WORD_THIS, EC_WORD_TASTY, EC_WORD_VICTORY},
         .speechLose = {EC_WORD_AWFUL, EC_WORD_EXCL_EXCL, -1, EC_WORD_JUST, EC_WORD_AWFUL, EC_WORD_EXCL_EXCL},
-        .monSet = gSlateportBattleTentTrainerMons_Stephon
+        .monSet = gBattleTentTrainerMons_MinorLeague_Stephon
     },
-    [SLATEPORT_TENT_TRAINER_REBECCA] = {
+    [BATTLE_TENT_MINOR_TRAINER_REBECCA] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
         .trainerName = _("REBECCA"),
         .speechBefore = {EC_WORD_THAT, EC_WORD_EGG, EC_WORD_HAS, EC_WORD_A, EC_WORD_TASTY, EC_WORD_SHINE},
         .speechWin = {EC_WORD_I, EC_WORD_CAN_T, EC_WORD_EXCL, EC_WORD_SMELL, EC_WORD_THAT, EC_WORD_STENCH},
         .speechLose = {EC_WORD_YOU, EC_WORD_CAN_T, EC_WORD_MAKE, EC_WORD_ME, EC_WORD_STOP, EC_WORD_ELLIPSIS},
-        .monSet = gSlateportBattleTentTrainerMons_Rebecca
+        .monSet = gBattleTentTrainerMons_MinorLeague_Rebecca
     },
-    [SLATEPORT_TENT_TRAINER_REGGIE] = {
+    [BATTLE_TENT_MINOR_TRAINER_REGGIE] = {
         .facilityClass = FACILITY_CLASS_POKEFAN_M,
         .trainerName = _("REGGIE"),
         .speechBefore = {EC_WORD_POKEMON, EC_WORD_COME, EC_WORD_BEFORE, EC_WORD_MONEY, EC_WORD_OR, EC_WORD_FAMILY},
         .speechWin = {EC_WORD_THAT_S, EC_WORD_WHAT, EC_WORD_IS, EC_WORD_MAKING, EC_WORD_ME, EC_WORD_STRONG},
         .speechLose = {EC_WORD_THAT_S, EC_WORD_WHY, EC_WORD_I_AM, EC_WORD_SO, EC_WORD_THICK, EC_WORD_ELLIPSIS},
-        .monSet = gSlateportBattleTentTrainerMons_Reggie
+        .monSet = gBattleTentTrainerMons_MinorLeague_Reggie
     },
-    [SLATEPORT_TENT_TRAINER_JANAE] = {
+    [BATTLE_TENT_MINOR_TRAINER_JANAE] = {
         .facilityClass = FACILITY_CLASS_POKEFAN_F,
         .trainerName = _("JANAE"),
         .speechBefore = {EC_WORD_I, EC_WORD_JUST, EC_WORD_ADORE, EC_WORD_YOUR, EC_WORD_TOUGH, EC_WORD_LOOK},
         .speechWin = {EC_WORD_I, EC_WORD_LIKE, EC_WORD_HOW, EC_WORD_YOU, EC_MOVE2(STRUGGLE), -1},
         .speechLose = {EC_WORD_YOU_RE, EC_WORD_A, EC_WORD_MEAN, EC_WORD_AND, EC_WORD_AWFUL, EC_WORD_TRAINER},
-        .monSet = gSlateportBattleTentTrainerMons_Janae
+        .monSet = gBattleTentTrainerMons_MinorLeague_Janae
     },
-    [SLATEPORT_TENT_TRAINER_CAIDEN] = {
+    [BATTLE_TENT_MINOR_TRAINER_CAIDEN] = {
         .facilityClass = FACILITY_CLASS_EXPERT_M,
         .trainerName = _("CAIDEN"),
         .speechBefore = {EC_WORD_MY, EC_MOVE2(CURSE), EC_WORD_WILL, EC_WORD_BREAK, EC_WORD_YOUR, EC_WORD_SPIRIT},
         .speechWin = {EC_MOVE2(CURSE), EC_WORD_QUES, EC_WORD_IT_S, EC_WORD_A, EC_WORD_LIE, EC_WORD_ELLIPSIS},
         .speechLose = {EC_WORD_MY, EC_MOVE2(CURSE), EC_WORD_WILL, EC_WORD_LAST, EC_WORD_FOREVER, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Caiden
+        .monSet = gBattleTentTrainerMons_MinorLeague_Caiden
     },
-    [SLATEPORT_TENT_TRAINER_KIRSTEN] = {
+    [BATTLE_TENT_MINOR_TRAINER_KIRSTEN] = {
         .facilityClass = FACILITY_CLASS_EXPERT_F,
         .trainerName = _("KIRSTEN"),
         .speechBefore = {EC_WORD_HUH_QUES, EC_WORD_A, EC_WORD_BATTLE, EC_WORD_YOU, EC_WORD_SAID, EC_WORD_QUES},
         .speechWin = {EC_WORD_HUH_QUES, EC_WORD_STRONG, EC_WORD_BUT, EC_WORD_NOT, EC_WORD_STRONG, EC_WORD_ENOUGH},
         .speechLose = {EC_WORD_HUH_QUES, EC_WORD_I, EC_WORD_SURRENDER, EC_WORD_TO, EC_WORD_YOUR, EC_MOVE(STRENGTH)},
-        .monSet = gSlateportBattleTentTrainerMons_Kirsten
+        .monSet = gBattleTentTrainerMons_MinorLeague_Kirsten
     },
-    [SLATEPORT_TENT_TRAINER_KURTIS] = {
+    [BATTLE_TENT_MINOR_TRAINER_KURTIS] = {
         .facilityClass = FACILITY_CLASS_YOUNGSTER,
         .trainerName = _("KURTIS"),
         .speechBefore = {EC_WORD_SORRY, EC_WORD_YOU_RE, EC_WORD_GOING, EC_WORD_TO, EC_WORD_GET, EC_MOVE2(BEAT_UP)},
         .speechWin = {EC_WORD_I, EC_WORD_SAID, EC_WORD_WE, EC_WORD_WOULD, EC_MOVE2(POUND), EC_WORD_YOU},
         .speechLose = {EC_WORD_HOW, EC_WORD_DID, EC_WORD_I, EC_WORD_GET, EC_MOVE2(BEAT_UP), EC_WORD_QUES},
-        .monSet = gSlateportBattleTentTrainerMons_Kurtis
+        .monSet = gBattleTentTrainerMons_MinorLeague_Kurtis
     },
-    [SLATEPORT_TENT_TRAINER_STEFAN] = {
+    [BATTLE_TENT_MINOR_TRAINER_STEFAN] = {
         .facilityClass = FACILITY_CLASS_FISHERMAN,
         .trainerName = _("STEFAN"),
         .speechBefore = {EC_WORD_I, EC_WORD_ONLY, EC_WORD_WANT, EC_WORD_CUTE, EC_WORD_POKEMON, -1},
         .speechWin = {EC_WORD_WHAT, EC_WORD_IS, EC_WORD_IT, EC_WORD_TO, EC_WORD_YOU, EC_WORD_QUES},
         .speechLose = {EC_WORD_YOU_RE, EC_WORD_KIND, EC_WORD_OF, EC_WORD_AWESOME, EC_WORD_ELLIPSIS, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Stefan
+        .monSet = gBattleTentTrainerMons_MinorLeague_Stefan
     },
-    [SLATEPORT_TENT_TRAINER_AVERY] = {
+    [BATTLE_TENT_MINOR_TRAINER_AVERY] = {
         .facilityClass = FACILITY_CLASS_BIRD_KEEPER,
         .trainerName = _("AVERY"),
         .speechBefore = {EC_WORD_TOYS, EC_WORD_EXCL, EC_WORD_I, EC_WORD_NEED, EC_WORD_MORE, EC_WORD_TOYS},
         .speechWin = {EC_WORD_I, EC_WORD_NEED, EC_WORD_SOME, EC_WORD_EASY, EC_WORD_MONEY, EC_WORD_FAST},
         .speechLose = {EC_WORD_I, EC_WORD_NEED, EC_WORD_TO, EC_WORD_WORK, EC_WORD_FOR, EC_WORD_MONEY},
-        .monSet = gSlateportBattleTentTrainerMons_Avery
+        .monSet = gBattleTentTrainerMons_MinorLeague_Avery
     },
-    [SLATEPORT_TENT_TRAINER_DWANE] = {
+    [BATTLE_TENT_MINOR_TRAINER_DWANE] = {
         .facilityClass = FACILITY_CLASS_NINJA_BOY,
         .trainerName = _("DWANE"),
         .speechBefore = {EC_WORD_MMM, EC_WORD_TASTY, EC_WORD_ELLIPSIS, EC_WORD_WONDER, EC_WORD_WHAT, EC_WORD_QUES},
         .speechWin = {EC_WORD_MMM, EC_WORD_MMM, EC_WORD_ELLIPSIS, EC_WORD_YOU, EC_WORD_DON_T, EC_WORD_KNOW},
         .speechLose = {EC_WORD_MMM, EC_WORD_MMM, EC_WORD_ELLIPSIS, EC_WORD_OH_YEAH, EC_WORD_THIS_IS_IT_EXCL, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Dwane
+        .monSet = gBattleTentTrainerMons_MinorLeague_Dwane
     },
-    [SLATEPORT_TENT_TRAINER_MCKENNA] = {
+    [BATTLE_TENT_MINOR_TRAINER_MCKENNA] = {
         .facilityClass = FACILITY_CLASS_PARASOL_LADY,
         .trainerName = _("MCKENNA"),
         .speechBefore = {EC_WORD_I, EC_WORD_DISLIKE, EC_WORD_SMALL, EC_WORD_TALK, EC_WORD_LET_S, EC_WORD_GO},
         .speechWin = {EC_WORD_YUP, EC_WORD_THAT_S, EC_WORD_THAT, -1, -1, -1},
         .speechLose = {EC_WORD_KTHX_BYE, -1, -1, -1, -1, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Mckenna
+        .monSet = gBattleTentTrainerMons_MinorLeague_Mckenna
     },
-    [SLATEPORT_TENT_TRAINER_CAMRYN] = {
+    [BATTLE_TENT_MINOR_TRAINER_CAMRYN] = {
         .facilityClass = FACILITY_CLASS_SWIMMER_F,
         .trainerName = _("CAMRYN"),
         .speechBefore = {EC_WORD_MR, EC_WORD_JUDGE, EC_WORD_YOU, EC_WORD_HAVE, EC_WORD_OUR, EC_WORD_TRUST},
         .speechWin = {EC_WORD_YES_SIR_EXCL, EC_WORD_WE_RE, EC_WORD_NO_1, EC_WORD_IN, EC_WORD_THIS, EC_WORD_CONTEST},
         .speechLose = {EC_WORD_I, EC_WORD_WON_T, EC_WORD_GIVE_UP, EC_WORD_MY, EC_WORD_IDOL, EC_WORD_DREAM},
-        .monSet = gSlateportBattleTentTrainerMons_Camryn
+        .monSet = gBattleTentTrainerMons_MinorLeague_Camryn
     },
-    [SLATEPORT_TENT_TRAINER_NATASHA] = {
+    [BATTLE_TENT_MINOR_TRAINER_NATASHA] = {
         .facilityClass = FACILITY_CLASS_PICNICKER,
         .trainerName = _("NATASHA"),
         .speechBefore = {EC_WORD_COME_OVER, EC_WORD_TO, EC_WORD_MY, EC_WORD_PLACE, EC_WORD_OK_QUES, -1},
         .speechWin = {EC_WORD_COME_ON, EC_WORD_OVER, EC_WORD_IT, EC_WORD_WILL, EC_WORD_BE, EC_WORD_GREAT},
         .speechLose = {EC_WORD_AWW, EC_WORD_WON_T, EC_WORD_YOU, EC_WORD_COME_OVER, EC_WORD_QUES, -1},
-        .monSet = gSlateportBattleTentTrainerMons_Natasha
+        .monSet = gBattleTentTrainerMons_MinorLeague_Natasha
     },
-    [SLATEPORT_TENT_TRAINER_AUSTYN] = {
+    [BATTLE_TENT_MINOR_TRAINER_AUSTYN] = {
         .facilityClass = FACILITY_CLASS_SAILOR,
         .trainerName = _("AUSTYN"),
         .speechBefore = {EC_WORD_I, EC_WORD_DON_T, EC_WORD_CARE, EC_WORD_HOW, EC_WORD_WE, EC_WORD_MATCH_UP},
         .speechWin = {EC_WORD_HAH, EC_WORD_BACK, EC_WORD_TO, EC_WORD_SCHOOL, EC_WORD_FOR, EC_WORD_YOU},
         .speechLose = {EC_WORD_I, EC_WORD_NEED, EC_WORD_TO, EC_WORD_STUDY, EC_WORD_MY, EC_WORD_LESSONS},
-        .monSet = gSlateportBattleTentTrainerMons_Austyn
+        .monSet = gBattleTentTrainerMons_MinorLeague_Austyn
     },
-    [SLATEPORT_TENT_TRAINER_DONOVAN] = {
+    [BATTLE_TENT_MINOR_TRAINER_DONOVAN] = {
         .facilityClass = FACILITY_CLASS_COLLECTOR,
         .trainerName = _("DONOVAN"),
         .speechBefore = {EC_WORD_OH, EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_SLIMY, EC_WORD_ALL, EC_WORD_OVER},
         .speechWin = {EC_WORD_YOU_RE, EC_WORD_GOING, EC_WORD_DOWN, EC_WORD_THE, EC_MOVE2(MEGA_DRAIN), EC_WORD_HAHAHA},
         .speechLose = {EC_WORD_I_AM, EC_WORD_NATURALLY, EC_WORD_SLIMY, EC_WORD_THAT_S, EC_WORD_WHAT, EC_WORD_I_AM},
-        .monSet = gSlateportBattleTentTrainerMons_Donovan
+        .monSet = gBattleTentTrainerMons_MinorLeague_Donovan
     },
-    [SLATEPORT_TENT_TRAINER_TAMIA] = {
+    [BATTLE_TENT_MINOR_TRAINER_TAMIA] = {
         .facilityClass = FACILITY_CLASS_LASS,
         .trainerName = _("TAMIA"),
         .speechBefore = {EC_WORD_I_AM, EC_WORD_ANGRY, EC_WORD_WITH, EC_WORD_MY, EC_WORD_FATHER, EC_WORD_ELLIPSIS},
         .speechWin = {EC_WORD_I, EC_WORD_REALLY, EC_WORD_DISLIKE, EC_WORD_MY, EC_WORD_FATHER, EC_WORD_EXCL},
         .speechLose = {EC_WORD_I, EC_WORD_JUST, EC_WORD_SO, EC_WORD_ADORE, EC_WORD_MY, EC_WORD_FATHER},
-        .monSet = gSlateportBattleTentTrainerMons_Tamia
+        .monSet = gBattleTentTrainerMons_MinorLeague_Tamia
     }
 };
 
