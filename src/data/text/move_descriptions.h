@@ -1330,7 +1330,7 @@ static const u8 sSkyUppercutDescription[] = _(
 
 static const u8 sSandTombDescription[] = _(
     "Traps foe for "BINDING_TURNS" turns. \n"
-    "Lowers foe's Def in Sandstorm.");
+    "Lowers Defense in Sandstorm.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
