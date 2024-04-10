@@ -928,6 +928,21 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_COOL_MIST] = _("Cool Mist"),
     [MOVE_MIND_BREAK] = _("Mind Break"),
     [MOVE_ROADBLOCK] = _("Roadblock"),
+    [MOVE_GATTLING_PINS] = _("Gattling Pins"),
+    [MOVE_EARTH_SHATTER] = _("Earth Shatter"),
+    [MOVE_MASS_BREAK] = _("Mass Break"),
+    [MOVE_PILGRIMAGE] = _("Pilgrimage"),
+    [MOVE_HEAVY_CANNON] = _("Heavy Cannon"),
+    [MOVE_GIANTS_SPEAR] = _("Giant's Spear"),
+    [MOVE_REDLINE] = _("Redline"),
+    [MOVE_ZAPPER] = _("Zapper"),
+    [MOVE_PURGE_RAY] = _("Purge Ray"),
+    [MOVE_DIFFUSE_WAVE] = _("Diffuse Wave"),
+    [MOVE_SKY_SPLITTER] = _("Sky Splitter"),
+    [MOVE_VAPORIZE] = _("Vaporize"),
+    [MOVE_RAILGUN] = _("Railgun"),
+    [MOVE_DECIMATION] = _("Decimation"),
+    [MOVE_POWER_JAM] = _("Power Jam"),
 };
 #else
 // 12 letters
@@ -1859,6 +1874,21 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_COOL_MIST] = _("Cool Mist"),
     [MOVE_MIND_BREAK] = _("Mind Break"),
     [MOVE_ROADBLOCK] = _("Roadblock"),
+    [MOVE_GATTLING_PINS] = _("Gattling Pins"),
+    [MOVE_EARTH_SHATTER] = _("Earth Shatter"),
+    [MOVE_MASS_BREAK] = _("Mass Break"),
+    [MOVE_PILGRIMAGE] = _("Pilgrimage"),
+    [MOVE_HEAVY_CANNON] = _("Heavy Cannon"),
+    [MOVE_GIANTS_SPEAR] = _("Giant's Spear"),
+    [MOVE_REDLINE] = _("Redline"),
+    [MOVE_ZAPPER] = _("Zapper"),
+    [MOVE_PURGE_RAY] = _("Purge Ray"),
+    [MOVE_DIFFUSE_WAVE] = _("Diffuse Wave"),
+    [MOVE_SKY_SPLITTER] = _("Sky Splitter"),
+    [MOVE_VAPORIZE] = _("Vaporize"),
+    [MOVE_RAILGUN] = _("Railgun"),
+    [MOVE_DECIMATION] = _("Decimation"),
+    [MOVE_POWER_JAM] = _("Power Jam"),
 };
 #endif
 

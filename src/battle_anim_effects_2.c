@@ -438,14 +438,47 @@ const struct SpriteTemplate gBulletSeedSpriteTemplate =
     .callback = AnimBulletSeed,
 };
 
-const struct SpriteTemplate gGemBlasterGemSpriteTemplate =
+const struct SpriteTemplate gGemBlasterGemBlueSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_ZYGARDE_HEXES,
-    .paletteTag = ANIM_TAG_ZYGARDE_HEXES,
+    .tileTag = ANIM_TAG_GEM_BLUE,
+    .paletteTag = ANIM_TAG_GEM_BLUE,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
+    .affineAnims = gBulletSeedAffineAnimTable,
+    .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gGemBlasterGemGreenSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GEM_GREEN,
+    .paletteTag = ANIM_TAG_GEM_GREEN,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gBulletSeedAffineAnimTable,
+    .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gGemBlasterGemPinkSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GEM_PINK,
+    .paletteTag = ANIM_TAG_GEM_PINK,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gBulletSeedAffineAnimTable,
+    .callback = AnimBulletSeed,
+};
+
+const struct SpriteTemplate gGemBlasterGemYellowSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GEM_YELLOW,
+    .paletteTag = ANIM_TAG_GEM_YELLOW,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gBulletSeedAffineAnimTable,
     .callback = AnimBulletSeed,
 };
 

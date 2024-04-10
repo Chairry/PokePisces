@@ -523,6 +523,30 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBrutalize               @ EFFECT_BRUTALIZE
 	.4byte BattleScript_EffectSuckerPunch             @ EFFECT_ROADBLOCK
 	.4byte BattleScript_EffectDefenseDownHit2         @ EFFECT_DEFENSE_DOWN_HIT_2
+	.4byte BattleScript_EffectHitSetRemoveTerrain     @ EFFECT_EARTH_SHATTER
+	.4byte BattleScript_EffectHit                     @ EFFECT_PILGRIMAGE
+	.4byte BattleScript_EffectCloseCombat             @ EFFECT_HEAVY_CANNON
+	.4byte BattleScript_EffectCloseCombat             @ EFFECT_GIANTS_SPEAR
+	.4byte BattleScript_EffectRedline                 @ EFFECT_REDLINE
+	.4byte BattleScript_EffectSpeedDownHit            @ EFFECT_ZAPPER
+	.4byte BattleScript_EffectSkySplitter             @ EFFECT_SKY_SPLITTER
+	.4byte BattleScript_EffectAllStatsUp2HitFoe       @ EFFECT_ALL_STATS_UP_2_HIT_FOE
+
+BattleScript_EffectSkySplitter::
+	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	trytoclearprimalweather
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectRedline::
+	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	normaliseattackerbuffs
+	printstring STRINGID_USERSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectDefenseDownHit2::
 	setmoveeffect MOVE_EFFECT_DEF_MINUS_2
@@ -1413,6 +1437,51 @@ BattleScript_AllStatsUp2Ret::
 BattleScript_EffectAllStatsUp2Hit::
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP_2 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
+
+BattleScript_EffectAllStatsUp2HitFoe::
+	setmoveeffect MOVE_EFFECT_ALL_STATS_UP_2_FOE
+	goto BattleScript_EffectHit
+
+BattleScript_AllStatsUp2Foe::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2FoeAtk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2FoeAtk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_AllStatsUp2FoeAtk
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_AllStatsUp2FoeAtk
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_AllStatsUp2FoeRet
+BattleScript_AllStatsUp2FoeAtk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2FoeDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AllStatsUp2FoeDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2FoeDef::
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2FoeSpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AllStatsUp2FoeSpeed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2FoeSpeed::
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2FoeSpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AllStatsUp2FoeSpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2FoeSpAtk::
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2FoeSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AllStatsUp2FoeSpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2FoeSpDef::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUp2FoeRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_AllStatsUp2FoeRet
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUp2FoeRet::
+	return
 
 BattleScript_EffectPsychicNoise:
 	attackcanceler
@@ -6413,6 +6482,7 @@ BattleScript_EffectSandstorm::
 	ppreduce
 	call BattleScript_CheckPrimalWeather
 	setsandstorm
+	call BattleScript_TryTailwindAbilitiesLoop
 	goto BattleScript_MoveWeatherChange
 
 BattleScript_EffectRollout::
@@ -6851,10 +6921,26 @@ BattleScript_EffectFutureSight::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifmove MOVE_DECIMATION, BattleScript_Decimation
 	trysetfutureattack BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printfromtable gFutureMoveUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_Decimation:
+	trysetfutureattack BattleScript_DecimationFutureAttackFailedTryStatUp
+	attackanimation
+	waitanimation
+	printfromtable gFutureMoveUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DecimationFutureAttackFailedTryStatUp:
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MoveEnd
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -9110,7 +9196,11 @@ BattleScript_MonTookFutureAttack::
 	accuracycheck BattleScript_FutureAttackMiss, MOVE_FUTURE_SIGHT
 	goto BattleScript_FutureAttackAnimate
 BattleScript_CheckDoomDesireMiss::
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_CheckDecimationMiss
 	accuracycheck BattleScript_FutureAttackMiss, MOVE_DOOM_DESIRE
+	goto BattleScript_FutureAttackAnimate
+BattleScript_CheckDecimationMiss::
+	accuracycheck BattleScript_FutureAttackMiss, MOVE_DECIMATION
 BattleScript_FutureAttackAnimate::
 	critcalc
 	damagecalc
@@ -9120,7 +9210,11 @@ BattleScript_FutureAttackAnimate::
 	playanimation BS_ATTACKER, B_ANIM_FUTURE_SIGHT_HIT
 	goto BattleScript_DoFutureAttackHit
 BattleScript_FutureHitAnimDoomDesire::
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_FutureHitAnimDecimation
 	playanimation BS_ATTACKER, B_ANIM_DOOM_DESIRE_HIT
+	goto BattleScript_DoFutureAttackHit
+BattleScript_FutureHitAnimDecimation::
+	playanimation BS_ATTACKER, B_ANIM_DECIMATION_HIT
 BattleScript_DoFutureAttackHit::
 	effectivenesssound
 	hitanimation BS_TARGET
@@ -10461,6 +10555,7 @@ BattleScript_SandstreamActivates::
 	printstring STRINGID_PKMNSXWHIPPEDUPSANDSTORM
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SANDSTORM_CONTINUES
+	call BattleScript_TryTailwindAbilitiesLoop
 	call BattleScript_ActivateWeatherAbilities
 	end3
 

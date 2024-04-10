@@ -2062,8 +2062,8 @@ const u32 gItemIconPalette_Cheese[] = INCBIN_U32("graphics/items/icon_palettes/c
 const u32 gItemIcon_FrothyCheese[] = INCBIN_U32("graphics/items/icons/frothy_cheese.4bpp.lz");
 const u32 gItemIconPalette_FrothyCheese[] = INCBIN_U32("graphics/items/icon_palettes/frothy_cheese.gbapal.lz");
 
-const u32 gItemIcon_Keychain[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_Keychain[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_Keychain[] = INCBIN_U32("graphics/items/icons/keychain.4bpp.lz");
+const u32 gItemIconPalette_Keychain[] = INCBIN_U32("graphics/items/icon_palettes/keychain.gbapal.lz");
 
 const u32 gItemIcon_FlipCoin[] = INCBIN_U32("graphics/items/icons/flip_coin.4bpp.lz");
 const u32 gItemIconPalette_FlipCoin[] = INCBIN_U32("graphics/items/icon_palettes/flip_coin.gbapal.lz");
@@ -2161,8 +2161,8 @@ const u32 gItemIconPalette_Crossbones[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_FriendRibbon[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
 const u32 gItemIconPalette_FriendRibbon[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
 
-const u32 gItemIcon_RoomExtender[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_RoomExtender[] = INCBIN_U32("graphics/items/icons/room_extender.4bpp.lz");
+const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_palettes/room_extender.gbapal.lz");
 
 const u32 gItemIcon_TradingCard[] = INCBIN_U32("graphics/items/icons/trading_card.4bpp.lz");
 const u32 gItemIconPalette_TradingCard[] = INCBIN_U32("graphics/items/icon_palettes/trading_card.gbapal.lz");

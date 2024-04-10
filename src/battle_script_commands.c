@@ -3741,6 +3741,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AllStatsUp2;
                 }
                 break;
+            case MOVE_EFFECT_ALL_STATS_UP_2_FOE:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AllStatsUp2Foe;
+                }
+                break;
             case MOVE_EFFECT_ALL_STATS_DOWN:
                 if (!NoAliveMonsForEitherParty())
                 {
@@ -10910,6 +10917,45 @@ static void Cmd_various(void)
         }
         break;
     }
+    case VARIOUS_TRY_TO_CLEAR_WEATHER:
+    {
+        bool8 shouldNotClear = FALSE;
+
+        for (i = 0; i < gBattlersCount; i++)
+        {
+            if (((gBattleWeather & B_WEATHER_SUN)
+             || (gBattleWeather & B_WEATHER_HAIL)
+             || (gBattleWeather & B_WEATHER_RAIN)
+             || (gBattleWeather & B_WEATHER_SANDSTORM))
+             && IsBattlerAlive(i))
+                shouldNotClear = TRUE;
+        }
+        if (gBattleWeather & B_WEATHER_SUN && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_SUN;
+            PrepareStringBattle(STRINGID_SUNLIGHTFADED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_HAIL && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_HAIL;
+            PrepareStringBattle(STRINGID_RAINSTOPPED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_HAIL && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_HAIL;
+            PrepareStringBattle(STRINGID_HAILSTOPPED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        else if (gBattleWeather & B_WEATHER_SANDSTORM && !shouldNotClear)
+        {
+            gBattleWeather &= ~B_WEATHER_SANDSTORM;
+            PrepareStringBattle(STRINGID_SANDSTORMSUBSIDED, battler);
+            gBattleCommunication[MSG_DISPLAY] = 1;
+        }
+        break;
+    }
     case VARIOUS_TRY_END_NEUTRALIZING_GAS:
     {
         VARIOUS_ARGS();
@@ -11513,6 +11559,17 @@ static void Cmd_various(void)
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
+    }
+    case VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS:
+    {
+        VARIOUS_ARGS();
+
+        s32 i, j;
+
+        for (i = 0; i < gBattlersCount; i++)
+            TryResetAttackerStatChanges(i);
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
     case VARIOUS_TRY_TRAINER_SLIDE_MSG_Z_MOVE:
     {
@@ -12493,6 +12550,24 @@ bool32 TryResetBattlerStatChanges(u8 battler)
             ret = TRUE; // returns TRUE if any stat was reset
 
         gBattleMons[battler].statStages[j] = DEFAULT_STAT_STAGE;
+    }
+
+    return ret;
+}
+
+bool32 TryResetAttackerStatChanges(u8 battler)
+{
+    u32 j;
+    bool32 ret = FALSE;
+
+    gDisableStructs[gBattlerAttacker].stockpileDef = 0;
+    gDisableStructs[gBattlerAttacker].stockpileSpDef = 0;
+    for (j = 0; j < NUM_BATTLE_STATS; j++)
+    {
+        if (gBattleMons[gBattlerAttacker].statStages[j] != DEFAULT_STAT_STAGE)
+            ret = TRUE; // returns TRUE if any stat was reset
+
+        gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
     }
 
     return ret;
@@ -14652,8 +14727,10 @@ static void Cmd_trysetfutureattack(void)
 
         if (gCurrentMove == MOVE_DOOM_DESIRE)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
-        else
+        else if (gCurrentMove == MOVE_FUTURE_SIGHT)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -17650,6 +17727,17 @@ void BS_SetRemoveTerrain(void)
         default:
             break;
         }
+    case EFFECT_EARTH_SHATTER:
+        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+        {
+            RemoveAllTerrains();
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        return;
         break;
     }
 

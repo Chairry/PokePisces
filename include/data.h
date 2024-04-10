@@ -36,6 +36,8 @@ struct MonCoords
 #define TRAINER_PARTY_EVS(hp, atk, def, speed, spatk, spdef) ((const u8[6]){hp,atk,def,spatk,spdef,speed})
 #define TRAINER_PARTY_NATURE(nature) (nature+1)
 
+// Shared by both trainer and frontier mons
+// See CreateNPCTrainerPartyFromTrainer and CreateFacilityMon
 struct TrainerMon
 {
     const u8 *nickname;
