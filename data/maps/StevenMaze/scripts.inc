@@ -73,6 +73,7 @@ StevenMaze_EventScript_FinalSteven::
 	end
 
 StevenMaze_EventScript_TimeToLeave::
+	setflag FLAG_DEFEATED_PANIC_EVENT
 	msgbox StevenMaze_Text_Leave, MSGBOX_DEFAULT
 	warp MAP_STEVEN_HOUSE, 8, 3
 	waitstate
