@@ -4747,6 +4747,71 @@
         {
           "map": "MAP_ROUTE126",
           "base_label": "gRoute126",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 15,
+                "max_level": 17,
+                "species": "SPECIES_LEVLADE"
+              },
+              {
+                "min_level": 15,
+                "max_level": 17,
+                "species": "SPECIES_HEMOKO"
+              },
+              {
+                "min_level": 15,
+                "max_level": 16,
+                "species": "SPECIES_STOMAWAY"
+              },
+              {
+                "min_level": 15,
+                "max_level": 16,
+                "species": "SPECIES_LUMELMO"
+              },
+              {
+                "min_level": 15,
+                "max_level": 17,
+                "species": "SPECIES_CRYPLIN"
+              },
+              {
+                "min_level": 15,
+                "max_level": 17,
+                "species": "SPECIES_SAINTISOW"
+              },
+              {
+                "min_level": 15,
+                "max_level": 18,
+                "species": "SPECIES_STOMAWAY"
+              },
+              {
+                "min_level": 17,
+                "max_level": 17,
+                "species": "SPECIES_LUMELMO"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_FLUFFSIR"
+              },
+              {
+                "min_level": 16,
+                "max_level": 18,
+                "species": "SPECIES_KYUDI"
+              },
+              {
+                "min_level": 17,
+                "max_level": 18,
+                "species": "SPECIES_FLUFFSIR"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_RETROROACH"
+              }
+            ]
+          },
           "water_mons": {
             "encounter_rate": 4,
             "mons": [
@@ -4777,18 +4842,48 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 180,
+            "mons": [
+              {
+                "min_level": 16,
+                "max_level": 16,
+                "species": "SPECIES_MINIOR"
+              },
+              {
+                "min_level": 16,
+                "max_level": 16,
+                "species": "SPECIES_MINIOR_METEOR_BLUE"
+              },
+              {
+                "min_level": 16,
+                "max_level": 16,
+                "species": "SPECIES_MINIOR_METEOR_YELLOW"
+              },
+              {
+                "min_level": 16,
+                "max_level": 16,
+                "species": "SPECIES_MINIOR_METEOR_YELLOW"
+              },
+              {
+                "min_level": 16,
+                "max_level": 16,
+                "species": "SPECIES_MINIOR_METEOR_YELLOW"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 30,
             "mons": [
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_SADSOD"
               },
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_SNELFREND"
               },
               {
                 "min_level": 10,
@@ -8792,18 +8887,48 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 17,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_GREEN"
+              },
+              {
+                "min_level": 17,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_ORANGE"
+              },
+              {
+                "min_level": 17,
+                "max_level": 17,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              },
+              {
+                "min_level": 18,
+                "max_level": 18,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              },
+              {
+                "min_level": 19,
+                "max_level": 19,
+                "species": "SPECIES_MINIOR_METEOR_VIOLET"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_SADSOD"
               },
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_TENTACOOL"
+                "species": "SPECIES_MINOTE"
               },
               {
                 "min_level": 10,
@@ -11501,22 +11626,22 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_BONFEU"
+                "species": "SPECIES_KOMBAKYU"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_FAERED"
+                "species": "SPECIES_KOMBAKYU"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_BONFEU"
+                "species": "SPECIES_KOMBAKYU"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_FAERED"
+                "species": "SPECIES_KOMBAKYU"
               },
               {
                 "min_level": 50,
@@ -12131,7 +12256,7 @@
               {
                 "min_level": 11,
                 "max_level": 13,
-                "species": "SPECIES_MANDIMYTE"
+                "species": "SPECIES_UMBRAT"
               },
               {
                 "min_level": 11,
@@ -12156,12 +12281,12 @@
               {
                 "min_level": 11,
                 "max_level": 14,
-                "species": "SPECIES_UMBRAT"
+                "species": "SPECIES_MAGGORDE"
               },
               {
                 "min_level": 13,
                 "max_level": 14,
-                "species": "SPECIES_KYUDI"
+                "species": "SPECIES_MAGGORDE"
               },
               {
                 "min_level": 10,
@@ -12220,17 +12345,47 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 80,
+            "mons": [
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_MANDIMYTE"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_MANDIMYTE"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 10,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 10,
+                "max_level": 12,
                 "species": "SPECIES_SNELFREND"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 10,
+                "max_level": 13,
                 "species": "SPECIES_SADSOD"
               },
               {

@@ -253,6 +253,16 @@
 #define VARIOUS_SET_SILENCE                          160
 #define VARIOUS_SEIZE_CHANCE_CHECK                   161
 #define VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED         162
+#define VARIOUS_DESTINY_KNOT_DISABLE                 163
+#define VARIOUS_DESTINY_KNOT_TORMENT                 164
+#define VARIOUS_DESTINY_KNOT_TAUNT                   165
+#define VARIOUS_DESTINY_KNOT_ENCORE                  166
+#define VARIOUS_DESTINY_KNOT_HEAL_BLOCK              167
+#define VARIOUS_CHEESING                             168
+#define VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY         169
+#define VARIOUS_TRY_NORMALISE_SPEED                  170
+#define VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS         171
+#define VARIOUS_TRY_TO_CLEAR_WEATHER                 172
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

@@ -649,6 +649,41 @@ static void AnimTask_NightmareClone_Step(u8 taskId)
     }
 }
 
+void AnimTask_NightmareClone2(u8 taskId)
+{
+    struct Task *task;
+
+    task = &gTasks[taskId];
+    task->data[0] = CloneBattlerSpriteWithBlend(ANIM_DEF_PARTNER);
+    if (task->data[0] < 0)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+    task->data[1] = 0;
+    task->data[2] = 15;
+    task->data[3] = 2;
+    task->data[4] = 0;
+    SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL));
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(task->data[2], task->data[3]));
+    gSprites[task->data[0]].data[0] = 80;
+    if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_PLAYER)
+    {
+        gSprites[task->data[0]].data[1] = -144;
+        gSprites[task->data[0]].data[2] = 112;
+    }
+    else
+    {
+        gSprites[task->data[0]].data[1] = 144;
+        gSprites[task->data[0]].data[2] = -112;
+    }
+    gSprites[task->data[0]].data[3] = 0;
+    gSprites[task->data[0]].data[4] = 0;
+    StoreSpriteCallbackInData6(&gSprites[task->data[0]], SpriteCallbackDummy);
+    gSprites[task->data[0]].callback = TranslateSpriteLinearFixedPoint;
+    task->func = AnimTask_NightmareClone_Step;
+}
+
 // Creates a blended copy of the target that wavers in front of them
 void AnimTask_SpiteTargetShadow(u8 taskId)
 {

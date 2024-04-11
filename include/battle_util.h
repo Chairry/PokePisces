@@ -183,7 +183,6 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
 bool32 CanMegaEvolve(u32 battler);
 bool32 CanUltraBurst(u32 battler);
 bool32 IsBattlerMegaEvolved(u32 battler);
-bool32 IsBattlerGaoterra(u32 battler);
 bool32 IsBattlerPrimalReverted(u32 battler);
 bool32 IsBattlerUltraBursted(u32 battler);
 u16 GetBattleFormChangeTargetSpecies(u32 battler, u16 method);
@@ -247,6 +246,7 @@ bool32 CanBeExposed(u32 battler);
 bool32 IsBattlerTerrainAffected(u32 battler, u32 terrainFlag);
 u32 GetBattlerFriendshipScore(u32 battler);
 u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc);
+u32 CountBattlerStatDecreases(u32 battler, bool32 countEvasionAcc);
 bool32 IsMyceliumMightOnField(void);
 bool32 ChangeTypeBasedOnTerrain(u32 battler);
 void RemoveConfusionStatus(u32 battler);

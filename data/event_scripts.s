@@ -676,6 +676,324 @@ Common_EventScript_ReadyPetalburgGymForBattle::
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
 	return
 
+Common_EventScript_TannerShop::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Common_EventScript_TannerShop0Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 1, Common_EventScript_TannerShop1Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 2, Common_EventScript_TannerShop2Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 3, Common_EventScript_TannerShop3Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 4, Common_EventScript_TannerShop4Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 5, Common_EventScript_TannerShop5Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 6, Common_EventScript_TannerShop6Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 7, Common_EventScript_TannerShop7Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 8, Common_EventScript_TannerShop8Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 9, Common_EventScript_TannerShop9Progress
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 10, Common_EventScript_TannerShop10Progress
+	goto_if_gt VAR_PISCES_STORY_PROGRESS, 10, Common_EventScript_TannerShop10Progress
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Common_EventScript_TannerShop0Progress::
+	pokemart Common_Mart_TannerShop0
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop0:
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop1Progress::
+	pokemart Common_Mart_TannerShop1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop1:
+	.2byte ITEM_POTION
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop2Progress::
+	pokemart Common_Mart_TannerShop2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop2:
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop3Progress::
+	pokemart Common_Mart_TannerShop3
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop3:
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop4Progress::
+	pokemart Common_Mart_TannerShop4
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop4:
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop5Progress::
+	pokemart Common_Mart_TannerShop5
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop5:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop6Progress::
+	pokemart Common_Mart_TannerShop6
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop6:
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop7Progress::
+	pokemart Common_Mart_TannerShop7
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop7:
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop8Progress::
+	pokemart Common_Mart_TannerShop8
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop8:
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop9Progress::
+	pokemart Common_Mart_TannerShop9
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop9:
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
+Common_EventScript_TannerShop10Progress::
+	pokemart Common_Mart_TannerShop10
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Common_Mart_TannerShop10:
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_ELIXIR
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ELIXIR
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ETHER
+	.2byte ITEM_SODA_POP
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_ENERGY_ROOT
+	.2byte ITEM_NONE
+	release
+	end
+
 Common_EventScript_BallShop::
 	lock
 	faceplayer
@@ -684,12 +1002,16 @@ Common_EventScript_BallShop::
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Common_EventScript_BallShop0Badge
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 1, Common_EventScript_BallShop1Badge
 	goto_if_eq VAR_PISCES_STORY_PROGRESS, 2, Common_EventScript_BallShop2Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 3, Common_EventScript_BallShop3Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 4, Common_EventScript_BallShop4Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 5, Common_EventScript_BallShop5Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 6, Common_EventScript_BallShop6Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 7, Common_EventScript_BallShop7Badge
-	goto_if_eq VAR_PISCES_STORY_PROGRESS, 8, Common_EventScript_BallShop8Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 3, Common_EventScript_BallShop2Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 4, Common_EventScript_BallShop3Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 5, Common_EventScript_BallShop4Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 6, Common_EventScript_BallShop5Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 7, Common_EventScript_BallShop6Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 8, Common_EventScript_BallShop7Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 9, Common_EventScript_BallShop8Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 10, Common_EventScript_BallShop8Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 11, Common_EventScript_BallShop8Badge
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 12, Common_EventScript_BallShop8Badge
 	msgbox gText_SafeTravels, MSGBOX_DEFAULT
 	release
 	end
@@ -3260,3 +3582,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/CosmossSpaceCenter/scripts.inc"
 
 	.include "data/maps/MossdeepInteriors/scripts.inc"
+
+	.include "data/maps/Gym2Corridor/scripts.inc"
+
+	.include "data/maps/StevenHouse/scripts.inc"
+
+	.include "data/maps/StevenCorridor/scripts.inc"
+
+	.include "data/maps/StevenMaze/scripts.inc"

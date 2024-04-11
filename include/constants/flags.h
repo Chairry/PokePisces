@@ -249,15 +249,15 @@
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
 #define FLAG_RECEIVED_GOOD_ROD               0xE3
 #define FLAG_REGI_DOORS_OPENED               0xE4
-#define FLAG_RECEIVED_TM_RETURN              0xE5
+#define FLAG_RECEIVED_TM_VACUUM_WAVE              0xE5 //ORIGINALLY FLAG_RECEIVED_TM_RETURN
 #define FLAG_RECEIVED_TM_SLUDGE_BOMB         0xE6
-#define FLAG_RECEIVED_TM_ROAR                0xE7
-#define FLAG_RECEIVED_TM_GIGA_DRAIN          0xE8
+#define FLAG_RECEIVED_TM_POUNCE                0xE7 //ORIGINALLY FLAG_RECEIVED_TM_ROAR
+#define FLAG_RECEIVED_TM_MAGICAL_LEAF          0xE8 //ORIGINALLY FLAG_RECEIVED_TM_GIGA_DRAIN
 
 #define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
 
 #define FLAG_RECEIVED_TM_REST                0xEA
-#define FLAG_RECEIVED_TM_ATTRACT             0xEB
+#define FLAG_RECEIVED_TM_DRAGONBREATH             0xEB //ORIGINALLY FLAG_RECEIVED_TM_ATTRACT
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
 #define FLAG_RECEIVED_SILVER_SHIELD          0xED
 #define FLAG_RECEIVED_GOLD_SHIELD            0xEE
@@ -282,12 +282,12 @@
 #define FLAG_RECEIVED_OLD_ROD                0x101
 #define FLAG_RECEIVED_COIN_CASE              0x102
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x103
-#define FLAG_RECEIVED_TM_SNATCH              0x104
-#define FLAG_RECEIVED_TM_DIG                 0x105
-#define FLAG_RECEIVED_TM_BULLET_SEED         0x106
+#define FLAG_RECEIVED_TM_INFESTATION              0x104 //ORIGINALLY FLAG_RECEIVED_TM_SNATCH
+#define FLAG_RECEIVED_TM_SWIFT                 0x105 //ORIGINALLY FLAG_RECEIVED_TM_DIG
+#define FLAG_RECEIVED_TM_DETECT         0x106 //ORIGINALLY FLAG_RECEIVED_TM_BULLET_SEED
 #define FLAG_ENTERED_ELITE_FOUR              0x107
-#define FLAG_RECEIVED_TM_HIDDEN_POWER        0x108
-#define FLAG_RECEIVED_TM_TORMENT             0x109
+#define FLAG_RECEIVED_TM_ROTOTILLER        0x108 //ORIGINALLY FLAG_RECEIVED_TM_HIDDEN_POWER
+#define FLAG_RECEIVED_TM_BREAK_SWIPE             0x109 //ORIGINALLY FLAG_RECEIVED_TM_TORMENT
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0x10C
@@ -1220,13 +1220,13 @@
 
 #define FLAG_HIDE_RAY                                           0x493 // Unused Flag, used in Pisces
 #define FLAG_FORCED_SHINY                                           0x494 // DO NOT USE!! Used for P_FLAG_FORCE_SHINY
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_HIDE_STEVEN_IN_HOUSE                                           0x495 // Unused Flag
+#define FLAG_RECEIVED_TM_UHHH                                           0x496 // Unused Flag
+#define FLAG_RECEIVED_TM_SNARL                                           0x497 // Unused Flag
+#define FLAG_RECEIVED_TM_MUD_SHOT                                           0x498 // Unused Flag
+#define FLAG_RECEIVED_FLOAT_STONE                                           0x499 // Unused Flag
+#define FLAG_ITEM_DOJO_POKE_DOLL                                           0x49A // Unused Flag
+#define FLAG_MANGROTTO_EGG                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag

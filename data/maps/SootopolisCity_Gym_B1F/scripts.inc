@@ -231,7 +231,7 @@ SootopolisCity_Gym_B1F_Text_GivePlayerTheWinnings:
 
 SootopolisCity_Gym_B1F_Text_GivePlayerBadge:
 	.string "It is my pleasure to bestow upon you…\n"
-	.string "the Magarita Badge.$"
+	.string "the Margarita Badge.$"
 
 SootopolisCity_Gym_B1F_Text_ReceivedRainBadge:
 	.string "{PLAYER} received the\n"

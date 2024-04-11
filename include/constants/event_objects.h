@@ -227,10 +227,10 @@
 #define OBJ_EVENT_GFX_MYSTERY_GIFT_MAN           223
 #define OBJ_EVENT_GFX_TRICK_HOUSE_STATUE         224
 #define OBJ_EVENT_GFX_KIRLIA                     225
-#define OBJ_EVENT_GFX_DUSCLOPS                   226
+#define OBJ_EVENT_GFX_GARZILLA                   226
 #define OBJ_EVENT_GFX_PURPLINA           227
 #define OBJ_EVENT_GFX_SUDOWOODO                  228
-#define OBJ_EVENT_GFX_MEW                        229
+#define OBJ_EVENT_GFX_EGGNEGGMA                        229
 #define OBJ_EVENT_GFX_RED                        230
 #define OBJ_EVENT_GFX_LEAF                       231
 #define OBJ_EVENT_GFX_DEOXYS                     232

@@ -106,11 +106,12 @@
 // Non-volatile status conditions
 // These persist remain outside of battle and after switching out
 #define STATUS1_NONE             0
-#define STATUS1_SLEEP            (1 << 0 | 1 << 1 | 1 << 2) // First 3 bits (Number of turns to sleep)
+#define STATUS1_SLEEP            (1 << 0 | 1 << 1) // 2bits - lasts for 2-3 turns
 #define STATUS1_SLEEP_TURN(num)  ((num) << 0) // Just for readability (or if rearranging statuses)
-#define STATUS1_POISON           (1 << 3)
-#define STATUS1_BURN             (1 << 4)
-#define STATUS1_FREEZE           (1 << 5)
+#define STATUS1_FREEZE           (1 << 2 | 1 << 3)  //2bits up to 3 turns
+#define STATUS1_FREEZE_TURN(num) ((num) << 2)
+#define STATUS1_POISON           (1 << 4)
+#define STATUS1_BURN             (1 << 5)
 #define STATUS1_PARALYSIS        (1 << 6)
 #define STATUS1_TOXIC_POISON     (1 << 7)
 #define STATUS1_TOXIC_COUNTER    (1 << 8 | 1 << 9 | 1 << 10 | 1 << 11)
@@ -120,8 +121,12 @@
 #define STATUS1_BLOOMING         (1 << 14 | 1 << 15)    // 2bits - lasts for 3 turns
 #define STATUS1_BLOOMING_TURN(num)  ((num) << 14)
 #define STATUS1_EXPOSED          (1 << 16)
+#define STATUS1_REST                (1 << 17 | 1 << 18 | 1 << 19) // First 3 bits (Number of turns to rest)
+#define STATUS1_REST_TURN(num)      ((num) << 17) // Just for readability (or if rearranging statuses)
+
+#define STATUS1_SLEEP_ANY        (STATUS1_SLEEP | STATUS1_REST)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
-#define STATUS1_ANY              (STATUS1_SLEEP | STATUS1_POISON | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE)
+#define STATUS1_ANY              (STATUS1_SLEEP_ANY | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER | STATUS1_FROSTBITE)
 #define STATUS1_ANY_NEGATIVE     (STATUS1_ANY & ~(STATUS1_BLOOMING))
 
 // Volatile status ailments
@@ -195,6 +200,10 @@
 #define STATUS4_INFINITE_CONFUSION      (1 << 4)    // Used for Berserk Gene
 #define STATUS4_SALT_CURE               (1 << 5)
 #define STATUS4_GLAIVE_RUSH             (1 << 6)
+#define STATUS4_TICKED                  (1 << 7) 
+#define STATUS4_TICKED_BATTLER          (1 << 8 | 1 << 9) // The battler to receive HP from Ticked
+#define STATUS4_TICKED_BY(battler)      ((battler) << 8)
+
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
@@ -410,8 +419,9 @@
 #define MOVE_EFFECT_ALL_STATS_DOWN      93              
 #define MOVE_EFFECT_TOXIC_SPIKES        94
 #define MOVE_EFFECT_ATK_DOWN            95
+#define MOVE_EFFECT_ALL_STATS_UP_2_FOE  96
 
-#define NUM_MOVE_EFFECTS                96              
+#define NUM_MOVE_EFFECTS                97              
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
@@ -459,8 +469,10 @@
 #define BATTLE_TERRAIN_CHIMNEY_ROUTE    37
 #define BATTLE_TERRAIN_GOLD_ROUTE       38
 #define BATTLE_TERRAIN_WOODEN_ROUTE     39
+#define BATTLE_TERRAIN_PATH             40
+#define BATTLE_TERRAIN_DARK_AREA        41
 
-#define BATTLE_TERRAIN_COUNT            40
+#define BATTLE_TERRAIN_COUNT            42
 
 #define B_WAIT_TIME_LONG        (B_WAIT_TIME_MULTIPLIER * 4)
 #define B_WAIT_TIME_MED         (B_WAIT_TIME_MULTIPLIER * 3)

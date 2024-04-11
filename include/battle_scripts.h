@@ -1,6 +1,9 @@
 #ifndef GUARD_BATTLE_SCRIPTS_H
 #define GUARD_BATTLE_SCRIPTS_H
 
+extern const u8 BattleScript_TickedTurnDrain[];
+extern const u8 BattleScript_UnfrozeTargetWaitMessage[];
+extern const u8 BattleScript_TargetWokeUpWaitMessage[];
 extern const u8 BattleScript_MirrorHerbCopyStatChange[];
 extern const u8 BattleScript_MirrorHerbCopyStatChangeEnd2[];
 extern const u8 BattleScript_NotAffected[];
@@ -90,6 +93,7 @@ extern const u8 BattleScript_PerishSongTakesLife[];
 extern const u8 BattleScript_PerishSongCountGoesDown[];
 extern const u8 BattleScript_AllStatsUp[];
 extern const u8 BattleScript_AllStatsUp2[];
+extern const u8 BattleScript_AllStatsUp2Foe[];
 extern const u8 BattleScript_AllStatsDown[];
 extern const u8 BattleScript_HeartCarve[];
 extern const u8 BattleScript_RapidSpinAway[];
@@ -250,6 +254,11 @@ extern const u8 BattleScript_ItemHealHP_RemoveItemEnd2[];
 extern const u8 BattleScript_BerryPPHealEnd2[];
 extern const u8 BattleScript_BerryPPHealRet[];
 extern const u8 BattleScript_ItemHealHP_End2[];
+extern const u8 BattleScript_Cheese_End2[];
+extern const u8 BattleScript_YellowSoda_End2[];
+extern const u8 BattleScript_FrothyCheese_End2[];
+extern const u8 BattleScript_A_Thing_Happened[];
+extern const u8 BattleScript_A_Thing_HappenedFR[];
 extern const u8 BattleScript_ItemHealHP_Ret[];
 extern const u8 BattleScript_AbilityHealHP_Ret[];
 extern const u8 BattleScript_SelectingNotAllowedMoveChoiceItem[];
@@ -258,6 +267,8 @@ extern const u8 BattleScript_HangedOnMsg[];
 extern const u8 BattleScript_BerryConfuseHealEnd2[];
 extern const u8 BattleScript_BerryConfuseHealRet[];
 extern const u8 BattleScript_BerryStatRaiseEnd2[];
+extern const u8 BattleScript_InvertStats[];
+extern const u8 BattleScript_ClearSpeed[];
 extern const u8 BattleScript_BerryStatRaiseRet[];
 extern const u8 BattleScript_BerryFocusEnergyRet[];
 extern const u8 BattleScript_BerryFocusEnergyEnd2[];
@@ -558,6 +569,7 @@ extern const u8 BattleScript_PanicTurn[];
 extern const u8 BattleScript_MoveEffectBlooming[];
 extern const u8 BattleScript_MoveEffectExposed[];
 extern const u8 BattleScript_BloomingHpGain[];
+extern const u8 BattleScript_BloomingHpGainEnd[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];

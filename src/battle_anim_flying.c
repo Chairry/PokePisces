@@ -145,6 +145,28 @@ const struct SpriteTemplate gFlyBallAttackSpriteTemplate =
     .callback = AnimFlyBallAttack,
 };
 
+const struct SpriteTemplate gSolarFlareBallUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_SHADOW,
+    .paletteTag = ANIM_TAG_RED_SHADOW,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_FlyBallUp,
+    .callback = AnimFlyBallUp,
+};
+
+const struct SpriteTemplate gSolarFlareBallAttackSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_SHADOW,
+    .paletteTag = ANIM_TAG_RED_SHADOW,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_FlyBallAttack,
+    .callback = AnimFlyBallAttack,
+};
+
 static const union AnimCmd sAnim_FallingFeather_0[] =
 {
     ANIMCMD_FRAME(0, 0),

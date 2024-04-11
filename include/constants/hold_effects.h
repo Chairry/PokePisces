@@ -192,6 +192,17 @@
 #define HOLD_EFFECT_SHELL_POLISH        207
 #define HOLD_EFFECT_FAMILY_MOSS         208
 #define HOLD_EFFECT_EERIE_MASK          209
+#define HOLD_EFFECT_A_THING             210
+#define HOLD_EFFECT_TRADING_CARD        211
+#define HOLD_EFFECT_CHEESE              212
+#define HOLD_EFFECT_FROTHY_CHEESE       213
+#define HOLD_EFFECT_SPECTRAL_IDOL       214
+#define HOLD_EFFECT_ODD_STONE           215
+#define HOLD_EFFECT_COARSE_SAND         216
+#define HOLD_EFFECT_TAMATO_BERRY        217
+#define HOLD_EFFECT_YELLOW_SODA         218
+#define HOLD_EFFECT_FLIP_COIN           219
+#define HOLD_EFFECT_WARP_RIBBON         220
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

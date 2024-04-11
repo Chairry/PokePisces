@@ -3,6 +3,11 @@
 
 #define TENT_MIN_LEVEL 30
 
+#define TENT_MINOR_LEVEL    30
+#define TENT_MAJOR_LEVEL    50
+#define TENT_CHAMP_LEVEL    80
+
+
 // The number of battles in each Battle Tent challenge.
 // Battle Tent equivalent of FRONTIER_STAGES_PER_CHALLENGE.
 #define TENT_STAGES_PER_CHALLENGE  3
