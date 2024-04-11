@@ -20578,6 +20578,7 @@ static const struct LevelUpMove sCorispLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sKrolpyreLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_RECOVER),
     LEVEL_UP_MOVE(1, MOVE_TEMPER_FLARE),
     LEVEL_UP_MOVE(1, MOVE_MAGMA_STORM),
     //LEVEL_UP_MOVE(1, MOVE_EVAPORATE),
