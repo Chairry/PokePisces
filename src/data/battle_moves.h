@@ -15393,14 +15393,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_ROADBLOCK] =
     {
         .effect = EFFECT_ROADBLOCK,
-        .power = 80,
+        .power = 85,
         .type = TYPE_ROCK,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
-        .split = SPLIT_SPECIAL,
+        .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
     },

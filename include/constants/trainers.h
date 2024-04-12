@@ -261,8 +261,22 @@
 #define FACILITY_CLASS_LEAF                  0x4f
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
+#define FACILITY_CLASS_BIRD_WATCHER          0x52
+#define FACILITY_CLASS_DRAGON_RIDER          0x53
+#define FACILITY_CLASS_PAPER_BOY             0x54
+#define FACILITY_CLASS_PICKNICKER            0x55
+#define FACILITY_CLASS_SEA_SHELLER           0x56
+#define FACILITY_CLASS_FAIRYTALE_GIRL        0x57
+#define FACILITY_CLASS_SNOW_KID              0x58
+#define FACILITY_CLASS_SNOW_CHILD            0x59
+#define FACILITY_CLASS_ANGLER                0x5a
+#define FACILITY_CLASS_VANDAL                0x5b
+#define FACILITY_CLASS_KLUTZ                 0x5c
+#define FACILITY_CLASS_STREET_THUG           0x5d
+#define FACILITY_CLASS_DELINQUENT            0x5e
+#define FACILITY_CLASS_CLIMBER               0x5f
 
-#define FACILITY_CLASSES_COUNT               0x52
+#define FACILITY_CLASSES_COUNT               0x60
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1
