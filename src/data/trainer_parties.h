@@ -10,8 +10,8 @@ static const struct TrainerMon sParty_Sawyer1[] = {
     .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 4, 0),
     .lvl = 67,
     .moves = {MOVE_AIR_SLASH, MOVE_BARRIER, MOVE_SOLAR_BEAM, MOVE_EXPLOSION},
-    .nature = TRAINER_PARTY_NATURE(NATURE_HASTY),
-    .nickname = COMPOUND_STRING("Bubbles")
+    .nature = NATURE_HASTY,
+    .nickname = COMPOUND_STRING("Bubbles"),
     }
 };
 //Example Struct Above
@@ -467,7 +467,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 14,
     .moves = {MOVE_ICE_SHARD, MOVE_DIG, MOVE_SAND_ATTACK, MOVE_LUCKY_CHANT}, //MOVE MISSING: DUNE SLICER (OVER DIG)
-    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
+    .nature = NATURE_QUIRKY,
     },
     {
     .species = SPECIES_BIVAGUE,
@@ -478,7 +478,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 15,
     .moves = {MOVE_DRAGON_RAGE, MOVE_CLAMP, MOVE_POWDER_SNOW, MOVE_WITHDRAW},
-    .nature = TRAINER_PARTY_NATURE(NATURE_RELAXED)
+    .nature = NATURE_RELAXED,
     }
 };
 
@@ -491,7 +491,7 @@ static const struct TrainerMon sParty_PSebastian[] = {
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 14,
     .moves = {MOVE_COVET, MOVE_ASTONISH, MOVE_SWIFT, MOVE_AQUA_RING},
-    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY)
+    .nature = NATURE_QUIRKY,
     },
     {
     .species = SPECIES_FAERED,
@@ -502,7 +502,7 @@ static const struct TrainerMon sParty_PSebastian[] = {
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 15,
     .moves = {MOVE_ME_FIRST, MOVE_TRICK, MOVE_PSYCH_UP, MOVE_NONE},
-    .nature = TRAINER_PARTY_NATURE(NATURE_CALM)
+    .nature = NATURE_CALM,
     }
 };
 //MANGROTTO TUNNEL
@@ -1016,7 +1016,7 @@ static const struct TrainerMon sParty_PSSteven2[] = {
     .ev = TRAINER_PARTY_EVS(22, 22, 22, 22, 22, 20),
     .species = SPECIES_EERIKO,
     .ability = ABILITY_DISDAIN,
-    .moves = {MOVE_TERRORIZE, MOVE_SPITE, MOVE_SPOOK, MOVE_FOUL_PLAY},
+    .moves = {MOVE_TERRORIZE, MOVE_SPITE, MOVE_SPOOK, MOVE_MISERY_WAIL},
     }
 };
 
@@ -1038,7 +1038,7 @@ static const struct TrainerMon sParty_PSSteven4[] = {
     .ev = TRAINER_PARTY_EVS(22, 22, 22, 22, 22, 20),
     .species = SPECIES_EERIKO,
     .ability = ABILITY_DISDAIN,
-    .moves = {MOVE_TERRORIZE, MOVE_GRUDGE, MOVE_SHADOW_SNEAK, MOVE_FEINT_ATTACK},
+    .moves = {MOVE_TERRORIZE, MOVE_GRUDGE, MOVE_NIGHT_SHADE, MOVE_MISERY_WAIL},
     },
     {
     .lvl = 21,

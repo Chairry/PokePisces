@@ -529,8 +529,8 @@ static const u8 sClampDescription[] = _(
     "foe for "BINDING_TURNS" turns.");
 
 static const u8 sSwiftDescription[] = _(
-    "Sprays star-shaped rays\n"
-    "quickly that never miss.");
+    "Sprays quickly star-shaped\n"
+    "rays that never miss.");
 
 static const u8 sSkullBashDescription[] = _(
     "Tucks in the head, then\n"
@@ -1330,7 +1330,7 @@ static const u8 sSkyUppercutDescription[] = _(
 
 static const u8 sSandTombDescription[] = _(
     "Traps foe for "BINDING_TURNS" turns. \n"
-    "Lowers foe's Def in Sandstorm.");
+    "Lowers Defense in Sandstorm.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
@@ -2222,7 +2222,7 @@ static const u8 sTrickOrTreatDescription[] = _(
 
 static const u8 sNobleRoarDescription[] = _(
     "A 1st-turn move that lowers\n"
-    "the foe's Speed and flinches.");
+    "Speed and flinches.");
 
 static const u8 sIonDelugeDescription[] = _(
     "Electrifies Normal-type\n"

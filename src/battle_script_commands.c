@@ -3449,7 +3449,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER && gSpecialStatuses[gBattlerAttacker].parentalBondState!= PARENTAL_BOND_2ND_HIT)
                 {
                     u16 payday = gPaydayMoney;
-                    gPaydayMoney += (gBattleMons[gBattlerAttacker].level * 5);
+                    gPaydayMoney += (gBattleMons[gBattlerAttacker].level * gBattleMoves[gCurrentMove].power);
                     if (payday > gPaydayMoney)
                         gPaydayMoney = 0xFFFF;
 

@@ -23780,12 +23780,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_CHIKA] =
     {
-        .baseHP        = 55,
-        .baseAttack    = 35,
-        .baseDefense   = 40,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 35,
-        .baseSpDefense = 40,
+        .baseHP        = 65,
+        .baseAttack    = 40,
+        .baseDefense   = 45,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 45,
         .types = { TYPE_STEEL,TYPE_FLYING },
         .catchRate = 75,
         .expYield = 48,
@@ -23802,12 +23802,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_SWORDUC] =
     {
-        .baseHP        = 85,
+        .baseHP        = 95,
         .baseAttack    = 130,
         .baseDefense   = 110,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 35,
-        .baseSpDefense = 85,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 95,
         .types = { TYPE_STEEL,TYPE_FIGHTING },
         .catchRate = 45,
         .expYield = 168,
@@ -23824,10 +23824,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GOSMARK] =
     {
-        .baseHP        = 85,
-        .baseAttack    = 35,
-        .baseDefense   = 85,
-        .baseSpeed     = 35,
+        .baseHP        = 95,
+        .baseAttack    = 40,
+        .baseDefense   = 95,
+        .baseSpeed     = 45,
         .baseSpAttack  = 130,
         .baseSpDefense = 110,
         .types = { TYPE_STEEL,TYPE_FIRE },
