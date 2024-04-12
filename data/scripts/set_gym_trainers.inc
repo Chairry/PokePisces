@@ -49,9 +49,9 @@ PetalburgCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_P_HITOMI
 	settrainerflag TRAINER_P_LIZA
 	settrainerflag TRAINER_P_S_STEVEN_1
-	settrainerflag TRAINER_MARY
-	settrainerflag TRAINER_ALEXIA
-	settrainerflag TRAINER_JODY
+	settrainerflag TRAINER_P_NELLY
+	settrainerflag TRAINER_P_SADFISHER_2
+	settrainerflag TRAINER_P_ARIEL
 	return
 
 FortreeCity_Gym_SetGymTrainers::
@@ -88,5 +88,5 @@ SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_TIFFANY
 	settrainerflag TRAINER_BETHANY
 	settrainerflag TRAINER_ANNIKA
-	settrainerflag TRAINER_DAPHNE
+	settrainerflag TRAINER_P_OZONE_TABITHA_1
 	return
