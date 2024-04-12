@@ -1231,7 +1231,7 @@
 #define FLAG_PRECIPIKE_EGG                                           0x49D // Unused Flag
 #define FLAG_SCUTTILL_EGG                                           0x49E // Unused Flag
 #define FLAG_TRAP_PRECIPIKE_EGGNEGGMA                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
+#define FLAG_DEFEATED_OZONE_BRANCH                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
