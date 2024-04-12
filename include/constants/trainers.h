@@ -266,7 +266,7 @@
 #define FACILITY_CLASS_PAPER_BOY             0x54
 #define FACILITY_CLASS_PICKNICKER            0x55
 #define FACILITY_CLASS_SEA_SHELLER           0x56
-#define FACILITY_CLASS_FAIRYTALE_GIRL       0x57
+#define FACILITY_CLASS_FAIRYTALE_GIRL        0x57
 #define FACILITY_CLASS_SNOW_KID              0x58
 #define FACILITY_CLASS_SNOW_CHILD            0x59
 #define FACILITY_CLASS_ANGLER                0x5a

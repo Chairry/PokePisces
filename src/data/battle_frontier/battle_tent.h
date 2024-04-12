@@ -98,509 +98,361 @@ static const u16 sBattleTentTrainerMons_MajorLeague_Kelsie[] =
 // MINOR LEAGUE
 const u16 gBattleTentTrainerMons_MinorLeague_Jolie[] =
 {
-    TENT_MINOR_MON_KITIKITI,
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_TOXEXOT,
+    TENT_MINOR_MON_GRIMER,
     TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_NINCADA,
+    TENT_MINOR_MON_SEEDOT,
+    TENT_MINOR_MON_POMELONIAN,
+    TENT_MINOR_MON_PAWNIARD,
     TENT_MINOR_MON_BLOTTA,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_GRAVELITO,
-    TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_RAITAIC,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Malachi[] =
 {
-    TENT_MINOR_MON_KITIKITI,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_COFFIDDLE,
+    TENT_MINOR_MON_WANNEGG,
+    TENT_MINOR_MON_PRONGY,
+    TENT_MINOR_MON_HEMOKO,
     TENT_MINOR_MON_SACKYTWACK,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_BLOTTA,
-    TENT_MINOR_MON_GRAVELITO,
-    TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_COBBTLE,
-    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_PIDIUM,
+    TENT_MINOR_MON_FLUFFSIR,
+    TENT_MINOR_MON_SPRYTE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Kelsie[] =
 {
-    TENT_MINOR_MON_QUILWARD,
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_ICKSQUEEK,
-    TENT_MINOR_MON_FLUFFSIR,
-    TENT_MINOR_MON_FUZKY,
-    TENT_MINOR_MON_PIDIUM,
+    TENT_MINOR_MON_GROWLITHE,
     TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_TOXITIDE,
-    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_TOXEXOT,
+    TENT_MINOR_MON_DRAKULARK,
+    TENT_MINOR_MON_UMBRAT,
+    TENT_MINOR_MON_QUILWARD,
+    TENT_MINOR_MON_FIEFREET,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Davon[] =
 {
-    TENT_MINOR_MON_QUILWARD,
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_ICKSQUEEK,
-    TENT_MINOR_MON_SAINTISOW,
-    TENT_MINOR_MON_SPOINK,
-    TENT_MINOR_MON_SACKYTWACK,
+    TENT_MINOR_MON_STOMAWAY,
+    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_MINOTE,
+    TENT_MINOR_MON_SHARGUY,
+    TENT_MINOR_MON_MATCHLIT,
+    TENT_MINOR_MON_LEVLADE,
     TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_PITAGON,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_CORISP,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Glenda[] =
 {
-    TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_MAGGORDE,
-    TENT_MINOR_MON_SADSOD,
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_MATCHLIT,
-    TENT_MINOR_MON_BLOTTA,
-    TENT_MINOR_MON_SHARGUY,
-    TENT_MINOR_MON_CASOWARY,
-    TENT_MINOR_MON_BOOZARD,
-    TENT_MINOR_MON_SUDCUB,
+    TENT_MINOR_MON_CRYPLIN,
+    TENT_MINOR_MON_PEBBLER,
+    TENT_MINOR_MON_CHIKA,
+    TENT_MINOR_MON_BRAMBOOZLE,
+    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_KYUDI,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Helena[] =
 {
-    TENT_MINOR_MON_MAGGORDE,
+    TENT_MINOR_MON_TOXITIDE,
+    TENT_MINOR_MON_COBBTLE,
     TENT_MINOR_MON_SADSOD,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_CROAGUNK,
-    TENT_MINOR_MON_BLOTTA,
-    TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_WELPROOT,
-    TENT_MINOR_MON_GRIMER,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_SUDCUB,
+    TENT_MINOR_MON_GRAVELITO,
+    TENT_MINOR_MON_CORISP,
+    TENT_MINOR_MON_MAGGORDE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Rodolfo[] =
 {
+    TENT_MINOR_MON_CASOWARY,
+    TENT_MINOR_MON_MANDIMYTE,
+    TENT_MINOR_MON_ICKSQUEEK,
+    TENT_MINOR_MON_WELPROOT,
     TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_QUILWARD,
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_MANKEY,
-    TENT_MINOR_MON_EBIBI,
-    TENT_MINOR_MON_MAGGORDE,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_PITAGON,
-    TENT_MINOR_MON_SQUEESHY,
+    TENT_MINOR_MON_INFAIRNO,
+    TENT_MINOR_MON_SNURROWL,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Davion[] =
 {
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_CRYPLIN,
+    TENT_MINOR_MON_FUZKY,
     TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_POMELONIAN,
-    TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_MATCHLIT,
-    TENT_MINOR_MON_PIDIUM,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_COBBTLE,
-    TENT_MINOR_MON_CHIKA,
-    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_SNOTLOUD,
+    TENT_MINOR_MON_LUMELMO,
+    TENT_MINOR_MON_HARACE,
+    TENT_MINOR_MON_EBIBI,
+    TENT_MINOR_MON_SQUEESHY,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Kendall[] =
 {
-    TENT_MINOR_MON_QUILWARD,
+    TENT_MINOR_MON_GUPSPAR,
+    TENT_MINOR_MON_BERM,
     TENT_MINOR_MON_MANKEY,
-    TENT_MINOR_MON_EBIBI,
-    TENT_MINOR_MON_KITIKITI,
-    TENT_MINOR_MON_FLUFFSIR,
-    TENT_MINOR_MON_SAINTISOW,
-    TENT_MINOR_MON_TOXEXOT,
-    TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_PITAGON,
-    TENT_MINOR_MON_GRAVELITO,
     TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_GROWLITHE,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_SNORUNT,
+    TENT_MINOR_MON_GARJIRA,
+    TENT_MINOR_MON_CREAM,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Colten[] =
 {
-    TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_PRONGY,
-    TENT_MINOR_MON_SAINTISOW,
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_FUZKY,
-    TENT_MINOR_MON_SNURROWL,
-    TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_PAWNIARD,
     TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_HARACE,
-    TENT_MINOR_MON_CHIKA,
+    TENT_MINOR_MON_PITAGON,
+    TENT_MINOR_MON_KITIKITI,
+    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_SPOINK,
+    TENT_MINOR_MON_SAINTISOW,
+    TENT_MINOR_MON_CROAGUNK,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Irvin[] =
 {
-    TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_PRONGY,
-    TENT_MINOR_MON_GUPSPAR,
-    TENT_MINOR_MON_UMBRAT,
-    TENT_MINOR_MON_SPRYTE,
-    TENT_MINOR_MON_CRYPLIN,
-    TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_PIDIUM,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_RAITAIC,
-    TENT_MINOR_MON_MINOTE,
+    TENT_MINOR_MON_GROWLITHE,
+    TENT_MINOR_MON_QUILWARD,
+    TENT_MINOR_MON_MATCHLIT,
+    TENT_MINOR_MON_SNURROWL,
+    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_COFFIDDLE,
+    TENT_MINOR_MON_SADSOD,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Shaun[] =
 {
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_MAGGORDE,
-    TENT_MINOR_MON_SADSOD,
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_SACKYTWACK,
-    TENT_MINOR_MON_BLOTTA,
+    TENT_MINOR_MON_PEBBLER,
     TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_SHARGUY,
-    TENT_MINOR_MON_SQUEESHY,
-    TENT_MINOR_MON_SUDCUB,
-    TENT_MINOR_MON_GARJIRA,
-    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_WANNEGG,
+    TENT_MINOR_MON_LEDYBA,
+    TENT_MINOR_MON_COMBUN,
+    TENT_MINOR_MON_SEEDOT,
+    TENT_MINOR_MON_BOOZARD,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Kyler[] =
 {
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_FUZKY,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_POMELONIAN,
-    TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_PIDIUM,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_WANNEGG,
-    TENT_MINOR_MON_CASOWARY,
-    TENT_MINOR_MON_BOOZARD,
     TENT_MINOR_MON_DRAKULARK,
+    TENT_MINOR_MON_KYUDI,
+    TENT_MINOR_MON_FIEFREET,
+    TENT_MINOR_MON_BRAMBOOZLE,
+    TENT_MINOR_MON_BLOTTA,
+    TENT_MINOR_MON_PRONGY,
+    TENT_MINOR_MON_UMBRAT,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Maggie[] =
 {
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_TOXEXOT,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_GRAVELITO,
-    TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_BIYAKO,
-    TENT_MINOR_MON_HARACE,
-    TENT_MINOR_MON_SHARGUY,
-    TENT_MINOR_MON_SQUEESHY,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_LEVLADE,
+    TENT_MINOR_MON_COBBTLE,
+    TENT_MINOR_MON_MAGGORDE,
+    TENT_MINOR_MON_HEMOKO,
+    TENT_MINOR_MON_RAITAIC,
+    TENT_MINOR_MON_ICKSQUEEK,
+    TENT_MINOR_MON_CASOWARY,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Stephon[] =
 {
-    TENT_MINOR_MON_EBIBI,
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_MINOTE,
-    TENT_MINOR_MON_SQUEESHY,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_CHIKA,
     TENT_MINOR_MON_GARJIRA,
+    TENT_MINOR_MON_SPRYTE,
+    TENT_MINOR_MON_KITIKITI,
+    TENT_MINOR_MON_TIDPIT,
+    TENT_MINOR_MON_GRAVELITO,
+    TENT_MINOR_MON_HARACE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Rebecca[] =
 {
-    TENT_MINOR_MON_EBIBI,
+    TENT_MINOR_MON_MINOTE,
+    TENT_MINOR_MON_SNOTLOUD,
     TENT_MINOR_MON_TOXEXOT,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_MATCHLIT,
-    TENT_MINOR_MON_CROAGUNK,
-    TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_WELPROOT,
-    TENT_MINOR_MON_RAITAIC,
-    TENT_MINOR_MON_SHARGUY,
-    TENT_MINOR_MON_GARJIRA,
+    TENT_MINOR_MON_FLUFFSIR,
+    TENT_MINOR_MON_FUZKY,
+    TENT_MINOR_MON_GUPSPAR,
+    TENT_MINOR_MON_POMELONIAN,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Reggie[] =
 {
-    TENT_MINOR_MON_ICKSQUEEK,
-    TENT_MINOR_MON_MANKEY,
-    TENT_MINOR_MON_SNOTLOUD,
     TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_CRYPLIN,
-    TENT_MINOR_MON_SPOINK,
     TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_SACKYTWACK,
-    TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_BIYAKO,
-    TENT_MINOR_MON_CHIKA,
-    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_CATTUCLID,
+    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_SHARGUY,
+    TENT_MINOR_MON_BERM,
+    TENT_MINOR_MON_MANDIMYTE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Janae[] =
 {
-    TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_FUZKY,
-    TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_PIDIUM,
-    TENT_MINOR_MON_SACKYTWACK,
+    TENT_MINOR_MON_CORISP,
+    TENT_MINOR_MON_LUMELMO,
+    TENT_MINOR_MON_CREAM,
+    TENT_MINOR_MON_CRYPLIN,
     TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_BIYAKO,
-    TENT_MINOR_MON_CHIKA,
-    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_SQUEESHY,
+    TENT_MINOR_MON_SCALLYWARG,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Caiden[] =
 {
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_UMBRAT,
-    TENT_MINOR_MON_SPRYTE,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_SNURROWL,
-    TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_GROWLITHE,
-    TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_CORISP,
-    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_SPOINK,
+    TENT_MINOR_MON_PIDIUM,
+    TENT_MINOR_MON_SAINTISOW,
+    TENT_MINOR_MON_PAWNIARD,
+    TENT_MINOR_MON_PITAGON,
+    TENT_MINOR_MON_SUDCUB,
+    TENT_MINOR_MON_EBIBI,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Kirsten[] =
 {
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_MAGGORDE,
-    TENT_MINOR_MON_SADSOD,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_SNURROWL,
+    TENT_MINOR_MON_GRIMER,
+    TENT_MINOR_MON_TOXITIDE,
+    TENT_MINOR_MON_SACKYTWACK,
+    TENT_MINOR_MON_WELPROOT,
     TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_BRAMBOOZLE,
+    TENT_MINOR_MON_MANKEY,
     TENT_MINOR_MON_CROAGUNK,
-    TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_RETROROACH,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Kurtis[] =
 {
-    TENT_MINOR_MON_TIDPIT,
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_SACKYTWACK,
-    TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_PITAGON,
-    TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_COBBTLE,
-    TENT_MINOR_MON_TOXITIDE,
-    TENT_MINOR_MON_CASOWARY,
-    TENT_MINOR_MON_DRAKULARK,
+    TENT_MINOR_MON_SEEDOT,
+    TENT_MINOR_MON_LUMELMO,
+    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_BLOTTA,
     TENT_MINOR_MON_GARJIRA,
+    TENT_MINOR_MON_SNOTLOUD,
+    TENT_MINOR_MON_GUPSPAR,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Stefan[] =
 {
-    TENT_MINOR_MON_QUILWARD,
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_MATCHLIT,
-    TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_PITAGON,
-    TENT_MINOR_MON_TOXITIDE,
     TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_CASOWARY,
-    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_PITAGON,
+    TENT_MINOR_MON_QUILWARD,
+    TENT_MINOR_MON_SACKYTWACK,
+    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_SUDCUB,
+    TENT_MINOR_MON_SQUEESHY,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Avery[] =
 {
-    TENT_MINOR_MON_PRONGY,
-    TENT_MINOR_MON_GUPSPAR,
-    TENT_MINOR_MON_MANKEY,
+    TENT_MINOR_MON_LEDYBA,
+    TENT_MINOR_MON_UMBRAT,
+    TENT_MINOR_MON_MAGGORDE,
+    TENT_MINOR_MON_MINOTE,
+    TENT_MINOR_MON_SPRYTE,
     TENT_MINOR_MON_EBIBI,
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_STOMAWAY,
-    TENT_MINOR_MON_FUZKY,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_SNURROWL,
-    TENT_MINOR_MON_TOXITIDE,
-    TENT_MINOR_MON_DRAKULARK,
+    TENT_MINOR_MON_MANDIMYTE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Dwane[] =
 {
-    TENT_MINOR_MON_UMBRAT,
-    TENT_MINOR_MON_SPRYTE,
-    TENT_MINOR_MON_SNURROWL,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_GRAVELITO,
-    TENT_MINOR_MON_COMBUN,
-    TENT_MINOR_MON_WANNEGG,
-    TENT_MINOR_MON_GRIMER,
-    TENT_MINOR_MON_RAITAIC,
-    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_WELPROOT,
+    TENT_MINOR_MON_KYUDI,
+    TENT_MINOR_MON_CRYPLIN,
+    TENT_MINOR_MON_DRAKULARK,
+    TENT_MINOR_MON_TOXITIDE,
+    TENT_MINOR_MON_STOMAWAY,
+    TENT_MINOR_MON_BRAMBOOZLE,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Mckenna[] =
 {
-    TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_SNURROWL,
-    TENT_MINOR_MON_SNORUNT,
-    TENT_MINOR_MON_SACKYTWACK,
-    TENT_MINOR_MON_INFAIRNO,
-    TENT_MINOR_MON_TOXITIDE,
-    TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_LEVLADE,
+    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_POMELONIAN,
+    TENT_MINOR_MON_SPOINK,
+    TENT_MINOR_MON_PIDIUM,
+    TENT_MINOR_MON_COBBTLE,
     TENT_MINOR_MON_CHIKA,
-    TENT_MINOR_MON_DRAKULARK,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Camryn[] =
 {
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_ICKSQUEEK,
-    TENT_MINOR_MON_MANKEY,
-    TENT_MINOR_MON_EBIBI,
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_LEVLADE,
+    TENT_MINOR_MON_TOXEXOT,
+    TENT_MINOR_MON_HEMOKO,
+    TENT_MINOR_MON_GROWLITHE,
     TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_CATTUCLID,
+    TENT_MINOR_MON_INFAIRNO,
+    TENT_MINOR_MON_HARACE,
+    TENT_MINOR_MON_CASOWARY,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Natasha[] =
 {
-    TENT_MINOR_MON_FIEFREET,
-    TENT_MINOR_MON_GUPSPAR,
-    TENT_MINOR_MON_QUILWARD,
-    TENT_MINOR_MON_BERM,
-    TENT_MINOR_MON_KITIKITI,
-    TENT_MINOR_MON_FLUFFSIR,
-    TENT_MINOR_MON_SAINTISOW,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_LEVLADE,
-    TENT_MINOR_MON_HEMOKO,
-    TENT_MINOR_MON_TOXITIDE,
+    TENT_MINOR_MON_ICKSQUEEK,
+    TENT_MINOR_MON_WANNEGG,
+    TENT_MINOR_MON_COFFIDDLE,
+    TENT_MINOR_MON_SNURROWL,
+    TENT_MINOR_MON_CORISP,
+    TENT_MINOR_MON_SCALLYWARG,
+    TENT_MINOR_MON_SNORUNT,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Austyn[] =
 {
-    TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_POMELONIAN,
-    TENT_MINOR_MON_EERIKO,
-    TENT_MINOR_MON_NINCADA,
-    TENT_MINOR_MON_SEEDOT,
-    TENT_MINOR_MON_BRAMBOOZLE,
-    TENT_MINOR_MON_CORISP,
-    TENT_MINOR_MON_TOXITIDE,
-    TENT_MINOR_MON_PEBBLER,
-    TENT_MINOR_MON_GRIMER,
-    TENT_MINOR_MON_GARJIRA,
-    TENT_MINOR_MON_RETROROACH,
+    TENT_MINOR_MON_FIEFREET,
+    TENT_MINOR_MON_SADSOD,
+    TENT_MINOR_MON_FLUFFSIR,
+    TENT_MINOR_MON_TIDPIT,
+    TENT_MINOR_MON_CREAM,
+    TENT_MINOR_MON_FUZKY,
+    TENT_MINOR_MON_KITIKITI,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Donovan[] =
 {
-    TENT_MINOR_MON_KYUDI,
-    TENT_MINOR_MON_MANDIMYTE,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_CRYPLIN,
-    TENT_MINOR_MON_LEDYBA,
-    TENT_MINOR_MON_PAWNIARD,
-    TENT_MINOR_MON_CATTUCLID,
-    TENT_MINOR_MON_GROWLITHE,
-    TENT_MINOR_MON_COBBTLE,
-    TENT_MINOR_MON_BIYAKO,
+    TENT_MINOR_MON_SAINTISOW,
+    TENT_MINOR_MON_MATCHLIT,
     TENT_MINOR_MON_RAITAIC,
-    TENT_MINOR_MON_MINOTE,
-    TENT_MINOR_MON_CASOWARY,
-    TENT_MINOR_MON_BOOZARD,
+    TENT_MINOR_MON_PAWNIARD,
+    TENT_MINOR_MON_GRAVELITO,
+    TENT_MINOR_MON_CATTUCLID,
+    TENT_MINOR_MON_COMBUN,
     -1
 };
 
 const u16 gBattleTentTrainerMons_MinorLeague_Tamia[] =
 {
+    TENT_MINOR_MON_EERIKO,
     TENT_MINOR_MON_PRONGY,
-    TENT_MINOR_MON_ICKSQUEEK,
-    TENT_MINOR_MON_KITIKITI,
-    TENT_MINOR_MON_TOXEXOT,
-    TENT_MINOR_MON_SNOTLOUD,
-    TENT_MINOR_MON_SADSOD,
-    TENT_MINOR_MON_LUMELMO,
-    TENT_MINOR_MON_CRYPLIN,
-    TENT_MINOR_MON_COFFIDDLE,
-    TENT_MINOR_MON_CREAM,
-    TENT_MINOR_MON_SNURROWL,
+    TENT_MINOR_MON_GRIMER,
+    TENT_MINOR_MON_BERM,
+    TENT_MINOR_MON_SHARGUY,
+    TENT_MINOR_MON_MANKEY,
+    TENT_MINOR_MON_CROAGUNK,
     -1
 };
 
@@ -663,7 +515,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MajorLeague[NUM_BATTLE_TE
 const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TENT_MINOR_TRAINERS] =
 {
     [BATTLE_TENT_MINOR_TRAINER_JOLIE] = {
-        .facilityClass = FACILITY_CLASS_AROMA_LADY,
+        .facilityClass = FACILITY_CLASS_YOUNGSTER,
         .trainerName = _("JOLIE"),
         .speechBefore = {EC_WORD_WHAT, EC_WORD_WILL, EC_WORD_I, EC_WORD_BE, EC_WORD_TOMORROW, EC_WORD_QUES},
         .speechWin = {EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_LIKE, EC_WORD_IT_S, EC_WORD_FRIDAY, EC_WORD_EXCL},
@@ -671,7 +523,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Jolie
     },
     [BATTLE_TENT_MINOR_TRAINER_MALACHI] = {
-        .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
+        .facilityClass = FACILITY_CLASS_LASS,
         .trainerName = _("MALACHI"),
         .speechBefore = {EC_WORD_BAD, EC_WORD_NEWS, EC_WORD_EXCL, EC_WORD_IT_S, EC_WORD_A, EC_MOVE(SAND_TOMB)},
         .speechWin = {EC_WORD_YEEHAW_EXCL, -1, -1, EC_WORD_I_VE, EC_WORD_DONE, EC_WORD_IT},
@@ -679,7 +531,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Malachi
     },
     [BATTLE_TENT_MINOR_TRAINER_KELSIE] = {
-        .facilityClass = FACILITY_CLASS_TUBER_F,
+        .facilityClass = FACILITY_CLASS_BIRD_WATCHER,
         .trainerName = _("KELSIE"),
         .speechBefore = {EC_WORD_GO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
         .speechWin = {EC_WORD_YAHOO, EC_WORD_EXCL_EXCL, EC_WORD_MY, EC_WORD_BATH, EC_WORD_POKEMON, EC_WORD_EXCL_EXCL},
@@ -687,7 +539,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Kelsie
     },
     [BATTLE_TENT_MINOR_TRAINER_DAVON] = {
-        .facilityClass = FACILITY_CLASS_TUBER_M,
+        .facilityClass = FACILITY_CLASS_BUG_CATCHER,
         .trainerName = _("DAVON"),
         .speechBefore = {EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL, -1, EC_WORD_GREAT, EC_MOVE(WHIRLPOOL), EC_WORD_ISN_T_IT_QUES},
         .speechWin = {EC_WORD_THAT_WAS, EC_WORD_LIKE, EC_WORD_A, EC_MOVE(WHIRLPOOL), EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL},
@@ -695,7 +547,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Davon
     },
     [BATTLE_TENT_MINOR_TRAINER_GLENDA] = {
-        .facilityClass = FACILITY_CLASS_LADY,
+        .facilityClass = FACILITY_CLASS_DRAGON_RIDER,
         .trainerName = _("GLENDA"),
         .speechBefore = {EC_WORD_CONVERSATION, EC_WORD_CAN, EC_WORD_WAIT, EC_WORD_UNTIL, EC_WORD_I, EC_WORD_WIN},
         .speechWin = {EC_WORD_FABULOUS, EC_WORD_EXCL, EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_ROCK},
@@ -703,7 +555,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Glenda
     },
     [BATTLE_TENT_MINOR_TRAINER_HELENA] = {
-        .facilityClass = FACILITY_CLASS_BEAUTY,
+        .facilityClass = FACILITY_CLASS_PAPER_BOY,
         .trainerName = _("HELENA"),
         .speechBefore = {EC_WORD_DOES, EC_WORD_MY, EC_WORD_BEAUTY, EC_WORD_INTIMIDATE, EC_WORD_YOU, EC_WORD_QUES},
         .speechWin = {EC_WORD_I_AM, EC_WORD_SO, EC_WORD_SORRY, EC_WORD_BUT, EC_WORD_YOU_RE, EC_WORD_BORING},
@@ -711,7 +563,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Helena
     },
     [BATTLE_TENT_MINOR_TRAINER_RODOLFO] = {
-        .facilityClass = FACILITY_CLASS_RICH_BOY,
+        .facilityClass = FACILITY_CLASS_CAMPER,
         .trainerName = _("RODOLFO"),
         .speechBefore = {EC_WORD_GO, EC_WORD_GET, EC_WORD_A, EC_POKEMON(WHISCASH), EC_WORD_FOR, EC_WORD_ME},
         .speechWin = {EC_WORD_AWW, EC_WORD_YOU, EC_WORD_DON_T, EC_WORD_HAVE, EC_WORD_A, EC_POKEMON(WHISCASH)},
@@ -719,7 +571,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Rodolfo
     },
     [BATTLE_TENT_MINOR_TRAINER_DAVION] = {
-        .facilityClass = FACILITY_CLASS_POKEMANIAC,
+        .facilityClass = FACILITY_CLASS_PICNICKER,
         .trainerName = _("DAVION"),
         .speechBefore = {EC_WORD_GRAAAH, EC_WORD_GRAAAH, EC_WORD_EXCL_EXCL, EC_WORD_GRAAAH, EC_WORD_GRAAAH, EC_WORD_EXCL_EXCL},
         .speechWin = {EC_MOVE2(ROAR), EC_WORD_EXCL, -1, EC_MOVE2(ROAR), EC_WORD_EXCL_EXCL, -1},
@@ -727,7 +579,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Davion
     },
     [BATTLE_TENT_MINOR_TRAINER_KENDALL] = {
-        .facilityClass = FACILITY_CLASS_SWIMMER_M,
+        .facilityClass = FACILITY_CLASS_SEA_SHELLER,
         .trainerName = _("KENDALL"),
         .speechBefore = {EC_WORD_A_LITTLE, EC_MOVE2(PETAL_DANCE), EC_WORD_TO, EC_WORD_PLEASE, EC_WORD_YOU, EC_WORD_EXCL},
         .speechWin = {EC_WORD_I, EC_WORD_DO, EC_WORD_THIS, EC_WORD_ONLY, EC_WORD_FOR, EC_WORD_WORK},
@@ -735,7 +587,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Kendall
     },
     [BATTLE_TENT_MINOR_TRAINER_COLTEN] = {
-        .facilityClass = FACILITY_CLASS_CAMPER,
+        .facilityClass = FACILITY_CLASS_TUBER_M,
         .trainerName = _("COLTEN"),
         .speechBefore = {EC_WORD_I, EC_WORD_WANT, EC_WORD_TO, EC_WORD_GO, EC_WORD_RUN, EC_WORD_AROUND},
         .speechWin = {EC_WORD_YAY, EC_WORD_EXCL, EC_WORD_WANT, EC_WORD_TO, EC_WORD_RUN, EC_WORD_QUES},
@@ -743,7 +595,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Colten
     },
     [BATTLE_TENT_MINOR_TRAINER_IRVIN] = {
-        .facilityClass = FACILITY_CLASS_BUG_MANIAC,
+        .facilityClass = FACILITY_CLASS_TUBER_F,
         .trainerName = _("IRVIN"),
         .speechBefore = {EC_WORD_HAVE, EC_WORD_A, EC_WORD_LOOK, EC_WORD_AT, EC_WORD_MY, EC_MOVE(CONFUSE_RAY)},
         .speechWin = {EC_WORD_YAHOO, EC_WORD_MY, EC_MOVE(CONFUSE_RAY), EC_WORD_IS, EC_WORD_THE, EC_WORD_BEST},
@@ -751,7 +603,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Irvin
     },
     [BATTLE_TENT_MINOR_TRAINER_SHAUN] = {
-        .facilityClass = FACILITY_CLASS_GENTLEMAN,
+        .facilityClass = FACILITY_CLASS_FAIRYTALE_GIRL,
         .trainerName = _("SHAUN"),
         .speechBefore = {EC_WORD_LISTEN, EC_WORD_ELLIPSIS, EC_WORD_YOU, EC_WORD_AREN_T, EC_WORD_VERY, EC_WORD_GOOD},
         .speechWin = {EC_WORD_YOU, EC_WORD_SEE, EC_WORD_QUES, EC_WORD_I, EC_WORD_WAS, EC_WORD_RIGHT},
@@ -759,7 +611,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Shaun
     },
     [BATTLE_TENT_MINOR_TRAINER_KYLER] = {
-        .facilityClass = FACILITY_CLASS_GUITARIST,
+        .facilityClass = FACILITY_CLASS_SNOW_KID,
         .trainerName = _("KYLER"),
         .speechBefore = {EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_QUES},
         .speechWin = {EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS, EC_WORD_YAY},
@@ -767,7 +619,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Kyler
     },
     [BATTLE_TENT_MINOR_TRAINER_MAGGIE] = {
-        .facilityClass = FACILITY_CLASS_SCHOOL_KID_F,
+        .facilityClass = FACILITY_CLASS_SNOW_CHILD,
         .trainerName = _("MAGGIE"),
         .speechBefore = {EC_POKEMON(VULPIX), EC_POKEMON(XATU), EC_POKEMON_NATIONAL(UMBREON), EC_WORD_ELLIPSIS, EC_WORD_UM, EC_WORD_ELLIPSIS},
         .speechWin = {EC_POKEMON(NOSEPASS), EC_WORD_ELLIPSIS, EC_WORD_UM, EC_POKEMON(SEVIPER), EC_WORD_EXCL, -1},
@@ -775,7 +627,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Maggie
     },
     [BATTLE_TENT_MINOR_TRAINER_STEPHON] = {
-        .facilityClass = FACILITY_CLASS_COOLTRAINER_M,
+        .facilityClass = FACILITY_CLASS_NINJA_BOY,
         .trainerName = _("STEPHON"),
         .speechBefore = {EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_ENJOY, EC_WORD_AN, EC_WORD_EGG},
         .speechWin = {EC_WORD_I, EC_WORD_WILL, EC_WORD_ENJOY, EC_WORD_THIS, EC_WORD_TASTY, EC_WORD_VICTORY},
@@ -783,7 +635,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Stephon
     },
     [BATTLE_TENT_MINOR_TRAINER_REBECCA] = {
-        .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
+        .facilityClass = FACILITY_CLASS_BIRD_KEEPER,
         .trainerName = _("REBECCA"),
         .speechBefore = {EC_WORD_THAT, EC_WORD_EGG, EC_WORD_HAS, EC_WORD_A, EC_WORD_TASTY, EC_WORD_SHINE},
         .speechWin = {EC_WORD_I, EC_WORD_CAN_T, EC_WORD_EXCL, EC_WORD_SMELL, EC_WORD_THAT, EC_WORD_STENCH},
@@ -791,7 +643,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Rebecca
     },
     [BATTLE_TENT_MINOR_TRAINER_REGGIE] = {
-        .facilityClass = FACILITY_CLASS_POKEFAN_M,
+        .facilityClass = FACILITY_CLASS_FISHERMAN,
         .trainerName = _("REGGIE"),
         .speechBefore = {EC_WORD_POKEMON, EC_WORD_COME, EC_WORD_BEFORE, EC_WORD_MONEY, EC_WORD_OR, EC_WORD_FAMILY},
         .speechWin = {EC_WORD_THAT_S, EC_WORD_WHAT, EC_WORD_IS, EC_WORD_MAKING, EC_WORD_ME, EC_WORD_STRONG},
@@ -799,7 +651,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Reggie
     },
     [BATTLE_TENT_MINOR_TRAINER_JANAE] = {
-        .facilityClass = FACILITY_CLASS_POKEFAN_F,
+        .facilityClass = FACILITY_CLASS_ANGLER,
         .trainerName = _("JANAE"),
         .speechBefore = {EC_WORD_I, EC_WORD_JUST, EC_WORD_ADORE, EC_WORD_YOUR, EC_WORD_TOUGH, EC_WORD_LOOK},
         .speechWin = {EC_WORD_I, EC_WORD_LIKE, EC_WORD_HOW, EC_WORD_YOU, EC_MOVE2(STRUGGLE), -1},
@@ -807,7 +659,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Janae
     },
     [BATTLE_TENT_MINOR_TRAINER_CAIDEN] = {
-        .facilityClass = FACILITY_CLASS_EXPERT_M,
+        .facilityClass = FACILITY_CLASS_VANDAL,
         .trainerName = _("CAIDEN"),
         .speechBefore = {EC_WORD_MY, EC_MOVE2(CURSE), EC_WORD_WILL, EC_WORD_BREAK, EC_WORD_YOUR, EC_WORD_SPIRIT},
         .speechWin = {EC_MOVE2(CURSE), EC_WORD_QUES, EC_WORD_IT_S, EC_WORD_A, EC_WORD_LIE, EC_WORD_ELLIPSIS},
@@ -815,7 +667,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Caiden
     },
     [BATTLE_TENT_MINOR_TRAINER_KIRSTEN] = {
-        .facilityClass = FACILITY_CLASS_EXPERT_F,
+        .facilityClass = FACILITY_CLASS_PKMN_BREEDER_M,
         .trainerName = _("KIRSTEN"),
         .speechBefore = {EC_WORD_HUH_QUES, EC_WORD_A, EC_WORD_BATTLE, EC_WORD_YOU, EC_WORD_SAID, EC_WORD_QUES},
         .speechWin = {EC_WORD_HUH_QUES, EC_WORD_STRONG, EC_WORD_BUT, EC_WORD_NOT, EC_WORD_STRONG, EC_WORD_ENOUGH},
@@ -823,7 +675,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Kirsten
     },
     [BATTLE_TENT_MINOR_TRAINER_KURTIS] = {
-        .facilityClass = FACILITY_CLASS_YOUNGSTER,
+        .facilityClass = FACILITY_CLASS_PKMN_BREEDER_F,
         .trainerName = _("KURTIS"),
         .speechBefore = {EC_WORD_SORRY, EC_WORD_YOU_RE, EC_WORD_GOING, EC_WORD_TO, EC_WORD_GET, EC_MOVE2(BEAT_UP)},
         .speechWin = {EC_WORD_I, EC_WORD_SAID, EC_WORD_WE, EC_WORD_WOULD, EC_MOVE2(POUND), EC_WORD_YOU},
@@ -831,7 +683,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Kurtis
     },
     [BATTLE_TENT_MINOR_TRAINER_STEFAN] = {
-        .facilityClass = FACILITY_CLASS_FISHERMAN,
+        .facilityClass = FACILITY_CLASS_KLUTZ,
         .trainerName = _("STEFAN"),
         .speechBefore = {EC_WORD_I, EC_WORD_ONLY, EC_WORD_WANT, EC_WORD_CUTE, EC_WORD_POKEMON, -1},
         .speechWin = {EC_WORD_WHAT, EC_WORD_IS, EC_WORD_IT, EC_WORD_TO, EC_WORD_YOU, EC_WORD_QUES},
@@ -839,7 +691,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Stefan
     },
     [BATTLE_TENT_MINOR_TRAINER_AVERY] = {
-        .facilityClass = FACILITY_CLASS_BIRD_KEEPER,
+        .facilityClass = FACILITY_CLASS_SCHOOL_KID_M,
         .trainerName = _("AVERY"),
         .speechBefore = {EC_WORD_TOYS, EC_WORD_EXCL, EC_WORD_I, EC_WORD_NEED, EC_WORD_MORE, EC_WORD_TOYS},
         .speechWin = {EC_WORD_I, EC_WORD_NEED, EC_WORD_SOME, EC_WORD_EASY, EC_WORD_MONEY, EC_WORD_FAST},
@@ -847,7 +699,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Avery
     },
     [BATTLE_TENT_MINOR_TRAINER_DWANE] = {
-        .facilityClass = FACILITY_CLASS_NINJA_BOY,
+        .facilityClass = FACILITY_CLASS_SCHOOL_KID_F,
         .trainerName = _("DWANE"),
         .speechBefore = {EC_WORD_MMM, EC_WORD_TASTY, EC_WORD_ELLIPSIS, EC_WORD_WONDER, EC_WORD_WHAT, EC_WORD_QUES},
         .speechWin = {EC_WORD_MMM, EC_WORD_MMM, EC_WORD_ELLIPSIS, EC_WORD_YOU, EC_WORD_DON_T, EC_WORD_KNOW},
@@ -855,7 +707,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Dwane
     },
     [BATTLE_TENT_MINOR_TRAINER_MCKENNA] = {
-        .facilityClass = FACILITY_CLASS_PARASOL_LADY,
+        .facilityClass = FACILITY_CLASS_STREET_THUG,
         .trainerName = _("MCKENNA"),
         .speechBefore = {EC_WORD_I, EC_WORD_DISLIKE, EC_WORD_SMALL, EC_WORD_TALK, EC_WORD_LET_S, EC_WORD_GO},
         .speechWin = {EC_WORD_YUP, EC_WORD_THAT_S, EC_WORD_THAT, -1, -1, -1},
@@ -863,7 +715,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Mckenna
     },
     [BATTLE_TENT_MINOR_TRAINER_CAMRYN] = {
-        .facilityClass = FACILITY_CLASS_SWIMMER_F,
+        .facilityClass = FACILITY_CLASS_DELINQUENT,
         .trainerName = _("CAMRYN"),
         .speechBefore = {EC_WORD_MR, EC_WORD_JUDGE, EC_WORD_YOU, EC_WORD_HAVE, EC_WORD_OUR, EC_WORD_TRUST},
         .speechWin = {EC_WORD_YES_SIR_EXCL, EC_WORD_WE_RE, EC_WORD_NO_1, EC_WORD_IN, EC_WORD_THIS, EC_WORD_CONTEST},
@@ -871,7 +723,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Camryn
     },
     [BATTLE_TENT_MINOR_TRAINER_NATASHA] = {
-        .facilityClass = FACILITY_CLASS_PICNICKER,
+        .facilityClass = FACILITY_CLASS_HIKER,
         .trainerName = _("NATASHA"),
         .speechBefore = {EC_WORD_COME_OVER, EC_WORD_TO, EC_WORD_MY, EC_WORD_PLACE, EC_WORD_OK_QUES, -1},
         .speechWin = {EC_WORD_COME_ON, EC_WORD_OVER, EC_WORD_IT, EC_WORD_WILL, EC_WORD_BE, EC_WORD_GREAT},
@@ -879,7 +731,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Natasha
     },
     [BATTLE_TENT_MINOR_TRAINER_AUSTYN] = {
-        .facilityClass = FACILITY_CLASS_SAILOR,
+        .facilityClass = FACILITY_CLASS_CLIMBER,
         .trainerName = _("AUSTYN"),
         .speechBefore = {EC_WORD_I, EC_WORD_DON_T, EC_WORD_CARE, EC_WORD_HOW, EC_WORD_WE, EC_WORD_MATCH_UP},
         .speechWin = {EC_WORD_HAH, EC_WORD_BACK, EC_WORD_TO, EC_WORD_SCHOOL, EC_WORD_FOR, EC_WORD_YOU},
@@ -887,7 +739,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Austyn
     },
     [BATTLE_TENT_MINOR_TRAINER_DONOVAN] = {
-        .facilityClass = FACILITY_CLASS_COLLECTOR,
+        .facilityClass = FACILITY_CLASS_PKMN_RANGER_M,
         .trainerName = _("DONOVAN"),
         .speechBefore = {EC_WORD_OH, EC_WORD_I_AM, EC_WORD_FEELING, EC_WORD_SLIMY, EC_WORD_ALL, EC_WORD_OVER},
         .speechWin = {EC_WORD_YOU_RE, EC_WORD_GOING, EC_WORD_DOWN, EC_WORD_THE, EC_MOVE2(MEGA_DRAIN), EC_WORD_HAHAHA},
@@ -895,7 +747,7 @@ const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[NUM_BATTLE_TE
         .monSet = gBattleTentTrainerMons_MinorLeague_Donovan
     },
     [BATTLE_TENT_MINOR_TRAINER_TAMIA] = {
-        .facilityClass = FACILITY_CLASS_LASS,
+        .facilityClass = FACILITY_CLASS_PKMN_RANGER_F,
         .trainerName = _("TAMIA"),
         .speechBefore = {EC_WORD_I_AM, EC_WORD_ANGRY, EC_WORD_WITH, EC_WORD_MY, EC_WORD_FATHER, EC_WORD_ELLIPSIS},
         .speechWin = {EC_WORD_I, EC_WORD_REALLY, EC_WORD_DISLIKE, EC_WORD_MY, EC_WORD_FATHER, EC_WORD_EXCL},
@@ -1453,144 +1305,184 @@ const struct TrainerMon gBattleTentMons_MinorLeague[NUM_TENT_MINOR_MONS] =
         .nature = NATURE_QUIRKY,
     },
     [TENT_MINOR_MON_CORISP] = {
-        .species = SPECIES_PELIPPER,
-        .moves = {MOVE_WING_ATTACK, MOVE_SUPERSONIC, MOVE_MIST, MOVE_AGILITY},
-        .heldItem = ITEM_WIKI_BERRY,
-        .ev = TRAINER_PARTY_EVS(128, 0, 128, 128, 0, 128),
-        .nature = NATURE_ADAMANT
+        .species = SPECIES_CORISP,
+        .ability = ABILITY_BERSERK,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_LAVA_PLUME, MOVE_ANCIENT_POWER, MOVE_SELF_DESTRUCT, MOVE_HEARTHWARM},
+        .nature = NATURE_HARDY,
     },
     [TENT_MINOR_MON_TOXITIDE] = {
-        .species = SPECIES_WINGULL,
-        .moves = {MOVE_WATER_GUN, MOVE_SUPERSONIC, MOVE_GROWL, MOVE_ICY_WIND},
-        .heldItem = ITEM_NEVER_MELT_ICE,
-        .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
-        .nature = NATURE_ADAMANT
+        .species = SPECIES_TOXITIDE,
+        .ability = ABILITY_AMBUSHER,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_SHOCK_WAVE, MOVE_POISON_TAIL, MOVE_DUNE_SLICER, MOVE_THUNDER_WAVE},
+        .nature = NATURE_DOCILE,
     },
     [TENT_MINOR_MON_PEBBLER] = {
-        .species = SPECIES_MARILL,
-        .moves = {MOVE_DOUBLE_EDGE, MOVE_RAIN_DANCE, MOVE_TAIL_WHIP, MOVE_WATER_GUN},
-        .heldItem = ITEM_GANLON_BERRY,
-        .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
-        .nature = NATURE_MODEST
+        .species = SPECIES_PEBBLER,
+        .ability = ABILITY_ARENA_TRAP,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_SCORCHING_SANDS, MOVE_BIDE, MOVE_SHORE_UP, MOVE_MAGNET_RISE},
+        .nature = NATURE_SERIOUS,
     },
     [TENT_MINOR_MON_BIYAKO] = {
-        .species = SPECIES_SKITTY,
-        .moves = {MOVE_ASSIST, MOVE_ATTRACT, MOVE_SING, MOVE_CHARM},
-        .heldItem = ITEM_PETAYA_BERRY,
-        .ev = TRAINER_PARTY_EVS(170, 170, 170, 0, 0, 0),
-        .nature = NATURE_CAREFUL
+        .species = SPECIES_BIYAKO,
+        .ability = ABILITY_NATURAL_CURE,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_EXTREME_SPEED, MOVE_PINPOINT, MOVE_FURY_ATTACK, MOVE_ASSIST},
+        .nature = NATURE_BASHFUL,
     },
     [TENT_MINOR_MON_WELPROOT] = {
-        .species = SPECIES_SEVIPER,
-        .moves = {MOVE_SWAGGER, MOVE_WRAP, MOVE_POISON_TAIL, MOVE_HAZE},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(0, 0, 170, 0, 170, 170),
-        .nature = NATURE_BRAVE
+        .species = SPECIES_WELPROOT,
+        .ability = ABILITY_INNER_FOCUS,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_DIG, MOVE_RAZOR_LEAF, MOVE_GROWTH, MOVE_INGRAIN},
+        .nature = NATURE_QUIRKY,
     },
     [TENT_MINOR_MON_WANNEGG] = {
-        .species = SPECIES_GOLBAT,
-        .moves = {MOVE_BITE, MOVE_TORMENT, MOVE_SCREECH, MOVE_POISON_FANG},
-        .heldItem = ITEM_LEFTOVERS,
-        .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
-        .nature = NATURE_HARDY
+        .species = SPECIES_WANNEGG,
+        .ability = ABILITY_FILTER,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_NIGHT_DAZE, MOVE_WYVERN_WAVE, MOVE_AGILITY, MOVE_NASTY_PLOT},
+        .nature = NATURE_HARDY,
     },
     [TENT_MINOR_MON_HARACE] = {
-        .species = SPECIES_RALTS,
-        .moves = {MOVE_HYPNOSIS, MOVE_IMPRISON, MOVE_PSYCHIC, MOVE_DREAM_EATER},
-        .heldItem = ITEM_MAGO_BERRY,
-        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
-        .nature = NATURE_TIMID
+        .species = SPECIES_HARACE,
+        .ability = ABILITY_STURDY,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_VOLT_SWITCH, MOVE_CHARGE_BEAM, MOVE_NUZZLE, MOVE_STEALTH_ROCK},
+        .nature = NATURE_DOCILE,
     },
     [TENT_MINOR_MON_CHIKA] = {
-        .species = SPECIES_SANDSHREW,
-        .moves = {MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_SAND_TOMB, MOVE_DEFENSE_CURL},
-        .heldItem = ITEM_SOFT_SAND,
-        .ev = NULL,
-        .nature = NATURE_HARDY
+        .species = SPECIES_CHIKA,
+        .ability = ABILITY_IRON_BARBS,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_PECK, MOVE_METAL_BURST, MOVE_IRON_DEFENSE, MOVE_PROTECT},
+        .nature = NATURE_SERIOUS,
     },
     [TENT_MINOR_MON_GRIMER] = {
-        .species = SPECIES_SWALOT,
-        .moves = {MOVE_YAWN, MOVE_SLUDGE, MOVE_ENCORE, MOVE_POUND},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(0, 170, 170, 0, 0, 170),
-        .nature = NATURE_IMPISH
+        .species = SPECIES_GRIMER,
+        .ability = ABILITY_POTENCY,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_SLUDGE, MOVE_MUD_SHOT, MOVE_SUCKER_PUNCH, MOVE_ACID_SPRAY},
+        .nature = NATURE_BASHFUL,
     },
     [TENT_MINOR_MON_RAITAIC] = {
-        .species = SPECIES_VOLBEAT,
-        .moves = {MOVE_TACKLE, MOVE_CONFUSE_RAY, MOVE_QUICK_ATTACK, MOVE_DOUBLE_TEAM},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 0, 252),
-        .nature = NATURE_HARDY
+        .species = SPECIES_RAITAIC,
+        .ability = ABILITY_WIND_POWER,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_STORM_FURY, MOVE_SHOCK_WAVE, MOVE_BUBBLE_BEAM, MOVE_CHARGE},
+        .nature = NATURE_QUIRKY,
     },
     [TENT_MINOR_MON_MINOTE] = {
-        .species = SPECIES_ILLUMISE,
-        .moves = {MOVE_CHARM, MOVE_TACKLE, MOVE_ENCORE, MOVE_MOONLIGHT},
-        .heldItem = ITEM_CHERI_BERRY,
-        .ev = TRAINER_PARTY_EVS(170, 170, 0, 170, 0, 0),
-        .nature = NATURE_ADAMANT
+        .species = SPECIES_MINOTE,
+        .ability = ABILITY_LIQUID_VOICE,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_BASS_CANNON, MOVE_ECHOED_VOICE, MOVE_SING, MOVE_SUPERSONIC},
+        .nature = NATURE_HARDY,
     },
     [TENT_MINOR_MON_SHARGUY] = {
-        .species = SPECIES_KADABRA,
-        .moves = {MOVE_DISABLE, MOVE_CONFUSION, MOVE_REFLECT, MOVE_RECOVER},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
-        .nature = NATURE_QUIRKY
+        .species = SPECIES_SHARGUY,
+        .ability = ABILITY_ROUGH_SKIN,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_FLIP_TURN, MOVE_AQUA_JET, MOVE_CRUNCH, MOVE_BUG_SNACK},
+        .nature = NATURE_DOCILE,
     },
     [TENT_MINOR_MON_SQUEESHY] = {
-        .species = SPECIES_KIRLIA,
-        .moves = {MOVE_CALM_MIND, MOVE_CONFUSION, MOVE_DOUBLE_TEAM, MOVE_GROWL},
-        .heldItem = ITEM_TWISTED_SPOON,
-        .ev = TRAINER_PARTY_EVS(128, 128, 128, 0, 0, 128),
-        .nature = NATURE_CAREFUL
+        .species = SPECIES_SQUEESHY,
+        .ability = ABILITY_EMPTY,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_OCTAZOOKA, MOVE_EXTRASENSORY, MOVE_GUST, MOVE_SING},
+        .nature = NATURE_SERIOUS,
     },
     [TENT_MINOR_MON_SCALLYWARG] = {
-        .species = SPECIES_BRELOOM,
-        .moves = {MOVE_ABSORB, MOVE_TACKLE, MOVE_STUN_SPORE, MOVE_MEGA_DRAIN},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(170, 170, 170, 0, 0, 0),
-        .nature = NATURE_NAIVE
+        .species = SPECIES_SCALLYWARG,
+        .ability = ABILITY_SEAFARER,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_SURF, MOVE_AQUA_JET, MOVE_THIEF, MOVE_HOWL},
+        .nature = NATURE_BASHFUL,
     },
     [TENT_MINOR_MON_CASOWARY] = {
-        .species = SPECIES_PLUSLE,
-        .moves = {MOVE_SPARK, MOVE_ENCORE, MOVE_THUNDER_WAVE, MOVE_GROWL},
-        .heldItem = ITEM_LIECHI_BERRY,
-        .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
-        .nature = NATURE_LONELY
+        .species = SPECIES_CASOWARY,
+        .ability = ABILITY_RATTLED,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_DRILL_PECK, MOVE_YAWN, MOVE_BATON_PASS, MOVE_AGILITY},
+        .nature = NATURE_QUIRKY,
     },
     [TENT_MINOR_MON_BOOZARD] = {
-        .species = SPECIES_PLUSLE,
-        .moves = {MOVE_SPARK, MOVE_FAKE_TEARS, MOVE_SUBSTITUTE, MOVE_QUICK_ATTACK},
-        .heldItem = ITEM_PECHA_BERRY,
-        .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
-        .nature = NATURE_MILD
+        .species = SPECIES_BOOZARD,
+        .ability = ABILITY_INTIMIDATE,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_DRAGON_BREATH, MOVE_OMINOUS_WIND, MOVE_GLARE, MOVE_CONFUSE_RAY},
+        .nature = NATURE_HARDY,
     },
     [TENT_MINOR_MON_SUDCUB] = {
-        .species = SPECIES_ELECTRIKE,
-        .moves = {MOVE_SPARK, MOVE_CHARGE, MOVE_ROAR, MOVE_THUNDER_WAVE},
-        .heldItem = ITEM_APICOT_BERRY,
-        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 0, 0),
-        .nature = NATURE_TIMID
+        .species = SPECIES_SUDCUB,
+        .ability = ABILITY_GOOD_AS_GOLD,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_BUBBLE, MOVE_BIDE, MOVE_PURIFY, MOVE_TICKLE},
+        .nature = NATURE_DOCILE,
     },
     [TENT_MINOR_MON_DRAKULARK] = {
-        .species = SPECIES_SWABLU,
-        .moves = {MOVE_SING, MOVE_PECK, MOVE_STEEL_WING, MOVE_SAFEGUARD},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
-        .nature = NATURE_JOLLY
+        .species = SPECIES_DRAKULARK,
+        .ability = ABILITY_CRUELTY,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_PLUCK, MOVE_FEINT_ATTACK, MOVE_HYPNOSIS, MOVE_HONE_CLAWS},
+        .nature = NATURE_SERIOUS,
     },
     [TENT_MINOR_MON_GARJIRA] = {
-        .species = SPECIES_MACHOP,
-        .moves = {MOVE_FOCUS_ENERGY, MOVE_VITAL_THROW, MOVE_SEISMIC_TOSS, MOVE_FORESIGHT},
-        .heldItem = ITEM_BLACK_BELT,
-        .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
-        .nature = NATURE_ADAMANT
+        .species = SPECIES_GARJIRA,
+        .ability = ABILITY_DRAGONS_MAW,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_DRAGON_BREATH, MOVE_FAKE_OUT, MOVE_PURSUIT, MOVE_ASSIST},
+        .nature = NATURE_BASHFUL,
     },
     [TENT_MINOR_MON_RETROROACH] = {
-        .species = SPECIES_MACHOKE,
-        .moves = {MOVE_FOCUS_ENERGY, MOVE_LEER, MOVE_KARATE_CHOP, MOVE_FORESIGHT},
-        .heldItem = ITEM_NONE,
-        .ev = TRAINER_PARTY_EVS(170, 0, 170, 0, 0, 170),
-        .nature = NATURE_MODEST
+        .species = SPECIES_RETROROACH,
+        .ability = ABILITY_TRANSISTOR,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+        .lvl = 30,
+        .moves = {MOVE_ZAPPER, MOVE_STRUGGLE_BUG, MOVE_ELECTROWEB, MOVE_POWER_DRAIN},
+        .nature = NATURE_QUIRKY,
     }
 };
 
