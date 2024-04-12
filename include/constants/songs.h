@@ -544,8 +544,9 @@
 #define PH_NURSE_SOLO               609
 
 #define MUS_VS_PTRAINER             610
+#define MUS_VS_WILD2                611
 
-#define END_MUS                     MUS_VS_PTRAINER
+#define END_MUS                     MUS_VS_WILD2
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
