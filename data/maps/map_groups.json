@@ -105,7 +105,8 @@
     "Gym2Corridor",
     "StevenHouse",
     "StevenCorridor",
-    "StevenMaze"
+    "StevenMaze",
+    "SecretMossdeepCave"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",
@@ -122,7 +123,8 @@
     "MossdeepCity_PokemonCenter_2F",
     "LilycoveCity_PokemonCenter_1F",
     "LilycoveCity_PokemonCenter_2F",
-    "VerdanturfTown_PokemonCenter_1F"
+    "VerdanturfTown_PokemonCenter_1F",
+    "PrecipikeInteriors"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",

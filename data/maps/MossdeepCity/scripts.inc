@@ -1,12 +1,38 @@
 .set LOCALID_MONK, 9
+.set LOCALID_EGGNEGGMA1, 10
+.set LOCALID_EGGNEGGMA2, 11
+.set LOCALID_EGGNEGGMA3, 12
+.set LOCALID_EGGNEGGMA4, 13
+.set LOCALID_EGGNEGGMA5, 14
+.set LOCALID_EGGNEGGMA6, 15
 
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
 
 MossdeepCity_OnTransition:
+	call MossdeepCity_EventScript_SetEggState
 	goto_if_lt VAR_SPACE_CENTER_QUEST_STATE, 3, MossdeepCity_EventScript_HideMeteors
 	end
+
+MossdeepCity_EventScript_SetEggState::
+	goto_if_set FLAG_MOSSDEEP_EGG, MossdeepCity_EventScript_EggGotten
+	setflag FLAG_TEMP_18
+	setflag FLAG_TEMP_19
+	setflag FLAG_TEMP_1A
+	setflag FLAG_TEMP_1B
+	setflag FLAG_TEMP_1C
+	return
+
+MossdeepCity_EventScript_EggGotten::
+	setflag FLAG_TEMP_17
+	setflag FLAG_TEMP_18
+	setflag FLAG_TEMP_19
+	setflag FLAG_TEMP_1A
+	setflag FLAG_TEMP_1B
+	setflag FLAG_TEMP_1C
+	setvar VAR_TEMP_4, 6
+	return
 
 MossdeepCity_EventScript_HideMeteors::
 	setflag FLAG_TEMP_11
@@ -208,8 +234,340 @@ MossdeepCity_EventScript_WhiteRock::
 
 MossdeepCity_EventScript_VisitedMossdeep::
 	setflag FLAG_VISITED_MOSSDEEP_CITY
-	setvar VAR_TEMP_1, 1
 	end
+
+MossdeepCity_EventScript_EggEncounter1North::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA1, MossdeepCity_Movement_EggRunAway1North
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA1
+	setflag FLAG_TEMP_17
+	clearflag FLAG_TEMP_18
+	setvar VAR_TEMP_4, 1
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway1North:
+	emote_exclamation_mark
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_EventScript_EggEncounter1West::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA1, MossdeepCity_Movement_EggRunAway1West
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA1
+	setflag FLAG_TEMP_17
+	clearflag FLAG_TEMP_18
+	setvar VAR_TEMP_4, 1
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway1West:
+	emote_exclamation_mark
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_EventScript_EggEncounter2South::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA2, MossdeepCity_Movement_EggRunAway2South
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA2
+	setflag FLAG_TEMP_18
+	clearflag FLAG_TEMP_19
+	setvar VAR_TEMP_4, 2
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway2South:
+	emote_exclamation_mark
+	face_right
+	delay_8
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_EventScript_EggEncounter2North::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA2, MossdeepCity_Movement_EggRunAway2North
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA2
+	setflag FLAG_TEMP_18
+	clearflag FLAG_TEMP_1C
+	setvar VAR_TEMP_4, 5
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway2North:
+	emote_exclamation_mark
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MossdeepCity_EventScript_EggEncounter3East::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA3, MossdeepCity_Movement_EggRunAway3East
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA3
+	setflag FLAG_TEMP_19
+	clearflag FLAG_TEMP_1A
+	setvar VAR_TEMP_4, 3
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway3East:
+	emote_exclamation_mark
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+MossdeepCity_EventScript_EggEncounter3West::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA3, MossdeepCity_Movement_EggRunAway3West
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA3
+	setflag FLAG_TEMP_19
+	clearflag FLAG_TEMP_18
+	setvar VAR_TEMP_4, 1
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway3West:
+	emote_exclamation_mark
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MossdeepCity_EventScript_EggEncounter4North::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA4, MossdeepCity_Movement_EggRunAway4North
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA4
+	setflag FLAG_TEMP_1A
+	clearflag FLAG_TEMP_1B
+	setvar VAR_TEMP_4, 4
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway4North:
+	emote_exclamation_mark
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MossdeepCity_EventScript_EggEncounter5South::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA5, MossdeepCity_Movement_EggRunAway5South
+	waitmovement 0
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	removeobject LOCALID_EGGNEGGMA5
+	setflag FLAG_TEMP_1B
+	clearflag FLAG_TEMP_17
+	setvar VAR_TEMP_4, 0
+	release
+	end
+
+MossdeepCity_Movement_EggRunAway5South:
+	emote_exclamation_mark
+	face_left
+	delay_4
+	face_right
+	delay_16
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	jump_right
+	step_end
+
+MossdeepCity_EventScript_EggEncounter6FinalLeft::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerBlockLeft
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA6, MossdeepCity_Movement_EggBumpIntoPlayer
+	waitmovement 0
+	playse SE_WALL_HIT
+	waitse
+	msgbox MossdeepCity_Text_DroppedEgg, MSGBOX_DEFAULT
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	applymovement LOCALID_EGGNEGGMA6, MossdeepCity_Movement_EggFlee
+	waitmovement 0
+	removeobject LOCALID_EGGNEGGMA6
+	setflag FLAG_TEMP_1C
+	setflag FLAG_MOSSDEEP_EGG
+	setvar VAR_TEMP_4, 6
+	goto MossdeepCity_EventScript_ReceiveEgg
+	release
+	end
+
+MossdeepCity_EventScript_ReceiveEgg::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EGG
+	giveegg SPECIES_WELPROOT
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MossdeepCity_EventScript_ReceiveEggParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MossdeepCity_EventScript_ReceiveEggPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	release
+	end
+
+MossdeepCity_EventScript_ReceiveEggParty::
+	call MossdeepCity_EventScript_ReceivedEggFanfare
+	release
+	end
+
+MossdeepCity_EventScript_ReceiveEggPC::
+	call MossdeepCity_EventScript_ReceivedEggFanfare
+	call Common_EventScript_TransferredToPC
+	release
+	end
+
+MossdeepCity_EventScript_ReceivedEggFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message MossdeepCity_Text_PlayerReceivedEgg
+	waitmessage
+	waitfanfare
+	return
+
+MossdeepCity_Movement_PlayerBlockLeft:
+	walk_up
+	walk_right
+	face_up
+	step_end
+
+MossdeepCity_Movement_EggBumpIntoPlayer:
+	emote_exclamation_mark
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MossdeepCity_Movement_EggFlee:
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MossdeepCity_EventScript_EggEncounter6FinalRight::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerBlockRight
+	playse SE_PIN
+	applymovement LOCALID_EGGNEGGMA6, MossdeepCity_Movement_EggBumpIntoPlayer
+	waitmovement 0
+	playse SE_WALL_HIT
+	waitse
+	msgbox MossdeepCity_Text_DroppedEgg, MSGBOX_DEFAULT
+	playmoncry SPECIES_EGGNEGGMA, CRY_MODE_NORMAL
+	delay 40
+	waitmoncry
+	applymovement LOCALID_EGGNEGGMA6, MossdeepCity_Movement_EggFlee
+	waitmovement 0
+	removeobject LOCALID_EGGNEGGMA6
+	setflag FLAG_TEMP_1C
+	setflag FLAG_MOSSDEEP_EGG
+	setvar VAR_TEMP_4, 6
+	goto MossdeepCity_EventScript_ReceiveEgg
+	release
+	end
+
+MossdeepCity_Movement_PlayerBlockRight:
+	walk_up
+	face_up
+	step_end
+
+MossdeepCity_Text_DroppedEgg:
+	.string "(The strange wild Pokémon dropped\n"
+	.string "the egg it was holding!)$"
+
+MossdeepCity_Text_PlayerReceivedEgg:
+	.string "{PLAYER} received an Egg!$"
 
 MossdeepCity_Text_HaveMudShot:
 	.string "I love the feel of the beach\n"

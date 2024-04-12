@@ -1227,10 +1227,10 @@
 #define FLAG_RECEIVED_FLOAT_STONE                                           0x499 // Unused Flag
 #define FLAG_ITEM_DOJO_POKE_DOLL                                           0x49A // Unused Flag
 #define FLAG_MANGROTTO_EGG                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
+#define FLAG_MOSSDEEP_EGG                                           0x49C // Unused Flag
+#define FLAG_PRECIPIKE_EGG                                           0x49D // Unused Flag
+#define FLAG_SCUTTILL_EGG                                           0x49E // Unused Flag
+#define FLAG_TRAP_PRECIPIKE_EGGNEGGMA                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
@@ -1318,7 +1318,7 @@
 #define FLAG_DEFEATED_LAVARIDGE_GYM                                 0x4F3
 #define FLAG_DEFEATED_PETALBURG_GYM                                 0x4F4
 #define FLAG_DEFEATED_FORTREE_GYM                                   0x4F5
-#define FLAG_DEFEATED_MOSSDEEP_GYM                                  0x4F6
+#define FLAG_DEFEATED_PANIC_EVENT                                  0x4F6
 #define FLAG_DEFEATED_SOOTOPOLIS_GYM                                0x4F7
 #define FLAG_DEFEATED_METEOR_FALLS_STEVEN                           0x4F8
 

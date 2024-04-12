@@ -280,7 +280,7 @@ MangrottoTunnel_EventScript_EggEncounter5FinalLeft::
 
 MangrottoTunnel_EventScript_ReceiveEgg::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EGG
-	giveegg SPECIES_DRAKULARK
+	giveegg SPECIES_WELPROOT
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MangrottoTunnel_EventScript_ReceiveEggParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MangrottoTunnel_EventScript_ReceiveEggPC
 	goto Common_EventScript_NoMoreRoomForPokemon

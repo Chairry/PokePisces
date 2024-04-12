@@ -108,7 +108,6 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox MossdeepCity_Gym_Text_LizaExplain, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_MOSSDEEP_GYM
 	setflag FLAG_BADGE02_GET
 	setvar VAR_PISCES_STORY_PROGRESS, 2
 	setvar VAR_0x8008, 2
@@ -225,7 +224,7 @@ MossdeepCity_Gym_EventScript_WarpToEntrance::
 MossdeepCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_MOSSDEEP_GYM, MossdeepCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_DEFEATED_PANIC_EVENT, MossdeepCity_Gym_EventScript_GymGuidePostVictory
 	msgbox MossdeepCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end
