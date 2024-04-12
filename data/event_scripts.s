@@ -3592,3 +3592,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/StevenMaze/scripts.inc"
 
 	.include "data/maps/SecretMossdeepCave/scripts.inc"
+
+	.include "data/maps/PrecipikeInteriors/scripts.inc"

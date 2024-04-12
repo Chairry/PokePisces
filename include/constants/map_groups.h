@@ -74,6 +74,7 @@
 #define MAP_LILYCOVE_CITY_POKEMON_CENTER_1F   (1 | (5 << 8))
 #define MAP_LILYCOVE_CITY_POKEMON_CENTER_2F   (2 | (5 << 8))
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F (3 | (5 << 8))
+#define MAP_PRECIPIKE_INTERIORS               (4 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))

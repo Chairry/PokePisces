@@ -42,7 +42,7 @@ Route125_EventScript_EggGotten::
 	return
 
 Route125_EventScript_SurferBlocking::
-	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_17
 	end
 
 Route125_EventScript_LeftRoadblocker::
@@ -314,7 +314,8 @@ Route125_EventScript_EggEncounterTrapBottom::
 	waitmovement 0
 	setflag FLAG_PISCES_D
 	clearflag FLAG_TRAP_PRECIPIKE_EGGNEGGMA
-	warp MAP_NEW_SOOTO, 41, 16
+	msgbox Route125_Text_GotYouBitch, MSGBOX_DEFAULT
+	warp MAP_PRECIPIKE_INTERIORS, 6, 4
 	waitstate
 	release
 	end
@@ -353,6 +354,51 @@ Route125_Movement_EggUpset:
 	jump_in_place_down
 	step_end
 
+Route125_EventScript_Shellylouh::
+	lock
+	faceplayer
+	goto_if_gt VAR_SHELLYLOUH_STATE, 2, Route125_EventScript_ShellRiddle3
+	goto_if_eq VAR_SHELLYLOUH_STATE, 2, Route125_EventScript_ShellRiddle2
+	goto_if_eq VAR_SHELLYLOUH_STATE, 1, Route125_EventScript_ShellRiddle1
+	goto_if_lt VAR_SHELLYLOUH_STATE, 1, Route125_EventScript_SetupShellRiddle1
+	release
+	end
+
+Route125_EventScript_SetupShellRiddle1::
+	setvar VAR_SHELLYLOUH_STATE, 1
+	goto Route125_EventScript_ShellRiddle1
+	release
+	end
+
+Route125_EventScript_ShellRiddle1::
+	msgbox Route125_Text_ShellRiddle1, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route125_EventScript_ShellRiddle2::
+	msgbox Route125_Text_HereIsShellPolish, MSGBOX_DEFAULT
+	giveitem ITEM_PEARL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setvar VAR_SHELLYLOUH_STATE, 3
+	msgbox Route125_Text_ShellRiddle3, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route125_EventScript_ShellRiddle3::
+	msgbox Route125_Text_ShellRiddle3, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route125_Text_ShellRiddle1:
+	.string "secret cave in mossdeep\p"
+	.string "bring me polish$"
+
+Route125_Text_HereIsShellPolish:
+	.string "have this$"
+
+Route125_Text_ShellRiddle3:
+	.string "we shall meet again$"
+
 Route125_Text_WeHaveYouCornered:
 	.string "gotcha$"
 
@@ -380,3 +426,6 @@ Route125_Text_Right_2:
 	.string "Over… what, you ask?\p"
 	.string "He called me a… grrRR…!\n"
 	.string "A DOO-DOO HEAD!!$"
+
+Route125_Text_GotYouBitch:
+	.string "give us your money$"

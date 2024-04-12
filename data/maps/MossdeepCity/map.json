@@ -298,6 +298,13 @@
       "elevation": 0,
       "dest_map": "MAP_STEVEN_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_SECRET_MOSSDEEP_CAVE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

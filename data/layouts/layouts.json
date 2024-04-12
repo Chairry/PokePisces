@@ -5200,6 +5200,16 @@
       "secondary_tileset": "gTileset_MossdeepGym",
       "border_filepath": "data/layouts/SecretMossdeepCave/border.bin",
       "blockdata_filepath": "data/layouts/SecretMossdeepCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRECIPIKE_INTERIORS",
+      "name": "PrecipikeInteriors_Layout",
+      "width": 11,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PrecipikeInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/PrecipikeInteriors/map.bin"
     }
   ]
 }

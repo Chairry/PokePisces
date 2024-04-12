@@ -1543,6 +1543,30 @@ bool8 CheckMiniorViolet(void)
     return FALSE;
 }
 
+bool8 CheckAllSadsod(void)
+{
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+    {
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+        {
+            if (GetMonData(&gPlayerParty[2], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+            {
+                if (GetMonData(&gPlayerParty[3], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                {
+                    if (GetMonData(&gPlayerParty[4], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                    {
+                        if (GetMonData(&gPlayerParty[5], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                        {
+                            return TRUE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScriptCheckFreePokemonStorageSpace(void)
 {
     return CheckFreePokemonStorageSpace();
