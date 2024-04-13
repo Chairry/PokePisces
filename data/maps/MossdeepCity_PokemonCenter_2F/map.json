@@ -28,7 +28,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "graphics_id": "OBJ_EVENT_GFX_PURPLINA",
       "x": 1,
       "y": 5,
       "elevation": 0,
@@ -45,9 +45,9 @@
     {
       "x": 8,
       "y": 9,
-      "elevation": 4,
-      "dest_map": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": "2"
+      "elevation": 3,
+      "dest_map": "MAP_ROUTE124",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
