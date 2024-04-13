@@ -671,7 +671,7 @@
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_PKMNSITEMCAUSEBURN                   671
-#define STRINGID_CUSEDAMULETDISABLED                  672
+#define STRINGID_CURSEDAMULETDISABLED                  672
 // New strings
 #define STRINGID_PKMNMAKESPOISONMISS                  673
 #define STRINGID_WATERVEILPROTECTED                   674
@@ -743,8 +743,18 @@
 #define STRINGID_PKMNSISBLOOMING                      741
 #define STRINGID_PKMNCONSTRICTED                      742
 #define STRINGID_PKMNISALREADYPANICKING               743
+#define STRINGID_INVERSEROOMENDS                      744
+#define STRINGID_THETYPECHARTINVERTED                 745
+#define STRINGID_PKMNSISNOLONGERBLOOMING              746
+#define STRINGID_ATHINGHAPPENED                       747
+#define STRINGID_ATHINGHAPPENEDFR                     748
+#define STRINGID_PKMNSAPPEDBYTICKED                   749
+#define STRINGID_PKMNTICKED                           750
+#define STRINGID_SPEEDSTATCHANGESGONE                 751
+#define STRINGID_USERSTATCHANGESGONE                  752
+#define STRINGID_PKMNISPREPARINGFORDECIMATION         753
 
-#define BATTLESTRINGS_COUNT                           744
+#define BATTLESTRINGS_COUNT                           754
 
 
 // This is the string id that gBattleStringsTable starts with.
@@ -897,6 +907,7 @@
 // gFutureMoveUsedStringIds
 #define B_MSG_FUTURE_SIGHT 0
 #define B_MSG_DOOM_DESIRE  1
+#define B_MSG_DECIMATION   2
 
 // gItemSwapStringIds
 #define B_MSG_ITEM_SWAP_TAKEN 0

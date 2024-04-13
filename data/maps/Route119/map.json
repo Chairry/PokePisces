@@ -463,7 +463,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "graphics_id": "OBJ_EVENT_GFX_SHELLYLOUH",
       "x": 10,
       "y": 5,
       "elevation": 3,
@@ -476,7 +476,7 @@
       "flag": "FLAG_HIDE_ROUTE_119_KECLEON_1"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "graphics_id": "OBJ_EVENT_GFX_SHELLYLOUH",
       "x": 10,
       "y": 4,
       "elevation": 3,

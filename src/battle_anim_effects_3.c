@@ -57,6 +57,7 @@ static void AnimWishStar_Step(struct Sprite *);
 static void AnimMiniTwinklingStar(struct Sprite *);
 static void AnimMiniTwinklingStar_Step(struct Sprite *);
 static void AnimSwallowBlueOrb(struct Sprite *);
+static void AnimGreenStarOpponent(struct Sprite *);
 static void AnimGreenStar(struct Sprite *);
 static void AnimGreenStar_Step1(struct Sprite *);
 static void AnimGreenStar_Step2(struct Sprite *);
@@ -637,6 +638,17 @@ const struct SpriteTemplate gGreenStarSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimGreenStar,
+};
+
+const struct SpriteTemplate gGreenStarOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GREEN_STAR,
+    .paletteTag = ANIM_TAG_GREEN_STAR,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gGreenStarAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGreenStarOpponent,
 };
 
 const s8 gDoomDesireLightBeamCoordTable[] =
@@ -2717,6 +2729,135 @@ void AnimTask_MorningSunLightBeam(u8 taskId)
         DestroyAnimVisualTask(taskId);
         break;
     }
+}
+
+void AnimTask_MorningSunLightBeamOpponent(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND | BLDCNT_TGT1_BG1);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+        SetAnimBgAttribute(1, BG_ANIM_SCREEN_SIZE, 0);
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 1);
+
+        GetBattleAnimBg1Data(&animBg);
+        AnimLoadCompressedBgTilemapHandleContest(&animBg, &gBattleAnimMaskTilemap_LightBeam, FALSE);
+        if (IsContest())
+        {
+            gBattle_BG1_X = -56;
+            gBattle_BG1_Y = 0;
+        }
+        else
+        {
+            if (GetBattlerSide(gBattleAnimTarget) != B_SIDE_PLAYER)
+                gBattle_BG1_X = -135;
+            else
+                gBattle_BG1_X = -10;
+
+            gBattle_BG1_Y = 0;
+        }
+
+        AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnimMaskImage_LightBeam, animBg.tilesOffset);
+        LoadCompressedPalette(gBattleAnimMaskPalette_LightBeam, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+
+        gTasks[taskId].data[10] = gBattle_BG1_X;
+        gTasks[taskId].data[11] = gBattle_BG1_Y;
+
+        gTasks[taskId].data[0]++;
+        PlaySE12WithPanning(SE_M_MORNING_SUN, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+        break;
+    case 1:
+        if (gTasks[taskId].data[4]++ > 0)
+        {
+            gTasks[taskId].data[4] = 0;
+            if (++gTasks[taskId].data[1] > 12)
+                gTasks[taskId].data[1] = 12;
+
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[1], 16 - gTasks[taskId].data[1]));
+
+            if (gTasks[taskId].data[1] == 12)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 2:
+        if (--gTasks[taskId].data[1] < 0)
+            gTasks[taskId].data[1] = 0;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[1], 16 - gTasks[taskId].data[1]));
+
+        if (!gTasks[taskId].data[1])
+        {
+            gBattle_BG1_X = gMorningSunLightBeamCoordsTable[gTasks[taskId].data[2]] + gTasks[taskId].data[10];
+            if (++gTasks[taskId].data[2] == 4)
+                gTasks[taskId].data[0] = 4;
+            else
+                gTasks[taskId].data[0] = 3;
+        }
+        break;
+    case 3:
+        if (++gTasks[taskId].data[3] == 4)
+        {
+            gTasks[taskId].data[3] = 0;
+            gTasks[taskId].data[0] = 1;
+            PlaySE12WithPanning(SE_M_MORNING_SUN, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+        }
+        break;
+    case 4:
+        GetBattleAnimBg1Data(&animBg);
+        ClearBattleAnimBg(animBg.bgId);
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 0);
+
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        gBattle_BG1_X = 0;
+        gBattle_BG1_Y = 0;
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static void AnimGreenStarOpponent(struct Sprite *sprite)
+{
+    s16 xOffset;
+    u8 spriteId1;
+    u8 spriteId2;
+
+    xOffset = Random2();
+    xOffset &= 0x3F;
+    if (xOffset > 31)
+        xOffset = 32 - xOffset;
+
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) + xOffset;
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 32;
+    sprite->data[1] = gBattleAnimArgs[0];
+    sprite->data[2] = gBattleAnimArgs[1];
+
+    spriteId1 = CreateSprite(&gGreenStarSpriteTemplate, sprite->x, sprite->y, sprite->subpriority + 1);
+    spriteId2 = CreateSprite(&gGreenStarSpriteTemplate, sprite->x, sprite->y, sprite->subpriority + 1);
+    StartSpriteAnim(&gSprites[spriteId1], 1);
+    StartSpriteAnim(&gSprites[spriteId2], 2);
+
+    gSprites[spriteId1].data[1] = gBattleAnimArgs[0];
+    gSprites[spriteId1].data[2] = gBattleAnimArgs[1];
+    gSprites[spriteId2].data[1] = gBattleAnimArgs[0];
+    gSprites[spriteId2].data[2] = gBattleAnimArgs[1];
+    gSprites[spriteId1].data[7] = -1;
+    gSprites[spriteId2].data[7] = -1;
+    gSprites[spriteId1].invisible = TRUE;
+    gSprites[spriteId2].invisible = TRUE;
+    gSprites[spriteId1].callback = AnimGreenStar_Callback;
+    gSprites[spriteId2].callback = AnimGreenStar_Callback;
+
+    sprite->data[6] = spriteId1;
+    sprite->data[7] = spriteId2;
+    sprite->callback = AnimGreenStar_Step1;
 }
 
 static void AnimGreenStar(struct Sprite *sprite)

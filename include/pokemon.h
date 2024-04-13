@@ -368,6 +368,7 @@ struct BattleMove
     u32 danceMove:1;
     u32 windMove:1;
     u32 slicingMove:1;
+    u32 sandMove:1;
     u32 minimizeDoubleDamage:1;
     u32 ignoresTargetAbility:1;
     u32 ignoresTargetDefenseEvasionStages:1;

@@ -381,7 +381,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(INFAIRNO),
     SPECIES_TO_HOENN(PURGATIVAL),
     SPECIES_TO_HOENN(DETERIOTL),
-    SPECIES_TO_HOENN(CLAWLISTIC),
+    SPECIES_TO_HOENN(DAKKAPOD),
     SPECIES_TO_HOENN(UNBERRABLE),
     SPECIES_TO_HOENN(VAIKING),
 };
@@ -1510,7 +1510,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(INFAIRNO),
     SPECIES_TO_NATIONAL(PURGATIVAL),
     SPECIES_TO_NATIONAL(DETERIOTL),
-    SPECIES_TO_NATIONAL(CLAWLISTIC),
+    SPECIES_TO_NATIONAL(DAKKAPOD),
     SPECIES_TO_NATIONAL(UNBERRABLE),
     SPECIES_TO_NATIONAL(PEBLRANIUM),
     SPECIES_TO_NATIONAL(VAIKING),
@@ -2227,7 +2227,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(INFAIRNO),
     HOENN_TO_NATIONAL(PURGATIVAL),
     HOENN_TO_NATIONAL(DETERIOTL),
-    HOENN_TO_NATIONAL(CLAWLISTIC),
+    HOENN_TO_NATIONAL(DAKKAPOD),
     HOENN_TO_NATIONAL(UNBERRABLE),
     HOENN_TO_NATIONAL(VAIKING),
 };
@@ -3408,7 +3408,7 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_INFAIRNO - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PURGATIVAL - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_DETERIOTL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
-    [SPECIES_CLAWLISTIC - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DAKKAPOD - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_UNBERRABLE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PEBLRANIUM - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_VAIKING - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
@@ -6303,6 +6303,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
             friendship += 150 * friendshipChange / 100;                                                 \
+        else if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)                          \
+            friendship += friendshipChange * -1;                                                        \
         else                                                                                            \
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
@@ -6359,7 +6361,11 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    #else
+        holdEffect = 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = ItemId_GetHoldEffect(heldItem);
 
@@ -6419,7 +6425,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
 
             // Cure status
-            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP_ANY, battlerId) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battlerId) == 0)
                 retVal = FALSE;
@@ -6757,10 +6763,10 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
 
     if (status & healMask)
     {
-        status &= ~healMask;
+        status &= ~(healMask);
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+            gBattleMons[battlerId].status1 = status;
         return FALSE;
     }
     else
@@ -6906,7 +6912,11 @@ u8 *UseStatIncreaseItem(u16 itemId)
         if (gMain.inBattle)
             itemEffect = gEnigmaBerries[gBattlerInMenuId].itemEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        #else
+            itemEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -6985,7 +6995,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         partnerHeldItem = GetMonData(tradePartner, MON_DATA_HELD_ITEM, 0);
 
         if (partnerHeldItem == ITEM_ENIGMA_BERRY_E_READER)
+        #if FREE_ENIGMA_BERRY == FALSE
             partnerHoldEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            partnerHoldEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
         else
             partnerHoldEffect = ItemId_GetHoldEffect(partnerHeldItem);
     }
@@ -6997,7 +7011,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     }
 
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    #else
+        holdEffect = 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = ItemId_GetHoldEffect(heldItem);
 
@@ -7321,6 +7339,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         break;
     // Battle evolution without leveling; party slot is being passed into the evolutionItem arg.
     case EVO_MODE_BATTLE_SPECIAL:
+        level = GetMonData(mon, MON_DATA_LEVEL, 0);
+
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             switch (gEvolutionTable[species][i].method)
@@ -7330,15 +7350,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_SLASH_MOVE:
-                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].slicingMove)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_PIERCE_MOVE:
-                if (gLastHitBy[evolutionItem] == gBattleMoves[evolutionItem].piercingMove)
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_BLUNT_MOVE:
-                if (gLastHitBy[evolutionItem] == (gBattleMoves[evolutionItem].ballisticMove || gBattleMoves[evolutionItem].punchingMove || gBattleMoves[evolutionItem].kickingMove))
+                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove) && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
@@ -7690,7 +7710,11 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         if (gMain.inBattle)
             holdEffect = gEnigmaBerries[0].holdEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            holdEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -7713,6 +7737,9 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
                 mod = (150 * mod) / 100;
+            friendship += mod;
+            if (mod > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)
+                mod *= -1;
             friendship += mod;
             if (mod > 0)
             {
@@ -7748,7 +7775,11 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         if (gMain.inBattle)
             holdEffect = gEnigmaBerries[0].holdEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            holdEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -8189,7 +8220,7 @@ u16 GetBattleBGM(void)
     else if (gBattleTypeFlags & BATTLE_TYPE_REGI)
         return MUS_VS_REGI;
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-        return MUS_VS_TRAINER;
+        return MUS_VS_PTRAINER;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         u8 trainerClass;
@@ -8219,7 +8250,7 @@ u16 GetBattleBGM(void)
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
             if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gText_BattleWallyName))
-                return MUS_VS_TRAINER;
+                return MUS_VS_PTRAINER;
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
@@ -8232,7 +8263,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:
-            return MUS_VS_TRAINER;
+            return MUS_VS_PTRAINER;
         }
     }
     else
@@ -9256,7 +9287,7 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {11, 70}, // before level 10, can only get 70 EVs total
+    {11, 70}, // before level 11, can only get 70 EVs total
     {21, 140},
     {31, 210},
     {41, 280},

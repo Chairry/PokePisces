@@ -442,7 +442,7 @@ static bool8 ShouldSwitchIfAbilityBenefit(u32 battler)
         case ABILITY_NATURAL_CURE:
             moduloChance = 4; //25%
             //Attempt to cure bad ailment
-            if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_FREEZE | STATUS1_TOXIC_POISON)
+            if (gBattleMons[battler].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE | STATUS1_TOXIC_POISON)
                 && GetMostSuitableMonToSwitchInto(battler) != PARTY_SIZE)
                 break;
             //Attempt to cure lesser ailment
@@ -1084,7 +1084,7 @@ static bool8 ShouldUseItem(u32 battler)
             shouldUse = AI_ShouldHeal(battler, itemEffects[GetItemEffectParamOffset(battler, item, 4, ITEM4_HEAL_HP)]);
             break;
         case EFFECT_ITEM_CURE_STATUS:
-            if (itemEffects[3] & ITEM3_SLEEP && gBattleMons[battler].status1 & STATUS1_SLEEP)
+            if (itemEffects[3] & ITEM3_SLEEP && gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
                 shouldUse = TRUE;
             if (itemEffects[3] & ITEM3_POISON && (gBattleMons[battler].status1 & STATUS1_POISON
                                                || gBattleMons[battler].status1 & STATUS1_TOXIC_POISON))

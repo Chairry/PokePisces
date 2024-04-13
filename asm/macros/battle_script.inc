@@ -1307,6 +1307,11 @@
 	.endm
 
 @ callnative macros
+    
+    .macro setticked
+    callnative BS_SetTicked
+    .endm
+
 	.macro metalburstdamagecalculator failInstr:req
 	callnative BS_CalcMetalBurstDmg
 	.4byte \failInstr
@@ -1828,6 +1833,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trycheesing battler:req, failInstr:req
+	various \battler, VARIOUS_CHEESING
+	.4byte \failInstr
+	.endm
+
 	.macro setpowder battler:req
 	various \battler, VARIOUS_SET_POWDER
 	.endm
@@ -1934,6 +1944,31 @@
 	.byte \infatuateWith
 	.endm
 
+	.macro destinyknotdisable battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_DISABLE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottorment battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TORMENT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottaunt battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TAUNT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknotencore battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_ENCORE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknothealblock battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_HEAL_BLOCK
+	.4byte \failInstr
+	.endm
+
 	.macro setlastuseditem battler:req
 	various \battler, VARIOUS_SET_LAST_USED_ITEM
 	.endm
@@ -2009,6 +2044,10 @@
 
 	.macro trytoclearprimalweather
 	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_PRIMAL_WEATHER
+	.endm
+
+	.macro trytoclearweather
+	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_WEATHER
 	.endm
 
 	.macro setattackertostickywebuser
@@ -2305,6 +2344,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifeeriemaskprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifsafeguard jumpInstr:req
 	jumpifability BS_ATTACKER, ABILITY_INFILTRATOR, 1f
 	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, \jumpInstr
@@ -2372,6 +2416,18 @@
 	.macro tryrevivalblessing, jumpInstr:req
 	various 0, VARIOUS_TRY_REVIVAL_BLESSING
 	.4byte \jumpInstr
+	.endm
+
+	.macro tryyellowsodafocusenergy
+	various 0, VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY
+	.endm
+
+	.macro normalisespeed
+	various 0, VARIOUS_TRY_NORMALISE_SPEED
+	.endm
+
+	.macro normaliseattackerbuffs
+	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.

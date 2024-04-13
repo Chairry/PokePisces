@@ -1942,7 +1942,7 @@ u8 GetAilmentFromStatus(u32 status)
         return AILMENT_PSN;
     if (status & STATUS1_PARALYSIS)
         return AILMENT_PRZ;
-    if (status & STATUS1_SLEEP)
+    if (status & STATUS1_SLEEP_ANY)
         return AILMENT_SLP;
     if (status & STATUS1_FREEZE)
         return AILMENT_FRZ;
@@ -5931,7 +5931,11 @@ void TryItemHoldFormChange(struct Pokemon *mon)
 const u8* GetItemEffect(u16 item)
 {
     if (item == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         return gSaveBlock1Ptr->enigmaBerry.itemEffect;
+    #else
+        return 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         return gItemEffectTable[item];
 }

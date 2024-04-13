@@ -28,19 +28,19 @@ static const u8 sPremierBallDesc[] = _(
     "than a Ultra Ball.");
 
 static const u8 sHealBallDesc[] = _(
-    "A remedial Ball\n"
-    "that restores\n"
-    "caught Pokémon.");
+    "A Ball that works\n"
+    "better the higher\n"
+    "the user's HP.");
 
 static const u8 sNetBallDesc[] = _(
     "A Ball that works\n"
-    "well on Water- and\n"
-    "Bug-type Pokémon.");
+    "better on smaller\n"
+    "Pokémon.");
 
 static const u8 sNestBallDesc[] = _(
     "A Ball that works\n"
-    "better on weaker\n"
-    "Pokémon.");
+    "better on flying or\n"
+    "levitating Pokémon.");
 
 static const u8 sDiveBallDesc[] = _(
     "A Ball that works\n"
@@ -84,8 +84,8 @@ static const u8 sLureBallDesc[] = _(
 
 static const u8 sMoonBallDesc[] = _(
     "A Ball that works\n"
-    "well on Moon\n"
-    "Stone users.");
+    "well on cosmic\n"
+    "Pokémon.");
 
 static const u8 sFriendBallDesc[] = _(
     "A Ball that makes\n"
@@ -94,8 +94,8 @@ static const u8 sFriendBallDesc[] = _(
 
 static const u8 sLoveBallDesc[] = _(
     "Works well on\n"
-    "Pokémon of the\n"
-    "opposite gender.");
+    "Pokémon who\n"
+    "are infatuated.");
 
 static const u8 sFastBallDesc[] = _(
     "Works well on\n"
@@ -119,8 +119,8 @@ static const u8 sDreamBallDesc[] = _(
 
 static const u8 sSafariBallDesc[] = _(
     "A special Ball that\n"
-    "is used only in the\n"
-    "Safari Zone.");
+    "only works well\n"
+    "on rarer Pokémon.");
 
 static const u8 sSportBallDesc[] = _(
     "A special Ball used\n"
@@ -128,40 +128,41 @@ static const u8 sSportBallDesc[] = _(
     "Contest.");
 
 static const u8 sParkBallDesc[] = _(
-    "A special Ball for\n"
-    "the Pal Park.");
+    "A rare Ball with\n"
+    "a higher catch rate\n"
+    "than a Ultra Ball.");
 
 static const u8 sBeastBallDesc[] = _(
     "A Ball designed to\n"
     "catch Ultra Beasts.");
 
 static const u8 sCherishBallDesc[] = _(
-    "A rare Ball made\n"
-    "in commemoration\n"
-    "of some event.");
+    "A rare Ball with\n"
+    "a higher catch rate\n"
+    "than a Gold Ball.");
 
 // Medicine
 static const u8 sPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
-    "20 points.");
+    "60 points.");
 
 static const u8 sSuperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "60 points.");
+    "100 points.");
 #else
-    "50 points.");
+    "100 points.");
 #endif
 
 static const u8 sHyperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "120 points.");
+    "150 points.");
 #else
-    "200 points.");
+    "150 points.");
 #endif
 
 static const u8 sMaxPotionDesc[] = _(
@@ -196,9 +197,9 @@ static const u8 sSodaPopDesc[] = _(
     "A fizzy soda drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 50 points.");
+    "by 30 points.");
 #else
-    "by 60 points.");
+    "by 30 points.");
 #endif
 
 static const u8 sLemonadeDesc[] = _(
@@ -226,12 +227,8 @@ static const u8 sEnergyPowderDesc[] = _(
 
 static const u8 sEnergyRootDesc[] = _(
     "A bitter root\n"
-    "that restores HP\n"
-#if I_HEALTH_RECOVERY >= GEN_7
-    "by 120 points.");
-#else
-    "by 200 points.");
-#endif
+    "that decrases\n"
+    "friendship.");
 
 static const u8 sHealPowderDesc[] = _(
     "A bitter powder\n"
@@ -271,21 +268,20 @@ static const u8 sFullHealDesc[] = _(
 static const u8 sEtherDesc[] = _(
     "Restores the PP\n"
     "of a selected move\n"
-    "by 10.");
+    "by 5.");
 
 static const u8 sMaxEtherDesc[] = _(
-    "Fully restores the\n"
-    "PP of a selected\n"
-    "move.");
+    "Restores the PP\n"
+    "of a selected move\n"
+    "by 10.");
 
 static const u8 sElixirDesc[] = _(
     "Restores the PP\n"
-    "of all moves by 10.");
+    "of all moves by 5.");
 
 static const u8 sMaxElixirDesc[] = _(
-    "Fully restores the\n"
-    "PP of a Pokémon's\n"
-    "moves.");
+    "Restores the PP\n"
+    "of all moves by 10.");
 
 static const u8 sBerryJuiceDesc[] = _(
     "A 100% pure juice\n"
@@ -2545,9 +2541,9 @@ static const u8 sLaggingTailDesc[] = _(
     "move slower.");
 
 static const u8 sDestinyKnotDesc[] = _(
-    "If the holder falls\n"
-    "in love, the foe\n"
-    "does too.");
+    "If the holder's\n"
+    "moves get limited\n"
+    "so does the foe's.");
 
 static const u8 sBlackSludgeDesc[] = _(
     "Gradually restores\n"
@@ -2610,9 +2606,9 @@ static const u8 sRedCardDesc[] = _(
     "holder.");
 
 static const u8 sRingTargetDesc[] = _(
-    "Moves that wouldn't\n"
-    "have effect will\n"
-    "land on its holder.");
+    "Immunities are\n"
+    "negated and user\n"
+    "takes more damage.");
 
 static const u8 sBindingBandDesc[] = _(
     "Increases the\n"
@@ -2681,8 +2677,8 @@ static const u8 sRoomServiceDesc[] = _(
 
 static const u8 sUtilityUmbrellaDesc[] = _(
     "An umbrella that\n"
-    "protects from\n"
-    "weather effects.");
+    "decreases damage\n"
+    "of weather types.");
 
 // Berries
 static const u8 sCheriBerryDesc[] = _(
@@ -2817,9 +2813,9 @@ static const u8 sGrepaBerryDesc[] = _(
     "base Sp. Def.");
 
 static const u8 sTamatoBerryDesc[] = _(
-    "Makes a Pokémon\n"
-    "friendly but lowers\n"
-    "base Speed.");
+    "A unique berry\n"
+    "that bears love\n"
+    "a lot.");
 
 static const u8 sCornnBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"
@@ -3868,9 +3864,9 @@ static const u8 sGimmighoulCoinDesc[] = _(
     "curious coins.");
 
 static const u8 sLeadersCrestDesc[] = _(
-    "A shard of an old\n"
-    "blade of some sort.\n"
-    "Held by Bisharp.");
+    "Buffs the Pawniard\n"
+    "line's slicing\n"
+    "moves.");
 
 static const u8 sMaliciousArmorDesc[] = _(
     "Armor inhabited by\n"
@@ -3964,13 +3960,13 @@ static const u8 sSandstone[] = _(
     "Evolves Pebbler.");
 
 static const u8 sComedyMaskDesc[] = _(
-    "The mask of\n"
-    "silliness.\n"
+    "A mask filled\n"
+    "with glee.\n"
     "Evolves Zorua.");
 
 static const u8 sTragedyMaskDesc[] = _(
-    "The mask of\n"
-    "enragement.\n"
+    "A mask filled\n"
+    "with sorrow.\n"
     "Evolves Zorua.");
 
 static const u8 sPebbleriteDesc[] = _(
@@ -4000,8 +3996,8 @@ static const u8 sFlipCoinDesc[] = _(
 
 static const u8 sWarpRibbonDesc[] = _(
     "Resets foe's Speed\n"
-    "stat, but user\n"
-    "cannot raise stats.");
+    "boosts, but user's\n"
+    "Speed is ignored.");
 
 static const u8 sGravityCoreDesc[] = _(
     "A held item that\n"
@@ -4121,7 +4117,7 @@ static const u8 sAThingDesc[] = _(
 static const u8 sSaltyTearDesc[] = _(
     "Halves all of\n"
     "Sadsod's stats.\n"
-    "Drops Happiness.");
+    "Drops Friendship.");
 
 static const u8 sBloomOrbDesc[] = _(
     "A bizarre orb that\n"
@@ -4152,3 +4148,13 @@ static const u8 sFriendRibbonDesc[] = _(
     "Boosts user's Def\n"
     "and ally's moves.\n"
     "Only for Colfin.");
+
+static const u8 sRoomExtenderDesc[] = _(
+    "Extends the length\n"
+    "of all activated\n"
+    "rooms.");
+
+static const u8 sTradingCardDesc[] = _(
+    "Shifts damage\n"
+    "based on foe's\n"
+    "and user's stats.");

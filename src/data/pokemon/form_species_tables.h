@@ -1153,8 +1153,8 @@ static const u16 sLottabatsFormSpeciesIdTable[] = {
 };
 
 static const u16 sGaoterraFormSpeciesIdTable[] = {
-    SPECIES_GAOTERRA,
     SPECIES_GAOTERRA_SOLAR,
+    SPECIES_GAOTERRA,
     SPECIES_GAOTERRA_LUNAR,
     FORM_SPECIES_END,
 };

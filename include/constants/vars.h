@@ -128,15 +128,16 @@
 //7 = 6 Badge
 //8 = 7 Badge
 //9 = 8 Badge
-//10 = Fought Luo-Shan/Kyogre and Sha-Yon/Groudon
-//11 = Shunyong Beaten
+//10 = Fought Norman
+//11 = Fought Luo-Shan/Kyogre and Sha-Yon/Groudon
+//12 = Shunyong Beaten
 #define VAR_BALL_QUEST_STATE                             0x4065 // Unused Var normally, used in PISCES
 #define VAR_NEW_COO_STATE                                0x4066 // Unused Var normally, used in PISCES
 #define VAR_SPACE_CENTER_QUEST_STATE                               0x4067 // Unused Var normally, used in PISCES
 #define VAR_RAY_STATE                               0x4068 // Unused Var normally, used in PISCES
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_BREADWINNER_STATE                               0x406A // Unused Var normally, used in PISCES
-#define VAR_ROUTE112_STATE                               0x406B // Unused Var
+#define VAR_SHELLYLOUH_STATE                               0x406B // Unused Var normally, used in PISCES
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var

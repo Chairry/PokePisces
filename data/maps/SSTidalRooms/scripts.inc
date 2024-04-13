@@ -4,11 +4,11 @@ SSTidalRooms_MapScripts::
 SSTidalRooms_EventScript_SnatchGiver::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalRooms_EventScript_ExplainSnatch
+	goto_if_set FLAG_RECEIVED_TM_INFESTATION, SSTidalRooms_EventScript_ExplainSnatch
 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_ROCK_SLIDE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_SNATCH
+	setflag FLAG_RECEIVED_TM_INFESTATION
 	msgbox SSTidalRooms_Text_ExplainSnatch, MSGBOX_DEFAULT
 	release
 	end

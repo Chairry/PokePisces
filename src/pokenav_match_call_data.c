@@ -239,7 +239,7 @@ static const match_call_text_data_t sStevenTextScripts[] = {
     { MatchCall_Text_Steven2, FLAG_RUSTURF_TUNNEL_OPENED,          0xFFFF },
     { MatchCall_Text_Steven3, FLAG_RECEIVED_RED_OR_BLUE_ORB,       0xFFFF },
     { MatchCall_Text_Steven4, FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, 0xFFFF },
-    { MatchCall_Text_Steven5, FLAG_DEFEATED_MOSSDEEP_GYM,          0xFFFF },
+    { MatchCall_Text_Steven5, FLAG_DEFEATED_PANIC_EVENT,          0xFFFF },
     { MatchCall_Text_Steven6, FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN, 0xFFFF },
     { MatchCall_Text_Steven7, FLAG_SYS_GAME_CLEAR,                 0xFFFF },
     { NULL,                   0xFFFF,                              0xFFFF },
@@ -672,7 +672,7 @@ static const struct MatchCallCheckPageOverride sCheckPageOverrides[] = {
     {
         .idx = MC_HEADER_STEVEN,
         .facilityClass = FACILITY_CLASS_STEVEN,
-        .flag = FLAG_DEFEATED_MOSSDEEP_GYM,
+        .flag = FLAG_DEFEATED_PANIC_EVENT,
         .flavorTexts = {
             [CHECK_PAGE_STRATEGY] = gText_MatchCallSteven_Strategy,
             [CHECK_PAGE_POKEMON]  = gText_MatchCallSteven_Pokemon,
@@ -842,14 +842,22 @@ static bool32 MatchCall_IsRematchable_NPC(match_call_t matchCall)
 
 static bool32 MatchCall_IsRematchable_Trainer(match_call_t matchCall)
 {
+#if FREE_MATCH_CALL == FALSE
     if (matchCall.trainer->rematchTableIdx >= REMATCH_ELITE_FOUR_ENTRIES)
         return FALSE;
     return gSaveBlock1Ptr->trainerRematches[matchCall.trainer->rematchTableIdx] ? TRUE : FALSE;
+#else
+    return FALSE;
+#endif //FREE_MATCH_CALL
 }
 
 static bool32 MatchCall_IsRematchable_Wally(match_call_t matchCall)
 {
+#if FREE_MATCH_CALL == FALSE
     return gSaveBlock1Ptr->trainerRematches[matchCall.wally->rematchTableIdx] ? TRUE : FALSE;
+#else
+    return FALSE;
+#endif //FREE_MATCH_CALL
 }
 
 static bool32 MatchCall_IsRematchable_Rival(match_call_t matchCall)
@@ -1004,6 +1012,7 @@ static void MatchCall_BufferCallMessageText(const match_call_text_data_t *textDa
 
 static void MatchCall_BufferCallMessageTextByRematchTeam(const match_call_text_data_t *textData, u16 idx, u8 *dest)
 {
+#if FREE_MATCH_CALL == FALSE
     u32 i;
     for (i = 0; textData[i].text != NULL; i++)
     {
@@ -1037,6 +1046,7 @@ static void MatchCall_BufferCallMessageTextByRematchTeam(const match_call_text_d
 
         StringExpandPlaceholders(dest, textData[i].text);
     }
+#endif //FREE_MATCH_CALL
 }
 
 void MatchCall_GetNameAndDesc(u32 idx, const u8 **desc, const u8 **name)

@@ -187,6 +187,7 @@ static const u8 sText_ToxicCounter[] = _("Toxic Counter");
 static const u8 sText_Panic[] = _("Panic");
 static const u8 sText_Blooming[] = _("Blooming");
 static const u8 sText_Exposed[] = _("Exposed");
+static const u8 sText_Rest[] = _("Rest");
 static const u8 sText_Flinch[] = _("Flinch");
 static const u8 sText_Uproar[] = _("Uproar");
 static const u8 sText_Bide[] = _("Bide");
@@ -255,7 +256,7 @@ static const u8 sText_EmptyString[] = _("");
 
 static const struct BitfieldInfo sStatus1Bitfield[] =
 {
-    {/*Sleep*/ 3, 0},
+    {/*Sleep*/ 2, 0},
     {/*Poison*/ 1, 3},
     {/*Burn*/ 1, 4},
     {/*Freeze*/ 1, 5},
@@ -265,7 +266,8 @@ static const struct BitfieldInfo sStatus1Bitfield[] =
     {/*Frostbite*/ 1, 12},
     {/*Panic*/ 1, 13},
     {/*Blooming*/ 1, 14},
-    {/*Exposed*/ 1, 15},
+    {/*Exposed*/ 1, 16},
+    {/*Rest*/ 3, 17},
 };
 
 static const struct BitfieldInfo sStatus2Bitfield[] =
@@ -409,6 +411,7 @@ static const struct ListMenuItem sStatus1ListItems[] =
     {sText_Panic, 8},
     {sText_Blooming, 9},
     {sText_Exposed, 10},
+    {sText_Rest, 11},
 };
 
 static const struct ListMenuItem sStatus2ListItems[] =

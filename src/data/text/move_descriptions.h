@@ -529,8 +529,8 @@ static const u8 sClampDescription[] = _(
     "foe for "BINDING_TURNS" turns.");
 
 static const u8 sSwiftDescription[] = _(
-    "Sprays star-shaped rays\n"
-    "quickly that never miss.");
+    "Sprays quickly star-shaped\n"
+    "rays that never miss.");
 
 static const u8 sSkullBashDescription[] = _(
     "Tucks in the head, then\n"
@@ -805,8 +805,8 @@ static const u8 sDetectDescription[] = _(
     "user's Accuracy if struck.");
 
 static const u8 sBoneRushDescription[] = _(
-    "Strikes the foe with a bone\n"
-    "in hand 2 to 5 times.");
+    "Strikes the foe with a\n"
+    "spirit bone 2 to 5 times.");
 
 static const u8 sLockOnDescription[] = _(
     "Locks on to the foe to\n"
@@ -1330,7 +1330,7 @@ static const u8 sSkyUppercutDescription[] = _(
 
 static const u8 sSandTombDescription[] = _(
     "Traps foe for "BINDING_TURNS" turns. \n"
-    "Lowers foe's Def in Sandstorm.");
+    "Lowers Defense in Sandstorm.");
 
 static const u8 sSheerColdDescription[] = _(
     "A chilling attack that\n"
@@ -2222,7 +2222,7 @@ static const u8 sTrickOrTreatDescription[] = _(
 
 static const u8 sNobleRoarDescription[] = _(
     "A 1st-turn move that lowers\n"
-    "the foe's Speed and flinches.");
+    "Speed and flinches.");
 
 static const u8 sIonDelugeDescription[] = _(
     "Electrifies Normal-type\n"
@@ -3167,11 +3167,11 @@ static const u8 sRuinationDescription[] = _(
 
 static const u8 sCollisionCourseDescription[] = _(
     "Prehistoric explosion that's\n"
-    "stronger if supereffective.");
+    "stronger if super effective.");
 
 static const u8 sElectroDriftDescription[] = _(
     "Futuristic electricity. It's\n"
-    "stronger if supereffective.");
+    "stronger if super effective.");
 
 static const u8 sShedTailDescription[] = _(
     "Creates a Substitute for\n"
@@ -3501,8 +3501,8 @@ static const u8 sSoulCutterDescription[] = _(
     "that does special damage.");
 
 static const u8 sVoidDescription[] = _(
-    "Quickly disables a foe's move.\n"
-    "Also ignores protect.");
+    "Quickly disables a foe's\n"
+    "move. Also ignores protect.");
 
 static const u8 sKerfuffleDescription[] = _(
     "Doubles power if the user is\n"
@@ -3545,7 +3545,7 @@ static const u8 sCreepyCrawlDescription[] = _(
     "the foe, causing Panic.");
 
 static const u8 sPesterRaidDescription[] = _(
-    "Ignores foe's stats, barriers,\n"
+    "Ignores stats, barriers,\n"
     "protection, and substitute.");
 
 static const u8 sBenthicWhipDescription[] = _(
@@ -3561,7 +3561,7 @@ static const u8 sFinishOffDescription[] = _(
     "full HP. Also lowers user's Atk.");
 
 static const u8 sSeizeChanceDescription[] = _(
-    "Fails if the target didnt use\n"
+    "Fails if the target didn't use\n"
     "a status move. Always crits.");
 
 static const u8 sBrutalizeDescription[] = _(
@@ -3571,6 +3571,74 @@ static const u8 sBrutalizeDescription[] = _(
 static const u8 sTerrorizeDescription[] = _(
     "Makes the foe panic\n"
     "with intense imagery.");
+
+static const u8 sCoolMistDescription[] = _(
+    "The user shoots out cold\n"
+    "water. May cause frostbite.");
+
+static const u8 sMindBreakDescription[] = _(
+    "The higher the foe's Sp. Atk\n"
+    "the more damage caused.");
+
+static const u8 sRoadblockDescription[] = _(
+    "Fails if the target didn't\n"
+    "attack. Uses foe's Speed.");
+
+static const u8 sGattlingPinsDescription[] = _(
+    "The user shoots a flurry of\n"
+    "pins 5 times in a row.");
+
+static const u8 sEarthShatterDescription[] = _(
+    "Removes Terrain. Stronger\n"
+    "against Rock/Ground/Steel.");
+
+static const u8 sMassBreakDescription[] = _(
+    "Stronger against Normal and\n"
+    "Fighting. Destroys Screens.");
+
+static const u8 sHeavyCannonDescription[] = _(
+    "Stronger for all Def and Sp.\n"
+    "Def boosts. Lowers defenses.");
+
+static const u8 sGiantsSpearDescription[] = _(
+    "Stronger if super effective.\n"
+    "Lowers user's defenses.");
+
+static const u8 sRedlineDescription[] = _(
+    "Boosted for every stat drop.\n"
+    "Resets own stat changes.");
+
+static const u8 sZapperDescription[] = _(
+    "Drops Speed of foe. Stronger\n"
+    "based on foe's stat drops.");
+
+static const u8 sPurgeRayDescription[] = _(
+    "A quick move that is strong\n"
+    "against Dark and Poison.");
+
+static const u8 sDiffuseWaveDescription[] = _(
+    "Stronger against Fire and\n"
+    "Electric. Drops foe's Sp. Atk.");
+
+static const u8 sSkySplitterDescription[] = _(
+    "Super effective against\n"
+    "Flying. Removes Weather.");
+
+static const u8 sVaporizeDescription[] = _(
+    "Super effective against Ice\n"
+    "and Water. May lower Sp. Def.");
+
+static const u8 sRailgunDescription[] = _(
+    "Boosted if super effective.\n"
+    "Sharply drops user's Sp. Atk.");
+
+static const u8 sDecimationDescription[] = _(
+    "Launches a move for 2 turns\n"
+    "later then raises Sp. Attack.");
+
+static const u8 sPowerJamDescription[] = _(
+    "A powerful move that boosts\n"
+    "the foe if it fails to KO.");
 
 static const u8 sStormChaseDescription[] = _(
     "A fast but hard to aim attack\n"
@@ -4513,6 +4581,24 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CASTLE_CRASH - 1] = sDemolisherDescription,
     [MOVE_BRUTALIZE - 1] = sBrutalizeDescription,
     [MOVE_TERRORIZE - 1] = sTerrorizeDescription,
+    [MOVE_COOL_MIST - 1] = sCoolMistDescription,
+    [MOVE_MIND_BREAK - 1] = sMindBreakDescription,
+    [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
+    [MOVE_GATTLING_PINS - 1] = sGattlingPinsDescription,
+    [MOVE_EARTH_SHATTER - 1] = sEarthShatterDescription,
+    [MOVE_MASS_BREAK - 1] = sMassBreakDescription,
+    [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
+    [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
+    [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,
+    [MOVE_REDLINE - 1] = sRedlineDescription,
+    [MOVE_ZAPPER - 1] = sZapperDescription,
+    [MOVE_PURGE_RAY - 1] = sPurgeRayDescription,
+    [MOVE_DIFFUSE_WAVE - 1] = sDiffuseWaveDescription,
+    [MOVE_SKY_SPLITTER - 1] = sSkySplitterDescription,
+    [MOVE_VAPORIZE - 1] = sVaporizeDescription,
+    [MOVE_RAILGUN - 1] = sRailgunDescription,
+    [MOVE_DECIMATION - 1] = sDecimationDescription,
+    [MOVE_POWER_JAM - 1] = sPowerJamDescription,
     [MOVE_STORM_CHASE - 1] = sStormChaseDescription,
     [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
 };

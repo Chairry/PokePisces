@@ -285,13 +285,17 @@ const u8 gText_PokeBallsPocket[] = _("POKé BALLS");
 const u8 gText_TMHMPocket[] = _("TMs & HMs");
 const u8 gText_BerriesPocket[] = _("BERRIES");
 const u8 gText_KeyItemsPocket[] = _("KEY ITEMS");
+const u8 gText_MedicinePocket[] = _("MEDICINE");
+const u8 gText_BattleItemsPocket[] = _("BATTLE ITEM");
 
 const u8 *const gPocketNamesStringsTable[] =
 {
     [ITEMS_POCKET] = gText_ItemsPocket,
+    [MEDICINE_POCKET] = gText_MedicinePocket,
     [BALLS_POCKET] = gText_PokeBallsPocket,
-    [TMHM_POCKET]  = gText_TMHMPocket,
+    [BATTLEITEMS_POCKET] = gText_BattleItemsPocket,
     [BERRIES_POCKET] = gText_BerriesPocket,
+    [TMHM_POCKET]  = gText_TMHMPocket,
     [KEYITEMS_POCKET] = gText_KeyItemsPocket
 };
 
@@ -359,6 +363,7 @@ const u8 gText_SpaceForVar1Full[] = _("The space for\n{STR_VAR_1}\nis full.{PAUS
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
 const u8 gText_CanIHelpWithAnythingElse[] = _("Can I help you with anything else?");
 const u8 gText_ThrowInPremierBall[] = _("I'll throw in\na Premier Ball,\ntoo.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInSomePremierBalls[] = _("I'll throw in some\n Premier Balls,\ntoo.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantBuyKeyItem[] = _("{STR_VAR_2}? Oh, no.\nI can't buy that.{PAUSE_UNTIL_PRESS}");
 const u8 gText_HowManyToSell[] = _("{STR_VAR_2}?\nHow many would you like to sell?");
 const u8 gText_ICanPayVar1[] = _("I can pay ¥{STR_VAR_1}.\nWould that be okay?");
@@ -553,7 +558,7 @@ const u8 gText_XNatureHatchedSomewhereAt[] = _(
     "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
     "hatched somewhere at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
 
-const u8 gText_OddEggFoundByCouple[] = _("An odd POKéMON EGG found\nby the DAY CARE couple.");
+const u8 gText_OddEggFoundByCouple[] = _("A peculiar Pokémon Egg\nobtained at a strange place.");
 const u8 gText_PeculiarEggNicePlace[] = _("A peculiar POKéMON EGG\nobtained at the nice place.");
 const u8 gText_PeculiarEggTrade[] = _("A peculiar POKéMON EGG\nobtained in a trade.");
 const u8 gText_EggFromHotSprings[] = _("A POKéMON EGG obtained\nat the hot springs.");
@@ -734,6 +739,8 @@ const u8 gText_Key_Items[] = _("KEY ITEMS");
 const u8 gText_Poke_Balls[] = _("POKé BALLS");
 const u8 gText_TMs_Hms[] = _("TMs & HMs");
 const u8 gText_Berries2[] = _("BERRIES");
+const u8 gText_Medicine[] = _("MEDICINE");
+const u8 gText_BattleItems[] = _("BATTLE ITEM");
 const u8 gText_SomeonesPC[] = _("SOMEONE'S PC");
 const u8 gText_LanettesPC[] = _("LANETTE'S PC");
 const u8 gText_PlayersPC[] = _("{PLAYER}'s PC");

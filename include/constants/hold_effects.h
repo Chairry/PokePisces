@@ -167,6 +167,42 @@
 // New Hold effects
 #define HOLD_EFFECT_BURNT_STICK         183
 #define HOLD_EFFECT_CURSED_AMULET       184
+#define HOLD_EFFECT_LEADERS_CREST       185
+#define HOLD_EFFECT_BATTLE_HELM         186
+#define HOLD_EFFECT_GLUE_TUBE           187
+#define HOLD_EFFECT_FROST_ORB           188
+#define HOLD_EFFECT_POISON_ORB          189
+#define HOLD_EFFECT_BLOOM_ORB           190
+#define HOLD_EFFECT_PANIC_ORB           191
+#define HOLD_EFFECT_TRIUMPH_STAR        192
+#define HOLD_EFFECT_VIBRANT_SCALE       193
+#define HOLD_EFFECT_ZIG_SASH            194
+#define HOLD_EFFECT_DOUGH_STICK         195
+#define HOLD_EFFECT_DRIP_SHOES          196
+#define HOLD_EFFECT_OBJECT_D_ARC        197
+#define HOLD_EFFECT_KEYCHAIN            198
+#define HOLD_EFFECT_GRAVITY_CORE        199
+#define HOLD_EFFECT_ICY_CAPE            200
+#define HOLD_EFFECT_LOST_MANTLE         201
+#define HOLD_EFFECT_WIDE_ARMOR          202
+#define HOLD_EFFECT_SALTY_TEAR          203
+#define HOLD_EFFECT_ROOM_EXTENDER       204
+#define HOLD_EFFECT_FAVOR_SCARF         205
+#define HOLD_EFFECT_DILATANT_MOD        206
+#define HOLD_EFFECT_SHELL_POLISH        207
+#define HOLD_EFFECT_FAMILY_MOSS         208
+#define HOLD_EFFECT_EERIE_MASK          209
+#define HOLD_EFFECT_A_THING             210
+#define HOLD_EFFECT_TRADING_CARD        211
+#define HOLD_EFFECT_CHEESE              212
+#define HOLD_EFFECT_FROTHY_CHEESE       213
+#define HOLD_EFFECT_SPECTRAL_IDOL       214
+#define HOLD_EFFECT_ODD_STONE           215
+#define HOLD_EFFECT_COARSE_SAND         216
+#define HOLD_EFFECT_TAMATO_BERRY        217
+#define HOLD_EFFECT_YELLOW_SODA         218
+#define HOLD_EFFECT_FLIP_COIN           219
+#define HOLD_EFFECT_WARP_RIBBON         220
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

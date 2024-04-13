@@ -371,10 +371,23 @@ static void AnimSpiderWeb_End(struct Sprite *sprite)
 // arg 2: target x pixel offset
 // arg 3: target y pixel offset
 // arg 4: duration
+// arg 5: target between double battle opponents (boolean)
 static void AnimTranslateStinger(struct Sprite *sprite)
 {
     s16 lVarX, lVarY;
     u16 rot;
+
+    if (!gBattleAnimArgs[5])
+    {
+        sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + gBattleAnimArgs[2];
+        sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[3];
+    }
+    else
+    {
+        SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &sprite->data[2], &sprite->data[4]);
+        sprite->data[2] += gBattleAnimArgs[2];
+        sprite->data[4] += gBattleAnimArgs[3];
+    }
 
     if (IsContest())
     {

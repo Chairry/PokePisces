@@ -84,7 +84,9 @@ static void CB2_StartFirstBattle(void);
 static void CB2_EndFirstBattle(void);
 static void CB2_EndTrainerBattle(void);
 static bool32 IsPlayerDefeated(u32 battleOutcome);
+#if FREE_MATCH_CALL == FALSE
 static u16 GetRematchTrainerId(u16 trainerId);
+#endif //FREE_MATCH_CALL
 static void RegisterTrainerInMatchCall(void);
 static void HandleRematchVarsOnBattleEnd(void);
 static const u8 *GetIntroSpeechOfApproachingTrainer(void);
@@ -274,15 +276,15 @@ static const struct TrainerBattleParameter sTrainerTwoTrainerBattleParams[] =
 
 const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
 {
-    //[REMATCH_ROSE] = REMATCH(TRAINER_P_HASPAROTH, TRAINER_P_SEBASTIAN, TRAINER_ROSE_3, TRAINER_ROSE_4, TRAINER_ROSE_5, ROUTE118),
+    //[REMATCH_ROSE] = REMATCH(TRAINER_P_HASPAROTH, TRAINER_P_SEBASTIAN, TRAINER_P_DUNDEE, TRAINER_P_MOKA, TRAINER_P_WOODS, ROUTE118),
     //[REMATCH_ANDRES] = REMATCH(TRAINER_ANDRES_1, TRAINER_ANDRES_2, TRAINER_ANDRES_3, TRAINER_ANDRES_4, TRAINER_ANDRES_5, ROUTE105),
-    //[REMATCH_DUSTY] = REMATCH(TRAINER_DUSTY_1, TRAINER_DUSTY_2, TRAINER_DUSTY_3, TRAINER_DUSTY_4, TRAINER_DUSTY_5, ROUTE111),
-    //[REMATCH_LOLA] = REMATCH(TRAINER_LOLA_1, TRAINER_LOLA_2, TRAINER_LOLA_3, TRAINER_LOLA_4, TRAINER_LOLA_5, ROUTE109),
-    //[REMATCH_RICKY] = REMATCH(TRAINER_RICKY_1, TRAINER_RICKY_2, TRAINER_RICKY_3, TRAINER_RICKY_4, TRAINER_RICKY_5, ROUTE109),
+    //[REMATCH_DUSTY] = REMATCH(TRAINER_P_FAUNA, TRAINER_P_SKEETER, TRAINER_P_JAJA, TRAINER_P_JANE, TRAINER_P_JO_AND_JO, ROUTE111),
+    //[REMATCH_LOLA] = REMATCH(TRAINER_P_PANDOU_1, TRAINER_P_RISE, TRAINER_P_YU, TRAINER_P_GEIGER, TRAINER_P_YORK, ROUTE109),
+    //[REMATCH_RICKY] = REMATCH(TRAINER_P_RIKA, TRAINER_P_RAY_1, TRAINER_P_PLANCK, TRAINER_P_LEGRI, TRAINER_P_SPITZER, ROUTE109),
     //[REMATCH_LILA_AND_ROY] = REMATCH(TRAINER_LILA_AND_ROY_1, TRAINER_LILA_AND_ROY_2, TRAINER_LILA_AND_ROY_3, TRAINER_LILA_AND_ROY_4, TRAINER_LILA_AND_ROY_5, ROUTE124),
     //[REMATCH_CRISTIN] = REMATCH(TRAINER_CRISTIN_1, TRAINER_CRISTIN_2, TRAINER_CRISTIN_3, TRAINER_CRISTIN_4, TRAINER_CRISTIN_5, ROUTE121),
     //[REMATCH_BROOKE] = REMATCH(TRAINER_BROOKE_1, TRAINER_BROOKE_2, TRAINER_BROOKE_3, TRAINER_BROOKE_4, TRAINER_BROOKE_5, ROUTE111),
-    //[REMATCH_WILTON] = REMATCH(TRAINER_WILTON_1, TRAINER_WILTON_2, TRAINER_WILTON_3, TRAINER_WILTON_4, TRAINER_WILTON_5, ROUTE111),
+    //[REMATCH_WILTON] = REMATCH(TRAINER_P_S_STEVEN_5, TRAINER_WILTON_2, TRAINER_WILTON_3, TRAINER_WILTON_4, TRAINER_WILTON_5, ROUTE111),
     //[REMATCH_VALERIE] = REMATCH(TRAINER_VALERIE_1, TRAINER_VALERIE_2, TRAINER_VALERIE_3, TRAINER_VALERIE_4, TRAINER_VALERIE_5, MT_PYRE_6F),
     //[REMATCH_CINDY] = REMATCH(TRAINER_CINDY_1, TRAINER_CINDY_3, TRAINER_CINDY_4, TRAINER_CINDY_5, TRAINER_CINDY_6, ROUTE104),
     //[REMATCH_THALIA] = REMATCH(TRAINER_THALIA_1, TRAINER_THALIA_2, TRAINER_THALIA_3, TRAINER_THALIA_4, TRAINER_THALIA_5, ABANDONED_SHIP_ROOMS_1F),
@@ -770,7 +772,7 @@ u8 BattleSetup_GetTerrainId(void)
     case MAP_TYPE_WOODEN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_WATER;
-        return BATTLE_TERRAIN_WOODEN_ROUTE;
+        return BATTLE_TERRAIN_DARK_AREA;
     case MAP_TYPE_OCEAN_ROUTE:
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_WATER;
@@ -786,6 +788,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_MOUNTAIN;
     if (MetatileBehavior_IsWooden(tileBehavior))
         return BATTLE_TERRAIN_WOODEN_ROUTE;
+    if (MetatileBehavior_IsWhitePath(tileBehavior))
+        return BATTLE_TERRAIN_PATH;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
         // Is BRIDGE_TYPE_POND_*?
@@ -1215,6 +1219,7 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         TrainerBattleLoadArgs(sContinueScriptDoubleBattleParams, data);
         SetMapVarsToTrainer();
         return EventScript_TryDoDoubleTrainerBattle;
+#if FREE_MATCH_CALL == FALSE
     case TRAINER_BATTLE_REMATCH_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);
         SetMapVarsToTrainer();
@@ -1225,6 +1230,7 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         SetMapVarsToTrainer();
         gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
         return EventScript_TryDoRematchBattle;
+#endif //FREE_MATCH_CALL
     case TRAINER_BATTLE_PYRAMID:
         if (gApproachingTrainerId == 0)
         {
@@ -1686,7 +1692,7 @@ static s32 TrainerIdToRematchTableId(const struct RematchTrainer *table, u16 tra
 
 // Returns TRUE if the given trainer (by their entry in the rematch table) is not allowed to have rematches.
 // This applies to the Elite Four and Victory Road Wally (if he's not been defeated yet)
-static bool32 IsRematchForbidden(s32 rematchTableId)
+static inline bool32 IsRematchForbidden(s32 rematchTableId)
 {
     if (rematchTableId >= REMATCH_ELITE_FOUR_ENTRIES)
         return TRUE;
@@ -1698,12 +1704,12 @@ static bool32 IsRematchForbidden(s32 rematchTableId)
 
 static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 tableId)
 {
+#if FREE_MATCH_CALL == FALSE
     s32 i;
 
     for (i = 1; i < REMATCHES_COUNT; i++)
     {
         u16 trainerId = table[tableId].trainerIds[i];
-
         if (trainerId == 0)
             break;
         if (!HasTrainerBeenFought(trainerId))
@@ -1711,8 +1717,11 @@ static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 table
     }
 
     gSaveBlock1Ptr->trainerRematches[tableId] = i;
+#endif //FREE_MATCH_CALL
 }
 
+
+#if FREE_MATCH_CALL == FALSE
 static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     s32 i;
@@ -1738,6 +1747,7 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
 
     return ret;
 }
+#endif //FREE_MATCH_CALL
 
 void UpdateRematchIfDefeated(s32 rematchTableId)
 {
@@ -1747,6 +1757,7 @@ void UpdateRematchIfDefeated(s32 rematchTableId)
 
 static bool32 DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
+#if FREE_MATCH_CALL == FALSE
     s32 i;
 
     for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
@@ -1754,6 +1765,7 @@ static bool32 DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 
         if (table[i].mapGroup == mapGroup && table[i].mapNum == mapNum && gSaveBlock1Ptr->trainerRematches[i] != 0)
             return TRUE;
     }
+#endif //FREE_MATCH_CALL
 
     return FALSE;
 }
@@ -1779,8 +1791,10 @@ static bool8 IsFirstTrainerIdReadyForRematch(const struct RematchTrainer *table,
         return FALSE;
     if (tableId >= MAX_REMATCH_ENTRIES)
         return FALSE;
+#if FREE_MATCH_CALL == FALSE
     if (gSaveBlock1Ptr->trainerRematches[tableId] == 0)
         return FALSE;
+#endif //FREE_MATCH_CALL
 
     return TRUE;
 }
@@ -1793,8 +1807,10 @@ static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 t
         return FALSE;
     if (tableId >= MAX_REMATCH_ENTRIES)
         return FALSE;
+#if FREE_MATCH_CALL == FALSE
     if (gSaveBlock1Ptr->trainerRematches[tableId] == 0)
         return FALSE;
+#endif //FREE_MATCH_CALL
 
     return TRUE;
 }
@@ -1843,10 +1859,12 @@ static u16 GetLastBeatenRematchTrainerIdFromTable(const struct RematchTrainer *t
 
 static void ClearTrainerWantRematchState(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
+#if FREE_MATCH_CALL == FALSE
     s32 tableId = TrainerIdToRematchTableId(table, firstBattleTrainerId);
 
     if (tableId != -1)
         gSaveBlock1Ptr->trainerRematches[tableId] = 0;
+#endif //FREE_MATCH_CALL
 }
 
 static u32 GetTrainerMatchCallFlag(u32 trainerId)
@@ -1884,6 +1902,7 @@ static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBa
     return TRUE;
 }
 
+#if FREE_MATCH_CALL == FALSE
 static bool32 HasAtLeastFiveBadges(void)
 {
     s32 i, count;
@@ -1899,11 +1918,13 @@ static bool32 HasAtLeastFiveBadges(void)
 
     return FALSE;
 }
+#endif //FREE_MATCH_CALL
 
 #define STEP_COUNTER_MAX 255
 
 void IncrementRematchStepCounter(void)
 {
+#if FREE_MATCH_CALL == FALSE
     if (HasAtLeastFiveBadges())
     {
         if (gSaveBlock1Ptr->trainerRematchStepCounter >= STEP_COUNTER_MAX)
@@ -1911,8 +1932,10 @@ void IncrementRematchStepCounter(void)
         else
             gSaveBlock1Ptr->trainerRematchStepCounter++;
     }
+#endif //FREE_MATCH_CALL
 }
 
+#if FREE_MATCH_CALL == FALSE
 static bool32 IsRematchStepCounterMaxed(void)
 {
     if (HasAtLeastFiveBadges() && gSaveBlock1Ptr->trainerRematchStepCounter >= STEP_COUNTER_MAX)
@@ -1926,6 +1949,7 @@ void TryUpdateRandomTrainerRematches(u16 mapGroup, u16 mapNum)
     if (IsRematchStepCounterMaxed() && UpdateRandomTrainerRematches(gRematchTable, mapGroup, mapNum) == TRUE)
         gSaveBlock1Ptr->trainerRematchStepCounter = 0;
 }
+#endif //FREE_MATCH_CALL
 
 bool32 DoesSomeoneWantRematchIn(u16 mapGroup, u16 mapNum)
 {
@@ -1937,10 +1961,12 @@ bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum)
     return IsRematchTrainerIn_(gRematchTable, mapGroup, mapNum);
 }
 
+#if FREE_MATCH_CALL == FALSE
 static u16 GetRematchTrainerId(u16 trainerId)
 {
     return GetRematchTrainerIdFromTable(gRematchTable, trainerId);
 }
+#endif //FREE_MATCH_CALL
 
 u16 GetLastBeatenRematchTrainerId(u16 trainerId)
 {

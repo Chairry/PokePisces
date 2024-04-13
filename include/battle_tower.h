@@ -1,6 +1,8 @@
 #ifndef GUARD_BATTLE_TOWER_H
 #define GUARD_BATTLE_TOWER_H
 
+#include "data.h"
+
 struct RSBattleTowerRecord
 {
     /*0x00*/ u8 lvlMode; // 0 = level 50, 1 = level 100
@@ -24,31 +26,25 @@ struct BattleFrontierTrainer
     const u16 *monSet;
 };
 
-struct FacilityMon
-{
-    u16 species;
-    u16 moves[MAX_MON_MOVES];
-    u8 itemTableId;
-    u8 evSpread;
-    u8 nature;
-};
-
 extern const u8 gTowerMaleFacilityClasses[30];
 extern const u8 gTowerMaleTrainerGfxIds[30];
 extern const u8 gTowerFemaleFacilityClasses[20];
 extern const u8 gTowerFemaleTrainerGfxIds[20];
-extern const u16 gBattleFrontierHeldItems[];
-extern const struct FacilityMon gBattleFrontierMons[];
+extern const struct TrainerMon gBattleFrontierMons[];
 extern const struct BattleFrontierTrainer gBattleFrontierTrainers[];
-extern const struct FacilityMon gSlateportBattleTentMons[];
-extern const struct BattleFrontierTrainer gSlateportBattleTentTrainers[];
+extern const struct TrainerMon gBattleTentMons_ChampLeague[];
+extern const struct TrainerMon gBattleTentMons_MajorLeague[];
+extern const struct TrainerMon gBattleTentMons_MinorLeague[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_MinorLeague[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_MajorLeague[];
+extern const struct BattleFrontierTrainer gBattleTentTrainers_ChampLeague[];
 
 // Temporary storage for monIds of the opponent team
 // during team generation in battle factory and similar facilities.
 extern u16 gFrontierTempParty[];
 
 extern const struct BattleFrontierTrainer *gFacilityTrainers;
-extern const struct FacilityMon *gFacilityTrainerMons;
+extern const struct TrainerMon *gFacilityTrainerMons;
 
 void CallBattleTowerFunc(void);
 u16 GetRandomScaledFrontierTrainerId(u8 challengeNum, u8 battleNum);
@@ -84,5 +80,6 @@ s32 GetHighestLevelInPlayerParty(void);
 u8 FacilityClassToGraphicsId(u8 facilityClass);
 bool32 ValidateBattleTowerRecord(u8 recordId); // unused
 void TrySetLinkBattleTowerEnemyPartyLevel(void);
+void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32 otID, u32 flags, struct Pokemon *dst);
 
 #endif //GUARD_BATTLE_TOWER_H

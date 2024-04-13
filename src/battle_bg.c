@@ -730,6 +730,24 @@ const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_Wooden,
     },
 
+    [BATTLE_TERRAIN_PATH] =
+    {
+        .tileset = gBattleTerrainTiles_Path,
+        .tilemap = gBattleTerrainTilemap_Path,
+        .entryTileset = gBattleTerrainAnimTiles_Path,
+        .entryTilemap = gBattleTerrainAnimTilemap_Path,
+        .palette = gBattleTerrainPalette_Path,
+    },
+
+    [BATTLE_TERRAIN_DARK_AREA] =
+    {
+        .tileset = gBattleTerrainTiles_Darkness,
+        .tilemap = gBattleTerrainTilemap_Darkness,
+        .entryTileset = gBattleTerrainAnimTiles_Darkness,
+        .entryTilemap = gBattleTerrainAnimTilemap_Darkness,
+        .palette = gBattleTerrainPalette_Darkness,
+    },
+
     [BATTLE_TERRAIN_FRONTIER] =
     {
         .tileset = gBattleTerrainTiles_Building,
@@ -985,7 +1003,11 @@ void LoadBattleTextboxAndBackground(void)
     }
     else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
     {
-        LoadMoveBg(BG_TRICK_ROOM);
+        LoadMoveBg(BG_MAGIC_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+    {
+        LoadMoveBg(BG_INVERSE_ROOM);
     }
     else
     {

@@ -741,15 +741,16 @@ static void SetPlayerBerryDataInBattleStruct(void)
 
     if (IsEnigmaBerryValid() == TRUE)
     {
+    #if FREE_ENIGMA_BERRY == FALSE
         for (i = 0; i < BERRY_NAME_LENGTH; i++)
             battleBerry->name[i] = gSaveBlock1Ptr->enigmaBerry.berry.name[i];
         battleBerry->name[i] = EOS;
-
         for (i = 0; i < BERRY_ITEM_EFFECT_COUNT; i++)
             battleBerry->itemEffect[i] = gSaveBlock1Ptr->enigmaBerry.itemEffect[i];
 
         battleBerry->holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
         battleBerry->holdEffectParam = gSaveBlock1Ptr->enigmaBerry.holdEffectParam;
+    #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -775,6 +776,7 @@ static void SetAllPlayersBerryData(void)
     {
         if (IsEnigmaBerryValid() == TRUE)
         {
+        #if FREE_ENIGMA_BERRY == FALSE
             for (i = 0; i < BERRY_NAME_LENGTH; i++)
             {
                 gEnigmaBerries[0].name[i] = gSaveBlock1Ptr->enigmaBerry.berry.name[i];
@@ -782,17 +784,16 @@ static void SetAllPlayersBerryData(void)
             }
             gEnigmaBerries[0].name[i] = EOS;
             gEnigmaBerries[2].name[i] = EOS;
-
             for (i = 0; i < BERRY_ITEM_EFFECT_COUNT; i++)
             {
                 gEnigmaBerries[0].itemEffect[i] = gSaveBlock1Ptr->enigmaBerry.itemEffect[i];
                 gEnigmaBerries[2].itemEffect[i] = gSaveBlock1Ptr->enigmaBerry.itemEffect[i];
             }
-
             gEnigmaBerries[0].holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
             gEnigmaBerries[2].holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
             gEnigmaBerries[0].holdEffectParam = gSaveBlock1Ptr->enigmaBerry.holdEffectParam;
             gEnigmaBerries[2].holdEffectParam = gSaveBlock1Ptr->enigmaBerry.holdEffectParam;
+        #endif //FREE_ENIGMA_BERRY
         }
         else
         {
@@ -3218,7 +3219,7 @@ void SwitchInClearSetData(u32 battler)
         gStatuses3[battler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED
                                        | STATUS3_GASTRO_ACID | STATUS3_EMBARGO | STATUS3_TELEKINESIS | STATUS3_MAGNET_RISE | STATUS3_HEAL_BLOCK
                                        | STATUS3_AQUA_RING | STATUS3_POWER_TRICK);
-        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION);
+        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION | STATUS4_TICKED | STATUS4_TICKED_BATTLER);
         for (i = 0; i < gBattlersCount; i++)
         {
             if (GetBattlerSide(battler) != GetBattlerSide(i)
@@ -3959,7 +3960,7 @@ static void HandleEndTurn_ContinueBattle(void)
         for (i = 0; i < gBattlersCount; i++)
         {
             gBattleMons[i].status2 &= ~STATUS2_FLINCHED;
-            if ((gBattleMons[i].status1 & STATUS1_SLEEP) && (gBattleMons[i].status2 & STATUS2_MULTIPLETURNS))
+            if ((gBattleMons[i].status1 & STATUS1_SLEEP_ANY) && (gBattleMons[i].status2 & STATUS2_MULTIPLETURNS))
                 CancelMultiTurnMoves(i);
         }
         gBattleStruct->turnEffectsTracker = 0;
@@ -4293,7 +4294,9 @@ static void HandleTurnActionSelectionState(void)
                         BtlController_EmitChoosePokemon(battler, BUFFER_A, PARTY_ACTION_CANT_SWITCH, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[battler]);
                     }
                     else if (ItemId_GetHoldEffect(gBattleMons[battler].item) != HOLD_EFFECT_SHED_SHELL
-                      && (i = IsAbilityPreventingEscape(battler)))   // must be last to keep i value integrity
+                      && (i = IsAbilityPreventingEscape(battler))   // must be last to keep i value integrity
+                      && (ItemId_GetHoldEffect(gBattleMons[battler].item) == HOLD_EFFECT_GLUE_TUBE))   // must be last to keep i value integrity
+
                     {
                         BtlController_EmitChoosePokemon(battler, BUFFER_A, ((i - 1) << 4) | PARTY_ACTION_ABILITY_PREVENTS, PARTY_SIZE, gBattleMons[i - 1].ability, gBattleStruct->battlerPartyOrders[battler]);
                     }
@@ -4686,9 +4689,9 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     // weather abilities
     if (WEATHER_HAS_EFFECT)
     {
-        if (ability == ABILITY_SWIFT_SWIM       && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_RAIN)
+        if (ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
             speed *= 2;
-        else if (ability == ABILITY_CHLOROPHYLL && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA && gBattleWeather & B_WEATHER_SUN)
+        else if (ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
             speed *= 2;
         else if (ability == ABILITY_SAND_RUSH   && gBattleWeather & B_WEATHER_SANDSTORM)
             speed *= 2;
@@ -4743,6 +4746,18 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed /= 2;
     else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF)
         speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_VIBRANT_SCALE && gBattleMons[battler].species == SPECIES_BIVAGUE)
+        speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_ZIG_SASH && gBattleMons[battler].species == SPECIES_ZIGZAGOON)
+        speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_GRAVITY_CORE && gFieldStatuses & STATUS_FIELD_GRAVITY)
+        speed = (speed * 130) / 100;
+    else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF)
+        speed = (speed * 110) / 100;
+    else if (holdEffect == HOLD_EFFECT_DRIP_SHOES && gBattleMons[battler].species == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
+        speed *= 2;
+    else if (holdEffect == HOLD_EFFECT_SALTY_TEAR && gBattleMons[battler].species == SPECIES_SADSOD)
+        speed /= 2;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED))
         speed *= 2;
 
@@ -5195,7 +5210,7 @@ static bool32 TryDoMoveEffectsBeforeMoves(void)
         for (i = 0; i < gBattlersCount; i++)
         {
             if (!(gBattleStruct->focusPunchBattlers & gBitTable[battlers[i]])
-                && !(gBattleMons[battlers[i]].status1 & STATUS1_SLEEP)
+                && !(gBattleMons[battlers[i]].status1 & STATUS1_SLEEP_ANY)
                 && !(gDisableStructs[battlers[i]].truantCounter)
                 && !(gProtectStructs[battlers[i]].noValidMoves))
             {
@@ -5257,7 +5272,7 @@ static void CheckQuickClaw_CustapBerryActivation(void)
             if (gChosenActionByBattler[battler] == B_ACTION_USE_MOVE
              && gChosenMoveByBattler[battler] != MOVE_FOCUS_PUNCH   // quick claw message doesn't need to activate here
              && (gProtectStructs[battler].usedCustapBerry || gProtectStructs[battler].quickDraw)
-             && !(gBattleMons[battler].status1 & STATUS1_SLEEP)
+             && !(gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
              && !(gDisableStructs[gBattlerAttacker].truantCounter)
              && !(gProtectStructs[battler].noValidMoves))
             {
@@ -5772,11 +5787,11 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     {
         if (WEATHER_HAS_EFFECT)
         {
-            if (gBattleWeather & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+            if (gBattleWeather & B_WEATHER_RAIN)
                 gBattleStruct->dynamicMoveType = TYPE_WATER | F_DYNAMIC_TYPE_2;
             else if (gBattleWeather & B_WEATHER_SANDSTORM)
                 gBattleStruct->dynamicMoveType = TYPE_ROCK | F_DYNAMIC_TYPE_2;
-            else if (gBattleWeather & B_WEATHER_SUN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+            else if (gBattleWeather & B_WEATHER_SUN)
                 gBattleStruct->dynamicMoveType = TYPE_FIRE | F_DYNAMIC_TYPE_2;
             else if (gBattleWeather & (B_WEATHER_HAIL |B_WEATHER_SNOW))
                 gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_2;
@@ -5890,6 +5905,20 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         gSpecialStatuses[battlerAtk].gemParam = GetBattlerHoldEffectParam(battlerAtk);
         gSpecialStatuses[battlerAtk].gemBoost = TRUE;
     }
+    if (holdEffect == HOLD_EFFECT_TAMATO_BERRY
+        && move == MOVE_BERRY_BAD_JOKE)
+    {
+        if (attackerAbility == ABILITY_RIPEN)
+        {
+            gSpecialStatuses[battlerAtk].gemParam = 100;
+        }
+        else
+        {
+            gSpecialStatuses[battlerAtk].gemParam = 50;
+        }
+            gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+    }
+
 }
 
 // special to set a field's totem boost(s)

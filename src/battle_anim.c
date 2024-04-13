@@ -272,6 +272,7 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
         case B_ANIM_SNATCH_MOVE:
         case B_ANIM_FUTURE_SIGHT_HIT:
         case B_ANIM_DOOM_DESIRE_HIT:
+        case B_ANIM_DECIMATION_HIT:
         case B_ANIM_WISH_HEAL:
         case B_ANIM_MEGA_EVOLUTION:
         case B_ANIM_PRIMAL_REVERSION:
@@ -1484,7 +1485,11 @@ static void LoadDefaultBg(void)
     }
     else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
     {
-        LoadMoveBg(BG_TRICK_ROOM);
+        LoadMoveBg(BG_MAGIC_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+    {
+        LoadMoveBg(BG_INVERSE_ROOM);
     }
     else
     {

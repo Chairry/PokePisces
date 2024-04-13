@@ -497,6 +497,17 @@
 #define EFFECT_SEIZE_CHANCE                 491
 #define EFFECT_RAZING_SUN                   492
 #define EFFECT_TERRORIZE                    493
-#define NUM_BATTLE_MOVE_EFFECTS             494
+#define EFFECT_BRUTALIZE                    494
+#define EFFECT_ROADBLOCK                    495
+#define EFFECT_DEFENSE_DOWN_HIT_2           496
+#define EFFECT_EARTH_SHATTER                497
+#define EFFECT_PILGRIMAGE                   498
+#define EFFECT_HEAVY_CANNON                 499
+#define EFFECT_GIANTS_SPEAR                 500
+#define EFFECT_REDLINE                      501
+#define EFFECT_ZAPPER                       502
+#define EFFECT_SKY_SPLITTER                 503
+#define EFFECT_ALL_STATS_UP_2_HIT_FOE       504
+#define NUM_BATTLE_MOVE_EFFECTS             505
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

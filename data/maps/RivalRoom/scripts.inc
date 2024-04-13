@@ -33,7 +33,7 @@ RivalRoom_Movement_PlayerFaceBriney:
 
 RivalRoom_EventScript_GetOut::
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, RivalRoom_EventScript_Docked
-	msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
+    msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
 	end
 
 RivalRoom_EventScript_Docked::

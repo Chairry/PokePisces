@@ -863,6 +863,14 @@ bool8 MetatileBehavior_IsWooden(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsWhitePath(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_WHITE_PATH)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsDiveable(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_INTERIOR_DEEP_WATER
