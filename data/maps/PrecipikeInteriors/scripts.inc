@@ -60,6 +60,13 @@ PrecipikeInteriors_EventScript_EggLady::
 	goto_if_set FLAG_SCUTTILL_EGG, PrecipikeInteriors_EventScript_TheEggDemon
 	goto_if_set FLAG_PRECIPIKE_EGG, PrecipikeInteriors_EventScript_GoToScuttill
 	msgbox PrecipikeInteriors_Text_HelloILikeEggs, MSGBOX_DEFAULT
+	goto_if_defeated TRAINER_P_WREN, PrecipikeInteriors_EventScript_CheckMangrottoEgg
+	msgbox PrecipikeInteriors_Text_GoHuntSomeEggThieves, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PrecipikeInteriors_EventScript_CheckMangrottoEgg::
 	goto_if_set FLAG_MANGROTTO_EGG, PrecipikeInteriors_EventScript_CheckMossdeepEgg
 	msgbox PrecipikeInteriors_Text_GoHuntSomeEggThieves, MSGBOX_DEFAULT
 	closemessage
@@ -106,7 +113,7 @@ PrecipikeInteriors_EventScript_GoGetOldRod::
 	end
 
 PrecipikeInteriors_EventScript_BattleSadFisher::
-	trainerbattle_single TRAINER_P_JIMMY, PrecipikeInteriors_Text_SadFisherIntro, PrecipikeInteriors_Text_SadFisherDefeat, PrecipikeInteriors_EventScript_GiveOldRod
+	trainerbattle_single TRAINER_P_SADFISHER_2, PrecipikeInteriors_Text_SadFisherIntro, PrecipikeInteriors_Text_SadFisherDefeat, PrecipikeInteriors_EventScript_GiveOldRod
 	release
 	end
 
