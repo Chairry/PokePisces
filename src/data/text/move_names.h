@@ -945,6 +945,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_POWER_JAM] = _("Power Jam"),
     [MOVE_STORM_CHASE] = _("Storm Chase"),
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
+    [MOVE_TICK_TACK] = _("Tick Tack"),
 };
 #else
 // 12 letters
@@ -1893,6 +1894,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_POWER_JAM] = _("Power Jam"),
     [MOVE_STORM_CHASE] = _("Storm Chase"),
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
+    [MOVE_TICK_TACK] = _("Tick Tack"),
 };
 #endif
 

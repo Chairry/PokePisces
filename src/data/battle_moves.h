@@ -15662,6 +15662,22 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .metronomeBanned = TRUE,
     },
 
+    [MOVE_TICK_TACK] =
+    {
+        .effect = EFFECT_TICK_TACK,
+        .power = 1,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_5,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

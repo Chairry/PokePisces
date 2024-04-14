@@ -3648,6 +3648,10 @@ static const u8 sDrakenGuardDescription[] = _(
     "Evades damage, and reduces\n"
     "Special Defense if struck.");
 
+static const u8 sTickTackDescription[] = _(
+    "Tacks ticks dealing fixed\n"
+    "damage and absorbing HP.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4601,4 +4605,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_POWER_JAM - 1] = sPowerJamDescription,
     [MOVE_STORM_CHASE - 1] = sStormChaseDescription,
     [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
+    [MOVE_TICK_TACK - 1] = sTickTackDescription,
 };

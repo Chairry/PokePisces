@@ -505,7 +505,7 @@ static void Cmd_tryconversiontypechange(void);
 static void Cmd_givepaydaymoney(void);
 static void Cmd_setlightscreen(void);
 static void Cmd_tryKO(void);
-static void Cmd_damagetohalftargethp(void);
+static void Cmd_damagetopercentagetargethp(void);
 static void Cmd_setsandstorm(void);
 static void Cmd_weatherdamage(void);
 static void Cmd_tryinfatuating(void);
@@ -766,7 +766,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_givepaydaymoney,                         //0x91
     Cmd_setlightscreen,                          //0x92
     Cmd_tryKO,                                   //0x93
-    Cmd_damagetohalftargethp,                    //0x94
+    Cmd_damagetopercentagetargethp,              //0x94
     Cmd_setsandstorm,                            //0x95
     Cmd_weatherdamage,                           //0x96
     Cmd_tryinfatuating,                          //0x97
@@ -3558,6 +3558,18 @@ void SetMoveEffect(bool32 primary, u32 certain)
                             break;
                     }
                 }
+                break;
+            case MOVE_EFFECT_TICKED:
+                //if (gBattleMons[gEffectBattler].status4 & STATUS4_TICKED)
+                //{
+                //    gBattlescriptCurrInstr++;
+                //}
+                //else
+                //{
+                    gStatuses4[gBattlerTarget] |= gBattlerAttacker;
+                    gStatuses4[gBattlerTarget] |= STATUS4_TICKED;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
+                //}
                 break;
             case MOVE_EFFECT_ATK_PLUS_1:
             case MOVE_EFFECT_DEF_PLUS_1:
@@ -11906,21 +11918,38 @@ static void Cmd_setseeded(void)
 {
     CMD_ARGS();
 
-    if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED)
+    if (gCurrentMove == MOVE_TICK_TACK)
     {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_MISS;
-    }
-    else if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS))
-    {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_FAIL;
+        if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses4[gBattlerTarget] & STATUS4_TICKED)
+        {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_MISS;
+        }
+        else
+        {
+            gStatuses4[gBattlerTarget] |= gBattlerAttacker;
+            gStatuses4[gBattlerTarget] |= STATUS4_TICKED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
+        }
     }
     else
     {
-        gStatuses3[gBattlerTarget] |= gBattlerAttacker;
-        gStatuses3[gBattlerTarget] |= STATUS3_LEECHSEED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
+        if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses3[gBattlerTarget] & STATUS3_LEECHSEED)
+        {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_MISS;
+        }
+        else if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS))
+        {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_FAIL;
+        }
+        else
+        {
+            gStatuses3[gBattlerTarget] |= gBattlerAttacker;
+            gStatuses3[gBattlerTarget] |= STATUS3_LEECHSEED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_SET;
+        }
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -13149,11 +13178,18 @@ static void Cmd_tryKO(void)
 }
 
 // Super Fang
-static void Cmd_damagetohalftargethp(void)
+static void Cmd_damagetopercentagetargethp(void)
 {
     CMD_ARGS();
+    if (gCurrentMove == MOVE_TICK_TACK)
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
+    }
+    else
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;  
+    }
 
-    gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;
     if (gBattleMoveDamage == 0)
         gBattleMoveDamage = 1;
 
@@ -14605,6 +14641,13 @@ static void Cmd_rapidspinfree(void)
         gStatuses3[gBattlerAttacker] &= ~STATUS3_LEECHSEED_BATTLER;
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_LeechSeedFree;
+    }
+    else if (gStatuses4[gBattlerAttacker] & STATUS4_TICKED)
+    {
+        gStatuses4[gBattlerAttacker] &= ~STATUS4_TICKED;
+        gStatuses4[gBattlerAttacker] &= ~STATUS4_TICKED_BATTLER;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TickedFree;
     }
     else if (gSideStatuses[atkSide] & SIDE_STATUS_SPIKES)
     {
