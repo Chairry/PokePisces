@@ -389,6 +389,135 @@ Route125_EventScript_ShellRiddle3::
 	release
 	end
 
+Route125_EventScript_Van::
+    trainerbattle_single TRAINER_P_VAN, Route125_Text_VanIntro, Route125_Text_VanDefeated
+    msgbox Route125_Text_VanPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_AprilMae::
+    trainerbattle_double TRAINER_P_APRIL_AND_MAE, Route125_Text_AprilMaeIntro, Route125_Text_AprilMaeDefeated, Route125_Text_AprilMaeNeedTwoMons
+    msgbox Route125_Text_AprilMaePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Wren::
+    trainerbattle_single TRAINER_P_WREN, Route125_Text_WrenIntro, Route125_Text_WrenDefeated
+    msgbox Route125_Text_WrenPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Raine::
+    trainerbattle_single TRAINER_P_RAINE, Route125_Text_RaineIntro, Route125_Text_RaineDefeated
+    msgbox Route125_Text_RainePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Skye::
+    trainerbattle_single TRAINER_P_SKYE, Route125_Text_SkyeIntro, Route125_Text_SkyeDefeated
+    msgbox Route125_Text_SkyePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Guunther::
+    trainerbattle_single TRAINER_P_GUUNTHER, Route125_Text_GuuntherIntro, Route125_Text_GuuntherDefeated
+    msgbox Route125_Text_GuuntherPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Ava::
+    trainerbattle_single TRAINER_P_AVA, Route125_Text_AvaIntro, Route125_Text_AvaDefeated
+    msgbox Route125_Text_AvaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Junichi::
+    trainerbattle_single TRAINER_P_JUNICHI, Route125_Text_JunichiIntro, Route125_Text_JunichiDefeated
+    msgbox Route125_Text_JunichiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_EventScript_Nelly::
+    trainerbattle_single TRAINER_P_NELLY, Route125_Text_NellyIntro, Route125_Text_NellyDefeated
+    msgbox Route125_Text_NellyPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route125_Text_VanIntro:
+	.string "intro$"
+
+Route125_Text_VanDefeated:
+	.string "defeat$"
+
+Route125_Text_VanPostBattle:
+	.string "post$"
+
+Route125_Text_AprilMaeIntro:
+	.string "intro$"
+
+Route125_Text_AprilMaeDefeated:
+	.string "defeat$"
+
+Route125_Text_AprilMaeNeedTwoMons:
+	.string "need 2 dood$"
+
+Route125_Text_AprilMaePostBattle:
+	.string "post$"
+
+Route125_Text_WrenIntro:
+	.string "intro$"
+
+Route125_Text_WrenDefeated:
+	.string "defeat$"
+
+Route125_Text_WrenPostBattle:
+	.string "post$"
+
+Route125_Text_RaineIntro:
+	.string "intro$"
+
+Route125_Text_RaineDefeated:
+	.string "defeat$"
+
+Route125_Text_RainePostBattle:
+	.string "post$"
+
+Route125_Text_SkyeIntro:
+	.string "intro$"
+
+Route125_Text_SkyeDefeated:
+	.string "defeat$"
+
+Route125_Text_SkyePostBattle:
+	.string "post$"
+
+Route125_Text_GuuntherIntro:
+	.string "intro$"
+
+Route125_Text_GuuntherDefeated:
+	.string "defeat$"
+
+Route125_Text_GuuntherPostBattle:
+	.string "post$"
+
+Route125_Text_AvaIntro:
+	.string "intro$"
+
+Route125_Text_AvaDefeated:
+	.string "defeat$"
+
+Route125_Text_AvaPostBattle:
+	.string "post$"
+
+Route125_Text_JunichiIntro:
+	.string "intro$"
+
+Route125_Text_JunichiDefeated:
+	.string "defeat$"
+
+Route125_Text_JunichiPostBattle:
+	.string "post$"
+
+Route125_Text_NellyIntro:
+	.string "intro$"
+
+Route125_Text_NellyDefeated:
+	.string "defeat$"
+
+Route125_Text_NellyPostBattle:
+	.string "post$"
+
 Route125_Text_ShellRiddle1:
 	.string "secret cave in mossdeep\p"
 	.string "bring me polish$"
