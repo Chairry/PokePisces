@@ -631,8 +631,9 @@ $(PKNAVGFXDIR)/match_call/ui.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 13 -Wnum_tiles
 
 $(POKEDEXGFXDIR)/region_map.8bpp: %.8bpp: %.png
-	$(GFX) $< $@ -num_tiles 232 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 256 -Wnum_tiles
 
+# This is unused, just leave it as-is bc it's not worth it trust me
 $(POKEDEXGFXDIR)/region_map_affine.8bpp: %.8bpp: %.png
 	$(GFX) $< $@ -num_tiles 233 -Wnum_tiles
 
