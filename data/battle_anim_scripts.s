@@ -980,6 +980,10 @@ gBattleAnims_Moves::
 	.4byte Move_GLIMMER
 	.4byte Move_WATER_WHEEL
 	.4byte Move_SUN_BASK
+	.4byte Move_HEARTHWARM
+	.4byte Move_DUNE_SLICER
+	.4byte Move_BASS_CANNON
+	.4byte Move_POWER_DRAIN
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -22155,6 +22159,45 @@ Move_WATER_WHEEL::
 Move_SUN_BASK::
 	goto Move_GROWTH
 
+Move_HEARTHWARM::
+	goto Move_AQUA_RING
+
+Move_DUNE_SLICER::
+	goto Move_SLASH
+
+Move_BASS_CANNON::
+	goto Move_FLASH_CANNON
+
+Move_POWER_DRAIN::
+	goto Move_POWER_SWAP
+
+Move_RUINATION::
+	goto Move_LIGHT_OF_RUIN
+
+Move_TIDY_UP::
+	loadspritegfx ANIM_TAG_PINK_CLOUD
+	monbg ANIM_ATTACKER
+	setalpha 12, 4
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PINK_CLOUD, 0, 12, 12, RGB(30, 28, 22)
+	createvisualtask AnimTask_SwayMon, 5, 0, 12, 4096, 8, ANIM_ATTACKER
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 127, 2, 28, 8, 30
+	delay 12
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 126, 2, -28, 4, 30
+	delay 12
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 126, 2, 12, 4, 30
+	delay 12
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 126, 2, -44, 4, 30
+	delay 12
+	createsprite gSmokeBallEscapeCloudSpriteTemplate, ANIM_ATTACKER, 126, 2, 44, 4, 30
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
+
+Move_BLAZING_TORQUE::
+	goto Move_BLAZE_KICK
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
 Move_ORDER_UP::
@@ -22167,13 +22210,10 @@ Move_TRIPLE_DIVE::
 Move_DOODLE::
 Move_KOWTOW_CLEAVE::
 Move_RAGING_BULL::
-Move_RUINATION::
 Move_COLLISION_COURSE::
 Move_ELECTRO_DRIFT::
-Move_TIDY_UP::
 Move_ARMOR_CANNON::
 Move_GIGATON_HAMMER::
-Move_BLAZING_TORQUE::
 Move_WICKED_TORQUE::
 Move_NOXIOUS_TORQUE::
 Move_COMBAT_TORQUE::

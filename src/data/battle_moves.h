@@ -13885,6 +13885,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_DEF_UP_1,
         .magicCoatAffected = TRUE,
+        .windMove = TRUE,
     },
 
     [MOVE_ELECTRO_SHOT] =
@@ -14186,6 +14187,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .windMove = TRUE,
     },
 
     [MOVE_SPIRIT_DANCE] =

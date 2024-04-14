@@ -20669,7 +20669,7 @@ static const struct LevelUpMove sPebblerLevelUpLearnset[] = {
 static const struct LevelUpMove sDunewichLevelUpLearnset[] = {
     //LEVEL_UP_MOVE(1, MOVE_SAND_BURIAL),
     LEVEL_UP_MOVE(1, MOVE_MEAN_LOOK),
-    LEVEL_UP_MOVE(1, MOVE_TORMENT),
+    LEVEL_UP_MOVE(1, MOVE_LUCKY_CHANT),
     LEVEL_UP_MOVE(1, MOVE_MEMENTO),
     LEVEL_UP_MOVE(0, MOVE_EERIE_SPELL),
     LEVEL_UP_MOVE(1, MOVE_EERIE_SPELL),

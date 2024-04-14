@@ -466,7 +466,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 14,
-    .moves = {MOVE_ICE_SHARD, MOVE_DIG, MOVE_SAND_ATTACK, MOVE_LUCKY_CHANT}, //MOVE MISSING: DUNE SLICER (OVER DIG)
+    .moves = {MOVE_ICE_SHARD, MOVE_DUNE_SLICER, MOVE_SAND_ATTACK, MOVE_LUCKY_CHANT},
     .nature = NATURE_QUIRKY,
     },
     {
