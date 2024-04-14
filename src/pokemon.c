@@ -8267,7 +8267,7 @@ u16 GetBattleBGM(void)
         }
     }
     else
-        return MUS_VS_WILD;
+        return MUS_VS_WILD2;
 }
 
 void PlayBattleBGM(void)
@@ -8945,9 +8945,13 @@ u8 GetCurrentLevelCap(void)
     if (!FlagGet(FLAG_BADGE01_GET))
         return 14;
     else if (!FlagGet(FLAG_BADGE02_GET))
-        return 20;
+        return 21;
+    else if (!FlagGet(FLAG_DEFEATED_PANIC_EVENT))
+        return 22;
+    else if (!FlagGet(FLAG_DEFEATED_OZONE_BRANCH))
+        return 27;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 29;
+        return 31;
     else if (!FlagGet(FLAG_BADGE04_GET))
         return 36;
     else if (!FlagGet(FLAG_BADGE05_GET))

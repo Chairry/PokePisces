@@ -20,6 +20,7 @@ SootopolisCity_PokemonCenter_2F_EventScript_Nurse::
 SootopolisCity_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
+	goto_if_lt VAR_BALL_QUEST_STATE, 1, SootopolisCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest
 	goto_if_gt VAR_BALL_QUEST_STATE, 1, SootopolisCity_PokemonCenter_2F_EventScript_NoMoreQuest
 	msgbox SootopolisCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_SNOTLOUD
@@ -48,6 +49,11 @@ SootopolisCity_PokemonCenter_2F_EventScript_GiveNewBall::
 	release
 	end
 
+SootopolisCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest::
+	msgbox SootopolisCity_PokemonCenter_2F_Text_GoDoPreviousQuest, MSGBOX_NPC
+	release
+	end
+
 SootopolisCity_PokemonCenter_2F_EventScript_NoMoreQuest::
 	msgbox SootopolisCity_PokemonCenter_2F_Text_NoMoreQuest, MSGBOX_NPC
 	release
@@ -62,6 +68,9 @@ SootopolisCity_PokemonCenter_2F_Text_GoCatchIt:
 
 SootopolisCity_PokemonCenter_2F_Text_YouveUnlockedNewBall:
 	.string "you have unlocked moon ball$"
+
+SootopolisCity_PokemonCenter_2F_Text_GoDoPreviousQuest:
+	.string "go do the last one(s)$"
 
 SootopolisCity_PokemonCenter_2F_Text_NoMoreQuest:
 	.string "no more quest dood$"
