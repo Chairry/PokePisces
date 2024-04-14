@@ -531,6 +531,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSpeedDownHit            @ EFFECT_ZAPPER
 	.4byte BattleScript_EffectSkySplitter             @ EFFECT_SKY_SPLITTER
 	.4byte BattleScript_EffectAllStatsUp2HitFoe       @ EFFECT_ALL_STATS_UP_2_HIT_FOE
+	.4byte BattleScript_EffectTickTack                @ EFFECT_TICK_TACK
 
 BattleScript_EffectSkySplitter::
 	call BattleScript_EffectHit_Ret
@@ -559,6 +560,31 @@ BattleScript_EffectBrutalize::
 	seteffectwithchance
 	argumentstatuseffect
 	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTickTack::
+	damagetopercentagetargethp
+	setseeded
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	attackanimation
+	effectivenesssound
+	waitanimation
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	setdrainedhp
+	manipulatedamage DMG_BIG_ROOT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
+	jumpifability BS_TARGET, ABILITY_LIQUID_OOZE, BattleScript_AbsorbLiquidOoze
+	setbyte cMULTISTRING_CHOOSER, B_MSG_ABSORB
+	setmoveeffect MOVE_EFFECT_TICKED
+	call BattleScript_AbsorbUpdateHp
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectTerrorize::
@@ -5504,7 +5530,7 @@ BattleScript_EffectSuperFang::
 	ppreduce
 	typecalc
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	damagetohalftargethp
+	damagetopercentagetargethp
 	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectDragonRage::
@@ -9146,6 +9172,11 @@ BattleScript_WrapFree::
 
 BattleScript_LeechSeedFree::
 	printstring STRINGID_PKMNSHEDLEECHSEED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_TickedFree::
+	printstring STRINGID_PKMNSHEDTICK
 	waitmessage B_WAIT_TIME_LONG
 	return
 

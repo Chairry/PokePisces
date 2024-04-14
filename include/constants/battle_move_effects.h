@@ -508,6 +508,7 @@
 #define EFFECT_ZAPPER                       502
 #define EFFECT_SKY_SPLITTER                 503
 #define EFFECT_ALL_STATS_UP_2_HIT_FOE       504
-#define NUM_BATTLE_MOVE_EFFECTS             505
+#define EFFECT_TICK_TACK                    505
+#define NUM_BATTLE_MOVE_EFFECTS             506
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

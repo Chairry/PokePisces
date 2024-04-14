@@ -969,6 +969,9 @@ gBattleAnims_Moves::
 	.4byte Move_RAILGUN
 	.4byte Move_DECIMATION
 	.4byte Move_POWER_JAM
+	.4byte Move_STORM_CHASE
+	.4byte Move_DRAKEN_GUARD
+	.4byte Move_TICK_TACK
 	.4byte Move_DEEP_GAZE
 	.4byte Move_ENERVATOR
 	.4byte Move_ERODE_FIELD
@@ -22121,6 +22124,15 @@ Move_DECIMATION::
 
 Move_POWER_JAM::
 	goto Move_POWER_GEM
+
+Move_STORM_CHASE::
+	goto Move_VOLT_TACKLE
+
+Move_DRAKEN_GUARD::
+	goto Move_PROTECT
+
+	Move_TICK_TACK::
+	goto Move_ABSORB
 
 Move_DEEP_GAZE::
 	goto Move_BABY_DOLL_EYES
