@@ -12,7 +12,7 @@ SecretMossdeepCave_EventScript_SetTempFlags::
 	return
 
 SecretMossdeepCave_EventScript_PomAndAtia::
-	trainerbattle_double TRAINER_P_JO_AND_JO, SecretMossdeepCave_Text_PomAtiaIntro, SecretMossdeepCave_Text_PomAtiaDefeated, SecretMossdeepCave_Text_PomAtiaNeedTwoMons, SecretMossdeepCave_EventScript_GiveShellPolish
+	trainerbattle_double TRAINER_P_POM_AND_ATIA, SecretMossdeepCave_Text_PomAtiaIntro, SecretMossdeepCave_Text_PomAtiaDefeated, SecretMossdeepCave_Text_PomAtiaNeedTwoMons, SecretMossdeepCave_EventScript_GiveShellPolish
     msgbox SecretMossdeepCave_Text_PomAtiaPostBattle, MSGBOX_AUTOCLOSE
     end
 
