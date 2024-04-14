@@ -83,8 +83,8 @@ enum {
 // mugshot id
 enum
 {
-    MUGSHOT_JERRY, // OBJ_EVENT_GFX_MART_EMPLOYEE
-    MUGSHOT_JENNIE, // OBJ_EVENT_GFX_TEALA
+    MUGSHOT_TANNER, // OBJ_EVENT_GFX_MART_EMPLOYEE
+    MUGSHOT_TEALA, // OBJ_EVENT_GFX_TEALA
     MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_PURPLINA
     MUGSHOT_KODOUGH, // OBJ_EVENT_GFX_WINGULL
     MUGSHOT_COUNT,
@@ -525,17 +525,17 @@ const u32 sShopMenu_ScrollGfx[] = INCBIN_U32("graphics/shop/scroll.4bpp.lz");
 const u32 sShopMenu_ScrollTilemap[] = INCBIN_U32("graphics/shop/scroll.bin.lz");
 const u16 sShopMenu_DefaultCursorGfx[] = INCBIN_U16("graphics/shop/cursor.4bpp");
 
-const u8 gShopMenuSellerMugshotGfx_Jerry[] = INCBIN_U8("graphics/shop/sellers/jerry.4bpp");
-const u16 gShopMenuSellerMugshotPal_Jerry[] = INCBIN_U16("graphics/shop/sellers/jerry.gbapal");
+const u8 sShopMenuSellerMugshotGfx_Tanner[] = INCBIN_U8("graphics/shop/sellers/tanner/mugshot.4bpp");
+const u16 sShopMenuSellerMugshotPal_Tanner[] = INCBIN_U16("graphics/shop/sellers/tanner/mugshot.gbapal");
 
-const u8 gShopMenuSellerMugshotGfx_Jennie[] = INCBIN_U8("graphics/shop/sellers/jennie.4bpp");
-const u16 gShopMenuSellerMugshotPal_Jennie[] = INCBIN_U16("graphics/shop/sellers/jennie.gbapal");
+const u8 sShopMenuSellerMugshotGfx_Teala[] = INCBIN_U8("graphics/shop/sellers/teala/mugshot.4bpp");
+const u16 sShopMenuSellerMugshotPal_Teala[] = INCBIN_U16("graphics/shop/sellers/teala/mugshot.gbapal");
 
-const u8 gShopMenuSellerMugshotGfx_Purplina[] = INCBIN_U8("graphics/shop/sellers/purplina.4bpp");
-const u16 gShopMenuSellerMugshotPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina.gbapal");
+const u8 sShopMenuSellerMugshotGfx_Purplina[] = INCBIN_U8("graphics/shop/sellers/purplina/mugshot.4bpp");
+const u16 sShopMenuSellerMugshotPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina/mugshot.gbapal");
 
-const u8 gShopMenuSellerMugshotGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough.4bpp");
-const u16 gShopMenuSellerMugshotPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough.gbapal");
+const u8 sShopMenuSellerMugshotGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough/mugshot.4bpp");
+const u16 sShopMenuSellerMugshotPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough/mugshot.gbapal");
 
 static const struct CompressedSpritePalette sCursor_SpritePalette = {
     .data = sShopMenu_Pal,
@@ -578,14 +578,14 @@ static const struct SpriteTemplate sCursor_SpriteTemplate = {
 };
 
 #define MUGSHOT(num, gfxid, id) \
-    [MUGSHOT_ ## num] = {{.gfxId=OBJ_EVENT_GFX_ ## gfxid}, .gfx=gShopMenuSellerMugshotGfx_ ## id, .pal=gShopMenuSellerMugshotPal_ ## id}
+    [MUGSHOT_ ## num] = {{.gfxId=OBJ_EVENT_GFX_ ## gfxid}, .gfx=sShopMenuSellerMugshotGfx_ ## id, .pal=sShopMenuSellerMugshotPal_ ## id}
 
 static const struct SellerMugshot sSellerMugshots[] = {
     // both are same thing btw, is just one is shortened with macro and others are pure
-    MUGSHOT(JERRY, MART_EMPLOYEE, Jerry),
-    {{.gfxId=OBJ_EVENT_GFX_TEALA}, .gfx=gShopMenuSellerMugshotGfx_Jennie, .pal=gShopMenuSellerMugshotPal_Jennie},
-    {{.gfxId=OBJ_EVENT_GFX_PURPLINA}, .gfx=gShopMenuSellerMugshotGfx_Purplina, .pal=gShopMenuSellerMugshotPal_Purplina},
-    {{.gfxId=OBJ_EVENT_GFX_WINGULL}, .gfx=gShopMenuSellerMugshotGfx_Kodough, .pal=gShopMenuSellerMugshotPal_Kodough},
+    MUGSHOT(TANNER, MART_EMPLOYEE, Tanner),
+    [MUGSHOT_TEALA] = {{.gfxId=OBJ_EVENT_GFX_TEALA}, .gfx=sShopMenuSellerMugshotGfx_Teala, .pal=sShopMenuSellerMugshotPal_Teala},
+    [MUGSHOT_PURPLINA] = {{.gfxId=OBJ_EVENT_GFX_PURPLINA}, .gfx=sShopMenuSellerMugshotGfx_Purplina, .pal=sShopMenuSellerMugshotPal_Purplina},
+    [MUGSHOT_KODOUGH] = {{.gfxId=OBJ_EVENT_GFX_WINGULL}, .gfx=sShopMenuSellerMugshotGfx_Kodough, .pal=sShopMenuSellerMugshotPal_Kodough},
 };
 
 static u8 CreateShopMenu(u8 martType)
@@ -1155,7 +1155,7 @@ static void SetupSellerMugshot(void)
 
     if (gSpecialVar_LastTalked == 0) // failsafe
     {
-        LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
+        LoadSellerMugshot(sShopMenuSellerMugshotGfx_Tanner, sShopMenuSellerMugshotPal_Tanner);
         return;
     }
 
@@ -1170,7 +1170,7 @@ static void SetupSellerMugshot(void)
             }
             else
             {
-                LoadSellerMugshot(gShopMenuSellerMugshotGfx_Jerry, gShopMenuSellerMugshotPal_Jerry);
+                LoadSellerMugshot(sShopMenuSellerMugshotGfx_Tanner, sShopMenuSellerMugshotPal_Tanner);
             }
             return;
         }
