@@ -1674,25 +1674,8 @@ const u32 gBattlePyramidBagInterface_Pal[] = INCBIN_U32("graphics/bag/menu_pyram
 const u32 gSwapLineGfx[] = INCBIN_U32("graphics/interface/swap_line.4bpp.lz");
 const u32 gSwapLinePal[] = INCBIN_U32("graphics/interface/swap_line.gbapal.lz");
 
-const u32 gShopMenu_Gfx[] = INCBIN_U32("graphics/shop/menu.4bpp.lz");
-const u32 gShopMenu_Pal[] = INCBIN_U32("graphics/shop/menu.gbapal.lz");
-const u32 gShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.lz");
-const u32 gShopMenu_ScrollGfx[] = INCBIN_U32("graphics/shop/scroll.4bpp.lz");
-const u32 gShopMenu_ScrollTilemap[] = INCBIN_U32("graphics/shop/scroll.bin.lz");
 const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.lz");
-const u16 gShopMenu_CursorGfx[] = INCBIN_U16("graphics/shop/cursor.4bpp"); // uses the menu palette
-
-const u8 gShopMenuSellerMugshotGfx_Jerry[] = INCBIN_U8("graphics/shop/sellers/jerry.4bpp");
-const u16 gShopMenuSellerMugshotPal_Jerry[] = INCBIN_U16("graphics/shop/sellers/jerry.gbapal");
-
-const u8 gShopMenuSellerMugshotGfx_Jennie[] = INCBIN_U8("graphics/shop/sellers/jennie.4bpp");
-const u16 gShopMenuSellerMugshotPal_Jennie[] = INCBIN_U16("graphics/shop/sellers/jennie.gbapal");
-
-const u8 gShopMenuSellerMugshotGfx_Purplina[] = INCBIN_U8("graphics/shop/sellers/purplina.4bpp");
-const u16 gShopMenuSellerMugshotPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina.gbapal");
-
-const u8 gShopMenuSellerMugshotGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough.4bpp");
-const u16 gShopMenuSellerMugshotPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough.gbapal");
+const u32 gShopMenuMoney_Pal[] = INCBIN_U32("graphics/shop/money.gbapal.lz");
 
 // Pokeblock
 

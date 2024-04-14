@@ -518,8 +518,27 @@ static const u8 sShopBuyMenuTextColors[][3] =
     [COLORID_GRAY_CURSOR] = {0, 1, 2},
 };
 
+const u32 sShopMenu_Gfx[] = INCBIN_U32("graphics/shop/menu.4bpp.lz");
+const u32 sShopMenu_Pal[] = INCBIN_U32("graphics/shop/menu.gbapal.lz");
+const u32 sShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.lz");
+const u32 sShopMenu_ScrollGfx[] = INCBIN_U32("graphics/shop/scroll.4bpp.lz");
+const u32 sShopMenu_ScrollTilemap[] = INCBIN_U32("graphics/shop/scroll.bin.lz");
+const u16 sShopMenu_DefaultCursorGfx[] = INCBIN_U16("graphics/shop/cursor.4bpp");
+
+const u8 gShopMenuSellerMugshotGfx_Jerry[] = INCBIN_U8("graphics/shop/sellers/jerry.4bpp");
+const u16 gShopMenuSellerMugshotPal_Jerry[] = INCBIN_U16("graphics/shop/sellers/jerry.gbapal");
+
+const u8 gShopMenuSellerMugshotGfx_Jennie[] = INCBIN_U8("graphics/shop/sellers/jennie.4bpp");
+const u16 gShopMenuSellerMugshotPal_Jennie[] = INCBIN_U16("graphics/shop/sellers/jennie.gbapal");
+
+const u8 gShopMenuSellerMugshotGfx_Purplina[] = INCBIN_U8("graphics/shop/sellers/purplina.4bpp");
+const u16 gShopMenuSellerMugshotPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina.gbapal");
+
+const u8 gShopMenuSellerMugshotGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough.4bpp");
+const u16 gShopMenuSellerMugshotPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough.gbapal");
+
 static const struct CompressedSpritePalette sCursor_SpritePalette = {
-    .data = gShopMenu_Pal,
+    .data = sShopMenu_Pal,
     .tag = PALTAG_CURSOR,
 };
 
@@ -534,8 +553,8 @@ static const union AnimCmd *const sCursorAnims[] = { sCursorAnim };
 
 static const struct SpriteFrameImage sCursorPicTable[] =
 {
-    overworld_frame(gShopMenu_CursorGfx, 8, 8, 0),
-    overworld_frame(gShopMenu_CursorGfx, 8, 8, 1),
+    overworld_frame(sShopMenu_DefaultCursorGfx, 8, 8, 0),
+    overworld_frame(sShopMenu_DefaultCursorGfx, 8, 8, 1),
 };
 
 static const struct OamData sCursor_SpriteOamData = {
@@ -1075,11 +1094,11 @@ static void BuyMenuInitBgs(void)
 
 static void BuyMenuDecompressBgGraphics(void)
 {
-    DecompressAndCopyTileDataToVram(2, gShopMenu_Gfx, 0, 9, 0);
-    DecompressAndCopyTileDataToVram(2, gShopMenu_ScrollGfx, 0, 0, 0);
-    LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
-    LZDecompressWram(gShopMenu_ScrollTilemap, sShopData->tilemapBuffers[1]);
-    LoadCompressedPalette(gShopMenu_Pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    DecompressAndCopyTileDataToVram(2, sShopMenu_Gfx, 0, 9, 0);
+    DecompressAndCopyTileDataToVram(2, sShopMenu_ScrollGfx, 0, 0, 0);
+    LZDecompressWram(sShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+    LZDecompressWram(sShopMenu_ScrollTilemap, sShopData->tilemapBuffers[1]);
+    LoadCompressedPalette(sShopMenu_Pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
 }
 
 static inline void SpawnWindow(u8 winId)

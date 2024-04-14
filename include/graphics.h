@@ -10864,26 +10864,8 @@ extern const u32 gSummaryMoveSelect_Pal[];
 extern const u32 gStatusGfx_Icons[];
 extern const u32 gStatusPal_Icons[];
 
-extern const u32 gShopMenu_Gfx[];
-extern const u32 gShopMenu_Tilemap[];
-extern const u32 gShopMenu_Pal[];
-extern const u32 gShopMenu_ScrollGfx[];
-extern const u32 gShopMenu_ScrollTilemap[];
 extern const u32 gShopMenuMoney_Gfx[];
-extern const u16 gShopMenu_CursorGfx[];
-
-// shop seller mugshots
-extern const u8 gShopMenuSellerMugshotGfx_Jerry[];
-extern const u16 gShopMenuSellerMugshotPal_Jerry[];
-
-extern const u8 gShopMenuSellerMugshotGfx_Jennie[];
-extern const u16 gShopMenuSellerMugshotPal_Jennie[];
-
-extern const u8 gShopMenuSellerMugshotGfx_Purplina[];
-extern const u16 gShopMenuSellerMugshotPal_Purplina[];
-
-extern const u8 gShopMenuSellerMugshotGfx_Kodough[];
-extern const u16 gShopMenuSellerMugshotPal_Kodough[];
+extern const u32 gShopMenuMoney_Pal[];
 
 extern const u32 gBattleInterface_BallStatusBarGfx[];
 extern const u8 gBattleInterface_BallDisplayGfx[];
