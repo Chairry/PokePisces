@@ -9935,7 +9935,7 @@ const struct Item gItems[] =
     },
     [ITEM_SHELL_POLISH] =
     {
-        .name = _("Shell Polish"),
+        .name = _("Snail Polish"),
         .price = 4000,
         .holdEffect = HOLD_EFFECT_SHELL_POLISH,
         .description = sShellPolishDesc,

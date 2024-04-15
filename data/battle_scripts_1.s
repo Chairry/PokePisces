@@ -742,7 +742,7 @@ BattleScript_EffectScorpFang::
 	setmoveeffect MOVE_EFFECT_SMACK_DOWN | MOVE_EFFECT_CERTAIN
 	seteffectprimary
 	call BattleScript_EffectHit_Ret
-	setmoveeffect MOVE_EFFECT_TOXIC | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_POISON | MOVE_EFFECT_CERTAIN
 	seteffectsecondary
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
