@@ -45,10 +45,11 @@
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
-#define PALTAG_CURSOR 0x1300
+#define GFXTAG_CURSOR 0x2000
+#define PALTAG_CURSOR 0x2100
 
-#define GFXTAG_ITEM 0x1000
-#define PALTAG_ITEM 0x2000
+#define GFXTAG_ITEM 0x2200
+#define PALTAG_ITEM 0x2300
 
 #define CURSOR_START_X 100 + 32
 #define CURSOR_START_Y 4 + 32
@@ -83,6 +84,7 @@ enum {
 // mugshot id
 enum
 {
+    MUGSHOT_NONE = 0,
     MUGSHOT_TANNER, // OBJ_EVENT_GFX_MART_EMPLOYEE
     MUGSHOT_TEALA, // OBJ_EVENT_GFX_TEALA
     MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_PURPLINA
@@ -114,7 +116,7 @@ struct ShopData
     u8 gfxLoadState;
     u8 cursorSpriteId;
     u16 currentItemId;
-    u16 sellerGfxId;
+    u16 sellerId;
     struct GridMenu *gridItems;
 };
 
@@ -134,7 +136,8 @@ struct Seller
     const u32 *gfxSBg;
     const u32 *mapSBg;
     // cursor sprite
-    const u16 *cursor;
+    const u16 *cursorGfx;
+    const u32 *cursorPal; // compressed
 };
 
 static EWRAM_DATA struct MartInfo sMartInfo = {0};
@@ -543,7 +546,8 @@ const u32 sShopMenuSellerMapBg_Tanner[] = INCBIN_U32("graphics/shop/sellers/tann
 const u32 sShopMenuSellerPalBg_Tanner[] = INCBIN_U32("graphics/shop/sellers/tanner/menu.bin.lz");
 const u32 sShopMenuSellerGfxSBg_Tanner[] = INCBIN_U32("graphics/shop/sellers/tanner/scroll.4bpp.lz");
 const u32 sShopMenuSellerMapSBg_Tanner[] = INCBIN_U32("graphics/shop/sellers/tanner/scroll.bin.lz");
-const u16 sShopMenuSellerCursor_Tanner[] = INCBIN_U16("graphics/shop/sellers/tanner/cursor.4bpp");
+const u16 sShopMenuSellerCursorGfx_Tanner[] = INCBIN_U16("graphics/shop/sellers/tanner/cursor.4bpp");
+const u32 sShopMenuSellerCursorPal_Tanner[] = INCBIN_U32("graphics/shop/sellers/tanner/cursor.gbapal.lz");
 
 const u8 sShopMenuSellerGfx_Teala[] = INCBIN_U8("graphics/shop/sellers/teala/mugshot.4bpp");
 const u16 sShopMenuSellerPal_Teala[] = INCBIN_U16("graphics/shop/sellers/teala/mugshot.gbapal");
@@ -554,7 +558,13 @@ const u16 sShopMenuSellerPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purp
 const u8 sShopMenuSellerGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough/mugshot.4bpp");
 const u16 sShopMenuSellerPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough/mugshot.gbapal");
 
-static const struct CompressedSpritePalette sCursor_SpritePalette = {
+static const struct SpriteSheet sDefaultCursor_SpriteSheet = {
+    .data = sShopMenu_DefaultCursorGfx,
+    .size = 64*64*2,
+    .tag = GFXTAG_CURSOR,
+};
+
+static const struct CompressedSpritePalette sDefaultCursor_SpritePalette = {
     .data = sShopMenu_DefaultPal,
     .tag = PALTAG_CURSOR,
 };
@@ -562,17 +572,11 @@ static const struct CompressedSpritePalette sCursor_SpritePalette = {
 static const union AnimCmd sCursorAnim[] =
 {
     ANIMCMD_FRAME(0, 30),
-    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(64, 30),
     ANIMCMD_JUMP(0)
 };
 
 static const union AnimCmd *const sCursorAnims[] = { sCursorAnim };
-
-static const struct SpriteFrameImage sCursorPicTable[] =
-{
-    overworld_frame(sShopMenu_DefaultCursorGfx, 8, 8, 0),
-    overworld_frame(sShopMenu_DefaultCursorGfx, 8, 8, 1),
-};
 
 static const struct OamData sCursor_SpriteOamData = {
     .affineMode = ST_OAM_AFFINE_OFF,
@@ -585,12 +589,12 @@ static const struct OamData sCursor_SpriteOamData = {
 };
 
 static const struct SpriteTemplate sCursor_SpriteTemplate = {
-    .tileTag = TAG_NONE,
+    .tileTag = GFXTAG_CURSOR,
     .paletteTag = PALTAG_CURSOR,
     .callback = SpriteCallbackDummy,
     .anims = sCursorAnims,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .images = sCursorPicTable,
+    .images = NULL,
     .oam = &sCursor_SpriteOamData,
 };
 
@@ -604,7 +608,8 @@ static const struct Seller sSellers[MUGSHOT_COUNT] = {
         .mapBg = sShopMenuSellerPalBg_Tanner,
         .gfxSBg = sShopMenuSellerGfxSBg_Tanner,
         .mapSBg = sShopMenuSellerMapSBg_Tanner,
-        .cursor = sShopMenuSellerCursor_Tanner,
+        .cursorGfx = sShopMenuSellerCursorGfx_Tanner,
+        .cursorPal = sShopMenuSellerCursorPal_Tanner,
     },
     [MUGSHOT_TEALA] = {
         {.gfxId=OBJ_EVENT_GFX_TEALA},
@@ -1129,9 +1134,9 @@ static void BuyMenuInitBgs(void)
 
 static void BuyMenuDecompressBgGraphics(void)
 {
-    u32 i, check;
+    u32 i = sShopData->sellerId;
     // failsafe
-    if (gSpecialVar_LastTalked == 0)
+    if (gSpecialVar_LastTalked == 0 || i == MUGSHOT_NONE)
     {
         DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultGfx, 0, 9, 0);
         DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultScrollGfx, 0, 0, 0);
@@ -1141,26 +1146,6 @@ static void BuyMenuDecompressBgGraphics(void)
         return;
     }
 
-    for (i = 0; i < MUGSHOT_COUNT; i++)
-    {
-        if (sShopData->sellerGfxId == sSellers[i].id.gfxId)
-        {
-            check = TRUE;
-            break;
-        }
-    }
-
-    if (check != TRUE) // loops over, and none of the id matches
-    {
-        DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultGfx, 0, 9, 0);
-        DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultScrollGfx, 0, 0, 0);
-        LZDecompressWram(sShopMenu_DefaultTilemap, sShopData->tilemapBuffers[0]);
-        LZDecompressWram(sShopMenu_DefaultScrollTilemap, sShopData->tilemapBuffers[1]);
-        LoadCompressedPalette(sShopMenu_DefaultPal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
-        return;
-    }
-
-    // this is horrible, but i hate a bunch of ifs too
     DecompressAndCopyTileDataToVram(2, sSellers[i].gfxBg ? sSellers[i].gfxBg : sShopMenu_DefaultGfx, 0, 9, 0);
     DecompressAndCopyTileDataToVram(2, sSellers[i].gfxSBg ? sSellers[i].gfxSBg : sShopMenu_DefaultScrollGfx, 0, 0, 0);
     LZDecompressWram(sSellers[i].mapBg ? sSellers[i].mapBg : sShopMenu_DefaultTilemap, sShopData->tilemapBuffers[0]);
@@ -1214,7 +1199,6 @@ static void SetupSellerMugshot(void)
                                                     gSaveBlock1Ptr->location.mapNum,
                                                     gSaveBlock1Ptr->location.mapGroup);
     u32 gfxId = gObjectEvents[objId].graphicsId;
-    sShopData->sellerGfxId = gfxId;
 
     if (gfxId >= OBJ_EVENT_GFX_VAR_0 && gfxId <= OBJ_EVENT_GFX_VAR_F)
     {
@@ -1224,6 +1208,7 @@ static void SetupSellerMugshot(void)
     if (gSpecialVar_LastTalked == 0) // failsafe
     {
         LoadSellerMugshot(sShopMenuSellerGfx_Tanner, sShopMenuSellerPal_Tanner);
+        sShopData->sellerId = MUGSHOT_NONE;
         return;
     }
 
@@ -1232,6 +1217,7 @@ static void SetupSellerMugshot(void)
     {
         if (gfxId == sSellers[i].id.gfxId)
         {
+            
             if (sSellers[i].gfx != NULL || sSellers[i].pal != NULL)
             {
                 LoadSellerMugshot(sSellers[i].gfx, sSellers[i].pal);
@@ -1240,6 +1226,7 @@ static void SetupSellerMugshot(void)
             {
                 LoadSellerMugshot(sShopMenuSellerGfx_Tanner, sShopMenuSellerPal_Tanner);
             }
+            sShopData->sellerId = i;
             return;
         }
     }
@@ -1334,12 +1321,35 @@ static void BuyMenuInitWindows(void)
     SetupSellerMugshot();
 }
 
+static bool32 LoadSellerCursor(void)
+{
+    struct SpriteSheet gfx = {
+        .data = sSellers[sShopData->sellerId].cursorGfx ? sSellers[sShopData->sellerId].cursorGfx : sShopMenu_DefaultCursorGfx,
+        .size = 64*64*2,
+        .tag = GFXTAG_CURSOR,
+    };
+    struct CompressedSpritePalette pal = {
+        .data = sSellers[sShopData->sellerId].cursorPal ? sSellers[sShopData->sellerId].cursorPal : sShopMenu_DefaultPal,
+        .tag = PALTAG_CURSOR
+    };
+
+    if (gSpecialVar_LastTalked == 0 || sShopData->sellerId == 0)
+    {
+        LoadSpriteSheet(&sDefaultCursor_SpriteSheet);
+        LoadCompressedSpritePalette(&sDefaultCursor_SpritePalette);
+        return FALSE;
+    }
+    LoadSpriteSheet(&gfx);
+    LoadCompressedSpritePalette(&pal);
+    return TRUE;
+}
+
 static bool8 BuyMenuInitSprites(void)
 {
     switch (sShopData->gfxLoadState)
     {
     case 0:
-        LoadCompressedSpritePalette(&sCursor_SpritePalette);
+        LoadSellerCursor();
         sShopData->gfxLoadState++;
         break;
     case 1:
