@@ -134,10 +134,12 @@ struct Seller
     const u32 *mapBg;
     // scrolling bg
     const u32 *gfxSBg;
+    const u32 *palSBg;
     const u32 *mapSBg;
     // cursor sprite
     const u16 *cursorGfx;
     const u32 *cursorPal; // compressed
+    bool32 seperateSBgPal; // scrolling bg has a seperate palette loaded at bg pltt id 2
 };
 
 static EWRAM_DATA struct MartInfo sMartInfo = {0};
@@ -556,6 +558,7 @@ const u32 sShopMenuSellerMapBg_Teala[] = INCBIN_U32("graphics/shop/sellers/teala
 const u32 sShopMenuSellerPalBg_Teala[] = INCBIN_U32("graphics/shop/sellers/teala/menu.gbapal.lz");
 const u32 sShopMenuSellerGfxSBg_Teala[] = INCBIN_U32("graphics/shop/sellers/teala/scroll.4bpp.lz");
 const u32 sShopMenuSellerMapSBg_Teala[] = INCBIN_U32("graphics/shop/sellers/teala/scroll.bin.lz");
+const u32 sShopMenuSellerPalSBg_Teala[] = INCBIN_U32("graphics/shop/sellers/teala/scroll.gbapal.lz");
 const u16 sShopMenuSellerCursorGfx_Teala[] = INCBIN_U16("graphics/shop/sellers/teala/cursor.4bpp");
 const u32 sShopMenuSellerCursorPal_Teala[] = INCBIN_U32("graphics/shop/sellers/teala/cursor.gbapal.lz");
 
@@ -643,6 +646,8 @@ static const struct Seller sSellers[SELLER_COUNT] = {
         .mapSBg = sShopMenuSellerMapSBg_Teala,
         .cursorGfx = sShopMenuSellerCursorGfx_Teala,
         .cursorPal = sShopMenuSellerCursorPal_Teala,
+        .seperateSBgPal = TRUE,
+        .palSBg = sShopMenuSellerPalSBg_Teala, // used only when you set seperateSBgPal to TRUE
     },
     [SELLER_PURPLINA] = {
         {.gfxId=OBJ_EVENT_GFX_PURPLINA},
@@ -1194,6 +1199,9 @@ static void BuyMenuDecompressBgGraphics(void)
     LZDecompressWram(sSellers[i].mapBg ? sSellers[i].mapBg : sShopMenu_DefaultTilemap, sShopData->tilemapBuffers[0]);
     LZDecompressWram(sSellers[i].mapSBg ? sSellers[i].mapSBg : sShopMenu_DefaultScrollTilemap, sShopData->tilemapBuffers[1]);
     LoadCompressedPalette(sSellers[i].palBg ? sSellers[i].palBg : sShopMenu_DefaultPal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    // default scrolling bg uses pltt id 0
+    if (sSellers[i].seperateSBgPal && sSellers[i].palSBg)
+        LoadCompressedPalette(sSellers[i].palSBg, BG_PLTT_ID(2), PLTT_SIZE_4BPP);
 }
 
 static inline void SpawnWindow(u8 winId)
