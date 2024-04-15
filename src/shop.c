@@ -84,12 +84,12 @@ enum {
 // mugshot id
 enum
 {
-    MUGSHOT_NONE = 0,
-    MUGSHOT_TANNER, // OBJ_EVENT_GFX_MART_EMPLOYEE
-    MUGSHOT_TEALA, // OBJ_EVENT_GFX_TEALA
-    MUGSHOT_PURPLINA, // OBJ_EVENT_GFX_PURPLINA
-    MUGSHOT_KODOUGH, // OBJ_EVENT_GFX_WINGULL
-    MUGSHOT_COUNT,
+    SELLER_NONE = 0,
+    SELLER_TANNER, // OBJ_EVENT_GFX_MART_EMPLOYEE
+    SELLER_TEALA, // OBJ_EVENT_GFX_TEALA
+    SELLER_PURPLINA, // OBJ_EVENT_GFX_PURPLINA
+    SELLER_KODOUGH, // OBJ_EVENT_GFX_WINGULL
+    SELLER_COUNT,
 };
 
 struct MartInfo
@@ -598,8 +598,8 @@ static const struct SpriteTemplate sCursor_SpriteTemplate = {
     .oam = &sCursor_SpriteOamData,
 };
 
-static const struct Seller sSellers[MUGSHOT_COUNT] = {
-    [MUGSHOT_TANNER] = {
+static const struct Seller sSellers[SELLER_COUNT] = {
+    [SELLER_TANNER] = {
         {.gfxId=OBJ_EVENT_GFX_MART_EMPLOYEE},
         .gfx = sShopMenuSellerGfx_Tanner,
         .pal = sShopMenuSellerPal_Tanner,
@@ -611,17 +611,17 @@ static const struct Seller sSellers[MUGSHOT_COUNT] = {
         .cursorGfx = sShopMenuSellerCursorGfx_Tanner,
         .cursorPal = sShopMenuSellerCursorPal_Tanner,
     },
-    [MUGSHOT_TEALA] = {
+    [SELLER_TEALA] = {
         {.gfxId=OBJ_EVENT_GFX_TEALA},
         .gfx=sShopMenuSellerGfx_Teala,
         .pal=sShopMenuSellerPal_Teala
     },
-    [MUGSHOT_PURPLINA] = {
+    [SELLER_PURPLINA] = {
         {.gfxId=OBJ_EVENT_GFX_PURPLINA},
         .gfx=sShopMenuSellerGfx_Purplina,
         .pal=sShopMenuSellerPal_Purplina
     },
-    [MUGSHOT_KODOUGH] = {
+    [SELLER_KODOUGH] = {
         {.gfxId=OBJ_EVENT_GFX_WINGULL},
         .gfx=sShopMenuSellerGfx_Kodough,
         .pal=sShopMenuSellerPal_Kodough
@@ -1136,7 +1136,7 @@ static void BuyMenuDecompressBgGraphics(void)
 {
     u32 i = sShopData->sellerId;
     // failsafe
-    if (gSpecialVar_LastTalked == 0 || i == MUGSHOT_NONE)
+    if (gSpecialVar_LastTalked == 0 || i == SELLER_NONE)
     {
         DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultGfx, 0, 9, 0);
         DecompressAndCopyTileDataToVram(2, sShopMenu_DefaultScrollGfx, 0, 0, 0);
@@ -1208,12 +1208,12 @@ static void SetupSellerMugshot(void)
     if (gSpecialVar_LastTalked == 0) // failsafe
     {
         LoadSellerMugshot(sShopMenuSellerGfx_Tanner, sShopMenuSellerPal_Tanner);
-        sShopData->sellerId = MUGSHOT_NONE;
+        sShopData->sellerId = SELLER_NONE;
         return;
     }
 
     // loop over all of the mugshots
-    for (i = 0; i < MUGSHOT_COUNT; i++)
+    for (i = 0; i < SELLER_COUNT; i++)
     {
         if (gfxId == sSellers[i].id.gfxId)
         {
