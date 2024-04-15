@@ -894,6 +894,7 @@ static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nb
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
 static const u8 sText_UserStatChangesGone[] = _("The user's stat changes\nwere eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
+static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1639,6 +1640,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SPEEDSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_SpeedStatChangesGone,
     [STRINGID_USERSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_UserStatChangesGone,
     [STRINGID_PKMNISPREPARINGFORDECIMATION - BATTLESTRINGS_TABLE_START] = sText_PkmnIsPreparingForDecimation,
+    [STRINGID_PKMNISALREADYEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyExposed,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

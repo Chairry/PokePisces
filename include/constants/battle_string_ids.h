@@ -754,8 +754,9 @@
 #define STRINGID_SPEEDSTATCHANGESGONE                 752
 #define STRINGID_USERSTATCHANGESGONE                  753
 #define STRINGID_PKMNISPREPARINGFORDECIMATION         754
+#define STRINGID_PKMNISALREADYEXPOSED                 755
 
-#define BATTLESTRINGS_COUNT                           755
+#define BATTLESTRINGS_COUNT                           756
 
 
 // This is the string id that gBattleStringsTable starts with.

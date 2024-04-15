@@ -22135,7 +22135,7 @@ Move_STORM_CHASE::
 Move_DRAKEN_GUARD::
 	goto Move_PROTECT
 
-	Move_TICK_TACK::
+Move_TICK_TACK::
 	goto Move_ABSORB
 
 Move_DEEP_GAZE::

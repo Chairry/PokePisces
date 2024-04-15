@@ -15680,6 +15680,25 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_5,
     },
 
+    [MOVE_DEEP_GAZE] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 0,
+        #else
+            .accuracy = 0,
+        #endif
+        .effect = EFFECT_DEEP_GAZE,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_ATK_UP_1,
+        .magicCoatAffected = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

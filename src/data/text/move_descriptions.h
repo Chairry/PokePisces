@@ -3652,6 +3652,10 @@ static const u8 sTickTackDescription[] = _(
     "Tacks ticks dealing fixed\n"
     "damage and absorbing HP.");
 
+static const u8 sDeepGazeDescription[] = _(
+    "The user stares at the target\n"
+    "making them feel exposed.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4606,4 +4610,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_STORM_CHASE - 1] = sStormChaseDescription,
     [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
     [MOVE_TICK_TACK - 1] = sTickTackDescription,
+    [MOVE_DEEP_GAZE - 1] = sDeepGazeDescription,
 };
