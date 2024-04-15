@@ -554,6 +554,13 @@ const u16 sShopMenuSellerPal_Teala[] = INCBIN_U16("graphics/shop/sellers/teala/m
 
 const u8 sShopMenuSellerGfx_Purplina[] = INCBIN_U8("graphics/shop/sellers/purplina/mugshot.4bpp");
 const u16 sShopMenuSellerPal_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina/mugshot.gbapal");
+const u32 sShopMenuSellerGfxBg_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/menu.4bpp.lz");
+const u32 sShopMenuSellerMapBg_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/menu.gbapal.lz");
+const u32 sShopMenuSellerPalBg_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/menu.bin.lz");
+const u32 sShopMenuSellerGfxSBg_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/scroll.4bpp.lz");
+const u32 sShopMenuSellerMapSBg_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/scroll.bin.lz");
+const u16 sShopMenuSellerCursorGfx_Purplina[] = INCBIN_U16("graphics/shop/sellers/purplina/cursor.4bpp");
+const u32 sShopMenuSellerCursorPal_Purplina[] = INCBIN_U32("graphics/shop/sellers/purplina/cursor.gbapal.lz");
 
 const u8 sShopMenuSellerGfx_Kodough[] = INCBIN_U8("graphics/shop/sellers/kodough/mugshot.4bpp");
 const u16 sShopMenuSellerPal_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough/mugshot.gbapal");
@@ -619,7 +626,15 @@ static const struct Seller sSellers[SELLER_COUNT] = {
     [SELLER_PURPLINA] = {
         {.gfxId=OBJ_EVENT_GFX_PURPLINA},
         .gfx=sShopMenuSellerGfx_Purplina,
-        .pal=sShopMenuSellerPal_Purplina
+        .pal=sShopMenuSellerPal_Purplina,
+        .gfxBg = sShopMenuSellerGfxBg_Purplina,
+        .palBg = sShopMenuSellerMapBg_Purplina,
+        .mapBg = sShopMenuSellerPalBg_Purplina,
+        .gfxSBg = sShopMenuSellerGfxSBg_Purplina,
+        .mapSBg = sShopMenuSellerMapSBg_Purplina,
+        .cursorGfx = sShopMenuSellerCursorGfx_Purplina,
+        .cursorPal = sShopMenuSellerCursorPal_Purplina,
+
     },
     [SELLER_KODOUGH] = {
         {.gfxId=OBJ_EVENT_GFX_WINGULL},
