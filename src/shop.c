@@ -579,6 +579,7 @@ const u32 sShopMenuSellerMapBg_Kodough[] = INCBIN_U32("graphics/shop/sellers/kod
 const u32 sShopMenuSellerPalBg_Kodough[] = INCBIN_U32("graphics/shop/sellers/kodough/menu.gbapal.lz");
 const u32 sShopMenuSellerGfxSBg_Kodough[] = INCBIN_U32("graphics/shop/sellers/kodough/scroll.4bpp.lz");
 const u32 sShopMenuSellerMapSBg_Kodough[] = INCBIN_U32("graphics/shop/sellers/kodough/scroll.bin.lz");
+const u32 sShopMenuSellerPalSBg_Kodough[] = INCBIN_U32("graphics/shop/sellers/kodough/scroll.gbapal.lz");
 const u16 sShopMenuSellerCursorGfx_Kodough[] = INCBIN_U16("graphics/shop/sellers/kodough/cursor.4bpp");
 const u32 sShopMenuSellerCursorPal_Kodough[] = INCBIN_U32("graphics/shop/sellers/kodough/cursor.gbapal.lz");
 
@@ -673,6 +674,8 @@ static const struct Seller sSellers[SELLER_COUNT] = {
         .mapSBg = sShopMenuSellerMapSBg_Kodough,
         .cursorGfx = sShopMenuSellerCursorGfx_Kodough,
         .cursorPal = sShopMenuSellerCursorPal_Kodough,
+        .seperateSBgPal = TRUE,
+        .palSBg = sShopMenuSellerPalSBg_Kodough, // used only when you set seperateSBgPal to TRUE
     },
 };
 
