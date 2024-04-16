@@ -3676,6 +3676,14 @@ static const u8 sRemodelDescription[] = _(
     "Sharply raises the user's\n"
     "lowest defensive stat.");
 
+static const u8 sBariBariBeamDescription[] = _(
+    "A quick move that gets boosted\n"
+    "the more the user is hit.");
+
+static const u8 sBariBariBashDescription[] = _(
+    "Does double damage when the\n"
+    "user is at half health.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4636,4 +4644,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HEAVY_CELL - 1] = sHeavyCellDescription,
     [MOVE_RECONSTRUCT - 1] = sReconstructDescription,
     [MOVE_REMODEL - 1] = sRemodelDescription,
+    [MOVE_BARI_BARI_BEAM - 1] = sBariBariBeamDescription,
+    [MOVE_BARI_BARI_BASH - 1] = sBariBariBashDescription,
 };

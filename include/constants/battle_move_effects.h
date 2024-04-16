@@ -515,7 +515,9 @@
 #define EFFECT_HEAVY_CELL                   509
 #define EFFECT_RECONSTRUCT                  510
 #define EFFECT_REMODEL                      511
+#define EFFECT_BARI_BARI_BEAM               512
+#define EFFECT_BARI_BARI_BASH               513
 
-#define NUM_BATTLE_MOVE_EFFECTS             512
+#define NUM_BATTLE_MOVE_EFFECTS             514
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

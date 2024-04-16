@@ -952,6 +952,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_HEAVY_CELL] = _("Heavy Cell"),
     [MOVE_RECONSTRUCT] = _("Reconstruct"),
     [MOVE_REMODEL] = _("Remodel"),
+    [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
+    [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
 };
 #else
 // 12 letters
@@ -1907,6 +1909,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_HEAVY_CELL] = _("Heavy Cell"),
     [MOVE_RECONSTRUCT] = _("Reconstruct"),
     [MOVE_REMODEL] = _("Remodel"),
+    [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
+    [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
 };
 #endif
 

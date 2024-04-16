@@ -538,6 +538,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHeavyCell               @ EFFECT_HEAVY_CELL
 	.4byte BattleScript_EffectReconstruct             @ EFFECT_RECONSTRUCT
 	.4byte BattleScript_EffectRemodel                 @ EFFECT_REMODEL
+	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
+	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
 
 BattleScript_EffectRemodel::
 	remodelcheck BattleScript_EffectDefenseUp2

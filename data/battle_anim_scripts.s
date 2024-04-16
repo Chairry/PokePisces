@@ -22154,7 +22154,7 @@ Move_RECONSTRUCT::
 	goto Move_RECOVER
 
 Move_REMODEL::
-	goto Move_RECOVER
+	goto Move_IRON_DEFENSE
 
 Move_BARI_BARI_BEAM::
 	goto Move_HYPER_BEAM
