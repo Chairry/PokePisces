@@ -232,6 +232,7 @@ static const u8 sText_PkmnCutHPMaxedAttack[] = _("{B_ATK_NAME_WITH_PREFIX} cut i
 static const u8 sText_PkmnCopiedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} copied\n{B_DEF_NAME_WITH_PREFIX}'s stat changes!");
 static const u8 sText_PkmnGotFree[] = _("{B_ATK_NAME_WITH_PREFIX} got free of\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnShedLeechSeed[] = _("{B_ATK_NAME_WITH_PREFIX} shed\nLEECH SEED!");
+static const u8 sText_PkmnShedTick[] = _("{B_ATK_NAME_WITH_PREFIX} shed\nits tick!");
 static const u8 sText_PkmnBlewAwaySpikes[] = _("{B_ATK_NAME_WITH_PREFIX} blew away\nspikes!");
 static const u8 sText_PkmnFledFromBattle[] = _("{B_ATK_NAME_WITH_PREFIX} fled from\nbattle!");
 static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\nan attack!");
@@ -893,6 +894,7 @@ static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nb
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
 static const u8 sText_UserStatChangesGone[] = _("The user's stat changes\nwere eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
+static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1634,9 +1636,11 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ATHINGHAPPENEDFR - BATTLESTRINGS_TABLE_START] = sText_AThingHappenedFr,
     [STRINGID_PKMNSAPPEDBYTICKED - BATTLESTRINGS_TABLE_START] = sText_SappedByTicked,
     [STRINGID_PKMNTICKED - BATTLESTRINGS_TABLE_START] = sText_PkmnTicked,
+    [STRINGID_PKMNSHEDTICK - BATTLESTRINGS_TABLE_START] = sText_PkmnShedTick,
     [STRINGID_SPEEDSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_SpeedStatChangesGone,
     [STRINGID_USERSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_UserStatChangesGone,
     [STRINGID_PKMNISPREPARINGFORDECIMATION - BATTLESTRINGS_TABLE_START] = sText_PkmnIsPreparingForDecimation,
+    [STRINGID_PKMNISALREADYEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyExposed,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

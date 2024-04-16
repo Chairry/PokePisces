@@ -805,7 +805,7 @@
 	.4byte \failInstr
 	.endm
 
-	.macro damagetohalftargethp
+	.macro damagetopercentagetargethp
 	.byte 0x94
 	.endm
 

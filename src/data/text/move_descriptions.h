@@ -3477,8 +3477,8 @@ static const u8 sManeuverDescription[] = _(
     "Critical hits in tailwind.");
 
 static const u8 sScorpFangDescription[] = _(
-    "Badly poisons, grounds foes,\n"
-    "and hits Poison and Steel.");
+    "Poisons, grounds foes, and\n"
+    "hits Poison and Steel.");
 
 static const u8 sCausticFinaleDescription[] = _(
     "A jab so powerful it damages\n"
@@ -3639,6 +3639,22 @@ static const u8 sDecimationDescription[] = _(
 static const u8 sPowerJamDescription[] = _(
     "A powerful move that boosts\n"
     "the foe if it fails to KO.");
+
+static const u8 sStormChaseDescription[] = _(
+    "A fast but hard to aim attack\n"
+    "that always goes first.");
+
+static const u8 sDrakenGuardDescription[] = _(
+    "Evades damage, and reduces\n"
+    "Special Defense if struck.");
+
+static const u8 sTickTackDescription[] = _(
+    "Tacks ticks dealing fixed\n"
+    "damage and absorbing HP.");
+
+static const u8 sDeepGazeDescription[] = _(
+    "The user stares at the target\n"
+    "making them feel exposed.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4591,4 +4607,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_RAILGUN - 1] = sRailgunDescription,
     [MOVE_DECIMATION - 1] = sDecimationDescription,
     [MOVE_POWER_JAM - 1] = sPowerJamDescription,
+    [MOVE_STORM_CHASE - 1] = sStormChaseDescription,
+    [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
+    [MOVE_TICK_TACK - 1] = sTickTackDescription,
+    [MOVE_DEEP_GAZE - 1] = sDeepGazeDescription,
 };
