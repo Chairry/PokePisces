@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SAINTISOW",
+      "graphics_id": "OBJ_EVENT_GFX_COURTNEY",
       "x": 11,
       "y": 38,
       "elevation": 0,
@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GARZILLA",
+      "graphics_id": "OBJ_EVENT_GFX_SEBASTIAN",
       "x": 17,
       "y": 38,
       "elevation": 0,
