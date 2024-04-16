@@ -4853,6 +4853,7 @@ s8 GetMovePriority(u32 battler, u16 move)
         switch (gBattleMoves[move].effect)
         {
         case EFFECT_RESTORE_HP:
+        case EFFECT_RECONSTRUCT:
         case EFFECT_REST:
         case EFFECT_MORNING_SUN:
         case EFFECT_MOONLIGHT:

@@ -1556,6 +1556,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     case EFFECT_COLD_MEND:
     case EFFECT_MOONLIGHT:
     case EFFECT_RESTORE_HP:
+    case EFFECT_RECONSTRUCT:
     case EFFECT_REST:
     case EFFECT_ROOST:
     case EFFECT_HEALING_WISH:
@@ -3508,6 +3509,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_FLAGS: // flags clear
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_DESTINY_BOND;
             gStatuses3[gBattlerAttacker] &= ~STATUS3_GRUDGE;
+            gStatuses4[gBattlerAttacker] &= ~STATUS4_GLAIVE_RUSH_2;
             gBattleScripting.tripleKickPower = 0;
             gBattleStruct->atkCancellerTracker++;
             break;
@@ -8640,6 +8642,7 @@ void ClearFuryCutterDestinyBondGrudge(u32 battler)
     gDisableStructs[battler].furyCutterCounter = 0;
     gBattleMons[battler].status2 &= ~STATUS2_DESTINY_BOND;
     gStatuses3[battler] &= ~STATUS3_GRUDGE;
+    gStatuses4[gBattlerAttacker] &= ~STATUS4_GLAIVE_RUSH_2;
 }
 
 void HandleAction_RunBattleScript(void) // identical to RunBattleScriptCommands
@@ -10082,6 +10085,7 @@ static inline bool32 IsMoveDraining(u32 move)
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_RESTORE_HP:
+    case EFFECT_RECONSTRUCT:
     case EFFECT_REST:
     case EFFECT_MORNING_SUN:
     case EFFECT_MOONLIGHT:
@@ -10715,6 +10719,8 @@ static inline uq4_12_t GetCriticalModifier(bool32 isCrit)
 static inline uq4_12_t GetGlaiveRushModifier(u32 battlerDef)
 {
     if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH)
+        return UQ_4_12(2.0);
+    if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH_2)
         return UQ_4_12(2.0);
     return UQ_4_12(1.0);
 }

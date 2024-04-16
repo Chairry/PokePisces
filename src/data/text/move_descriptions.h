@@ -3656,6 +3656,26 @@ static const u8 sDeepGazeDescription[] = _(
     "The user stares at the target\n"
     "making them feel exposed.");
 
+static const u8 sEnervatorDescription[] = _(
+    "Lowers the foe's Attack and\n"
+    "Speed stats.");
+
+static const u8 sErodeFieldDescription[] = _(
+    "Drops the Def and Sp. Def of\n"
+    "all Pokémon on the field.");
+
+static const u8 sHeavyCellDescription[] = _(
+    "Raises the user's Defense,\n"
+    "Special Defense and Speed.");
+
+static const u8 sReconstructDescription[] = _(
+    "Recovers all HP but takes more\n"
+    "damage until the next turn.");
+
+static const u8 sRemodelDescription[] = _(
+    "Sharply raises the user's\n"
+    "lowest defensive stat.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4611,4 +4631,9 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
     [MOVE_TICK_TACK - 1] = sTickTackDescription,
     [MOVE_DEEP_GAZE - 1] = sDeepGazeDescription,
+    [MOVE_ENERVATOR - 1] = sEnervatorDescription,
+    [MOVE_ERODE_FIELD - 1] = sErodeFieldDescription,
+    [MOVE_HEAVY_CELL - 1] = sHeavyCellDescription,
+    [MOVE_RECONSTRUCT - 1] = sReconstructDescription,
+    [MOVE_REMODEL - 1] = sRemodelDescription,
 };

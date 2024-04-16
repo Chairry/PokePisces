@@ -203,6 +203,7 @@
 #define STATUS4_TICKED                  (1 << 7) 
 #define STATUS4_TICKED_BATTLER          (1 << 8 | 1 << 9) // The battler to receive HP from Ticked
 #define STATUS4_TICKED_BY(battler)      ((battler) << 8)
+#define STATUS4_GLAIVE_RUSH_2           (1 << 10)
 
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.

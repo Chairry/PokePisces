@@ -510,7 +510,12 @@
 #define EFFECT_ALL_STATS_UP_2_HIT_FOE       504
 #define EFFECT_TICK_TACK                    505
 #define EFFECT_DEEP_GAZE                    506
+#define EFFECT_ENERVATOR                    507
+#define EFFECT_ERODE_FIELD                  508
+#define EFFECT_HEAVY_CELL                   509
+#define EFFECT_RECONSTRUCT                  510
+#define EFFECT_REMODEL                      511
 
-#define NUM_BATTLE_MOVE_EFFECTS             507
+#define NUM_BATTLE_MOVE_EFFECTS             512
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

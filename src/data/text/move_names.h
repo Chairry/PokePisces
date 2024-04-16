@@ -947,6 +947,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
     [MOVE_TICK_TACK] = _("Tick Tack"),
     [MOVE_DEEP_GAZE] = _("Deep Gaze"),
+    [MOVE_ENERVATOR] = _("Enervator"),
+    [MOVE_ERODE_FIELD] = _("Erode Field"),
+    [MOVE_HEAVY_CELL] = _("Heavy Cell"),
+    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_REMODEL] = _("Remodel"),
 };
 #else
 // 12 letters
@@ -1897,6 +1902,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
     [MOVE_TICK_TACK] = _("Tick Tack"),
     [MOVE_DEEP_GAZE] = _("Deep Gaze"),
+    [MOVE_ENERVATOR] = _("Enervator"),
+    [MOVE_ERODE_FIELD] = _("Erode Field"),
+    [MOVE_HEAVY_CELL] = _("Heavy Cell"),
+    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_REMODEL] = _("Remodel"),
 };
 #endif
 

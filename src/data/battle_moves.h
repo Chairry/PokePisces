@@ -15699,6 +15699,85 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .magicCoatAffected = TRUE,
     },
 
+    [MOVE_ENERVATOR] =
+    {
+        .effect = EFFECT_ENERVATOR,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESTORE_REPLACEMENT_HP,
+        .magicCoatAffected = TRUE,
+    },
+
+    [MOVE_ERODE_FIELD] =
+    {
+        .effect = EFFECT_ERODE_FIELD,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESTORE_REPLACEMENT_HP,
+    },
+
+    [MOVE_HEAVY_CELL] =
+    {
+        .effect = EFFECT_HEAVY_CELL,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_RECONSTRUCT] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 5,
+        #else
+            .pp = 5,
+        #endif
+        .effect = EFFECT_RECONSTRUCT,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_REMODEL] =
+    {
+        .effect = EFFECT_REMODEL,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
