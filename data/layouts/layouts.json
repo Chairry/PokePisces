@@ -5210,6 +5210,56 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/PrecipikeInteriors/border.bin",
       "blockdata_filepath": "data/layouts/PrecipikeInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_OZONE_LILYCOVE_HQ",
+      "name": "OzoneLilycoveHQ_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/OzoneLilycoveHQ/border.bin",
+      "blockdata_filepath": "data/layouts/OzoneLilycoveHQ/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_INTERIORS",
+      "name": "LilycoveInteriors_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_MUSEUM_NEW",
+      "name": "LilycoveMuseumNew_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LilycoveMuseum",
+      "border_filepath": "data/layouts/LilycoveMuseumNew/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveMuseumNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_MIDGAME",
+      "name": "SSTidalMidgame_Layout",
+      "width": 38,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalMidgame/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalMidgame/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_MID_TERIORS",
+      "name": "SSTidalMidTeriors_Layout",
+      "width": 38,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SSTidalMidTeriors/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalMidTeriors/map.bin"
     }
   ]
 }

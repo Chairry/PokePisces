@@ -3594,3 +3594,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SecretMossdeepCave/scripts.inc"
 
 	.include "data/maps/PrecipikeInteriors/scripts.inc"
+
+	.include "data/maps/OzoneLilycoveHQ/scripts.inc"
+
+	.include "data/maps/LilycoveInteriors/scripts.inc"
+
+	.include "data/maps/LilycoveMuseumNew/scripts.inc"
+
+	.include "data/maps/SSTidalMidgame/scripts.inc"
+
+	.include "data/maps/SSTidalMidTeriors/scripts.inc"
