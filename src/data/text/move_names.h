@@ -954,6 +954,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_REMODEL] = _("Remodel"),
     [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
+    [MOVE_GLIMMER] = _("Glimmer"),
+    [MOVE_WATER_WHEEL] = _("Water Wheel"),
 };
 #else
 // 12 letters
@@ -1911,6 +1913,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_REMODEL] = _("Remodel"),
     [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
+    [MOVE_GLIMMER] = _("Glimmer"),
+    [MOVE_WATER_WHEEL] = _("Water Wheel"),
 };
 #endif
 

@@ -517,7 +517,8 @@
 #define EFFECT_REMODEL                      511
 #define EFFECT_BARI_BARI_BEAM               512
 #define EFFECT_BARI_BARI_BASH               513
+#define EFFECT_SP_ATTACK_ACCURACY_UP        514
 
-#define NUM_BATTLE_MOVE_EFFECTS             514
+#define NUM_BATTLE_MOVE_EFFECTS             515
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

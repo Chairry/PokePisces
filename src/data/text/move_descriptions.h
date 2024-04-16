@@ -3684,6 +3684,14 @@ static const u8 sBariBariBashDescription[] = _(
     "Does double damage when the\n"
     "user is at half health.");
 
+static const u8 sGlimmerDescription[] = _(
+    "Emits a bright light to raise\n"
+    "Special Attack and Accuracy.");
+
+static const u8 sWaterWheelDescription[] = _(
+    "Has a high critical-hit\n"
+    "ratio. May also raise Speed.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4646,4 +4654,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_REMODEL - 1] = sRemodelDescription,
     [MOVE_BARI_BARI_BEAM - 1] = sBariBariBeamDescription,
     [MOVE_BARI_BARI_BASH - 1] = sBariBariBashDescription,
+    [MOVE_GLIMMER - 1] = sGlimmerDescription,
+    [MOVE_WATER_WHEEL - 1] = sGlimmerDescription,
 };
