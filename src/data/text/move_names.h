@@ -947,6 +947,20 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
     [MOVE_TICK_TACK] = _("Tick Tack"),
     [MOVE_DEEP_GAZE] = _("Deep Gaze"),
+    [MOVE_ENERVATOR] = _("Enervator"),
+    [MOVE_ERODE_FIELD] = _("Erode Field"),
+    [MOVE_HEAVY_CELL] = _("Heavy Cell"),
+    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_REMODEL] = _("Remodel"),
+    [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
+    [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
+    [MOVE_GLIMMER] = _("Glimmer"),
+    [MOVE_WATER_WHEEL] = _("Water Wheel"),
+    [MOVE_SUN_BASK] = _("Sun Bask"),
+    [MOVE_HEARTHWARM] = _("Hearthwarm"),
+    [MOVE_DUNE_SLICER] = _("Dune Slicer"),
+    [MOVE_BASS_CANNON] = _("Bass Cannon"),
+    [MOVE_POWER_DRAIN] = _("Power Drain"),
 };
 #else
 // 12 letters
@@ -1897,6 +1911,20 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DRAKEN_GUARD] = _("Draken Guard"),
     [MOVE_TICK_TACK] = _("Tick Tack"),
     [MOVE_DEEP_GAZE] = _("Deep Gaze"),
+    [MOVE_ENERVATOR] = _("Enervator"),
+    [MOVE_ERODE_FIELD] = _("Erode Field"),
+    [MOVE_HEAVY_CELL] = _("Heavy Cell"),
+    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_REMODEL] = _("Remodel"),
+    [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
+    [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
+    [MOVE_GLIMMER] = _("Glimmer"),
+    [MOVE_WATER_WHEEL] = _("Water Wheel"),
+    [MOVE_SUN_BASK] = _("Sun Bask"),
+    [MOVE_HEARTHWARM] = _("Hearthwarm"),
+    [MOVE_DUNE_SLICER] = _("Dune Slicer"),
+    [MOVE_BASS_CANNON] = _("Bass Cannon"),
+    [MOVE_POWER_DRAIN] = _("Power Drain"),
 };
 #endif
 

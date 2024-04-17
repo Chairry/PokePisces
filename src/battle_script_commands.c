@@ -2014,6 +2014,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     }
     else if (gStatuses3[battlerAtk] & STATUS3_LASER_FOCUS
              || gBattleMoves[move].effect == EFFECT_ALWAYS_CRIT
+             || gBattleMoves[move].effect == EFFECT_DUNE_SLICER
              || gBattleMoves[move].effect == EFFECT_SEIZE_CHANCE
              || gBattleMoves[move].effect == EFFECT_VITAL_THROW
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
@@ -11111,6 +11112,26 @@ static void Cmd_various(void)
         gBattleStruct->swapDamageCategory = (GetSplitBasedOnStats(battler) == SPLIT_SPECIAL);
         break;
     }
+    case VARIOUS_REMODEL_CHECK:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+
+        u32 defense = gBattleMons[gBattlerAttacker].defense;
+        u32 spDefense = gBattleMons[gBattlerAttacker].spDefense;
+
+        defense = defense * gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_DEF]][0];
+        defense = defense / gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_DEF]][1];
+
+        spDefense = spDefense * gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF]][0];
+        spDefense = spDefense / gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF]][1];
+
+        if (defense < spDefense || (defense == spDefense && (Random() % 2) == 0))
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+
+        break;
+    }
     case VARIOUS_SHELL_SIDE_ARM_CHECK: // 0% chance GameFreak actually checks this way according to DaWobblefet, but this is the only functional explanation at the moment
     {
         VARIOUS_ARGS();
@@ -11145,7 +11166,7 @@ static void Cmd_various(void)
 
         special = ((((2 * gBattleMons[gBattlerAttacker].level / 5 + 2) * gBattleMoves[gCurrentMove].power * attackerSpAtkStat) / targetSpDefStat) / 50);
 
-        if ((((physical > special) || (physical == special && (Random() % 2) == 0)) && (!(gCurrentMove == MOVE_DRAGON_POKER))))
+        if (((physical > special) || (physical == special && (Random() % 2) == 0)))
             gBattleStruct->swapDamageCategory = TRUE;
         break;
     }
@@ -11599,6 +11620,22 @@ static void Cmd_various(void)
             TryResetAttackerStatChanges(i);
 
         gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    case VARIOUS_TRY_HEAL_ALL_HEALTH:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+
+        const u8 *failInstr = cmd->failInstr;
+
+        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP;
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+        gBattleMoveDamage *= -1;
+
+        if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+            gBattlescriptCurrInstr = failInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
     }
     case VARIOUS_TRY_TRAINER_SLIDE_MSG_Z_MOVE:
     {
@@ -17743,6 +17780,15 @@ void BS_SetGlaiveRush(void)
     NATIVE_ARGS();
 
     gStatuses4[gBattlerAttacker] |= STATUS4_GLAIVE_RUSH;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_SetGlaiveRush2(void)
+{
+    NATIVE_ARGS();
+
+    gStatuses4[gBattlerAttacker] |= STATUS4_GLAIVE_RUSH_2;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

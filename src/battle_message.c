@@ -895,6 +895,9 @@ static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere e
 static const u8 sText_UserStatChangesGone[] = _("The user's stat changes\nwere eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
+static const u8 sText_HearthwarmHeal[] = _("Hearthwarm restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
+static const u8 sText_PkmnSurroundedWithVeilOfHeat[] = _("{B_ATK_NAME_WITH_PREFIX} surrounded itself\nwith a veil of heat!");
+static const u8 sText_TargetLostElectricType[] = _("{B_DEF_NAME_WITH_PREFIX} had all of\nits electricity drained!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1641,6 +1644,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_USERSTATCHANGESGONE - BATTLESTRINGS_TABLE_START] = sText_UserStatChangesGone,
     [STRINGID_PKMNISPREPARINGFORDECIMATION - BATTLESTRINGS_TABLE_START] = sText_PkmnIsPreparingForDecimation,
     [STRINGID_PKMNISALREADYEXPOSED - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAlreadyExposed,
+    [STRINGID_HEARTHWARMHEAL - BATTLESTRINGS_TABLE_START] = sText_HearthwarmHeal,
+    [STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT - BATTLESTRINGS_TABLE_START] = sText_PkmnSurroundedWithVeilOfHeat,
+    [STRINGID_TARGETLOSTELECTRICTYPE - BATTLESTRINGS_TABLE_START] = sText_TargetLostElectricType,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -1095,6 +1095,7 @@ gBattleAnims_General::
 	.4byte General_Reversi                  @ B_ANIM_REVERSI 
 	.4byte Move_EXTREME_EVOBOOST            @ B_ANIM_A_THING
 	.4byte General_DecimationHit            @ B_ANIM_DECIMATION_HIT
+	.4byte General_AquaRingHeal             @ B_ANIM_HEARTHWARM_HEAL
 
 	.align 2
 gBattleAnims_Special::
@@ -22154,7 +22155,7 @@ Move_RECONSTRUCT::
 	goto Move_RECOVER
 
 Move_REMODEL::
-	goto Move_RECOVER
+	goto Move_IRON_DEFENSE
 
 Move_BARI_BARI_BEAM::
 	goto Move_HYPER_BEAM
