@@ -3692,6 +3692,26 @@ static const u8 sWaterWheelDescription[] = _(
     "Has a high critical-hit\n"
     "ratio. May also raise Speed.");
 
+static const u8 sSunBaskDescription[] = _(
+    "Raises Def and Sp. Def. Gains\n"
+    "Blooming in harsh sunlight.");
+
+static const u8 sHearthwarmDescription[] = _(
+    "Forms a veil of heat that\n"
+    "heals the user and ally's HP.");
+
+static const u8 sDuneSlicerDescription[] = _(
+    "Always critical-hits and\n"
+    "gets stronger in sandstorms.");
+
+static const u8 sBassCannonDescription[] = _(
+    "A soundblast that always\n"
+    "lowers the foe's Sp. Def.");
+
+static const u8 sPowerDrainDescription[] = _(
+    "Drains the foe's Speed to\n"
+    "heal. Removes Electric-type.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4655,5 +4675,10 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BARI_BARI_BEAM - 1] = sBariBariBeamDescription,
     [MOVE_BARI_BARI_BASH - 1] = sBariBariBashDescription,
     [MOVE_GLIMMER - 1] = sGlimmerDescription,
-    [MOVE_WATER_WHEEL - 1] = sGlimmerDescription,
+    [MOVE_WATER_WHEEL - 1] = sWaterWheelDescription,
+    [MOVE_SUN_BASK - 1] = sSunBaskDescription,
+    [MOVE_HEARTHWARM - 1] = sHearthwarmDescription,
+    [MOVE_DUNE_SLICER - 1] = sDuneSlicerDescription,
+    [MOVE_BASS_CANNON - 1] = sBassCannonDescription,
+    [MOVE_POWER_DRAIN - 1] = sPowerDrainDescription,
 };

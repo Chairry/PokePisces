@@ -1185,7 +1185,7 @@ const struct TrainerMon gBattleTentMons_MinorLeague[NUM_TENT_MINOR_MONS] =
         .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
         .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
         .lvl = 30,
-        .moves = {MOVE_VENOM_GALE, MOVE_POISON_TAIL, MOVE_HAZE, MOVE_CORROSIVE_GAS},
+        .moves = {MOVE_VENOM_GALE, MOVE_POISON_TAIL, MOVE_HAZE, MOVE_POISON_GAS},
         .nature = NATURE_BASHFUL,
     },
     [TENT_MINOR_MON_UMBRAT] = {
@@ -1203,7 +1203,7 @@ const struct TrainerMon gBattleTentMons_MinorLeague[NUM_TENT_MINOR_MONS] =
         .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
         .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
         .lvl = 30,
-        .moves = {MOVE_FEINT_ATTACK, MOVE_POUND, MOVE_CHARM, MOVE_LEECH_LIFE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_POUND, MOVE_CHARM, MOVE_LEER},
         .nature = NATURE_HARDY,
     },
     [TENT_MINOR_MON_MANDIMYTE] = {

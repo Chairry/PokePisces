@@ -518,7 +518,11 @@
 #define EFFECT_BARI_BARI_BEAM               512
 #define EFFECT_BARI_BARI_BASH               513
 #define EFFECT_SP_ATTACK_ACCURACY_UP        514
+#define EFFECT_SUN_BASK                     515
+#define EFFECT_HEARTHWARM                   516
+#define EFFECT_DUNE_SLICER                  517
+#define EFFECT_POWER_DRAIN                  518
 
-#define NUM_BATTLE_MOVE_EFFECTS             515
+#define NUM_BATTLE_MOVE_EFFECTS             519
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

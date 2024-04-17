@@ -2014,6 +2014,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     }
     else if (gStatuses3[battlerAtk] & STATUS3_LASER_FOCUS
              || gBattleMoves[move].effect == EFFECT_ALWAYS_CRIT
+             || gBattleMoves[move].effect == EFFECT_DUNE_SLICER
              || gBattleMoves[move].effect == EFFECT_SEIZE_CHANCE
              || gBattleMoves[move].effect == EFFECT_VITAL_THROW
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)

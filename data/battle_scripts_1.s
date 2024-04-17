@@ -541,6 +541,132 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
 	.4byte BattleScript_EffectSpAttackAccUp           @ EFFECT_SP_ATTACK_ACCURACY_UP
+	.4byte BattleScript_EffectSunBask                 @ EFFECT_SUN_BASK
+	.4byte BattleScript_EffectHearthwarm              @ EFFECT_HEARTHWARM
+	.4byte BattleScript_EffectHit                     @ EFFECT_DUNE_SLICER
+	.4byte BattleScript_EffectPowerDrain              @ EFFECT_POWER_DRAIN
+
+BattleScript_EffectPowerDrain:
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_EffectPowerDrainElectricType
+	goto BattleScript_EffectPowerDrainStart
+BattleScript_EffectPowerDrainElectricType:
+	losetype BS_TARGET, TYPE_ELECTRIC
+	printstring STRINGID_TARGETLOSTELECTRICTYPE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectPowerDrainStart:
+	setstatchanger STAT_SPEED, 1, TRUE
+	attackcanceler
+	jumpifsubstituteblocks BattleScript_FailedFromAtkString
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_PowerDrainTryLower
+	pause B_WAIT_TIME_SHORT
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_PowerDrainTryLower:
+	getstatvalue BS_TARGET, STAT_SPEED
+	jumpiffullhp BS_ATTACKER, BattleScript_PowerDrainMustLower
+	attackanimation
+	waitanimation
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_PowerDrainHp
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_PowerDrainHp
+BattleScript_PowerDrainLower:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_PowerDrainHp
+@ Drain HP without lowering a stat
+BattleScript_PowerDrainTryHp:
+	jumpiffullhp BS_ATTACKER, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+BattleScript_PowerDrainHp:
+	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_MoveEnd
+	jumpiffullhp BS_ATTACKER, BattleScript_MoveEnd
+	manipulatedamage DMG_BIG_ROOT
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNENERGYDRAINED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_PowerDrainMustLower:
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_MoveEnd
+	attackanimation
+	waitanimation
+	goto BattleScript_PowerDrainLower
+
+BattleScript_EffectHearthwarm:
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstatus3 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
+	attackanimation
+	waitanimation
+	copybyte gBattlerTarget, gBattlerAttacker
+	setbyte gBattleCommunication, 0
+	copybyte gBattlerAttacker, gBattlerTarget
+	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly1
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SetHearthwarmAlly1:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_MoveEnd
+	addbyte gBattleCommunication, 1
+	jumpifnoally BS_TARGET, BattleScript_MoveEnd
+	setallytonexttarget SetHearthWarmAlly1
+SetHearthWarmAlly1:
+	copybyte gBattlerAttacker, gBattlerTarget
+	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_MoveEnd
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_SetHearthwarmAlly2:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_ButItFailed
+	addbyte gBattleCommunication, 1
+	jumpifnoally BS_TARGET, BattleScript_ButItFailed
+	setallytonexttarget SetHearthWarmAlly2
+SetHearthWarmAlly2:
+	copybyte gBattlerAttacker, gBattlerTarget
+	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSunBask:
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN, BattleScript_EffectTrySunBaskBlooming
+	goto BattleScript_SunBaskStatBoost
+BattleScript_EffectTrySunBaskBlooming::
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_CERTAIN | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+BattleScript_SunBaskStatBoost::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_SunBaskDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_SunBaskDoMoveAnim::
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_SunBaskTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_SunBaskTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SunBaskTrySpDef::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_MoveEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpAttackAccUp:
 	attackcanceler
@@ -9674,6 +9800,11 @@ BattleScript_TurnHeal:
 BattleScript_AquaRingHeal::
 	playanimation BS_ATTACKER, B_ANIM_AQUA_RING_HEAL
 	printstring STRINGID_AQUARINGHEAL
+	goto BattleScript_TurnHeal
+
+BattleScript_HearthwarmHeal::
+	playanimation BS_ATTACKER, B_ANIM_HEARTHWARM_HEAL
+	printstring STRINGID_HEARTHWARMHEAL
 	goto BattleScript_TurnHeal
 
 BattleScript_PrintMonIsRooted::

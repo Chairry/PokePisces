@@ -1549,6 +1549,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
 #if B_HEAL_BLOCKING >= GEN_6
     case EFFECT_ABSORB:
     case EFFECT_STRENGTH_SAP:
+    case EFFECT_POWER_DRAIN:
     case EFFECT_DREAM_EATER:
 #endif
     case EFFECT_MORNING_SUN:
@@ -2640,6 +2641,7 @@ enum
     ENDTURN_BLOOMING,
     ENDTURN_SPIDER_WEB,
     ENDTURN_GLAIVE_RUSH,
+    ENDTURN_HEARTHWARM,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -2693,6 +2695,15 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
                 BattleScriptExecute(BattleScript_AquaRingHeal);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_HEARTHWARM: // aqua ring
+            if ((gStatuses3[battler] & STATUS4_HEARTHWARM) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && gBattleMons[battler].hp != 0)
+            {
+                gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
+                BattleScriptExecute(BattleScript_HearthwarmHeal);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -9700,6 +9711,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_SOLAR_BEAM:
         if (IsBattlerWeatherAffected(battlerAtk, (B_WEATHER_HAIL | B_WEATHER_SANDSTORM | B_WEATHER_RAIN | B_WEATHER_SNOW)))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        break;
+    case EFFECT_DUNE_SLICER:
+        if (IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SANDSTORM))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case EFFECT_STOMPING_TANTRUM:
         if (gBattleStruct->lastMoveFailed & gBitTable[battlerAtk])

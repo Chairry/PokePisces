@@ -956,6 +956,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
     [MOVE_GLIMMER] = _("Glimmer"),
     [MOVE_WATER_WHEEL] = _("Water Wheel"),
+    [MOVE_SUN_BASK] = _("Sun Bask"),
+    [MOVE_HEARTHWARM] = _("Hearthwarm"),
+    [MOVE_DUNE_SLICER] = _("Dune Slicer"),
+    [MOVE_BASS_CANNON] = _("Bass Cannon"),
+    [MOVE_POWER_DRAIN] = _("Power Drain"),
 };
 #else
 // 12 letters
@@ -1915,6 +1920,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
     [MOVE_GLIMMER] = _("Glimmer"),
     [MOVE_WATER_WHEEL] = _("Water Wheel"),
+    [MOVE_SUN_BASK] = _("Sun Bask"),
+    [MOVE_HEARTHWARM] = _("Hearthwarm"),
+    [MOVE_DUNE_SLICER] = _("Dune Slicer"),
+    [MOVE_BASS_CANNON] = _("Bass Cannon"),
+    [MOVE_POWER_DRAIN] = _("Power Drain"),
 };
 #endif
 
