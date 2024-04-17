@@ -60,6 +60,7 @@ SSTidalInteriors_EventScript_QuickStart::
 	waitstate
 	clearflag FLAG_HIDE_BIRCH_AFTER_STARTER
 	setflag FLAG_HIDE_BIRCH_BEFORE_STARTER
+	setflag FLAG_BRINEY_MIDGAME_VISIT
 	special HealPlayerParty
 	setvar VAR_ROUTE101_STATE, 3
 	clearflag FLAG_HIDE_MAP_NAME_POPUP

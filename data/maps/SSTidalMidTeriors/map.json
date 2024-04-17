@@ -17,7 +17,146 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 1,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 34,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 3,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 4,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 18,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 19,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 33,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 34,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 3,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 13,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 18,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MID_TERIORS",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 3,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 10,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 11,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 17,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 18,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SS_TIDAL_MIDGAME",
+      "dest_warp_id": "5"
+    }
   ],
   "coord_events": [
 
