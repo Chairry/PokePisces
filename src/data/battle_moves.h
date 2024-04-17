@@ -1293,7 +1293,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .effect = EFFECT_SPECIAL_ATTACK_UP,
         #endif
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_GRASS,
         .accuracy = 0,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -14123,7 +14123,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        .makesContact = TRUE,
         .instructBanned = TRUE,
     },
 
@@ -15696,6 +15695,242 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_ATK_UP_1,
+        .magicCoatAffected = TRUE,
+    },
+
+    [MOVE_ENERVATOR] =
+    {
+        .effect = EFFECT_ENERVATOR,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESTORE_REPLACEMENT_HP,
+        .magicCoatAffected = TRUE,
+    },
+
+    [MOVE_ERODE_FIELD] =
+    {
+        .effect = EFFECT_ERODE_FIELD,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESTORE_REPLACEMENT_HP,
+    },
+
+    [MOVE_HEAVY_CELL] =
+    {
+        .effect = EFFECT_HEAVY_CELL,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_RECONSTRUCT] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_9
+            .pp = 5,
+        #elif B_UPDATED_MOVE_DATA >= GEN_4
+            .pp = 5,
+        #else
+            .pp = 5,
+        #endif
+        .effect = EFFECT_RECONSTRUCT,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_REMODEL] =
+    {
+        .effect = EFFECT_REMODEL,
+        .power = 0,
+        .type = TYPE_RELIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_BARI_BARI_BEAM] =
+    {
+        .effect = EFFECT_BARI_BARI_BEAM,
+        .power = 40,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .metronomeBanned = TRUE,
+    },
+
+    [MOVE_BARI_BARI_BASH] =
+    {
+        .effect = EFFECT_BARI_BARI_BASH,
+        .power = 120,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_GLIMMER] =
+    {
+        .effect = EFFECT_SP_ATTACK_ACCURACY_UP,
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_ATK_UP_1,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_WATER_WHEEL] =
+    {
+        .effect = EFFECT_SPEED_UP_HIT,
+        .power = 50,
+        .type = TYPE_WATER,
+        .accuracy = 100,
+        .pp = 25,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .highCritRatio = TRUE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_SUN_BASK] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .pp = 20,
+        #else
+            .pp = 40,
+        #endif
+        #if B_GROWTH_STAT_RAISE >= GEN_5
+            .effect = EFFECT_SUN_BASK,
+        #else
+            .effect = EFFECT_SPECIAL_ATTACK_UP,
+        #endif
+        .power = 0,
+        .type = TYPE_GRASS,
+        .accuracy = 0,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPATK_UP_1,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_HEARTHWARM] =
+    {
+        .effect = EFFECT_HEARTHWARM,
+        .power = 0,
+        .type = TYPE_FIRE,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
+        .snatchAffected = TRUE,
+    },
+
+    [MOVE_DUNE_SLICER] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_9
+            .power = 50,
+        #else
+            .power = 50,
+        #endif
+        .effect = EFFECT_DUNE_SLICER,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .slicingMove = TRUE,
+        .windMove = TRUE,
+    },
+
+    [MOVE_BASS_CANNON] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_9
+            .power = 70,
+        #else
+            .power = 70,
+        #endif
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .soundMove = TRUE,
+        .ballisticMove = TRUE,
+        .pulseMove = TRUE,
+    },
+
+    [MOVE_POWER_DRAIN] =
+    {
+        .effect = EFFECT_POWER_DRAIN,
+        .power = 0,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_DEF_UP_1,
         .magicCoatAffected = TRUE,
     },
 

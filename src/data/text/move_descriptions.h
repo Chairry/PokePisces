@@ -3641,8 +3641,8 @@ static const u8 sPowerJamDescription[] = _(
     "the foe if it fails to KO.");
 
 static const u8 sStormChaseDescription[] = _(
-    "A fast but hard to aim attack\n"
-    "that always goes first.");
+    "A fast but hard to aim\n"
+    "attack that goes first.");
 
 static const u8 sDrakenGuardDescription[] = _(
     "Evades damage, and reduces\n"
@@ -3653,8 +3653,64 @@ static const u8 sTickTackDescription[] = _(
     "damage and absorbing HP.");
 
 static const u8 sDeepGazeDescription[] = _(
-    "The user stares at the target\n"
-    "making them feel exposed.");
+    "Stares at the target making\n"
+    "them feel exposed.");
+
+static const u8 sEnervatorDescription[] = _(
+    "Lowers the foe's Attack and\n"
+    "Speed stats.");
+
+static const u8 sErodeFieldDescription[] = _(
+    "Drops the Def and Sp. Def of\n"
+    "all Pokémon on the field.");
+
+static const u8 sHeavyCellDescription[] = _(
+    "Raises the user's Defense,\n"
+    "Special Defense and Speed.");
+
+static const u8 sReconstructDescription[] = _(
+    "Recovers all HP but takes\n"
+    "more damage for the turn.");
+
+static const u8 sRemodelDescription[] = _(
+    "Sharply raises the user's\n"
+    "lowest defensive stat.");
+
+static const u8 sBariBariBeamDescription[] = _(
+    "Gains power the more the\n"
+    "user is hit and goes first.");
+
+static const u8 sBariBariBashDescription[] = _(
+    "Does double damage when the\n"
+    "user is at half health.");
+
+static const u8 sGlimmerDescription[] = _(
+    "Emits a bright light to raise\n"
+    "Special Attack and Accuracy.");
+
+static const u8 sWaterWheelDescription[] = _(
+    "Has a high critical-hit\n"
+    "ratio. May also raise Speed.");
+
+static const u8 sSunBaskDescription[] = _(
+    "Raises Def and Sp. Def. Gains\n"
+    "Blooming in harsh sunlight.");
+
+static const u8 sHearthwarmDescription[] = _(
+    "Forms a veil of heat that\n"
+    "heals the user and ally's HP.");
+
+static const u8 sDuneSlicerDescription[] = _(
+    "Always critical-hits and\n"
+    "gets stronger in sandstorms.");
+
+static const u8 sBassCannonDescription[] = _(
+    "A soundblast that always\n"
+    "lowers the foe's Sp. Def.");
+
+static const u8 sPowerDrainDescription[] = _(
+    "Drains the foe's Speed to\n"
+    "heal. Removes Electric-type.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4071,7 +4127,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_X_SCISSOR - 1] = sXScissorDescription,
     [MOVE_BUG_BUZZ - 1] = sBugBuzzDescription,
     [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
-    [MOVE_DRAGON_RUSH - 1] = sQuickAttackDescription,
+    [MOVE_DRAGON_RUSH - 1] = sStormChaseDescription,
     [MOVE_POWER_GEM - 1] = sPowerGemDescription,
     [MOVE_DRAIN_PUNCH - 1] = sMegaDrainDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
@@ -4611,4 +4667,18 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAKEN_GUARD - 1] = sDrakenGuardDescription,
     [MOVE_TICK_TACK - 1] = sTickTackDescription,
     [MOVE_DEEP_GAZE - 1] = sDeepGazeDescription,
+    [MOVE_ENERVATOR - 1] = sEnervatorDescription,
+    [MOVE_ERODE_FIELD - 1] = sErodeFieldDescription,
+    [MOVE_HEAVY_CELL - 1] = sHeavyCellDescription,
+    [MOVE_RECONSTRUCT - 1] = sReconstructDescription,
+    [MOVE_REMODEL - 1] = sRemodelDescription,
+    [MOVE_BARI_BARI_BEAM - 1] = sBariBariBeamDescription,
+    [MOVE_BARI_BARI_BASH - 1] = sBariBariBashDescription,
+    [MOVE_GLIMMER - 1] = sGlimmerDescription,
+    [MOVE_WATER_WHEEL - 1] = sWaterWheelDescription,
+    [MOVE_SUN_BASK - 1] = sSunBaskDescription,
+    [MOVE_HEARTHWARM - 1] = sHearthwarmDescription,
+    [MOVE_DUNE_SLICER - 1] = sDuneSlicerDescription,
+    [MOVE_BASS_CANNON - 1] = sBassCannonDescription,
+    [MOVE_POWER_DRAIN - 1] = sPowerDrainDescription,
 };

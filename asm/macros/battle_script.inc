@@ -1381,6 +1381,10 @@
 	callnative BS_SetGlaiveRush
 	.endm
 
+	.macro setglaiverush2
+	callnative BS_SetGlaiveRush2
+	.endm
+
 	.macro trycopycat failInstr:req
 	callnative BS_TryCopycat
 	.4byte \failInstr
@@ -2428,6 +2432,15 @@
 
 	.macro normaliseattackerbuffs
 	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS
+	.endm
+
+	.macro tryhealallhealth failInstr:req
+	various 0, VARIOUS_TRY_HEAL_ALL_HEALTH
+	.4byte \failInstr
+	.endm
+
+	.macro remodelcheck jumpInstr:req
+	various 0, VARIOUS_REMODEL_CHECK
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.

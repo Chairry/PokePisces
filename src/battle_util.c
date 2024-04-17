@@ -1549,6 +1549,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
 #if B_HEAL_BLOCKING >= GEN_6
     case EFFECT_ABSORB:
     case EFFECT_STRENGTH_SAP:
+    case EFFECT_POWER_DRAIN:
     case EFFECT_DREAM_EATER:
 #endif
     case EFFECT_MORNING_SUN:
@@ -1556,6 +1557,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     case EFFECT_COLD_MEND:
     case EFFECT_MOONLIGHT:
     case EFFECT_RESTORE_HP:
+    case EFFECT_RECONSTRUCT:
     case EFFECT_REST:
     case EFFECT_ROOST:
     case EFFECT_HEALING_WISH:
@@ -2639,6 +2641,7 @@ enum
     ENDTURN_BLOOMING,
     ENDTURN_SPIDER_WEB,
     ENDTURN_GLAIVE_RUSH,
+    ENDTURN_HEARTHWARM,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -2692,6 +2695,15 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
                 BattleScriptExecute(BattleScript_AquaRingHeal);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_HEARTHWARM: // aqua ring
+            if ((gStatuses3[battler] & STATUS4_HEARTHWARM) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && gBattleMons[battler].hp != 0)
+            {
+                gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
+                BattleScriptExecute(BattleScript_HearthwarmHeal);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -3508,6 +3520,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_FLAGS: // flags clear
             gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_DESTINY_BOND;
             gStatuses3[gBattlerAttacker] &= ~STATUS3_GRUDGE;
+            gStatuses4[gBattlerAttacker] &= ~STATUS4_GLAIVE_RUSH_2;
             gBattleScripting.tripleKickPower = 0;
             gBattleStruct->atkCancellerTracker++;
             break;
@@ -8640,6 +8653,7 @@ void ClearFuryCutterDestinyBondGrudge(u32 battler)
     gDisableStructs[battler].furyCutterCounter = 0;
     gBattleMons[battler].status2 &= ~STATUS2_DESTINY_BOND;
     gStatuses3[battler] &= ~STATUS3_GRUDGE;
+    gStatuses4[gBattlerAttacker] &= ~STATUS4_GLAIVE_RUSH_2;
 }
 
 void HandleAction_RunBattleScript(void) // identical to RunBattleScriptCommands
@@ -9630,6 +9644,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = 50 + (30 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
         basePower = (basePower > 200) ? 200 : basePower;
         break;
+    case EFFECT_BARI_BARI_BEAM:
+        basePower = 40 + (40 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
+        basePower = (basePower > 200) ? 200 : basePower;
+        break;
     case EFFECT_FICKLE_BEAM:
         basePower = gBattleStruct->ficklebeamBasePower;
         break;
@@ -9673,6 +9691,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMons[battlerDef].hp <= (gBattleMons[battlerDef].maxHP / 2))
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
+    case EFFECT_BARI_BARI_BASH:
+        if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
     case EFFECT_FINISH_OFF:
         if (gBattleMons[battlerDef].hp < gBattleMons[battlerDef].maxHP)
             modifier = uq4_12_multiply(modifier, UQ_4_12(3.0));
@@ -9689,6 +9711,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_SOLAR_BEAM:
         if (IsBattlerWeatherAffected(battlerAtk, (B_WEATHER_HAIL | B_WEATHER_SANDSTORM | B_WEATHER_RAIN | B_WEATHER_SNOW)))
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+        break;
+    case EFFECT_DUNE_SLICER:
+        if (IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SANDSTORM))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case EFFECT_STOMPING_TANTRUM:
         if (gBattleStruct->lastMoveFailed & gBitTable[battlerAtk])
@@ -10082,6 +10108,7 @@ static inline bool32 IsMoveDraining(u32 move)
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_RESTORE_HP:
+    case EFFECT_RECONSTRUCT:
     case EFFECT_REST:
     case EFFECT_MORNING_SUN:
     case EFFECT_MOONLIGHT:
@@ -10715,6 +10742,8 @@ static inline uq4_12_t GetCriticalModifier(bool32 isCrit)
 static inline uq4_12_t GetGlaiveRushModifier(u32 battlerDef)
 {
     if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH)
+        return UQ_4_12(2.0);
+    if (gStatuses4[battlerDef] & STATUS4_GLAIVE_RUSH_2)
         return UQ_4_12(2.0);
     return UQ_4_12(1.0);
 }

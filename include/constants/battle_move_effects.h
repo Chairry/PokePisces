@@ -510,7 +510,19 @@
 #define EFFECT_ALL_STATS_UP_2_HIT_FOE       504
 #define EFFECT_TICK_TACK                    505
 #define EFFECT_DEEP_GAZE                    506
+#define EFFECT_ENERVATOR                    507
+#define EFFECT_ERODE_FIELD                  508
+#define EFFECT_HEAVY_CELL                   509
+#define EFFECT_RECONSTRUCT                  510
+#define EFFECT_REMODEL                      511
+#define EFFECT_BARI_BARI_BEAM               512
+#define EFFECT_BARI_BARI_BASH               513
+#define EFFECT_SP_ATTACK_ACCURACY_UP        514
+#define EFFECT_SUN_BASK                     515
+#define EFFECT_HEARTHWARM                   516
+#define EFFECT_DUNE_SLICER                  517
+#define EFFECT_POWER_DRAIN                  518
 
-#define NUM_BATTLE_MOVE_EFFECTS             507
+#define NUM_BATTLE_MOVE_EFFECTS             519
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

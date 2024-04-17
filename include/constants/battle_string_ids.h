@@ -671,7 +671,7 @@
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_PKMNSITEMCAUSEBURN                   671
-#define STRINGID_CURSEDAMULETDISABLED                  672
+#define STRINGID_CURSEDAMULETDISABLED                 672
 // New strings
 #define STRINGID_PKMNMAKESPOISONMISS                  673
 #define STRINGID_WATERVEILPROTECTED                   674
@@ -755,8 +755,11 @@
 #define STRINGID_USERSTATCHANGESGONE                  753
 #define STRINGID_PKMNISPREPARINGFORDECIMATION         754
 #define STRINGID_PKMNISALREADYEXPOSED                 755
+#define STRINGID_HEARTHWARMHEAL                       756
+#define STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT         757
+#define STRINGID_TARGETLOSTELECTRICTYPE               758
 
-#define BATTLESTRINGS_COUNT                           756
+#define BATTLESTRINGS_COUNT                           759
 
 
 // This is the string id that gBattleStringsTable starts with.
