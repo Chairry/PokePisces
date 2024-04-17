@@ -3641,8 +3641,8 @@ static const u8 sPowerJamDescription[] = _(
     "the foe if it fails to KO.");
 
 static const u8 sStormChaseDescription[] = _(
-    "A fast but hard to aim attack\n"
-    "that always goes first.");
+    "A fast but hard to aim\n"
+    "attack that goes first.");
 
 static const u8 sDrakenGuardDescription[] = _(
     "Evades damage, and reduces\n"
@@ -3653,8 +3653,8 @@ static const u8 sTickTackDescription[] = _(
     "damage and absorbing HP.");
 
 static const u8 sDeepGazeDescription[] = _(
-    "The user stares at the target\n"
-    "making them feel exposed.");
+    "Stares at the target making\n"
+    "them feel exposed.");
 
 static const u8 sEnervatorDescription[] = _(
     "Lowers the foe's Attack and\n"
@@ -3669,16 +3669,16 @@ static const u8 sHeavyCellDescription[] = _(
     "Special Defense and Speed.");
 
 static const u8 sReconstructDescription[] = _(
-    "Recovers all HP but takes more\n"
-    "damage until the next turn.");
+    "Recovers all HP but takes\n"
+    "more damage for the turn.");
 
 static const u8 sRemodelDescription[] = _(
     "Sharply raises the user's\n"
     "lowest defensive stat.");
 
 static const u8 sBariBariBeamDescription[] = _(
-    "A quick move that gets boosted\n"
-    "the more the user is hit.");
+    "Gains power the more the\n"
+    "user is hit and goes first.");
 
 static const u8 sBariBariBashDescription[] = _(
     "Does double damage when the\n"
@@ -4127,7 +4127,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_X_SCISSOR - 1] = sXScissorDescription,
     [MOVE_BUG_BUZZ - 1] = sBugBuzzDescription,
     [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
-    [MOVE_DRAGON_RUSH - 1] = sQuickAttackDescription,
+    [MOVE_DRAGON_RUSH - 1] = sStormChaseDescription,
     [MOVE_POWER_GEM - 1] = sPowerGemDescription,
     [MOVE_DRAIN_PUNCH - 1] = sMegaDrainDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
