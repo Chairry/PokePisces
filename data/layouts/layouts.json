@@ -5224,8 +5224,8 @@
     {
       "id": "LAYOUT_LILYCOVE_INTERIORS",
       "name": "LilycoveInteriors_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 38,
+      "height": 21,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LilycoveInteriors/border.bin",

@@ -44,35 +44,35 @@
       "x": 40,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
+      "dest_map": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 64,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
+      "dest_map": "MAP_OZONE_LILYCOVE_HQ",
       "dest_warp_id": "0"
     },
     {
       "x": 56,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
+      "dest_map": "MAP_LILYCOVE_MUSEUM_NEW",
       "dest_warp_id": "0"
     },
     {
       "x": 57,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
+      "dest_map": "MAP_LILYCOVE_MUSEUM_NEW",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
+      "dest_map": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
       "dest_warp_id": "0"
     },
     {
