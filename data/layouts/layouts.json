@@ -5214,10 +5214,10 @@
     {
       "id": "LAYOUT_OZONE_LILYCOVE_HQ",
       "name": "OzoneLilycoveHQ_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 16,
+      "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_OzoneInterior",
       "border_filepath": "data/layouts/OzoneLilycoveHQ/border.bin",
       "blockdata_filepath": "data/layouts/OzoneLilycoveHQ/map.bin"
     },
@@ -5234,8 +5234,8 @@
     {
       "id": "LAYOUT_LILYCOVE_MUSEUM_NEW",
       "name": "LilycoveMuseumNew_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 21,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_LilycoveMuseum",
       "border_filepath": "data/layouts/LilycoveMuseumNew/border.bin",
