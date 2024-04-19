@@ -547,13 +547,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPowerDrain              @ EFFECT_POWER_DRAIN
 
 BattleScript_EffectPowerDrain:
-	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_EffectPowerDrainElectricType
-	goto BattleScript_EffectPowerDrainStart
-BattleScript_EffectPowerDrainElectricType:
-	losetype BS_TARGET, TYPE_ELECTRIC
-	printstring STRINGID_TARGETLOSTELECTRICTYPE
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectPowerDrainStart:
 	setstatchanger STAT_SPEED, 1, TRUE
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_FailedFromAtkString
@@ -564,6 +557,12 @@ BattleScript_EffectPowerDrainStart:
 	pause B_WAIT_TIME_SHORT
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
 	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_EffectPowerDrainElectricType
+	goto BattleScript_MoveEnd
+BattleScript_EffectPowerDrainElectricType:
+	losetype BS_TARGET, TYPE_ELECTRIC
+	printstring STRINGID_TARGETLOSTELECTRICTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_PowerDrainTryLower:
@@ -577,6 +576,12 @@ BattleScript_PowerDrainLower:
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_EffectPowerDrainElectricType2
+	goto BattleScript_PowerDrainHp
+BattleScript_EffectPowerDrainElectricType2:
+	losetype BS_TARGET, TYPE_ELECTRIC
+	printstring STRINGID_TARGETLOSTELECTRICTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_PowerDrainHp
 @ Drain HP without lowering a stat
