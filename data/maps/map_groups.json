@@ -106,7 +106,8 @@
     "StevenHouse",
     "StevenCorridor",
     "StevenMaze",
-    "SecretMossdeepCave"
+    "SecretMossdeepCave",
+    "MangrottoRockSmashRoom"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",
@@ -124,7 +125,12 @@
     "LilycoveCity_PokemonCenter_1F",
     "LilycoveCity_PokemonCenter_2F",
     "VerdanturfTown_PokemonCenter_1F",
-    "PrecipikeInteriors"
+    "PrecipikeInteriors",
+    "OzoneLilycoveHQ",
+    "LilycoveInteriors",
+    "LilycoveMuseumNew",
+    "SSTidalMidgame",
+    "SSTidalMidTeriors"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",

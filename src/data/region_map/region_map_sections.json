@@ -3,7 +3,7 @@
     {
       "map_section": "MAPSEC_LITTLEROOT_TOWN",
       "name": "LITTLEROOT TOWN",
-      "x": 4,
+      "x": 7,
       "y": 11,
       "width": 1,
       "height": 1
@@ -11,39 +11,39 @@
     {
       "map_section": "MAPSEC_OLDALE_TOWN",
       "name": "OLDALE TOWN",
-      "x": 4,
-      "y": 9,
+      "x": 7,
+      "y": 8,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_DEWFORD_TOWN",
       "name": "DEWFORD TOWN",
-      "x": 2,
-      "y": 14,
+      "x": 4,
+      "y": 13,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_LAVARIDGE_TOWN",
       "name": "LAVARIDGE TOWN",
-      "x": 5,
-      "y": 3,
+      "x": 6,
+      "y": 5,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_FALLARBOR_TOWN",
       "name": "FALLARBOR TOWN",
-      "x": 3,
-      "y": 0,
+      "x": 4,
+      "y": 2,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_VERDANTURF_TOWN",
       "name": "VERDANTURF TOWN",
-      "x": 4,
+      "x": 7,
       "y": 6,
       "width": 1,
       "height": 1
@@ -51,7 +51,7 @@
     {
       "map_section": "MAPSEC_PACIFIDLOG_TOWN",
       "name": "PACIFIDLOG TOWN",
-      "x": 17,
+      "x": 13,
       "y": 10,
       "width": 1,
       "height": 1
@@ -59,383 +59,383 @@
     {
       "map_section": "MAPSEC_PETALBURG_CITY",
       "name": "PETALBURG CITY",
-      "x": 1,
-      "y": 9,
+      "x": 3,
+      "y": 8,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_SLATEPORT_CITY",
       "name": "SEA MAUVILLE",
-      "x": 8,
-      "y": 10,
+      "x": 10,
+      "y": 11,
       "width": 1,
       "height": 2
     },
     {
       "map_section": "MAPSEC_MAUVILLE_CITY",
       "name": "NEW MAUVILLE",
-      "x": 8,
+      "x": 10,
+      "y": 7,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_RUSTBORO_CITY",
+      "name": "RUSTBORO CITY",
+      "x": 2,
       "y": 6,
       "width": 2,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_RUSTBORO_CITY",
-      "name": "RUSTBORO CITY",
-      "x": 0,
-      "y": 5,
+      "map_section": "MAPSEC_FORTREE_CITY",
+      "name": "FORTREE CITY",
+      "x": 10,
+      "y": 2,
       "width": 1,
       "height": 2
     },
     {
-      "map_section": "MAPSEC_FORTREE_CITY",
-      "name": "FORTREE CITY",
-      "x": 12,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
       "map_section": "MAPSEC_LILYCOVE_CITY",
       "name": "LILYCOVE CITY",
-      "x": 18,
-      "y": 3,
+      "x": 15,
+      "y": 4,
       "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_MOSSDEEP_CITY",
       "name": "MOSSDEEP CITY",
-      "x": 24,
-      "y": 5,
+      "x": 20,
+      "y": 6,
       "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_SOOTOPOLIS_CITY",
       "name": "SOOTOPOLIS CITY",
-      "x": 21,
-      "y": 7,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_EVER_GRANDE_CITY",
-      "name": "GOLDEN PLAINS",
-      "x": 27,
-      "y": 8,
+      "x": 16,
+      "y": 6,
       "width": 1,
       "height": 2
     },
     {
+      "map_section": "MAPSEC_EVER_GRANDE_CITY",
+      "name": "GOLDEN PLAINS",
+      "x": 20,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_101",
       "name": "FLOTSHORE TRAIL",
-      "x": 4,
+      "x": 14,
       "y": 10,
-      "width": 1,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_102",
       "name": "BASALIN COAST",
-      "x": 2,
-      "y": 9,
+      "x": 15,
+      "y": 8,
       "width": 2,
-      "height": 1
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_103",
       "name": "MANGROTTO TUNNEL",
-      "x": 4,
-      "y": 8,
-      "width": 4,
+      "x": 15,
+      "y": 6,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_104",
       "name": "COSMOSS BRIDGE",
-      "x": 0,
-      "y": 7,
-      "width": 1,
-      "height": 3
+      "x": 17,
+      "y": 6,
+      "width": 3,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_105",
       "name": "PRECIPIKE BLUFF",
-      "x": 0,
-      "y": 10,
-      "width": 1,
-      "height": 3
+      "x": 20,
+      "y": 4,
+      "width": 2,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_106",
       "name": "SUNBEACH STRAIT",
-      "x": 0,
-      "y": 13,
-      "width": 2,
-      "height": 1
+      "x": 17,
+      "y": 4,
+      "width": 3,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_107",
       "name": "ARCTAIGA ROAD",
-      "x": 3,
-      "y": 14,
-      "width": 3,
+      "x": 11,
+      "y": 4,
+      "width": 4,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_108",
       "name": "BRUMIST CLIFFS",
-      "x": 6,
-      "y": 14,
-      "width": 2,
+      "x": 12,
+      "y": 3,
+      "width": 3,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_109",
       "name": "OZONE INSTITUTE",
-      "x": 8,
-      "y": 12,
+      "x": 10,
+      "y": 4,
       "width": 1,
-      "height": 3
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_110",
       "name": "ZOTPYRE VILLAGE",
-      "x": 8,
-      "y": 7,
+      "x": 13,
+      "y": 2,
       "width": 1,
-      "height": 3
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_111",
       "name": "SCUTTILL WAY",
-      "x": 8,
-      "y": 0,
+      "x": 15,
+      "y": 1,
       "width": 1,
-      "height": 6
+      "height": 3
     },
     {
       "map_section": "MAPSEC_ROUTE_112",
       "name": "SCUTTILL HUTS",
-      "x": 6,
-      "y": 3,
-      "width": 2,
+      "x": 16,
+      "y": 1,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_113",
       "name": "CANOPOUR WILDS",
-      "x": 4,
+      "x": 11,
       "y": 0,
-      "width": 4,
+      "width": 5,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_114",
       "name": "PERPLUME MAZE",
-      "x": 1,
+      "x": 10,
       "y": 0,
-      "width": 2,
-      "height": 3
+      "width": 1,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_115",
       "name": "MASONRIED HIKE",
-      "x": 0,
-      "y": 2,
+      "x": 9,
+      "y": 4,
       "width": 1,
-      "height": 3
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_116",
       "name": "THE ASHLANDS",
-      "x": 1,
-      "y": 5,
+      "x": 5,
+      "y": 2,
       "width": 4,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_117",
       "name": "CRIMNEY CLIMB",
-      "x": 5,
-      "y": 6,
-      "width": 3,
-      "height": 1
+      "x": 4,
+      "y": 3,
+      "width": 5,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_118",
       "name": "SWELTORN DESERT",
-      "x": 10,
-      "y": 6,
+      "x": 9,
+      "y": 5,
       "width": 2,
-      "height": 1
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_119",
       "name": "SWELTORN PALACE",
       "x": 11,
-      "y": 0,
+      "y": 6,
       "width": 1,
-      "height": 6
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_120",
       "name": "HATCHLOAM FIELD",
-      "x": 13,
-      "y": 0,
-      "width": 1,
-      "height": 4
+      "x": 7,
+      "y": 7,
+      "width": 3,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_121",
       "name": "ROUTE 121",
-      "x": 14,
-      "y": 3,
-      "width": 4,
+      "x": 23,
+      "y": 9,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_122",
       "name": "CYCLING ROAD",
-      "x": 16,
-      "y": 4,
+      "x": 10,
+      "y": 9,
       "width": 1,
       "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_123",
       "name": "SLATEPORT SHORE",
-      "x": 12,
-      "y": 6,
-      "width": 5,
+      "x": 10,
+      "y": 13,
+      "width": 3,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_124",
       "name": "NAVIGULF WAVES",
-      "x": 20,
-      "y": 3,
-      "width": 4,
-      "height": 3
+      "x": 5,
+      "y": 13,
+      "width": 5,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_125",
       "name": "STRAE SEAPATH",
-      "x": 24,
-      "y": 3,
-      "width": 2,
-      "height": 2
+      "x": 13,
+      "y": 11,
+      "width": 1,
+      "height": 3
     },
     {
       "map_section": "MAPSEC_ROUTE_126",
       "name": "GRANIPLINE BEACH",
-      "x": 20,
-      "y": 6,
-      "width": 3,
-      "height": 3
+      "x": 2,
+      "y": 12,
+      "width": 2,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_127",
       "name": "WISHWELL OCEAN",
-      "x": 23,
-      "y": 6,
-      "width": 3,
-      "height": 3
+      "x": 2,
+      "y": 8,
+      "width": 1,
+      "height": 4
     },
     {
       "map_section": "MAPSEC_ROUTE_128",
       "name": "RUSTBURG WHARF",
-      "x": 23,
-      "y": 9,
-      "width": 4,
+      "x": 2,
+      "y": 7,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_129",
       "name": "WHISPER CLIFF",
-      "x": 24,
-      "y": 10,
-      "width": 2,
+      "x": 3,
+      "y": 5,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_130",
       "name": "NOVICE'S WALK",
-      "x": 21,
-      "y": 10,
-      "width": 3,
-      "height": 1
+      "x": 7,
+      "y": 9,
+      "width": 1,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_131",
       "name": "PENDING DEV",
-      "x": 18,
-      "y": 10,
-      "width": 3,
+      "x": 8,
+      "y": 11,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_132",
       "name": "ROUTE 132",
-      "x": 15,
+      "x": 18,
       "y": 10,
-      "width": 2,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_133",
       "name": "ROUTE 133",
-      "x": 12,
-      "y": 10,
-      "width": 3,
+      "x": 22,
+      "y": 9,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_134",
       "name": "ROUTE 134",
-      "x": 9,
+      "x": 24,
       "y": 10,
-      "width": 3,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_124",
       "name": "UNDERWATER",
-      "x": 20,
-      "y": 3,
-      "width": 4,
-      "height": 3
+      "x": 21,
+      "y": 0,
+      "width": 1,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_126",
       "name": "UNDERWATER",
-      "x": 20,
-      "y": 6,
-      "width": 3,
-      "height": 3
+      "x": 22,
+      "y": 0,
+      "width": 1,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_127",
       "name": "UNDERWATER",
       "x": 23,
-      "y": 6,
-      "width": 3,
-      "height": 3
+      "y": 0,
+      "width": 1,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_128",
       "name": "UNDERWATER",
-      "x": 23,
-      "y": 9,
-      "width": 4,
+      "x": 24,
+      "y": 0,
+      "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SOOTOPOLIS",
       "name": "UNDERWATER",
-      "x": 21,
+      "x": 14,
       "y": 7,
       "width": 1,
       "height": 1
@@ -443,7 +443,7 @@
     {
       "map_section": "MAPSEC_GRANITE_CAVE",
       "name": "GRANIPLINE QUARRY",
-      "x": 1,
+      "x": 2,
       "y": 13,
       "width": 1,
       "height": 1
@@ -451,15 +451,15 @@
     {
       "map_section": "MAPSEC_MT_CHIMNEY",
       "name": "CRIMNEY CALDERA",
-      "x": 6,
-      "y": 2,
-      "width": 1,
+      "x": 5,
+      "y": 3,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_SAFARI_ZONE",
       "name": "SAFARI ZONE",
-      "x": 16,
+      "x": 19,
       "y": 2,
       "width": 1,
       "height": 1
@@ -467,39 +467,39 @@
     {
       "map_section": "MAPSEC_BATTLE_FRONTIER",
       "name": "BATTLE FRONTIER",
-      "x": 22,
-      "y": 12,
+      "x": 26,
+      "y": 9,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_PETALBURG_WOODS",
       "name": "PETALBURG WOODS",
-      "x": 0,
+      "x": 4,
       "y": 8,
-      "width": 1,
+      "width": 3,
       "height": 1
     },
     {
       "map_section": "MAPSEC_RUSTURF_TUNNEL",
       "name": "UNDURA TUNNELS",
       "x": 2,
-      "y": 5,
+      "y": 7,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ABANDONED_SHIP",
       "name": "SAILOR'S PAUSE",
-      "x": 6,
-      "y": 14,
-      "width": 1,
+      "x": 15,
+      "y": 11,
+      "width": 2,
       "height": 1
     },
     {
       "map_section": "MAPSEC_NEW_MAUVILLE",
       "name": "MAINTENANCE",
-      "x": 8,
+      "x": 10,
       "y": 7,
       "width": 1,
       "height": 1
@@ -507,31 +507,30 @@
     {
       "map_section": "MAPSEC_METEOR_FALLS",
       "name": "MIDNEOR FALLS",
-      "x": 0,
-      "y": 3,
-      "width": 1,
-      "height": 1
+      "x": 1,
+      "y": 4,
+      "width": 2,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_METEOR_FALLS2",
       "name": "MIDNEOR FALLS",
       "x": 1,
-      "y": 2,
+      "y": 3,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_MT_PYRE",
       "name": "ZOTPYRE SHRINE",
-      "x": 16,
-      "y": 4,
+      "x": 13,
+      "y": 2,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_AQUA_HIDEOUT_OLD",
       "name": "{AQUA} HIDEOUT",
-      "name_clone": true,
       "x": 19,
       "y": 3,
       "width": 1,
@@ -540,7 +539,7 @@
     {
       "map_section": "MAPSEC_SHOAL_CAVE",
       "name": "ICIPIKE CAVE",
-      "x": 24,
+      "x": 21,
       "y": 4,
       "width": 1,
       "height": 1
@@ -548,31 +547,31 @@
     {
       "map_section": "MAPSEC_SEAFLOOR_CAVERN",
       "name": "MIDNEOR NADIR",
-      "x": 24,
-      "y": 9,
+      "x": 1,
+      "y": 4,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SEAFLOOR_CAVERN",
       "name": "UNDERWATER",
-      "x": 24,
-      "y": 9,
+      "x": 1,
+      "y": 3,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_VICTORY_ROAD",
       "name": "EVER GRANDE ROAD",
-      "x": 27,
-      "y": 9,
-      "width": 1,
+      "x": 14,
+      "y": 13,
+      "width": 6,
       "height": 1
     },
     {
       "map_section": "MAPSEC_MIRAGE_ISLAND",
       "name": "MIRAGE ISLAND",
-      "x": 17,
+      "x": 18,
       "y": 10,
       "width": 1,
       "height": 1
@@ -580,7 +579,7 @@
     {
       "map_section": "MAPSEC_CAVE_OF_ORIGIN",
       "name": "CAVE OF ORIGIN",
-      "x": 21,
+      "x": 16,
       "y": 7,
       "width": 1,
       "height": 1
@@ -588,15 +587,15 @@
     {
       "map_section": "MAPSEC_SOUTHERN_ISLAND",
       "name": "SOUTHERN ISLAND",
-      "x": 12,
-      "y": 14,
+      "x": 22,
+      "y": 13,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_FIERY_PATH",
       "name": "CRIMNEY CATACOMB",
-      "x": 6,
+      "x": 4,
       "y": 3,
       "width": 1,
       "height": 1
@@ -605,22 +604,22 @@
       "map_section": "MAPSEC_FIERY_PATH2",
       "name": "CRIMNEY CATACOMB",
       "x": 7,
-      "y": 3,
+      "y": 4,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_JAGGED_PASS",
       "name": "JAGGRO PASS",
-      "x": 6,
-      "y": 3,
+      "x": 3,
+      "y": 2,
       "width": 1,
-      "height": 1
+      "height": 3
     },
     {
       "map_section": "MAPSEC_JAGGED_PASS2",
       "name": "JAGGRO PASS",
-      "x": 7,
+      "x": 2,
       "y": 2,
       "width": 1,
       "height": 1
@@ -628,16 +627,16 @@
     {
       "map_section": "MAPSEC_SEALED_CHAMBER",
       "name": "SEALED CHAMBER",
-      "x": 11,
-      "y": 10,
+      "x": 12,
+      "y": 7,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SEALED_CHAMBER",
       "name": "UNDERWATER",
-      "x": 11,
-      "y": 10,
+      "x": 12,
+      "y": 7,
       "width": 1,
       "height": 1
     },
@@ -645,15 +644,15 @@
       "map_section": "MAPSEC_SCORCHED_SLAB",
       "name": "SCORCHED SLAB",
       "x": 13,
-      "y": 0,
+      "y": 7,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ISLAND_CAVE",
       "name": "ISLAND CAVE",
-      "x": 0,
-      "y": 10,
+      "x": 1,
+      "y": 9,
       "width": 1,
       "height": 1
     },
@@ -661,39 +660,39 @@
       "map_section": "MAPSEC_DESERT_RUINS",
       "name": "DESERT RUINS",
       "x": 8,
-      "y": 3,
+      "y": 5,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ANCIENT_TOMB",
       "name": "ANCIENT TOMB",
-      "x": 13,
-      "y": 2,
+      "x": 8,
+      "y": 6,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_INSIDE_OF_TRUCK",
       "name": "INSIDE OF TRUCK",
-      "x": 0,
-      "y": 0,
+      "x": 16,
+      "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_SKY_PILLAR",
       "name": "SKY PILLAR",
-      "x": 19,
-      "y": 10,
+      "x": 13,
+      "y": 9,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_SECRET_BASE",
       "name": "SECRET BASE",
-      "x": 0,
-      "y": 0,
+      "x": 11,
+      "y": 3,
       "width": 1,
       "height": 1
     },
@@ -796,7 +795,6 @@
     {
       "map_section": "MAPSEC_ROUTE_4_POKECENTER",
       "name": "ROUTE 4",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,
@@ -805,7 +803,6 @@
     {
       "map_section": "MAPSEC_ROUTE_10_POKECENTER",
       "name": "ROUTE 10",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1046,7 +1043,6 @@
     {
       "map_section": "MAPSEC_UNDERGROUND_PATH_2",
       "name": "UNDERGROUND PATH",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1063,7 +1059,6 @@
     {
       "map_section": "MAPSEC_KANTO_VICTORY_ROAD",
       "name": "VICTORY ROAD",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1096,7 +1091,6 @@
     {
       "map_section": "MAPSEC_KANTO_SAFARI_ZONE",
       "name": "SAFARI ZONE",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1441,7 +1435,6 @@
     {
       "map_section": "MAPSEC_TRAINER_TOWER_2",
       "name": "TRAINER TOWER",
-      "name_clone": true,
       "x": 0,
       "y": 0,
       "width": 1,

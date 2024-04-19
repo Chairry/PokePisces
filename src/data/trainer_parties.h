@@ -1593,10 +1593,10 @@ static const struct TrainerMon sParty_PMorning[] = {
     .lvl = 27,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(25, 25, 25, 25, 25, 25),
-    .species = SPECIES_CHIROBERRA,
-    .ability = ABILITY_FRIEND_GUARD,
+    .species = SPECIES_AJOKUJOKU,
+    .ability = ABILITY_CONTRARY,
     .heldItem = ITEM_UTILITY_UMBRELLA,
-    .moves = {MOVE_TORMENT, MOVE_PROTECT, MOVE_RAPID_SPIN, MOVE_WING_ATTACK},
+    .moves = {MOVE_THUNDER_WAVE, MOVE_HEX, MOVE_PSYBEAM, MOVE_REVERSAL},
     }
 };
 
@@ -1710,6 +1710,7 @@ static const struct TrainerMon sParty_PMatt1[] = {
     .ev = TRAINER_PARTY_EVS(25, 25, 26, 25, 26, 25),
     .species = SPECIES_SNORUNT,
     .ability = ABILITY_ICE_BODY,
+    .moves = {MOVE_COLD_SNAP, MOVE_RAPID_SPIN, MOVE_SPOOK, MOVE_DOUBLE_TEAM},
     },
     {
     .lvl = 27,
@@ -1718,6 +1719,7 @@ static const struct TrainerMon sParty_PMatt1[] = {
     .species = SPECIES_MORAGAN,
     .ability = ABILITY_SNOW_WARNING,
     .heldItem = ITEM_ICY_ROCK,
+    .moves = {MOVE_ICE_SHARD, MOVE_SHADOW_CLAW, MOVE_HAZE, MOVE_FLATTER},
     }
 };
 
@@ -1729,6 +1731,7 @@ static const struct TrainerMon sParty_PTabitha1[] = {
     .species = SPECIES_KOMBAKYU,
     .ability = ABILITY_SAND_STREAM,
     .heldItem = ITEM_SMOOTH_ROCK,
+    .moves = {MOVE_BULLDOZE, MOVE_METAL_CLAW, MOVE_PIXIE_POW, MOVE_RAPID_SPIN},
     },
     {
     .lvl = 27,
@@ -1736,6 +1739,7 @@ static const struct TrainerMon sParty_PTabitha1[] = {
     .ev = TRAINER_PARTY_EVS(25, 25, 26, 25, 26, 25),
     .species = SPECIES_PEBBLER,
     .ability = ABILITY_SAND_VEIL,
+    .moves = {MOVE_BULLDOZE, MOVE_BIDE, MOVE_HARDEN, MOVE_ROLLOUT},
     }
 };
 

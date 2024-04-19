@@ -305,6 +305,30 @@ PacifidlogTown_EventScript_BoxLabel::
 	msgbox PacifidlogTown_Text_BoxLabel, MSGBOX_SIGN
 	end
 
+PacifidlogTown_EventScript_BrineyFastTravel::
+	lock
+	faceplayer
+	msgbox PacifidlogTown_Text_WantToVoyage, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PacifidlogTown_EventScript_WarpToTidal
+	msgbox PacifidlogTown_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_EventScript_WarpToTidal::
+	msgbox PacifidlogTown_Text_BonVoyage, MSGBOX_DEFAULT
+	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
+	release
+	end
+
+PacifidlogTown_Text_WantToVoyage:
+	.string "wanna go to ss tidle$"
+
+PacifidlogTown_Text_IllBeHere:
+	.string "ill be waitin$"
+
+PacifidlogTown_Text_BonVoyage:
+	.string "bon voyage$"
+
 PacifidlogTown_Text_FastRunningCurrent:
 	.string "The sea between PACIFIDLOG and\n"
 	.string "SLATEPORT has a fast-running tide.\p"

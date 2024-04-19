@@ -57,6 +57,7 @@
 #define MAP_STEVEN_CORRIDOR                   (5 | (3 << 8))
 #define MAP_STEVEN_MAZE                       (6 | (3 << 8))
 #define MAP_SECRET_MOSSDEEP_CAVE              (7 | (3 << 8))
+#define MAP_MANGROTTO_ROCK_SMASH_ROOM         (8 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))
@@ -75,6 +76,11 @@
 #define MAP_LILYCOVE_CITY_POKEMON_CENTER_2F   (2 | (5 << 8))
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F (3 | (5 << 8))
 #define MAP_PRECIPIKE_INTERIORS               (4 | (5 << 8))
+#define MAP_OZONE_LILYCOVE_HQ                 (5 | (5 << 8))
+#define MAP_LILYCOVE_INTERIORS                (6 | (5 << 8))
+#define MAP_LILYCOVE_MUSEUM_NEW               (7 | (5 << 8))
+#define MAP_SS_TIDAL_MIDGAME                  (8 | (5 << 8))
+#define MAP_SS_TIDAL_MID_TERIORS              (9 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))

@@ -1232,10 +1232,10 @@
 #define FLAG_SCUTTILL_EGG                                           0x49E // Unused Flag
 #define FLAG_TRAP_PRECIPIKE_EGGNEGGMA                                           0x49F // Unused Flag
 #define FLAG_DEFEATED_OZONE_BRANCH                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
+#define FLAG_SUNBEACH_TUBER_1                                           0x4A1 // Unused Flag
+#define FLAG_SUNBEACH_TUBER_2                                           0x4A2 // Unused Flag
+#define FLAG_SUNBEACH_TUBER_3                                           0x4A3 // Unused Flag
+#define FLAG_BRINEY_MIDGAME_VISIT                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag

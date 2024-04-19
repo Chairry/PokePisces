@@ -562,6 +562,30 @@ MossdeepCity_Movement_PlayerBlockRight:
 	face_up
 	step_end
 
+MossdeepCity_EventScript_BrineyFastTravel::
+	lock
+	faceplayer
+	msgbox MossdeepCity_Text_WantToVoyage, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MossdeepCity_EventScript_WarpToTidal
+	msgbox MossdeepCity_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MossdeepCity_EventScript_WarpToTidal::
+	msgbox MossdeepCity_Text_BonVoyage, MSGBOX_DEFAULT
+	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
+	release
+	end
+
+MossdeepCity_Text_WantToVoyage:
+	.string "wanna go to ss tidle$"
+
+MossdeepCity_Text_IllBeHere:
+	.string "ill be waitin$"
+
+MossdeepCity_Text_BonVoyage:
+	.string "bon voyage$"
+
 MossdeepCity_Text_DroppedEgg:
 	.string "(The strange wild Pokémon dropped\n"
 	.string "the egg it was holding!)$"

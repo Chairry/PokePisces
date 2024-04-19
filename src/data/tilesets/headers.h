@@ -924,3 +924,14 @@ const struct Tileset gTileset_BirchLab =
     .metatileAttributes = gMetatileAttributes_BirchLab,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_OzoneInterior =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OzoneInterior,
+    .palettes = gTilesetPalettes_OzoneInterior,
+    .metatiles = gMetatiles_OzoneInterior,
+    .metatileAttributes = gMetatileAttributes_OzoneInterior,
+    .callback = NULL,
+};

@@ -138,8 +138,8 @@
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_BREADWINNER_STATE                               0x406A // Unused Var normally, used in PISCES
 #define VAR_SHELLYLOUH_STATE                               0x406B // Unused Var normally, used in PISCES
-#define VAR_ROUTE113_STATE                               0x406C // Unused Var
-#define VAR_ROUTE114_STATE                               0x406D // Unused Var
+#define VAR_PARASOL_QUEST_STATE                               0x406C // Unused Var
+#define VAR_OZONE_ADMINS_STATE                               0x406D // Unused Var
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_ROUTE117_STATE                               0x4070 // Unused Var
