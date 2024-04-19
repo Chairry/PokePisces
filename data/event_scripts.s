@@ -3604,3 +3604,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SSTidalMidgame/scripts.inc"
 
 	.include "data/maps/SSTidalMidTeriors/scripts.inc"
+
+	.include "data/maps/MangrottoRockSmashRoom/scripts.inc"

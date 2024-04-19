@@ -24,7 +24,7 @@
 #define SS_TIDAL_EXIT_CURRENTS_RIGHT 9
 #define SS_TIDAL_EXIT_CURRENTS_LEFT  10
 
-#define SS_TIDAL_MAX_STEPS 205
+#define SS_TIDAL_MAX_STEPS 75
 
 // Scrollable Multichoice Menus
 #define SCROLL_MULTI_NONE                                  0
