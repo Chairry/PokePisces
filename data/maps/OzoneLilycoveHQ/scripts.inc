@@ -63,6 +63,41 @@ OzoneLilycoveHQ_EventScript_Marina::
     msgbox OzoneLilycoveHQ_Text_MarinaPostBattle, MSGBOX_AUTOCLOSE
     end
 
+OzoneLilycoveHQ_EventScript_UmbrellaResearcher::
+	lock
+	faceplayer
+	goto_if_eq VAR_PARASOL_QUEST_STATE, 0, OzoneLilycoveHQ_EventScript_HelpWithBrellas
+	goto_if_eq VAR_PARASOL_QUEST_STATE, 1, OzoneLilycoveHQ_EventScript_GoGetBrellas
+	goto_if_eq VAR_PARASOL_QUEST_STATE, 2, OzoneLilycoveHQ_EventScript_HaveBrella
+	goto_if_gt VAR_PARASOL_QUEST_STATE, 2, OzoneLilycoveHQ_EventScript_NoMoreBrella
+	release
+	end
+
+OzoneLilycoveHQ_EventScript_HelpWithBrellas::
+	setvar VAR_PARASOL_QUEST_STATE, 1
+	msgbox OzoneLilycoveHQ_Text_BrellaHelp, MSGBOX_AUTOCLOSE
+	release
+	end
+
+OzoneLilycoveHQ_EventScript_GoGetBrellas::
+	msgbox OzoneLilycoveHQ_Text_BrellaGoGettem, MSGBOX_AUTOCLOSE
+	release
+	end
+
+OzoneLilycoveHQ_EventScript_HaveBrella::
+	msgbox OzoneLilycoveHQ_Text_BrellaThanks, MSGBOX_DEFAULT
+	giveitem ITEM_UTILITY_UMBRELLA
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setvar VAR_PARASOL_QUEST_STATE, 3
+	msgbox OzoneLilycoveHQ_Text_BrellaAbout, MSGBOX_AUTOCLOSE
+	release
+	end
+
+OzoneLilycoveHQ_EventScript_NoMoreBrella::
+	msgbox OzoneLilycoveHQ_Text_BrellaNoMore, MSGBOX_AUTOCLOSE
+	release
+	end
+
 OzoneLilycoveHQ_EventScript_BoardroomMeeting::
 	lock
 	msgbox OzoneLilycoveHQ_Text_Boardroom1, MSGBOX_DEFAULT
@@ -272,6 +307,21 @@ OzoneLilycoveHQ_Text_Matt7:
 
 OzoneLilycoveHQ_Text_Tabitha7:
 	.string "tabitha 7$"
+
+OzoneLilycoveHQ_Text_BrellaHelp:
+	.string "intro$"
+
+OzoneLilycoveHQ_Text_BrellaGoGettem:
+	.string "intro$"
+
+OzoneLilycoveHQ_Text_BrellaThanks:
+	.string "intro$"
+
+OzoneLilycoveHQ_Text_BrellaAbout:
+	.string "intro$"
+
+OzoneLilycoveHQ_Text_BrellaNoMore:
+	.string "intro$"
 
 OzoneLilycoveHQ_Text_LandonIntro:
 	.string "intro$"

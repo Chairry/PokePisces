@@ -244,7 +244,8 @@ Route124_EventScript_ParasolLadies::
 	applymovement LOCALID_PARASOL6, Route124_Movement_Twirl6
 	delay 16
 	msgbox Route124_Text_ShalaIntro, MSGBOX_DEFAULT
-	trainerbattle_two_trainers TRAINER_P_SHALA, Route124_Text_ShalaDefeated, TRAINER_P_LALA, Route124_Text_LalaDefeated, Route124_EventScript_ParasolLadiesRound2
+	trainerbattle_two_trainers TRAINER_P_SHALA, Route124_Text_ShalaDefeated, TRAINER_P_LALA, Route124_Text_LalaDefeated, Route124_EventScript_ParasolLadiesRound2, NO_MUSIC
+	goto Route124_EventScript_ParasolLadiesRound2
 	end
 
 Route124_Movement_ConfrontPLs:
@@ -285,6 +286,7 @@ Route124_EventScript_ParasolLadiesRound2::
 	delay 16
 	msgbox Route124_Text_LaIntro, MSGBOX_DEFAULT
 	trainerbattle_two_trainers TRAINER_P_LA, Route124_Text_LaDefeated, TRAINER_P_SHALALA, Route124_Text_ShalalaDefeated, Route124_EventScript_ParasolLadiesRound3, NO_MUSIC
+	goto Route124_EventScript_ParasolLadiesRound3
 	end
 
 Route124_Movement_Twirl2:
@@ -314,6 +316,7 @@ Route124_EventScript_ParasolLadiesRound3::
 	delay 16
 	msgbox Route124_Text_IndaIntro, MSGBOX_DEFAULT
 	trainerbattle_two_trainers TRAINER_P_INDA, Route124_Text_IndaDefeated, TRAINER_P_MORNING, Route124_Text_MorningDefeated, Route124_EventScript_ParasolLadiesBeaten, NO_MUSIC
+	goto Route124_EventScript_ParasolLadiesBeaten
 	end
 
 Route124_EventScript_ParasolLadiesBeaten::
