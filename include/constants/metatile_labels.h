@@ -733,6 +733,9 @@
 #define METATILE_Slateport_Door_BattleTent  0x393
 
 // gTileset_Snow
+#define METATILE_Snow_ColdMineFloor       0x381
+#define METATILE_Snow_ColdMineLeftCliff   0x380
+#define METATILE_Snow_ColdMineRightCliff  0x382
 #define METATILE_Snow_MeralBuriedLeft1    0x3C5
 #define METATILE_Snow_MeralBuriedMiddle1  0x3C6
 #define METATILE_Snow_MeralBuriedMiddle2  0x3BD
