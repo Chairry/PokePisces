@@ -5270,6 +5270,16 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/MangrottoRockSmashRoom/border.bin",
       "blockdata_filepath": "data/layouts/MangrottoRockSmashRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_THE_COLD_MINES",
+      "name": "TheColdMines_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Snow",
+      "border_filepath": "data/layouts/TheColdMines/border.bin",
+      "blockdata_filepath": "data/layouts/TheColdMines/map.bin"
     }
   ]
 }

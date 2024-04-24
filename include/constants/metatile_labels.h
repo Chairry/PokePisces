@@ -732,6 +732,14 @@
 #define METATILE_Slateport_Door             0x2DC
 #define METATILE_Slateport_Door_BattleTent  0x393
 
+// gTileset_Snow
+#define METATILE_Snow_MeralBuriedLeft1    0x3C5
+#define METATILE_Snow_MeralBuriedMiddle1  0x3C6
+#define METATILE_Snow_MeralBuriedMiddle2  0x3BD
+#define METATILE_Snow_MeralBuriedRight1   0x3C7
+#define METATILE_Snow_MeralBuriedTop1     0x3BE
+#define METATILE_Snow_MeralSnow           0x3AD
+
 // gTileset_SootopolisGym
 #define METATILE_SootopolisGym_Ice_Broken   0x206
 #define METATILE_SootopolisGym_Ice_Cracked  0x20E

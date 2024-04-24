@@ -69,6 +69,7 @@
 #define MAP_MT_PYRE_2F         (6 | (4 << 8))
 #define MAP_ROUTE122           (7 | (4 << 8))
 #define MAP_PETALBURG_CITY_GYM (8 | (4 << 8))
+#define MAP_THE_COLD_MINES     (9 | (4 << 8))
 
 // gMapGroup_PiscesPart3Minor
 #define MAP_MOSSDEEP_CITY_POKEMON_CENTER_2F   (0 | (5 << 8))

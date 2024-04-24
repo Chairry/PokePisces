@@ -154,6 +154,7 @@ OzoneLilycoveHQ_EventScript_AdminsDefeated::
 	waitmovement 0
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha7, MSGBOX_AUTOCLOSE
+	setvar VAR_OZONE_ADMINS_STATE, 3
 	release
 	end
 
