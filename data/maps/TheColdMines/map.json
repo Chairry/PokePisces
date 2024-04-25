@@ -308,6 +308,41 @@
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY",
       "dest_warp_id": "6"
+    },
+    {
+      "x": 52,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE120",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE121",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 3,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_OZONE_INSTITUTE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE121",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 30,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE121",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
