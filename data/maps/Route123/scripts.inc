@@ -84,3 +84,12 @@ Route123_Movement_BreadEscape:
 	walk_fast_up
 	walk_fast_up
 	step_end
+
+Route123_Text_BreadwinnerIntro:
+	.string "bread intro$"
+
+Route123_Text_BreadwinnerDefeat:
+	.string "bread defeat$"
+
+Route123_Text_BreadwinnerRunAway:
+	.string "runnin outta here$"
