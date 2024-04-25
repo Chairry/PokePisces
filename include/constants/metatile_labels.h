@@ -373,8 +373,9 @@
 #define METATILE_MossdeepGym_YellowArrow_Right  0x250
 
 // gTileset_Mossdeep
-#define METATILE_Mossdeep_Door              0x2A1
-#define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
+#define METATILE_Mossdeep_Door               0x2A1
+#define METATILE_Mossdeep_Door_SpaceCenter   0x2ED
+#define METATILE_Mossdeep_MangrottoCaveDoor  0x3F4
 
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A

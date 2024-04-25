@@ -2156,8 +2156,8 @@ TheColdMines_EventScript_CantCut::
 	end
 
 TheColdMines_EventScript_CutTape1::
-	dofieldeffect FLDEFF_USE_CUT_ON_TREE
-	waitstate
+	playse SE_M_CUT
+	waitse
 	setflag FLAG_TEMP_1B
 	setmetatile 22, 17, METATILE_Snow_ColdMineRightCliff, TRUE
 	setmetatile 23, 17, METATILE_Snow_ColdMineFloor, FALSE
@@ -2180,8 +2180,8 @@ TheColdMines_EventScript_CautionTape2::
 	end
 
 TheColdMines_EventScript_CutTape2::
-	dofieldeffect FLDEFF_USE_CUT_ON_TREE
-	waitstate
+	playse SE_M_CUT
+	waitse
 	setflag FLAG_TEMP_1C
 	setmetatile 8, 18, METATILE_Snow_ColdMineRightCliff, TRUE
 	setmetatile 9, 18, METATILE_Snow_ColdMineFloor, FALSE

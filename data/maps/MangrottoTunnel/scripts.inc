@@ -563,6 +563,36 @@ MangrottoTunnel_EventScript_GaveInfestation::
     release
     end
 
+MangrottoTunnel_EventScript_RockSmashDoor::
+	lockall
+	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
+	checkpartymove MOVE_ROCK_SMASH
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
+	addvar VAR_TEMP_4, 1
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	msgbox MangrottoTunnel_Text_WeirdIndent, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_ROCK_SMASH
+	waitstate
+	goto MangrottoTunnel_EventScript_RockSmashDoorEnd
+	end
+
+MangrottoTunnel_EventScript_RockSmashDoorEnd::
+	setmetatile 66, 30, METATILE_Mossdeep_MangrottoCaveDoor, FALSE
+	special DrawWholeMapView
+	releaseall
+	end
+
+MangrottoTunnel_Text_WeirdIndent:
+	.string "There is an odd indent in\n"
+	.string "the cave wall here.\p"
+	.string "Would you like to have a\n"
+	.string "Pokémon use Rock Smash?$"
+
 MangrottoTunnel_Text_InfestedTree:
 	.string "Ugh, this tree is INFESTED\n"
 	.string "with Mandimytes! They're eating\l"
