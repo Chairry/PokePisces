@@ -19,6 +19,7 @@
 .set LOCALID_MERAL19, 20
 .set LOCALID_MERAL20, 19
 .set LOCALID_ELECTRICIAN, 22
+.set LOCALID_TABITHA, 29
 
 TheColdMines_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, TheColdMines_OnLoad
@@ -64,6 +65,8 @@ TheColdMines_EventScript_SetupMeralcorePuzzle3::
 	return
 
 TheColdMines_EventScript_ReplaceSouthSnow::
+	setflag FLAG_TEMP_1D
+	removeobject LOCALID_TABITHA
 	setmetatile 48, 33, METATILE_Snow_MeralSnow, FALSE
 	setmetatile 49, 33, METATILE_Snow_MeralSnow, FALSE
 	setmetatile 48, 34, METATILE_Snow_MeralSnow, FALSE
@@ -2190,6 +2193,53 @@ TheColdMines_EventScript_CutTape2::
 	special DrawWholeMapView
 	release
 	end
+
+TheColdMines_EventScript_SouthHardhatter::
+	lock
+	faceplayer
+	goto_if_gt VAR_OZONE_ADMINS_STATE, 2, TheColdMines_EventScript_SouthHardhatterPostOLBHQ
+	setvar VAR_OZONE_ADMINS_STATE, 1
+	msgbox TheColdMines_Text_NeedHelpClearingSnow, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_SouthHardhatterPostOLBHQ::
+	msgbox TheColdMines_Text_NeverGetCold, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_NorthHardhatter::
+	lock
+	faceplayer
+	goto_if_gt VAR_OZONE_ADMINS_STATE, 2, TheColdMines_EventScript_NorthHardhatterPostOLBHQ
+	setvar VAR_OZONE_ADMINS_STATE, 1
+	msgbox TheColdMines_Text_LottaSnowToShovel, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_NorthHardhatterPostOLBHQ::
+	msgbox TheColdMines_Text_HurtFromShoveling, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_Tabitha::
+	msgbox TheColdMines_Text_WeWillTakeCareOfThis, MSGBOX_NPC
+	end
+
+TheColdMines_Text_NeedHelpClearingSnow:
+	.string "need help clearing this$"
+
+TheColdMines_Text_NeverGetCold:
+	.string "never get cold tbh$"
+
+TheColdMines_Text_LottaSnowToShovel:
+	.string "jeez louise thats a lot$"
+
+TheColdMines_Text_HurtFromShoveling:
+	.string "i be hurtin$"
+
+TheColdMines_Text_WeWillTakeCareOfThis:
+	.string "go check out scuttill pls$"
 
 TheColdMines_Text_ThereIsMeralcore:
 	.string "its meralcore$"

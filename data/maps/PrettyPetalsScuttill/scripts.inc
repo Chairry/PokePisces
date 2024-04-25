@@ -139,6 +139,7 @@ PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	msgbox PrettyPetalsScuttill_Text_Natalie2, MSGBOX_DEFAULT
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney3, MSGBOX_DEFAULT
+	setvar VAR_OZONE_ADMINS_STATE, 4
 	release
 	end
 

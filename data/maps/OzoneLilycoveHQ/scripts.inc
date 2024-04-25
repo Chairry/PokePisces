@@ -155,6 +155,7 @@ OzoneLilycoveHQ_EventScript_AdminsDefeated::
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha7, MSGBOX_AUTOCLOSE
 	setvar VAR_OZONE_ADMINS_STATE, 3
+	warp MAP_THE_COLD_MINES, 56, 35
 	release
 	end
 
