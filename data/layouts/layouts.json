@@ -5280,6 +5280,16 @@
       "secondary_tileset": "gTileset_Snow",
       "border_filepath": "data/layouts/TheColdMines/border.bin",
       "blockdata_filepath": "data/layouts/TheColdMines/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRETTY_PETALS_SCUTTILL",
+      "name": "PrettyPetalsScuttill_Layout",
+      "width": 16,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PrettyPetalFlowerShop",
+      "border_filepath": "data/layouts/PrettyPetalsScuttill/border.bin",
+      "blockdata_filepath": "data/layouts/PrettyPetalsScuttill/map.bin"
     }
   ]
 }

@@ -82,6 +82,7 @@
 #define MAP_LILYCOVE_MUSEUM_NEW               (7 | (5 << 8))
 #define MAP_SS_TIDAL_MIDGAME                  (8 | (5 << 8))
 #define MAP_SS_TIDAL_MID_TERIORS              (9 | (5 << 8))
+#define MAP_PRETTY_PETALS_SCUTTILL            (10 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))
