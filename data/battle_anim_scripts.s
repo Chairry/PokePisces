@@ -27865,6 +27865,8 @@ Move_BONE_RUSH:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
+	fadetobg BG_NIGHTMARE
+	waitbgfadein
 	playsewithpan SE_M_BONEMERANG, SOUND_PAN_TARGET
 	createsprite gSpinningBoneSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 15
 	delay 1
@@ -27873,6 +27875,8 @@ Move_BONE_RUSH:
 	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	restorebg
+	waitbgfadein
 	blendoff
 	end
 
