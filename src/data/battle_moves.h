@@ -12432,7 +12432,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_JUNGLE_HEALING] =
     {
-        .effect = EFFECT_JUNGLE_HEALING,
+        .effect = EFFECT_FLORESCENCE,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,

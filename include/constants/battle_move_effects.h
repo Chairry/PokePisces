@@ -522,7 +522,8 @@
 #define EFFECT_HEARTHWARM                   516
 #define EFFECT_DUNE_SLICER                  517
 #define EFFECT_POWER_DRAIN                  518
+#define EFFECT_FLORESCENCE                  519
 
-#define NUM_BATTLE_MOVE_EFFECTS             519
+#define NUM_BATTLE_MOVE_EFFECTS             520
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

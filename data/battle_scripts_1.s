@@ -545,6 +545,41 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHearthwarm              @ EFFECT_HEARTHWARM
 	.4byte BattleScript_EffectHit                     @ EFFECT_DUNE_SLICER
 	.4byte BattleScript_EffectPowerDrain              @ EFFECT_POWER_DRAIN
+	.4byte BattleScript_EffectFlorescence             @ EFFECT_FLORESCENCE
+
+BattleScript_EffectFlorescence:
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	copybyte gBattlerTarget, gBattlerAttacker
+	setbyte gBattleCommunication, 0
+BattleScript_Florescence_TryCureStatus:
+	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_FlorescenceTryRestoreAlly
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_FlorescenceCureStatus
+	goto Florescence_GiveBlooming
+BattleScript_FlorescenceCureStatus:
+	curestatus BS_TARGET
+	updatestatusicon BS_TARGET
+	printstring STRINGID_PKMNSTATUSNORMAL
+	waitmessage B_WAIT_TIME_LONG
+Florescence_GiveBlooming:
+	copybyte gBattlerAttacker, gBattlerTarget
+	jumpifsubstituteblocks BattleScript_FlorescenceTryRestoreAlly
+	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_FlorescenceTryRestoreAlly
+	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_FlorescenceTryRestoreAlly
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_FlorescenceTryRestoreAlly
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_FlorescenceTryRestoreAlly
+	setmoveeffect MOVE_EFFECT_BLOOMING
+	seteffectprimary
+	goto BattleScript_FlorescenceTryRestoreAlly
+BattleScript_FlorescenceTryRestoreAlly:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_MoveEnd
+	addbyte gBattleCommunication, 1
+	jumpifnoally BS_TARGET, BattleScript_MoveEnd
+	setallytonexttarget BattleScript_Florescence_TryCureStatus
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectPowerDrain:
 	setstatchanger STAT_SPEED, 1, TRUE
