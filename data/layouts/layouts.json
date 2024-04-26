@@ -5237,7 +5237,7 @@
       "width": 21,
       "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_LilycoveMuseum",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
       "border_filepath": "data/layouts/LilycoveMuseumNew/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveMuseumNew/map.bin"
     },

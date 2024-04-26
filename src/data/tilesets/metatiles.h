@@ -237,3 +237,6 @@ const u16 gMetatileAttributes_BirchLab[] = INCBIN_U16("data/tilesets/secondary/b
 
 const u16 gMetatiles_OzoneInterior[] = INCBIN_U16("data/tilesets/secondary/ozone_interior/metatiles.bin");
 const u16 gMetatileAttributes_OzoneInterior[] = INCBIN_U16("data/tilesets/secondary/ozone_interior/metatile_attributes.bin");
+
+const u16 gMetatiles_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatiles.bin");
+const u16 gMetatileAttributes_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatile_attributes.bin");

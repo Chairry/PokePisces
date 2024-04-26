@@ -1824,3 +1824,22 @@ const u16 gTilesetPalettes_OzoneInterior[][16] =
 };
 
 const u32 gTilesetTiles_OzoneInterior[] = INCBIN_U32("data/tilesets/secondary/ozone_interior/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_OldStoneBuildings[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/old_stone_buildings/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_OldStoneBuildings[] = INCBIN_U32("data/tilesets/secondary/old_stone_buildings/tiles.4bpp.lz");
