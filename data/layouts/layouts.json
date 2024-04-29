@@ -5234,8 +5234,8 @@
     {
       "id": "LAYOUT_LILYCOVE_MUSEUM_NEW",
       "name": "LilycoveMuseumNew_Layout",
-      "width": 21,
-      "height": 14,
+      "width": 30,
+      "height": 20,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_OldStoneBuildings",
       "border_filepath": "data/layouts/LilycoveMuseumNew/border.bin",
@@ -5290,6 +5290,16 @@
       "secondary_tileset": "gTileset_PrettyPetalFlowerShop",
       "border_filepath": "data/layouts/PrettyPetalsScuttill/border.bin",
       "blockdata_filepath": "data/layouts/PrettyPetalsScuttill/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZOTPYRE_GYM",
+      "name": "ZotpyreGym_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
+      "border_filepath": "data/layouts/ZotpyreGym/border.bin",
+      "blockdata_filepath": "data/layouts/ZotpyreGym/map.bin"
     }
   ]
 }
