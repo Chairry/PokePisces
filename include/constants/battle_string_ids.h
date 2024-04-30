@@ -758,8 +758,11 @@
 #define STRINGID_HEARTHWARMHEAL                       756
 #define STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT         757
 #define STRINGID_TARGETLOSTELECTRICTYPE               758
+#define STRINGID_PKMNGRIPPED                          759
+#define	STRINGID_GRASSTYPEADDED                       760
+#define	STRINGID_SEED_WRAP                            761
 
-#define BATTLESTRINGS_COUNT                           759
+#define BATTLESTRINGS_COUNT                           762
 
 
 // This is the string id that gBattleStringsTable starts with.
@@ -1064,7 +1067,8 @@
 #define B_MSG_WRAPPED_SNAP_TRAP    8
 #define B_MSG_WRAPPED_THUNDER_CAGE 9
 #define B_MSG_CONSTRICTED          10
-#define NUM_TRAPPING_MOVES         11
+#define B_MSG_SEED_WRAP             11
+#define NUM_TRAPPING_MOVES         12
 
 // z effects
 #define B_MSG_Z_RESET_STATS   0

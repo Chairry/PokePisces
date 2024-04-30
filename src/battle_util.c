@@ -9237,6 +9237,15 @@ static const u16 sWeightToDamageTable[] =
         2000, 100,
         0xFFFF, 0xFFFF};
 
+static const u16 sWeightToDamageTableBlooming[] =
+    {
+        100, 40,
+        250, 60,
+        500, 80,
+        1000, 100,
+        2000, 120,
+        0xFFFF, 0xFFFF};
+
 static const u8 sSpeedDiffPowerTable[] = {40, 60, 80, 120, 150};
 static const u8 sHeatCrashPowerTable[] = {40, 40, 60, 80, 100, 120};
 static const u8 sTrumpCardPowerTable[] = {200, 80, 60, 50, 40};
@@ -9504,7 +9513,16 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             if (sWeightToDamageTable[i] > weight)
                 break;
         }
-        if (sWeightToDamageTable[i] != 0xFFFF)
+        for (i = 0; sWeightToDamageTableBlooming[i] != 0xFFFF; i += 2)
+        {
+            if (sWeightToDamageTableBlooming[i] > weight)
+                break;
+        }
+        if (gCurrentMove == MOVE_GRASS_KNOT && sWeightToDamageTable[i] != 0xFFFF && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
+            basePower = sWeightToDamageTableBlooming[i + 1];
+        else if (gCurrentMove == MOVE_GRASS_KNOT && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
+            basePower = 140;
+        else if (sWeightToDamageTable[i] != 0xFFFF)
             basePower = sWeightToDamageTable[i + 1];
         else
             basePower = 120;
@@ -10731,6 +10749,19 @@ static inline uq4_12_t GetBurnOrFrostBiteOrPanicModifier(u32 battlerAtk, u32 mov
         && abilityAtk != ABILITY_GUTS
         && !FACADE_PREVENTS_BURN_MALUS(move))
         return UQ_4_12(0.9);
+    if (gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING 
+        && (move == MOVE_MEGA_DRAIN))
+        return UQ_4_12(2.0);
+    if (gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING
+        && (move == MOVE_BULLET_SEED
+        || move == MOVE_RAZOR_LEAF
+        || move == MOVE_ABSORB))
+        return UQ_4_12(1.5);
+    if (gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING
+        && (move == MOVE_SOLAR_BEAM
+        || move == MOVE_SOLAR_BLADE
+        || move == MOVE_CHLOROBLAST))
+        return UQ_4_12(1.2);
     return UQ_4_12(1.0);
 }
 
@@ -12378,8 +12409,6 @@ bool32 BlocksPrankster(u16 move, u32 battlerPrankster, u32 battlerDef, bool32 ch
     if (GetBattlerSide(battlerPrankster) == GetBattlerSide(battlerDef))
         return FALSE;
     if (checkTarget && (GetBattlerMoveTargetType(battlerPrankster, move) & (MOVE_TARGET_OPPONENTS_FIELD | MOVE_TARGET_DEPENDS)))
-        return FALSE;
-    if (!IS_BATTLER_OF_TYPE(battlerDef, TYPE_DARK))
         return FALSE;
     if (gStatuses3[battlerDef] & STATUS3_SEMI_INVULNERABLE)
         return FALSE;

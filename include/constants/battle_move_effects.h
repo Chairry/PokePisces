@@ -523,7 +523,13 @@
 #define EFFECT_DUNE_SLICER                  517
 #define EFFECT_POWER_DRAIN                  518
 #define EFFECT_FLORESCENCE                  519
+#define EFFECT_GRIPPING_NAIL                520
+#define EFFECT_SNAP_TRAP                    521
+#define EFFECT_SPEED_DOWN_HIT_2             522
+#define EFFECT_VIGOR_ROOT                   523
+#define EFFECT_SEED_BOMB                    524
+#define EFFECT_PETAL_BLIZZARD               525
 
-#define NUM_BATTLE_MOVE_EFFECTS             520
+#define NUM_BATTLE_MOVE_EFFECTS             526
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
