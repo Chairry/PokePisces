@@ -5295,7 +5295,7 @@
       "id": "LAYOUT_ZOTPYRE_GYM",
       "name": "ZotpyreGym_Layout",
       "width": 40,
-      "height": 40,
+      "height": 36,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_OldStoneBuildings",
       "border_filepath": "data/layouts/ZotpyreGym/border.bin",

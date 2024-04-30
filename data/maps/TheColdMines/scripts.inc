@@ -2242,10 +2242,13 @@ TheColdMines_Text_WeWillTakeCareOfThis:
 	.string "go check out scuttill pls$"
 
 TheColdMines_Text_ThereIsMeralcore:
-	.string "its meralcore$"
+	.string "It's a road-blocking Meralcore.\n"
+	.string "The icy shell courses with\l"
+	.string "electricity...$"
 
 TheColdMines_Text_WantToUseFlash:
-	.string "wanna use flash on it$"
+	.string "Would you like to use Flash\n"
+	.string "to direct its current?$"
 
 TheColdMines_Text_NoFlash:
 	.string "no flash tho$"

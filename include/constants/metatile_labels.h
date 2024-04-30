@@ -378,6 +378,9 @@
 #define METATILE_Mossdeep_MangrottoCaveDoor  0x3F4
 
 // gTileset_OldStoneBuildings
+#define METATILE_OldStoneBuildings_BottomWall             0x28F
+#define METATILE_OldStoneBuildings_ColumnShaft            0x293
+#define METATILE_OldStoneBuildings_ColumnTop              0x28B
 #define METATILE_OldStoneBuildings_Painting10BottomLeft   0x2EA
 #define METATILE_OldStoneBuildings_Painting10BottomRight  0x2EB
 #define METATILE_OldStoneBuildings_Painting10TopLeft      0x2E2
@@ -434,6 +437,7 @@
 #define METATILE_OldStoneBuildings_Painting9BottomRight   0x2E9
 #define METATILE_OldStoneBuildings_Painting9TopLeft       0x2E0
 #define METATILE_OldStoneBuildings_Painting9TopRight      0x2E1
+#define METATILE_OldStoneBuildings_RelicFloor             0x289
 
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A
