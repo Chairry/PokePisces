@@ -2289,8 +2289,9 @@ static void MoveSelectionDisplayInfo(u32 battler)
     static const u8 gPowerZeroText[] =  _("   0");
     static const u8 gAccuracyText[] =  _("Acc: {STR_VAR_1}");
     static const u8 gNoMissText[] = _("  No Miss");
-    static const u8 gContactText[] =  _("Contact");
-    static const u8 gNoContactText[] =  _("No Contact");
+    static const u8 gPhysicalText[] =  _("Physical");
+    static const u8 gSpecialText[] =  _("Special");
+    static const u8 gStatusText[] =  _("Status");
 
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[battler][4]);
     u32 move = moveInfo->moves[gMoveSelectionCursor[battler]];
@@ -2352,13 +2353,17 @@ static void MoveSelectionDisplayInfo(u32 battler)
 	CopyWindowToVram(B_WIN_MOVE_NAME_4 , 3);
 
     // Contact Move
-    if (gBattleMoves[move].makesContact == TRUE)
+    if (gBattleMoves[move].split == SPLIT_PHYSICAL)
     {
-	    StringExpandPlaceholders(gStringVar4, gContactText);
+	    StringExpandPlaceholders(gStringVar4, gPhysicalText);
     }
-    else
+    else if (gBattleMoves[move].split == SPLIT_SPECIAL)
     {
-        StringExpandPlaceholders(gStringVar4, gNoContactText);
+        StringExpandPlaceholders(gStringVar4, gSpecialText);
+    }
+    else if (gBattleMoves[move].split == SPLIT_STATUS)
+    {
+        StringExpandPlaceholders(gStringVar4, gStatusText);
     }
     BattlePutTextOnWindow(gStringVar4, B_WIN_MOVE_NAME_2);
     PutWindowTilemap(B_WIN_MOVE_NAME_2 );

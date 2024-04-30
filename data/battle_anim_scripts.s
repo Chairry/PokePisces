@@ -987,6 +987,8 @@ gBattleAnims_Moves::
 	.4byte Move_DUNE_SLICER
 	.4byte Move_BASS_CANNON
 	.4byte Move_POWER_DRAIN
+	.4byte Move_GRIPPING_NAIL
+	.4byte Move_VIGOR_ROOT
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -14010,7 +14012,7 @@ Move_DRUM_BEATING::
 	blendoff
 	end
 
-Move_SNAP_TRAP:: @ placeholder
+Move_SNAP_TRAP::
 	loadspritegfx ANIM_TAG_LEAF @leaves
 	loadspritegfx ANIM_TAG_FLOWER @flowers
 	loadspritegfx ANIM_TAG_SHARP_TEETH
@@ -22184,6 +22186,12 @@ Move_BASS_CANNON::
 Move_POWER_DRAIN::
 	goto Move_POWER_SWAP
 
+Move_GRIPPING_NAIL::
+	goto Move_CRUSH_GRIP
+
+Move_VIGOR_ROOT::
+	goto Move_INGRAIN
+
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN
 
@@ -27865,6 +27873,8 @@ Move_BONE_RUSH:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
+	fadetobg BG_NIGHTMARE
+	waitbgfadein
 	playsewithpan SE_M_BONEMERANG, SOUND_PAN_TARGET
 	createsprite gSpinningBoneSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 15
 	delay 1
@@ -27873,6 +27883,8 @@ Move_BONE_RUSH:
 	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	restorebg
+	waitbgfadein
 	blendoff
 	end
 
@@ -32212,6 +32224,8 @@ General_TurnTrap:
 	jumpargeq 0, TRAP_ANIM_INFESTATION, Status_Infestation
 	jumpargeq 0, TRAP_ANIM_SNAP_TRAP, Status_Snap_Trap
 	jumpargeq 0, TRAP_ANIM_THUNDER_CAGE, Status_Thunder_Cage
+	jumpargeq 0, TRAP_ANIM_CONSTRICT, Move_CONSTRICT
+	jumpargeq 0, TRAP_ANIM_LEECH_SEED, Move_LEAF_TORNADO
 	goto Status_BindWrap
 Status_BindWrap:
 	loadspritegfx ANIM_TAG_TENDRILS
