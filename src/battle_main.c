@@ -4827,7 +4827,7 @@ s8 GetMovePriority(u32 battler, u16 move)
         priority++;
     }
     //else if (ability == )
-    else if (ability == ABILITY_PRANKSTER && IS_MOVE_STATUS(move))
+    else if (ability == ABILITY_PRANKSTER && IS_MOVE_STATUS(move) && (!(IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_DARK))))
     {
         gProtectStructs[battler].pranksterElevated = 1;
         priority++;
@@ -4845,6 +4845,10 @@ s8 GetMovePriority(u32 battler, u16 move)
         priority++;
     }
     else if (gBattleMoves[move].effect == EFFECT_GRASSY_GLIDE && gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && IsBattlerGrounded(battler))
+    {
+        priority++;
+    }
+    else if ((gCurrentMove == MOVE_MAGICAL_LEAF || gCurrentMove == MOVE_WORRY_SEED) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
     {
         priority++;
     }

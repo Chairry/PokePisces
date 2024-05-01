@@ -961,6 +961,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DUNE_SLICER] = _("Dune Slicer"),
     [MOVE_BASS_CANNON] = _("Bass Cannon"),
     [MOVE_POWER_DRAIN] = _("Power Drain"),
+    [MOVE_GRIPPING_NAIL] = _("Gripping Nail"),
+    [MOVE_VIGOR_ROOT] = _("Vigor Root"),
 };
 #else
 // 12 letters
@@ -1925,6 +1927,8 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DUNE_SLICER] = _("Dune Slicer"),
     [MOVE_BASS_CANNON] = _("Bass Cannon"),
     [MOVE_POWER_DRAIN] = _("Power Drain"),
+    [MOVE_GRIPPING_NAIL] = _("Gripping Nail"),
+    [MOVE_VIGOR_ROOT] = _("Vigor Root"),
 };
 #endif
 
