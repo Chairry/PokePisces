@@ -8951,7 +8951,7 @@ u8 GetCurrentLevelCap(void)
     else if (!FlagGet(FLAG_DEFEATED_OZONE_BRANCH))
         return 27;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 31;
+        return 33;
     else if (!FlagGet(FLAG_BADGE04_GET))
         return 36;
     else if (!FlagGet(FLAG_BADGE05_GET))

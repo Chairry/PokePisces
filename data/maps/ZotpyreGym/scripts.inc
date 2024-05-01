@@ -90,6 +90,138 @@ ZotpyreGym_EventScript_WarpSafety::
 	release
 	end
 
+ZotpyreGym_EventScript_Junji::
+    trainerbattle_single TRAINER_P_JUNJI, ZotpyreGym_Text_JunjiIntro, ZotpyreGym_Text_JunjiDefeated
+    msgbox ZotpyreGym_Text_JunjiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Kirie::
+    trainerbattle_single TRAINER_P_KIRIE, ZotpyreGym_Text_KirieIntro, ZotpyreGym_Text_KirieDefeated
+    msgbox ZotpyreGym_Text_KiriePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Shuichi::
+    trainerbattle_single TRAINER_P_SHUICHI, ZotpyreGym_Text_ShuichiIntro, ZotpyreGym_Text_ShuichiDefeated
+    msgbox ZotpyreGym_Text_ShuichiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Tomie::
+    trainerbattle_single TRAINER_P_TOMIE, ZotpyreGym_Text_TomieIntro, ZotpyreGym_Text_TomieDefeated
+    msgbox ZotpyreGym_Text_TomiePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Azami::
+    trainerbattle_single TRAINER_P_AZAMI, ZotpyreGym_Text_AzamiIntro, ZotpyreGym_Text_AzamiDefeated
+    msgbox ZotpyreGym_Text_AzamiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Misaki::
+    trainerbattle_single TRAINER_P_MISAKI, ZotpyreGym_Text_MisakiIntro, ZotpyreGym_Text_MisakiDefeated
+    msgbox ZotpyreGym_Text_MisakiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_Yuina::
+    trainerbattle_single TRAINER_P_YUINA, ZotpyreGym_Text_YuinaIntro, ZotpyreGym_Text_YuinaDefeated
+    msgbox ZotpyreGym_Text_YuinaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+ZotpyreGym_EventScript_LeaderBattle::
+	lock
+	faceplayer
+	msgbox ZotpyreGym_Text_LeadersIntro, MSGBOX_DEFAULT
+    trainerbattle_two_trainers TRAINER_P_PHOEBE, ZotpyreGym_Text_PhoebeDefeat, TRAINER_P_SPENSER, ZotpyreGym_Text_SpenserDefeat, ZotpyreGym_EventScript_LeadersDefeated, NO_MUSIC
+	goto ZotpyreGym_EventScript_LeadersDefeated
+	release
+	end
+
+ZotpyreGym_EventScript_LeadersDefeated::
+	msgbox ZotpyreGym_Text_LeadersYouWon, MSGBOX_DEFAULT
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_DEFEATED_PETALBURG_GYM
+	setvar VAR_PISCES_STORY_PROGRESS, 4
+	giveitem ITEM_DILATANT_MOD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	giveitem ITEM_TM_FEAR_FACTOR
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	warp MAP_ROUTE122, 42, 14
+	release
+	end
+
+ZotpyreGym_Text_JunjiIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_JunjiDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_JunjiPostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_KirieIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_KirieDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_KiriePostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_ShuichiIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_ShuichiDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_ShuichiPostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_TomieIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_TomieDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_TomiePostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_AzamiIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_AzamiDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_AzamiPostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_MisakiIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_MisakiDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_MisakiPostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_YuinaIntro:
+	.string "intro$"
+
+ZotpyreGym_Text_YuinaDefeated:
+	.string "defeat$"
+
+ZotpyreGym_Text_YuinaPostBattle:
+	.string "post$"
+
+ZotpyreGym_Text_PhoebeDefeat:
+	.string "defeat$"
+
+ZotpyreGym_Text_SpenserDefeat:
+	.string "defeat$"
+
+ZotpyreGym_Text_LeadersIntro:
+	.string "finnina battle$"
+
+ZotpyreGym_Text_LeadersYouWon:
+	.string "u woned take this$"
+
 ZotpyreGym_Text_IllMoveColumns:
 	.string "ill move deez columns$"
 

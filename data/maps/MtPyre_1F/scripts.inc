@@ -17,13 +17,75 @@ MtPyre_1F_EventScript_ReceivedCleanseTag::
 	release
 	end
 
-MtPyre_1F_EventScript_PokefanF::
-	msgbox MtPyre_1F_Text_ComeToPayRespects, MSGBOX_NPC
-	end
+MtPyre_1F_EventScript_Pearl::
+    trainerbattle_single TRAINER_P_PEARL, MtPyre_1F_Text_PearlIntro, MtPyre_1F_Text_PearlDefeated
+    msgbox MtPyre_1F_Text_PearlPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-MtPyre_1F_EventScript_Man::
-	msgbox MtPyre_1F_Text_RestingPlaceOfZigzagoon, MSGBOX_NPC
-	end
+MtPyre_1F_EventScript_Neko::
+    trainerbattle_single TRAINER_P_NEKO, MtPyre_1F_Text_NekoIntro, MtPyre_1F_Text_NekoDefeated
+    msgbox MtPyre_1F_Text_NekoPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+MtPyre_1F_EventScript_Ayumu::
+    trainerbattle_single TRAINER_P_AYUMU, MtPyre_1F_Text_AyumuIntro, MtPyre_1F_Text_AyumuDefeated
+    msgbox MtPyre_1F_Text_AyumuPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+MtPyre_1F_EventScript_Reimu::
+    trainerbattle_single TRAINER_P_REIMU, MtPyre_1F_Text_ReimuIntro, MtPyre_1F_Text_ReimuDefeated
+    msgbox MtPyre_1F_Text_ReimuPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+MtPyre_1F_EventScript_Miko::
+    trainerbattle_single TRAINER_P_MIKO, MtPyre_1F_Text_MikoIntro, MtPyre_1F_Text_MikoDefeated
+    msgbox MtPyre_1F_Text_MikoPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+MtPyre_1F_Text_PearlIntro:
+	.string "intro$"
+
+MtPyre_1F_Text_PearlDefeated:
+	.string "defeat$"
+
+MtPyre_1F_Text_PearlPostBattle:
+	.string "post$"
+
+MtPyre_1F_Text_NekoIntro:
+	.string "intro$"
+
+MtPyre_1F_Text_NekoDefeated:
+	.string "defeat$"
+
+MtPyre_1F_Text_NekoPostBattle:
+	.string "post$"
+
+MtPyre_1F_Text_AyumuIntro:
+	.string "intro$"
+
+MtPyre_1F_Text_AyumuDefeated:
+	.string "defeat$"
+
+MtPyre_1F_Text_AyumuPostBattle:
+	.string "post$"
+
+MtPyre_1F_Text_ReimuIntro:
+	.string "intro$"
+
+MtPyre_1F_Text_ReimuDefeated:
+	.string "defeat$"
+
+MtPyre_1F_Text_ReimuPostBattle:
+	.string "post$"
+
+MtPyre_1F_Text_MikoIntro:
+	.string "intro$"
+
+MtPyre_1F_Text_MikoDefeated:
+	.string "defeat$"
+
+MtPyre_1F_Text_MikoPostBattle:
+	.string "post$"
 
 MtPyre_1F_Text_TakeThisForYourOwnGood:
 	.string "All sorts of beings wander the slopes\n"
@@ -35,13 +97,3 @@ MtPyre_1F_Text_ExplainCleanseTag:
 	.string "Have a POKéMON hold that\n"
 	.string "CLEANSE TAG.\p"
 	.string "It will help ward off wild POKéMON.$"
-
-MtPyre_1F_Text_ComeToPayRespects:
-	.string "Did you come to pay your respect\n"
-	.string "to the spirits of departed POKéMON?\p"
-	.string "You must care for your POKéMON a lot.$"
-
-MtPyre_1F_Text_RestingPlaceOfZigzagoon:
-	.string "This is the final resting place of my\n"
-	.string "ZIGZAGOON. I cherished it…$"
-

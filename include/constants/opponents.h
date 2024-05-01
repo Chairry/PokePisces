@@ -118,56 +118,56 @@
 #define TRAINER_P_OZONE_MATT_1              114
 #define TRAINER_P_OZONE_TABITHA_1           115
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
-#define TRAINER_CINDY_2                     117
-#define TRAINER_BRIANNA                     118
-#define TRAINER_NAOMI                       119
-#define TRAINER_CINDY_3                     120
-#define TRAINER_CINDY_4                     121
-#define TRAINER_CINDY_5                     122
-#define TRAINER_CINDY_6                     123
-#define TRAINER_MELISSA                     124
-#define TRAINER_SHEILA                      125
-#define TRAINER_SHIRLEY                     126
-#define TRAINER_JESSICA_1                   127
-#define TRAINER_CONNIE                      128
-#define TRAINER_BRIDGET                     129
-#define TRAINER_OLIVIA                      130
-#define TRAINER_TIFFANY                     131
-#define TRAINER_JESSICA_2                   132
-#define TRAINER_JESSICA_3                   133
-#define TRAINER_JESSICA_4                   134
-#define TRAINER_JESSICA_5                   135
-#define TRAINER_WINSTON_1                   136
-#define TRAINER_MOLLIE                      137
-#define TRAINER_GARRET                      138
-#define TRAINER_WINSTON_2                   139
-#define TRAINER_WINSTON_3                   140
-#define TRAINER_WINSTON_4                   141
-#define TRAINER_WINSTON_5                   142
-#define TRAINER_STEVE_1                     143
-#define TRAINER_THALIA_1                    144
-#define TRAINER_MARK                        145
-#define TRAINER_GRUNT_MT_CHIMNEY_1          146
-#define TRAINER_STEVE_2                     147
-#define TRAINER_STEVE_3                     148
-#define TRAINER_STEVE_4                     149
-#define TRAINER_STEVE_5                     150
-#define TRAINER_LUIS                        151
-#define TRAINER_DOMINIK                     152
-#define TRAINER_DOUGLAS                     153
-#define TRAINER_DARRIN                      154
-#define TRAINER_TONY_1                      155
-#define TRAINER_JEROME                      156
-#define TRAINER_MATTHEW                     157
-#define TRAINER_DAVID                       158
-#define TRAINER_SPENCER                     159
-#define TRAINER_ROLAND                      160
-#define TRAINER_NOLEN                       161
-#define TRAINER_STAN                        162
-#define TRAINER_BARRY                       163
-#define TRAINER_DEAN                        164
-#define TRAINER_RODNEY                      165
-#define TRAINER_RICHARD                     166
+#define TRAINER_P_COLBY                     117 //SCUTTILL FIRST VISIT
+#define TRAINER_P_NATALIE                   118
+#define TRAINER_P_NICOLE                    119
+#define TRAINER_P_RITA                      120
+#define TRAINER_P_FELIX                     121 //THE COLD MINES
+#define TRAINER_P_RAN                       122
+#define TRAINER_P_BIG_HERTZ                 123
+#define TRAINER_P_SUPERBOSS_MONK_1          124
+#define TRAINER_P_BARNEY                    125 //ARCTAIGA ROAD
+#define TRAINER_P_CHARON                    126
+#define TRAINER_P_GARNET                    127
+#define TRAINER_P_LAPIZ                     128
+#define TRAINER_P_VERGIL                    129
+#define TRAINER_P_YOSH                      130
+#define TRAINER_P_KAIJI                     131
+#define TRAINER_P_LARS                      132
+#define TRAINER_P_DARCIE                    133
+#define TRAINER_P_WYNTON                    134
+#define TRAINER_P_PANDOU_2                  135 //BREADWINNER 2
+#define TRAINER_P_RAMI                      136 //BRUMIST CLIFFS
+#define TRAINER_P_TSUNAMI                   137
+#define TRAINER_P_JINXIE                    138
+#define TRAINER_P_CAROLINA                  139
+#define TRAINER_P_BETTY                     140
+#define TRAINER_P_HAZAKURA                  141
+#define TRAINER_P_MIA                       142
+#define TRAINER_P_MAYA                      143
+#define TRAINER_P_KUMORI                    144
+#define TRAINER_P_HOTH                      145
+#define TRAINER_GRUNT_MT_CHIMNEY_1          146 //
+#define TRAINER_P_PEARL                     147 // ZOTPYRE SHRINE
+#define TRAINER_P_NEKO                      148
+#define TRAINER_P_AYUMU                     149
+#define TRAINER_P_DEACON                    150
+#define TRAINER_P_ALODIA                    151
+#define TRAINER_P_RAELIANA                  152
+#define TRAINER_P_MORGAN                    153
+#define TRAINER_P_MISTY                     154
+#define TRAINER_P_REIMU                     155
+#define TRAINER_P_MIKO                      156
+#define TRAINER_P_RAY_2                     157 // RAY ENCOUNTER 2
+#define TRAINER_P_JUNJI                     158 // ZOTPYRE GYM
+#define TRAINER_P_KIRIE                     159
+#define TRAINER_P_SHUICHI                   160
+#define TRAINER_P_TOMIE                     161
+#define TRAINER_P_AZAMI                     162
+#define TRAINER_P_MISAKI                    163
+#define TRAINER_P_YUINA                     164
+#define TRAINER_P_PHOEBE                    165 //LEADERS 3
+#define TRAINER_P_SPENSER                   166 //LEADERS 3
 #define TRAINER_HERMAN                      167
 #define TRAINER_SANTIAGO                    168
 #define TRAINER_GILBERT                     169

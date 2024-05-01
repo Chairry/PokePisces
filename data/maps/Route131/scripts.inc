@@ -16,7 +16,7 @@ Route131_EventScript_CheckSetAbnormalWeather::
 	return
 
 Route131_EventScript_Richard::
-	trainerbattle_single TRAINER_RICHARD, Route131_Text_RichardIntro, Route131_Text_RichardDefeat
+	trainerbattle_single TRAINER_P_SPENSER, Route131_Text_RichardIntro, Route131_Text_RichardDefeat
 	msgbox Route131_Text_RichardPostBattle, MSGBOX_AUTOCLOSE
 	end
 

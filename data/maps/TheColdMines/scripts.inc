@@ -2226,6 +2226,62 @@ TheColdMines_EventScript_Tabitha::
 	msgbox TheColdMines_Text_WeWillTakeCareOfThis, MSGBOX_NPC
 	end
 
+TheColdMines_EventScript_Felix::
+    trainerbattle_single TRAINER_P_FELIX, TheColdMines_Text_FelixIntro, TheColdMines_Text_FelixDefeated
+    msgbox TheColdMines_Text_FelixPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TheColdMines_EventScript_Ran::
+    trainerbattle_single TRAINER_P_RAN, TheColdMines_Text_RanIntro, TheColdMines_Text_RanDefeated
+    msgbox TheColdMines_Text_RanPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TheColdMines_EventScript_BigHertz::
+    trainerbattle_single TRAINER_P_BIG_HERTZ, TheColdMines_Text_BigHertzIntro, TheColdMines_Text_BigHertzDefeated
+    msgbox TheColdMines_Text_BigHertzPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TheColdMines_EventScript_Gotou::
+    trainerbattle_single TRAINER_P_SUPERBOSS_MONK_1, TheColdMines_Text_GotouIntro, TheColdMines_Text_GotouDefeated
+    msgbox TheColdMines_Text_GotouPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TheColdMines_Text_FelixIntro:
+	.string "intro$"
+
+TheColdMines_Text_FelixDefeated:
+	.string "defeat$"
+
+TheColdMines_Text_FelixPostBattle:
+	.string "post$"
+
+TheColdMines_Text_RanIntro:
+	.string "intro$"
+
+TheColdMines_Text_RanDefeated:
+	.string "defeat$"
+
+TheColdMines_Text_RanPostBattle:
+	.string "post$"
+
+TheColdMines_Text_BigHertzIntro:
+	.string "intro$"
+
+TheColdMines_Text_BigHertzDefeated:
+	.string "defeat$"
+
+TheColdMines_Text_BigHertzPostBattle:
+	.string "post$"
+
+TheColdMines_Text_GotouIntro:
+	.string "intro$"
+
+TheColdMines_Text_GotouDefeated:
+	.string "defeat$"
+
+TheColdMines_Text_GotouPostBattle:
+	.string "post$"
+
 TheColdMines_Text_NeedHelpClearingSnow:
 	.string "need help clearing this$"
 
