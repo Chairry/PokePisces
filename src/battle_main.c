@@ -5233,6 +5233,9 @@ static bool32 TryDoMoveEffectsBeforeMoves(void)
                 case MOVE_BEAK_BLAST:
                     BattleScriptExecute(BattleScript_BeakBlastSetUp);
                     return TRUE;
+                case MOVE_BLOSSOM_SNAP:
+                    BattleScriptExecute(BattleScript_BlossomSnapSetUp);
+                    return TRUE;
                 case MOVE_SHELL_TRAP:
                     BattleScriptExecute(BattleScript_ShellTrapSetUp);
                     return TRUE;

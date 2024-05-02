@@ -1537,6 +1537,11 @@ static void Cmd_attackcanceler(void)
         gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+    else if (gProtectStructs[gBattlerTarget].blossomSnapCharge && IsMoveMakingContact(gCurrentMove, gBattlerAttacker))
+    {
+        gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
     else
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -5814,6 +5819,18 @@ static void Cmd_moveend(void)
                     MarkBattlerForControllerExec(gBattlerAttacker);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BeakBlastBurn;
+                    effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].blossomSnapCharge
+                         && CanStartBlooming(gBattlerTarget)
+                         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleMons[gBattlerTarget].status1 = STATUS1_BLOOMING;
+                    BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+                    MarkBattlerForControllerExec(gBattlerTarget);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BlossomSnapBlooming;
                     effect = 1;
                 }
             }
@@ -11428,6 +11445,12 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS();
         gProtectStructs[battler].beakBlastCharge = TRUE;
+        break;
+    }
+    case VARIOUS_SET_BLOSSOM_SNAP:
+    {
+        VARIOUS_ARGS();
+        gProtectStructs[battler].blossomSnapCharge = TRUE;
         break;
     }
     case VARIOUS_SWAP_SIDE_STATUSES:

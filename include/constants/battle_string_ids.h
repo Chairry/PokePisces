@@ -761,8 +761,9 @@
 #define STRINGID_PKMNGRIPPED                          759
 #define	STRINGID_GRASSTYPEADDED                       760
 #define	STRINGID_SEED_WRAP                            761
+#define STRINGID_READYINGSNAP                         762
 
-#define BATTLESTRINGS_COUNT                           762
+#define BATTLESTRINGS_COUNT                           763
 
 
 // This is the string id that gBattleStringsTable starts with.

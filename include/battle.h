@@ -158,6 +158,7 @@ struct ProtectStruct
     u32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
+    u16 blossomSnapCharge:1;
 };
 
 struct SpecialStatus

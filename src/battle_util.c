@@ -9435,6 +9435,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if ((gProtectStructs[battlerAtk].physicalDmg && gProtectStructs[battlerAtk].physicalBattlerId == battlerDef) || (gProtectStructs[battlerAtk].specialDmg && gProtectStructs[battlerAtk].specialBattlerId == battlerDef))
             basePower *= 2;
         break;
+    case EFFECT_BLOSSOM_SNAP:
+        if (gProtectStructs[battlerAtk].blossomSnapCharge && IsMoveMakingContact(gCurrentMove, battlerDef))
+            basePower *= 2;
+        break;
     case EFFECT_WEATHER_BALL:
         if (weather & B_WEATHER_ANY)
             basePower *= 2;

@@ -11846,9 +11846,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SNAP_TRAP] =
     {
         .effect = EFFECT_SNAP_TRAP,
-        .power = 35,
+        .power = 60,
         .type = TYPE_GRASS,
-        .accuracy = 100,
+        .accuracy = 90,
         .pp = 15,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -11856,7 +11856,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .metronomeBanned = TRUE,
     },
 
     [MOVE_PYRO_BALL] =
@@ -16007,6 +16006,48 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_BLOSSOM_SNAP] =
+    {
+        .effect = EFFECT_BLOSSOM_SNAP,
+        .power = 75,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = -3,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .bitingMove = TRUE,
+        .meFirstBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+    },
+
+    [MOVE_GRASS_CANNON] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .power = 80,
+        #else
+            .power = 80,
+        #endif
+        .effect = EFFECT_GRASS_CANNON,
+        .type = TYPE_GRASS,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .pulseMove = TRUE,
+        .ballisticMove = TRUE,
     },
 
     // Z-Moves

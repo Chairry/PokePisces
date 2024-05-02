@@ -3732,6 +3732,14 @@ static const u8 sPhantasmDescription[] = _(
     "Raises Atk, Sp. Atk, and\n"
     "Evasion. Lowers defenses.");
 
+static const u8 sBlossomSnapDescription[] = _(
+    "Drains HP. If hit by a contact\n"
+    "move ups power and blooms.");
+
+static const u8 sGrassCannonDescription[] = _(
+    "Boosts Def in Grassy Terrain.\n"
+    "Boosts Sp. Def if Blooming.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4706,4 +4714,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SPIRIT_AWAY - 1] = sSpiritAwayDescription,
     [MOVE_PHANTASM - 1] = sPhantasmDescription,
     [MOVE_PENALIZE - 1] = sPunishmentDescription,
+    [MOVE_BLOSSOM_SNAP - 1] = sBlossomSnapDescription,
+    [MOVE_GRASS_CANNON - 1] = sGrassCannonDescription,
 };

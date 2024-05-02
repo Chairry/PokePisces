@@ -580,6 +580,7 @@
 #define B_ANIM_A_THING                  48
 #define B_ANIM_DECIMATION_HIT           49
 #define B_ANIM_HEARTHWARM_HEAL          50
+#define B_ANIM_BLOSSOM_SNAP_SETUP       51
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

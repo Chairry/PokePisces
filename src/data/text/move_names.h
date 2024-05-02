@@ -966,6 +966,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_SPIRIT_AWAY] = _("Spirit Away"),
     [MOVE_PHANTASM] = _("Phantasm"),
     [MOVE_PENALIZE] = _("Penalize"),
+    [MOVE_BLOSSOM_SNAP] = _("Blossom Snap"),
 };
 #else
 // 12 letters
@@ -1935,6 +1936,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_SPIRIT_AWAY] = _("Spirit Away"),
     [MOVE_PHANTASM] = _("Phantasm"),
     [MOVE_PENALIZE] = _("Penalize"),
+    [MOVE_BLOSSOM_SNAP] = _("Blossom Snap"),
 };
 #endif
 

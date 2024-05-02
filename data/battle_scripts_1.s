@@ -554,6 +554,26 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPetalBlizzard           @ EFFECT_PETAL_BLIZZARD
 	.4byte BattleScript_EffectSpiritAway              @ EFFECT_SPIRIT_AWAY
 	.4byte BattleScript_EffectPhantasm                @ EFFECT_PHANTASM
+	.4byte BattleScript_EffectHit                     @ EFFECT_BLOSSOM_SNAP
+	.4byte BattleScript_EffectGrassCannon             @ EFFECT_GRASS_CANNON
+	.4byte BattleScript_EffectSpecialDefenseUpHit     @ EFFECT_SPECIAL_DEFENSE_UP_HIT
+	.4byte BattleScript_EffectDefSpDefeUpHit          @ EFFECT_DEF_SP_DEF_UP_HIT
+
+BattleScript_EffectDefSpDefeUpHit::
+	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_EffectSpecialDefenseUpHit::
+	setmoveeffect MOVE_EFFECT_SP_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
+
+BattleScript_EffectGrassCannon:
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_GrassCannonCheckTerrain
+	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_GRASSY_TERRAIN, BattleScript_EffectSpecialDefenseUpHit
+	goto BattleScript_EffectHit
+BattleScript_GrassCannonCheckTerrain::
+	jumpifterrainaffected BS_ATTACKER, STATUS_FIELD_GRASSY_TERRAIN, BattleScript_EffectDefSpDefeUpHit
+	goto BattleScript_EffectDefenseUpHit
 
 BattleScript_EffectPhantasm:
 	attackcanceler
@@ -2859,6 +2879,21 @@ BattleScript_BeakBlastBurn::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
 	call BattleScript_MoveEffectBurn
+	return
+
+BattleScript_BlossomSnapSetUp::
+	setblossomsnap BS_ATTACKER
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	playanimation BS_ATTACKER, B_ANIM_BLOSSOM_SNAP_SETUP, NULL
+	printstring STRINGID_READYINGSNAP
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_BlossomSnapBlooming::
+	setbyte cMULTISTRING_CHOOSER, 0
+	copybyte gEffectBattler, gBattlerTarget
+	call BattleScript_MoveEffectBlooming
 	return
 
 BattleScript_EffectMeteorBeam::
@@ -7718,7 +7753,7 @@ BattleScript_EffectStickyHold::
 BattleScript_EffectDefenseUpHit::
 	jumpifmove MOVE_GEO_PULSE, BattleScript_CheckDefenseUpHitDoubles
 BattleScript_DoDefenseUpHit::
-	setmoveeffect MOVE_EFFECT_SP_ATK_TWO_DOWN | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
 BattleScript_CheckDefenseUpHitDoubles::
 	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_DefenseUpHitDoubles

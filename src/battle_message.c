@@ -901,6 +901,7 @@ static const u8 sText_TargetLostElectricType[] = _("{B_DEF_NAME_WITH_PREFIX} had
 static const u8 sText_PkmnGripped[] = _("{B_ATK_NAME_WITH_PREFIX} gripped\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_GrassTypeAdded[] = _("Grass-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1653,6 +1654,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNGRIPPED - BATTLESTRINGS_TABLE_START] = sText_PkmnGripped,
     [STRINGID_GRASSTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GrassTypeAdded,
     [STRINGID_SEED_WRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
+    [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
