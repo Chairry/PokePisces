@@ -12260,6 +12260,8 @@ static void Cmd_setdrainedhp(void)
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY))
         gBattleMoveDamage = (gHpDealt * 75 / 100);
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_SPIRIT_AWAY)
+        gBattleMoveDamage = (gHpDealt * 75 / 100);
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN)
         gBattleMoveDamage = (gHpDealt / 4);
     else if (gBattleMoves[gCurrentMove].argument != 0)

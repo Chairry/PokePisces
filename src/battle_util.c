@@ -1548,6 +1548,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     {
 #if B_HEAL_BLOCKING >= GEN_6
     case EFFECT_ABSORB:
+    case EFFECT_SPIRIT_AWAY:
     case EFFECT_STRENGTH_SAP:
     case EFFECT_POWER_DRAIN:
     case EFFECT_DREAM_EATER:
@@ -10138,6 +10139,7 @@ static inline bool32 IsMoveDraining(u32 move)
     case EFFECT_WISH:
     case EFFECT_SOFTBOILED:
     case EFFECT_ABSORB:
+    case EFFECT_SPIRIT_AWAY:
     case EFFECT_ROOST:
     case EFFECT_JUNGLE_HEALING:
     case EFFECT_DRAINING_KISS:

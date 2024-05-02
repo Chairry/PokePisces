@@ -5138,6 +5138,16 @@ const struct SpriteTemplate gNeverEndingNightmareHandSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimNeedleArmSpike
 };
+const struct SpriteTemplate gSpiritAwayHandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPIRIT_HAND,
+    .paletteTag = ANIM_TAG_SPIRIT_HAND,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNeedleArmSpike
+};
 const struct SpriteTemplate gNeverEndingNightmareBlastBurnSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FIRE_PLUME,
