@@ -66,6 +66,7 @@ Route123_EventScript_BreadRun::
 	playse SE_FLEE
 	applymovement LOCALID_BREAD, Route123_Movement_BreadEscape
 	waitmovement 0
+	giveitem ITEM_TM_PROTECT
 	setflag FLAG_TEMP_11
 	removeobject LOCALID_BREAD
 	release

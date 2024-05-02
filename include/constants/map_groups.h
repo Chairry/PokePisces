@@ -97,6 +97,7 @@
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F (0 | (7 << 8))
 #define MAP_VERDANTURF_TOWN_MART              (1 | (7 << 8))
 #define MAP_FORTREE_CITY_POKEMON_CENTER_1F    (2 | (7 << 8))
+#define MAP_SCUTTILL_SECRET_TREE_HOUSE        (3 | (7 << 8))
 
 // gMapGroup_PiscesPart5Major
 #define MAP_OZONE_INSTITUTE        (0 | (8 << 8))

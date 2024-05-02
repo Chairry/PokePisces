@@ -3612,3 +3612,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/PrettyPetalsScuttill/scripts.inc"
 
 	.include "data/maps/ZotpyreGym/scripts.inc"
+
+	.include "data/maps/ScuttillSecretTreeHouse/scripts.inc"

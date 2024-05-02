@@ -1,0 +1,541 @@
+{
+  "id": "MAP_SCUTTILL_SECRET_TREE_HOUSE",
+  "name": "ScuttillSecretTreeHouse",
+  "layout": "LAYOUT_SCUTTILL_SECRET_TREE_HOUSE",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 3,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_10"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 10,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 15,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 5,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 10,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_14"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_15"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 5,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_16"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_17"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 15,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_18"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KODOUGH",
+      "x": 1,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KODOUGH",
+      "x": 4,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KODOUGH",
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KODOUGH",
+      "x": 6,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FEDORA",
+      "x": 23,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1C"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 29,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EGGNEGGMA",
+      "x": 3,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_19"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 25,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_SCUTTILL_SECRET_TREE_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter2East"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter1South"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter2South"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter4EastOrSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "3",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter3South"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "5",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter5East"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "5",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter5East"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter4EastOrSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "5",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter5South"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "6",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter6WestOrSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "9",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter9WestOrEast"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "9",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter9WestOrEast"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "9",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter9WestOrEast"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "8",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter8East"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "7",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter7East"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "3",
+      "script": "ScuttillSecretTreeHouse_EventScript_ReceiveWannegg"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "10",
+      "script": "ScuttillSecretTreeHouse_EventScript_CaughtEggneggma"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_6",
+      "var_value": "2",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggneggmaHasAppeared"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "9",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter9WestOrEast"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "9",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter9North"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "6",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter6WestOrSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "6",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter6WestOrSouth"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "5",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter5North"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "6",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter6North"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "3",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter2West"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "4",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter4North"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "5",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter5West"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "7",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter7North"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "8",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter8West"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "8",
+      "script": "ScuttillSecretTreeHouse_EventScript_EggEncounter8North"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

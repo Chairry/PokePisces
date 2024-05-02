@@ -5300,6 +5300,16 @@
       "secondary_tileset": "gTileset_OldStoneBuildings",
       "border_filepath": "data/layouts/ZotpyreGym/border.bin",
       "blockdata_filepath": "data/layouts/ZotpyreGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SCUTTILL_SECRET_TREE_HOUSE",
+      "name": "ScuttillSecretTreeHouse_Layout",
+      "width": 32,
+      "height": 26,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseTree",
+      "border_filepath": "data/layouts/ScuttillSecretTreeHouse/border.bin",
+      "blockdata_filepath": "data/layouts/ScuttillSecretTreeHouse/map.bin"
     }
   ]
 }
