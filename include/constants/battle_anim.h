@@ -413,6 +413,7 @@
 #define ANIM_TAG_GEM_BLUE                   (ANIM_SPRITES_START + 399)
 #define ANIM_TAG_GEM_PINK                   (ANIM_SPRITES_START + 400)
 #define ANIM_TAG_GEM_YELLOW                 (ANIM_SPRITES_START + 401)
+#define ANIM_TAG_SPIRIT_HAND                (ANIM_SPRITES_START + 402)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -579,6 +580,7 @@
 #define B_ANIM_A_THING                  48
 #define B_ANIM_DECIMATION_HIT           49
 #define B_ANIM_HEARTHWARM_HEAL          50
+#define B_ANIM_BLOSSOM_SNAP_SETUP       51
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

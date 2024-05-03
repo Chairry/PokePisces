@@ -1191,8 +1191,10 @@
 	.byte 0xe6
 	.endm
 
-	.macro unused4
+	.macro setuserstatus4 flags:req, failInstr:req
 	.byte 0xe7
+	.4byte \flags
+	.4byte \failInstr
 	.endm
 
 	.macro settypebasedhalvers failInstr:req
@@ -2183,6 +2185,10 @@
 
 	.macro setbeakblast battler:req
 	various \battler, VARIOUS_SET_BEAK_BLAST
+	.endm
+
+	.macro setblossomsnap battler:req
+	various \battler, VARIOUS_SET_BLOSSOM_SNAP
 	.endm
 
 	.macro swapsidestatuses

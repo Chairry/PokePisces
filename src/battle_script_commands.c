@@ -580,6 +580,7 @@ static void Cmd_tryswapabilities(void);
 static void Cmd_tryimprison(void);
 static void Cmd_setstealthrock(void);
 static void Cmd_setuserstatus3(void);
+static void Cmd_setuserstatus4(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
@@ -849,7 +850,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
     Cmd_ficklebeamdamagecalculation,             //0xE6
-    Cmd_unused4,                                 //0xE7
+    Cmd_setuserstatus4,                          //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
     Cmd_tryrecycleitem,                          //0xEA
@@ -1533,6 +1534,11 @@ static void Cmd_attackcanceler(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else if (gProtectStructs[gBattlerTarget].beakBlastCharge && IsMoveMakingContact(gCurrentMove, gBattlerAttacker))
+    {
+        gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else if (gProtectStructs[gBattlerTarget].blossomSnapCharge && IsMoveMakingContact(gCurrentMove, gBattlerAttacker))
     {
         gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -5814,6 +5820,18 @@ static void Cmd_moveend(void)
                     MarkBattlerForControllerExec(gBattlerAttacker);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BeakBlastBurn;
+                    effect = 1;
+                }
+                else if (gProtectStructs[gBattlerTarget].blossomSnapCharge
+                         && CanStartBlooming(gBattlerTarget)
+                         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleMons[gBattlerTarget].status1 = STATUS1_BLOOMING;
+                    BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+                    MarkBattlerForControllerExec(gBattlerTarget);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BlossomSnapBlooming;
                     effect = 1;
                 }
             }
@@ -11430,6 +11448,12 @@ static void Cmd_various(void)
         gProtectStructs[battler].beakBlastCharge = TRUE;
         break;
     }
+    case VARIOUS_SET_BLOSSOM_SNAP:
+    {
+        VARIOUS_ARGS();
+        gProtectStructs[battler].blossomSnapCharge = TRUE;
+        break;
+    }
     case VARIOUS_SWAP_SIDE_STATUSES:
     {
         VARIOUS_ARGS();
@@ -12259,6 +12283,8 @@ static void Cmd_setdrainedhp(void)
     CMD_ARGS();
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY))
+        gBattleMoveDamage = (gHpDealt * 75 / 100);
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_SPIRIT_AWAY)
         gBattleMoveDamage = (gHpDealt * 75 / 100);
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_VENOM_DRAIN)
         gBattleMoveDamage = (gHpDealt / 4);
@@ -15548,6 +15574,23 @@ static void Cmd_setuserstatus3(void)
             gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
         if (flags & STATUS3_LASER_FOCUS)
             gDisableStructs[gBattlerAttacker].laserFocusTimer = 2;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_setuserstatus4(void)
+{
+    CMD_ARGS(u32 flags, const u8 *failInstr);
+
+    u32 flags = cmd->flags;
+
+    if (gStatuses4[gBattlerAttacker] & flags)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        gStatuses4[gBattlerAttacker] |= flags;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }

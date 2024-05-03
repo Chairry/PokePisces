@@ -529,7 +529,13 @@
 #define EFFECT_VIGOR_ROOT                   523
 #define EFFECT_SEED_BOMB                    524
 #define EFFECT_PETAL_BLIZZARD               525
+#define EFFECT_SPIRIT_AWAY                  526
+#define EFFECT_PHANTASM                     527
+#define EFFECT_BLOSSOM_SNAP                 528
+#define EFFECT_GRASS_CANNON                 529
+#define EFFECT_SPECIAL_DEFENSE_UP_HIT       530
+#define EFFECT_DEF_SP_DEF_UP_HIT            531
 
-#define NUM_BATTLE_MOVE_EFFECTS             526
+#define NUM_BATTLE_MOVE_EFFECTS             532
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
