@@ -63,6 +63,13 @@ SlateportCity_BattleTentBattleRoom_EventScript_EnterRoom::
 	waitstate
 	switch VAR_RESULT
 	case 1, SlateportCity_BattleTentBattleRoom_EventScript_DefeatedOpponent
+    
+    @ lost the match - treat as a 'win' if battle num > 0 (i.e. we have defeated at least 1 trainer)
+    frontier_get FRONTIER_DATA_BATTLE_NUM
+    goto_if_eq VAR_RESULT, 0, SlateportCity_BattleTent_EventScript_WarpToLobbyLost
+    @ otherwise, treat as a win
+    goto SlateportCity_BattleTentBattleRoom_EventScript_WarpToLobbyWon  @ always consider state 'won', adjust lobby script accordingly
+    
 SlateportCity_BattleTent_EventScript_WarpToLobbyLost::
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, CHALLENGE_STATUS_LOST
 	special LoadPlayerParty
@@ -71,11 +78,10 @@ SlateportCity_BattleTent_EventScript_WarpToLobbyLost::
 @ forced stop
 
 SlateportCity_BattleTentBattleRoom_EventScript_DefeatedOpponent::
-	frontier_get FRONTIER_DATA_BATTLE_NUM
-	addvar VAR_RESULT, 1
-	frontier_set FRONTIER_DATA_BATTLE_NUM, VAR_RESULT
-	switch VAR_RESULT
-	case 3, SlateportCity_BattleTentBattleRoom_EventScript_WarpToLobbyWon
+    slateporttent_incrementbattlenum
+    @ keep going until lose
+@	switch VAR_RESULT
+@	case 3, SlateportCity_BattleTentBattleRoom_EventScript_WarpToLobbyWon   
 	setvar VAR_0x8006, 1
 	warp MAP_SLATEPORT_CITY_BATTLE_TENT_CORRIDOR, 2, 3
 	waitstate

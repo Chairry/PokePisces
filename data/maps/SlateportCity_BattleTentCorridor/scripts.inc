@@ -62,8 +62,8 @@ SlateportCity_BattleTentCorridor_EventScript_ReturnToRoomFromBattle::
 	special HealPlayerParty
 SlateportCity_BattleTentCorridor_EventScript_AskReadyForOpponent::
 	frontier_get FRONTIER_DATA_BATTLE_NUM
-	call_if_eq VAR_RESULT, 1, SlateportCity_BattleTentCorridor_EventScript_ReadyFor2ndOpponent
-	call_if_eq VAR_RESULT, 2, SlateportCity_BattleTentCorridor_EventScript_ReadyFor3rdOpponent
+    buffernumberstring STR_VAR_1, VAR_RESULT
+    call SlateportCity_BattleTentCorridor_EventScript_ReadyForNthOppontent
 	multichoice 20, 6, MULTI_GO_ON_REST_RETIRE, TRUE
 	switch VAR_RESULT
 	case 0, SlateportCity_BattleTentCorridor_EventScript_AskSwapMon
@@ -102,15 +102,16 @@ SlateportCity_BattleTentCorridor_EventScript_SwapMons::
 	msgbox BattleFrontier_BattleFactoryPreBattleRoom_Text_YourSwapIsComplete, MSGBOX_DEFAULT
 	goto SlateportCity_BattleTentCorridor_EventScript_EnterBattleRoom
 
-SlateportCity_BattleTentCorridor_EventScript_ReadyFor2ndOpponent::
-	message BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor2ndOpponent
+
+SlateportCity_BattleTentCorridor_EventScript_ReadyForNthOppontent:
+    message BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyForNthOpponent
 	waitmessage
 	return
 
-SlateportCity_BattleTentCorridor_EventScript_ReadyFor3rdOpponent::
-	message BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyFor3rdOpponent
-	waitmessage
-	return
+BattleFrontier_BattleFactoryPreBattleRoom_Text_ReadyForNthOpponent:
+	.string "Match number {STR_VAR_1} is next!\n"
+	.string "Are you ready?$"
+
 
 SlateportCity_BattleTentCorridor_EventScript_PauseChallenge::
 	message BattleFrontier_BattleFactoryPreBattleRoom_Text_SavingDataPleaseWait

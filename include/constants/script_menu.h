@@ -122,6 +122,9 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+// new
+#define MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE  114
+#define MULTI_SLATEPORT_ANY_LEAGUE          115
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
