@@ -580,6 +580,7 @@ static void Cmd_tryswapabilities(void);
 static void Cmd_tryimprison(void);
 static void Cmd_setstealthrock(void);
 static void Cmd_setuserstatus3(void);
+static void Cmd_setuserstatus4(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
@@ -849,7 +850,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
     Cmd_ficklebeamdamagecalculation,             //0xE6
-    Cmd_unused4,                                 //0xE7
+    Cmd_setuserstatus4,                          //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
     Cmd_tryrecycleitem,                          //0xEA
@@ -15573,6 +15574,23 @@ static void Cmd_setuserstatus3(void)
             gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
         if (flags & STATUS3_LASER_FOCUS)
             gDisableStructs[gBattlerAttacker].laserFocusTimer = 2;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_setuserstatus4(void)
+{
+    CMD_ARGS(u32 flags, const u8 *failInstr);
+
+    u32 flags = cmd->flags;
+
+    if (gStatuses4[gBattlerAttacker] & flags)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        gStatuses4[gBattlerAttacker] |= flags;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }

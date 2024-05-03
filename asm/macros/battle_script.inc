@@ -1191,8 +1191,10 @@
 	.byte 0xe6
 	.endm
 
-	.macro unused4
+	.macro setuserstatus4 flags:req, failInstr:req
 	.byte 0xe7
+	.4byte \flags
+	.4byte \failInstr
 	.endm
 
 	.macro settypebasedhalvers failInstr:req

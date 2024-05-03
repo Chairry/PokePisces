@@ -1025,7 +1025,7 @@ BattleScript_SetHearthwarmAlly1:
 	setallytonexttarget SetHearthWarmAlly1
 SetHearthWarmAlly1:
 	copybyte gBattlerAttacker, gBattlerTarget
-	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_MoveEnd
+	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_MoveEnd
 	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -1036,7 +1036,7 @@ BattleScript_SetHearthwarmAlly2:
 	setallytonexttarget SetHearthWarmAlly2
 SetHearthWarmAlly2:
 	copybyte gBattlerAttacker, gBattlerTarget
-	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_ButItFailed
+	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
@@ -8486,25 +8486,25 @@ BattleScript_EffectIngrain:
 	ppreduce
 	setuserstatus3 STATUS3_ROOTED, BattleScript_IngrainUserBlooming
 	jumpifsubstituteblocks BattleScript_EffectIngrainSucceededBloomingFailed
-	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_EffectIngrainSucceededBloomingFailed
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_EffectIngrainSucceededBloomingFailed
-	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_EffectIngrainSucceededBloomingFailed
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_EffectIngrainSucceededBloomingFailed
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_EffectIngrainSucceededBloomingFailed
+	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_EffectIngrainSucceededBloomingFailed
+	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_EffectIngrainSucceededBloomingFailed
 	attackanimation
 	waitanimation
-	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_CERTAIN | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
 	printstring STRINGID_PKMNPLANTEDROOTS
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_IngrainUserBlooming::
 	jumpifsubstituteblocks BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_ButItFailed
-	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_ButItFailed
-	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_ButItFailed
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_ButItFailed
+	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_ButItFailed
+	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_CERTAIN | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
 	goto BattleScript_MoveEnd
 BattleScript_EffectIngrainSucceededBloomingFailed::
 	attackanimation
