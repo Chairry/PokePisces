@@ -873,20 +873,20 @@ static const u8 sText_PkmnLeavingItselfOpen[] = _("{B_ATK_NAME_WITH_PREFIX} is l
 static const u8 sText_PkmnHealedPoison[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of its poison!");
 static const u8 sText_GhostTypeAdded[] = _("Ghost-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_TargetCantEscapeForNow[] = _("{B_DEF_NAME_WITH_PREFIX} can't escape until\ntheir next turn!");
-static const u8 sText_PkmnStartedBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} started\nblooming!");
+static const u8 sText_PkmnStartedBlooming[] = _("{B_ATK_NAME_WITH_PREFIX} started\nblooming!");
 static const u8 sText_PkmnBloomingFrom[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} started blooming\nfrom its {B_SCR_ACTIVE_ABILITY}!");
 static const u8 sText_ItemCausedBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} started blooming\nfrom its {B_LAST_ITEM}!");
-static const u8 sText_PkmnBecameExposed[] = _("{B_EFF_NAME_WITH_PREFIX} became\nexposed!");
+static const u8 sText_PkmnBecameExposed[] = _("{B_ATK_NAME_WITH_PREFIX} became\nexposed!");
 static const u8 sText_PkmnExposedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was exposed\nfrom its {B_SCR_ACTIVE_ABILITY}!");
 static const u8 sText_ItemCausedExposed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} became exposed\nfrom its {B_LAST_ITEM}!");
-static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
-static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
-static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
+static const u8 sText_PreventBlooming[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
+static const u8 sText_PreventExposed[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
+static const u8 sText_PkmnIsBlooming[] = _("{B_ATK_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
-static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
+static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_ATK_NAME_WITH_PREFIX} is already\npanicking.");
 static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and type\nmatchups returned to normal!");
 static const u8 sText_TheTypeChartInverted[] =_("It created a bizarre area in which\ntype matchups are reversed!");
-static const u8 sText_PkmnIsNoLongerBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} is no\nlonger blooming!");
+static const u8 sText_PkmnIsNoLongerBlooming[] = _("{B_ATK_NAME_WITH_PREFIX} is no\nlonger blooming!");
 static const u8 sText_AThingHappened[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is distracted and\nlooked at {B_LAST_ITEM}!");
 static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is really distracted\nand looked at {B_LAST_ITEM}!");
 static const u8 sText_SappedByTicked[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\ndrained by its tick!");
@@ -902,6 +902,7 @@ static const u8 sText_PkmnGripped[] = _("{B_ATK_NAME_WITH_PREFIX} gripped\n{B_DE
 static const u8 sText_GrassTypeAdded[] = _("Grass-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
+static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1655,6 +1656,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GRASSTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GrassTypeAdded,
     [STRINGID_SEED_WRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
     [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
+    [STRINGID_FLORESCENCESTATUSNORMAL - BATTLESTRINGS_TABLE_START] = sText_FlorescenceStatusNormal,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
