@@ -164,4 +164,17 @@
 	setvar VAR_0x8004, SLATEPORT_TENT_FUNC_GENERATE_RENTAL_MONS
 	special CallSlateportTentFunction
 	.endm
+    
+    .macro slateporttent_incrementbattlenum
+    callnative ScriptIncrementSlateportTentBattleNum
+    .endm
 
+    .macro slateporttent_getleagues
+    callnative ScriptGetBattleTentAvailableLeagues
+    .endm
+    
+    .macro slateporttent_setleague league:req
+    callnative ScriptSetBattleTentLeague
+    .byte \league
+    .endm
+    

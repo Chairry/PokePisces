@@ -354,6 +354,8 @@ struct BattleDomeTrainer
     u16 forfeited:3;
 };
 
+#include "constants/battle_tent.h"
+
 #define DOME_TOURNAMENT_TRAINERS_COUNT 16
 #define BATTLE_TOWER_RECORD_COUNT 5
 
@@ -426,7 +428,7 @@ struct BattleFrontier
     /*0xE2C*/ struct PyramidBag pyramidBag;
     /*0xE68*/ u8 pyramidLightRadius;
     /*0xE69*/ //u8 padding4;
-    /*0xE6A*/ u16 verdanturfTentPrize;
+    /*0xE6A*/ u16 slateportTentTrainerId;  // tracks index in trainerIDs (which can loop around)     was verdanturfTentPrize
     /*0xE6C*/ u16 fallarborTentPrize;
     /*0xE6E*/ u16 slateportTentPrize;
     /*0xE70*/ struct RentalMon rentalMons[FRONTIER_PARTY_SIZE * 2];
@@ -440,8 +442,9 @@ struct BattleFrontier
     /*0xEF9*/ u8 unk_EF9:7; // Never read
     /*0xEF9*/ u8 savedGame:1;
     /*0xEFA*/ u8 unused_EFA;
-    /*0xEFB*/ u8 unused_EFB;
+    /*0xEFB*/ u8 slateportTentLeague; // chosen league in slateport tent
     /*0xEFC*/ struct DomeMonData domePlayerPartyData[FRONTIER_PARTY_SIZE];
+    u16 slateportTentMaxStreak[BATTLE_TENT_LEAGUE_COUNT];    // max number of trainers defeated in each league
 };
 
 struct ApprenticeQuestion

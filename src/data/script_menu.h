@@ -779,6 +779,22 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const u8 sText_MinorLeague[] = _("Minor League");
+static const u8 sText_MajorLeague[] = _("Major League");
+static const u8 sText_ChampLeague[] = _("Champ League");
+static const struct MenuAction MultichoiceList_SlateportTentTwoLeagues[] = {
+    {sText_MinorLeague},
+    {sText_MajorLeague},
+    {gText_Cancel},
+};
+
+static const struct MenuAction MultichoiceList_SlateportTentAnyLeague[] = {
+    {sText_MinorLeague},
+    {sText_MajorLeague},
+    {sText_ChampLeague},
+    {gText_Cancel},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -906,6 +922,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    // new
+    [MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE] = MULTICHOICE(MultichoiceList_SlateportTentTwoLeagues),
+    [MULTI_SLATEPORT_ANY_LEAGUE]         = MULTICHOICE(MultichoiceList_SlateportTentAnyLeague),
 };
 
 const u8 *const gStdStrings[] =
