@@ -38,6 +38,8 @@ SlateportCity_BattleTentLobby_EventScript_QuitWithoutSaving::
 
 SlateportCity_BattleTentLobby_EventScript_WonChallenge::
 	lockall
+    frontier_get FRONTIER_DATA_BATTLE_NUM
+    buffernumberstring STR_VAR_1, VAR_RESULT
 	message SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons
 	waitmessage
 	slateporttent_setrandomprize
@@ -107,6 +109,35 @@ SlateportCity_BattleTentLobby_EventScript_AskEnterChallenge::
 	case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
 
 SlateportCity_BattleTentLobby_EventScript_TryEnterChallenge::
+    @ select league (if you can)
+    slateporttent_getleagues
+    switch VAR_RESULT
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+    case 1, SlateportCity_BattleTentLobby_EventScript_MinorOrMajor
+SlateportCity_BattleTentLobby_EventScript_ChooseAnyLeague:
+    multichoice 17, 4, MULTI_SLATEPORT_ANY_LEAGUE, FALSE
+    switch VAR_RESULT
+    case 3, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+    case 1, SlateportCity_BattleTentLobby_EventScript_SetMajorLeague
+SlateportCity_BattleTentLobby_EventScript_SetChampLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_CHAMP
+    goto SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge
+    
+SlateportCity_BattleTentLobby_EventScript_MinorOrMajor:
+    multichoice 17, 6, MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE, FALSE
+    switch VAR_RESULT
+    case 2, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+SlateportCity_BattleTentLobby_EventScript_SetMajorLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_MAJOR
+    goto SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge
+
+SlateportCity_BattleTentLobby_EventScript_SetMinorLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_MINOR
+SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge:
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_FACTORY
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_TENT

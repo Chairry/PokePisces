@@ -274,7 +274,7 @@ SlateportCity_BattleTentLobby_Text_ReturnMonsExchangeRentals:
 
 SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons:
 	.string "Congratulations!\n"
-	.string "You've won three straight matches!\p"
+	.string "You've won {STR_VAR_1} straight matches!\p"
 	.string "I will return your POKéMON in exchange\n"
 	.string "for our rental POKéMON.\p"
 	.string "I must also save your event results.\n"
