@@ -1239,7 +1239,7 @@
 #define FLAG_BATTLE_TENT_STREAK_MINOR                               0x4A5 // Defeated 5 trainers in minor league
 #define FLAG_BATTLE_TENT_STREAK_MAJOR                               0x4A6 // Defeated 5 trainers in major league
 #define FLAG_BATTLE_TENT_STREAK_CHAMP                               0x4A7 // Defeated 5 trainers in champ league
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
+#define FLAG_FAKE_EGG                                           0x4A8 // Unused Flag
 #define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
 #define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
