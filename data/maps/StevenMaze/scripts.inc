@@ -83,7 +83,7 @@ StevenMaze_EventScript_TimeToLeave::
 StevenMaze_EventScript_GiveEeriko::
 	msgbox StevenMaze_Text_Eeriko, MSGBOX_DEFAULT
 	removeitem ITEM_POKE_DOLL, 1
-	givemon SPECIES_EERIKO, 15
+	givemon SPECIES_EERIKO, 18
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, StevenMaze_EventScript_ReceiveEerikoParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, StevenMaze_EventScript_ReceiveEerikoPC
 	goto Common_EventScript_NoMoreRoomForPokemon

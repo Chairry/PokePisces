@@ -8943,25 +8943,25 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
 u8 GetCurrentLevelCap(void)
 {
     if (!FlagGet(FLAG_BADGE01_GET))
-        return 14;
+        return 12;
     else if (!FlagGet(FLAG_BADGE02_GET))
-        return 21;
+        return 17;
     else if (!FlagGet(FLAG_DEFEATED_PANIC_EVENT))
-        return 22;
+        return 18;
     else if (!FlagGet(FLAG_DEFEATED_OZONE_BRANCH))
-        return 27;
+        return 22;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 33;
+        return 28;
     else if (!FlagGet(FLAG_BADGE04_GET))
-        return 36;
+        return 32;
     else if (!FlagGet(FLAG_BADGE05_GET))
-        return 45;
+        return 38;
     else if (!FlagGet(FLAG_BADGE06_GET))
-        return 49;
+        return 44;
     else if (!FlagGet(FLAG_BADGE07_GET))
-        return 54;
+        return 49;
     else if (!FlagGet(FLAG_BADGE08_GET))
-        return 64;
+        return 54;
     else if (!FlagGet(FLAG_IS_CHAMPION))
         return 75;
     else

@@ -225,7 +225,7 @@ CosmossSpaceCenter_EventScript_ReceiveShinyMinior::
 	msgbox CosmossSpaceCenter_Text_HaveThisShinyMinior, MSGBOX_DEFAULT
 	setflag FLAG_FORCED_SHINY
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MINIOR_METEOR_INDIGO
-	givemon SPECIES_MINIOR_METEOR_INDIGO, 20, ITEM_COMET_SHARD
+	givemon SPECIES_MINIOR_METEOR_INDIGO, 17, ITEM_COMET_SHARD
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, CosmossSpaceCenter_EventScript_ReceiveShinyMiniorParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, CosmossSpaceCenter_EventScript_ReceiveShinyMiniorPC
 	goto Common_EventScript_NoMoreRoomForPokemon

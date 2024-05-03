@@ -12,6 +12,7 @@ PrettyPetalsScuttill_MapScripts::
 	.byte 0
 
 PrettyPetalsScuttill_OnFrame:
+	map_script_2 VAR_TEMP_4, 1, PrettyPetalsScuttill_EventScript_FightRita
 	map_script_2 VAR_OZONE_ADMINS_STATE, 3, PrettyPetalsScuttill_EventScript_BloomingEvent
 	.2byte 0
 
@@ -62,6 +63,7 @@ PrettyPetalsScuttill_EventScript_BloomingEvent::
 	end
 
 PrettyPetalsScuttill_Movement_WalkIn:
+	walk_up
 	walk_up
 	walk_up
 	step_end
@@ -122,19 +124,27 @@ PrettyPetalsScuttill_Movement_CourtneyTalk:
 
 PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated::
 	lock
+	setvar VAR_TEMP_4, 1
+	cleartrainerflag TRAINER_P_RITA
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Rita1, MSGBOX_DEFAULT
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney2, MSGBOX_DEFAULT
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_FightRita::
+	lock
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	waitmovement 0
+	msgbox PrettyPetalsScuttill_Text_Rita2, MSGBOX_DEFAULT
 	trainerbattle_single TRAINER_P_RITA, PrettyPetalsScuttill_Text_RitaIntro, PrettyPetalsScuttill_Text_RitaDefeat, PrettyPetalsScuttill_EventScript_BloomingEventDone
-	goto PrettyPetalsScuttill_EventScript_BloomingEventDone
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	lock
+	setvar VAR_TEMP_4, 2
 	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Natalie2, MSGBOX_DEFAULT
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
@@ -170,8 +180,11 @@ PrettyPetalsScuttill_Text_Rita1:
 PrettyPetalsScuttill_Text_Courtney2:
 	.string "courtney 2$"
 
-PrettyPetalsScuttill_Text_RitaIntro:
+PrettyPetalsScuttill_Text_Rita2:
 	.string "rita 2$"
+
+PrettyPetalsScuttill_Text_RitaIntro:
+	.string "rita 3$"
 
 PrettyPetalsScuttill_Text_RitaDefeat:
 	.string "rita defeat$"

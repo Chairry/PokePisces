@@ -29,7 +29,7 @@ Route126_EventScript_StartInvasion::
 	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_WalkToRocket
 	waitmovement 0
 	msgbox Route126_Text_TheyreInvading, MSGBOX_DEFAULT
-	setwildbattle SPECIES_UHEFOE, 20
+	setwildbattle SPECIES_UHEFOE, 18
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 2, 0, 0, 2
 	playmoncry SPECIES_BEHEEYEM, CRY_MODE_ENCOUNTER
 	delay 40
