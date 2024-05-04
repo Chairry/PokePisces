@@ -265,6 +265,7 @@
 #define VARIOUS_TRY_TO_CLEAR_WEATHER                 172
 #define VARIOUS_TRY_HEAL_ALL_HEALTH                  173
 #define VARIOUS_REMODEL_CHECK                        174
+#define VARIOUS_SET_BLOSSOM_SNAP                     175
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

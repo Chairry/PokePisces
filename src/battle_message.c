@@ -881,7 +881,7 @@ static const u8 sText_PkmnExposedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was e
 static const u8 sText_ItemCausedExposed[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} became exposed\nfrom its {B_LAST_ITEM}!");
 static const u8 sText_PreventBlooming[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents blooming!");
 static const u8 sText_PreventExposed[] = _("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY}\nprevents being exposed!");
-static const u8 sText_PkmnIsBlooming[] = _("{B_EFF_NAME_WITH_PREFIX} is blooming!");
+static const u8 sText_PkmnIsBlooming[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is blooming!");
 static const u8 sText_PkmnConstricted[] = _("{B_ATK_NAME_WITH_PREFIX} constricted\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnIsAlreadyPanicking[] = _("{B_DEF_NAME_WITH_PREFIX} is already\npanicking.");
 static const u8 sText_InverseRoomEnds[] = _("Inverse Room wore off, and type\nmatchups returned to normal!");
@@ -901,6 +901,7 @@ static const u8 sText_TargetLostElectricType[] = _("{B_DEF_NAME_WITH_PREFIX} had
 static const u8 sText_PkmnGripped[] = _("{B_ATK_NAME_WITH_PREFIX} gripped\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_GrassTypeAdded[] = _("Grass-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1653,6 +1654,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNGRIPPED - BATTLESTRINGS_TABLE_START] = sText_PkmnGripped,
     [STRINGID_GRASSTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GrassTypeAdded,
     [STRINGID_SEED_WRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
+    [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -67,6 +67,9 @@ const u32 gBattleAnimSpriteGfx_Arrows[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_AssuranceHand[] = INCBIN_U32("graphics/battle_anims/sprites/assurance_hand.4bpp.lz");
 const u32 gBattleAnimSpritePal_AssuranceHand[] = INCBIN_U32("graphics/battle_anims/sprites/assurance_hand.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_SpiritHand[] = INCBIN_U32("graphics/battle_anims/sprites/spirit_hand.4bpp.lz");
+const u32 gBattleAnimSpritePal_SpiritHand[] = INCBIN_U32("graphics/battle_anims/sprites/spirit_hand.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_AuraSphere[] = INCBIN_U32("graphics/battle_anims/sprites/aura_sphere.4bpp.lz");
 const u32 gBattleAnimSpritePal_AuraSphere[] = INCBIN_U32("graphics/battle_anims/sprites/aura_sphere.gbapal.lz");
 

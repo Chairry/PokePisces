@@ -11608,6 +11608,8 @@ extern const u32 gBattleAnimSpritePal_Apple[];
 extern const u32 gBattleAnimSpriteGfx_Arrows[];
 extern const u32 gBattleAnimSpriteGfx_AssuranceHand[];
 extern const u32 gBattleAnimSpritePal_AssuranceHand[];
+extern const u32 gBattleAnimSpriteGfx_SpiritHand[];
+extern const u32 gBattleAnimSpritePal_SpiritHand[];
 extern const u32 gBattleAnimSpriteGfx_AuraSphere[];
 extern const u32 gBattleAnimSpritePal_AuraSphere[];
 extern const u32 gBattleAnimSpritePal_AvalancheRocks[];

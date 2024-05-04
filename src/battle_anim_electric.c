@@ -898,13 +898,9 @@ void AnimThunderWave(struct Sprite *sprite)
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += gBattleAnimArgs[1];
-    if (isAnchorShot)
+    if (isAnchorShot || isSpiritShackle)
     { 
         spriteId = CreateSprite(&gAnchorShotChainTemplate, sprite->x + 32, sprite->y, sprite->subpriority);
-    }
-    else if (isSpiritShackle)
-    { 
-        spriteId = CreateSprite(&gSpiritShackleChainTemplate, sprite->x + 32, sprite->y, sprite->subpriority);
     }
     else
     { 
