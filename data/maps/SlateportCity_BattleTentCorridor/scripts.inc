@@ -62,6 +62,7 @@ SlateportCity_BattleTentCorridor_EventScript_ReturnToRoomFromBattle::
 	special HealPlayerParty
 SlateportCity_BattleTentCorridor_EventScript_AskReadyForOpponent::
 	frontier_get FRONTIER_DATA_BATTLE_NUM
+    addvar VAR_RESULT, 1    @ 1-index it
     buffernumberstring STR_VAR_1, VAR_RESULT
     call SlateportCity_BattleTentCorridor_EventScript_ReadyForNthOppontent
 	multichoice 20, 6, MULTI_GO_ON_REST_RETIRE, TRUE
