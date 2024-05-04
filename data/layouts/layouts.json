@@ -5310,6 +5310,16 @@
       "secondary_tileset": "gTileset_SecretBaseTree",
       "border_filepath": "data/layouts/ScuttillSecretTreeHouse/border.bin",
       "blockdata_filepath": "data/layouts/ScuttillSecretTreeHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM3CORRIDOR",
+      "name": "Gym3Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym3Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym3Corridor/map.bin"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
-  "id": "MAP_GYM2CORRIDOR",
-  "name": "Gym2Corridor",
-  "layout": "LAYOUT_GYM2CORRIDOR",
+  "id": "MAP_GYM3CORRIDOR",
+  "name": "Gym3Corridor",
+  "layout": "LAYOUT_GYM3CORRIDOR",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_MOSSDEEP_CITY",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -33,22 +33,22 @@
       "x": 6,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_GYM2CORRIDOR",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE122",
+      "dest_warp_id": "2"
     },
     {
       "x": 7,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_GYM2CORRIDOR",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE122",
+      "dest_warp_id": "2"
     },
     {
       "x": 3,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_GYM2CORRIDOR",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_GYM",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
@@ -59,7 +59,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_4",
       "var_value": "0",
-      "script": "Gym2Corridor_EventScript_DoorGuard"
+      "script": "Gym3Corridor_EventScript_DoorGuard"
     }
   ],
   "bg_events": [

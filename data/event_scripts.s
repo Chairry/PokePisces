@@ -3614,3 +3614,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ZotpyreGym/scripts.inc"
 
 	.include "data/maps/ScuttillSecretTreeHouse/scripts.inc"
+
+	.include "data/maps/Gym3Corridor/scripts.inc"

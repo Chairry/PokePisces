@@ -657,3 +657,15 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
+
+Route121_EventScript_ItemTMDragonTail::
+	finditem ITEM_TM_DRAGON_TAIL
+	end
+
+Route123_EventScript_ItemTMSkyDrop::
+	finditem ITEM_TM_SKY_DROP
+	end
+
+Route123_EventScript_ItemTMAuroraBeam::
+	finditem ITEM_TM_AURORA_BEAM
+	end

@@ -1240,11 +1240,11 @@
 #define FLAG_BATTLE_TENT_STREAK_MAJOR                               0x4A6 // Defeated 5 trainers in major league
 #define FLAG_BATTLE_TENT_STREAK_CHAMP                               0x4A7 // Defeated 5 trainers in champ league
 #define FLAG_FAKE_EGG                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
+#define FLAG_SNOWBALL_BOY                                           0x4A9 // Unused Flag
+#define FLAG_ITEM_TM_DRAGON_TAIL                                           0x4AA // Unused Flag
+#define FLAG_ITEM_TM_SKY_DROP                                           0x4AB // Unused Flag
+#define FLAG_ITEM_TM_AURORA_BEAM                                           0x4AC // Unused Flag
+#define FLAG_ZOTPYRE_PSYCHICS                                           0x4AD // Unused Flag
 #define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
 #define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
 #define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag

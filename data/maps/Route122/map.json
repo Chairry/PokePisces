@@ -39,21 +39,21 @@
       "x": 22,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_MT_PYRE_1F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_MT_PYRE_2F",
+      "dest_warp_id": "2"
     },
     {
       "x": 40,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 42,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_GYM3CORRIDOR",
       "dest_warp_id": "0"
     },
     {

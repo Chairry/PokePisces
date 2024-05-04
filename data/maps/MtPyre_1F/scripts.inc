@@ -42,6 +42,39 @@ MtPyre_1F_EventScript_Miko::
     msgbox MtPyre_1F_Text_MikoPostBattle, MSGBOX_AUTOCLOSE
     end
 
+MtPyre_1F_EventScript_LostKin::
+	lock
+	goto_if_set FLAG_ZOTPYRE_PSYCHICS, MtPyre_1F_EventScript_Teleporter
+	faceplayer
+	setflag FLAG_ZOTPYRE_PSYCHICS
+	msgbox MtPyre_1F_Text_IReuniteWithMyKin, MSGBOX_DEFAULT
+	goto MtPyre_1F_EventScript_Teleporter
+	release
+	end
+
+MtPyre_1F_EventScript_Teleporter::
+	lock
+	faceplayer
+	msgbox MtPyre_1F_Text_WouldYouLikeToWarp, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MtPyre_1F_EventScript_WarpToCenter
+	msgbox MtPyre_1F_Text_MaybeAnotherTime, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_1F_EventScript_WarpToCenter::
+	warp MAP_LILYCOVE_CITY_POKEMON_CENTER_2F, 12, 3
+	release
+	end
+
+MtPyre_1F_Text_WouldYouLikeToWarp:
+	.string "wanna warp$"
+
+MtPyre_1F_Text_MaybeAnotherTime:
+	.string "maybe nexttime$"
+
+MtPyre_1F_Text_IReuniteWithMyKin:
+	.string "psychic connection activate$"
+
 MtPyre_1F_Text_PearlIntro:
 	.string "intro$"
 
