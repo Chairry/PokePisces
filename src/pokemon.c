@@ -6980,6 +6980,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     u16 heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 level;
+    u8 stat;
     u16 friendship;
     u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, 0);
     u16 upperPersonality = personality >> 16;
@@ -7033,6 +7034,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     case EVO_MODE_NORMAL:
         level = GetMonData(mon, MON_DATA_LEVEL, 0);
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+        stat = GAME_STAT_SILENCE_ACTIVATED;
 
         for (i = 0; i < EVOS_PER_MON; i++)
         {
@@ -7107,6 +7109,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_PANICKED:
                 if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PANIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_SILENCE_ACTIVATED:
+                if (gEvolutionTable[species][i].param <= stat)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_BATTLE_TERRAIN:

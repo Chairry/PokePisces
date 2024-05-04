@@ -10301,6 +10301,7 @@ BattleScript_SilenceRet::
 	end2
 
 BattleScript_SilenceActivatesNonArcane::
+	incrementgamestat GAME_STAT_SILENCE_ACTIVATED
 	playanimation BS_BATTLER_0, B_ANIM_SILENCE
 	jumpifspecies BS_ATTACKER, SPECIES_INFAIRNO, BattleScript_SilenceActivatesArcane
 	jumpifspecies BS_ATTACKER, SPECIES_PURGATIVAL, BattleScript_SilenceActivatesArcane
