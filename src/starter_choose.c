@@ -34,7 +34,7 @@
 #define TAG_STARTER_CIRCLE  0x1001
 
 static void CB2_StarterChoose(void);
-static void ClearStarterLabel(void);
+static void ClearStarterLabel(u8 clearWin);
 static void Task_StarterChoose(u8 taskId);
 static void Task_HandleStarterChooseInput(u8 taskId);
 static void Task_WaitForStarterSprite(u8 taskId);
@@ -105,9 +105,9 @@ static const u8 sPokeballCoords[STARTER_MON_COUNT][2] =
 
 static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 {
-    {0, 9},
-    {16, 10},
-    {8, 4},
+    {8, 10},
+    {8, 10},
+    {8, 10},
 };
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
@@ -494,7 +494,7 @@ static void Task_HandleStarterChooseInput(u8 taskId)
     {
         u8 spriteId;
 
-        ClearStarterLabel();
+        ClearStarterLabel(TRUE);
 
         // Create white circle background
         spriteId = CreateSprite(&sSpriteTemplate_StarterCircle, sPokeballCoords[selection][0], sPokeballCoords[selection][1], 1);
@@ -591,37 +591,40 @@ static void CreateStarterPokemonLabel(u8 selection)
     sStarterLabelWindowId = AddWindow(&winTemplate);
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
 
-    width = GetStringCenterAlignXOffset(FONT_NARROW, categoryText, 0x68);
+    width = GetStringCenterAlignXOffset(FONT_NARROW, categoryText, 112);
     AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NARROW, width, 1, sTextColors, 0, categoryText);
 
-    width = GetStringCenterAlignXOffset(FONT_NORMAL, speciesName, 0x68);
+    width = GetStringCenterAlignXOffset(FONT_NORMAL, speciesName, 112);
     AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NORMAL, width, 17, sTextColors, 0, speciesName);
 
     PutWindowTilemap(sStarterLabelWindowId);
     ScheduleBgCopyTilemapToVram(0);
 
-    labelLeft = sStarterLabelCoords[selection][0] * 8 - 4;
-    labelRight = (sStarterLabelCoords[selection][0] + 13) * 8 + 4;
+    labelLeft = sStarterLabelCoords[selection][0] * 8;
+    labelRight = (sStarterLabelCoords[selection][0] + 14) * 8;
     labelTop = sStarterLabelCoords[selection][1] * 8;
     labelBottom = (sStarterLabelCoords[selection][1] + 4) * 8;
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(labelLeft, labelRight));
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(labelTop, labelBottom));
 }
 
-static void ClearStarterLabel(void)
+static void ClearStarterLabel(u8 clearWin)
 {
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
     ClearWindowTilemap(sStarterLabelWindowId);
     RemoveWindow(sStarterLabelWindowId);
     sStarterLabelWindowId = WINDOW_NONE;
-    SetGpuReg(REG_OFFSET_WIN0H, 0);
-    SetGpuReg(REG_OFFSET_WIN0V, 0);
+    if (clearWin)
+    {
+        SetGpuReg(REG_OFFSET_WIN0H, 0);
+        SetGpuReg(REG_OFFSET_WIN0V, 0);
+    }
     ScheduleBgCopyTilemapToVram(0);
 }
 
 static void Task_MoveStarterChooseCursor(u8 taskId)
 {
-    ClearStarterLabel();
+    ClearStarterLabel(FALSE);
     gTasks[taskId].func = Task_CreateStarterLabel;
 }
 
