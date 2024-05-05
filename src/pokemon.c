@@ -384,6 +384,24 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(DAKKAPOD),
     SPECIES_TO_HOENN(UNBERRABLE),
     SPECIES_TO_HOENN(VAIKING),
+
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT - 1] = HOENN_DEX_DUDUNSPARS,
+    [SPECIES_LOTTABATS_HUDDLED - 1] = HOENN_DEX_LOTTABATS,
+    [SPECIES_GAOTERRA_SOLAR - 1] = HOENN_DEX_GAOTERRA,
+    [SPECIES_GAOTERRA_LUNAR - 1] = HOENN_DEX_GAOTERRA,
+    [SPECIES_BISHOUCHA_WARMONGER - 1] = HOENN_DEX_BISHOUCHA,
+    [SPECIES_PAPYPUS_FEMALE - 1] = HOENN_DEX_PAPYPUS,
+    [SPECIES_CINDRILLON_PIROUETTE - 1] = HOENN_DEX_CINDRILLON,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1] = HOENN_DEX_CINDRILLON,
+    [SPECIES_SHISHIMA_PUNISHER - 1] = HOENN_DEX_SHISHIMA,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1] = HOENN_DEX_SHUNYONG,
+    [SPECIES_SPINDA_CAVE - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_DESERT - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_FOREST - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_MOUNTAIN - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_PLAINS2 - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = HOENN_DEX_DUDUNSPARS,
+    [SPECIES_KODOUGH_BLUNT - 1] = HOENN_DEX_KODOUGH,
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -6980,6 +6998,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     u16 heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 level;
+    u8 stat;
     u16 friendship;
     u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, 0);
     u16 upperPersonality = personality >> 16;
@@ -7033,6 +7052,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     case EVO_MODE_NORMAL:
         level = GetMonData(mon, MON_DATA_LEVEL, 0);
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+        stat = GAME_STAT_SILENCE_ACTIVATED;
 
         for (i = 0; i < EVOS_PER_MON; i++)
         {
@@ -7107,6 +7127,10 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 break;
             case EVO_PANICKED:
                 if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PANIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_SILENCE_ACTIVATED:
+                if (gEvolutionTable[species][i].param <= stat)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_BATTLE_TERRAIN:

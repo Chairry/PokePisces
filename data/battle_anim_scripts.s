@@ -22364,10 +22364,167 @@ MassBreakExplosion:
 	return
 
 Move_PILGRIMAGE::
-	goto Move_BLACK_HOLE_ECLIPSE
+	loadspritegfx ANIM_TAG_VERTICAL_HEX
+	loadspritegfx ANIM_TAG_ZYGARDE_HEXES
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	monbg ANIM_ATTACKER
+	setalpha 14, 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0xC, 0x0
+	waitforvisualfinish
+	call PilgrimageRising
+	call PilgrimageRising
+	call PilgrimageRising
+	call PilgrimageRising
+	call PilgrimageFalling
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0xC, 0x0, 0xffff
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	end
+PilgrimageRising:
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	return
+PilgrimageFalling:
+	playsewithpan SE_M_WATERFALL, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 4, 0, 17, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 10, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 20, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 30, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	delay 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -40, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 10, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 20, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 30, ANIM_TARGET, 1
+	createsprite gWaterHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 40, ANIM_TARGET, 1
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 0, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 2, 2
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, 15, 15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	createsprite gThousandArrowsGreenHexTemplate, ANIM_TARGET, 2, 0, -15, -15
+	playsewithpan SE_M_DIG, SOUND_PAN_ATTACKER
+	return
 
 Move_HEAVY_CANNON::
-	goto Move_FLASH_CANNON
+	goto Move_GIGAVOLT_HAVOC
 
 Move_GIANTS_SPEAR::
 	goto Move_ICICLE_SPEAR
