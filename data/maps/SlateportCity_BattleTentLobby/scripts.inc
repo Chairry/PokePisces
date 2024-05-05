@@ -39,6 +39,7 @@ SlateportCity_BattleTentLobby_EventScript_QuitWithoutSaving::
 SlateportCity_BattleTentLobby_EventScript_WonChallenge::
 	lockall
     frontier_get FRONTIER_DATA_BATTLE_NUM
+    addvar VAR_RESULT, 1    @ 1-index it
     buffernumberstring STR_VAR_1, VAR_RESULT
 	message SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons
 	waitmessage
