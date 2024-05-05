@@ -1019,7 +1019,7 @@ BattleScript_EffectHearthwarm:
 	copybyte gBattlerTarget, gBattlerAttacker
 	setbyte gBattleCommunication, 0
 	copybyte gBattlerAttacker, gBattlerTarget
-	setuserstatus3 STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly1
+	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly1
 	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SetHearthwarmAlly1:
