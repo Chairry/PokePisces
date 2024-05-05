@@ -98,9 +98,9 @@ static const struct WindowTemplate sWindowTemplate_StarterLabel =
 
 static const u8 sPokeballCoords[STARTER_MON_COUNT][2] =
 {
-    {60, 64},
-    {120, 88},
-    {180, 64},
+    {60-4, 32+24},
+    {120, 32+24},
+    {180+4, 32+24},
 };
 
 static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
@@ -157,10 +157,10 @@ static const struct OamData sOam_Hand =
     .objMode = ST_OAM_OBJ_NORMAL,
     .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
+    .shape = SPRITE_SHAPE(64x64),
     .x = 0,
     .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
+    .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
     .priority = 1,
     .paletteNum = 0,
@@ -174,12 +174,12 @@ static const struct OamData sOam_Pokeball =
     .objMode = ST_OAM_OBJ_NORMAL,
     .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
+    .shape = SPRITE_SHAPE(64x64),
     .x = 0,
     .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
+    .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
-    .priority = 1,
+    .priority = 2,
     .paletteNum = 0,
     .affineParam = 0,
 };
@@ -203,14 +203,14 @@ static const struct OamData sOam_StarterCircle =
 
 static const u8 sCursorCoords[][2] =
 {
-    {60, 32},
-    {120, 56},
-    {180, 32},
+    {60-4, 16},
+    {120, 16},
+    {180+4, 16},
 };
 
 static const union AnimCmd sAnim_Hand[] =
 {
-    ANIMCMD_FRAME(48, 30),
+    ANIMCMD_FRAME(192, 30),
     ANIMCMD_END,
 };
 
@@ -222,23 +222,28 @@ static const union AnimCmd sAnim_Pokeball_Still[] =
 
 static const union AnimCmd sAnim_Pokeball_Moving[] =
 {
-    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(64, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(128, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(16, 4),
+
+    ANIMCMD_FRAME(64, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(128, 4),
     ANIMCMD_FRAME(0, 4),
+
     ANIMCMD_FRAME(0, 32),
-    ANIMCMD_FRAME(16, 8),
+
+    ANIMCMD_FRAME(64, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(128, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(16, 8),
+
+    ANIMCMD_FRAME(64, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(128, 8),
     ANIMCMD_FRAME(0, 8),
+
     ANIMCMD_JUMP(0),
 };
 
@@ -285,7 +290,7 @@ static const struct CompressedSpriteSheet sSpriteSheet_PokeballSelect[] =
 {
     {
         .data = gPokeballSelection_Gfx,
-        .size = 0x0800,
+        .size = 0x2000,
         .tag = TAG_POKEBALL_SELECT
     },
     {}
