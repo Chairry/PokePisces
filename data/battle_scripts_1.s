@@ -916,18 +916,20 @@ BattleScript_EffectFlorescence:
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectFlorescenceSkipAnim
 	attackanimation
 	waitanimation
+BattleScript_EffectFlorescenceSkipAnim:
 	copybyte gBattlerTarget, gBattlerAttacker
 	setbyte gBattleCommunication, 0
-BattleScript_Florescence_TryCureStatus:
+BattleScript_FlorescenceTryCureStatus:
 	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_FlorescenceTryRestoreAlly
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_FlorescenceCureStatus
 	goto Florescence_GiveBlooming
 BattleScript_FlorescenceCureStatus:
 	curestatus BS_TARGET
 	updatestatusicon BS_TARGET
-	printstring STRINGID_PKMNSTATUSNORMAL
+	printstring STRINGID_FLORESCENCESTATUSNORMAL
 	waitmessage B_WAIT_TIME_LONG
 Florescence_GiveBlooming:
 	copybyte gBattlerAttacker, gBattlerTarget
@@ -938,13 +940,15 @@ Florescence_GiveBlooming:
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_FlorescenceTryRestoreAlly
 	setmoveeffect MOVE_EFFECT_BLOOMING
 	seteffectprimary
+	addbyte gBattleCommunication, 1
 	goto BattleScript_FlorescenceTryRestoreAlly
 BattleScript_FlorescenceTryRestoreAlly:
-	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_MoveEnd
-	addbyte gBattleCommunication, 1
+	jumpifbytenotequal gBattlerTarget, gBattlerAttacker, BattleScript_FlorescenceEnd
 	jumpifnoally BS_TARGET, BattleScript_MoveEnd
-	setallytonexttarget BattleScript_Florescence_TryCureStatus
-	goto BattleScript_MoveEnd
+	setallytonexttarget BattleScript_FlorescenceTryCureStatus
+BattleScript_FlorescenceEnd:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_MoveEnd
+	goto BattleScript_ButItFailed
 
 BattleScript_EffectPowerDrain:
 	setstatchanger STAT_SPEED, 1, TRUE
@@ -10297,6 +10301,7 @@ BattleScript_SilenceRet::
 	end2
 
 BattleScript_SilenceActivatesNonArcane::
+	incrementgamestat GAME_STAT_SILENCE_ACTIVATED
 	playanimation BS_BATTLER_0, B_ANIM_SILENCE
 	jumpifspecies BS_ATTACKER, SPECIES_INFAIRNO, BattleScript_SilenceActivatesArcane
 	jumpifspecies BS_ATTACKER, SPECIES_PURGATIVAL, BattleScript_SilenceActivatesArcane

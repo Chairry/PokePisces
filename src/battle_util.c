@@ -10247,7 +10247,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_PUNISHER:
-        if (gBattleMons[battlerAtk].species == SPECIES_SHISHIMA_PUNISHER && IS_MOVE_PHYSICAL(move))
+        if ((gBattleMons[battlerAtk].species == SPECIES_SHISHIMA_PUNISHER) && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(4.0));
         break;
     case ABILITY_HUGE_POWER:
@@ -10485,8 +10485,10 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         defStat /= 2;
 
     if (gBattleMoves[gCurrentMove].effect == EFFECT_FUTURE_SIGHT && gCurrentMove != MOVE_DECIMATION)
+    {
         defStat = spDef;
-    defStat /= 2;
+        defStat /= 2;
+    }
 
     // critical hits ignore positive stat changes
     if (isCrit && defStage > DEFAULT_STAT_STAGE)
