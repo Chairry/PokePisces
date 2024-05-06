@@ -15,16 +15,22 @@ Route123_EventScript_SetTempFlags::
 
 Route123_EventScript_BreadPos1::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerMoveIntoPos
+	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerMoveIntoPos1
 	waitmovement 0
 	goto Route123_EventScript_BreadwinnerEncounter
 	release
 	end
 
-Route123_Movement_PlayerMoveIntoPos:
+Route123_Movement_PlayerMoveIntoPos1:
 	walk_right
 	face_up
 	step_end
+
+Route123_EventScript_BreadPos2::
+	lock
+	goto Route123_EventScript_BreadwinnerEncounter
+	release
+	end
 
 Route123_EventScript_BreadwinnerEncounter::
 	lock
@@ -135,6 +141,213 @@ Route123_EventScript_Hoth::
     trainerbattle_single TRAINER_P_HOTH, Route123_Text_HothIntro, Route123_Text_HothDefeated
     msgbox Route123_Text_HothPostBattle, MSGBOX_AUTOCLOSE
     end
+
+Route123_EventScript_Gravestone1::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_13, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave1Respects
+	release
+	end
+
+Route123_EventScript_Grave1Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_13
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_KeepMoving::
+	msgbox Route123_Text_GottaKeepMoving, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route123_EventScript_Gravestone2::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_14, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave2Respects
+	release
+	end
+
+Route123_EventScript_Grave2Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_14
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_Gravestone3::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_15, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave3Respects
+	release
+	end
+
+Route123_EventScript_Grave3Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_15
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_BindingBand::
+	msgbox Route123_Text_TheresSomethingOnYourWrist, MSGBOX_DEFAULT
+	giveitem ITEM_BINDING_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox Route123_Text_TheEngravingSays, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route123_EventScript_FuzkyBattle::
+	lock
+	setwildbattle SPECIES_FUZKY, 26
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 3, 1, 2, 3, 2
+	playmoncry SPECIES_FUZKY, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	msgbox Route123_Text_TheFuzkyWantsToBattle, MSGBOX_DEFAULT
+	dowildbattle
+	goto Route123_EventScript_FuzkyDefeat
+	release
+	end
+
+Route123_EventScript_FuzkyDefeat::
+	msgbox Route123_Text_ItTakesOffTheMantle, MSGBOX_DEFAULT
+	giveitem ITEM_LOST_MANTLE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+Route123_Text_WantToPayRespects:
+	.string "want 2 pay respects$"
+
+Route123_Text_YouFoldYourHands:
+	.string "you fold your hands...$"
+
+Route123_Text_MayTheyRestInPeace:
+	.string "may they rest in piss$"
+
+Route123_Text_GottaKeepMoving:
+	.string "lets get goin$"
+
+Route123_Text_TheresSomethingOnYourWrist:
+	.string "theres smth on your wrist now$"
+
+Route123_Text_TheEngravingSays:
+	.string "its engraved$"
+
+Route123_Text_TheFuzkyWantsToBattle:
+	.string "fuzky wants 2 beat u up$"
+
+Route123_Text_ItTakesOffTheMantle:
+	.string "it gives you its mantle$"
 
 Route123_Text_RamiIntro:
 	.string "intro$"

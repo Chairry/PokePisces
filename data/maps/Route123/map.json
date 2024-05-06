@@ -180,6 +180,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route123_EventScript_ItemTMSkyDrop",
       "flag": "FLAG_ITEM_TM_SKY_DROP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
+      "x": 31,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route123_EventScript_FuzkyBattle",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -206,7 +219,7 @@
       "elevation": 0,
       "var": "VAR_BREADWINNER_STATE",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route123_EventScript_BreadPos1"
     },
     {
       "type": "trigger",
@@ -215,14 +228,14 @@
       "elevation": 0,
       "var": "VAR_BREADWINNER_STATE",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route123_EventScript_BreadPos2"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 24,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "NULL"
     },
@@ -231,12 +244,35 @@
       "x": 24,
       "y": 24,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "NULL"
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone1"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone2"
+    },
+    {
+      "type": "sign",
+      "x": 55,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone3"
+    }
   ]
 }

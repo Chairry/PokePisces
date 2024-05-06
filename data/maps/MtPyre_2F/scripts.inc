@@ -32,6 +32,8 @@ MtPyre_2F_EventScript_Morgan::
 MtPyre_2F_EventScript_CheckMia::
 	lock
 	faceplayer
+	checkitem ITEM_CLEANSE_TAG
+	goto_if_eq VAR_RESULT, TRUE, MtPyre_2F_EventScript_MistyPost
 	msgbox MtPyre_2F_Text_MistyGreetings, MSGBOX_DEFAULT
 	goto_if_defeated TRAINER_P_MIA, MtPyre_2F_EventScript_CheckMaya
 	msgbox MtPyre_2F_Text_MistyNotAllMediumsBeaten, MSGBOX_AUTOCLOSE
@@ -67,6 +69,11 @@ MtPyre_2F_EventScript_GiveCleanseTag::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	release
 	end
+
+MtPyre_2F_EventScript_MistyPost::
+	msgbox MtPyre_2F_Text_MistyPostBattle, MSGBOX_AUTOCLOSE
+	release
+    end
 
 MtPyre_2F_Text_DeaconIntro:
 	.string "intro$"
