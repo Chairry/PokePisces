@@ -106,36 +106,36 @@
       "x": 27,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LILYCOVE_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 31,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LILYCOVE_INTERIORS",
+      "dest_warp_id": "6"
     },
     {
       "x": 42,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LILYCOVE_INTERIORS",
+      "dest_warp_id": "8"
     },
     {
       "x": 48,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LILYCOVE_INTERIORS",
+      "dest_warp_id": "10"
     },
     {
       "x": 54,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LILYCOVE_INTERIORS",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

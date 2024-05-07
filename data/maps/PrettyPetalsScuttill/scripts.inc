@@ -153,6 +153,207 @@ PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	release
 	end
 
+PrettyPetalsScuttill_EventScript_Natalie::
+	lock
+	faceplayer
+	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_NataliePreBloom
+	checkitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GaveTropKick
+	msgbox PrettyPetalsScuttill_Text_DoYouHaveKickMove, MSGBOX_DEFAULT
+	checkpartynonhmmove MOVE_DOUBLE_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckLowKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckLowKick::
+	checkpartynonhmmove MOVE_LOW_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckBlazeKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckBlazeKick::
+	checkpartynonhmmove MOVE_BLAZE_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckTripleKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckTripleKick::
+	checkpartynonhmmove MOVE_TRIPLE_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckJumpKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckJumpKick::
+	checkpartynonhmmove MOVE_JUMP_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckHighJumpKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckHighJumpKick::
+	checkpartynonhmmove MOVE_HIGH_JUMP_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckRollingKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckRollingKick::
+	checkpartynonhmmove MOVE_ROLLING_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_CheckMegaKick
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_CheckMegaKick::
+	checkpartynonhmmove MOVE_MEGA_KICK
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_NoKickingMoves
+	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
+	giveitem ITEM_TM_TROP_KICK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_NoKickingMoves::
+	msgbox PrettyPetalsScuttill_Text_NoKickMove, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_GaveTropKick::
+	msgbox PrettyPetalsScuttill_Text_PostTropKick, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_NataliePreBloom::
+	msgbox PrettyPetalsScuttill_Text_NatPreBloom, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_Nicole::
+	lock
+	faceplayer
+	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_NicolePreBloom
+	checkitem ITEM_FAIRY_GEM
+	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GaveFairyRing
+	msgbox PrettyPetalsScuttill_Text_DoYouHaveIngrain, MSGBOX_DEFAULT
+	checkpartynonhmmove MOVE_INGRAIN
+	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_NoIngrain
+	msgbox PrettyPetalsScuttill_Text_YouHaveIngrain, MSGBOX_DEFAULT
+	giveitem ITEM_FAIRY_GEM
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_NoIngrain::
+	msgbox PrettyPetalsScuttill_Text_NoIngrain, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_GaveFairyRing::
+	msgbox PrettyPetalsScuttill_Text_PostFairyRing, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_NicolePreBloom::
+	msgbox PrettyPetalsScuttill_Text_NicPreBloom, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_Rita::
+	lock
+	faceplayer
+	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_RitaPreBloom
+	checkitem ITEM_FAIRY_GEM
+	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GoCollectSticks
+	msgbox PrettyPetalsScuttill_Text_AboutSticks, MSGBOX_DEFAULT
+	giveitem ITEM_FAIRY_GEM
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_RitaPreBloom::
+	msgbox PrettyPetalsScuttill_Text_RitaPreBloom, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_GoCollectSticks::
+	checkitem ITEM_FAIRY_GEM, 100
+	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GotTheSticks
+	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_EventScript_GotTheSticks::
+	msgbox PrettyPetalsScuttill_Text_Wow100Sticks, MSGBOX_DEFAULT
+	giveitem ITEM_MAX_POTION
+	msgbox PrettyPetalsScuttill_Text_StickMaster, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PrettyPetalsScuttill_Text_NatPreBloom:
+	.string "hey im nat$"
+
+PrettyPetalsScuttill_Text_DoYouHaveKickMove:
+	.string "do u have a kickin move$"
+
+PrettyPetalsScuttill_Text_YouHaveKickMove:
+	.string "u have one take this$"
+
+PrettyPetalsScuttill_Text_NoKickMove:
+	.string "no kick no dick$"
+
+PrettyPetalsScuttill_Text_PostTropKick:
+	.string "trop kick cool eh?$"
+
+PrettyPetalsScuttill_Text_NicPreBloom:
+	.string "hello im nicole$"
+
+PrettyPetalsScuttill_Text_DoYouHaveIngrain:
+	.string "do u have ingrain$"
+
+PrettyPetalsScuttill_Text_YouHaveIngrain:
+	.string "u do have this$"
+
+PrettyPetalsScuttill_Text_NoIngrain:
+	.string "no ingrain, ingrate$"
+
+PrettyPetalsScuttill_Text_PostFairyRing:
+	.string "wear dat fairy ring$"
+
+PrettyPetalsScuttill_Text_RitaPreBloom:
+	.string "me be rita$"
+
+PrettyPetalsScuttill_Text_AboutSticks:
+	.string "u get sticks from cut trees\n"
+	.string "here is 1 to start$"
+
+PrettyPetalsScuttill_Text_Need100Sticks:
+	.string "bring me 100$"
+
+PrettyPetalsScuttill_Text_Wow100Sticks:
+	.string "wow holy shit have this$"
+
+PrettyPetalsScuttill_Text_StickMaster:
+	.string "ur the stickmaster bruv$"
+
 PrettyPetalsScuttill_Text_ComeJoinOurLesson:
 	.string "come join the lesson$"
 
