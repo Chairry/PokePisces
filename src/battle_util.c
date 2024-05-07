@@ -8321,7 +8321,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             }
         }
         break;
-        case HOLD_EFFECT_BURNT_STICK:
+        case HOLD_EFFECT_BURNT_BRANCH:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
@@ -10377,6 +10377,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     case HOLD_EFFECT_SALTY_TEAR:
         if (gBattleMons[battlerAtk].species == SPECIES_SADSOD)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+        break;
+    case HOLD_EFFECT_FAIRY_RING:
+        if (gBattleMoves[move].type == TYPE_FAIRY && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_OBJECT_D_ARC:
         if (gBattleMoves[move].type == TYPE_GHOST || gBattleMoves[move].type == TYPE_PSYCHIC || gBattleMoves[move].type == TYPE_DARK)

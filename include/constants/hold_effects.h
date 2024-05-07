@@ -165,7 +165,7 @@
 #define HOLD_EFFECT_BERSERK_GENE        182
 
 // New Hold effects
-#define HOLD_EFFECT_BURNT_STICK         183
+#define HOLD_EFFECT_BURNT_BRANCH        183
 #define HOLD_EFFECT_CURSED_AMULET       184
 #define HOLD_EFFECT_LEADERS_CREST       185
 #define HOLD_EFFECT_BATTLE_HELM         186
@@ -203,6 +203,7 @@
 #define HOLD_EFFECT_YELLOW_SODA         218
 #define HOLD_EFFECT_FLIP_COIN           219
 #define HOLD_EFFECT_WARP_RIBBON         220
+#define HOLD_EFFECT_FAIRY_RING          221
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

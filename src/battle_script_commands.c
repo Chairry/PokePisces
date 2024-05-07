@@ -3325,7 +3325,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             }
             else
             {
-                if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_BURNT_STICK) {
+                if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_BURNT_BRANCH) {
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED_BY_ITEM;
                 } else {
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED;

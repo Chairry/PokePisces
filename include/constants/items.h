@@ -915,7 +915,7 @@
 #define ITEM_BERSERK_GENE 798
 
 #define ITEM_BERRY_MIC 799
-#define ITEM_BURNT_STICK 800
+#define ITEM_BURNT_BRANCH 800
 #define ITEM_CURSED_AMULET 801
 #define ITEM_EERIE_MASK 802
 #define ITEM_NEO_BATTERY 803
@@ -960,8 +960,10 @@
 #define ITEM_FRIEND_RIBBON 842
 #define ITEM_ROOM_EXTENDER 843
 #define ITEM_TRADING_CARD 844
+#define ITEM_FAIRY_RING 845
+#define ITEM_WEIRD_STICK 846
 
-#define ITEMS_COUNT 845
+#define ITEMS_COUNT 847
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
