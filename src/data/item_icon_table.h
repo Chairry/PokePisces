@@ -846,7 +846,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BERSERK_GENE] = {gItemIcon_BerserkGene, gItemIconPalette_BerserkGene},
     // New Items
     [ITEM_BERRY_MIC] = {gItemIcon_BerryMic, gItemIconPalette_BerryMic},
-    [ITEM_BURNT_STICK] = {gItemIcon_BurntStick, gItemIconPalette_BurntStick},
+    [ITEM_BURNT_BRANCH] = {gItemIcon_BurntBranch, gItemIconPalette_BurntBranch},
     [ITEM_CURSED_AMULET] = {gItemIcon_CursedAmulet, gItemIconPalette_CursedAmulet},
     [ITEM_EERIE_MASK] = {gItemIcon_EerieMask, gItemIconPalette_EerieMask},
     [ITEM_NEO_BATTERY] = {gItemIcon_NeoBattery, gItemIconPalette_NeoBattery},
@@ -891,6 +891,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FRIEND_RIBBON] = {gItemIcon_FriendRibbon, gItemIconPalette_FriendRibbon},
     [ITEM_ROOM_EXTENDER] = {gItemIcon_RoomExtender, gItemIconPalette_RoomExtender},
     [ITEM_TRADING_CARD] = {gItemIcon_TradingCard, gItemIconPalette_TradingCard},
+    [ITEM_FAIRY_RING] = {gItemIcon_FairyRing, gItemIconPalette_FairyRing},
+    [ITEM_WEIRD_STICK] = {gItemIcon_WeirdStick, gItemIconPalette_WeirdStick},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

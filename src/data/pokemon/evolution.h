@@ -560,7 +560,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_UHEFOE]                = {{EVO_LEVEL, 45, SPECIES_MYSTOMANIA}},
     [SPECIES_KODOUGH]               = {{EVO_LEVEL, 21, SPECIES_SLICKSLICE}},
     [SPECIES_SLICKSLICE]            = {{EVO_LEVEL, 35, SPECIES_LOAFOOF},
-                                       {EVO_ITEM_HOLD, ITEM_BURNT_STICK, SPECIES_SPIRITOAST}},
+                                       {EVO_ITEM_HOLD, ITEM_BURNT_BRANCH, SPECIES_SPIRITOAST}},
     [SPECIES_DUNSPARCE]             = {{EVO_MOVE_TWO_SEGMENT, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARS},
                                        {EVO_MOVE_THREE_SEGMENT, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARS_THREE_SEGMENT}, 
                                        {EVO_MOVE_EIGHT_SEGMENT, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARS_EIGHT_SEGMENT}}, 
