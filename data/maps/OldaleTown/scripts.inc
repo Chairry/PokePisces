@@ -76,7 +76,7 @@ OldaleTown_EventScript_GoToMartEast::
 OldaleTown_EventScript_ExplainPokemonMart::
 	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
 	giveitem ITEM_BERRY_MIC
-	giveitem ITEM_BURNT_STICK
+	giveitem ITEM_BURNT_BRANCH
 	giveitem ITEM_CURSED_AMULET
 	giveitem ITEM_EERIE_MASK
 	giveitem ITEM_NEO_BATTERY

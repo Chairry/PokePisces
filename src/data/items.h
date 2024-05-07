@@ -9660,13 +9660,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .flingPower = 30,
     },
-    [ITEM_BURNT_STICK] =
+    [ITEM_BURNT_BRANCH] =
     {
         .name = _("Burnt Branch"),
         .price = 2000,
-        .holdEffect = HOLD_EFFECT_BURNT_STICK,
+        .holdEffect = HOLD_EFFECT_BURNT_BRANCH,
         .holdEffectParam = 20,
-        .description = sBurntStick,
+        .description = sBurntBranch,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -10149,6 +10149,29 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 100,
+    },
+
+    [ITEM_FAIRY_RING] =
+    {
+        .name = _("Fairy Ring"),
+        .price = 2500,
+        .holdEffect = HOLD_EFFECT_FAIRY_RING,
+        .description = sFairyRingDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 25,
+    },
+
+    [ITEM_WEIRD_STICK] =
+    {
+        .name = _("Weird Stick"),
+        .price = 1,
+        .description = sWeirdStickDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 1,
     },
 
 };

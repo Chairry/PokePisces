@@ -10524,8 +10524,8 @@ extern const u32 gItemIconPalette_BerserkGene[];
 // New Items
 extern const u32 gItemIcon_BerryMic[];
 extern const u32 gItemIconPalette_BerryMic[];
-extern const u32 gItemIcon_BurntStick[];
-extern const u32 gItemIconPalette_BurntStick[];
+extern const u32 gItemIcon_BurntBranch[];
+extern const u32 gItemIconPalette_BurntBranch[];
 extern const u32 gItemIcon_CursedAmulet[];
 extern const u32 gItemIconPalette_CursedAmulet[];
 extern const u32 gItemIcon_EerieMask[];
@@ -10616,6 +10616,10 @@ extern const u32 gItemIcon_RoomExtender[];
 extern const u32 gItemIconPalette_RoomExtender[];
 extern const u32 gItemIcon_TradingCard[];
 extern const u32 gItemIconPalette_TradingCard[];
+extern const u32 gItemIcon_FairyRing[];
+extern const u32 gItemIconPalette_FairyRing[];
+extern const u32 gItemIcon_WeirdStick[];
+extern const u32 gItemIconPalette_WeirdStick[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

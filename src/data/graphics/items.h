@@ -2029,8 +2029,8 @@ const u32 gItemIconPalette_BerserkGene[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_BerryMic[] = INCBIN_U32("graphics/items/icons/berry_mic.4bpp.lz");
 const u32 gItemIconPalette_BerryMic[] = INCBIN_U32("graphics/items/icon_palettes/berry_mic.gbapal.lz");
 
-const u32 gItemIcon_BurntStick[] = INCBIN_U32("graphics/items/icons/burnt_stick.4bpp.lz");
-const u32 gItemIconPalette_BurntStick[] = INCBIN_U32("graphics/items/icon_palettes/burnt_stick.gbapal.lz");
+const u32 gItemIcon_BurntBranch[] = INCBIN_U32("graphics/items/icons/burnt_branch.4bpp.lz");
+const u32 gItemIconPalette_BurntBranch[] = INCBIN_U32("graphics/items/icon_palettes/burnt_branch.gbapal.lz");
 
 const u32 gItemIcon_CursedAmulet[] = INCBIN_U32("graphics/items/icons/cursed_amulet.4bpp.lz");
 const u32 gItemIconPalette_CursedAmulet[] = INCBIN_U32("graphics/items/icon_palettes/cursed_amulet.gbapal.lz");
@@ -2166,3 +2166,9 @@ const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_pale
 
 const u32 gItemIcon_TradingCard[] = INCBIN_U32("graphics/items/icons/trading_card.4bpp.lz");
 const u32 gItemIconPalette_TradingCard[] = INCBIN_U32("graphics/items/icon_palettes/trading_card.gbapal.lz");
+
+const u32 gItemIcon_FairyRing[] = INCBIN_U32("graphics/items/icons/fairy_ring.4bpp.lz");
+const u32 gItemIconPalette_FairyRing[] = INCBIN_U32("graphics/items/icon_palettes/fairy_ring.gbapal.lz");
+
+const u32 gItemIcon_WeirdStick[] = INCBIN_U32("graphics/items/icons/weird_stick.4bpp.lz");
+const u32 gItemIconPalette_WeirdStick[] = INCBIN_U32("graphics/items/icon_palettes/weird_stick.gbapal.lz");

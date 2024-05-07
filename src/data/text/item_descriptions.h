@@ -3929,7 +3929,7 @@ static const u8 sBerryMic[] = _(
     "stick poked in it.\n"
     "Evolves Spitfax.");
 
-static const u8 sBurntStick[] = _(
+static const u8 sBurntBranch[] = _(
     "A held item of the\n"
     "past. Grass-type\n"
     "moves may burn.");
@@ -4158,3 +4158,13 @@ static const u8 sTradingCardDesc[] = _(
     "Shifts damage\n"
     "based on foe's\n"
     "and user's stats.");
+
+static const u8 sFairyRingDesc[] = _(
+    "Boosts Fairy-type\n"
+    "moves if the user\n"
+    "is Blooming.");
+
+static const u8 sWeirdStickDesc[] = _(
+    "A cool, yet odd\n"
+    "stick, that seems\n"
+    "indescribable.");
