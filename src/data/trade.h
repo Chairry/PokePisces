@@ -1047,6 +1047,166 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
+    },
+    [INGAME_TRADE_BLOTTA] =
+    {
+        .nickname = _("VINCI"),
+        .species = SPECIES_BLOTTA,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("DA"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MANKEY
+    },
+    [INGAME_TRADE_SCALLYWARG] =
+    {
+        .nickname = _("GRUNT"),
+        .species = SPECIES_SCALLYWARG,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 2,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("GRUNT"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_FUZKY
+    },
+    [INGAME_TRADE_TOXITIDE] =
+    {
+        .nickname = _("FLAPJACK"),
+        .species = SPECIES_TOXITIDE,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("LARRY"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_TRANSERA
+    },
+    [INGAME_TRADE_BOOZARD] =
+    {
+        .nickname = _("GOOZE"),
+        .species = SPECIES_BOOZARD,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("STINE"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_GUMONA
+    },
+    [INGAME_TRADE_RAITAIC] =
+    {
+        .nickname = _("ZAPPELIN"),
+        .species = SPECIES_RAITAIC,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("FRANKLIN"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_FOGGLEHIND
+    },
+    [INGAME_TRADE_NYARLY] =
+    {
+        .nickname = _("MISSIE"),
+        .species = SPECIES_NYARLY,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("YURU"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_BIYAKO
+    },
+    [INGAME_TRADE_GUMBOREE] =
+    {
+        .nickname = _("HITCHCOCK"),
+        .species = SPECIES_GUMBORREE,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("DAPHNE"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_PUTREGON
+    },
+    [INGAME_TRADE_MOTHRAMITY] =
+    {
+        .nickname = _("DIANE"),
+        .species = SPECIES_MOTHRAMITY,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("RON"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_FRACTOFLY
+    },
+    [INGAME_TRADE_GAOTERRA] =
+    {
+        .nickname = _("FOUROVA"),
+        .species = SPECIES_GAOTERRA,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("MARCH"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_BLINGUIN
+    },
+    [INGAME_TRADE_GLAREYALE] =
+    {
+        .nickname = _("SHALE"),
+        .species = SPECIES_GLAREYALE,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 91481,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0x8B,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .mailNum = -1,
+        .otName = _("PERCY"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MYSTICIAN
     }
 };
 

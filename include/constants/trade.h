@@ -5,10 +5,20 @@
 #define TRADE_PARTNER 1
 
 // In-game Trade IDs
-#define INGAME_TRADE_SEEDOT 0
-#define INGAME_TRADE_PLUSLE 1
-#define INGAME_TRADE_HORSEA 2
-#define INGAME_TRADE_MEOWTH 3
+#define INGAME_TRADE_SEEDOT     0
+#define INGAME_TRADE_PLUSLE     1
+#define INGAME_TRADE_HORSEA     2
+#define INGAME_TRADE_MEOWTH     3
+#define INGAME_TRADE_BLOTTA     4
+#define INGAME_TRADE_SCALLYWARG 5
+#define INGAME_TRADE_TOXITIDE   6
+#define INGAME_TRADE_BOOZARD    7
+#define INGAME_TRADE_RAITAIC    8
+#define INGAME_TRADE_NYARLY     9
+#define INGAME_TRADE_GUMBOREE   10
+#define INGAME_TRADE_MOTHRAMITY 11
+#define INGAME_TRADE_GAOTERRA   12
+#define INGAME_TRADE_GLAREYALE  13
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0

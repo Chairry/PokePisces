@@ -60,29 +60,29 @@
       "x": 35,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "1"
     },
     {
       "x": 32,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
       "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 46,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
