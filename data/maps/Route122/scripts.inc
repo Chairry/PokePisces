@@ -82,6 +82,58 @@ Route122_Movement_RayLeaves:
 	set_invisible
 	step_end
 
+Route122_EventScript_ElderMan::
+	lock
+	faceplayer
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route122_EventScript_BindingBand
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 4, Route122_EventScript_GoFindHerSpirit
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 5, Route122_EventScript_DestinyKnot
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 6, Route122_EventScript_ThankYou
+	msgbox Route122_Text_GreetingsChild, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route122_EventScript_BindingBand::
+	msgbox Route122_Text_ISeeThatBindingBand, MSGBOX_AUTOCLOSE
+	setvar VAR_GRAVE_QUEST_STATE, 4
+	release
+	end
+
+Route122_EventScript_GoFindHerSpirit::
+	msgbox Route122_Text_GoFindHerSpirit, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route122_EventScript_DestinyKnot::
+	msgbox Route122_Text_YouHelpedHerFindPeace, MSGBOX_DEFAULT
+	giveitem ITEM_DESTINY_KNOT
+	setvar VAR_GRAVE_QUEST_STATE, 6
+	msgbox Route122_Text_ThankYou, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route122_EventScript_ThankYou::
+	msgbox Route122_Text_ThankYou, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route122_Text_GreetingsChild:
+	.string "greetings child$"
+
+Route122_Text_ISeeThatBindingBand:
+	.string "i see u have a binding band\n"
+	.string "seek out my wife's spirit$"
+
+Route122_Text_GoFindHerSpirit:
+	.string "go find her champ$"
+
+Route122_Text_YouHelpedHerFindPeace:
+	.string "you helped my boo thx\n"
+	.string "take this$"
+
+Route122_Text_ThankYou:
+	.string "thank you!$"
+
 Route122_Text_RayIntro:
 	.string "Let's tussle!!$"
 

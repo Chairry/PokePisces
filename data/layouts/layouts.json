@@ -3834,7 +3834,7 @@
     {
       "id": "LAYOUT_BATTLE_TENT_LOBBY",
       "name": "BattleTentLobby_Layout",
-      "width": 13,
+      "width": 17,
       "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleTent",
@@ -5330,6 +5330,16 @@
       "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/ZotpyreInteriors/border.bin",
       "blockdata_filepath": "data/layouts/ZotpyreInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZOTPYRE_SECRET_BASEMENT",
+      "name": "ZotpyreSecretBasement_Layout",
+      "width": 7,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
+      "border_filepath": "data/layouts/ZotpyreSecretBasement/border.bin",
+      "blockdata_filepath": "data/layouts/ZotpyreSecretBasement/map.bin"
     }
   ]
 }

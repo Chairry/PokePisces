@@ -20,6 +20,7 @@
 .set LOCALID_MERAL20, 19
 .set LOCALID_ELECTRICIAN, 22
 .set LOCALID_TABITHA, 29
+.set LOCALID_TMBALL, 30
 
 TheColdMines_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, TheColdMines_OnLoad
@@ -59,6 +60,8 @@ TheColdMines_EventScript_SetupMeralcorePuzzle3::
 	setflag FLAG_TEMP_16
 	setflag FLAG_TEMP_17
 	setflag FLAG_TEMP_19
+	setflag FLAG_ITEM_TM_ZING_ZAP
+	removeobject LOCALID_TMBALL
 	removeobject LOCALID_MERAL16
 	removeobject LOCALID_MERAL17
 	removeobject LOCALID_MERAL19
@@ -1617,10 +1620,30 @@ TheColdMines_EventScript_ClearedPuzzle3::
 	special DrawWholeMapView
 	playse SE_M_DIG
 	waitse
+	setmetatile 37, 6, METATILE_Snow_MeralSnow, FALSE
+	setmetatile 37, 7, METATILE_Snow_MeralBuriedMiddle2, FALSE
+	setmetatile 36, 7, METATILE_Snow_MeralSnow, FALSE
+	setmetatile 38, 7, METATILE_Snow_MeralSnow, FALSE
+	special DrawWholeMapView
+	playse SE_M_DIG
+	waitse
+	clearflag FLAG_ITEM_TM_ZING_ZAP
+	addobject LOCALID_TMBALL
+	setmetatile 37, 6, METATILE_Snow_MeralSnow, FALSE
+	setmetatile 37, 7, METATILE_Snow_MeralSnow, FALSE
+	setmetatile 36, 7, METATILE_Snow_MeralSnow, FALSE
+	setmetatile 38, 7, METATILE_Snow_MeralSnow, FALSE
+	special DrawWholeMapView
+	playse SE_M_DIG
+	waitse
 	setvar VAR_MINES_MERALCORE_STATE, 4
 	setvar VAR_TEMP_4, 0
 	playse SE_SUCCESS
 	release
+	end
+
+TheColdMines_EventScript_ZingZapTMBall::
+	finditem ITEM_TM_ZING_ZAP
 	end
 
 TheColdMines_EventScript_M14FlashCheck::
@@ -2241,10 +2264,86 @@ TheColdMines_EventScript_BigHertz::
     msgbox TheColdMines_Text_BigHertzPostBattle, MSGBOX_AUTOCLOSE
     end
 
+TheColdMines_EventScript_TrainingMonk::
+	lock
+	checkitem ITEM_FOCUS_BAND
+	goto_if_eq VAR_RESULT, TRUE, TheColdMines_EventScript_GaveFocusBand
+	msgbox TheColdMines_Text_UpForAToughBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, TheColdMines_EventScript_Gotou
+	msgbox TheColdMines_Text_IMayBeTooTough, MSGBOX_AUTOCLOSE
+	release
+	end
+
 TheColdMines_EventScript_Gotou::
-    trainerbattle_single TRAINER_P_SUPERBOSS_MONK_1, TheColdMines_Text_GotouIntro, TheColdMines_Text_GotouDefeated
-    msgbox TheColdMines_Text_GotouPostBattle, MSGBOX_AUTOCLOSE
+    trainerbattle_single TRAINER_P_SUPERBOSS_MONK_1, TheColdMines_Text_GotouIntro, TheColdMines_Text_GotouDefeated, TheColdMines_EventScript_GotouBeaten
+    release
     end
+
+TheColdMines_EventScript_GotouBeaten::
+	msgbox TheColdMines_Text_AVeryThrillingMatch, MSGBOX_DEFAULT
+	giveitem ITEM_FOCUS_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+TheColdMines_EventScript_GaveFocusBand::
+	msgbox TheColdMines_Text_MustContinueTraining, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_Teleporter::
+	lock
+	faceplayer
+	msgbox TheColdMines_Text_WouldYouLikeToWarp, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, TheColdMines_EventScript_WarpToShrine
+	msgbox TheColdMines_Text_MaybeAnotherTime, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_EventScript_WarpToShrine::
+	warp MAP_MT_PYRE_2F, 1, 4
+	release
+	end
+
+TheColdMines_EventScript_Bulldoze::
+	lock
+	faceplayer
+	checkitem ITEM_TM_BULLDOZE
+	goto_if_eq VAR_RESULT, TRUE, TheColdMines_EventScript_GaveBulldoze
+	msgbox TheColdMines_Text_Bulldoze, MSGBOX_DEFAULT
+	giveitem ITEM_TM_BULLDOZE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+TheColdMines_EventScript_GaveBulldoze::
+	msgbox TheColdMines_Text_GaveBulldoze, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TheColdMines_Text_Bulldoze:
+	.string "here have bulldoze$"
+
+TheColdMines_Text_GaveBulldoze:
+	.string "alr gave u bulldoze$"
+
+TheColdMines_Text_UpForAToughBattle:
+	.string "up 4 a tough battle?$"
+
+TheColdMines_Text_IMayBeTooTough:
+	.string "yeah thought so dweeb$"
+
+TheColdMines_Text_AVeryThrillingMatch:
+	.string "very thrillin. have this$"
+
+TheColdMines_Text_MustContinueTraining:
+	.string "i must continue my training$"
+
+TheColdMines_Text_WouldYouLikeToWarp:
+	.string "wanna warp$"
+
+TheColdMines_Text_MaybeAnotherTime:
+	.string "maybe nexttime$"
 
 TheColdMines_Text_FelixIntro:
 	.string "intro$"

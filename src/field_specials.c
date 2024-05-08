@@ -2500,6 +2500,46 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_1:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 11;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_2:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 5;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_3:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 7;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_4:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 6;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2659,6 +2699,47 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_PokemonMoves,
         gText_Underpowered,
         gText_WhenInDanger,
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_1] =
+    {
+        gMoveNames[MOVE_FLORAL_HEALING],
+        gMoveNames[MOVE_HEARTHWARM],
+        gMoveNames[MOVE_ROOST],
+        gMoveNames[MOVE_INGRAIN],
+        gMoveNames[MOVE_PAIN_SPLIT],
+        gMoveNames[MOVE_WISH],
+        gMoveNames[MOVE_HEAL_PULSE],
+        gMoveNames[MOVE_AQUA_RING],
+        gMoveNames[MOVE_LIFE_DEW],
+        gMoveNames[MOVE_SLACK_OFF],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_2] =
+    {
+        gMoveNames[MOVE_AROMATHERAPY],
+        gMoveNames[MOVE_HEAL_BELL],
+        gMoveNames[MOVE_SAFEGUARD],
+        gMoveNames[MOVE_MAGIC_COAT],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_3] =
+    {
+        gMoveNames[MOVE_LEECH_LIFE],
+        gMoveNames[MOVE_POLLEN_PUFF],
+        gMoveNames[MOVE_PARABOLIC_CHARGE],
+        gMoveNames[MOVE_GIGA_DRAIN],
+        gMoveNames[MOVE_VENOM_DRAIN],
+        gMoveNames[MOVE_DREAM_EATER],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_4] =
+    {
+        gMoveNames[MOVE_FINAL_GAMBIT],
+        gMoveNames[MOVE_REVERSAL],
+        gMoveNames[MOVE_FLAIL],
+        gMoveNames[MOVE_MISERY_WAIL],
+        gMoveNames[MOVE_SUBSTITUTE],
         gText_Exit
     }
 };

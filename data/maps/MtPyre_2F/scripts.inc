@@ -75,6 +75,26 @@ MtPyre_2F_EventScript_MistyPost::
 	release
     end
 
+MtPyre_2F_EventScript_Teleporter::
+	lock
+	faceplayer
+	msgbox MtPyre_2F_Text_WouldYouLikeToWarp, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MtPyre_2F_EventScript_WarpToCave
+	msgbox MtPyre_2F_Text_MaybeAnotherTime, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_2F_EventScript_WarpToCave::
+	warp MAP_THE_COLD_MINES, 6, 13
+	release
+	end
+
+MtPyre_2F_Text_WouldYouLikeToWarp:
+	.string "wanna warp$"
+
+MtPyre_2F_Text_MaybeAnotherTime:
+	.string "maybe nexttime$"
+
 MtPyre_2F_Text_DeaconIntro:
 	.string "intro$"
 

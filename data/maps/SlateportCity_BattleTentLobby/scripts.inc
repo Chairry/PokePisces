@@ -306,6 +306,42 @@ SlateportCity_BattleTentLobby_EventScript_ExitRules::
 	releaseall
 	end
 
+SlateportCity_BattleTentLobby_EventScript_TMCounter::
+	lock
+	faceplayer
+	goto_if_set FLAG_BATTLE_TENT_STREAK_MINOR, SlateportCity_BattleTentLobby_EventScript_TMShop
+	msgbox SlateportCity_BattleTentLobby_Text_YouNeedToHaveStreak, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SlateportCity_BattleTentLobby_EventScript_TMShop::
+	message SlateportCity_BattleTentLobby_Text_WelcomeToTMShop
+	waitmessage
+	pokemart SlateportCity_BattleTentLobby_Mart_TMShop
+	msgbox SlateportCity_BattleTentLobby_Text_HaveAGoodDay, MSGBOX_AUTOCLOSE
+	release
+	end
+
+	.align 2
+SlateportCity_BattleTentLobby_Mart_TMShop:
+	.2byte ITEM_TM_ROLLOUT
+	.2byte ITEM_TM_CHARGE_BEAM
+	.2byte ITEM_TM_WATER_PULSE
+	.2byte ITEM_TM_INCINERATE
+	.2byte ITEM_TM_LOW_SWEEP
+	.2byte ITEM_NONE
+	release
+	end	
+
+SlateportCity_BattleTentLobby_Text_YouNeedToHaveStreak:
+	.string "u needa git gud$"
+
+SlateportCity_BattleTentLobby_Text_WelcomeToTMShop:
+	.string "welcome 2 da tm shop$"
+
+SlateportCity_BattleTentLobby_Text_HaveAGoodDay:
+	.string "have a good day$"
+
 SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe:
 	.string "So, like, I couldn't find myself any\n"
 	.string "POKéMON that were, like, for me.\p"

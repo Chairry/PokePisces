@@ -1251,7 +1251,7 @@
 #define FLAG_GUMBORREE_TRADE_COMPLETED                                           0x4B1 // Unused Flag
 #define FLAG_GLAREYALE_TRADE_COMPLETED                                           0x4B2 // Unused Flag
 #define FLAG_GAOTERRA_TRADE_COMPLETED                                           0x4B3 // Unused Flag
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
+#define FLAG_ITEM_TM_ZING_ZAP                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag

@@ -1,3 +1,5 @@
+.set LOCALID_BARRELFISHER, 7
+
 MtPyre_1F_MapScripts::
 	.byte 0
 
@@ -65,6 +67,69 @@ MtPyre_1F_EventScript_WarpToCenter::
 	warp MAP_LILYCOVE_CITY_POKEMON_CENTER_2F, 12, 3
 	release
 	end
+
+MtPyre_1F_EventScript_SpookBarrelCheck::
+    lock
+	checkitem ITEM_TM_POUNCE
+	goto_if_eq VAR_RESULT, TRUE, MtPyre_1F_EventScript_SpookBarrel
+	setvar VAR_TEMP_1, 1
+	release
+	end
+
+MtPyre_1F_EventScript_SpookBarrel::
+	clearflag FLAG_RECEIVED_TM_POUNCE
+	addobject LOCALID_BARRELFISHER
+	applymovement LOCALID_BARRELFISHER, MtPyre_1F_Movement_JumpFromBarrel
+	waitmovement 0
+	checkitem ITEM_TM_SPOOK
+	goto_if_eq VAR_RESULT, TRUE, MtPyre_1F_EventScript_GaveSpook
+	msgbox MtPyre_1F_Text_GotYou, MSGBOX_DEFAULT
+	giveitem ITEM_TM_SPOOK
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_RECEIVED_TM_POUNCE
+	applymovement LOCALID_BARRELFISHER, MtPyre_1F_Movement_JumpIntoBarrel
+	waitmovement 0
+	release
+	end
+
+MtPyre_1F_Movement_JumpFromBarrel:
+	set_visible
+	jump_left
+	face_left
+	step_end
+
+MtPyre_1F_Movement_JumpIntoBarrel:
+	jump_right
+	face_right
+	set_invisible
+	step_end
+
+MtPyre_1F_EventScript_GaveSpook::
+    msgbox MtPyre_1F_Text_AlreadyGotYou, MSGBOX_AUTOCLOSE
+	setvar VAR_TEMP_1, 1
+	setflag FLAG_RECEIVED_TM_POUNCE
+	applymovement LOCALID_BARRELFISHER, MtPyre_1F_Movement_JumpIntoBarrel
+	waitmovement 0
+    release
+    end
+
+MtPyre_1F_Text_GotYou:
+	.string "BOOGA BOOGA BOOGA!!!\p"
+	.string "HAH! I gotcha AGAIN!\n"
+	.string "Weren't expectin' the ol' barrel\l"
+	.string "fisher in a place like this, huh?\p"
+	.string "Hey! Don't be glarin' at me!\n"
+	.string "I'll supply ya with another\l"
+	.string "TM. This time, for Spook!\p"
+	.string "Learning the art of the scare\n"
+	.string "may help you avoid me in the future!\p"
+	.string "....or maybe not, hehehe!$"
+
+MtPyre_1F_Text_AlreadyGotYou:
+	.string "BOOGA...boo...ga...\p"
+	.string "Listen bud. We gotta stop\n"
+	.string "meeting like this...$"
 
 MtPyre_1F_Text_WouldYouLikeToWarp:
 	.string "wanna warp$"

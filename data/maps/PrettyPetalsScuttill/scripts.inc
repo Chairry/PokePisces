@@ -250,13 +250,13 @@ PrettyPetalsScuttill_EventScript_Nicole::
 	lock
 	faceplayer
 	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_NicolePreBloom
-	checkitem ITEM_FAIRY_GEM
+	checkitem ITEM_FAIRY_RING
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GaveFairyRing
 	msgbox PrettyPetalsScuttill_Text_DoYouHaveIngrain, MSGBOX_DEFAULT
 	checkpartynonhmmove MOVE_INGRAIN
 	goto_if_eq VAR_RESULT, PARTY_SIZE, PrettyPetalsScuttill_EventScript_NoIngrain
 	msgbox PrettyPetalsScuttill_Text_YouHaveIngrain, MSGBOX_DEFAULT
-	giveitem ITEM_FAIRY_GEM
+	giveitem ITEM_FAIRY_RING
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	release
 	end
@@ -280,10 +280,10 @@ PrettyPetalsScuttill_EventScript_Rita::
 	lock
 	faceplayer
 	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_RitaPreBloom
-	checkitem ITEM_FAIRY_GEM
+	checkitem ITEM_WEIRD_STICK
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GoCollectSticks
 	msgbox PrettyPetalsScuttill_Text_AboutSticks, MSGBOX_DEFAULT
-	giveitem ITEM_FAIRY_GEM
+	giveitem ITEM_WEIRD_STICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
 	release
@@ -295,7 +295,7 @@ PrettyPetalsScuttill_EventScript_RitaPreBloom::
 	end
 
 PrettyPetalsScuttill_EventScript_GoCollectSticks::
-	checkitem ITEM_FAIRY_GEM, 100
+	checkitem ITEM_WEIRD_STICK, 100
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GotTheSticks
 	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
 	release
@@ -307,6 +307,42 @@ PrettyPetalsScuttill_EventScript_GotTheSticks::
 	msgbox PrettyPetalsScuttill_Text_StickMaster, MSGBOX_AUTOCLOSE
 	release
 	end
+
+PrettyPetalsScuttill_EventScript_BerryShop::
+	lock
+	faceplayer
+	message PrettyPetalsScuttill_Text_WelcomeToPrettyPetals
+	waitmessage
+	pokemart PrettyPetalsScuttill_Mart_BerryShop
+	msgbox PrettyPetalsScuttill_Text_HaveAPrettyPleasantDay, MSGBOX_AUTOCLOSE
+	release
+	end
+
+	.align 2
+PrettyPetalsScuttill_Mart_BerryShop:
+	.2byte ITEM_SITRUS_BERRY
+	.2byte ITEM_PECHA_BERRY
+	.2byte ITEM_CHERI_BERRY
+	.2byte ITEM_CHESTO_BERRY
+	.2byte ITEM_RAWST_BERRY
+	.2byte ITEM_ASPEAR_BERRY
+	.2byte ITEM_PERSIM_BERRY
+	.2byte ITEM_PAMTRE_BERRY
+	.2byte ITEM_ORAN_BERRY
+	.2byte ITEM_TAMATO_BERRY
+	.2byte ITEM_NONE
+	release
+	end	
+
+PrettyPetalsScuttill_Text_WelcomeToPrettyPetals:
+	.string "Welcome to Pretty Petals!\n"
+	.string "All of our produce is hand-picked\l"
+	.string "and home-grown by our 3\l"
+	.string "lovely owners!\p"
+	.string "How may I help?$"
+
+PrettyPetalsScuttill_Text_HaveAPrettyPleasantDay:
+	.string "Have a Pretty Pleasant day!$"
 
 PrettyPetalsScuttill_Text_NatPreBloom:
 	.string "hey im nat$"
