@@ -63,13 +63,26 @@ Gym3Corridor_Movement_MoveAway:
 	step_end
 
 Gym3Corridor_Text_AreYouReady:
-	.string "you ready for this?$"
+	.string "Welcome to the\n"
+	.string "Zotpyre Gym, challenger.\p"
+	.string "We are prepared to receive you.\p"
+	.string "However, please be warned that upon\n"
+	.string "entry, you will be unable to leave the\l"
+	.string "Gym unless your entire\l"
+	.string "Pokémon party faints.\p"
+	.string "Knowing all this, do you feel that you\n"
+	.string "are adequately prepared to\l"
+	.string "challenge this gym?$"
 
 Gym3Corridor_Text_ThenGoPrepare:
-	.string "then why u here$"
+	.string "That's perfectly fine.\n"
+	.string "Please do come back when you are ready.$"
 
 Gym3Corridor_Text_TimeForGym:
-	.string "time for da gym dood$"
+	.string "Good luck, challenger.$"
 
 Gym3Corridor_Text_YouAlreadyDidThis:
-	.string "cant do it twice dipshint$"
+	.string "You appear to already possess the\n"
+	.string "Yore Badge.\p"
+	.string "Apologies, but this challenge is only\n"
+	.string "for those lacking said badge.$"

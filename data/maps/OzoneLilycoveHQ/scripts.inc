@@ -76,6 +76,7 @@ OzoneLilycoveHQ_EventScript_UmbrellaResearcher::
 OzoneLilycoveHQ_EventScript_HelpWithBrellas::
 	setvar VAR_PARASOL_QUEST_STATE, 1
 	msgbox OzoneLilycoveHQ_Text_BrellaHelp, MSGBOX_AUTOCLOSE
+	goto OzoneLilycoveHQ_EventScript_GoGetBrellas
 	release
 	end
 
@@ -245,85 +246,190 @@ OzoneLilycoveHQ_Movement_MattLeaves:
 	step_end
 
 OzoneLilycoveHQ_Text_Boardroom1:
-	.string "boardroom 1$"
+	.string "(There appears to be some\n"
+	.string "kind of meeting going on…)$"
 
 OzoneLilycoveHQ_Text_Boardroom2:
-	.string "boardroom 2$"
+	.string "We are awaiting the directive from our\n"
+	.string "administers, regarding where to funnel\l"
+	.string "our time and resources.\p"
+	.string "I was hoping we could get a concrete\n"
+	.string "plan put into motion today?$"
 
 OzoneLilycoveHQ_Text_Matt1:
-	.string "matt 1$"
+	.string "I've been tellin' this knucklehead\n"
+	.string "that we should keep on\l"
+	.string "surveyin' the desert!\p"
+	.string "Bound to be a crap-ton of historical\n"
+	.string "finds buried there still!$"
 
 OzoneLilycoveHQ_Text_Tabitha1:
-	.string "tabitha 1$"
+	.string "Ridiculous, as usual.\n"
+	.string "I remain firm in my assessment,\l"
+	.string "being that the arctic regions\l"
+	.string "of Hoenn should be focused on.\p"
+	.string "I believe it noble to supply the\n"
+	.string "subzero-dwelling monks and villagegoers\l"
+	.string "with all they need to thrive\l"
+	.string "in a harsh climate.$"
 
 OzoneLilycoveHQ_Text_Boardroom3:
-	.string "boardroom 3$"
+	.string "Well, ehem, Sweltorn Desert is not\n"
+	.string "exactly the pinnacle of living\l"
+	.string "conditions, either.$"
 
 OzoneLilycoveHQ_Text_Matt2:
-	.string "matt 2$"
+	.string "Damn right! Was JUST gonna say that!\p"
+	.string "Sweltorn's people need help much more!$"
 
 OzoneLilycoveHQ_Text_Tabitha2:
-	.string "tabitha 2$"
+	.string "Are we really to believe that your\n"
+	.string "intentions were altruistic,\l"
+	.string "instead of what amounts to a\l"
+	.string "juvenile treasure hunt…?$"
 
 OzoneLilycoveHQ_Text_Boardroom4:
-	.string "boardroom 4$"
+	.string "I… I d-don't see why we can't just…\n"
+	.string "uhh…\l"
+	.string "split resources?\p"
+	.string "(Matt and Tabitha, in unison:)\n"
+	.string "No.\p"
+	.string "(You decide now is the… perfect, time\n"
+	.string "to voice your opinion.)$"
 
 OzoneLilycoveHQ_Text_Boardroom5:
-	.string "boardroom 5$"
+	.string "Who is this? Are you on the committee?\p"
+	.string "(You talk about the cave-in\n"
+	.string "at the mines.)$"
 
 OzoneLilycoveHQ_Text_Tabitha3:
-	.string "tabitha 3$"
+	.string "This one has some common sense.\p"
+	.string "I agree, we should make that our\n"
+	.string "priority, post-haste.$"
 
 OzoneLilycoveHQ_Text_Matt3:
-	.string "matt 3$"
+	.string "WAIT UP! THAT AIN'T FAIR!$"
 
 OzoneLilycoveHQ_Text_BoardSigh:
-	.string "boardroom sigh$"
+	.string "(A defeated sigh erupts from nearly\n"
+	.string "everyone in the room.)"
 
 OzoneLilycoveHQ_Text_Matt4:
-	.string "matt 4$"
+	.string "Why are we even gonna take orders\n"
+	.string "from some rando?\p"
+	.string "I bet this kid doesn't know jack\n"
+	.string "about management!$"
 
 OzoneLilycoveHQ_Text_Tabitha4:
-	.string "tabitha 4$"
+	.string "Though I truly loathe you with every\n"
+	.string "bone in my body, you do have some\l"
+	.string "semblance of a point.\p"
+	.string "Stranger, I personally believe the\n"
+	.string "best way to read a person\l"
+	.string "is through battle.\p"
+	.string "Will you entertain my request?\p("
+	.string "You nod.)$"
 
 OzoneLilycoveHQ_Text_Matt5:
-	.string "matt 5$"
+	.string "Hey! Don't leave me outta this!$"
 
 OzoneLilycoveHQ_Text_MattDefeated:
-	.string "matt defeat$"
+	.string "Ay caramba…! You weren't just some\n"
+	.string "street rat after all!$"
 
 OzoneLilycoveHQ_Text_TabithaDefeated:
-	.string "tabitha defeat$"
+	.string "Your team clearly trusts your judgment…\n"
+	.string "I believe we should too.$"
 
 OzoneLilycoveHQ_Text_Tabitha5:
-	.string "tabitha 5$"
+	.string "{PLAYER}, well done…\n"
+	.string "Matt, you were actively detrimental,\l"
+	.string "at best.$"
 
 OzoneLilycoveHQ_Text_Matt6:
-	.string "matt 6$"
+	.string "Not my fault you insist on a crappy\n"
+	.string "hail team! Sand is king, baby!$"
 
 OzoneLilycoveHQ_Text_Tabitha6:
-	.string "tabitha 6$"
+	.string "Hmph.\n"
+	.string "You know what, this experience has\l"
+	.string "been enlightening in more ways\l"
+	.string "than one.\p"
+	.string "Matt, you imbecile. I believe you unfit\n"
+	.string "to be an admin.\p"
+	.string "Henceforth, I refuse to\n"
+	.string "work alongside you.$"
 
 OzoneLilycoveHQ_Text_Matt7:
-	.string "matt 7$"
+	.string "What!? What a joke, you crudmuncher!\p"
+	.string "Fine! I don't wanna work\n"
+	.string "with you either!\p"
+	.string "You can keep THESE nerds…\n"
+	.string "I'll get perms to lead my OWN branch\l"
+	.string "from the bosses!\p"
+	.string "You'll be fired in a week\n"
+	.string "tops without my help!$"
 
 OzoneLilycoveHQ_Text_Tabitha7:
-	.string "tabitha 7$"
+	.string "…I will work things out\n"
+	.string "with Maxie later.\p"
+	.string "For now, all… we should get to work on\n"
+	.string "cleaning the cave-in.\p"
+	.string "You should come with, {PLAYER}.$"
 
 OzoneLilycoveHQ_Text_BrellaHelp:
-	.string "intro$"
+	.string "I've been doing extensive field testing\n"
+	.string "for a product I gather that most\l"
+	.string "don't think is important;\l"
+	.string "umbrellas.\p"
+	.string "A potent protector from precipitation,\n"
+	.string "AND UV rays to boot!?\l"
+	.string "Fantastic!\p"
+	.string "I yearn to make Hoenn's\n"
+	.string "best ever parasol!\p"
+	.string "To that end, I have been supplying a\n"
+	.string "few Parasol Ladies some test\l"
+	.string "products to see how they fare.\p"
+	.string "Problem, though…\p"
+	.string "They have… refused to give them back.\p"
+	.string "Those women have expressed that they\n"
+	.string "will not return my umbrellas until\l"
+	.string "they are defeated in COMBAT!\l"
+	.string "Pokémon combat, I'd hope…\p"
+	.string "You look tough. Would you be willing\n"
+	.string "to fight them for me?\l"
+	.string "A marvelous parasol would be in store…$"
 
 OzoneLilycoveHQ_Text_BrellaGoGettem:
-	.string "intro$"
+	.string "Most excellent!\p"
+	.string "Last I'd heard, this herd of hoarders\n"
+	.string "grouped up on the south beach of\l"
+	.string "Sunbeach Strait.\p"
+	.string "Go give 'em what's what!$"
 
 OzoneLilycoveHQ_Text_BrellaThanks:
-	.string "intro$"
+	.string "Gasp! My parasols! All intact!\n"
+	.string "Thank the stars!\p"
+	.string "I hope that bout wasn't\n"
+	.string "too rough for you.\l"
+	.string "Rest assured, your reward\l"
+	.string "will be grand…\p"
+	.string "…\p"
+	.string "(He begins to tinker.)\p"
+	.string "…That should do it!\n"
+	.string "I proudly present…the…!\p"
+	.string "Um, I have yet to think of\n"
+	.string "a winning name.$"
 
 OzoneLilycoveHQ_Text_BrellaAbout:
-	.string "intro$"
+	.string "This masterpiece will protect you from\n"
+	.string "the harsh weathers of life!\p"
+	.string "I couldn't have completed this\n"
+	.string "without you.\l"
+	.string "Thanks a bundle!$"
 
 OzoneLilycoveHQ_Text_BrellaNoMore:
-	.string "intro$"
+	.string "no mas$"
 
 OzoneLilycoveHQ_Text_LandonIntro:
 	.string "intro$"
@@ -362,7 +468,23 @@ OzoneLilycoveHQ_Text_MarinaPostBattle:
 	.string "post$"
 
 OzoneLilycoveHQ_Text_NoBusinessHere:
-	.string "get outta my house$"
+	.string "Welcome to the\n"
+	.string "Ozone Lilycove Branch HQ;\l"
+	.string "how may I help you?\p"
+	.string "I see. Well, if you have no\n"
+	.string "business here... I must ask\l"
+	.string "you to leave, so we can give\l"
+	.string "full attention to those with\l"
+	.string "upcoming appointments...$"
 
 OzoneLilycoveHQ_Text_SomeBusinessHere:
-	.string "tabitha is upstairs bruv$"
+	.string "Welcome to the\n"
+	.string "Ozone Lilycove Branch HQ;\l"
+	.string "how may I help you?\p"
+	.string "Oh? You are wanting to see Tabitha?\p"
+	.string "He is in a brief meeting right now.\n"
+	.string "However, most of the office is on\l"
+	.string "lunch break; it could help you pass\l"
+	.string "the time to chat around.\p"
+	.string "I'll have the guards grant you access\n"
+	.string "to the upper floors.$"

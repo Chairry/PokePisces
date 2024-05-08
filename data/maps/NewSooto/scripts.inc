@@ -232,6 +232,15 @@ NewSooto_EventScript_GaveFloatStone::
     release
     end
 
+NewSooto_EventScript_OzoneRoadblockAhead::
+    msgbox NewSooto_Text_OzoneRoadblockAhead, MSGBOX_NPC
+	end
+
+NewSooto_Text_OzoneRoadblockAhead:
+	.string "Looking to cross the bridge?\p"
+	.string "Outta luck; there's a Team Ozone\n"
+	.string "blockade up ahead.$"
+
 NewSooto_Text_WantToSeeFlyingMon:
 	.string "I am doing important research\n$"
 	.string "on Hoenn's atmosphere on behalf\l"

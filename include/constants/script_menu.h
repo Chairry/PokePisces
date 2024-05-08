@@ -125,6 +125,7 @@
 // new
 #define MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE  114
 #define MULTI_SLATEPORT_ANY_LEAGUE          115
+#define MULTI_LIFE_PHILOSOPHY               116
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

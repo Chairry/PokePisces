@@ -2382,19 +2382,40 @@ TheColdMines_Text_GotouPostBattle:
 	.string "post$"
 
 TheColdMines_Text_NeedHelpClearingSnow:
-	.string "need help clearing this$"
+	.string "What's that?\nYou want passage through here?\p"
+	.string "Wouldn't we all!\p"
+	.string "Unfortunately, lady luck has frowned\n"
+	.string "on us and struck us with a nasty\l"
+	.string "cave-in.\p"
+	.string "Currently waitin' on our boss Tabitha\n"
+	.string "to bring over a few more workers.\p"
+	.string "Unless you can get the boss' sorry\n"
+	.string "buttocks over here, I'm afraid\l"
+	.string "we're deadlocked.\p"
+	.string "Maybe try askin' for Tabitha at\n"
+	.string "Ol' Bihq. My sorry ass isn't\l"
+	.string "allowed to leave my post.$"
 
 TheColdMines_Text_NeverGetCold:
 	.string "never get cold tbh$"
 
 TheColdMines_Text_LottaSnowToShovel:
-	.string "jeez louise thats a lot$"
+	.string "Sigh…\p"
+	.string "That's a lotta snow to dig out…\p"
+	.string "Boss… please give us mercy…!$"
 
 TheColdMines_Text_HurtFromShoveling:
 	.string "i be hurtin$"
 
 TheColdMines_Text_WeWillTakeCareOfThis:
-	.string "go check out scuttill pls$"
+	.string "It will inevitably take my men a while\n"
+	.string "to work through the snow.\l"
+	.string "Please, do come back after a spell.\p"
+	.string "If you want something to do while\n"
+	.string "you're waiting, an old friend of mine\l"
+	.string "is hosting some kind of class at\l"
+	.string "Scuttill Way.\p"
+	.string "Tell her I sent you.$"
 
 TheColdMines_Text_ThereIsMeralcore:
 	.string "It's a road-blocking Meralcore.\n"

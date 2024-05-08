@@ -35,6 +35,18 @@ LilycoveCity_EventScript_GaveFalseSwipe::
 	release
 	end
 
+LilycoveCity_EventScript_ThisIsMyWorkplace::
+	msgbox LilycoveCity_Text_ThisIsMyWorkplace, MSGBOX_NPC
+	end
+
+LilycoveCity_Text_ThisIsMyWorkplace:
+	.string "This here is my workplace! The\n"
+	.string "Ozone Lilycove Branch HQ.\p"
+	.string "Or as most of us call it,\n"
+	.string "the Ol' Bihq.\p"
+	.string "It sounds a lot better if you say it\n"
+	.string "with a southern drawl!$"
+
 LilycoveCity_Text_WantToSee40CaughtMons:
 	.string "i wanna see 40 caught$"
 
