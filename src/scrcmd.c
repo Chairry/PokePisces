@@ -1686,7 +1686,7 @@ bool8 ScrCmd_givemon(struct ScriptContext *ctx)
     u16 species = VarGet(ScriptReadHalfword(ctx));
     u8 level = ScriptReadByte(ctx);
     u16 item = VarGet(ScriptReadHalfword(ctx));
-    u32 abilityNum = ScriptReadWord(ctx);
+    u8 abilityNum = ScriptReadWord(ctx);
     u32 unkParam2 = ScriptReadWord(ctx);
     u8 unkParam3 = ScriptReadByte(ctx);
 

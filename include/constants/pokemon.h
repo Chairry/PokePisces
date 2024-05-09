@@ -243,7 +243,7 @@
 
 // Evolution types
 #define EVO_NONE                          0xffff // Not an actual evolution, used to generate offspring that can't evolve into the specified species, like regional forms.
-#define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 160
+#define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 220
 #define EVO_FRIENDSHIP_DAY                2      // Pokémon levels up during the day with friendship ≥ 160
 #define EVO_FRIENDSHIP_NIGHT              3      // Pokémon levels up at night with friendship ≥ 160
 #define EVO_LEVEL                         4      // Pokémon reaches the specified level
@@ -300,6 +300,7 @@
 #define EVO_MOVE_EIGHT_SEGMENT            55
 #define EVO_PANICKED                      56
 #define EVO_SILENCE_ACTIVATED             57
+#define EVO_MED_FRIENDSHIP                58
 
 #define EVOS_PER_MON 10
 

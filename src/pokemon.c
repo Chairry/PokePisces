@@ -7059,11 +7059,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_FRIENDSHIP:
+                if (friendship >= 220)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MED_FRIENDSHIP:
                 if (friendship >= 160)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LOW_FRIENDSHIP:
-                if (friendship <= 95)
+                if (friendship <= 35)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
