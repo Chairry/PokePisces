@@ -215,13 +215,13 @@ BirchMaritimeLab_Text_TakeStarter:
 	.string "Just like old times, huh?\p"
 	.string "With the move to Pacifidlog,\n"
 	.string "I had to start collecting 3 new\l"
-	.string "species of POKéMON to give out\l"
+	.string "species of Pokémon to give out\l"
 	.string "to budding trainers.\p"
 	.string "I think you'll really take to them!$"
 
 BirchMaritimeLab_Text_ReceivedStarter:
 	.string "{PLAYER} has received their\n"
-	.string "Starter POKéMON, {STR_VAR_1}!$"
+	.string "Starter Pokémon, {STR_VAR_1}!$"
 
 BirchMaritimeLab_Text_AfterGettingStarter:
 	.string "Go get em champ!$"

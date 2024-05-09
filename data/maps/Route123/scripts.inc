@@ -1,4 +1,6 @@
 .set LOCALID_BREAD, 1
+.set LOCALID_FUZKY, 13
+.set LOCALID_SNOWNINJA, 14
 
 Route123_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
@@ -11,20 +13,28 @@ Route123_OnTransition:
 Route123_EventScript_SetTempFlags::
 	setflag FLAG_TEMP_11
 	removeobject LOCALID_BREAD
+	setflag FLAG_TEMP_16
+	removeobject LOCALID_SNOWNINJA
 	return
 
 Route123_EventScript_BreadPos1::
 	lock
-	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerMoveIntoPos
+	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerMoveIntoPos1
 	waitmovement 0
 	goto Route123_EventScript_BreadwinnerEncounter
 	release
 	end
 
-Route123_Movement_PlayerMoveIntoPos:
+Route123_Movement_PlayerMoveIntoPos1:
 	walk_right
 	face_up
 	step_end
+
+Route123_EventScript_BreadPos2::
+	lock
+	goto Route123_EventScript_BreadwinnerEncounter
+	release
+	end
 
 Route123_EventScript_BreadwinnerEncounter::
 	lock
@@ -66,6 +76,7 @@ Route123_EventScript_BreadRun::
 	playse SE_FLEE
 	applymovement LOCALID_BREAD, Route123_Movement_BreadEscape
 	waitmovement 0
+	giveitem ITEM_TM_PROTECT
 	setflag FLAG_TEMP_11
 	removeobject LOCALID_BREAD
 	release
@@ -135,6 +146,307 @@ Route123_EventScript_Hoth::
     msgbox Route123_Text_HothPostBattle, MSGBOX_AUTOCLOSE
     end
 
+Route123_EventScript_Gravestone1::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_13, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave1Respects
+	release
+	end
+
+Route123_EventScript_Grave1Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_13
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_KeepMoving::
+	msgbox Route123_Text_GottaKeepMoving, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route123_EventScript_Gravestone2::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_14, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave2Respects
+	release
+	end
+
+Route123_EventScript_Grave2Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_14
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_Gravestone3::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_15, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave3Respects
+	release
+	end
+
+Route123_EventScript_Grave3Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_15
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_BindingBand::
+	msgbox Route123_Text_TheresSomethingOnYourWrist, MSGBOX_DEFAULT
+	giveitem ITEM_BINDING_BAND
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox Route123_Text_TheEngravingSays, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route123_EventScript_LureFuzky::
+	lock
+	msgbox Route123_Text_TheresAnOddFuzky, MSGBOX_DEFAULT
+	checkitem ITEM_WEIRD_STICK
+	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_WantToThrowStick
+	release
+	end
+
+Route123_EventScript_WantToThrowStick::
+	msgbox Route123_Text_WantToThrowStick, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_FuzkyBattle
+	release
+	end
+
+Route123_EventScript_FuzkyBattle::
+	removeitem ITEM_WEIRD_STICK, 1
+	msgbox Route123_Text_YouThrowTheStick, MSGBOX_DEFAULT
+	applymovement LOCALID_FUZKY, Route123_Movement_FuzkyAttacks
+	waitmovement 0
+	setwildbattle SPECIES_FUZKY, 26
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 3, 1, 2, 3, 2
+	playmoncry SPECIES_FUZKY, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	msgbox Route123_Text_TheFuzkyWantsToBattle, MSGBOX_DEFAULT
+	dowildbattle
+	goto Route123_EventScript_FuzkyDefeat
+	release
+	end
+
+Route123_Movement_FuzkyAttacks:
+	walk_fast_right
+	walk_fast_up
+	jump_up
+	step_end
+
+Route123_EventScript_FuzkyDefeat::
+	msgbox Route123_Text_ItTakesOffTheMantle, MSGBOX_DEFAULT
+	giveitem ITEM_LOST_MANTLE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	applymovement LOCALID_FUZKY, Route123_Movement_FuzkyRunAway
+	waitmovement 0
+	setflag FLAG_TEMP_17
+	removeobject LOCALID_FUZKY
+	release
+	end
+
+Route123_Movement_FuzkyRunAway:
+	jump_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	jump_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+Route123_EventScript_SnowNinjaTrigger::
+	lock
+	setvar VAR_TEMP_5, 1
+	goto_if_set FLAG_SNOWBALL_BOY, Route123_EventScript_SnowNinja
+	release
+	end
+
+Route123_EventScript_SnowNinja::
+	clearflag FLAG_TEMP_16
+	addobject LOCALID_SNOWNINJA
+	delay 16
+	applymovement LOCALID_SNOWNINJA, Route123_Movement_Ambush
+	waitmovement 0
+	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, 
+	release
+	end
+
+Route123_Movement_Ambush:
+	jump_right
+	face_up
+	step_end
+
+Route123_EventScript_SmokeBall::
+	lock
+	msgbox Route123_Text_BackToTheSnow, MSGBOX_DEFAULT
+	applymovement LOCALID_SNOWNINJA, Route123_Movement_BackToTheSnow
+	waitmovement 0
+	setflag FLAG_TEMP_16
+	removeobject LOCALID_SNOWNINJA
+	msgbox Route123_Text_HeLeftBehindSomething, MSGBOX_DEFAULT
+	giveitem ITEM_SMOKE_BALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+Route123_Movement_BackToTheSnow:
+	jump_left
+	step_end
+
+Route123_Text_BackToTheSnow:
+	.string "back 2 the snow ig$"
+
+Route123_Text_HeLeftBehindSomething:
+	.string "he left behind smth$"
+
+Route123_Text_WantToPayRespects:
+	.string "want 2 pay respects$"
+
+Route123_Text_YouFoldYourHands:
+	.string "you fold your hands...$"
+
+Route123_Text_MayTheyRestInPeace:
+	.string "may they rest in piss$"
+
+Route123_Text_GottaKeepMoving:
+	.string "lets get goin$"
+
+Route123_Text_TheresSomethingOnYourWrist:
+	.string "theres smth on your wrist now$"
+
+Route123_Text_TheEngravingSays:
+	.string "its engraved$"
+
+Route123_Text_TheresAnOddFuzky:
+	.string "Theres a weird fuzky there$"
+
+Route123_Text_WantToThrowStick:
+	.string "wanna throw a stick at it$"
+
+Route123_Text_YouThrowTheStick:
+	.string "u threw the stick$"
+
+Route123_Text_TheFuzkyWantsToBattle:
+	.string "fuzky wants 2 beat u up$"
+
+Route123_Text_ItTakesOffTheMantle:
+	.string "it gives you its mantle$"
+
 Route123_Text_RamiIntro:
 	.string "intro$"
 
@@ -181,7 +493,7 @@ Route123_Text_BettyPostBattle:
 	.string "post$"
 
 Route123_Text_HazakuraIntro:
-	.string "intro$"
+	.string "AHA I WILL PAY YOU BACK$"
 
 Route123_Text_HazakuraDefeated:
 	.string "defeat$"

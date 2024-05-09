@@ -5,7 +5,7 @@
   "music": "MUS_GYM",
   "region_map_section": "MAPSEC_ROUTE_110",
   "requires_flash": false,
-  "weather": "WEATHER_FOG_DIAGONAL",
+  "weather": "WEATHER_FOG_HORIZONTAL",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -190,35 +190,28 @@
       "y": 34,
       "elevation": 0,
       "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "4"
     },
     {
       "x": 16,
       "y": 34,
       "elevation": 0,
       "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "4"
     },
     {
       "x": 15,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "5"
     },
     {
       "x": 38,
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 32,
-      "elevation": 0,
-      "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "3"
     },
     {
       "x": 36,
@@ -232,7 +225,7 @@
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ZOTPYRE_GYM",
-      "dest_warp_id": "0"
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

@@ -1,3 +1,5 @@
+.set LOCALID_SNOWNINJA, 12
+
 Route121_MapScripts::
 	.byte 0
 
@@ -50,6 +52,63 @@ Route121_EventScript_Wynton::
     trainerbattle_single TRAINER_P_WYNTON, Route121_Text_WyntonIntro, Route121_Text_WyntonDefeated
     msgbox Route121_Text_WyntonPostBattle, MSGBOX_AUTOCLOSE
     end
+
+Route121_EventScript_SnowballFight::
+	lock
+	faceplayer
+	checkitem ITEM_SNOWBALL
+	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_GaveSnowball
+	msgbox Route121_Text_WannaHaveSnowballFight, MSGBOX_DEFAULT
+	closemessage
+	playse SE_M_VITAL_THROW2
+	setmetatile 74, 12, METATILE_Snow_SnowPileTopLeft, FALSE
+	setmetatile 75, 12, METATILE_Snow_SnowPileTopRight, FALSE
+	setmetatile 74, 13, METATILE_Snow_SnowPileBottomLeft, TRUE
+	setmetatile 75, 13, METATILE_Snow_SnowPileBottomRight, TRUE
+	special DrawWholeMapView
+	removeobject LOCALID_SNOWNINJA
+	setflag FLAG_SNOWBALL_BOY
+	delay 16
+	delay 16
+	giveitem ITEM_SNOWBALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+Route121_EventScript_GaveSnowball::
+	msgbox Route121_Text_IShallGetRevenge, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route121_EventScript_OneWayTripDown::
+	lock
+	faceplayer
+	msgbox Route121_Text_WantToHopDownTheMountain, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route121_EventScript_WarpToLilycove
+	msgbox Route121_Text_ThatsFine, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route121_EventScript_WarpToLilycove::
+	msgbox Route121_Text_TryNotToSlip, MSGBOX_DEFAULT
+	warp MAP_LILYCOVE_CITY, 17, 14
+	release
+	end
+
+Route121_Text_WannaHaveSnowballFight:
+	.string "test$"
+
+Route121_Text_IShallGetRevenge:
+	.string "test$"
+
+Route121_Text_WantToHopDownTheMountain:
+	.string "test$"
+
+Route121_Text_ThatsFine:
+	.string "test$"
+
+Route121_Text_TryNotToSlip:
+	.string "test$"
 
 Route121_Text_BarneyIntro:
 	.string "intro$"

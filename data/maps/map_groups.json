@@ -133,7 +133,10 @@
     "LilycoveMuseumNew",
     "SSTidalMidgame",
     "SSTidalMidTeriors",
-    "PrettyPetalsScuttill"
+    "PrettyPetalsScuttill",
+    "Gym3Corridor",
+    "ZotpyreInteriors",
+    "ZotpyreSecretBasement"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",
@@ -146,7 +149,8 @@
   "gMapGroup_PiscesPart4Minor": [
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_Mart",
-    "FortreeCity_PokemonCenter_1F"
+    "FortreeCity_PokemonCenter_1F",
+    "ScuttillSecretTreeHouse"
   ],
   "gMapGroup_PiscesPart5Major": [
     "OzoneInstitute",

@@ -171,10 +171,10 @@
 #define FLAG_RECEIVED_CONTEST_PASS           0x96 // Unused, leftover from R/S
 #define FLAG_RECEIVED_CASTFORM               0x97
 #define FLAG_RECEIVED_SUPER_ROD              0x98
-#define FLAG_RUSTBORO_NPC_TRADE_COMPLETED    0x99
-#define FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED  0x9A
-#define FLAG_FORTREE_NPC_TRADE_COMPLETED     0x9B
-#define FLAG_BATTLE_FRONTIER_TRADE_DONE      0x9C
+#define FLAG_BLOTTA_TRADE_COMPLETED    0x99
+#define FLAG_SCALLYWARG_TRADE_COMPLETED  0x9A
+#define FLAG_RAITAIC_TRADE_COMPLETED     0x9B
+#define FLAG_TOXITIDE_TRADE_COMPLETED      0x9C
 #define FLAG_FORCE_MIRAGE_TOWER_VISIBLE      0x9D
 #define FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE   0x9E
 #define FLAG_INTERACTED_WITH_DEVON_EMPLOYEE_GOODS_STOLEN 0x9F
@@ -1239,19 +1239,19 @@
 #define FLAG_BATTLE_TENT_STREAK_MINOR                               0x4A5 // Defeated 5 trainers in minor league
 #define FLAG_BATTLE_TENT_STREAK_MAJOR                               0x4A6 // Defeated 5 trainers in major league
 #define FLAG_BATTLE_TENT_STREAK_CHAMP                               0x4A7 // Defeated 5 trainers in champ league
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
-#define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
-#define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
+#define FLAG_FAKE_EGG                                           0x4A8 // Unused Flag
+#define FLAG_SNOWBALL_BOY                                           0x4A9 // Unused Flag
+#define FLAG_ITEM_TM_DRAGON_TAIL                                           0x4AA // Unused Flag
+#define FLAG_ITEM_TM_SKY_DROP                                           0x4AB // Unused Flag
+#define FLAG_ITEM_TM_AURORA_BEAM                                           0x4AC // Unused Flag
+#define FLAG_ZOTPYRE_PSYCHICS                                           0x4AD // Unused Flag
+#define FLAG_BOOZARD_TRADE_COMPLETED                                           0x4AE // Unused Flag
+#define FLAG_MOTHRAMITY_TRADE_COMPLETED                                           0x4AF // Unused Flag
+#define FLAG_NYARLY_TRADE_COMPLETED                                           0x4B0 // Unused Flag
+#define FLAG_GUMBORREE_TRADE_COMPLETED                                           0x4B1 // Unused Flag
+#define FLAG_GLAREYALE_TRADE_COMPLETED                                           0x4B2 // Unused Flag
+#define FLAG_GAOTERRA_TRADE_COMPLETED                                           0x4B3 // Unused Flag
+#define FLAG_ITEM_TM_ZING_ZAP                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag

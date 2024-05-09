@@ -76,7 +76,6 @@ MangrottoRockSmashRoom_EventScript_SmashChallengeRock::
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
 	checkpartymove MOVE_ROCK_SMASH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
-	addvar VAR_TEMP_4, 1
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
@@ -84,6 +83,7 @@ MangrottoRockSmashRoom_EventScript_SmashChallengeRock::
 	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
+	addvar VAR_TEMP_4, 1
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
 	waitstate
 	goto EventScript_SmashRock

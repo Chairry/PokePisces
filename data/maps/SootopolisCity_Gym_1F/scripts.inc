@@ -191,6 +191,36 @@ SootopolisCity_Gym_1F_EventScript_GymStatue::
 	releaseall
 	end
 
+SootopolisCity_Gym_1F_EventScript_IceTiles::
+	msgbox SootopolisCity_Gym_1F_Text_IceTiles, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_1F_EventScript_WhereToStart::
+	msgbox SootopolisCity_Gym_1F_Text_WhereToStart, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_1F_Text_IceTiles:
+	.string "The ice that makes up this layer is,\n"
+	.string "in some ways, magical…\l"
+	.string "thanks to some Fairy-type Pokémon.\p"
+	.string "Any cracked ice? It will auto-\n"
+	.string "matically be repaired if you\l"
+	.string "give it some time.\p"
+	.string "There's a failsafe emergency hatch\n"
+	.string "that we used to use before\l"
+	.string "we had Pokémon help out.\p"
+	.string "It'd open up if every tile\n"
+	.string "somehow got cracked.\l"
+	.string "I'd wager theer's no use in it now.$"
+
+SootopolisCity_Gym_1F_Text_WhereToStart:
+	.string "Hey. You lookin' to break through\n"
+	.string "above the stage too?\p"
+	.string "Great minds think alike…\p"
+	.string "I haven't fully figured it out, but\n"
+	.string "I have a strong feeling that you need\l"
+	.string "to start at the northernmost ladder.$"
+
 SootopolisCity_Gym_1F_Text_GymGuideAdvice:
 	.string "Yo! How's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"

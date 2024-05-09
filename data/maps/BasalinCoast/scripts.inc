@@ -253,19 +253,17 @@ BasalinCoast_EventScript_MagicalLeafAromaLady::
 	checkitem ITEM_TM_MAGICAL_LEAF
 	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GaveMagicalLeaf
     msgbox BasalinCoast_Text_WantToSeeGrassMon, MSGBOX_DEFAULT
-    getcaughtmon SPECIES_BERM
-	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GiveMagicalLeaf
-    getcaughtmon SPECIES_TIDPIT
-	goto_if_eq VAR_RESULT, TRUE, BasalinCoast_EventScript_GiveMagicalLeaf
-    msgbox BasalinCoast_Text_NoGrassMon, MSGBOX_DEFAULT
-	release
-	end
-
-BasalinCoast_EventScript_GiveMagicalLeaf::
+    special IsGrassTypeInParty
+	goto_if_eq VAR_RESULT, FALSE, BasalinCoast_EventScript_NoGrassMons
     msgbox BasalinCoast_Text_MagicalLeaf, MSGBOX_DEFAULT
     giveitem ITEM_TM_MAGICAL_LEAF
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
     release
+	end
+
+BasalinCoast_EventScript_NoGrassMons::
+    msgbox BasalinCoast_Text_NoGrassMon, MSGBOX_DEFAULT
+	release
 	end
 
 BasalinCoast_EventScript_GaveMagicalLeaf::

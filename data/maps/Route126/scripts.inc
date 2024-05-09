@@ -29,7 +29,7 @@ Route126_EventScript_StartInvasion::
 	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_WalkToRocket
 	waitmovement 0
 	msgbox Route126_Text_TheyreInvading, MSGBOX_DEFAULT
-	setwildbattle SPECIES_UHEFOE, 20
+	setwildbattle SPECIES_UHEFOE, 18
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 2, 0, 0, 2
 	playmoncry SPECIES_BEHEEYEM, CRY_MODE_ENCOUNTER
 	delay 40
@@ -380,6 +380,39 @@ Route126_EventScript_GaveSwift::
     msgbox Route126_Text_GaveSwift, MSGBOX_AUTOCLOSE
     release
     end
+
+Route126_EventScript_OzoneRoadblocker1::
+	msgbox Route126_Text_OzoneRoadblocker1, MSGBOX_NPC
+	end
+
+Route126_EventScript_OzoneRoadblocker2::
+	msgbox Route126_Text_OzoneRoadblocker2, MSGBOX_NPC
+	end
+
+Route126_EventScript_OzoneRoadblocker3::
+	msgbox Route126_Text_OzoneRoadblocker3, MSGBOX_NPC
+	end
+
+Route126_Text_OzoneRoadblocker1:
+	.string "Apologies, but I'm afraid that Cosmoss\n"
+	.string "Bridge has a temporary closure.\p"
+	.string "A metoerite impacted the bridge this\n"
+	.string "morning and damaged its structural\l"
+	.string "integrity.\p"
+	.string "It shouldn't take much longer to be\n"
+	.string "cleared up.$"
+
+Route126_Text_OzoneRoadblocker2:
+	.string "It's not every day that we get to\n"
+	.string "crack open a fresh metorite\l"
+	.string "and study it!\l"
+	.string "Exciting developments!$"
+
+Route126_Text_OzoneRoadblocker3:
+	.string "Team Ozone and the Cosmoss Space\n"
+	.string "Center work together regularly.\l"
+	.string "Took us no time at all to come in\l"
+	.string "with the assist!$"
 
 Route126_Text_ShootingStars:
 	.string "Ah, the beauty of shooting stars...\p"

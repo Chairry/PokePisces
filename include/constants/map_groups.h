@@ -84,6 +84,9 @@
 #define MAP_SS_TIDAL_MIDGAME                  (8 | (5 << 8))
 #define MAP_SS_TIDAL_MID_TERIORS              (9 | (5 << 8))
 #define MAP_PRETTY_PETALS_SCUTTILL            (10 | (5 << 8))
+#define MAP_GYM3CORRIDOR                      (11 | (5 << 8))
+#define MAP_ZOTPYRE_INTERIORS                 (12 | (5 << 8))
+#define MAP_ZOTPYRE_SECRET_BASEMENT           (13 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))
@@ -97,6 +100,7 @@
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F (0 | (7 << 8))
 #define MAP_VERDANTURF_TOWN_MART              (1 | (7 << 8))
 #define MAP_FORTREE_CITY_POKEMON_CENTER_1F    (2 | (7 << 8))
+#define MAP_SCUTTILL_SECRET_TREE_HOUSE        (3 | (7 << 8))
 
 // gMapGroup_PiscesPart5Major
 #define MAP_OZONE_INSTITUTE        (0 | (8 << 8))

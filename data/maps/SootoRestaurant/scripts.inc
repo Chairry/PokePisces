@@ -43,7 +43,7 @@ SootoRestaurant_EventScript_DontTakeSalt::
 
 SootoRestaurant_Text_ChefPreGym:
 	.string "Terribly sorry, my dear customer.\n"
-	.string "I'm afraid we are not selling our\n"
+	.string "I'm afraid we are not selling our\l"
 	.string "dishes at the moment.\p"
 	.string "The owner is having a dinner party\n"
 	.string "right now that we must cater.\p"

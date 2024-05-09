@@ -795,6 +795,13 @@ static const struct MenuAction MultichoiceList_SlateportTentAnyLeague[] = {
     {gText_Cancel},
 };
 
+static const u8 sText_Comedy[] = _("Comedy");
+static const u8 sText_Tragedy[] = _("Tragedy");
+static const struct MenuAction MultichoiceList_LifePhilosophy[] = {
+    {sText_Comedy},
+    {sText_Tragedy},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -925,6 +932,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     // new
     [MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE] = MULTICHOICE(MultichoiceList_SlateportTentTwoLeagues),
     [MULTI_SLATEPORT_ANY_LEAGUE]         = MULTICHOICE(MultichoiceList_SlateportTentAnyLeague),
+    [MULTI_LIFE_PHILOSOPHY]         = MULTICHOICE(MultichoiceList_LifePhilosophy),
 };
 
 const u8 *const gStdStrings[] =

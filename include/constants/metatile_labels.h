@@ -796,15 +796,19 @@
 #define METATILE_Slateport_Door_BattleTent  0x393
 
 // gTileset_Snow
-#define METATILE_Snow_ColdMineFloor       0x381
-#define METATILE_Snow_ColdMineLeftCliff   0x380
-#define METATILE_Snow_ColdMineRightCliff  0x382
-#define METATILE_Snow_MeralBuriedLeft1    0x3C5
-#define METATILE_Snow_MeralBuriedMiddle1  0x3C6
-#define METATILE_Snow_MeralBuriedMiddle2  0x3BD
-#define METATILE_Snow_MeralBuriedRight1   0x3C7
-#define METATILE_Snow_MeralBuriedTop1     0x3BE
-#define METATILE_Snow_MeralSnow           0x3AD
+#define METATILE_Snow_ColdMineFloor        0x381
+#define METATILE_Snow_ColdMineLeftCliff    0x380
+#define METATILE_Snow_ColdMineRightCliff   0x382
+#define METATILE_Snow_MeralBuriedLeft1     0x3C5
+#define METATILE_Snow_MeralBuriedMiddle1   0x3C6
+#define METATILE_Snow_MeralBuriedMiddle2   0x3BD
+#define METATILE_Snow_MeralBuriedRight1    0x3C7
+#define METATILE_Snow_MeralBuriedTop1      0x3BE
+#define METATILE_Snow_MeralSnow            0x3AD
+#define METATILE_Snow_SnowPileBottomLeft   0x376
+#define METATILE_Snow_SnowPileBottomRight  0x377
+#define METATILE_Snow_SnowPileTopLeft      0x36E
+#define METATILE_Snow_SnowPileTopRight     0x36F
 
 // gTileset_SootopolisGym
 #define METATILE_SootopolisGym_Ice_Broken   0x206

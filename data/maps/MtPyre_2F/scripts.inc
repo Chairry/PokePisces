@@ -29,10 +29,71 @@ MtPyre_2F_EventScript_Morgan::
     msgbox MtPyre_2F_Text_MorganPostBattle, MSGBOX_AUTOCLOSE
     end
 
+MtPyre_2F_EventScript_CheckMia::
+	lock
+	faceplayer
+	checkitem ITEM_SPECTRAL_IDOL
+	goto_if_eq VAR_RESULT, TRUE, MtPyre_2F_EventScript_MistyPost
+	msgbox MtPyre_2F_Text_MistyGreetings, MSGBOX_DEFAULT
+	goto_if_defeated TRAINER_P_MIA, MtPyre_2F_EventScript_CheckMaya
+	msgbox MtPyre_2F_Text_MistyNotAllMediumsBeaten, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_2F_EventScript_CheckMaya::
+	goto_if_defeated TRAINER_P_MAYA, MtPyre_2F_EventScript_CheckPearl
+	msgbox MtPyre_2F_Text_MistyNotAllMediumsBeaten, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_2F_EventScript_CheckPearl::
+	goto_if_defeated TRAINER_P_PEARL, MtPyre_2F_EventScript_CheckMorgan
+	msgbox MtPyre_2F_Text_MistyNotAllMediumsBeaten, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_2F_EventScript_CheckMorgan::
+	goto_if_defeated TRAINER_P_MORGAN, MtPyre_2F_EventScript_Misty
+	msgbox MtPyre_2F_Text_MistyNotAllMediumsBeaten, MSGBOX_AUTOCLOSE
+	release
+	end
+
 MtPyre_2F_EventScript_Misty::
-    trainerbattle_single TRAINER_P_MISTY, MtPyre_2F_Text_MistyIntro, MtPyre_2F_Text_MistyDefeated
+    trainerbattle_single TRAINER_P_MISTY, MtPyre_2F_Text_MistyIntro, MtPyre_2F_Text_MistyDefeated, MtPyre_2F_EventScript_GiveCleanseTag
     msgbox MtPyre_2F_Text_MistyPostBattle, MSGBOX_AUTOCLOSE
     end
+
+MtPyre_2F_EventScript_GiveCleanseTag::
+	msgbox MtPyre_2F_Text_MistyPostBattle, MSGBOX_DEFAULT
+	giveitem ITEM_SPECTRAL_IDOL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	release
+	end
+
+MtPyre_2F_EventScript_MistyPost::
+	msgbox MtPyre_2F_Text_MistyPostBattle, MSGBOX_AUTOCLOSE
+	release
+    end
+
+MtPyre_2F_EventScript_Teleporter::
+	lock
+	faceplayer
+	msgbox MtPyre_2F_Text_WouldYouLikeToWarp, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MtPyre_2F_EventScript_WarpToCave
+	msgbox MtPyre_2F_Text_MaybeAnotherTime, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MtPyre_2F_EventScript_WarpToCave::
+	warp MAP_THE_COLD_MINES, 6, 13
+	release
+	end
+
+MtPyre_2F_Text_WouldYouLikeToWarp:
+	.string "wanna warp$"
+
+MtPyre_2F_Text_MaybeAnotherTime:
+	.string "maybe nexttime$"
 
 MtPyre_2F_Text_DeaconIntro:
 	.string "intro$"
@@ -78,3 +139,9 @@ MtPyre_2F_Text_MistyDefeated:
 
 MtPyre_2F_Text_MistyPostBattle:
 	.string "post$"
+
+MtPyre_2F_Text_MistyNotAllMediumsBeaten:
+	.string "needa beat all the mediums$"
+
+MtPyre_2F_Text_MistyGreetings:
+	.string "hello there$"

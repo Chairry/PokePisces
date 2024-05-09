@@ -368,14 +368,15 @@ PacifidlogTown_Text_GladToSeeYou:
 	.string "Let's take a quick jog to the lab!$"
 
 PacifidlogTown_Text_PacifidlogTownIsNice:
-	.string "Feeling a bit nostalgic, huh?\n"
-	.string "Ha, it feels like just yesterday when you\l"
+	.string "Feeling a bit nostalgic, huh? Ha,\n"
+	.string "it feels like just yesterday when you\l"
 	.string "left the nest to go on your journey!\p"
 	.string "(You think about how you\n"
 	.string "cut your journey short last time.\l"
 	.string "It makes you wistful…)\p"
 	.string "Aw, why the frown, {PLAYER}?\n"
-	.string "Don't ever think you let your old man down.\l"
+	.string "Don't ever think you let\l"
+	.string "your old man down.\l"
 	.string "You've done well for yourself.\p"
 	.string "…\p"
 	.string "…What happened to Norman's kid?\p"

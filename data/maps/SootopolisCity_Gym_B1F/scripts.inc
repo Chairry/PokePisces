@@ -125,6 +125,10 @@ SootopolisCity_Gym_B1F_EventScript_DontGoOnStage::
 	release
 	end
 
+SootopolisCity_Gym_B1F_EventScript_Bouncer::
+	msgbox SootopolisCity_Gym_B1F_Text_DontGoOnStage, MSGBOX_NPC
+	end
+
 SootopolisCity_Gym_B1F_Movement_GetOff:
 	walk_down
 	step_end
@@ -153,6 +157,71 @@ SootopolisCity_Gym_B1F_EventScript_Emily::
 	trainerbattle_single TRAINER_P_EMILY, SootopolisCity_Gym_B1F_Text_EmilyIntro, SootopolisCity_Gym_B1F_Text_EmilyDefeat
 	msgbox SootopolisCity_Gym_B1F_Text_EmilyPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+SootopolisCity_Gym_B1F_EventScript_GlassCeiling::
+	msgbox SootopolisCity_Gym_B1F_Text_GlassCeiling, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_B1F_EventScript_DropIn::
+	msgbox SootopolisCity_Gym_B1F_Text_DropIn, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_B1F_EventScript_Bartender::
+    lock
+	faceplayer
+	showmoneybox 0, 0
+	msgbox SootopolisCity_Gym_B1F_Text_HowMayIServeYou, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SootopolisCity_Gym_B1F_EventScript_CheckMoneyForSP
+	closemessage
+	hidemoneybox
+	release
+	end
+
+SootopolisCity_Gym_B1F_EventScript_CheckMoneyForSP::
+	checkmoney 250
+	goto_if_eq VAR_RESULT, FALSE, SootopolisCity_Gym_B1F_EventScript_NotEnoughMoney
+	playse SE_SHOP
+	removemoney 250
+	updatemoneybox
+	delay 40
+	hidemoneybox
+	giveitem ITEM_SODA_POP
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+SootopolisCity_Gym_B1F_EventScript_NotEnoughMoney::
+	msgbox SootopolisCity_Gym_B1F_Text_NotEnoughMoney, MSGBOX_DEFAULT
+	closemessage
+	hidemoneybox
+	release
+	end
+
+SootopolisCity_Gym_B1F_Text_HowMayIServeYou:
+	.string "Greetings.\n"
+	.string "What may I get for you?\p"
+	.string "…For someone your age, I am only at\n"
+	.string "my liberty to offer you Soda Pop.\p"
+	.string "Would you like one?$"
+
+SootopolisCity_Gym_B1F_Text_NotEnoughMoney:
+	.string "I'm afraid you lack the funds.$"
+
+SootopolisCity_Gym_B1F_Text_GlassCeiling:
+	.string "Ah, the ceiling of this establishment\n"
+	.string "is a marvel.\p"
+	.string "Why, it is made of perfectly\n"
+	.string "solidified ice!\p"
+	.string "Delicate materials are always the\n"
+	.string "most beautiful…$"
+
+SootopolisCity_Gym_B1F_Text_DropIn:
+	.string "I happen to be Juan's\n"
+	.string "number-Juan fan!\p"
+	.string "Wish his bodyguard would recognize and\n"
+	.string "let me come to the stage…\p"
+	.string "If only I could dramatically\n"
+	.string "drop in from above…!$"
 
 SootopolisCity_Gym_B1F_Text_ArthurIntro:
 	.string "I'll show you the sublime techniques\n"
@@ -283,4 +352,6 @@ SootopolisCity_Gym_B1F_Text_GetOuttaHere:
 	.string "And now, I ask you to bid us adieu.$"
 
 SootopolisCity_Gym_B1F_Text_DontGoOnStage:
-	.string "dont go up there$"
+	.string "Watch it!\n"
+	.string "Master Juan is currently performing.\p"
+	.string "No way I'm lettin' you onstage!$"

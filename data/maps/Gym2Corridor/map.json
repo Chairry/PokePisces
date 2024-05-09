@@ -57,8 +57,8 @@
       "x": 3,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_NEW_COO_STATE",
-      "var_value": "2",
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
       "script": "Gym2Corridor_EventScript_DoorGuard"
     }
   ],

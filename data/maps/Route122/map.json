@@ -23,14 +23,27 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NOLAND",
       "x": 27,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 22,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route122_EventScript_ElderMan",
       "flag": "0"
     }
   ],
@@ -39,50 +52,50 @@
       "x": 22,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_MT_PYRE_1F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_MT_PYRE_2F",
+      "dest_warp_id": "2"
     },
     {
       "x": 40,
       "y": 23,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 42,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_GYM3CORRIDOR",
       "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "1"
     },
     {
       "x": 32,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
       "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 46,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE122",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ZOTPYRE_INTERIORS",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [
@@ -91,18 +104,18 @@
       "x": 25,
       "y": 22,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_RAY_STATE",
+      "var_value": "1",
+      "script": "Route122_EventScript_RayEncounterWest"
     },
     {
       "type": "trigger",
       "x": 26,
       "y": 22,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_RAY_STATE",
+      "var_value": "1",
+      "script": "Route122_EventScript_RayEncounterEast"
     }
   ],
   "bg_events": [

@@ -154,6 +154,58 @@
       "trainer_sight_or_berry_tree_id": "2",
       "script": "Route123_EventScript_Hoth",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 71,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route123_EventScript_ItemTMAuroraBeam",
+      "flag": "FLAG_ITEM_TM_AURORA_BEAM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 12,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route123_EventScript_ItemTMSkyDrop",
+      "flag": "FLAG_ITEM_TM_SKY_DROP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
+      "x": 31,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route123_EventScript_FuzkyBattle",
+      "flag": "FLAG_TEMP_17"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 22,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_16"
     }
   ],
   "warp_events": [
@@ -161,7 +213,7 @@
       "x": 25,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE123",
+      "dest_map": "MAP_LILYCOVE_CITY_POKEMON_CENTER_2F",
       "dest_warp_id": "0"
     },
     {
@@ -180,7 +232,7 @@
       "elevation": 0,
       "var": "VAR_BREADWINNER_STATE",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route123_EventScript_BreadPos1"
     },
     {
       "type": "trigger",
@@ -189,28 +241,59 @@
       "elevation": 0,
       "var": "VAR_BREADWINNER_STATE",
       "var_value": "1",
-      "script": "NULL"
+      "script": "Route123_EventScript_BreadPos2"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 24,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route123_EventScript_SnowNinjaTrigger"
     },
     {
       "type": "trigger",
       "x": 24,
       "y": 24,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route123_EventScript_SnowNinjaTrigger"
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone1"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone2"
+    },
+    {
+      "type": "sign",
+      "x": 55,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Route123_EventScript_Gravestone3"
+    },
+    {
+      "type": "sign",
+      "x": 32,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route123_EventScript_LureFuzky"
+    }
   ]
 }
