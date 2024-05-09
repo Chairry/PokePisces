@@ -12527,6 +12527,14 @@ BattleScript_CuteCharmActivates::
 	call BattleScript_TryDestinyKnotInfatuateTarget
 	return
 
+BattleScript_CuteCharmActivates2::
+	call BattleScript_AbilityPopUp
+	status2animation BS_TARGET, STATUS2_INFATUATION
+	printstring STRINGID_PKMNSXINFATUATEDY2
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotInfatuateAttacker
+	return
+
 BattleScript_GooeyActivates::
 	waitstate
 	call BattleScript_AbilityPopUp

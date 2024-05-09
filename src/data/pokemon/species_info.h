@@ -20361,7 +20361,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpDefense = 45,
         .types = { TYPE_GRASS, TYPE_GRASS },
         .catchRate = 45,
-        .expYield = 52,
+        .expYield = 44,
         .evYield_Attack = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
@@ -25594,12 +25594,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_INFAIRNO] =
     {
-        .baseHP        = 89,
+        .baseHP        = 79,
         .baseAttack    = 60,
-        .baseDefense   = 73,
-        .baseSpeed     = 5,
+        .baseDefense   = 63,
+        .baseSpeed     = 35,
         .baseSpAttack  = 60,
-        .baseSpDefense = 73,
+        .baseSpDefense = 63,
         .types = { TYPE_FIRE, TYPE_FAIRY},
         .catchRate = 75,
         .expYield = 60,

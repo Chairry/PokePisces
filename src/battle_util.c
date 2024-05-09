@@ -5236,7 +5236,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             case ABILITY_SADDENED:
                 if (gDisableStructs[battler].isFirstTurn != 2)
                 {
-                    u32 validToRaise = 0, validToLower = 0;
+                    u32 validToLower = 0;
                     u32 statsNum = NUM_STATS;
                     for (i = STAT_ATK; i < statsNum; i++)
                     {
@@ -6134,7 +6134,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             {
                 gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_CuteCharmActivates;
+                gBattlescriptCurrInstr = BattleScript_CuteCharmActivates2;
                 effect++;
             }
             break;
@@ -8284,6 +8284,27 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         // Occur on each hit of a multi-strike move
         switch (atkHoldEffect)
         {
+        case HOLD_EFFECT_SHELL_BELL:
+            if (gSpecialStatuses[gBattlerAttacker].damagedMons // Need to have done damage
+                && gBattlerAttacker != gBattlerTarget && gBattleMons[gBattlerAttacker].hp != gBattleMons[gBattlerAttacker].maxHP
+#if B_HEAL_BLOCKING >= GEN_5
+                && gBattleMons[gBattlerAttacker].hp != 0 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+#else
+                && gBattleMons[gBattlerAttacker].hp != 0)
+#endif
+            {
+                gLastUsedItem = atkItem;
+                gPotentialItemEffectBattler = gBattlerAttacker;
+                gBattleScripting.battler = gBattlerAttacker;
+                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / atkHoldEffectParam) * -1;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = -1;
+                gSpecialStatuses[gBattlerTarget].dmg = 0;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ItemHealHP_Ret;
+                effect = ITEM_HP_CHANGE;
+            }
+            break;
         case HOLD_EFFECT_FLINCH:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
@@ -8356,27 +8377,6 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         // Occur after the final hit of a multi-strike move
         switch (atkHoldEffect)
         {
-        case HOLD_EFFECT_SHELL_BELL:
-            if (gSpecialStatuses[gBattlerAttacker].damagedMons // Need to have done damage
-                && gBattlerAttacker != gBattlerTarget && gBattleMons[gBattlerAttacker].hp != gBattleMons[gBattlerAttacker].maxHP
-#if B_HEAL_BLOCKING >= GEN_5
-                && gBattleMons[gBattlerAttacker].hp != 0 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
-#else
-                && gBattleMons[gBattlerAttacker].hp != 0)
-#endif
-            {
-                gLastUsedItem = atkItem;
-                gPotentialItemEffectBattler = gBattlerAttacker;
-                gBattleScripting.battler = gBattlerAttacker;
-                gBattleMoveDamage = (gSpecialStatuses[gBattlerTarget].dmg / atkHoldEffectParam) * -1;
-                if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = -1;
-                gSpecialStatuses[gBattlerTarget].dmg = 0;
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ItemHealHP_Ret;
-                effect = ITEM_HP_CHANGE;
-            }
-            break;
         case HOLD_EFFECT_LIFE_ORB:
             if (IsBattlerAlive(gBattlerAttacker) && !(TestSheerForceFlag(gBattlerAttacker, gCurrentMove)) && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT && gSpecialStatuses[gBattlerAttacker].damagedMons)
             {
@@ -8821,14 +8821,12 @@ u8 IsMonDisobedient(void)
         if (FlagGet(FLAG_BADGE08_GET))
             return 0;
 
-        obedienceLevel = 10;
-
         if (FlagGet(FLAG_BADGE02_GET))
-            obedienceLevel = 30;
+            return 0;
         if (FlagGet(FLAG_BADGE04_GET))
-            obedienceLevel = 50;
+            return 0;
         if (FlagGet(FLAG_BADGE06_GET))
-            obedienceLevel = 70;
+            return 0;
     }
 
 #if B_OBEDIENCE_MECHANICS >= GEN_8
@@ -12426,6 +12424,8 @@ bool32 BlocksPrankster(u16 move, u32 battlerPrankster, u32 battlerDef, bool32 ch
     if (GetBattlerSide(battlerPrankster) == GetBattlerSide(battlerDef))
         return FALSE;
     if (checkTarget && (GetBattlerMoveTargetType(battlerPrankster, move) & (MOVE_TARGET_OPPONENTS_FIELD | MOVE_TARGET_DEPENDS)))
+        return FALSE;
+    if (!IS_BATTLER_OF_TYPE(battlerDef, NUMBER_OF_MON_TYPES))
         return FALSE;
     if (gStatuses3[battlerDef] & STATUS3_SEMI_INVULNERABLE)
         return FALSE;

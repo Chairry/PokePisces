@@ -16444,7 +16444,8 @@ static void Cmd_handleballthrow(void)
                 for (i = 0; i < EVOS_PER_MON; i++)
                 {
                     if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP
-                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP_MOVE_TYPE)
+                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP_MOVE_TYPE
+                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_MED_FRIENDSHIP)
                         ballMultiplier = 400;
                 }
             case ITEM_LOVE_BALL:
