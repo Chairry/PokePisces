@@ -2075,8 +2075,10 @@ BattleScript_EffectSignalBeam::
 BattleScript_EffectSilverWind:
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
 	jumpifstatus2 BS_TARGET, STATUS2_POWDER, BattleScript_EffectHit
-	setpowder BS_TARGET
 	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectHit
+	setpowder BS_TARGET
 	seteffectwithchance
 	printstring STRINGID_COVEREDINPOWDER
 	waitmessage B_WAIT_TIME_LONG
