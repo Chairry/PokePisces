@@ -1950,6 +1950,14 @@ u8 GetAilmentFromStatus(u32 status)
         return AILMENT_BRN;
     if (status & STATUS1_FROSTBITE)
         return AILMENT_FSB;
+    if (status & STATUS1_PANIC)
+        return AILMENT_PANIC;
+    if (status & STATUS1_BLOOMING)
+        return AILMENT_BLOOMING;
+    if (status & STATUS1_EXPOSED)
+        return AILMENT_EXPOSED;
+    if (status & STATUS1_REST)
+        return AILMENT_REST;
     return AILMENT_NONE;
 }
 
