@@ -3740,6 +3740,10 @@ static const u8 sGrassCannonDescription[] = _(
     "Boosts Def in Grassy Terrain.\n"
     "Boosts Sp. Def if Blooming.");
 
+static const u8 sOblivionWingDescription[] = _(
+    "Drains HP equal to 3/4\n"
+    "of the damage done.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4361,7 +4365,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HOLD_BACK - 1] = sFalseSwipeDescription,
     [MOVE_INFESTATION - 1] = sInfestationDescription,
     [MOVE_POWER_UP_PUNCH - 1] = sPowerUpPunchDescription,
-    [MOVE_OBLIVION_WING - 1] = sDrainingKissDescription,
+    [MOVE_OBLIVION_WING - 1] = sOblivionWingDescription,
     [MOVE_THOUSAND_ARROWS - 1] = sThousandArrowsDescription,
     [MOVE_THOUSAND_WAVES - 1] = sThousandWavesDescription,
     [MOVE_LANDS_WRATH - 1] = sLandsWrathDescription,
