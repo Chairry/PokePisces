@@ -15041,7 +15041,9 @@ static const u16 sSeviperTeachableLearnset[] = {
 };
 
 static const u16 sLunatoneTeachableLearnset[] = {
+    MOVE_WILL_O_WISP,
     MOVE_SPOOK,
+    MOVE_GLACIATE,
     MOVE_TRICK_ROOM,
     MOVE_CHILLY_AIR,
     MOVE_FEAR_FACTOR,
