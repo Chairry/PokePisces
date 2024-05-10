@@ -12434,7 +12434,7 @@
                 "species": "SPECIES_SPRYTE"
               },
               {
-                "min_level": 11,
+                "min_level": 10,
                 "max_level": 12,
                 "species": "SPECIES_SEEDOT"
               },
@@ -12986,7 +12986,7 @@
               {
                 "min_level": 1,
                 "max_level": 1,
-                "species": "SPECIES_KOMORODE"
+                "species": "SPECIES_ICKSQUEEK"
               },
               {
                 "min_level": 19,
@@ -13022,6 +13022,160 @@
                 "min_level": 22,
                 "max_level": 24,
                 "species": "SPECIES_SNURROWL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_NEW_SUNBEACH",
+          "base_label": "gNewSunbeach0",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 17,
+                "max_level": 19,
+                "species": "SPECIES_KODOUGH"
+              },
+              {
+                "min_level": 17,
+                "max_level": 19,
+                "species": "SPECIES_COFFIDDLE"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_KITIKITI"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_KYUDI"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_ZIGZAGOON"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_SAINTISOW"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_SLICKSLICE"
+              },
+              {
+                "min_level": 19,
+                "max_level": 20,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 18,
+                "max_level": 21,
+                "species": "SPECIES_SANCTISOW"
+              },
+              {
+                "min_level": 19,
+                "max_level": 20,
+                "species": "SPECIES_MOSKOPO"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 17,
+                "max_level": 17,
+                "species": "SPECIES_RETROROACH"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 35,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 10,
+                "max_level": 30,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 15,
+                "max_level": 25,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_PELIPPER"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 17,
+                "max_level": 19,
+                "species": "SPECIES_SNELFREND"
+              },
+              {
+                "min_level": 17,
+                "max_level": 19,
+                "species": "SPECIES_GUPSPAR"
+              },
+              {
+                "min_level": 17,
+                "max_level": 20,
+                "species": "SPECIES_SHARGUY"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_EBIBI"
+              },
+              {
+                "min_level": 19,
+                "max_level": 20,
+                "species": "SPECIES_VANGAR"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_SHARPEDO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 35,
+                "max_level": 40,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 40,
+                "max_level": 45,
+                "species": "SPECIES_WAILMER"
               }
             ]
           }

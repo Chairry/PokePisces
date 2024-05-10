@@ -54,7 +54,7 @@ OzoneLilycoveHQ_EventScript_Terra::
     end
 
 OzoneLilycoveHQ_EventScript_Sean::
-    trainerbattle_single TRAINER_P_SEAN, OzoneLilycoveHQ_Text_SeanIntro, OzoneLilycoveHQ_Text_SeanDefeated
+    trainerbattle_single TRAINER_P_OZONE_SEAN, OzoneLilycoveHQ_Text_SeanIntro, OzoneLilycoveHQ_Text_SeanDefeated
     msgbox OzoneLilycoveHQ_Text_SeanPostBattle, MSGBOX_AUTOCLOSE
     end
 
@@ -312,7 +312,7 @@ OzoneLilycoveHQ_Text_Matt3:
 
 OzoneLilycoveHQ_Text_BoardSigh:
 	.string "(A defeated sigh erupts from nearly\n"
-	.string "everyone in the room.)"
+	.string "everyone in the room.)$"
 
 OzoneLilycoveHQ_Text_Matt4:
 	.string "Why are we even gonna take orders\n"
