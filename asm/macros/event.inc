@@ -2093,3 +2093,16 @@
     setvar VAR_TEMP_1, \species
     special SetCaughtMon
     .endm
+    
+    @ set a pokemon's data to a given value
+    @ slot is the party index
+    @ data_index is the MON_DATA_xx label
+    @ value is the val to set
+    @ side is 0 for the player or 1 for the enemy
+    .macro setmondata slot:req, data_index:req, value:req, side=0
+    callnative ScriptSetMonData
+    .byte \slot
+    .byte \data_index
+    .4byte \value
+    .byte \side
+    .endm
