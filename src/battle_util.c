@@ -8818,15 +8818,22 @@ u8 IsMonDisobedient(void)
         if (!IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
             return 0;
 #endif
-        if (FlagGet(FLAG_BADGE08_GET))
-            return 0;
+        obedienceLevel = 100;
 
-        if (FlagGet(FLAG_BADGE02_GET))
-            return 0;
-        if (FlagGet(FLAG_BADGE04_GET))
-            return 0;
-        if (FlagGet(FLAG_BADGE06_GET))
-            return 0;
+        if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE03_GET)) // Dynamo Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE04_GET)) // Heat Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE05_GET)) // Balance Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
+            obedienceLevel = 100;
+        if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
+            obedienceLevel = 100;
     }
 
 #if B_OBEDIENCE_MECHANICS >= GEN_8
