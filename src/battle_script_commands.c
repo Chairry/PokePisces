@@ -14122,15 +14122,14 @@ static void Cmd_healpartystatus(void)
 {
     CMD_ARGS();
 
-    u32 zero = 0;
+    u32 status = 0;
     u32 battler;
     u8 toHeal = 0;
+    s32 i;
+    struct Pokemon *party = GetBattlerParty(gBattlerAttacker);
 
     if (gCurrentMove == MOVE_HEAL_BELL)
     {
-        struct Pokemon *party = GetBattlerParty(gBattlerAttacker);
-        s32 i;
-
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BELL;
 
         if (GetBattlerAbility(gBattlerAttacker) != ABILITY_SOUNDPROOF)
@@ -14201,12 +14200,21 @@ static void Cmd_healpartystatus(void)
             gBattleMons[gBattlerAttacker].status1 &= ~STATUS1_ANY_NEGATIVE;
             gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
         }
-
+    }
+    
+    // do not heal blooming mons 
+    for (i = 0; i < PARTY_SIZE; i++) {
+        if (!(toHeal & (1 << i)))
+            continue;
+        status = GetMonData(&party[i], MON_DATA_STATUS);
+        if (status & STATUS1_BLOOMING)
+            toHeal &= ~(1 << i);
     }
 
     if (toHeal)
     {
-        BtlController_EmitSetMonData(gBattlerAttacker, BUFFER_A, REQUEST_STATUS_BATTLE, toHeal, sizeof(zero), &zero);
+        status = 0;
+        BtlController_EmitSetMonData(gBattlerAttacker, BUFFER_A, REQUEST_STATUS_BATTLE, toHeal, sizeof(status), &status);
         MarkBattlerForControllerExec(gBattlerAttacker);
     }
 
@@ -15079,8 +15087,9 @@ u16 GetNaturePowerMove(void)
 static void Cmd_cureifburnedparalysedorpoisoned(void)
 {
     CMD_ARGS(const u8 *failInstr);
+    u32 refreshStatuses = STATUS1_ANY_NEGATIVE & ~(STATUS1_SLEEP);
 
-    if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_PANIC))
+    if (gBattleMons[gBattlerAttacker].status1 & refreshStatuses)
     {
         gBattleMons[gBattlerAttacker].status1 = 0;
         gBattlescriptCurrInstr = cmd->nextInstr;

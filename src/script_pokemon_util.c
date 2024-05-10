@@ -274,3 +274,15 @@ void ReducePlayerPartyToSelectedMons(void)
 
     CalculatePlayerPartyCount();
 }
+
+void ScriptSetMonData(struct ScriptContext *ctx)
+{
+    u8 slot = ScriptReadByte(ctx);
+    u8 dataIndex = ScriptReadByte(ctx);
+    u32 value = ScriptReadWord(ctx);
+    u8 side = ScriptReadByte(ctx);
+    
+    struct Pokemon *mon = (side == 0) ? &gPlayerParty[slot] : &gEnemyParty[slot];
+    
+    SetMonData(mon, dataIndex, &value);
+}

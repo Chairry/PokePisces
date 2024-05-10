@@ -5340,6 +5340,16 @@
       "secondary_tileset": "gTileset_OldStoneBuildings",
       "border_filepath": "data/layouts/ZotpyreSecretBasement/border.bin",
       "blockdata_filepath": "data/layouts/ZotpyreSecretBasement/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_SUNBEACH",
+      "name": "NewSunbeach_Layout",
+      "width": 80,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/NewSunbeach/border.bin",
+      "blockdata_filepath": "data/layouts/NewSunbeach/map.bin"
     }
   ]
 }
