@@ -414,6 +414,9 @@
 #define ANIM_TAG_GEM_PINK                   (ANIM_SPRITES_START + 400)
 #define ANIM_TAG_GEM_YELLOW                 (ANIM_SPRITES_START + 401)
 #define ANIM_TAG_SPIRIT_HAND                (ANIM_SPRITES_START + 402)
+#define ANIM_TAG_PILGRIMAGE_RISING          (ANIM_SPRITES_START + 403)
+#define ANIM_TAG_PILGRIMAGE_FALLING         (ANIM_SPRITES_START + 404)
+#define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 405)
 
 // battlers
 #define ANIM_ATTACKER         0
