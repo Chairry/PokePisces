@@ -12434,7 +12434,7 @@
                 "species": "SPECIES_SPRYTE"
               },
               {
-                "min_level": 11,
+                "min_level": 10,
                 "max_level": 12,
                 "species": "SPECIES_SEEDOT"
               },
