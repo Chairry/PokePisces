@@ -15087,8 +15087,9 @@ u16 GetNaturePowerMove(void)
 static void Cmd_cureifburnedparalysedorpoisoned(void)
 {
     CMD_ARGS(const u8 *failInstr);
+    u32 refreshStatuses = STATUS1_ANY_NEGATIVE & ~(STATUS1_SLEEP);
 
-    if (gBattleMons[gBattlerAttacker].status1 & (STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE | STATUS1_PANIC))
+    if (gBattleMons[gBattlerAttacker].status1 & refreshStatuses)
     {
         gBattleMons[gBattlerAttacker].status1 = 0;
         gBattlescriptCurrInstr = cmd->nextInstr;
