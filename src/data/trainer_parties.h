@@ -477,7 +477,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 13,
-    .moves = {MOVE_DRAGON_RAGE, MOVE_CLAMP, MOVE_POWDER_SNOW, MOVE_WITHDRAW},
+    .moves = {MOVE_RAPID_SPIN, MOVE_CLAMP, MOVE_ICY_WIND, MOVE_WITHDRAW},
     .nature = NATURE_RELAXED,
     }
 };
