@@ -508,12 +508,12 @@ static const struct TrainerMon sParty_PSebastian[] = {
 //MANGROTTO TUNNEL
 static const struct TrainerMon sParty_PDundee[] = {
     {
-    .lvl = 13,
-    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .lvl = 12,
+    .iv = TRAINER_PARTY_IVS(20,15,31,31,15,31),
     .ev = TRAINER_PARTY_EVS(10, 10, 10, 10, 10, 5),
     .species = SPECIES_DUNSPARCE,
     .ability = ABILITY_UNAWARE,
-    .moves = {MOVE_DIG, MOVE_GLARE, MOVE_ANCIENT_POWER, MOVE_NONE},
+    .moves = {MOVE_DIG, MOVE_GLARE, MOVE_TACKLE, MOVE_NONE},
     }
 };
 
@@ -734,6 +734,7 @@ static const struct TrainerMon sParty_PPandou1[] = {
     .ev = TRAINER_PARTY_EVS(100, 0, 100, 0, 100, 50),
     .species = SPECIES_KODOUGH,
     .ability = ABILITY_GOOEY,
+    .moves = {MOVE_MEGA_DRAIN, MOVE_NIGHT_SHADE, MOVE_SPITE, MOVE_NONE},
     }
 };
 
@@ -964,7 +965,7 @@ static const struct TrainerMon sParty_PTess[] = {
 static const struct TrainerMon sParty_PHitomi[] = {
     {
     .lvl = 18,
-    .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
+    .iv = TRAINER_PARTY_IVS(31,15,31,31,15,31),
     .ev = TRAINER_PARTY_EVS(20, 20, 20, 20, 20, 20),
     .species = SPECIES_LAWPARD,
     .ability = ABILITY_PSYCHIC_SURGE,
@@ -977,16 +978,18 @@ static const struct TrainerMon sParty_PLiza[] = {
     .lvl = 20,
     .species = SPECIES_LUNATONE,
     .ability = ABILITY_LEVITATE,
-    .iv = TRAINER_PARTY_IVS(31,15,31,15,31,31),
-    .ev = TRAINER_PARTY_EVS(20, 0, 50, 0, 50, 20),
-    .moves = {MOVE_LIGHT_SCREEN, MOVE_CHILLY_AIR, MOVE_HYPNOSIS, MOVE_GEM_BLASTER},
+    .heldItem = ITEM_MIRROR_HERB,
+    .iv = TRAINER_PARTY_IVS(31,15,31,31,15,31),
+    .ev = TRAINER_PARTY_EVS(20, 0, 50, 20, 0, 50),
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_WATER_PULSE, MOVE_HYPNOSIS, MOVE_GEM_BLASTER},
     },
     {
     .lvl = 20,
     .species = SPECIES_SOLROCK,
     .ability = ABILITY_LEVITATE,
-    .iv = TRAINER_PARTY_IVS(31,15,31,15,31,31),
-    .ev = TRAINER_PARTY_EVS(0, 0, 40, 10, 40, 60),
+    .heldItem = ITEM_CURSED_AMULET,
+    .iv = TRAINER_PARTY_IVS(31,15,31,31,15,31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 40, 60, 10, 40),
     .moves = {MOVE_REFLECT, MOVE_ROCK_THROW, MOVE_CONFUSION, MOVE_ROCK_POLISH},
     }
 };

@@ -71,6 +71,7 @@
 #define MAP_PETALBURG_CITY_GYM (8 | (4 << 8))
 #define MAP_THE_COLD_MINES     (9 | (4 << 8))
 #define MAP_ZOTPYRE_GYM        (10 | (4 << 8))
+#define MAP_NEW_SUNBEACH       (11 | (4 << 8))
 
 // gMapGroup_PiscesPart3Minor
 #define MAP_MOSSDEEP_CITY_POKEMON_CENTER_2F   (0 | (5 << 8))
