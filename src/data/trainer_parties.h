@@ -1719,7 +1719,7 @@ static const struct TrainerMon sParty_PMatt1[] = {
     .species = SPECIES_MORAGAN,
     .ability = ABILITY_SNOW_WARNING,
     .heldItem = ITEM_ICY_ROCK,
-    .moves = {MOVE_ICE_SHARD, MOVE_SHADOW_CLAW, MOVE_HAZE, MOVE_FLATTER},
+    .moves = {MOVE_ICE_SHARD, MOVE_ASTONISH, MOVE_HAZE, MOVE_FLATTER},
     }
 };
 

@@ -7852,7 +7852,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
 
     if (trainerId == TRAINER_SECRET_BASE)
     {
-        moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
+        moneyReward = 10 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
     }
     else
     {
@@ -7866,11 +7866,11 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
         }
 
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
+            moneyReward = 2 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * 2 * gTrainerMoneyTable[i].value;
+            moneyReward = 2 * lastMonLevel * gBattleStruct->moneyMultiplier * 2 * gTrainerMoneyTable[i].value;
         else
-            moneyReward = 4 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
+            moneyReward = 2 * lastMonLevel * gBattleStruct->moneyMultiplier * gTrainerMoneyTable[i].value;
     }
 
     return moneyReward;
@@ -17540,7 +17540,7 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
     u32 holdEffect = GetMonHoldEffect(&gPlayerParty[expGetterMonId]);
 
     if (IsTradedMon(&gPlayerParty[expGetterMonId]))
-        *expAmount = (*expAmount * 150) / 100;
+        *expAmount = (*expAmount * 125) / 100;
     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
         *expAmount = (*expAmount * 150) / 100;
     if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))
