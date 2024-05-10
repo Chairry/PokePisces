@@ -3,15 +3,19 @@
 
 #define PARTY_NOTHING_CHOSEN 0xFF
 
-#define AILMENT_NONE  0
-#define AILMENT_PSN   1
-#define AILMENT_PRZ   2
-#define AILMENT_SLP   3
-#define AILMENT_FRZ   4
-#define AILMENT_BRN   5
-#define AILMENT_PKRS  6
-#define AILMENT_FNT   7
-#define AILMENT_FSB   8
+#define AILMENT_NONE        0
+#define AILMENT_PSN         1
+#define AILMENT_PRZ         2
+#define AILMENT_SLP         3
+#define AILMENT_FRZ         4
+#define AILMENT_BRN         5
+#define AILMENT_PKRS        6
+#define AILMENT_FNT         7
+#define AILMENT_FSB         8
+#define AILMENT_PANIC       9
+#define AILMENT_BLOOMING    10
+#define AILMENT_EXPOSED     11
+#define AILMENT_REST        12
 
 #define PARTY_LAYOUT_SINGLE          0
 #define PARTY_LAYOUT_DOUBLE          1
