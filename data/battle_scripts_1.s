@@ -835,6 +835,7 @@ BattleScript_EffectGrippingNail::
 BattleScript_EffectGrippingNailContinue::
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	attackcanceler
+	addbyte sTRIPLE_KICK_POWER, 4
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -863,6 +864,7 @@ BattleScript_GrippingNailBloomingEffect::
 	jumpifstatus3 BS_TARGET, STATUS3_LEECHSEED, BattleScript_EffectGrippingNailContinue
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	attackcanceler
+	addbyte sTRIPLE_KICK_POWER, 4
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE

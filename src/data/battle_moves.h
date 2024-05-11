@@ -561,7 +561,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_OHKO,
         .power = 1,
         .type = TYPE_NORMAL,
-        .accuracy = 45,
+        .accuracy = 30,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -15434,7 +15434,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
     },
 
-    [MOVE_MASS_BREAK] =
+    [MOVE_MASS_DESTRUCTION] =
     {
         .effect = EFFECT_BRICK_BREAK,
         .power = 90,
@@ -15936,16 +15936,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_GRIPPING_NAIL] =
     {
         .effect = EFFECT_GRIPPING_NAIL,
-        .power = 16,
+        .power = 8,
         .type = TYPE_GRASS,
-        .accuracy = 90,
-        .pp = 10,
+        .accuracy = 93,
+        .pp = 6,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .piercingMove = TRUE,
+        .strikeCount = 3,
     },
 
     [MOVE_VIGOR_ROOT] =

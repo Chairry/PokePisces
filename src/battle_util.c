@@ -61,6 +61,7 @@ static bool32 TryRemoveScreens(u32 battler);
 static bool32 IsUnnerveAbilityOnOpposingSide(u32 battler);
 static u32 GetFlingPowerFromItemId(u32 itemId);
 static void SetRandomMultiHitCounter();
+static void SetRandomMultiHitCounter3To5();
 static u32 GetBattlerItemHoldEffectParam(u32 battler, u32 item);
 static uq4_12_t GetInverseTypeMultiplier(uq4_12_t multiplier);
 static uq4_12_t GetSupremeOverlordModifier(u32 battler);
@@ -2655,7 +2656,7 @@ enum
 s32 GetDrainedBigRootHp(u32 battler, s32 hp)
 {
     if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_BIG_ROOT)
-        hp = (hp * 1300) / 1000;
+        hp = (hp * 1500) / 1000;
     if (hp == 0)
         hp = 1;
 
@@ -3912,7 +3913,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_MULTIHIT_MOVES:
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE || gBattleMoves[gCurrentMove].effect == EFFECT_BLACK_BUFFET)
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_MULTI_HIT || gBattleMoves[gCurrentMove].effect == EFFECT_BARB_BARRAGE)
             {
                 u16 ability = gBattleMons[gBattlerAttacker].ability;
 
@@ -3927,6 +3928,21 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 else
                 {
                     SetRandomMultiHitCounter();
+                }
+
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+            }
+            else if (gBattleMoves[gCurrentMove].effect == EFFECT_BLACK_BUFFET)
+            {
+                u16 ability = gBattleMons[gBattlerAttacker].ability;
+
+                if (ability == ABILITY_SKILL_LINK)
+                {
+                    gMultiHitCounter = 5;
+                }
+                else
+                {
+                    SetRandomMultiHitCounter3To5();
                 }
 
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
@@ -10305,7 +10321,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         break;
     case ABILITY_DRAINAGE:
         if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2) && IsMoveDraining(move))
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.75));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_POWER_SPIKE:
         if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2) && gBattleMoves[move].piercingMove)
@@ -11257,7 +11273,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (gCurrentMove == MOVE_CHROMA_BEAM && (typeEffectivenessModifier < UQ_4_12(2.0)))
         mod = UQ_4_12(2.0);
-    if (gCurrentMove == MOVE_MASS_BREAK && (defType == TYPE_NORMAL || defType == TYPE_FIGHTING))
+    if (gCurrentMove == MOVE_MASS_DESTRUCTION && (defType == TYPE_NORMAL || defType == TYPE_FIGHTING))
         mod = UQ_4_12(2.0);
     if (gCurrentMove == MOVE_PURGE_RAY && (defType == TYPE_DARK || defType == TYPE_POISON))
         mod = UQ_4_12(2.0);
@@ -12489,6 +12505,24 @@ static void SetRandomMultiHitCounter()
 #else
         // 37.5%: 2 hits, 37.5%: 3 hits, 12.5% 4 hits, 12.5% 5 hits.
         gMultiHitCounter = RandomWeighted(RNG_HITS, 0, 0, 3, 3, 1, 1);
+#endif
+    }
+}
+
+static void SetRandomMultiHitCounter3To5()
+{
+    if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LOADED_DICE)
+    {
+        gMultiHitCounter = RandomUniform(RNG_LOADED_DICE, 4, 5);
+    }
+    else
+    {
+#if B_MULTI_HIT_CHANCE >= GEN_5
+        // 70%: 3 hits, 20%: 4 hits, 10%: 5 hits
+        gMultiHitCounter = RandomWeighted(RNG_HITS, 0, 0, 0, 7, 2, 1);
+#else
+        // 70%: 3 hits, 20%: 4 hits, 10%: 5 hits
+        gMultiHitCounter = RandomWeighted(RNG_HITS, 0, 0, 0, 7, 2, 1);
 #endif
     }
 }

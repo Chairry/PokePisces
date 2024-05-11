@@ -3592,7 +3592,7 @@ static const u8 sEarthShatterDescription[] = _(
     "Removes Terrain. Stronger\n"
     "against Rock/Ground/Steel.");
 
-static const u8 sMassBreakDescription[] = _(
+static const u8 sMassDestructionDescription[] = _(
     "Stronger against Normal and\n"
     "Fighting. Destroys Screens.");
 
@@ -4682,7 +4682,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
     [MOVE_GATTLING_PINS - 1] = sGattlingPinsDescription,
     [MOVE_EARTH_SHATTER - 1] = sEarthShatterDescription,
-    [MOVE_MASS_BREAK - 1] = sMassBreakDescription,
+    [MOVE_MASS_DESTRUCTION - 1] = sMassDestructionDescription,
     [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
     [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
     [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,

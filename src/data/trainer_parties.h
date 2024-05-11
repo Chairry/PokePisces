@@ -8131,26 +8131,8 @@ static const struct TrainerMon sParty_Marc[] = {
     {
     .lvl = 100,
     .species = SPECIES_SCEPTILE,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_COMBUSKEN,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_MUDKIP,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_CASTFORM,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_CRADILY,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_ARMALDO,
+    .ability = ABILITY_SHARPNESS,
+    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
     }
 };
 

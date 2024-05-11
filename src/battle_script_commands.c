@@ -13205,6 +13205,9 @@ static void Cmd_tryKO(void)
             || GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0))
                 odds *= 2;
 
+            if (gCurrentMove == MOVE_HORN_DRILL && GetBattlerAbility(gBattlerAttacker) == ABILITY_POWER_SPIKE && (gBattleMons[gBattlerAttacker].hp = (gBattleMons[gBattlerAttacker].maxHP / 2)))
+                odds *= 2;
+
             if (RandomPercentage(RNG_ACCURACY, odds) && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
                 lands = TRUE;
         }

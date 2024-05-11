@@ -956,7 +956,7 @@ gBattleAnims_Moves::
 	.4byte Move_ROADBLOCK
 	.4byte Move_GATTLING_PINS
 	.4byte Move_EARTH_SHATTER
-	.4byte Move_MASS_BREAK
+	.4byte Move_MASS_DESTRUCTION
 	.4byte Move_PILGRIMAGE
 	.4byte Move_HEAVY_CANNON
 	.4byte Move_GIANTS_SPEAR
@@ -22171,7 +22171,7 @@ Move_EARTH_SHATTER::
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 3, 0, RGB_BLACK
 	end
 
-Move_MASS_BREAK::
+Move_MASS_DESTRUCTION::
 	loadspritegfx ANIM_TAG_FOCUS_ENERGY @focus energy
 	loadspritegfx ANIM_TAG_WATER_ORB @blue
 	loadspritegfx ANIM_TAG_POISON_BUBBLE @purple
@@ -22180,8 +22180,8 @@ Move_MASS_BREAK::
 	loadspritegfx ANIM_TAG_EXPLOSION_2
 	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
 	loadspritegfx ANIM_TAG_TORN_METAL
-	choosetwoturnanim MassBreakNormal, MassBreakShatteredWall
-MassBreakNormal:
+	choosetwoturnanim MassDestructionNormal, MassDestructionShatteredWall
+MassDestructionNormal:
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_ATTACKER, 2, 0
@@ -22226,12 +22226,12 @@ MassBreakNormal:
 	delay 5
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 6
 	waitforvisualfinish
-	call MassBreakExplosion
+	call MassDestructionExplosion
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-MassBreakShatteredWall:
+MassDestructionShatteredWall:
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_ATTACKER, 2, 0
@@ -22283,12 +22283,12 @@ MassBreakShatteredWall:
 	delay 5
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 6
 	waitforvisualfinish
-	call MassBreakExplosion
+	call MassDestructionExplosion
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-MassBreakExplosion:
+MassDestructionExplosion:
 	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
 	createsprite gTectonicRageExplosionSpriteTemplate, ANIM_TARGET, 2, 0, 12, ANIM_TARGET, 0x0
 	createsprite gTectonicRageExplosionSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 0x0
