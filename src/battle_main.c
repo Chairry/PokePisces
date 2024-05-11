@@ -5746,38 +5746,18 @@ void RunBattleScriptCommands(void)
 
 static void SetTypeIconSpriteInvisibility(u8 spriteId, bool8 invisible)
 {
-    gSprites[spriteId].invisible = invisible;
 }
 
 void SetTypeIconPal(u8 typeId, u8 spriteId)
 {
-    struct Sprite *sprite;
-
-    sprite = &gSprites[spriteId];
-    StartSpriteAnim(sprite, typeId);
-    sprite->oam.paletteNum = gMoveTypeToOamPaletteNum[typeId];
-    SetTypeIconSpriteInvisibility(spriteId, FALSE);
 }
 
 void LoadTypeIcon(u8 type)
 {
-    if (gBattleMoveTypeSpriteId == MAX_SPRITES)
-    {
-        LoadCompressedSpriteSheet(&gSpriteSheet_MoveTypes);
-        LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
-        gBattleMoveTypeSpriteId = CreateSprite(&gSpriteTemplate_MoveTypes, 216, 128, 0);
-        gSprites[gBattleMoveTypeSpriteId].oam.priority = 0;
-        SetTypeIconPal(type, gBattleMoveTypeSpriteId);
-    }
 }
 
 void DestroyTypeIcon(void)
 {
-    if (gBattleMoveTypeSpriteId != MAX_SPRITES)
-    {
-        DestroySpriteAndFreeResources(&gSprites[gBattleMoveTypeSpriteId]);
-        gBattleMoveTypeSpriteId = MAX_SPRITES;
-    }
 }
 
 void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)

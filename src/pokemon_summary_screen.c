@@ -1004,6 +1004,28 @@ const u8 gMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = 15,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = 13,
 };
+
+static const u16 sTypeIconPal1[] = INCBIN_U16("graphics/types/move_types_1.gbapal");
+static const u16 sTypeIconPal2[] = INCBIN_U16("graphics/types/move_types_2.gbapal");
+static const u16 sTypeIconPal3[] = INCBIN_U16("graphics/types/move_types_3.gbapal");
+u8 LoadTypeIconPal(u32 type)
+{
+    int offset = 12 * 16;
+    switch (gMoveTypeToOamPaletteNum[type])
+    {
+    case 13:
+        LoadPalette(sTypeIconPal1, offset, 32);
+        return 7;
+    case 14:
+        LoadPalette(sTypeIconPal2, offset, 32);
+        return 6;
+    case 15:
+        LoadPalette(sTypeIconPal3, offset, 32);
+        return 7;
+    }
+    return 0;
+}
+
 static const struct OamData sOamData_MoveSelector =
 {
     .y = 0,
