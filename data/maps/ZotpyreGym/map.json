@@ -831,6 +831,33 @@
       "var": "VAR_TEMP_4",
       "var_value": "0",
       "script": "ZotpyreGym_EventScript_CheckAgainstVar5"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "ZotpyreGym_EventScript_EncRight"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "ZotpyreGym_EventScript_EncounterLeaders"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "ZotpyreGym_EventScript_EncLeft"
     }
   ],
   "bg_events": [

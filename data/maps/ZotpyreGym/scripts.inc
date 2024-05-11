@@ -1,3 +1,6 @@
+.set LOCALID_PHOEBE, 11
+.set LOCALID_SPENSER, 10
+
 ZotpyreGym_MapScripts::
 	.byte 0
 
@@ -134,6 +137,47 @@ ZotpyreGym_EventScript_LeaderBattle::
 	release
 	end
 
+ZotpyreGym_EventScript_EncLeft::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, ZotpyreGym_Movement_WalkLeft
+	goto ZotpyreGym_EventScript_EncounterLeaders
+	end
+
+ZotpyreGym_Movement_WalkLeft:
+	walk_left
+	step_end
+
+ZotpyreGym_EventScript_EncRight::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, ZotpyreGym_Movement_WalkRight
+	goto ZotpyreGym_EventScript_EncounterLeaders
+	end
+
+ZotpyreGym_Movement_WalkRight:
+	walk_right
+	step_end
+
+ZotpyreGym_EventScript_EncounterLeaders::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, ZotpyreGym_Movement_WalkUp
+	msgbox ZotpyreGym_Text_LeadersIntro, MSGBOX_DEFAULT
+	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_Talk
+	msgbox ZotpyreGym_Text_Spenser1, MSGBOX_DEFAULT
+	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_Talk
+	msgbox ZotpyreGym_Text_Phoebe1, MSGBOX_DEFAULT
+	trainerbattle_two_trainers TRAINER_P_PHOEBE, ZotpyreGym_Text_PhoebeDefeat, TRAINER_P_SPENSER, ZotpyreGym_Text_SpenserDefeat, ZotpyreGym_EventScript_LeadersDefeated, NO_MUSIC
+	goto ZotpyreGym_EventScript_LeadersDefeated
+	release
+	end
+
+ZotpyreGym_Movement_WalkUp:
+	walk_up
+	step_end
+
+ZotpyreGym_Movement_Talk:
+	walk_in_place_down
+	step_end
+
 ZotpyreGym_EventScript_LeadersDefeated::
 	msgbox ZotpyreGym_Text_LeadersYouWon, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
@@ -209,6 +253,12 @@ ZotpyreGym_Text_YuinaDefeated:
 
 ZotpyreGym_Text_YuinaPostBattle:
 	.string "post$"
+
+ZotpyreGym_Text_Spenser1:
+	.string "hello$"
+
+ZotpyreGym_Text_Phoebe1:
+	.string "hello$"
 
 ZotpyreGym_Text_PhoebeDefeat:
 	.string "defeat$"
