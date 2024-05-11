@@ -291,11 +291,11 @@ const u8 gText_BattleItemsPocket[] = _("BATTLE ITEM");
 const u8 *const gPocketNamesStringsTable[] =
 {
     [ITEMS_POCKET] = gText_ItemsPocket,
-    [MEDICINE_POCKET] = gText_MedicinePocket,
     [BALLS_POCKET] = gText_PokeBallsPocket,
+    [TMHM_POCKET]  = gText_TMHMPocket,
+    [MEDICINE_POCKET] = gText_MedicinePocket,
     [BATTLEITEMS_POCKET] = gText_BattleItemsPocket,
     [BERRIES_POCKET] = gText_BerriesPocket,
-    [TMHM_POCKET]  = gText_TMHMPocket,
     [KEYITEMS_POCKET] = gText_KeyItemsPocket
 };
 

@@ -1769,16 +1769,18 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         if (gTasks[taskId].data[0] != 20)
             PlaySE(SE_SELECT);
 
-        // Purchasing 10+ Poke Balls gets the player a Premier Ball
-        if (sShopData->currentItemId == ITEM_POKE_BALL && tItemCount < 20 && tItemCount >= 10 && AddBagItem(ITEM_PREMIER_BALL, 1) == TRUE)
+        if ((ItemId_GetPocket(sShopData->currentItemId) == POCKET_POKE_BALLS) && tItemCount > 9 && AddBagItem(ITEM_PREMIER_BALL, tItemCount / 10) == TRUE)
         {
-            FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-            BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_ThrowInPremierBall, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
-        }
-        else if (sShopData->currentItemId == ITEM_POKE_BALL && tItemCount >= 20 && AddBagItem(ITEM_PREMIER_BALL, (tItemCount / 10)) == TRUE)
-        {
-            FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-            BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_ThrowInSomePremierBalls, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
+            if (tItemCount > 19)
+            {
+                FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
+                BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_ThrowInPremierBall, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
+            }
+            else
+            {
+                FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
+                BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_ThrowInSomePremierBalls, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
+            }
         }
         gTasks[taskId].data[0] = 20;
         gTasks[taskId].func = Task_ReturnToItemListWaitMsg;
