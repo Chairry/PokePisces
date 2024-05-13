@@ -4892,7 +4892,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_HUDDLE_UP:
-            if (gBattleMons[battler].level < 20)
+            if (gBattleMons[battler].level < 25)
                 break;
         // Fallthrough
         case ABILITY_ZEN_MODE:
@@ -5308,7 +5308,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_HUDDLE_UP:
-                if (gBattleMons[battler].level < 20)
+                if (gBattleMons[battler].level < 25)
                     break;
             // Fallthrough
             case ABILITY_ZEN_MODE:
@@ -9175,7 +9175,7 @@ u32 CountBattlerStatDecreases(u32 battler, bool32 countEvasionAcc)
         if ((i == STAT_ACC || i == STAT_EVASION) && !countEvasionAcc)
             continue;
         if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
-            count += (gBattleMons[battler].statStages[i] + DEFAULT_STAT_STAGE) * -1;
+            count += (gBattleMons[battler].statStages[i] - DEFAULT_STAT_STAGE);
     }
 
     return count;

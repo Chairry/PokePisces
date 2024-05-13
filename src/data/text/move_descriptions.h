@@ -309,7 +309,7 @@ static const u8 sLeechSeedDescription[] = _(
     "steal HP on every turn.");
 
 static const u8 sGrowthDescription[] = _(
-    "Raises Def and Sp. Def. Gains\n"
+    "Raises Atk and Sp. Atk. Gains\n"
     "Blooming in harsh sunlight.");
 
 static const u8 sRazorLeafDescription[] = _(
@@ -1117,7 +1117,7 @@ static const u8 sAssistDescription[] = _(
     "of the partner's moves.");
 
 static const u8 sIngrainDescription[] = _(
-    "Lays roots that restore HP and\n"
+    "Lays roots that heal HP and\n"
     "gives Blooming. Can't switch.");
 
 static const u8 sSuperpowerDescription[] = _(
@@ -1165,8 +1165,8 @@ static const u8 sImprisonDescription[] = _(
     "moves known by the user.");
 
 static const u8 sRefreshDescription[] = _(
-    "Heals poisoning, paralysis,\n"
-    "or a burn.");
+    "Heals any type of negative.\n"
+    "status.");
 
 static const u8 sGrudgeDescription[] = _(
     "If the user faints, deletes\n"
@@ -3261,8 +3261,8 @@ static const u8 sHydroSteamDescription[] = _(
     "under harsh sunlight.");
 
 static const u8 sSpookDescription[] = _(
-    "Spooks the foe and ends the\n"
-    "battle.");
+    "Spooks the foe and lowers\n"
+    "the next foe's accuracy.");
 
 static const u8 sChillyAirDescription[] = _(
     "Chills the foe, to sharply\n"
@@ -3713,7 +3713,7 @@ static const u8 sPowerDrainDescription[] = _(
     "heal. Removes Electric-type.");
 
 static const u8 sGrippingNailDescription[] = _(
-    "Grips foe with cursed thorns.\n"
+    "Grips foe 3 times with thorns.\n"
     "Prevents escape and curses.");
 
 static const u8 sHornLeechDescription[] = _(

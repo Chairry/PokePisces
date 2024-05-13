@@ -29,7 +29,6 @@ const u8 gEnemyMonElevation[NUM_SPECIES + 1] =
     [SPECIES_MURKROW] = 12,
     [SPECIES_MISDREAVUS] = 8,
     [SPECIES_UNOWN] = 8,
-    [SPECIES_GLIGAR] = 8,
     [SPECIES_MANTINE] = 6,
     [SPECIES_PORYGON2] = 9,
     [SPECIES_LUGIA] = 6,

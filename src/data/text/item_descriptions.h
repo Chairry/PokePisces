@@ -3041,8 +3041,8 @@ static const u8 sTM03Desc[] = _(
     "intensifying toxin.");
 
 static const u8 sTM04Desc[] = _(
-    "Spooks the foe and ends the\n"
-    "battle.");
+    "Spooks the foe and lowers\n"
+    "the next foe's accuracy.");
 
 static const u8 sTM05Desc[] = _(
     "Inflicts frostbite on the\n"

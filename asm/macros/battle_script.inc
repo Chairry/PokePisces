@@ -2447,6 +2447,7 @@
 
 	.macro remodelcheck jumpInstr:req
 	various 0, VARIOUS_REMODEL_CHECK
+	.4byte \jumpInstr
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.
