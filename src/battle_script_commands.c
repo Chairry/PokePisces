@@ -9922,7 +9922,7 @@ static void Cmd_various(void)
             case ABILITY_FORECAST:          case ABILITY_MULTITYPE:
             case ABILITY_FLOWER_GIFT:       case ABILITY_ILLUSION:
             case ABILITY_WONDER_GUARD:      case ABILITY_ZEN_MODE:
-            case ABILITY_STELLAR_BODY:     case ABILITY_IMPOSTER:
+            case ABILITY_STELLAR_BODY:      case ABILITY_IMPOSTER:
             case ABILITY_DORMANT:           case ABILITY_BATTLE_BOND:
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
