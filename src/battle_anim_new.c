@@ -1914,6 +1914,17 @@ const struct SpriteTemplate gThousandArrowsGreenHexTemplate =
     .callback = SpriteCB_Geyser
 };
 
+const struct SpriteTemplate gPilgrimageRisingTemplate =
+{
+    .tileTag = ANIM_TAG_PILGRIMAGE_RISING,
+    .paletteTag = ANIM_TAG_PILGRIMAGE_RISING,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_Geyser
+};
+
 const struct SpriteTemplate gThousandArrowsGreenArrowTemplate =
 {
     .tileTag = ANIM_TAG_NEEDLE,
@@ -6584,6 +6595,17 @@ const struct SpriteTemplate gArrowRaidArrowOnslaughtSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPIRIT_ARROW,
     .paletteTag = ANIM_TAG_SPIRIT_ARROW,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sArrowRaidOnslaughtAffineAnimTable,
+    .callback = AnimAssistPawprint
+};
+
+const struct SpriteTemplate gPilgrimageOnslaughtSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PILGRIMAGE_FALLING,
+    .paletteTag = ANIM_TAG_PILGRIMAGE_FALLING,
     .oam = &gOamData_AffineNormal_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,

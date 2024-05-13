@@ -70,6 +70,12 @@ const u32 gBattleAnimSpritePal_AssuranceHand[] = INCBIN_U32("graphics/battle_ani
 const u32 gBattleAnimSpriteGfx_SpiritHand[] = INCBIN_U32("graphics/battle_anims/sprites/spirit_hand.4bpp.lz");
 const u32 gBattleAnimSpritePal_SpiritHand[] = INCBIN_U32("graphics/battle_anims/sprites/spirit_hand.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_PilgrimageRising[] = INCBIN_U32("graphics/battle_anims/sprites/pilgrimage_rising.4bpp.lz");
+const u32 gBattleAnimSpritePal_PilgrimageRising[] = INCBIN_U32("graphics/battle_anims/sprites/pilgrimage_rising.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_PilgrimageFalling[] = INCBIN_U32("graphics/battle_anims/sprites/pilgrimage_falling.4bpp.lz");
+const u32 gBattleAnimSpritePal_PilgrimageFalling[] = INCBIN_U32("graphics/battle_anims/sprites/pilgrimage_falling.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_AuraSphere[] = INCBIN_U32("graphics/battle_anims/sprites/aura_sphere.4bpp.lz");
 const u32 gBattleAnimSpritePal_AuraSphere[] = INCBIN_U32("graphics/battle_anims/sprites/aura_sphere.gbapal.lz");
 
@@ -1265,6 +1271,9 @@ const u32 gBattleAnimSpritePal_PurpleFlame[] = INCBIN_U32("graphics/battle_anims
 
 const u32 gBattleAnimSpriteGfx_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedBall[] = INCBIN_U32("graphics/battle_anims/sprites/red_ball.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.4bpp.lz");
+const u32 gBattleAnimSpritePal_Bullet[] = INCBIN_U32("graphics/battle_anims/sprites/bullet.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.4bpp.lz");
 const u32 gBattleAnimSpritePal_WhiteBall[] = INCBIN_U32("graphics/battle_anims/sprites/white_ball.gbapal.lz");

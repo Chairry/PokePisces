@@ -476,7 +476,7 @@ MossdeepCity_EventScript_EggEncounter6FinalLeft::
 
 MossdeepCity_EventScript_ReceiveEgg::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EGG
-	giveegg SPECIES_WELPROOT
+	giveegg SPECIES_SQUEESHY
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MossdeepCity_EventScript_ReceiveEggParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, MossdeepCity_EventScript_ReceiveEggPC
 	goto Common_EventScript_NoMoreRoomForPokemon
