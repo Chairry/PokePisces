@@ -1700,15 +1700,47 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
 }
 
+static const u16 sTypeIconTileOffset[] = {
+    [TYPE_NORMAL] = 0x20,
+    [TYPE_FIGHTING] = 0x64,
+    [TYPE_FLYING] = 0x60,
+    [TYPE_POISON] = 0x80,
+    [TYPE_GROUND] = 0x48,
+    [TYPE_ROCK] = 0x44,
+    [TYPE_BUG] = 0x6C,
+    [TYPE_GHOST] = 0x68,
+    [TYPE_STEEL] = 0x88,
+    [TYPE_MYSTERY] = 0x1C,
+    [TYPE_FIRE] = 0x24,
+    [TYPE_WATER] = 0x28,
+    [TYPE_GRASS] = 0x2C,
+    [TYPE_ELECTRIC] = 0x40,
+    [TYPE_PSYCHIC] = 0x84,
+    [TYPE_ICE] = 0x4C,
+    [TYPE_DRAGON] = 0xA0,
+    [TYPE_DARK] = 0x8C,
+    [TYPE_FAIRY] = 0xA4,
+    [TYPE_RELIC] = 0xA8,
+};
+
+static const u8 sTypeIconGfx[] =  INCBIN_U8("graphics/interface/type_icons.4bpp");
+extern u8 LoadTypeIconPal(u32 type);
+static inline void BlitTypeIcon(u8 windowId, u8 type, u8 x, u8 y)
+{
+    BlitBitmapRectToWindow(windowId, sTypeIconGfx + sTypeIconTileOffset[type] * 32, 0, 0, 128, 128, x, y, 32, 16);
+}
+
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
     u8 *txtPtr;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-
-    if (gBattleMoveTypeSpriteId == MAX_SPRITES)
-        LoadTypeIcon(gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type);
-    else
-        SetTypeIconPal(gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type, gBattleMoveTypeSpriteId);
+    u32 type = gBattleMoves[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
+    u8 whiteIndex = LoadTypeIconPal(type);
+    
+    FillWindowPixelBuffer(B_WIN_MOVE_TYPE, PIXEL_FILL(whiteIndex));
+    BlitTypeIcon(B_WIN_MOVE_TYPE, type, 0, 0);
+    PutWindowTilemap(B_WIN_MOVE_TYPE);
+    CopyWindowToVram(B_WIN_MOVE_TYPE, 3);
 }
 
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
