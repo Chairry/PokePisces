@@ -1402,15 +1402,15 @@ static const struct SpriteFrameImage sPicTable_MayFishing[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_HotSpringsOldWoman[] = {
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 0),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 1),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 2),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 3),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 4),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 5),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 6),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 7),
-    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 2, 4, 8),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 0),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 1),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 2),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 3),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 4),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 5),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 6),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 7),
+    overworld_frame(gObjectEventPic_HotSpringsOldWoman, 4, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_SSTidal[] = {
@@ -1426,15 +1426,15 @@ static const struct SpriteFrameImage sPicTable_SSTidal[] = {
 };
 
 static const struct SpriteFrameImage sPicTable_SubmarineShadow[] = {
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
-    obj_frame_tiles(gObjectEventPic_SubmarineShadow),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 0),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 1),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 2),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 3),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 4),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 5),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 6),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 7),
+    overworld_frame(gObjectEventPic_UnusedWoman, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_PichuDoll[] = {

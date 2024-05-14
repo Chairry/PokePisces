@@ -140,9 +140,9 @@
 #define OBJ_EVENT_GFX_LITTLE_BOY_3               136
 #define OBJ_EVENT_GFX_BRENDAN_FISHING            137
 #define OBJ_EVENT_GFX_MAY_FISHING                138
-#define OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN      139
+#define OBJ_EVENT_GFX_SKIER      139
 #define OBJ_EVENT_GFX_SS_TIDAL                   140
-#define OBJ_EVENT_GFX_SUBMARINE_SHADOW           141
+#define OBJ_EVENT_GFX_GILDED_MONK           141
 #define OBJ_EVENT_GFX_COURTNEY                 142
 #define OBJ_EVENT_GFX_SEBASTIAN               143
 #define OBJ_EVENT_GFX_DARKSKIN_WOMAN                144
