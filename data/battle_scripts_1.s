@@ -1275,7 +1275,7 @@ BattleScript_EffectSkySplitter::
 BattleScript_EffectRedline::
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	normaliseattackerbuffs
+	normaliseattackernerfs
 	printstring STRINGID_USERSTATCHANGESGONE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

@@ -967,6 +967,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PHANTASM] = _("Phantasm"),
     [MOVE_PENALIZE] = _("Penalize"),
     [MOVE_BLOSSOM_SNAP] = _("Blossom Snap"),
+    [MOVE_GRASS_CANNON] = _("Grass Cannon"),
 };
 #else
 // 12 letters
@@ -1937,6 +1938,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PHANTASM] = _("Phantasm"),
     [MOVE_PENALIZE] = _("Penalize"),
     [MOVE_BLOSSOM_SNAP] = _("Blossom Snap"),
+    [MOVE_GRASS_CANNON] = _("Grass Cannon"),
 };
 #endif
 

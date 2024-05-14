@@ -19253,6 +19253,7 @@ static const struct LevelUpMove sUhefoeLevelUpLearnset[] = {
 
 static const struct LevelUpMove sMystomaniaLevelUpLearnset[] = {
     //LEVEL_UP_MOVE( 0, MOVE_BURNING_SPIRIT),
+    LEVEL_UP_MOVE( 1, MOVE_METEOR_MASH),
     //LEVEL_UP_MOVE( 1, MOVE_TERRORIZE),
     LEVEL_UP_MOVE( 1, MOVE_HYPERSPACE_HOLE),
     LEVEL_UP_MOVE( 1, MOVE_HYPERSPACE_FURY),

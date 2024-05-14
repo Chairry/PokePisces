@@ -2436,8 +2436,8 @@
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
 	.endm
 
-	.macro normaliseattackerbuffs
-	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS
+	.macro normaliseattackernerfs
+	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
 	.endm
 
 	.macro tryhealallhealth failInstr:req

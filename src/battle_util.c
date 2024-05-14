@@ -9175,7 +9175,7 @@ u32 CountBattlerStatDecreases(u32 battler, bool32 countEvasionAcc)
         if ((i == STAT_ACC || i == STAT_EVASION) && !countEvasionAcc)
             continue;
         if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
-            count += (gBattleMons[battler].statStages[i] - DEFAULT_STAT_STAGE);
+            count += DEFAULT_STAT_STAGE - gBattleMons[battler].statStages[i];
     }
 
     return count;
@@ -9574,7 +9574,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
         break;
     case EFFECT_REDLINE:
-        basePower += (CountBattlerStatDecreases(battlerAtk, TRUE) * 50);
+        basePower = 50 + (CountBattlerStatDecreases(battlerAtk, TRUE) * 50);
         break;
     case EFFECT_ZAPPER:
         basePower = 60 + (CountBattlerStatDecreases(battlerDef, TRUE) * 20);

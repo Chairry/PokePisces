@@ -11639,14 +11639,14 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
     }
-    case VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS:
+    case VARIOUS_TRY_NORMALISE_ATTACKER_NERFS:
     {
         VARIOUS_ARGS();
 
         s32 i, j;
 
         for (i = 0; i < gBattlersCount; i++)
-            TryResetAttackerStatChanges(i);
+            TryResetAttackerNegativeStatChanges(i);
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -12674,19 +12674,18 @@ bool32 TryResetBattlerStatChanges(u8 battler)
     return ret;
 }
 
-bool32 TryResetAttackerStatChanges(u8 battler)
+bool32 TryResetAttackerNegativeStatChanges(u8 battler)
 {
     u32 j;
     bool32 ret = FALSE;
 
-    gDisableStructs[gBattlerAttacker].stockpileDef = 0;
-    gDisableStructs[gBattlerAttacker].stockpileSpDef = 0;
     for (j = 0; j < NUM_BATTLE_STATS; j++)
     {
-        if (gBattleMons[gBattlerAttacker].statStages[j] != DEFAULT_STAT_STAGE)
+        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
             ret = TRUE; // returns TRUE if any stat was reset
 
-        gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
+        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
+            gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
     }
 
     return ret;

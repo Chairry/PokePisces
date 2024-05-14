@@ -11672,6 +11672,8 @@ extern const u32 gBattleAnimSpriteGfx_Gear[];
 extern const u32 gBattleAnimSpritePal_Gear[];
 extern const u32 gBattleAnimSpriteGfx_GigavoltHavocSpear[];
 extern const u32 gBattleAnimSpritePal_GigavoltHavocSpear[];
+extern const u32 gBattleAnimSpriteGfx_GiantsSpear[];
+extern const u32 gBattleAnimSpritePal_GiantsSpear[];
 extern const u32 gBattleAnimSpriteGfx_GoldenApple[];
 extern const u32 gBattleAnimSpritePal_GoldenApple[];
 extern const u32 gBattleAnimSpritePal_GreenDrake[];
