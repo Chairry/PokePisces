@@ -3606,7 +3606,7 @@ static const u8 sGiantsSpearDescription[] = _(
 
 static const u8 sRedlineDescription[] = _(
     "Boosted for every stat drop.\n"
-    "Resets own stat changes.");
+    "Resets own stat drops.");
 
 static const u8 sZapperDescription[] = _(
     "Drops Speed of foe. Stronger\n"
