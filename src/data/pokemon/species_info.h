@@ -2168,12 +2168,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MANKEY] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 80,
-        .baseDefense   = 35,
-        .baseSpeed     = 70,
+        .baseHP        = 50,
+        .baseAttack    = 90,
+        .baseDefense   = 45,
+        .baseSpeed     = 80,
         .baseSpAttack  = 35,
-        .baseSpDefense = 45,
+        .baseSpDefense = 40,
         .types = { TYPE_FIGHTING, TYPE_FIGHTING },
         .catchRate = 190,
         .expYield = 49,
@@ -2190,10 +2190,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_PRIMEAPE] =
     {
-        .baseHP        = 65,
-        .baseAttack    = 105,
-        .baseDefense   = 60,
-        .baseSpeed     = 95,
+        .baseHP        = 80,
+        .baseAttack    = 115,
+        .baseDefense   = 70,
+        .baseSpeed     = 105,
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
         .types = { TYPE_FIGHTING, TYPE_FIGHTING },
@@ -25723,7 +25723,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_DRAGON},
-        .abilities = {ABILITY_WATER_COMPACTION, ABILITY_ARENA_TRAP, ABILITY_SAND_RUSH},
+        .abilities = {ABILITY_WATER_COMPACTION, ABILITY_ARENA_TRAP, ABILITY_SAND_SPIT},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },

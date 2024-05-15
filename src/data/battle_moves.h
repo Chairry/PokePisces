@@ -412,8 +412,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
-        .minimizeDoubleDamage = TRUE,
         .kickingMove = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_DOUBLE_KICK] =
@@ -609,7 +609,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_WRAP] =
@@ -1654,7 +1654,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_PSYCHIC,
-        .accuracy = 75,
+        .accuracy = 85,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -2189,6 +2189,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_CLAMP] =
@@ -2246,6 +2247,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_SPIKE_CANNON] =
@@ -2723,6 +2725,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_HYPER_FANG] =
@@ -5197,7 +5200,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_4,
     },
 
     [MOVE_SLACK_OFF] =
@@ -5338,7 +5340,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_4,
     },
 
     [MOVE_WEATHER_BALL] =
@@ -5607,7 +5608,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_4,
     },
 
     [MOVE_SKY_UPPERCUT] =
@@ -5645,6 +5645,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sandMove = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_SHEER_COLD] =
@@ -6950,7 +6951,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_POWER_GEM] =
@@ -7102,6 +7103,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .instructBanned = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_NASTY_PLOT] =
@@ -7554,6 +7556,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .highCritRatio = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_CAPTIVATE] =
@@ -7931,7 +7934,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
         .argument = MOVE_EFFECT_FEINT,
         .ignoresProtect = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS == GEN_6,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
     },
@@ -8200,8 +8202,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .danceMove = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_7,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_SYNCHRONOISE] =
@@ -9034,7 +9035,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_LEAF_TORNADO] =
@@ -9449,8 +9450,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .argument = TYPE_FLYING,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .minimizeDoubleDamage = TRUE,
         .gravityBanned = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_MAT_BLOCK] =
@@ -9556,7 +9557,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .ignoresProtect = TRUE,
         .makesContact = TRUE,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS == GEN_6,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
     },
@@ -11571,7 +11571,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .punchingMove = TRUE,
         .sheerForceBoost = TRUE,
         .strikeCount = 2,
-        .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
     },
 
@@ -12166,6 +12165,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .argument = ARG_TRY_REMOVE_TERRAIN_HIT, // Remove the active field terrain if there is one.
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_SCALE_SHOT] =
@@ -12651,6 +12651,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .sheerForceBoost = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_POWER_SHIFT] =
@@ -12791,6 +12792,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_VICTORY_DANCE] =
@@ -14226,6 +14228,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_COLD_MEND] =
@@ -14460,9 +14463,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_VEXING_KI] =
     {
         .effect = EFFECT_VEXING_KI,
-        .power = 100,
+        .power = 90,
         .type = TYPE_DARK,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -14497,7 +14500,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 90,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
@@ -15324,6 +15327,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .argument = ARG_TRY_REMOVE_TERRAIN_HIT, // Remove the active field terrain if there is one.
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_BRUTALIZE] =
@@ -15447,6 +15451,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_PILGRIMAGE] =
@@ -15805,6 +15810,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .minimizeDoubleDamage = TRUE,
     },
 
     [MOVE_GLIMMER] =

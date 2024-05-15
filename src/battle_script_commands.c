@@ -11155,6 +11155,26 @@ static void Cmd_various(void)
 
         break;
     }
+    case VARIOUS_JUMP_IF_STATUS4:
+    {
+        VARIOUS_ARGS(u32 flags, bool8 jumpIfTrue, const u8 *jumpInstr);
+
+        u32 battler = GetBattlerForBattleScript(cmd->battler);
+        if (cmd->jumpIfTrue)
+        {
+            if ((gStatuses4[battler] & cmd->flags) != 0)
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            else
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            if ((gStatuses4[battler] & cmd->flags) != 0)
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            else
+                gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
     case VARIOUS_SHELL_SIDE_ARM_CHECK: // 0% chance GameFreak actually checks this way according to DaWobblefet, but this is the only functional explanation at the moment
     {
         VARIOUS_ARGS();
@@ -15050,7 +15070,6 @@ static void Cmd_setcharge(void)
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
     gStatuses3[battler] |= STATUS3_CHARGED_UP;
-    gDisableStructs[battler].chargeTimer = 2;
     gBattlescriptCurrInstr++;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

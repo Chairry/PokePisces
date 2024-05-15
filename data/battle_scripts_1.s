@@ -1015,7 +1015,7 @@ BattleScript_EffectHearthwarm:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus3 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
+	jumpifstatus4 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
 	attackanimation
 	waitanimation
 	copybyte gBattlerTarget, gBattlerAttacker
@@ -1312,7 +1312,7 @@ BattleScript_EffectTickTack::
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
-	jumpifstatus3 BS_TARGET, STATUS4_TICKED, BattleScript_TickTackContinue
+	jumpifstatus4 BS_TARGET, STATUS4_TICKED, BattleScript_TickTackContinue
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_TickTackContinue
 	setseeded
