@@ -382,7 +382,7 @@ Route123_EventScript_SnowNinja::
 	delay 16
 	applymovement LOCALID_SNOWNINJA, Route123_Movement_Ambush
 	waitmovement 0
-	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, 
+	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, Route123_EventScript_SmokeBall
 	release
 	end
 
@@ -433,19 +433,25 @@ Route123_Text_TheEngravingSays:
 	.string "its engraved$"
 
 Route123_Text_TheresAnOddFuzky:
-	.string "Theres a weird fuzky there$"
+	.string "(You can see a Fuzky pacing around\n"
+	.string "in the area that you can't reach.)\p"
+	.string "(It is wearing a red hood.)$"
 
 Route123_Text_WantToThrowStick:
-	.string "wanna throw a stick at it$"
+	.string "(You have a Stick in your inventory.\n"
+	.string "Throw the Stick?)$"
 
 Route123_Text_YouThrowTheStick:
-	.string "u threw the stick$"
+	.string "(You toss the stick in front\n"
+	.string "of you in an attempt to lure over\l"
+	.string "the odd Pokemon.)$"
 
 Route123_Text_TheFuzkyWantsToBattle:
-	.string "fuzky wants 2 beat u up$"
+	.string "(The Fuzky is attacking!)$"
 
 Route123_Text_ItTakesOffTheMantle:
-	.string "it gives you its mantle$"
+	.string "(The Fuzky, beaten, drops the\n"
+	.string "red hood it was wearing.)$"
 
 Route123_Text_RamiIntro:
 	.string "intro$"
