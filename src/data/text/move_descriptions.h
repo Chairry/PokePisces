@@ -409,8 +409,8 @@ static const u8 sQuickAttackDescription[] = _(
     "that always strikes first.");
 
 static const u8 sRageDescription[] = _(
-    "Raises the user's Attack\n"
-    "every time it is hit.");
+    "Raises Attack when hit.\n"
+    "Matches user's first type.");
 
 static const u8 sTeleportDescription[] = _(
     "A psychic move for fleeing\n"
@@ -593,8 +593,8 @@ static const u8 sTransformDescription[] = _(
     "become a copy of the foe.");
 
 static const u8 sBubbleDescription[] = _(
-    "An attack using bubbles.\n"
-    "May lower the foe's Speed.");
+    "An attack using bubbles\n"
+    "that hits 2 to 5 times.");
 
 static const u8 sDizzyPunchDescription[] = _(
     "A rhythmic punch that may\n"
