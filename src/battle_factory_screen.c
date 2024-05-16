@@ -260,9 +260,9 @@ static struct FactorySwapScreen *sFactorySwapScreen;
 u8 (*gFactorySelect_CurrentOptionFunc)(void);
 
 static const u16 sPokeballGray_Pal[]         = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_gray.gbapal");
-static const u16 sPokeballSelected_Pal[]     = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_selected.gbapal");
+static const u16 sPokeballSelected_Pal[]     = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_select.gbapal");
 static const u16 sInterface_Pal[]            = INCBIN_U16("graphics/battle_frontier/factory_screen/interface.gbapal"); // Arrow, menu/action highlights, action box, etc
-static const u8 sPokeball_Gfx[]              = INCBIN_U8( "graphics/battle_frontier/factory_screen/pokeball.4bpp"); // Unused, gPokeballSelection_Gfx used instead
+static const u32 sPokeball_Gfx[]             = INCBIN_U32("graphics/battle_frontier/factory_screen/pokeball_select.4bpp.lz");
 static const u8 sArrow_Gfx[]                 = INCBIN_U8( "graphics/battle_frontier/factory_screen/arrow.4bpp");
 static const u8 sMenuHighlightLeft_Gfx[]     = INCBIN_U8( "graphics/battle_frontier/factory_screen/menu_highlight_left.4bpp");
 static const u8 sMenuHighlightRight_Gfx[]    = INCBIN_U8( "graphics/battle_frontier/factory_screen/menu_highlight_right.4bpp");
@@ -287,7 +287,7 @@ static const struct SpriteSheet sSelect_SpriteSheets[] =
 
 static const struct CompressedSpriteSheet sSelect_BallGfx[] =
 {
-    {gPokeballSelection_Gfx, 0x800, GFXTAG_BALL},
+    {sPokeball_Gfx, 0x800, GFXTAG_BALL},
     {},
 };
 
