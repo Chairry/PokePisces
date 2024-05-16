@@ -2284,6 +2284,7 @@ gCryTable::
 	@ Dudunspars
 	cry Cry_Dudunspars
 	cry Cry_Dudunspars
+	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
 	@ Gaoterra
@@ -4618,6 +4619,7 @@ gCryTable_Reverse::
 	@ Basculegion
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
+	cry_reverse Cry_Dudunspars
 	cry_reverse Cry_Dudunspars
 	cry_reverse Cry_Dudunspars
 	@ Lottabats

@@ -2436,8 +2436,8 @@
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
 	.endm
 
-	.macro normaliseattackerbuffs
-	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS
+	.macro normaliseattackernerfs
+	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
 	.endm
 
 	.macro tryhealallhealth failInstr:req
@@ -2447,6 +2447,19 @@
 
 	.macro remodelcheck jumpInstr:req
 	various 0, VARIOUS_REMODEL_CHECK
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifstatus4condition battler:req, flags:req, jumpIfTrue:req, jumpInstr:req
+	various 0, VARIOUS_JUMP_IF_STATUS4
+	.byte \battler
+	.4byte \flags
+	.byte \jumpIfTrue
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifstatus4 battler:req, flags:req, jumpInstr:req
+	jumpifstatus4condition \battler, \flags, FALSE, \jumpInstr
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.

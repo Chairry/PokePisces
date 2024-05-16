@@ -2118,21 +2118,17 @@ static void Cmd_damagecalc(void)
     CMD_ARGS();
 
     u8 moveType;
-    u16 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+    u32 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
     if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (!(gBattleMoves[gCurrentMove].piercingMove)))
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack);
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
     }
     else if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (gBattleMoves[gCurrentMove].piercingMove))
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
     }
     else
     {
@@ -9926,7 +9922,7 @@ static void Cmd_various(void)
             case ABILITY_FORECAST:          case ABILITY_MULTITYPE:
             case ABILITY_FLOWER_GIFT:       case ABILITY_ILLUSION:
             case ABILITY_WONDER_GUARD:      case ABILITY_ZEN_MODE:
-            case ABILITY_STELLAR_BODY:     case ABILITY_IMPOSTER:
+            case ABILITY_STELLAR_BODY:      case ABILITY_IMPOSTER:
             case ABILITY_DORMANT:           case ABILITY_BATTLE_BOND:
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
@@ -11159,6 +11155,26 @@ static void Cmd_various(void)
 
         break;
     }
+    case VARIOUS_JUMP_IF_STATUS4:
+    {
+        VARIOUS_ARGS(u32 flags, bool8 jumpIfTrue, const u8 *jumpInstr);
+
+        u32 battler = GetBattlerForBattleScript(cmd->battler);
+        if (cmd->jumpIfTrue)
+        {
+            if ((gStatuses4[battler] & cmd->flags) != 0)
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            else
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            if ((gStatuses4[battler] & cmd->flags) != 0)
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            else
+                gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+    }
     case VARIOUS_SHELL_SIDE_ARM_CHECK: // 0% chance GameFreak actually checks this way according to DaWobblefet, but this is the only functional explanation at the moment
     {
         VARIOUS_ARGS();
@@ -11643,14 +11659,14 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
     }
-    case VARIOUS_TRY_NORMALISE_ATTACKER_BUFFS:
+    case VARIOUS_TRY_NORMALISE_ATTACKER_NERFS:
     {
         VARIOUS_ARGS();
 
         s32 i, j;
 
         for (i = 0; i < gBattlersCount; i++)
-            TryResetAttackerStatChanges(i);
+            TryResetAttackerNegativeStatChanges(i);
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -12678,19 +12694,18 @@ bool32 TryResetBattlerStatChanges(u8 battler)
     return ret;
 }
 
-bool32 TryResetAttackerStatChanges(u8 battler)
+bool32 TryResetAttackerNegativeStatChanges(u8 battler)
 {
     u32 j;
     bool32 ret = FALSE;
 
-    gDisableStructs[gBattlerAttacker].stockpileDef = 0;
-    gDisableStructs[gBattlerAttacker].stockpileSpDef = 0;
     for (j = 0; j < NUM_BATTLE_STATS; j++)
     {
-        if (gBattleMons[gBattlerAttacker].statStages[j] != DEFAULT_STAT_STAGE)
+        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
             ret = TRUE; // returns TRUE if any stat was reset
 
-        gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
+        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
+            gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
     }
 
     return ret;
@@ -13209,6 +13224,9 @@ static void Cmd_tryKO(void)
             || GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0))
                 odds *= 2;
 
+            if (gCurrentMove == MOVE_HORN_DRILL && GetBattlerAbility(gBattlerAttacker) == ABILITY_POWER_SPIKE && (gBattleMons[gBattlerAttacker].hp = (gBattleMons[gBattlerAttacker].maxHP / 2)))
+                odds *= 2;
+
             if (RandomPercentage(RNG_ACCURACY, odds) && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
                 lands = TRUE;
         }
@@ -13331,6 +13349,7 @@ static void Cmd_weatherdamage(void)
                 && ability != ABILITY_OVERCOAT
                 && ability != ABILITY_ICE_BODY
                 && ability != ABILITY_SLUSH_RUSH
+                && ability != ABILITY_HIBERNAL
                 && !(gStatuses3[gBattlerAttacker] & (STATUS3_UNDERGROUND | STATUS3_UNDERWATER))
                 && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
             {
@@ -15051,7 +15070,6 @@ static void Cmd_setcharge(void)
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
     gStatuses3[battler] |= STATUS3_CHARGED_UP;
-    gDisableStructs[battler].chargeTimer = 2;
     gBattlescriptCurrInstr++;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

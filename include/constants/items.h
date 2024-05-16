@@ -962,8 +962,9 @@
 #define ITEM_TRADING_CARD 844
 #define ITEM_FAIRY_RING 845
 #define ITEM_WEIRD_STICK 846
+#define ITEM_FAIRY_FEATHER 847
 
-#define ITEMS_COUNT 847
+#define ITEMS_COUNT 848
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

@@ -477,7 +477,7 @@ static const struct TrainerMon sParty_PJuan[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(20, 10, 10, 10, 10, 10),
     .lvl = 13,
-    .moves = {MOVE_DRAGON_RAGE, MOVE_CLAMP, MOVE_POWDER_SNOW, MOVE_WITHDRAW},
+    .moves = {MOVE_RAPID_SPIN, MOVE_CLAMP, MOVE_ICY_WIND, MOVE_WITHDRAW},
     .nature = NATURE_RELAXED,
     }
 };
@@ -8131,26 +8131,8 @@ static const struct TrainerMon sParty_Marc[] = {
     {
     .lvl = 100,
     .species = SPECIES_SCEPTILE,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_COMBUSKEN,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_MUDKIP,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_CASTFORM,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_CRADILY,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_ARMALDO,
+    .ability = ABILITY_SHARPNESS,
+    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
     }
 };
 

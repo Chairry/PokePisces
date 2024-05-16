@@ -309,7 +309,7 @@ static const u8 sLeechSeedDescription[] = _(
     "steal HP on every turn.");
 
 static const u8 sGrowthDescription[] = _(
-    "Raises Def and Sp. Def. Gains\n"
+    "Raises Atk and Sp. Atk. Gains\n"
     "Blooming in harsh sunlight.");
 
 static const u8 sRazorLeafDescription[] = _(
@@ -409,8 +409,8 @@ static const u8 sQuickAttackDescription[] = _(
     "that always strikes first.");
 
 static const u8 sRageDescription[] = _(
-    "Raises the user's Attack\n"
-    "every time it is hit.");
+    "Raises Attack when hit.\n"
+    "Matches user's first type.");
 
 static const u8 sTeleportDescription[] = _(
     "A psychic move for fleeing\n"
@@ -593,8 +593,8 @@ static const u8 sTransformDescription[] = _(
     "become a copy of the foe.");
 
 static const u8 sBubbleDescription[] = _(
-    "An attack using bubbles.\n"
-    "May lower the foe's Speed.");
+    "An attack using bubbles\n"
+    "that hits 2 to 5 times.");
 
 static const u8 sDizzyPunchDescription[] = _(
     "A rhythmic punch that may\n"
@@ -1117,7 +1117,7 @@ static const u8 sAssistDescription[] = _(
     "of the partner's moves.");
 
 static const u8 sIngrainDescription[] = _(
-    "Lays roots that restore HP and\n"
+    "Lays roots that heal HP and\n"
     "gives Blooming. Can't switch.");
 
 static const u8 sSuperpowerDescription[] = _(
@@ -1165,8 +1165,8 @@ static const u8 sImprisonDescription[] = _(
     "moves known by the user.");
 
 static const u8 sRefreshDescription[] = _(
-    "Heals poisoning, paralysis,\n"
-    "or a burn.");
+    "Heals any type of negative.\n"
+    "status.");
 
 static const u8 sGrudgeDescription[] = _(
     "If the user faints, deletes\n"
@@ -3261,8 +3261,8 @@ static const u8 sHydroSteamDescription[] = _(
     "under harsh sunlight.");
 
 static const u8 sSpookDescription[] = _(
-    "Spooks the foe and ends the\n"
-    "battle.");
+    "Spooks the foe and lowers\n"
+    "the next foe's accuracy.");
 
 static const u8 sChillyAirDescription[] = _(
     "Chills the foe, to sharply\n"
@@ -3592,7 +3592,7 @@ static const u8 sEarthShatterDescription[] = _(
     "Removes Terrain. Stronger\n"
     "against Rock/Ground/Steel.");
 
-static const u8 sMassBreakDescription[] = _(
+static const u8 sMassDestructionDescription[] = _(
     "Stronger against Normal and\n"
     "Fighting. Destroys Screens.");
 
@@ -3606,7 +3606,7 @@ static const u8 sGiantsSpearDescription[] = _(
 
 static const u8 sRedlineDescription[] = _(
     "Boosted for every stat drop.\n"
-    "Resets own stat changes.");
+    "Resets own stat drops.");
 
 static const u8 sZapperDescription[] = _(
     "Drops Speed of foe. Stronger\n"
@@ -3713,7 +3713,7 @@ static const u8 sPowerDrainDescription[] = _(
     "heal. Removes Electric-type.");
 
 static const u8 sGrippingNailDescription[] = _(
-    "Grips foe with cursed thorns.\n"
+    "Grips foe 3 times with thorns.\n"
     "Prevents escape and curses.");
 
 static const u8 sHornLeechDescription[] = _(
@@ -3739,6 +3739,10 @@ static const u8 sBlossomSnapDescription[] = _(
 static const u8 sGrassCannonDescription[] = _(
     "Boosts Def in Grassy Terrain.\n"
     "Boosts Sp. Def if Blooming.");
+
+static const u8 sOblivionWingDescription[] = _(
+    "Drains HP equal to 3/4\n"
+    "of the damage done.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4361,7 +4365,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_HOLD_BACK - 1] = sFalseSwipeDescription,
     [MOVE_INFESTATION - 1] = sInfestationDescription,
     [MOVE_POWER_UP_PUNCH - 1] = sPowerUpPunchDescription,
-    [MOVE_OBLIVION_WING - 1] = sDrainingKissDescription,
+    [MOVE_OBLIVION_WING - 1] = sOblivionWingDescription,
     [MOVE_THOUSAND_ARROWS - 1] = sThousandArrowsDescription,
     [MOVE_THOUSAND_WAVES - 1] = sThousandWavesDescription,
     [MOVE_LANDS_WRATH - 1] = sLandsWrathDescription,
@@ -4678,7 +4682,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_ROADBLOCK - 1] = sRoadblockDescription,
     [MOVE_GATTLING_PINS - 1] = sGattlingPinsDescription,
     [MOVE_EARTH_SHATTER - 1] = sEarthShatterDescription,
-    [MOVE_MASS_BREAK - 1] = sMassBreakDescription,
+    [MOVE_MASS_DESTRUCTION - 1] = sMassDestructionDescription,
     [MOVE_PILGRIMAGE - 1] = sTrumpCardDescription,
     [MOVE_HEAVY_CANNON - 1] = sHeavyCannonDescription,
     [MOVE_GIANTS_SPEAR - 1] = sGiantsSpearDescription,
