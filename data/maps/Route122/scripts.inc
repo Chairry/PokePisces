@@ -118,18 +118,39 @@ Route122_EventScript_ThankYou::
 	end
 
 Route122_Text_GreetingsChild:
-	.string "greetings child$"
+	.string "A pleasant welcome to\n"
+	.string "our village, stranger.\p"
+	.string "I am the Elder of Zotpyre.\p"
+	.string "We sincerely hope you can find respite\n"
+	.string "in our humble abodes.$"
 
 Route122_Text_ISeeThatBindingBand:
-	.string "i see u have a binding band\n"
-	.string "seek out my wife's spirit$"
+	.string "…That band on your wrist…\p"
+	.string "…Hm.\p"
+	.string "I take it that the spirits of this land\n"
+	.string "are quite fond of you.\p"
+	.string "…Mayhaps you can be the one\n"
+	.string "to calm her spirit.\p"
+	.string "The basement of the inn…\n"
+	.string "I ask you, kindly, to investigate.$"
 
 Route122_Text_GoFindHerSpirit:
-	.string "go find her champ$"
+	.string "A troubled remnant is lingering in the\n"
+	.string "basement of the inn…\p"
+	.string "Mayhaps you can connect with her.$"
 
 Route122_Text_YouHelpedHerFindPeace:
-	.string "you helped my boo thx\n"
-	.string "take this$"
+	.string "You do not need to brief me.\n"
+	.string "I can feel that her presence has,\l"
+	.string "at last, left this plane.\p"
+	.string "My wife, the former elder…\p"
+	.string "In her last days, her brain ebbed away.\n"
+	.string "She lost herself.\l"
+	.string "Even in death, she was fractured.\p"
+	.string "Thank you very much for being that\n"
+	.string "spark to get her to move on.\p"
+	.string "Truly.\p"
+	.string "Please accept… this.$"
 
 Route122_Text_ThankYou:
 	.string "thank you!$"

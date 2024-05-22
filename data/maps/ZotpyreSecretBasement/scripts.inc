@@ -47,11 +47,30 @@ ZotpyreSecretBasement_EventScript_ICanMoveOn::
 	end
 
 ZotpyreSecretBasement_Text_IWantToSeeATrueBond:
-	.string "i wanna see a tru bond$"
+	.string "I Feel A Presence\p"
+	.string "A Trainer\p"
+	.string "Tell Me\p"
+	.string "No\p"
+	.string "Show Me\p"
+	.string "The Bonds Of Those Whom Travel\n"
+	.string "Alongside You$"
 
 ZotpyreSecretBasement_Text_NotEnough:
-	.string "not enough friendship$"
+	.string "Ah\p"
+	.string "I Have Been Mistaken\p"
+	.string "A True Bond Like That Which I Seek\p"
+	.string "Not Possible$"
 
 ZotpyreSecretBasement_Text_ATrueBondIndeed:
-	.string "a true bond indeed\n"
-	.string "i can now move on$"
+	.string "Your Companions\p"
+	.string "They Cherish You\p"
+	.string "A True Bond\p"
+	.string "Does Exist After All\p"
+	.string " \p"
+	.string "Maychance\p"
+	.string "Even I\p"
+	.string "Had A True Bond\p"
+	.string "Once\p"
+	.string " \p"
+	.string "The Cacophony In My Mind\p"
+	.string "It Has Quieted$"
