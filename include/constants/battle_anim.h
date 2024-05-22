@@ -417,6 +417,7 @@
 #define ANIM_TAG_PILGRIMAGE_RISING          (ANIM_SPRITES_START + 403)
 #define ANIM_TAG_PILGRIMAGE_FALLING         (ANIM_SPRITES_START + 404)
 #define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 405)
+#define ANIM_TAG_GIANTS_SPEAR               (ANIM_SPRITES_START + 406)
 
 // battlers
 #define ANIM_ATTACKER         0

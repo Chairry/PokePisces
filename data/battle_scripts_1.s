@@ -835,6 +835,7 @@ BattleScript_EffectGrippingNail::
 BattleScript_EffectGrippingNailContinue::
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	attackcanceler
+	addbyte sTRIPLE_KICK_POWER, 4
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -863,6 +864,7 @@ BattleScript_GrippingNailBloomingEffect::
 	jumpifstatus3 BS_TARGET, STATUS3_LEECHSEED, BattleScript_EffectGrippingNailContinue
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	attackcanceler
+	addbyte sTRIPLE_KICK_POWER, 4
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -1013,7 +1015,7 @@ BattleScript_EffectHearthwarm:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus3 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
+	jumpifstatus4 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
 	attackanimation
 	waitanimation
 	copybyte gBattlerTarget, gBattlerAttacker
@@ -1273,7 +1275,7 @@ BattleScript_EffectSkySplitter::
 BattleScript_EffectRedline::
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	normaliseattackerbuffs
+	normaliseattackernerfs
 	printstring STRINGID_USERSTATCHANGESGONE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -1310,7 +1312,7 @@ BattleScript_EffectTickTack::
 	waitmessage B_WAIT_TIME_LONG
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
-	jumpifstatus3 BS_TARGET, STATUS4_TICKED, BattleScript_TickTackContinue
+	jumpifstatus4 BS_TARGET, STATUS4_TICKED, BattleScript_TickTackContinue
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_TickTackContinue
 	setseeded
@@ -2075,8 +2077,10 @@ BattleScript_EffectSignalBeam::
 BattleScript_EffectSilverWind:
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
 	jumpifstatus2 BS_TARGET, STATUS2_POWDER, BattleScript_EffectHit
-	setpowder BS_TARGET
 	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectHit
+	setpowder BS_TARGET
 	seteffectwithchance
 	printstring STRINGID_COVEREDINPOWDER
 	waitmessage B_WAIT_TIME_LONG
@@ -9707,17 +9711,17 @@ BattleScript_LostMantle::
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_LostMantleDef
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_LostMantleEnd
 BattleScript_LostMantleDef:
-	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_BY_TWO
-	setstatchanger STAT_DEF, 2, FALSE
+	setstatchanger STAT_DEF, 1, FALSE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_LostMantleSpDef
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LostMantleSpDef
 	printstring STRINGID_USINGITEMSTATOFPKMNROSE
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_LostMantleSpDef:
-	setstatchanger STAT_SPDEF, 2, FALSE
+	setstatchanger STAT_SPDEF, 1, FALSE
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_LostMantleEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LostMantleEnd
 	printstring STRINGID_USINGITEMSTATOFPKMNROSE

@@ -15041,7 +15041,9 @@ static const u16 sSeviperTeachableLearnset[] = {
 };
 
 static const u16 sLunatoneTeachableLearnset[] = {
+    MOVE_WILL_O_WISP,
     MOVE_SPOOK,
+    MOVE_GLACIATE,
     MOVE_TRICK_ROOM,
     MOVE_CHILLY_AIR,
     MOVE_FEAR_FACTOR,
@@ -23197,7 +23199,6 @@ static const u16 sZoruaTeachableLearnset[] = {
     MOVE_SPOOK,
     MOVE_PARTING_SHOT,
     MOVE_FEAR_FACTOR,
-    MOVE_NUZZLE,
     MOVE_POUNCE,
     MOVE_SNARL,
     MOVE_ROCK_TOMB,
@@ -32658,7 +32659,6 @@ static const u16 sZarudeTeachableLearnset[] = {
     MOVE_PARTING_SHOT,
     MOVE_JUNGLE_HEALING,
     MOVE_FEAR_FACTOR,
-    MOVE_NUZZLE,
     MOVE_VACUUM_WAVE,
     MOVE_POUNCE,
     MOVE_SNARL,

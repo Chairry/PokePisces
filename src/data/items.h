@@ -535,7 +535,7 @@ const struct Item gItems[] =
 
     [ITEM_PARALYZE_HEAL] =
     {
-        .name = _("Paralyze Heal"),
+        .name = _("Mobilizer"),
         .price = 300,
         .description = sParalyzeHealDesc,
         .pocket = POCKET_MEDICINE,
@@ -547,7 +547,7 @@ const struct Item gItems[] =
 
     [ITEM_BURN_HEAL] =
     {
-        .name = _("Burn Heal"),
+        .name = _("Coolant"),
         .price = 300,
         .description = sBurnHealDesc,
         .pocket = POCKET_MEDICINE,
@@ -559,7 +559,7 @@ const struct Item gItems[] =
 
     [ITEM_ICE_HEAL] =
     {
-        .name = _("Ice Heal"),
+        .name = _("Antifreeze"),
         .price = 100,
         .description = sIceHealDesc,
         .pocket = POCKET_MEDICINE,
@@ -583,7 +583,7 @@ const struct Item gItems[] =
 
     [ITEM_FULL_HEAL] =
     {
-        .name = _("Full Heal"),
+        .name = _("Panacea"),
         .price = 400,
         .description = sFullHealDesc,
         .pocket = POCKET_MEDICINE,
