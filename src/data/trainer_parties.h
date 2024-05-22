@@ -2282,9 +2282,9 @@ static const struct TrainerMon sParty_PMaya[] = {
     .lvl = 24,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
-    .species = SPECIES_SLICKSLICE,
-    .ability = ABILITY_GOOEY,
-    .moves = {MOVE_HEX, MOVE_FORESTS_CURSE, MOVE_MEGA_DRAIN, MOVE_DESTINY_BOND},
+    .species = SPECIES_FROSLASS,
+    .ability = ABILITY_SNOW_CLOAK,
+    .moves = {MOVE_HEX, MOVE_ATTRACT, MOVE_MISERY_WAIL, MOVE_CHILLY_AIR},
     }
 };
 
@@ -2332,7 +2332,7 @@ static const struct TrainerMon sParty_PPearl[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_KODOUGH,
     .ability = ABILITY_GOOEY,
-    .moves = {MOVE_FORESTS_CURSE, MOVE_NIGHT_SHADE, MOVE_GRUDGE, MOVE_NONE},
+    .moves = {MOVE_FORESTS_CURSE, MOVE_GRUDGE, MOVE_NONE, MOVE_NONE},
     },
     {
     .lvl = 24,
@@ -2464,7 +2464,7 @@ static const struct TrainerMon sParty_PMorgan[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MANNIKO,
     .ability = ABILITY_PRESSURE,
-    .moves = {MOVE_HEX, MOVE_FOUL_PLAY, MOVE_SPOOK, MOVE_GRUDGE},
+    .moves = {MOVE_INFERNAL_PARADE, MOVE_FOUL_PLAY, MOVE_SPOOK, MOVE_GRUDGE},
     },
     {
     .lvl = 25,
@@ -2480,6 +2480,7 @@ static const struct TrainerMon sParty_PMorgan[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MISMAGIUS,
     .ability = ABILITY_DREAD_VEIL,
+    .heldItem = ITEM_SITRUS_BERRY, //MISSING ITEM: BLUK BERRY
     .moves = {MOVE_EERIE_SPELL, MOVE_HEX, MOVE_FEAR_FACTOR, MOVE_CONFUSE_RAY},
     }
 };
@@ -2582,7 +2583,7 @@ static const struct TrainerMon sParty_PRay2[] = {
     .species = SPECIES_GOLTIGATOR,
     .ability = ABILITY_CLOUD_NINE,
     .heldItem = ITEM_MISTY_SEED,
-    .moves = {MOVE_TERRAIN_PULSE, MOVE_THUNDER_FANG, MOVE_COOL_MIST, MOVE_NONE}, //MISSING MOVE: PENALIZE
+    .moves = {MOVE_TERRAIN_PULSE, MOVE_THUNDER_FANG, MOVE_COOL_MIST, MOVE_PENALIZE},
     },
     {
     .lvl = 26,
@@ -2767,7 +2768,7 @@ static const struct TrainerMon sParty_PPhoebe[] = {
     .species = SPECIES_KOWAKO,
     .ability = ABILITY_PRESSURE,
     .heldItem = ITEM_SPECTRAL_IDOL,
-    .moves = {MOVE_EERIE_SPELL, MOVE_HEX, MOVE_GEO_PULSE, MOVE_NONE}, //MISSING MOVE: SPIRIT AWAY
+    .moves = {MOVE_EERIE_SPELL, MOVE_HEX, MOVE_GEO_PULSE, MOVE_SPIRIT_AWAY},
     }
 };
 
@@ -2794,6 +2795,7 @@ static const struct TrainerMon sParty_PSpenser[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_ARMAGATTON,
     .ability = ABILITY_UNSEEN_FIST,
+    .heldItem = ITEM_SITRUS_BERRY, //MISSING ITEM: BLUK BERRY
     .moves = {MOVE_ENERVATOR, MOVE_REMODEL, MOVE_RECONSTRUCT, MOVE_DIFFUSE_WAVE},
     }
 };
