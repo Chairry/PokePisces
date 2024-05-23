@@ -105,7 +105,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "BasalinCoast_EventScript_Wadelle",
+      "script": "BasalinCoast_EventScript_Cat",
       "flag": "0"
     },
     {
