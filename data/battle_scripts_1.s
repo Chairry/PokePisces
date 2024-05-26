@@ -12859,6 +12859,10 @@ BattleScript_ItemHealHP_End2::
 	call BattleScript_ItemHealHP_Ret
 	end2
 
+BattleScript_AbilityHealHP_End2::
+	call BattleScript_AbilityHealHP_Ret
+	end2
+
 BattleScript_Cheese_End2::
 	trycheesing BS_ATTACKER, BattleScript_ButItFailed
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT

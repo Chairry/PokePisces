@@ -5143,6 +5143,17 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            case ABILITY_VITAL_SPIRIT:
+                if (gBattleMons[battler].hp < gBattleMons[battler].maxHP/2 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_AbilityHealHP_End2);
+                    effect++;
+                }
+                break;
             case ABILITY_DRY_SKIN:
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
                     goto SOLAR_POWER_HP_DROP;

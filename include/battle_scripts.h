@@ -256,6 +256,7 @@ extern const u8 BattleScript_ItemHealHP_RemoveItemEnd2[];
 extern const u8 BattleScript_BerryPPHealEnd2[];
 extern const u8 BattleScript_BerryPPHealRet[];
 extern const u8 BattleScript_ItemHealHP_End2[];
+extern const u8 BattleScript_AbilityHealHP_End2[];
 extern const u8 BattleScript_Cheese_End2[];
 extern const u8 BattleScript_YellowSoda_End2[];
 extern const u8 BattleScript_FrothyCheese_End2[];
