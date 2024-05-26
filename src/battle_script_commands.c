@@ -1760,7 +1760,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;
     case ABILITY_VICTORY_STAR:
-        calc = (calc * 120) / 100; // 1.2 victory star boost
+        calc = (calc * 125) / 100; // 1.25 victory star boost
         break;
     case ABILITY_HUSTLE:
         if (IS_MOVE_PHYSICAL(move))
@@ -1797,7 +1797,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     {
     case ABILITY_VICTORY_STAR:
         if (IsBattlerAlive(atkAlly))
-            calc = (calc * 120) / 100; // 1.2 ally's victory star boost
+            calc = (calc * 125) / 100; // 1.25 ally's victory star boost
         break;
     }
 
