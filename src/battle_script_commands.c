@@ -1783,6 +1783,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
             calc = (calc * 50) / 100; // 1.5 tangled feet loss
         break;
+    case ABILITY_LIMBER:
+        calc = (calc * 90) / 100; // 10% evasion increase
+        break;
     case ABILITY_ANTICIPATION:
         if(gDisableStructs[battlerDef].isFirstTurn) {
             calc = min(calc, 50);                 // max accuraccy of move is 50%
