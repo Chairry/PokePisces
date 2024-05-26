@@ -311,8 +311,8 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_PTimmy),
     },
-//changed her name to Cat during dev, too lazy to change all the params
-    [TRAINER_P_WADELLE] =
+
+    [TRAINER_P_CAT] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
@@ -321,7 +321,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PWadelle),
+        .party = TRAINER_PARTY(sParty_PCat),
     },
 
     [TRAINER_P_YANNY] =
