@@ -291,7 +291,7 @@ static const struct TrainerMon sParty_PTimmy[] = {
     }
 };
 
-static const struct TrainerMon sParty_PWadelle[] = {
+static const struct TrainerMon sParty_PCat[] = {
     {
     .lvl = 9,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),

@@ -2112,7 +2112,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #endif
         .effect = EFFECT_POISON_HIT,
         .type = TYPE_POISON,
-        .accuracy = 70,
+        .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 40,
         .target = MOVE_TARGET_SELECTED,
@@ -9647,7 +9647,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_FOES_AND_ALLY,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
@@ -14736,7 +14736,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_HEART_STEAL] =
     {
         .effect = EFFECT_HEART_STEAL,
-        .power = 50,
+        .power = 60,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 10,

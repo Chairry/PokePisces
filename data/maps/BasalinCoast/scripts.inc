@@ -28,8 +28,8 @@ BasalinCoast_EventScript_Timmy::
     msgbox BasalinCoast_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
     end
 
-BasalinCoast_EventScript_Wadelle::
-    trainerbattle_single TRAINER_P_WADELLE, BasalinCoast_Text_CatIntro, BasalinCoast_Text_CatDefeated
+BasalinCoast_EventScript_Cat::
+    trainerbattle_single TRAINER_P_CAT, BasalinCoast_Text_CatIntro, BasalinCoast_Text_CatDefeated
     msgbox BasalinCoast_Text_CatPostBattle, MSGBOX_AUTOCLOSE
     end
 

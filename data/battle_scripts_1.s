@@ -2079,11 +2079,14 @@ BattleScript_EffectSilverWind:
 	jumpifstatus2 BS_TARGET, STATUS2_POWDER, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_EffectHit
+	jumpiffainted BS_TARGET, TRUE, BattleScript_SilverWind2
 	setpowder BS_TARGET
 	seteffectwithchance
 	printstring STRINGID_COVEREDINPOWDER
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_SilverWind2:
+	seteffectwithchance
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectUTurn:
