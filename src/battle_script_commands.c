@@ -15939,6 +15939,21 @@ static void Cmd_pickup(void)
             {
                 if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
                 {
+                    if (Random() % 10 == 0) {
+                        heldItem = ITEM_FROTHY_CHEESE;
+                    } else {
+                        heldItem = ITEM_CHEESE;
+                    }                    
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+                }
+            }
+            else if (ability == ABILITY_MILKY_WAY
+                && species != 0
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE)
+            {
+                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
+                {
                     heldItem = ITEM_MOOMOO_MILK;
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
