@@ -22885,7 +22885,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GRAVELITO] =
     {
-        .baseHP        = 45,
+        .baseHP        = 55,
         .baseAttack    = 51,
         .baseDefense   = 80,
         .baseSpeed     = 20,
@@ -22907,7 +22907,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MEGALITO] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 61,
         .baseDefense   = 115,
         .baseSpeed     = 20,
