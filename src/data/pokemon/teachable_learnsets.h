@@ -46820,6 +46820,7 @@ static const u16 sCindrillonTeachableLearnset[] = {
     //MOVE_BREAK_LANCE,
     MOVE_POISON_JAB,
     MOVE_PINPOINT,
+    MOVE_FLAME_CHARGE,
     MOVE_RAPID_SPIN,
     MOVE_PSYSHIELD_BASH,
     MOVE_FLATTER,
