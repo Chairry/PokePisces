@@ -66,7 +66,7 @@ Route119_WeatherInstitute_1F_EventScript_Grunt1::
 	end
 
 Route119_WeatherInstitute_1F_EventScript_Grunt4::
-	trainerbattle_single TRAINER_P_WADELLE, Route119_WeatherInstitute_1F_Text_Grunt4Intro, Route119_WeatherInstitute_1F_Text_Grunt4Defeat
+	trainerbattle_single TRAINER_P_CAT, Route119_WeatherInstitute_1F_Text_Grunt4Intro, Route119_WeatherInstitute_1F_Text_Grunt4Defeat
 	msgbox Route119_WeatherInstitute_1F_Text_Grunt4PostBattle, MSGBOX_AUTOCLOSE
 	end
 

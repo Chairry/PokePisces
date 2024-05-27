@@ -22885,7 +22885,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GRAVELITO] =
     {
-        .baseHP        = 45,
+        .baseHP        = 55,
         .baseAttack    = 51,
         .baseDefense   = 80,
         .baseSpeed     = 20,
@@ -22907,7 +22907,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MEGALITO] =
     {
-        .baseHP        = 80,
+        .baseHP        = 90,
         .baseAttack    = 61,
         .baseDefense   = 115,
         .baseSpeed     = 20,
@@ -25656,7 +25656,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL},
-        .abilities = {ABILITY_PRESSURE, ABILITY_ALL_GAME, ABILITY_NATURAL_CURE},
+        .abilities = {ABILITY_PRESSURE, ABILITY_ALL_GAME, ABILITY_WONDER_SKIN},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
     },

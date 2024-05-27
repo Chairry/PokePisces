@@ -27,7 +27,7 @@
 #define TRAINER_P_SADIE                      23
 #define TRAINER_P_MELANIE                    24
 #define TRAINER_P_TIMMY                      25
-#define TRAINER_P_WADELLE                    26
+#define TRAINER_P_CAT                    26
 #define TRAINER_P_YANNY                      27
 #define TRAINER_P_REMY                       28
 #define TRAINER_P_SELKO                      29
