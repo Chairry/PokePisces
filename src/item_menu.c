@@ -769,9 +769,9 @@ static bool8 SetupBagMenu(void)
     case 13:
         PrintPocketNames(gPocketNamesStringsTable[gBagPosition.pocket], 0);
         CopyPocketNameToWindow(0);
-        DrawPocketIndicatorSquare(0, FALSE);
-        DrawPocketIndicatorSquare(1, FALSE);
-        DrawPocketIndicatorSquare(6, FALSE);
+        //DrawPocketIndicatorSquare(0, FALSE);
+        //DrawPocketIndicatorSquare(1, FALSE);
+        //DrawPocketIndicatorSquare(6, FALSE);
         DrawPocketIndicatorSquare(gBagPosition.pocket, TRUE);
         gMain.state++;
         break;
@@ -1365,14 +1365,24 @@ static u8 GetSwitchBagPocketDirection(void)
 
 static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
 {
-    if ((deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == BALLS_POCKET) || (deltaBagPocketId == MENU_CURSOR_DELTA_LEFT && *bagPocketId == BERRIES_POCKET))
-        *bagPocketId += deltaBagPocketId*2;
-    else if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 1)
-        *bagPocketId = 0;
-    else if (deltaBagPocketId == MENU_CURSOR_DELTA_LEFT && *bagPocketId == 0)
-        *bagPocketId = POCKETS_COUNT - 1;
-    else
-        *bagPocketId += deltaBagPocketId;
+    u8 currPocket = *bagPocketId;
+    if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT) {
+        if (currPocket == BALLS_POCKET)
+            currPocket = MEDICINE_POCKET;
+        else if (currPocket == POCKETS_COUNT - 1)
+            currPocket = 0;
+        else
+            currPocket++;
+    } else {
+        if (currPocket == MEDICINE_POCKET)
+            currPocket = BALLS_POCKET;
+        else if (currPocket == 0)
+            currPocket = POCKETS_COUNT - 1;
+        else
+            currPocket--;
+    }
+    
+    *bagPocketId = currPocket;
 }
 
 static void SwitchBagPocket(u8 taskId, s16 deltaBagPocketId, bool16 skipEraseList)
@@ -1469,12 +1479,15 @@ static void DrawItemListBgRow(u8 y)
     ScheduleBgCopyTilemapToVram(2);
 }
 
-static void DrawPocketIndicatorSquare(u8 x, bool8 isCurrentPocket)
+static void DrawPocketIndicatorSquare(u8 pocket, bool8 isCurrentPocket)
 {
+    if (pocket >= TMHM_POCKET)
+        pocket -= 1;    // filter out TMHM_POCKET
+    
     if (!isCurrentPocket)
-        FillBgTilemapBufferRect_Palette0(2, 0x1017, x + 4, 3, 1, 1);
+        FillBgTilemapBufferRect_Palette0(2, 0x1017, pocket + 4, 3, 1, 1);
     else
-        FillBgTilemapBufferRect_Palette0(2, 0x102B, x + 4, 3, 1, 1);
+        FillBgTilemapBufferRect_Palette0(2, 0x102B, pocket + 4, 3, 1, 1);
     ScheduleBgCopyTilemapToVram(2);
 }
 
