@@ -59,7 +59,7 @@
 #define MULTI_GAME_CORNER_DOLLS            48
 #define MULTI_GAME_CORNER_COINS            49
 #define MULTI_HOWS_FISHING                 50
-#define MULTI_UNUSED_51                    51
+#define MULTI_BRINEY_BOAT                    51
 #define MULTI_SSTIDAL_SLATEPORT_WITH_BF    52
 #define MULTI_SSTIDAL_BATTLE_FRONTIER      53
 #define MULTI_RIGHTLEFT                    54
@@ -122,6 +122,10 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+// new
+#define MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE  114
+#define MULTI_SLATEPORT_ANY_LEAGUE          115
+#define MULTI_LIFE_PHILOSOPHY               116
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -164,5 +168,8 @@
 #define STDSTRING_BATTLE_ARENA     27
 #define STDSTRING_BATTLE_PIKE      28
 #define STDSTRING_BATTLE_PYRAMID   29
+
+#define STDSTRING_MEDICINE         30
+#define STDSTRING_BATTLEITEMS      31
 
 #endif //GUARD_SCRIPT_MENU_CONSTANTS_H

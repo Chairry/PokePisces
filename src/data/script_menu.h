@@ -288,6 +288,14 @@ static const struct MenuAction MultichoiceList_HowsFishing[] =
     {gText_NotSoGood},
 };
 
+static const struct MenuAction MultichoiceList_BrineyBoat[] =
+{
+    {gText_Desti1},
+    {gText_Desti2},
+    {gText_Desti3},
+    {gText_Desti4},
+};
+
 static const struct MenuAction MultichoiceList_SSTidalSlateportWithBF[] =
 {
     {gText_LilycoveCity},
@@ -771,6 +779,29 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const u8 sText_MinorLeague[] = _("Minor League");
+static const u8 sText_MajorLeague[] = _("Major League");
+static const u8 sText_ChampLeague[] = _("Champ League");
+static const struct MenuAction MultichoiceList_SlateportTentTwoLeagues[] = {
+    {sText_MinorLeague},
+    {sText_MajorLeague},
+    {gText_Cancel},
+};
+
+static const struct MenuAction MultichoiceList_SlateportTentAnyLeague[] = {
+    {sText_MinorLeague},
+    {sText_MajorLeague},
+    {sText_ChampLeague},
+    {gText_Cancel},
+};
+
+static const u8 sText_Comedy[] = _("Comedy");
+static const u8 sText_Tragedy[] = _("Tragedy");
+static const struct MenuAction MultichoiceList_LifePhilosophy[] = {
+    {sText_Comedy},
+    {sText_Tragedy},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -835,7 +866,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_GAME_CORNER_DOLLS]          = MULTICHOICE(MultichoiceList_GameCornerDolls),
     [MULTI_GAME_CORNER_COINS]          = MULTICHOICE(MultichoiceList_GameCornerCoins),
     [MULTI_HOWS_FISHING]               = MULTICHOICE(MultichoiceList_HowsFishing),
-    [MULTI_UNUSED_51]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_BRINEY_BOAT]                  = MULTICHOICE(MultichoiceList_BrineyBoat),
     [MULTI_SSTIDAL_SLATEPORT_WITH_BF]  = MULTICHOICE(MultichoiceList_SSTidalSlateportWithBF),
     [MULTI_SSTIDAL_BATTLE_FRONTIER]    = MULTICHOICE(MultichoiceList_SSTidalBattleFrontier),
     [MULTI_RIGHTLEFT]                  = MULTICHOICE(MultichoiceList_RightLeft),
@@ -898,6 +929,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    // new
+    [MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE] = MULTICHOICE(MultichoiceList_SlateportTentTwoLeagues),
+    [MULTI_SLATEPORT_ANY_LEAGUE]         = MULTICHOICE(MultichoiceList_SlateportTentAnyLeague),
+    [MULTI_LIFE_PHILOSOPHY]         = MULTICHOICE(MultichoiceList_LifePhilosophy),
 };
 
 const u8 *const gStdStrings[] =
@@ -932,6 +967,8 @@ const u8 *const gStdStrings[] =
     [STDSTRING_BATTLE_ARENA] = gText_BattleArena,
     [STDSTRING_BATTLE_PIKE] = gText_BattlePike,
     [STDSTRING_BATTLE_PYRAMID] = gText_BattlePyramid,
+    [STDSTRING_MEDICINE] = gText_Medicine,
+    [STDSTRING_BATTLEITEMS] = gText_BattleItems,
 };
 
 static const u8 sLinkServicesMultichoiceIds[] =

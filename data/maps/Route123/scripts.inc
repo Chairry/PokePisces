@@ -1,198 +1,547 @@
+.set LOCALID_BREAD, 1
+.set LOCALID_FUZKY, 13
+.set LOCALID_SNOWNINJA, 14
+
 Route123_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
 	.byte 0
 
 Route123_OnTransition:
-	special SetRoute123Weather
+	call_if_gt VAR_BREADWINNER_STATE, 1, Route123_EventScript_SetTempFlags
 	end
 
-Route123_EventScript_GigaDrainGirl::
+Route123_EventScript_SetTempFlags::
+	setflag FLAG_TEMP_11
+	removeobject LOCALID_BREAD
+	setflag FLAG_TEMP_16
+	removeobject LOCALID_SNOWNINJA
+	return
+
+Route123_EventScript_BreadPos1::
 	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_GIGA_DRAIN, Route123_EventScript_ReceivedGigaDrain
-	msgbox Route123_Text_LoveGrassMonsHaveAny, MSGBOX_DEFAULT
-	special IsGrassTypeInParty
-	goto_if_eq VAR_RESULT, FALSE, Route123_EventScript_NoGrassMons
-	msgbox Route123_Text_YouLikeGrassMonsTooHaveThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM_GYRO_BALL
+	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerMoveIntoPos1
+	waitmovement 0
+	goto Route123_EventScript_BreadwinnerEncounter
+	release
+	end
+
+Route123_Movement_PlayerMoveIntoPos1:
+	walk_right
+	face_up
+	step_end
+
+Route123_EventScript_BreadPos2::
+	lock
+	goto Route123_EventScript_BreadwinnerEncounter
+	release
+	end
+
+Route123_EventScript_BreadwinnerEncounter::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerWalkUpStairs
+	applymovement LOCALID_BREAD, Route123_Movement_BreadEnc
+	waitmovement 0
+	playse SE_WALL_HIT
+	applymovement LOCALID_BREAD, Route123_Movement_BreadBackUp
+	waitmovement 0
+	trainerbattle_single TRAINER_P_PANDOU_2, Route123_Text_BreadwinnerIntro, Route123_Text_BreadwinnerDefeat, Route123_EventScript_BreadRun
+	release
+	end
+
+Route123_Movement_PlayerWalkUpStairs:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+Route123_Movement_BreadEnc:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+Route123_Movement_BreadBackUp:
+	walk_right
+	face_left
+	step_end
+
+Route123_EventScript_BreadRun::
+	setvar VAR_BREADWINNER_STATE, 2
+	msgbox Route123_Text_BreadwinnerRunAway, MSGBOX_DEFAULT
+	closemessage
+	playse SE_FLEE
+	applymovement LOCALID_BREAD, Route123_Movement_BreadEscape
+	waitmovement 0
+	giveitem ITEM_TM_PROTECT
+	setflag FLAG_TEMP_11
+	removeobject LOCALID_BREAD
+	release
+	end
+
+Route123_Movement_BreadEscape:
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+Route123_EventScript_Rami::
+    trainerbattle_single TRAINER_P_RAMI, Route123_Text_RamiIntro, Route123_Text_RamiDefeated
+    msgbox Route123_Text_RamiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Tsunami::
+    trainerbattle_single TRAINER_P_TSUNAMI, Route123_Text_TsunamiIntro, Route123_Text_TsunamiDefeated
+    msgbox Route123_Text_TsunamiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Jinxie::
+    trainerbattle_single TRAINER_P_JINXIE, Route123_Text_JinxieIntro, Route123_Text_JinxieDefeated
+    msgbox Route123_Text_JinxiePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Carolina::
+    trainerbattle_single TRAINER_P_CAROLINA, Route123_Text_CarolinaIntro, Route123_Text_CarolinaDefeated
+    msgbox Route123_Text_CarolinaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Betty::
+    trainerbattle_single TRAINER_P_BETTY, Route123_Text_BettyIntro, Route123_Text_BettyDefeated
+    msgbox Route123_Text_BettyPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Hazakura::
+    trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated
+    msgbox Route123_Text_HazakuraPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Mia::
+    trainerbattle_single TRAINER_P_MIA, Route123_Text_MiaIntro, Route123_Text_MiaDefeated
+    msgbox Route123_Text_MiaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Maya::
+    trainerbattle_single TRAINER_P_MAYA, Route123_Text_MayaIntro, Route123_Text_MayaDefeated
+    msgbox Route123_Text_MayaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Kumori::
+    trainerbattle_single TRAINER_P_KUMORI, Route123_Text_KumoriIntro, Route123_Text_KumoriDefeated
+    msgbox Route123_Text_KumoriPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Hoth::
+    trainerbattle_single TRAINER_P_HOTH, Route123_Text_HothIntro, Route123_Text_HothDefeated
+    msgbox Route123_Text_HothPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route123_EventScript_Gravestone1::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_13, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave1Respects
+	release
+	end
+
+Route123_EventScript_Grave1Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_13
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_KeepMoving::
+	msgbox Route123_Text_GottaKeepMoving, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route123_EventScript_Gravestone2::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_14, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave2Respects
+	release
+	end
+
+Route123_EventScript_Grave2Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_14
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_Gravestone3::
+	lock
+	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
+	goto_if_set FLAG_TEMP_15, Route123_EventScript_KeepMoving
+	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave3Respects
+	release
+	end
+
+Route123_EventScript_Grave3Respects::
+	msgbox Route123_Text_YouFoldYourHands, MSGBOX_AUTOCLOSE
+	fadeoutbgm 1
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	delay 60
+	fadeinbgm 1
+	addvar VAR_GRAVE_QUEST_STATE, 1
+	setflag FLAG_TEMP_15
+	msgbox Route123_Text_MayTheyRestInPeace, MSGBOX_AUTOCLOSE
+	goto_if_eq VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_BindingBand
+	release
+	end
+
+Route123_EventScript_BindingBand::
+	msgbox Route123_Text_TheresSomethingOnYourWrist, MSGBOX_DEFAULT
+	giveitem ITEM_BINDING_BAND
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_GIGA_DRAIN
-	msgbox Route123_Text_CheckTreesWithMyGrassMon, MSGBOX_DEFAULT
+	msgbox Route123_Text_TheEngravingSays, MSGBOX_AUTOCLOSE
 	release
 	end
 
-Route123_EventScript_NoGrassMons::
+Route123_EventScript_LureFuzky::
+	lock
+	msgbox Route123_Text_TheresAnOddFuzky, MSGBOX_DEFAULT
+	checkitem ITEM_WEIRD_STICK
+	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_WantToThrowStick
 	release
 	end
 
-Route123_EventScript_ReceivedGigaDrain::
-	msgbox Route123_Text_CheckTreesWithMyGrassMon, MSGBOX_DEFAULT
+Route123_EventScript_WantToThrowStick::
+	msgbox Route123_Text_WantToThrowStick, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route123_EventScript_FuzkyBattle
 	release
 	end
 
-Route123_EventScript_RouteSign::
-	msgbox Route123_Text_RouteSign, MSGBOX_SIGN
-	end
-
-Route123_EventScript_RouteSignMtPyre::
-	msgbox Route123_Text_RouteSignMtPyre, MSGBOX_SIGN
-	end
-
-Route123_EventScript_BerryMastersHouseSign::
-	msgbox Route123_Text_BerryMastersHouse, MSGBOX_SIGN
-	end
-
-Route123_EventScript_Wendy::
-	trainerbattle_single TRAINER_WENDY, Route123_Text_WendyIntro, Route123_Text_WendyDefeat
-	msgbox Route123_Text_WendyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Braxton::
-	trainerbattle_single TRAINER_BRAXTON, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat
-	msgbox Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Violet::
-	trainerbattle_single TRAINER_VIOLET, Route123_Text_VioletIntro, Route123_Text_VioletDefeat
-	msgbox Route123_Text_VioletPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Cameron::
-	trainerbattle_single TRAINER_CAMERON_1, Route123_Text_CameronIntro, Route123_Text_CameronDefeat, Route123_EventScript_RegisterCameron
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchCameron
-	msgbox Route123_Text_CameronPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterCameron::
-	special PlayerFaceTrainerAfterBattle
+Route123_EventScript_FuzkyBattle::
+	removeitem ITEM_WEIRD_STICK, 1
+	msgbox Route123_Text_YouThrowTheStick, MSGBOX_DEFAULT
+	applymovement LOCALID_FUZKY, Route123_Movement_FuzkyAttacks
 	waitmovement 0
-	msgbox Route123_Text_CameronRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CAMERON_1
+	setwildbattle SPECIES_FUZKY, 26
+	settotemboost B_POSITION_OPPONENT_LEFT, 1, 3, 1, 2, 3, 2
+	playmoncry SPECIES_FUZKY, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	msgbox Route123_Text_TheFuzkyWantsToBattle, MSGBOX_DEFAULT
+	dowildbattle
+	goto Route123_EventScript_FuzkyDefeat
 	release
 	end
 
-Route123_EventScript_RematchCameron::
-	trainerbattle_rematch TRAINER_CAMERON_1, Route123_Text_CameronRematchIntro, Route123_Text_CameronRematchDefeat
-	msgbox Route123_Text_CameronPostRematch, MSGBOX_AUTOCLOSE
-	end
+Route123_Movement_FuzkyAttacks:
+	walk_fast_right
+	walk_fast_up
+	jump_up
+	step_end
 
-Route123_EventScript_Jacki::
-	trainerbattle_single TRAINER_JACKI_1, Route123_Text_JackiIntro, Route123_Text_JackiDefeat, Route123_EventScript_RegisterJacki
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchJacki
-	msgbox Route123_Text_JackiPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterJacki::
-	special PlayerFaceTrainerAfterBattle
+Route123_EventScript_FuzkyDefeat::
+	msgbox Route123_Text_ItTakesOffTheMantle, MSGBOX_DEFAULT
+	giveitem ITEM_LOST_MANTLE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	applymovement LOCALID_FUZKY, Route123_Movement_FuzkyRunAway
 	waitmovement 0
-	msgbox Route123_Text_JackiRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JACKI_1
+	setflag FLAG_TEMP_17
+	removeobject LOCALID_FUZKY
 	release
 	end
 
-Route123_EventScript_RematchJacki::
-	trainerbattle_rematch TRAINER_JACKI_1, Route123_Text_JackiRematchIntro, Route123_Text_JackiRematchDefeat
-	msgbox Route123_Text_JackiPostRematch, MSGBOX_AUTOCLOSE
-	end
+Route123_Movement_FuzkyRunAway:
+	jump_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	jump_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
 
-Route123_EventScript_Miu::
-	trainerbattle_double TRAINER_MIU_AND_YUKI, Route123_Text_MiuIntro, Route123_Text_MiuDefeat, Route123_Text_MiuNotEnoughMons
-	msgbox Route123_Text_MiuPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Yuki::
-	trainerbattle_double TRAINER_MIU_AND_YUKI, Route123_Text_YukiIntro, Route123_Text_YukiDefeat, Route123_Text_YukiNotEnoughMons
-	msgbox Route123_Text_YukiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Kindra::
-	trainerbattle_single TRAINER_KINDRA, Route123_Text_KindraIntro, Route123_Text_KindraDefeat
-	msgbox Route123_Text_KindraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Frederick::
-	trainerbattle_single TRAINER_FREDRICK, Route123_Text_FrederickIntro, Route123_Text_FrederickDefeat
-	msgbox Route123_Text_FrederickPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Alberto::
-	trainerbattle_single TRAINER_ALBERTO, Route123_Text_AlbertoIntro, Route123_Text_AlbertoDefeat
-	msgbox Route123_Text_AlbertoPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Ed::
-	trainerbattle_single TRAINER_ED, Route123_Text_EdIntro, Route123_Text_EdDefeat
-	msgbox Route123_Text_EdPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Kayley::
-	trainerbattle_single TRAINER_KAYLEY, Route123_Text_KayleyIntro, Route123_Text_KayleyDefeat
-	msgbox Route123_Text_KayleyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Jonas::
-	trainerbattle_single TRAINER_JONAS, Route123_Text_JonasIntro, Route123_Text_JonasDefeat
-	msgbox Route123_Text_JonasPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Jazmyn::
-	trainerbattle_single TRAINER_JAZMYN, Route123_Text_JazmynIntro, Route123_Text_JazmynDefeat
-	msgbox Route123_Text_JazmynPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Davis::
-	trainerbattle_single TRAINER_DAVIS, Route123_Text_DavisIntro, Route123_Text_DavisDefeat
-	msgbox Route123_Text_DavisPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Fernando::
-	trainerbattle_single TRAINER_FERNANDO_1, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat, Route123_EventScript_RegisterFernando
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchFernando
-	msgbox Route123_Text_FernandoPostBattle, MSGBOX_DEFAULT
+Route123_EventScript_SnowNinjaTrigger::
+	lock
+	setvar VAR_TEMP_5, 1
+	goto_if_set FLAG_SNOWBALL_BOY, Route123_EventScript_SnowNinja
 	release
 	end
 
-Route123_EventScript_RegisterFernando::
-	special PlayerFaceTrainerAfterBattle
+Route123_EventScript_SnowNinja::
+	clearflag FLAG_TEMP_16
+	addobject LOCALID_SNOWNINJA
+	delay 16
+	applymovement LOCALID_SNOWNINJA, Route123_Movement_Ambush
 	waitmovement 0
-	msgbox Route123_Text_FernandoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_FERNANDO_1
+	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, 
 	release
 	end
 
-Route123_EventScript_RematchFernando::
-	trainerbattle_rematch TRAINER_FERNANDO_1, Route123_Text_FernandoRematchIntro, Route123_Text_FernandoRematchDefeat
-	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
+Route123_Movement_Ambush:
+	jump_right
+	face_up
+	step_end
+
+Route123_EventScript_SmokeBall::
+	lock
+	msgbox Route123_Text_BackToTheSnow, MSGBOX_DEFAULT
+	applymovement LOCALID_SNOWNINJA, Route123_Movement_BackToTheSnow
+	waitmovement 0
+	setflag FLAG_TEMP_16
+	removeobject LOCALID_SNOWNINJA
+	msgbox Route123_Text_HeLeftBehindSomething, MSGBOX_DEFAULT
+	giveitem ITEM_SMOKE_BALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
 	end
 
-Route123_Text_LoveGrassMonsHaveAny:
-	.string "I love GRASS-type POKéMON!\p"
-	.string "Do you have any GRASS-type POKéMON?$"
+Route123_Movement_BackToTheSnow:
+	jump_left
+	step_end
 
-Route123_Text_YouLikeGrassMonsTooHaveThis:
-	.string "Oh?\p"
-	.string "You like GRASS-type POKéMON, too,\n"
-	.string "don't you?\p"
-	.string "I'm so happy, you can have this!\n"
-	.string "It's a token of our friendship.$"
+Route123_Text_BackToTheSnow:
+	.string "back 2 the snow ig$"
 
-Route123_Text_CheckTreesWithMyGrassMon:
-	.string "I check trees with my GRASS-type\n"
-	.string "POKéMON. I'm like a tree doctor.$"
+Route123_Text_HeLeftBehindSomething:
+	.string "he left behind smth$"
 
-Route123_Text_RouteSign:
-	.string "{RIGHT_ARROW} ROUTE 123\n"
-	.string "{LEFT_ARROW} ROUTE 118$"
+Route123_Text_WantToPayRespects:
+	.string "want 2 pay respects$"
 
-Route123_Text_RouteSignMtPyre:
-	.string "{UP_ARROW} MT. PYRE\n"
-	.string "“Forbidden to the faint of heart.”$"
+Route123_Text_YouFoldYourHands:
+	.string "you fold your hands...$"
 
-Route123_Text_BerryMastersHouse:
-	.string "BERRY MASTER'S HOUSE$"
+Route123_Text_MayTheyRestInPeace:
+	.string "may they rest in piss$"
 
+Route123_Text_GottaKeepMoving:
+	.string "lets get goin$"
+
+Route123_Text_TheresSomethingOnYourWrist:
+	.string "theres smth on your wrist now$"
+
+Route123_Text_TheEngravingSays:
+	.string "its engraved$"
+
+Route123_Text_TheresAnOddFuzky:
+	.string "Theres a weird fuzky there$"
+
+Route123_Text_WantToThrowStick:
+	.string "wanna throw a stick at it$"
+
+Route123_Text_YouThrowTheStick:
+	.string "u threw the stick$"
+
+Route123_Text_TheFuzkyWantsToBattle:
+	.string "fuzky wants 2 beat u up$"
+
+Route123_Text_ItTakesOffTheMantle:
+	.string "it gives you its mantle$"
+
+Route123_Text_RamiIntro:
+	.string "intro$"
+
+Route123_Text_RamiDefeated:
+	.string "defeat$"
+
+Route123_Text_RamiPostBattle:
+	.string "post$"
+
+Route123_Text_TsunamiIntro:
+	.string "intro$"
+
+Route123_Text_TsunamiDefeated:
+	.string "defeat$"
+
+Route123_Text_TsunamiPostBattle:
+	.string "post$"
+
+Route123_Text_JinxieIntro:
+	.string "intro$"
+
+Route123_Text_JinxieDefeated:
+	.string "defeat$"
+
+Route123_Text_JinxiePostBattle:
+	.string "post$"
+
+Route123_Text_CarolinaIntro:
+	.string "intro$"
+
+Route123_Text_CarolinaDefeated:
+	.string "defeat$"
+
+Route123_Text_CarolinaPostBattle:
+	.string "post$"
+
+Route123_Text_BettyIntro:
+	.string "intro$"
+
+Route123_Text_BettyDefeated:
+	.string "defeat$"
+
+Route123_Text_BettyPostBattle:
+	.string "post$"
+
+Route123_Text_HazakuraIntro:
+	.string "AHA I WILL PAY YOU BACK$"
+
+Route123_Text_HazakuraDefeated:
+	.string "defeat$"
+
+Route123_Text_HazakuraPostBattle:
+	.string "post$"
+
+Route123_Text_MiaIntro:
+	.string "intro$"
+
+Route123_Text_MiaDefeated:
+	.string "defeat$"
+
+Route123_Text_MiaPostBattle:
+	.string "post$"
+
+Route123_Text_MayaIntro:
+	.string "intro$"
+
+Route123_Text_MayaDefeated:
+	.string "defeat$"
+
+Route123_Text_MayaPostBattle:
+	.string "post$"
+
+Route123_Text_KumoriIntro:
+	.string "intro$"
+
+Route123_Text_KumoriDefeated:
+	.string "defeat$"
+
+Route123_Text_KumoriPostBattle:
+	.string "post$"
+
+Route123_Text_HothIntro:
+	.string "intro$"
+
+Route123_Text_HothDefeated:
+	.string "defeat$"
+
+Route123_Text_HothPostBattle:
+	.string "post$"
+
+Route123_Text_BreadwinnerIntro:
+	.string "bread intro$"
+
+Route123_Text_BreadwinnerDefeat:
+	.string "bread defeat$"
+
+Route123_Text_BreadwinnerRunAway:
+	.string "runnin outta here$"

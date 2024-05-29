@@ -207,10 +207,10 @@ u8 GetSubstituteSpriteDefault_Y(u8 battlerId);
 #define STAT_ANIM_PLUS2  MOVE_EFFECT_ATK_PLUS_2 - 1
 #define STAT_ANIM_MINUS1 MOVE_EFFECT_ATK_MINUS_1 - 1
 #define STAT_ANIM_MINUS2 MOVE_EFFECT_ATK_MINUS_2 - 1
-#define STAT_ANIM_MULTIPLE_PLUS1 55
-#define STAT_ANIM_MULTIPLE_PLUS2 56
-#define STAT_ANIM_MULTIPLE_MINUS1 57
-#define STAT_ANIM_MULTIPLE_MINUS2 58
+#define STAT_ANIM_MULTIPLE_PLUS1    65
+#define STAT_ANIM_MULTIPLE_PLUS2    66
+#define STAT_ANIM_MULTIPLE_MINUS1   67
+#define STAT_ANIM_MULTIPLE_MINUS2   68
 
 enum {
     STAT_ANIM_PAL_ATK,
@@ -313,8 +313,7 @@ extern const union AffineAnimCmd *const gAngerMarkAffineAnimTable[];
 extern const union AffineAnimCmd *const gWaterPulseRingAffineAnimTable[];
 extern const union AffineAnimCmd *const gHyperVoiceRingAffineAnimTable[];
 extern const union AnimCmd *const gCoinAnimTable[];
-extern const union AnimCmd *const gAnims_FlyingCoin[];
-extern const union AnimCmd *const gAnims_FlyingCoin[];
+extern const union AnimCmd *const gMudAnimTable[];
 extern const union AffineAnimCmd *const gHiddenPowerOrbAffineAnimTable[];
 extern const union AffineAnimCmd *const gBulletSeedAffineAnimTable[];
 
@@ -395,6 +394,7 @@ extern const struct OamData gOamData_AffineDouble_ObjNormal_8x8;
 extern const struct OamData gOamData_AffineOff_ObjNormal_16x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x16;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_32x32;
+extern const struct OamData gOamData_AffineNormal_ObjNormal_16x32;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_64x32;
 extern const struct OamData gOamData_AffineDouble_ObjNormal_16x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x32;
@@ -417,6 +417,7 @@ extern const struct OamData gOamData_AffineDouble_ObjNormal_64x64;
 extern const struct OamData gOamData_AffineDouble_ObjBlend_64x64;
 extern const struct OamData gOamData_AffineDouble_ObjBlend_64x32;
 extern const struct OamData gOamData_AffineDouble_ObjNormal_8x16;
+extern const struct OamData gOamData_AffineDouble_ObjNormal_64x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_16x16;
 extern const struct OamData gOamData_AffineDouble_ObjBlend_16x16;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_8x8;
@@ -429,6 +430,7 @@ extern const struct OamData gOamData_AffineOff_ObjNormal_64x64;
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x64;
 extern const struct OamData gOamData_AffineNormal_ObjNormal_64x64;
 extern const struct OamData gOamData_AffineDouble_ObjNormal_32x16;
+extern const struct OamData gOamData_AffineNormal_ObjNormal_32x16;
 extern const struct OamData gOamData_AffineOff_ObjNormal_64x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_64x32;
 extern const struct OamData gOamData_AffineOff_ObjBlend_16x32;

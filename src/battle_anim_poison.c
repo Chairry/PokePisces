@@ -2,6 +2,8 @@
 #include "battle_anim.h"
 #include "trig.h"
 #include "constants/rgb.h"
+#include "constants/moves.h"
+#include "constants/battle.h"
 
 static void AnimSludgeProjectile(struct Sprite *);
 static void AnimSludgeProjectile_Step(struct Sprite *);
@@ -127,6 +129,17 @@ const struct SpriteTemplate gSludgeBombHitParticleSpriteTemplate =
     .anims = sAnims_SludgeBombHit,
     .images = NULL,
     .affineAnims = sAffineAnims_SludgeBombHit,
+    .callback = AnimSludgeBombHitParticle,
+};
+
+const struct SpriteTemplate gCausticFinaleHitParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_TOXIC_SPIKES,
+    .paletteTag = ANIM_TAG_TOXIC_SPIKES,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSludgeBombHitParticle,
 };
 
@@ -298,6 +311,28 @@ const struct SpriteTemplate gGunkShotImpactSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WATER_IMPACT,
     .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gSuckerPunchImpactAffineAnim,
+    .callback = AnimGunkShotImpact,
+};
+
+const struct SpriteTemplate gRadioacidParticlesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_ORB,
+    .paletteTag = ANIM_TAG_GREEN_POISON_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjBlend_16x16,
+    .anims = gGunkShotParticlesAnims,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGunkShotParticles,
+};
+
+const struct SpriteTemplate gRadioacidImpactSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_IMPACT,
+    .paletteTag = ANIM_TAG_GREEN_POISON_BUBBLE,
     .oam = &gOamData_AffineNormal_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -506,7 +541,7 @@ static void AnimAcidPoisonDroplet(struct Sprite *sprite)
 // arg 2: 0 = single-target, 1 = multi-target
 void AnimBubbleEffect(struct Sprite *sprite)
 {
-    if (!gBattleAnimArgs[2])
+    if ((!gBattleAnimArgs[2]) || (gCurrentMove = MOVE_BOUNCY_BUBBLE))
     {
         InitSpritePosToAnimTarget(sprite, TRUE);
     }

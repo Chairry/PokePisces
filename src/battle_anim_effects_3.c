@@ -25,6 +25,7 @@
 #include "constants/hold_effects.h"
 
 extern const struct SpriteTemplate gThoughtBubbleSpriteTemplate;
+extern const struct SpriteTemplate gBerryThoughtBubbleSpriteTemplate;
 
 static void AnimBlackSmoke_Step(struct Sprite *);
 static void AnimWhiteHalo(struct Sprite *);
@@ -56,6 +57,7 @@ static void AnimWishStar_Step(struct Sprite *);
 static void AnimMiniTwinklingStar(struct Sprite *);
 static void AnimMiniTwinklingStar_Step(struct Sprite *);
 static void AnimSwallowBlueOrb(struct Sprite *);
+static void AnimGreenStarOpponent(struct Sprite *);
 static void AnimGreenStar(struct Sprite *);
 static void AnimGreenStar_Step1(struct Sprite *);
 static void AnimGreenStar_Step2(struct Sprite *);
@@ -93,6 +95,8 @@ static void FadeScreenToWhite_Step(u8);
 static void RapinSpinMonElevation_Step(u8);
 static void TormentAttacker_Step(u8);
 static void TormentAttacker_Callback(struct Sprite *);
+static void BerryBadJokeAttacker_Step(u8);
+static void BerryBadJokeAttacker_Callback(struct Sprite *);
 static void AnimTask_RockMonBackAndForth_Step(u8);
 static void AnimTask_FlailMovement_Step(u8);
 static void AnimTask_RolePlaySilhouette_Step1(u8);
@@ -636,6 +640,17 @@ const struct SpriteTemplate gGreenStarSpriteTemplate =
     .callback = AnimGreenStar,
 };
 
+const struct SpriteTemplate gGreenStarOpponentSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GREEN_STAR,
+    .paletteTag = ANIM_TAG_GREEN_STAR,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gGreenStarAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGreenStarOpponent,
+};
+
 const s8 gDoomDesireLightBeamCoordTable[] =
 {
     0x78,
@@ -720,6 +735,17 @@ const struct SpriteTemplate gSweetScentPetalSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSweetScentPetal,
+};
+
+const struct SpriteTemplate gPinkPetalVortexTemplate =
+{
+    .tileTag = ANIM_TAG_PINK_PETAL,
+    .paletteTag = ANIM_TAG_PINK_PETAL,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gSweetScentPetalAnimCmdTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimParticleInVortex
 };
 
 static const u16 sUnusedPalette[] = INCBIN_U16("graphics/battle_anims/unused/unknown.gbapal");
@@ -1036,7 +1062,18 @@ const struct SpriteTemplate gPopulationBombBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHITE_BALL,
     .paletteTag = ANIM_TAG_WHITE_BALL,
-    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gPopulationBombBallAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
+const struct SpriteTemplate gPopulationBombBall2SpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_BAT,
+    .paletteTag = ANIM_TAG_WHITE_BAT,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gPopulationBombBallAffineAnimTable,
@@ -2124,6 +2161,129 @@ static void TormentAttacker_Callback(struct Sprite *sprite)
     }
 }
 
+void AnimTask_BerryBadJokeAttacker(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[0] = 0;
+    task->data[1] = 0;
+    task->data[2] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[3] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[4] = 32;
+    task->data[5] = -20;
+    task->data[6] = 0;
+    task->data[15] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
+    task->func = BerryBadJokeAttacker_Step;
+}
+
+static void BerryBadJokeAttacker_Step(u8 taskId)
+{
+    int var0, var1;
+    s16 x, y;
+    u16 i, j;
+    u8 spriteId;
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        var0 = task->data[2];
+        if (task->data[1] & 1)
+        {
+            var1 = task->data[4];
+            x = var0 - var1;
+        }
+        else
+        {
+            var1 = task->data[4];
+            x = var0 + var1;
+        }
+
+        y = task->data[3] + task->data[5];
+        spriteId = CreateSprite(&gBerryThoughtBubbleSpriteTemplate, x, y, 6 - task->data[1]);
+        PlaySE12WithPanning(SE_M_METRONOME, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].hFlip = task->data[1] & 1;
+            gSprites[spriteId].callback = SpriteCallbackDummy;
+        }
+
+        if (task->data[1] & 1)
+        {
+            task->data[4] -= 6;
+            task->data[5] -= 6;
+        }
+
+        PrepareAffineAnimInTaskData(task, task->data[15], sAffineAnims_Torment);
+        task->data[1]++;
+        task->data[0] = 1;
+        break;
+    case 1:
+        if (!RunAffineAnimFromTaskData(task))
+        {
+            if (task->data[1] == 6)
+            {
+                task->data[6] = 8;
+                task->data[0] = 3;
+            }
+            else
+            {
+                if (task->data[1] <= 2)
+                    task->data[6] = 10;
+                else
+                    task->data[6] = 0;
+
+                task->data[0] = 2;
+            }
+        }
+        break;
+    case 2:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 0;
+        break;
+    case 3:
+        if (task->data[6] != 0)
+            task->data[6]--;
+        else
+            task->data[0] = 4;
+        break;
+    case 4:
+        for (i = 0, j = 0; i < MAX_SPRITES; i++)
+        {
+            if (gSprites[i].template == &gBerryThoughtBubbleSpriteTemplate)
+            {
+                gSprites[i].data[0] = taskId;
+                gSprites[i].data[1] = 6;
+                StartSpriteAnim(&gSprites[i], 2);
+                gSprites[i].callback = BerryBadJokeAttacker_Callback;
+
+                if (++j == 6)
+                    break;
+            }
+        }
+
+        task->data[6] = j;
+        task->data[0] = 5;
+        break;
+    case 5:
+        if (task->data[6] == 0)
+            DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static void BerryBadJokeAttacker_Callback(struct Sprite *sprite)
+{
+    if (sprite->animEnded)
+    {
+        gTasks[sprite->data[0]].data[sprite->data[1]]--;
+        DestroySprite(sprite);
+    }
+}
+
 static void AnimTriAttackTriangle(struct Sprite *sprite)
 {
     if (sprite->data[0] == 0)
@@ -2569,6 +2729,135 @@ void AnimTask_MorningSunLightBeam(u8 taskId)
         DestroyAnimVisualTask(taskId);
         break;
     }
+}
+
+void AnimTask_MorningSunLightBeamOpponent(u8 taskId)
+{
+    struct BattleAnimBgData animBg;
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL | BLDCNT_EFFECT_BLEND | BLDCNT_TGT1_BG1);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+        SetAnimBgAttribute(1, BG_ANIM_SCREEN_SIZE, 0);
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 1);
+
+        GetBattleAnimBg1Data(&animBg);
+        AnimLoadCompressedBgTilemapHandleContest(&animBg, &gBattleAnimMaskTilemap_LightBeam, FALSE);
+        if (IsContest())
+        {
+            gBattle_BG1_X = -56;
+            gBattle_BG1_Y = 0;
+        }
+        else
+        {
+            if (GetBattlerSide(gBattleAnimTarget) != B_SIDE_PLAYER)
+                gBattle_BG1_X = -135;
+            else
+                gBattle_BG1_X = -10;
+
+            gBattle_BG1_Y = 0;
+        }
+
+        AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnimMaskImage_LightBeam, animBg.tilesOffset);
+        LoadCompressedPalette(gBattleAnimMaskPalette_LightBeam, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+
+        gTasks[taskId].data[10] = gBattle_BG1_X;
+        gTasks[taskId].data[11] = gBattle_BG1_Y;
+
+        gTasks[taskId].data[0]++;
+        PlaySE12WithPanning(SE_M_MORNING_SUN, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+        break;
+    case 1:
+        if (gTasks[taskId].data[4]++ > 0)
+        {
+            gTasks[taskId].data[4] = 0;
+            if (++gTasks[taskId].data[1] > 12)
+                gTasks[taskId].data[1] = 12;
+
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[1], 16 - gTasks[taskId].data[1]));
+
+            if (gTasks[taskId].data[1] == 12)
+                gTasks[taskId].data[0]++;
+        }
+        break;
+    case 2:
+        if (--gTasks[taskId].data[1] < 0)
+            gTasks[taskId].data[1] = 0;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[1], 16 - gTasks[taskId].data[1]));
+
+        if (!gTasks[taskId].data[1])
+        {
+            gBattle_BG1_X = gMorningSunLightBeamCoordsTable[gTasks[taskId].data[2]] + gTasks[taskId].data[10];
+            if (++gTasks[taskId].data[2] == 4)
+                gTasks[taskId].data[0] = 4;
+            else
+                gTasks[taskId].data[0] = 3;
+        }
+        break;
+    case 3:
+        if (++gTasks[taskId].data[3] == 4)
+        {
+            gTasks[taskId].data[3] = 0;
+            gTasks[taskId].data[0] = 1;
+            PlaySE12WithPanning(SE_M_MORNING_SUN, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+        }
+        break;
+    case 4:
+        GetBattleAnimBg1Data(&animBg);
+        ClearBattleAnimBg(animBg.bgId);
+        if (!IsContest())
+            SetAnimBgAttribute(1, BG_ANIM_CHAR_BASE_BLOCK, 0);
+
+        SetAnimBgAttribute(1, BG_ANIM_PRIORITY, 1);
+        gBattle_BG1_X = 0;
+        gBattle_BG1_Y = 0;
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+static void AnimGreenStarOpponent(struct Sprite *sprite)
+{
+    s16 xOffset;
+    u8 spriteId1;
+    u8 spriteId2;
+
+    xOffset = Random2();
+    xOffset &= 0x3F;
+    if (xOffset > 31)
+        xOffset = 32 - xOffset;
+
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) + xOffset;
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 32;
+    sprite->data[1] = gBattleAnimArgs[0];
+    sprite->data[2] = gBattleAnimArgs[1];
+
+    spriteId1 = CreateSprite(&gGreenStarSpriteTemplate, sprite->x, sprite->y, sprite->subpriority + 1);
+    spriteId2 = CreateSprite(&gGreenStarSpriteTemplate, sprite->x, sprite->y, sprite->subpriority + 1);
+    StartSpriteAnim(&gSprites[spriteId1], 1);
+    StartSpriteAnim(&gSprites[spriteId2], 2);
+
+    gSprites[spriteId1].data[1] = gBattleAnimArgs[0];
+    gSprites[spriteId1].data[2] = gBattleAnimArgs[1];
+    gSprites[spriteId2].data[1] = gBattleAnimArgs[0];
+    gSprites[spriteId2].data[2] = gBattleAnimArgs[1];
+    gSprites[spriteId1].data[7] = -1;
+    gSprites[spriteId2].data[7] = -1;
+    gSprites[spriteId1].invisible = TRUE;
+    gSprites[spriteId2].invisible = TRUE;
+    gSprites[spriteId1].callback = AnimGreenStar_Callback;
+    gSprites[spriteId2].callback = AnimGreenStar_Callback;
+
+    sprite->data[6] = spriteId1;
+    sprite->data[7] = spriteId2;
+    sprite->callback = AnimGreenStar_Step1;
 }
 
 static void AnimGreenStar(struct Sprite *sprite)
@@ -4360,6 +4649,76 @@ void AnimTask_PopulationBombBall(u8 taskId)
 }
 
 static void AnimTask_PopulationBombBall_Step(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    switch (task->data[0])
+    {
+    case 0:
+        if (++task->data[1] > 1)
+        {
+            task->data[1] = 0;
+            TranslateAnimHorizontalArc(&gSprites[task->data[15]]);
+            if (++task->data[2] > 7)
+                task->data[0]++;
+        }
+        break;
+    case 1:
+        if (TranslateAnimHorizontalArc(&gSprites[task->data[15]]))
+        {
+            task->data[1] = 0;
+            task->data[2] = 0;
+            task->data[0]++;
+        }
+        break;
+    case 2:
+        if (++task->data[1] > 1)
+        {
+            task->data[1] = 0;
+            task->data[2]++;
+            gSprites[task->data[15]].invisible = task->data[2] & 1;
+            if (task->data[2] == 16)
+            {
+                FreeOamMatrix(gSprites[task->data[15]].oam.matrixNum);
+                DestroySprite(&gSprites[task->data[15]]);
+                task->data[0]++;
+            }
+        }
+        break;
+    case 3:
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_PopulationBombBall2(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    task->data[11] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    task->data[12] = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    task->data[13] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    task->data[14] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + GetBattlerSpriteCoordAttr(gBattleAnimTarget, BATTLER_COORD_ATTR_HEIGHT) / 4;
+    task->data[15] = CreateSprite(&gPopulationBombBall2SpriteTemplate, task->data[11], task->data[12], GetBattlerSpriteSubpriority(gBattleAnimTarget) - 5);
+    if (task->data[15] != MAX_SPRITES)
+    {
+        gSprites[task->data[15]].data[0] = 16;
+        gSprites[task->data[15]].data[2] = task->data[13];
+        gSprites[task->data[15]].data[4] = task->data[14];
+        gSprites[task->data[15]].data[5] = -32;
+        InitAnimArcTranslation(&gSprites[task->data[15]]);
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            StartSpriteAffineAnim(&gSprites[task->data[15]], 1);
+
+        task->func = AnimTask_PopulationBombBall_Step;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void AnimTask_PopulationBombBall2_Step(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 

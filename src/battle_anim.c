@@ -272,6 +272,7 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
         case B_ANIM_SNATCH_MOVE:
         case B_ANIM_FUTURE_SIGHT_HIT:
         case B_ANIM_DOOM_DESIRE_HIT:
+        case B_ANIM_DECIMATION_HIT:
         case B_ANIM_WISH_HEAL:
         case B_ANIM_MEGA_EVOLUTION:
         case B_ANIM_PRIMAL_REVERSION:
@@ -1467,13 +1468,33 @@ void LoadMoveBg(u16 bgId)
 static void LoadDefaultBg(void)
 {
     if (IsContest())
+    {
         LoadContestBgAfterMoveAnim();
-#if B_TERRAIN_BG_CHANGE == TRUE
+    }
     else if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+    {
         DrawTerrainTypeBattleBackground();
-#endif
+    }
+    else if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+    {
+        LoadMoveBg(BG_WONDER_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
+    {
+        LoadMoveBg(BG_MAGIC_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+    {
+        LoadMoveBg(BG_INVERSE_ROOM);
+    }
     else
+    {
         DrawMainBattleBackground();
+    }
 }
 
 static void Cmd_restorebg(void)

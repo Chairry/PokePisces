@@ -252,7 +252,7 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
         .tilemapTop = 55,
         .width = 4,
         .height = 2,
-        .paletteNum = 5,
+        .paletteNum = 12,
         .baseBlock = 0x02a0,
     },
     [B_WIN_SWITCH_PROMPT] = {
@@ -721,6 +721,33 @@ const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_Gold,
     },
 
+    [BATTLE_TERRAIN_WOODEN_ROUTE] =
+    {
+        .tileset = gBattleTerrainTiles_Wooden,
+        .tilemap = gBattleTerrainTilemap_Wooden,
+        .entryTileset = gBattleTerrainAnimTiles_Wooden,
+        .entryTilemap = gBattleTerrainAnimTilemap_Wooden,
+        .palette = gBattleTerrainPalette_Wooden,
+    },
+
+    [BATTLE_TERRAIN_PATH] =
+    {
+        .tileset = gBattleTerrainTiles_Path,
+        .tilemap = gBattleTerrainTilemap_Path,
+        .entryTileset = gBattleTerrainAnimTiles_Path,
+        .entryTilemap = gBattleTerrainAnimTilemap_Path,
+        .palette = gBattleTerrainPalette_Path,
+    },
+
+    [BATTLE_TERRAIN_DARK_AREA] =
+    {
+        .tileset = gBattleTerrainTiles_Darkness,
+        .tilemap = gBattleTerrainTilemap_Darkness,
+        .entryTileset = gBattleTerrainAnimTiles_Darkness,
+        .entryTilemap = gBattleTerrainAnimTilemap_Darkness,
+        .palette = gBattleTerrainPalette_Darkness,
+    },
+
     [BATTLE_TERRAIN_FRONTIER] =
     {
         .tileset = gBattleTerrainTiles_Building,
@@ -966,7 +993,26 @@ void LoadBattleTextboxAndBackground(void)
     LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadBattleMenuWindowGfx();
 #if B_TERRAIN_BG_CHANGE == TRUE
-    DrawTerrainTypeBattleBackground();
+    if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+    {
+        LoadMoveBg(BG_TRICK_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+    {    
+        LoadMoveBg(BG_WONDER_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM)
+    {
+        LoadMoveBg(BG_MAGIC_ROOM);
+    }
+    else if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM)
+    {
+        LoadMoveBg(BG_INVERSE_ROOM);
+    }
+    else
+    {
+        DrawTerrainTypeBattleBackground();
+    }
 #else
     DrawMainBattleBackground();
 #endif
@@ -1401,4 +1447,3 @@ void DrawTerrainTypeBattleBackground(void)
         break;
     }
 }
-

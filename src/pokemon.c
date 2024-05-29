@@ -348,6 +348,60 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(MARINAROC),
     SPECIES_TO_HOENN(METTATOLL),
     SPECIES_TO_HOENN(GAOTERRA),
+    SPECIES_TO_HOENN(MISDREAVUS),
+    SPECIES_TO_HOENN(MISMAGIUS),
+    SPECIES_TO_HOENN(NINCADA),
+    SPECIES_TO_HOENN(NINJASK),
+    SPECIES_TO_HOENN(SHEDINJA),
+    SPECIES_TO_HOENN(SEEDOT),
+    SPECIES_TO_HOENN(NUZLEAF),
+    SPECIES_TO_HOENN(SHIFTRY),
+    SPECIES_TO_HOENN(CROAGUNK),
+    SPECIES_TO_HOENN(TOXICROAK),
+    SPECIES_TO_HOENN(PAWNIARD),
+    SPECIES_TO_HOENN(BISHARP),
+    SPECIES_TO_HOENN(SPINDA),
+    SPECIES_TO_HOENN(GROWLITHE),
+    SPECIES_TO_HOENN(ARCANINE),
+    SPECIES_TO_HOENN(GLIGAR),
+    SPECIES_TO_HOENN(GLISCOR),
+    SPECIES_TO_HOENN(GRIMER),
+    SPECIES_TO_HOENN(MUK),
+    SPECIES_TO_HOENN(LUVDISC),
+    SPECIES_TO_HOENN(LUNATONE),
+    SPECIES_TO_HOENN(SOLROCK),
+    SPECIES_TO_HOENN(GROUDON),
+    SPECIES_TO_HOENN(KYOGRE),
+    SPECIES_TO_HOENN(BISHOUCHA),
+    SPECIES_TO_HOENN(PAPYPUS),
+    SPECIES_TO_HOENN(SHISHIMA),
+    SPECIES_TO_HOENN(SHUNYONG),
+    SPECIES_TO_HOENN(KINGAMBIT),
+    SPECIES_TO_HOENN(SHELLYLOUH),
+    SPECIES_TO_HOENN(INFAIRNO),
+    SPECIES_TO_HOENN(PURGATIVAL),
+    SPECIES_TO_HOENN(DETERIOTL),
+    SPECIES_TO_HOENN(DAKKAPOD),
+    SPECIES_TO_HOENN(UNBERRABLE),
+    SPECIES_TO_HOENN(VAIKING),
+
+    [SPECIES_DUDUNSPARS_THREE_SEGMENT - 1] = HOENN_DEX_DUDUNSPARS,
+    [SPECIES_LOTTABATS_HUDDLED - 1] = HOENN_DEX_LOTTABATS,
+    [SPECIES_GAOTERRA_SOLAR - 1] = HOENN_DEX_GAOTERRA,
+    [SPECIES_GAOTERRA_LUNAR - 1] = HOENN_DEX_GAOTERRA,
+    [SPECIES_BISHOUCHA_WARMONGER - 1] = HOENN_DEX_BISHOUCHA,
+    [SPECIES_PAPYPUS_FEMALE - 1] = HOENN_DEX_PAPYPUS,
+    [SPECIES_CINDRILLON_PIROUETTE - 1] = HOENN_DEX_CINDRILLON,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1] = HOENN_DEX_CINDRILLON,
+    [SPECIES_SHISHIMA_PUNISHER - 1] = HOENN_DEX_SHISHIMA,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1] = HOENN_DEX_SHUNYONG,
+    [SPECIES_SPINDA_CAVE - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_DESERT - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_FOREST - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_MOUNTAIN - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_SPINDA_PLAINS2 - 1] = HOENN_DEX_SPINDA,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = HOENN_DEX_DUDUNSPARS,
+    [SPECIES_KODOUGH_BLUNT - 1] = HOENN_DEX_KODOUGH,
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -1465,6 +1519,19 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(MARINAROC),
     SPECIES_TO_NATIONAL(METTATOLL),
     SPECIES_TO_NATIONAL(GAOTERRA),
+    SPECIES_TO_NATIONAL(BISHOUCHA),
+    SPECIES_TO_NATIONAL(PAPYPUS),
+    SPECIES_TO_NATIONAL(SHISHIMA),
+    SPECIES_TO_NATIONAL(SHUNYONG),
+    SPECIES_TO_NATIONAL(KINGAMBIT),
+    SPECIES_TO_NATIONAL(SHELLYLOUH),
+    SPECIES_TO_NATIONAL(INFAIRNO),
+    SPECIES_TO_NATIONAL(PURGATIVAL),
+    SPECIES_TO_NATIONAL(DETERIOTL),
+    SPECIES_TO_NATIONAL(DAKKAPOD),
+    SPECIES_TO_NATIONAL(UNBERRABLE),
+    SPECIES_TO_NATIONAL(PEBLRANIUM),
+    SPECIES_TO_NATIONAL(VAIKING),
 #endif
 
     // Megas
@@ -1564,6 +1631,20 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_LOTTABATS_HUDDLED - 1] = NATIONAL_DEX_LOTTABATS,
     [SPECIES_GAOTERRA_SOLAR - 1] = NATIONAL_DEX_GAOTERRA,
     [SPECIES_GAOTERRA_LUNAR - 1] = NATIONAL_DEX_GAOTERRA,
+    [SPECIES_BISHOUCHA_WARMONGER - 1] = NATIONAL_DEX_BISHOUCHA,
+    [SPECIES_PAPYPUS_FEMALE - 1] = NATIONAL_DEX_PAPYPUS,
+    [SPECIES_CINDRILLON_PIROUETTE - 1] = NATIONAL_DEX_CINDRILLON,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1] = NATIONAL_DEX_CINDRILLON,
+    [SPECIES_SHISHIMA_PUNISHER - 1] = NATIONAL_DEX_SHISHIMA,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1] = NATIONAL_DEX_SHUNYONG,
+    [SPECIES_SPINDA_CAVE - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_DESERT - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_FOREST - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_MOUNTAIN - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_SPINDA_PLAINS2 - 1] = NATIONAL_DEX_SPINDA,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = NATIONAL_DEX_DUDUNSPARS,
+    [SPECIES_KODOUGH_BLUNT - 1] = NATIONAL_DEX_KODOUGH,
+    [SPECIES_CASTFORM_SANDY - 1] = NATIONAL_DEX_CASTFORM,
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_DARUMAKA_GALARIAN - 1] = NATIONAL_DEX_DARUMAKA,
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
@@ -1581,7 +1662,6 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
 #if P_GEN_5_POKEMON == TRUE
     [SPECIES_SAMUROTT_HISUIAN - 1] = NATIONAL_DEX_SAMUROTT,
     [SPECIES_LILLIGANT_HISUIAN - 1] = NATIONAL_DEX_LILLIGANT,
-    [SPECIES_ZORUA_HISUIAN - 1] = NATIONAL_DEX_ZORUA,
     [SPECIES_ZOROARK_HISUIAN - 1] = NATIONAL_DEX_ZOROARK,
     [SPECIES_BRAVIARY_HISUIAN - 1] = NATIONAL_DEX_BRAVIARY,
 #endif
@@ -2132,6 +2212,42 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(MARINAROC),
     HOENN_TO_NATIONAL(METTATOLL),
     HOENN_TO_NATIONAL(GAOTERRA),
+    HOENN_TO_NATIONAL(MISDREAVUS),
+    HOENN_TO_NATIONAL(MISMAGIUS),
+    HOENN_TO_NATIONAL(NINCADA),
+    HOENN_TO_NATIONAL(NINJASK),
+    HOENN_TO_NATIONAL(SHEDINJA),
+    HOENN_TO_NATIONAL(SEEDOT),
+    HOENN_TO_NATIONAL(NUZLEAF),
+    HOENN_TO_NATIONAL(SHIFTRY),
+    HOENN_TO_NATIONAL(CROAGUNK),
+    HOENN_TO_NATIONAL(TOXICROAK),
+    HOENN_TO_NATIONAL(PAWNIARD),
+    HOENN_TO_NATIONAL(BISHARP),
+    HOENN_TO_NATIONAL(SPINDA),
+    HOENN_TO_NATIONAL(GROWLITHE),
+    HOENN_TO_NATIONAL(ARCANINE),
+    HOENN_TO_NATIONAL(GLIGAR),
+    HOENN_TO_NATIONAL(GLISCOR),
+    HOENN_TO_NATIONAL(GRIMER),
+    HOENN_TO_NATIONAL(MUK),
+    HOENN_TO_NATIONAL(LUVDISC),
+    HOENN_TO_NATIONAL(LUNATONE),
+    HOENN_TO_NATIONAL(SOLROCK),
+    HOENN_TO_NATIONAL(GROUDON),
+    HOENN_TO_NATIONAL(KYOGRE),
+    HOENN_TO_NATIONAL(BISHOUCHA),
+    HOENN_TO_NATIONAL(PAPYPUS),
+    HOENN_TO_NATIONAL(SHISHIMA),
+    HOENN_TO_NATIONAL(SHUNYONG),
+    HOENN_TO_NATIONAL(KINGAMBIT),
+    HOENN_TO_NATIONAL(SHELLYLOUH),
+    HOENN_TO_NATIONAL(INFAIRNO),
+    HOENN_TO_NATIONAL(PURGATIVAL),
+    HOENN_TO_NATIONAL(DETERIOTL),
+    HOENN_TO_NATIONAL(DAKKAPOD),
+    HOENN_TO_NATIONAL(UNBERRABLE),
+    HOENN_TO_NATIONAL(VAIKING),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -3300,7 +3416,20 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_ORROWHELM - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SHAYON - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_LUOSHAN - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
-    [SPECIES_GAOTERRA - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_GAOTERRA - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_BISHOUCHA - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PAPYPUS - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHISHIMA - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHUNYONG - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_KINGAMBIT - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHELLYLOUH - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_INFAIRNO - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PURGATIVAL - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DETERIOTL - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DAKKAPOD - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_UNBERRABLE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PEBLRANIUM - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_VAIKING - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
 
     //Gen 3 Forms
     [SPECIES_CASTFORM_SUNNY - 1]           = ANIM_GROW_VIBRATE,
@@ -3313,6 +3442,20 @@ const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_DUDUNSPARS_THREE_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_GAOTERRA_SOLAR - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_GAOTERRA_LUNAR - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_BISHOUCHA_WARMONGER - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_PAPYPUS_FEMALE - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CINDRILLON_PIROUETTE - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CINDRILLON_FEAROUETTE - 1]    = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHISHIMA_PUNISHER - 1]        = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SHUNYONG_GOLDEN_OFFENSE - 1]  = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_CAVE - 1]              = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_DESERT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_FOREST - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_MOUNTAIN - 1]          = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_SPINDA_PLAINS2 - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_DUDUNSPARS_EIGHT_SEGMENT - 1] = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_KODOUGH_BLUNT - 1]            = ANIM_V_SQUISH_AND_BOUNCE,
+    [SPECIES_CASTFORM_SANDY - 1]           = ANIM_V_SQUISH_AND_BOUNCE,
     //Gen 4 Forms
     [SPECIES_CHERRIM_SUNSHINE - 1]       = ANIM_H_JUMPS_V_STRETCH,
     [SPECIES_SHELLOS_EAST_SEA - 1]       = ANIM_V_STRETCH,
@@ -3859,7 +4002,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[LEGENDARY_PERFECT_IV_COUNT];
-
+    fixedIV = 31;
     ZeroBoxMonData(boxMon);
 
     if (hasFixedPersonality)
@@ -4544,7 +4687,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     if (species == SPECIES_SHEDINJA)
     {
-        newMaxHP = 1;
+        newMaxHP = 5;
     }
 
     else if (species == SPECIES_MORPEKO || species == SPECIES_MORPEKO_HANGRY)
@@ -4572,8 +4715,8 @@ void CalculateMonStats(struct Pokemon *mon)
 
     if (species == SPECIES_SHEDINJA)
     {
-        if (currentHP != 0 || oldMaxHP == 0)
-            currentHP = 1;
+        if (currentHP != 0 || oldMaxHP == 0 || currentHP != 1 || oldMaxHP == 1 || currentHP != 2 || oldMaxHP == 2 || currentHP != 3 || oldMaxHP == 3 || currentHP != 4 || oldMaxHP == 4)
+            currentHP = 5;
         else
             return;
     }
@@ -6184,6 +6327,8 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
             friendship += 150 * friendshipChange / 100;                                                 \
+        else if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)                          \
+            friendship += friendshipChange * -1;                                                        \
         else                                                                                            \
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
@@ -6240,7 +6385,11 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     // Get item hold effect
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    #else
+        holdEffect = 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = ItemId_GetHoldEffect(heldItem);
 
@@ -6300,7 +6449,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             }
 
             // Cure status
-            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP, battlerId) == 0)
+            if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP_ANY, battlerId) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_POISON) && HealStatusConditions(mon, partyIndex, STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER, battlerId) == 0)
                 retVal = FALSE;
@@ -6638,10 +6787,10 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 battlePartyId, u32 healMask,
 
     if (status & healMask)
     {
-        status &= ~healMask;
+        status &= ~(healMask);
         SetMonData(mon, MON_DATA_STATUS, &status);
         if (gMain.inBattle && battlerId != MAX_BATTLERS_COUNT)
-            gBattleMons[battlerId].status1 &= ~healMask;
+            gBattleMons[battlerId].status1 = status;
         return FALSE;
     }
     else
@@ -6787,7 +6936,11 @@ u8 *UseStatIncreaseItem(u16 itemId)
         if (gMain.inBattle)
             itemEffect = gEnigmaBerries[gBattlerInMenuId].itemEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
+        #else
+            itemEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -6851,6 +7004,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     u16 heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     u8 level;
+    u8 stat;
     u16 friendship;
     u8 beauty = GetMonData(mon, MON_DATA_BEAUTY, 0);
     u16 upperPersonality = personality >> 16;
@@ -6866,7 +7020,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         partnerHeldItem = GetMonData(tradePartner, MON_DATA_HELD_ITEM, 0);
 
         if (partnerHeldItem == ITEM_ENIGMA_BERRY_E_READER)
+        #if FREE_ENIGMA_BERRY == FALSE
             partnerHoldEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            partnerHoldEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
         else
             partnerHoldEffect = ItemId_GetHoldEffect(partnerHeldItem);
     }
@@ -6878,7 +7036,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     }
 
     if (heldItem == ITEM_ENIGMA_BERRY_E_READER)
+    #if FREE_ENIGMA_BERRY == FALSE
         holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+    #else
+        holdEffect = 0;
+    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = ItemId_GetHoldEffect(heldItem);
 
@@ -6896,17 +7058,22 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     case EVO_MODE_NORMAL:
         level = GetMonData(mon, MON_DATA_LEVEL, 0);
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, 0);
+        stat = GAME_STAT_SILENCE_ACTIVATED;
 
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_FRIENDSHIP:
+                if (friendship >= 220)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MED_FRIENDSHIP:
                 if (friendship >= 160)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LOW_FRIENDSHIP:
-                if (friendship <= 95)
+                if (friendship <= 35)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
@@ -6957,10 +7124,29 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_FEMALE_BERSERK_GENE:
-                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE && heldItem == ITEM_BERSERK_GENE)
+                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_FEMALE && evolutionItem == ITEM_BERSERK_GENE)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-
+            case EVO_LEVEL_MALE_KINGS_ROCK:
+                if (gEvolutionTable[species][i].param <= level && GetMonGender(mon) == MON_MALE && heldItem == ITEM_KINGS_ROCK)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_POISONED:
+                if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PSN_ANY)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_PANICKED:
+                if (GetMonData(mon, MON_DATA_STATUS, 0) & STATUS1_PANIC)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_SILENCE_ACTIVATED:
+                if (gEvolutionTable[species][i].param <= stat)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_BATTLE_TERRAIN:
+                if (gBattleTerrain == gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_LEVEL_ATK_GT_DEF:
                 if (gEvolutionTable[species][i].param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_DEF, 0))
@@ -6974,6 +7160,16 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_LEVEL_ATK_LT_DEF:
                 if (gEvolutionTable[species][i].param <= level)
                     if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_LEVEL_ATK_GT_SPATK:
+                if (gEvolutionTable[species][i].param <= level)
+                    if (GetMonData(mon, MON_DATA_ATK, 0) > GetMonData(mon, MON_DATA_SPATK, 0))
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_LEVEL_ATK_LT_SPATK:
+                if (gEvolutionTable[species][i].param <= level)
+                    if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_SPATK, 0))
                         targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_LEVEL_SILCOON:
@@ -6997,11 +7193,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_TWO_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) != 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && ((personality % 1000) > 100))
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_MOVE_THREE_SEGMENT:
-                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 100) == 0)
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (1 <= (personality % 1000) <= 100))
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE_EIGHT_SEGMENT:
+                if (MonKnowsMove(mon, gEvolutionTable[species][i].param) && (personality % 1000) == 0)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_MOVE_TYPE:
@@ -7173,12 +7373,26 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         break;
     // Battle evolution without leveling; party slot is being passed into the evolutionItem arg.
     case EVO_MODE_BATTLE_SPECIAL:
+        level = GetMonData(mon, MON_DATA_LEVEL, 0);
+
         for (i = 0; i < EVOS_PER_MON; i++)
         {
             switch (gEvolutionTable[species][i].method)
             {
             case EVO_CRITICAL_HITS:
                 if (gPartyCriticalHits[evolutionItem] >= gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_HIT_BY_SLASH_MOVE:
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_HIT_BY_PIERCE_MOVE:
+                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_HIT_BY_BLUNT_MOVE:
+                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].ballisticMove) && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
@@ -7530,7 +7744,11 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         if (gMain.inBattle)
             holdEffect = gEnigmaBerries[0].holdEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            holdEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -7553,6 +7771,9 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
                 mod = (150 * mod) / 100;
+            friendship += mod;
+            if (mod > 0 && holdEffect == HOLD_EFFECT_SALTY_TEAR)
+                mod *= -1;
             friendship += mod;
             if (mod > 0)
             {
@@ -7588,7 +7809,11 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         if (gMain.inBattle)
             holdEffect = gEnigmaBerries[0].holdEffect;
         else
+        #if FREE_ENIGMA_BERRY == FALSE
             holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
+        #else
+            holdEffect = 0;
+        #endif //FREE_ENIGMA_BERRY
     }
     else
     {
@@ -8029,7 +8254,7 @@ u16 GetBattleBGM(void)
     else if (gBattleTypeFlags & BATTLE_TYPE_REGI)
         return MUS_VS_REGI;
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-        return MUS_VS_TRAINER;
+        return MUS_VS_PTRAINER;
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
         u8 trainerClass;
@@ -8059,7 +8284,7 @@ u16 GetBattleBGM(void)
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
             if (!StringCompare(gTrainers[gTrainerBattleOpponent_A].trainerName, gText_BattleWallyName))
-                return MUS_VS_TRAINER;
+                return MUS_VS_PTRAINER;
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
@@ -8072,11 +8297,11 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:
-            return MUS_VS_TRAINER;
+            return MUS_VS_PTRAINER;
         }
     }
     else
-        return MUS_VS_WILD;
+        return MUS_VS_WILD2;
 }
 
 void PlayBattleBGM(void)
@@ -8571,8 +8796,6 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
         GetSetPokedexFlag(nationalNum, caseId);
         if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
             gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
-            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
 }
 
@@ -8754,23 +8977,27 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
 u8 GetCurrentLevelCap(void)
 {
     if (!FlagGet(FLAG_BADGE01_GET))
-        return 15;
+        return 12;
     else if (!FlagGet(FLAG_BADGE02_GET))
-        return 20;
+        return 17;
+    else if (!FlagGet(FLAG_DEFEATED_PANIC_EVENT))
+        return 18;
+    else if (!FlagGet(FLAG_DEFEATED_OZONE_BRANCH))
+        return 22;
     else if (!FlagGet(FLAG_BADGE03_GET))
-        return 25;
+        return 28;
     else if (!FlagGet(FLAG_BADGE04_GET))
-        return 30;
+        return 32;
     else if (!FlagGet(FLAG_BADGE05_GET))
-        return 40;
+        return 38;
     else if (!FlagGet(FLAG_BADGE06_GET))
-        return 50;
+        return 44;
     else if (!FlagGet(FLAG_BADGE07_GET))
-        return 55;
+        return 49;
     else if (!FlagGet(FLAG_BADGE08_GET))
-        return 60;
+        return 54;
     else if (!FlagGet(FLAG_IS_CHAMPION))
-        return 70;
+        return 75;
     else
         return 100;
 }
@@ -9098,15 +9325,13 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {15,  60}, // before level 15, can only get 50 EVs total
-    {20,  120},
-    {25,  180},
-    {30,  240},
-    {40,  300},
-    {50,  360},
-    {55,  420},
-    {60,  480},
-    {100, MAX_TOTAL_EVS},
+    {11, 70}, // before level 11, can only get 70 EVs total
+    {21, 140},
+    {31, 210},
+    {41, 280},
+    {51, 350},
+    {61, 420},
+    {71, MAX_TOTAL_EVS},
 };
 
 u32 GetMaxTotalEVs(u32 level)

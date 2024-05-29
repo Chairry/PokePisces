@@ -2583,11 +2583,11 @@ void ShowContestEntryMonPic(void)
         if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
         {
             if (!(gLinkContestFlags & LINK_CONTEST_FLAG_HAS_RS_PLAYER))
-                DoMonFrontSpriteAnimation(&gSprites[spriteId], species, FALSE, 0);
+                DoMonFrontSpriteAnimation(&gSprites[spriteId], species, FALSE, SKIP_FRONT_ANIM);
         }
         else
         {
-            DoMonFrontSpriteAnimation(&gSprites[spriteId], species, FALSE, 0);
+            DoMonFrontSpriteAnimation(&gSprites[spriteId], species, FALSE, SKIP_FRONT_ANIM);
         }
 
         gTasks[taskId].data[2] = spriteId;

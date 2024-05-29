@@ -73,6 +73,12 @@ static const union AnimCmd sSpriteAnim_Bag_KeyItems[] =
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_Bag_Medicine[] =
+{
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_END
+};
+
 static const union AnimCmd sSpriteAnim_Bag_Pokeballs[] =
 {
     ANIMCMD_FRAME(192, 4),
@@ -91,14 +97,22 @@ static const union AnimCmd sSpriteAnim_Bag_Berries[] =
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_Bag_BattleItems[] =
+{
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_END
+};
+
 static const union AnimCmd *const sBagSpriteAnimTable[] =
 {
-    [POCKET_NONE]       = sSpriteAnim_Bag_Closed,
-    [POCKET_ITEMS]      = sSpriteAnim_Bag_Items,
-    [POCKET_POKE_BALLS] = sSpriteAnim_Bag_Pokeballs,
-    [POCKET_TM_HM]      = sSpriteAnim_Bag_TMsHMs,
-    [POCKET_BERRIES]    = sSpriteAnim_Bag_Berries,
-    [POCKET_KEY_ITEMS]  = sSpriteAnim_Bag_KeyItems,
+    [POCKET_NONE]         = sSpriteAnim_Bag_Closed,
+    [POCKET_ITEMS]        = sSpriteAnim_Bag_Items,
+    [POCKET_POKE_BALLS]   = sSpriteAnim_Bag_Pokeballs,
+    [POCKET_TM_HM]        = sSpriteAnim_Bag_TMsHMs,
+    [POCKET_MEDICINE]     = sSpriteAnim_Bag_Medicine,
+    [POCKET_BATTLE_ITEMS] = sSpriteAnim_Bag_BattleItems,
+    [POCKET_BERRIES]      = sSpriteAnim_Bag_Berries,
+    [POCKET_KEY_ITEMS]    = sSpriteAnim_Bag_KeyItems,
 };
 
 static const union AffineAnimCmd sSpriteAffineAnim_BagNormal[] =
@@ -342,7 +356,7 @@ static const struct CompressedTilesPal sBerryPicTable[] =
     [ITEM_TO_BERRY(ITEM_AGUAV_BERRY)  - 1]          = {gBerryPic_Aguav,  gBerryPalette_Aguav},
     [ITEM_TO_BERRY(ITEM_IAPAPA_BERRY) - 1]          = {gBerryPic_Iapapa, gBerryPalette_Iapapa},
     [ITEM_TO_BERRY(ITEM_RAZZ_BERRY)   - 1]          = {gBerryPic_Razz,   gBerryPalette_Razz},
-    [ITEM_TO_BERRY(ITEM_BLUK_BERRY)   - 1]          = {gBerryPic_Bluk,   gBerryPalette_Bluk},
+    [ITEM_TO_BERRY(ITEM_YELLOW_SODA)   - 1]          = {gBerryPic_Bluk,   gBerryPalette_Bluk},
     [ITEM_TO_BERRY(ITEM_NANAB_BERRY)  - 1]          = {gBerryPic_Nanab,  gBerryPalette_Nanab},
     [ITEM_TO_BERRY(ITEM_WEPEAR_BERRY) - 1]          = {gBerryPic_Wepear, gBerryPalette_Wepear},
     [ITEM_TO_BERRY(ITEM_PINAP_BERRY)  - 1]          = {gBerryPic_Pinap,  gBerryPalette_Pinap},

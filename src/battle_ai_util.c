@@ -141,6 +141,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_LONG_REACH] = 3,
     [ABILITY_MAGIC_BOUNCE] = 9,
     [ABILITY_MAGIC_GUARD] = 9,
+    [ABILITY_SUGAR_COAT] = 9,
     [ABILITY_MAGICIAN] = 3,
     [ABILITY_MAGMA_ARMOR] = 1,
     [ABILITY_MAGNET_PULL] = 7,
@@ -172,6 +173,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_POISON_HEAL] = 8,
     [ABILITY_POISON_POINT] = 4,
     [ABILITY_POISON_TOUCH] = 4,
+    [ABILITY_TOXIC_CHAIN] = 4,
     [ABILITY_DORMANT] = 10,
     [ABILITY_POWER_OF_ALCHEMY] = 0,
     [ABILITY_PRANKSTER] = 8,
@@ -1567,6 +1569,7 @@ bool32 ShouldSetSandstorm(u32 battler, u32 ability, u32 holdEffect)
       || ability == ABILITY_SAND_FORCE
       || ability == ABILITY_OVERCOAT
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
       || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
@@ -1590,6 +1593,7 @@ bool32 ShouldSetHail(u32 battler, u32 ability, u32 holdEffect)
       || ability == ABILITY_FORECAST
       || ability == ABILITY_SLUSH_RUSH
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || ability == ABILITY_OVERCOAT
       || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
@@ -2307,7 +2311,7 @@ static u32 GetLeechSeedDamage(u32 battlerId)
 static u32 GetNightmareDamage(u32 battlerId)
 {
     u32 damage = 0;
-    if ((gBattleMons[battlerId].status2 & STATUS2_NIGHTMARE) && gBattleMons[battlerId].status1 & STATUS1_SLEEP)
+    if ((gBattleMons[battlerId].status2 & STATUS2_NIGHTMARE) && gBattleMons[battlerId].status1 & STATUS1_SLEEP_ANY)
     {
         damage = gBattleMons[battlerId].maxHP / 4;
         if (damage == 0)
@@ -2437,7 +2441,7 @@ u32 GetBattlerSecondaryDamage(u32 battlerId)
 {
     u32 secondaryDamage;
 
-    if (AI_DATA->abilities[battlerId] == ABILITY_MAGIC_GUARD)
+    if (AI_DATA->abilities[battlerId] == ABILITY_MAGIC_GUARD || AI_DATA->abilities[battlerId] == ABILITY_SUGAR_COAT )
         return FALSE;
 
     secondaryDamage = GetLeechSeedDamage(battlerId)
@@ -2519,7 +2523,7 @@ static bool32 PartyBattlerShouldAvoidHazards(u32 currBattler, u32 switchBattler)
     if (flags == 0)
         return FALSE;
 
-    if (ability == ABILITY_MAGIC_GUARD)
+    if (ability == ABILITY_MAGIC_GUARD || ability == ABILITY_SUGAR_COAT)
         return FALSE;
     if (gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || ability == ABILITY_KLUTZ)
         holdEffect = HOLD_EFFECT_NONE;
@@ -2758,7 +2762,7 @@ bool32 IsBattlerIncapacitated(u32 battler, u32 ability)
     if ((gBattleMons[battler].status1 & STATUS1_FREEZE) && !HasThawingMove(battler))
         return TRUE;    // if battler has thawing move we assume they will definitely use it, and thus being frozen should be neglected
 
-    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+    if (gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
         return TRUE;
 
     if (gBattleMons[battler].status2 & STATUS2_RECHARGE || (ability == ABILITY_TRUANT && gDisableStructs[battler].truantCounter != 0))
@@ -2819,6 +2823,7 @@ bool32 ShouldPoisonSelf(u32 battler, u32 ability)
       || ability == ABILITY_POISON_HEAL
       || ability == ABILITY_QUICK_FEET
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || (ability == ABILITY_TOXIC_BOOST && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || (ability == ABILITY_GUTS && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || HasMoveEffect(battler, EFFECT_FACADE)
@@ -2918,6 +2923,7 @@ bool32 ShouldBurnSelf(u32 battler, u32 ability)
      ability == ABILITY_QUICK_FEET
       || ability == ABILITY_HEATPROOF
       || ability == ABILITY_MAGIC_GUARD
+      || ability == ABILITY_SUGAR_COAT
       || (ability == ABILITY_FLARE_BOOST && HasMoveWithSplit(battler, SPLIT_SPECIAL))
       || (ability == ABILITY_GUTS && HasMoveWithSplit(battler, SPLIT_PHYSICAL))
       || HasMoveEffect(battler, EFFECT_FACADE)
@@ -3027,7 +3033,7 @@ static u32 FindMoveUsedXTurnsAgo(u32 battlerId, u32 x)
 bool32 IsWakeupTurn(u32 battler)
 {
     // Check if rest was used 2 turns ago
-    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) == 1 && FindMoveUsedXTurnsAgo(battler, 2) == MOVE_REST)
+    if ((gBattleMons[battler].status1 & STATUS1_SLEEP_ANY) == 1 && FindMoveUsedXTurnsAgo(battler, 2) == MOVE_REST)
         return TRUE;
     else // no way to know
         return FALSE;
@@ -3327,7 +3333,7 @@ bool32 ShouldUseWishAromatherapy(u32 battlerAtk, u32 battlerDef, u32 move)
                 needHealing = TRUE;
             }
 
-            if (GetMonData(&party[i], MON_DATA_STATUS, NULL) != STATUS1_NONE)
+            if (GetMonData(&party[i], MON_DATA_STATUS, NULL) == STATUS1_ANY_NEGATIVE)
             {
                 if (move != MOVE_HEAL_BELL || GetMonAbility(&party[i]) != ABILITY_SOUNDPROOF)
                     hasStatus = TRUE;
@@ -3834,5 +3840,5 @@ bool32 ShouldUseZMove(u32 battlerAtk, u32 battlerDef, u32 chosenMove)
 
 bool32 AI_IsBattlerAsleepOrComatose(u32 battlerId)
 {
-    return (gBattleMons[battlerId].status1 & STATUS1_SLEEP) || AI_DATA->abilities[battlerId] == ABILITY_COMATOSE;
+    return (gBattleMons[battlerId].status1 & STATUS1_SLEEP_ANY) || AI_DATA->abilities[battlerId] == ABILITY_COMATOSE;
 }

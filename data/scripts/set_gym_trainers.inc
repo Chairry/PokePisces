@@ -45,13 +45,13 @@ LavaridgeTown_Gym_SetGymTrainers::
 	return
 
 PetalburgCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_RANDALL
-	settrainerflag TRAINER_PARKER
-	settrainerflag TRAINER_GEORGE
-	settrainerflag TRAINER_BERKE
-	settrainerflag TRAINER_MARY
-	settrainerflag TRAINER_ALEXIA
-	settrainerflag TRAINER_JODY
+	settrainerflag TRAINER_P_TESS
+	settrainerflag TRAINER_P_HITOMI
+	settrainerflag TRAINER_P_LIZA
+	settrainerflag TRAINER_P_S_STEVEN_1
+	settrainerflag TRAINER_P_NELLY
+	settrainerflag TRAINER_P_SADFISHER_2
+	settrainerflag TRAINER_P_ARIEL
 	return
 
 FortreeCity_Gym_SetGymTrainers::
@@ -81,12 +81,12 @@ MossdeepCity_Gym_SetGymTrainers::
 SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ANDREA
 	settrainerflag TRAINER_CRISSY
-	settrainerflag TRAINER_BRIANNA
-	settrainerflag TRAINER_CONNIE
-	settrainerflag TRAINER_BRIDGET
-	settrainerflag TRAINER_OLIVIA
-	settrainerflag TRAINER_TIFFANY
+	settrainerflag TRAINER_P_NATALIE
+	settrainerflag TRAINER_P_LAPIZ
+	settrainerflag TRAINER_P_VERGIL
+	settrainerflag TRAINER_P_YOSH
+	settrainerflag TRAINER_P_KAIJI
 	settrainerflag TRAINER_BETHANY
 	settrainerflag TRAINER_ANNIKA
-	settrainerflag TRAINER_DAPHNE
+	settrainerflag TRAINER_P_OZONE_TABITHA_1
 	return

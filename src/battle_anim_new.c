@@ -21,6 +21,7 @@
 #include "constants/pokemon.h"
 #include "battle_util.h"
 #include "constants/songs.h"
+#include "constants/abilities.h"
 
 // function declarations
 static void AnimTask_DynamaxGrowthStep(u8 taskId);
@@ -291,6 +292,17 @@ const struct SpriteTemplate gIceSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+const struct SpriteTemplate gPinkCloudSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PINK_CLOUD,
+    .paletteTag = ANIM_TAG_PINK_CLOUD,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 //final gambit
 const struct SpriteTemplate gFinalGambitBlueYawnTemplate =
 {
@@ -392,6 +404,17 @@ const struct SpriteTemplate gFoulPlayRingTemplate =
     .images = NULL,
     .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimSpriteOnMonPos
+};
+
+const struct SpriteTemplate gWyvernWaveRingTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_POISON_BUBBLE,
+    .oam = &gOamData_AffineDouble_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gHyperVoiceRingAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
 };
 
 //simple beam
@@ -524,6 +547,17 @@ const struct SpriteTemplate gQuashArmHitTemplate =
 {
     .tileTag = ANIM_TAG_ASSURANCE_HAND,
     .paletteTag = ANIM_TAG_ASSURANCE_HAND,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_HandsAndFeet,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimStompFoot
+};
+
+const struct SpriteTemplate gPesterRaidArmHitTemplate =
+{
+    .tileTag = ANIM_TAG_ASSURANCE_HAND,
+    .paletteTag = ANIM_TAG_ENERGY_BALL,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gAnims_HandsAndFeet,
     .images = NULL,
@@ -1732,6 +1766,17 @@ const struct SpriteTemplate gMakingItRainTemplate =
     .callback = AnimMakingItRain,
 };
 
+const struct SpriteTemplate gFallingMudSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUDSLIDE,
+    .paletteTag = ANIM_TAG_MUDSLIDE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMakingItRain,
+};
+
 //electric terrain
 const struct SpriteTemplate gElectricTerrainOrbsTemplate =
 {
@@ -1862,6 +1907,17 @@ const struct SpriteTemplate gThousandArrowsGreenHexTemplate =
 {
     .tileTag = ANIM_TAG_VERTICAL_HEX,
     .paletteTag = ANIM_TAG_ZYGARDE_HEXES,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_Geyser
+};
+
+const struct SpriteTemplate gPilgrimageRisingTemplate =
+{
+    .tileTag = ANIM_TAG_PILGRIMAGE_RISING,
+    .paletteTag = ANIM_TAG_PILGRIMAGE_RISING,
     .oam = &gOamData_AffineOff_ObjNormal_16x16,
     .anims = gRazorLeafParticleAnimTable,
     .images = NULL,
@@ -2205,17 +2261,6 @@ const struct SpriteTemplate gSpiritShackleArrowTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimSonicBoomProjectile
-};
-
-const struct SpriteTemplate gSpiritShackleChainTemplate =
-{
-    .tileTag = ANIM_TAG_CHAIN_LINK,
-    .paletteTag = ANIM_TAG_CHAIN_LINK,
-    .oam = &gOamData_AffineOff_ObjNormal_32x16,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimThunderWave
 };
 
 //darkest lariat
@@ -3681,6 +3726,17 @@ const struct SpriteTemplate gSnipeShotBallTemplate =    //used in aura sphere
     .callback = AnimShadowBall
 };
 
+const struct SpriteTemplate gCannonadeBallTemplate =
+{
+    .tileTag = ANIM_TAG_IMPACT_2,
+    .paletteTag = ANIM_TAG_FIRE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = sAnimCmdTable_SnipeShot,
+    .images = NULL,
+    .affineAnims = sSpriteAffineAnimTable_SnipeShot,
+    .callback = AnimShadowBall
+};
+
 //jaw lock
 const struct SpriteTemplate gJawLockTeethTemplate =
 {
@@ -4308,13 +4364,13 @@ const struct SpriteTemplate gSpriteTemplate_SteelRoller = {
 
 // scale shot
 const struct SpriteTemplate gSpriteTemplate_ScaleShotScale = {
-    .tileTag = ANIM_TAG_SHELL_RIGHT,
-    .paletteTag = ANIM_TAG_SHELL_RIGHT,
-    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .tileTag = ANIM_TAG_DRAGON_SCALE,
+    .paletteTag = ANIM_TAG_DRAGON_SCALE,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x16,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = gAffineAnims_BasicRock,
-    .callback = AnimRockBlastRock
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation
 };
 
 // meteor beam
@@ -5093,6 +5149,16 @@ const struct SpriteTemplate gNeverEndingNightmareHandSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimNeedleArmSpike
 };
+const struct SpriteTemplate gSpiritAwayHandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SPIRIT_HAND,
+    .paletteTag = ANIM_TAG_SPIRIT_HAND,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNeedleArmSpike
+};
 const struct SpriteTemplate gNeverEndingNightmareBlastBurnSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FIRE_PLUME,
@@ -5408,6 +5474,26 @@ const struct SpriteTemplate gGigavoltHavocLaunchSpearSpriteTemplate =
     .tileTag = ANIM_TAG_HAVOC_SPEAR,
     .paletteTag = ANIM_TAG_HAVOC_SPEAR,
     .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSuperpowerFireball
+};
+const struct SpriteTemplate gGiantsSpearChargingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GIANTS_SPEAR,
+    .paletteTag = ANIM_TAG_GIANTS_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_GrowingElectricOrb,
+    .callback = AnimGrowingChargeOrb
+};
+const struct SpriteTemplate gGiantsSpearLaunchSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GIANTS_SPEAR,
+    .paletteTag = ANIM_TAG_GIANTS_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -6529,6 +6615,17 @@ const struct SpriteTemplate gArrowRaidArrowOnslaughtSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SPIRIT_ARROW,
     .paletteTag = ANIM_TAG_SPIRIT_ARROW,
+    .oam = &gOamData_AffineNormal_ObjBlend_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sArrowRaidOnslaughtAffineAnimTable,
+    .callback = AnimAssistPawprint
+};
+
+const struct SpriteTemplate gPilgrimageOnslaughtSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PILGRIMAGE_FALLING,
+    .paletteTag = ANIM_TAG_PILGRIMAGE_FALLING,
     .oam = &gOamData_AffineNormal_ObjBlend_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -8682,6 +8779,20 @@ void AnimTask_TerrainPulse(u8 taskId)
     {
         gBattleAnimArgs[0] = 0;
     }
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_SerpentSurge(u8 taskId)
+{
+    if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_DRIZZLE)
+        gBattleAnimArgs[0] = TYPE_WATER;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_HYDRATION)
+        gBattleAnimArgs[0] = TYPE_GRASS;
+    else if (GetBattlerAbility(gBattleAnimAttacker) == ABILITY_REGENERATOR)
+        gBattleAnimArgs[0] = TYPE_BUG;
+    else
+        gBattleAnimArgs[0] = 0;
+
     DestroyAnimVisualTask(taskId);
 }
 

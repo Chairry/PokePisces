@@ -198,7 +198,7 @@ static void CB2_SaveFailedScreen(void)
         DmaFill16(3, 0, PLTT, PLTT_SIZE);
         LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
         LZ77UnCompVram(gBirchBagTilemap, (void *)(BG_SCREEN_ADDR(14)));
-        LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(15)));
+        // LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(15)));
         LZ77UnCompVram(sSaveFailedClockGfx, (void *)(OBJ_VRAM0 + 0x20));
         ResetBgsAndClearDma3BusyFlags(0);
         InitBgsFromTemplates(0, sBgTemplates, ARRAY_COUNT(sBgTemplates));
@@ -214,7 +214,7 @@ static void CB2_SaveFailedScreen(void)
         ResetSpriteData();
         ResetTasks();
         ResetPaletteFade();
-        LoadPalette(gBirchBagGrass_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        LoadPalette(gBirchBagGrass_Pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
         LoadPalette(sSaveFailedClockPal, OBJ_PLTT_ID(0), PLTT_SIZE_4BPP);
         LoadPalette(gTextWindowFrame1_Pal, BG_PLTT_ID(14), PLTT_SIZE_4BPP);
         LoadPalette(gStandardMenuPalette, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
@@ -231,7 +231,7 @@ static void CB2_SaveFailedScreen(void)
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
         ShowBg(0);
         ShowBg(2);
-        ShowBg(3);
+        // ShowBg(3);
         gMain.state++;
         break;
     case 1:

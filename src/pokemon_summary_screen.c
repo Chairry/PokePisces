@@ -616,19 +616,19 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 9,
-        .width = 18,
-        .height = 4,
+        .width = 19,
+        .height = 6,
         .paletteNum = 6,
         .baseBlock = 485,
     },
     [PSS_DATA_WINDOW_INFO_MEMO] = {
         .bg = 0,
         .tilemapLeft = 11,
-        .tilemapTop = 14,
-        .width = 18,
-        .height = 6,
+        .tilemapTop = 15,
+        .width = 19,
+        .height = 5,
         .paletteNum = 6,
-        .baseBlock = 557,
+        .baseBlock = 591 + 19 * 6,
     },
 };
 static const struct WindowTemplate sPageSkillsTemplate[] =
@@ -1004,6 +1004,28 @@ const u8 gMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = 15,
     [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = 13,
 };
+
+static const u16 sTypeIconPal1[] = INCBIN_U16("graphics/types/move_types_1.gbapal");
+static const u16 sTypeIconPal2[] = INCBIN_U16("graphics/types/move_types_2.gbapal");
+static const u16 sTypeIconPal3[] = INCBIN_U16("graphics/types/move_types_3.gbapal");
+u8 LoadTypeIconPal(u32 type)
+{
+    int offset = 12 * 16;
+    switch (gMoveTypeToOamPaletteNum[type])
+    {
+    case 13:
+        LoadPalette(sTypeIconPal1, offset, 32);
+        return 7;
+    case 14:
+        LoadPalette(sTypeIconPal2, offset, 32);
+        return 6;
+    case 15:
+        LoadPalette(sTypeIconPal3, offset, 32);
+        return 7;
+    }
+    return 0;
+}
+
 static const struct OamData sOamData_MoveSelector =
 {
     .y = 0,
@@ -1142,6 +1164,22 @@ static const union AnimCmd sSpriteAnim_StatusFrostbite[] = {
     ANIMCMD_FRAME(28, 0, FALSE, FALSE),
     ANIMCMD_END
 };
+static const union AnimCmd sSpriteAnim_StatusPanic[] = {
+    ANIMCMD_FRAME(32, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_StatusBlooming[] = {
+    ANIMCMD_FRAME(36, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_StatusExposed[] = {
+    ANIMCMD_FRAME(40, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
+static const union AnimCmd sSpriteAnim_StatusRest[] = {
+    ANIMCMD_FRAME(44, 0, FALSE, FALSE),
+    ANIMCMD_END
+};
 static const union AnimCmd *const sSpriteAnimTable_StatusCondition[] = {
     sSpriteAnim_StatusPoison,
     sSpriteAnim_StatusParalyzed,
@@ -1151,11 +1189,15 @@ static const union AnimCmd *const sSpriteAnimTable_StatusCondition[] = {
     sSpriteAnim_StatusPokerus,
     sSpriteAnim_StatusFaint,
     sSpriteAnim_StatusFrostbite,
+    sSpriteAnim_StatusPanic,
+    sSpriteAnim_StatusBlooming,
+    sSpriteAnim_StatusExposed,
+    sSpriteAnim_StatusRest,
 };
 static const struct CompressedSpriteSheet sStatusIconsSpriteSheet =
 {
     .data = gStatusGfx_Icons,
-    .size = 0x400,
+    .size = 0x600,
     .tag = TAG_MON_STATUS
 };
 static const struct CompressedSpritePalette sStatusIconsSpritePalette =
@@ -3328,7 +3370,7 @@ static void BufferMonTrainerMemo(void)
 
 static void PrintMonTrainerMemo(void)
 {
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 1, 0, 0);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 9, 0, 0);
 }
 
 static void BufferNatureString(void)
@@ -3439,24 +3481,9 @@ static void PrintEggMemo(void)
 {
     const u8 *text;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
+    text = gText_OddEggFoundByCouple;
 
-    if (sMonSummaryScreen->summary.sanity != 1)
-    {
-        if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
-            text = gText_PeculiarEggNicePlace;
-        else if (DidMonComeFromGBAGames() == FALSE || DoesMonOTMatchOwner() == FALSE)
-            text = gText_PeculiarEggTrade;
-        else if (sum->metLocation == METLOC_SPECIAL_EGG)
-            text = (DidMonComeFromRSE() == TRUE) ? gText_EggFromHotSprings : gText_EggFromTraveler;
-        else
-            text = gText_OddEggFoundByCouple;
-    }
-    else
-    {
-        text = gText_OddEggFoundByCouple;
-    }
-
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), text, 0, 1, 0, 0);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), text, 0, 9, 0, 0);
 }
 
 static void PrintSkillsPageText(void)
@@ -3701,17 +3728,17 @@ static void PrintMoveNameAndPP(u8 moveIndex)
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sMovesPPLayout);
         text = gStringVar4;
         ppState = GetCurrentPpToMaxPpState(summary->pp[moveIndex], pp) + 9;
-        x = GetStringRightAlignXOffset(FONT_SMALL, text, 41);
+        x = GetStringRightAlignXOffset(FONT_SMALL, text, 45);
     }
     else
     {
         PrintTextOnWindow(moveNameWindowId, gText_OneDash, 0, moveIndex * 16 + 1, 0, 1);
         text = gText_TwoDashes;
         ppState = 12;
-        x = GetStringCenterAlignXOffset(FONT_SMALL, text, 41);
+        x = GetStringCenterAlignXOffset(FONT_SMALL, text, 52);
     }
 
-    PrintTextOnWindow(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, ppState);
+    PrintTextOnWindowSmall(ppValueWindowId, text, x, moveIndex * 16 + 1, 0, ppState);
 }
 
 static void PrintMovePowerAndAccuracy(u16 moveIndex)
@@ -3870,7 +3897,7 @@ static void PrintNewMoveDetailsOrCancelText(void)
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sMovesPPLayout);
-        PrintTextOnWindow(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 44), 65, 0, 12);
+        PrintTextOnWindowSmall(windowId2, gStringVar4, GetStringRightAlignXOffset(FONT_SMALL, gStringVar4, 45), 65, 0, 12);
     }
 }
 
@@ -3886,8 +3913,8 @@ static void SwapMovesNamesPP(u8 moveIndex1, u8 moveIndex2)
     u8 windowId1 = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_NAMES);
     u8 windowId2 = AddWindowFromTemplateList(sPageMovesTemplate, PSS_DATA_WINDOW_MOVE_PP);
 
-    FillWindowPixelRect(windowId1, PIXEL_FILL(0), 0, moveIndex1 * 16, 72, 16);
-    FillWindowPixelRect(windowId1, PIXEL_FILL(0), 0, moveIndex2 * 16, 72, 16);
+    FillWindowPixelRect(windowId1, PIXEL_FILL(0), 0, moveIndex1 * 16, 96, 16);
+    FillWindowPixelRect(windowId1, PIXEL_FILL(0), 0, moveIndex2 * 16, 96, 16);
 
     FillWindowPixelRect(windowId2, PIXEL_FILL(0), 0, moveIndex1 * 16, 48, 16);
     FillWindowPixelRect(windowId2, PIXEL_FILL(0), 0, moveIndex2 * 16, 48, 16);
@@ -4513,10 +4540,11 @@ static void SwitchToEvEditor(u8 taskId)
     sum->evTotal = 0;
     for (j = 0; j < NUM_STATS; j++) {
         sum->evs[j] = GetMonData(mon, MON_DATA_HP_EV + sStatIdMap[j]);
+        //sum->evs[j] = GetMonData(mon, MON_DATA_HP_IV + sStatIdMap[j]); // Use this top view IVs
         sum->evTotal += sum->evs[j];
         //DebugPrintf("stat %d = %d", j, sum->evs[j]);
     }
-    
+
     // print view stats
     PrintEditEVsOrViewStats(1);
     

@@ -66,6 +66,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "battle_util.h"
+#include "pokedex.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -137,7 +138,11 @@ static void Task_CloseBattlePikeCurtain(u8);
 static u8 DidPlayerGetFirstFans(void);
 static void SetInitialFansOfPlayer(void);
 static u16 PlayerGainRandomTrainerFan(void);
+#if FREE_LINK_BATTLE_RECORDS == FALSE
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *, u8, u8);
+#else
+static void BufferFanClubTrainerName_(u8 whichLinkTrainer, u8 whichNPCTrainer);
+#endif //FREE_LINK_BATTLE_RECORDS
 
 void Special_ShowDiploma(void)
 {
@@ -1454,6 +1459,114 @@ bool8 IsStarterInParty(void)
     return FALSE;
 }
 
+bool8 CheckMiniorRed(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorOrange(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_ORANGE)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorYellow(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_YELLOW)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorGreen(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_GREEN)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorBlue(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_BLUE)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorIndigo(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_INDIGO)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckMiniorViolet(void)
+{
+    u8 i;
+    u8 partyCount = CalculatePlayerPartyCount();
+    for (i = 0; i < partyCount; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_MINIOR_METEOR_VIOLET)
+            return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 CheckAllSadsod(void)
+{
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+    {
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+        {
+            if (GetMonData(&gPlayerParty[2], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+            {
+                if (GetMonData(&gPlayerParty[3], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                {
+                    if (GetMonData(&gPlayerParty[4], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                    {
+                        if (GetMonData(&gPlayerParty[5], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SADSOD)
+                        {
+                            return TRUE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScriptCheckFreePokemonStorageSpace(void)
 {
     return CheckFreePokemonStorageSpace();
@@ -2387,6 +2500,46 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_1:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 11;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_2:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 5;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_3:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 7;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_4:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 6;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2546,6 +2699,47 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_PokemonMoves,
         gText_Underpowered,
         gText_WhenInDanger,
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_1] =
+    {
+        gMoveNames[MOVE_FLORAL_HEALING],
+        gMoveNames[MOVE_HEARTHWARM],
+        gMoveNames[MOVE_ROOST],
+        gMoveNames[MOVE_INGRAIN],
+        gMoveNames[MOVE_PAIN_SPLIT],
+        gMoveNames[MOVE_WISH],
+        gMoveNames[MOVE_HEAL_PULSE],
+        gMoveNames[MOVE_AQUA_RING],
+        gMoveNames[MOVE_LIFE_DEW],
+        gMoveNames[MOVE_SLACK_OFF],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_2] =
+    {
+        gMoveNames[MOVE_AROMATHERAPY],
+        gMoveNames[MOVE_HEAL_BELL],
+        gMoveNames[MOVE_SAFEGUARD],
+        gMoveNames[MOVE_MAGIC_COAT],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_3] =
+    {
+        gMoveNames[MOVE_LEECH_LIFE],
+        gMoveNames[MOVE_POLLEN_PUFF],
+        gMoveNames[MOVE_PARABOLIC_CHARGE],
+        gMoveNames[MOVE_GIGA_DRAIN],
+        gMoveNames[MOVE_VENOM_DRAIN],
+        gMoveNames[MOVE_DREAM_EATER],
+        gText_Exit
+    },
+    [SCROLL_MULTI_ZOTPYRE_MOVE_TUTOR_4] =
+    {
+        gMoveNames[MOVE_FINAL_GAMBIT],
+        gMoveNames[MOVE_REVERSAL],
+        gMoveNames[MOVE_FLAIL],
+        gMoveNames[MOVE_MISERY_WAIL],
+        gMoveNames[MOVE_SUBSTITUTE],
         gText_Exit
     }
 };
@@ -4138,9 +4332,14 @@ void BufferFanClubTrainerName(void)
     case FANCLUB_MEMBER8:
         break;
     }
+#if FREE_LINK_BATTLE_RECORDS == FALSE
     BufferFanClubTrainerName_(&gSaveBlock1Ptr->linkBattleRecords, whichLinkTrainer, whichNPCTrainer);
+#else
+    BufferFanClubTrainerName_(whichLinkTrainer, whichNPCTrainer);
+#endif //FREE_LINK_BATTLE_RECORDS
 }
 
+#if FREE_LINK_BATTLE_RECORDS == FALSE
 static void BufferFanClubTrainerName_(struct LinkBattleRecords *linkRecords, u8 whichLinkTrainer, u8 whichNPCTrainer)
 {
     struct LinkBattleRecord *record = &linkRecords->entries[whichLinkTrainer];
@@ -4178,6 +4377,35 @@ static void BufferFanClubTrainerName_(struct LinkBattleRecords *linkRecords, u8 
         ConvertInternationalString(gStringVar1, linkRecords->languages[whichLinkTrainer]);
     }
 }
+#else
+static void BufferFanClubTrainerName_(u8 whichLinkTrainer, u8 whichNPCTrainer)
+{
+    switch (whichNPCTrainer)
+    {
+        case 0:
+            StringCopy(gStringVar1, gText_Wallace);
+            break;
+        case 1:
+            StringCopy(gStringVar1, gText_Steven);
+            break;
+        case 2:
+            StringCopy(gStringVar1, gText_Brawly);
+            break;
+        case 3:
+            StringCopy(gStringVar1, gText_Winona);
+            break;
+        case 4:
+            StringCopy(gStringVar1, gText_Phoebe);
+            break;
+        case 5:
+            StringCopy(gStringVar1, gText_Glacia);
+            break;
+        default:
+            StringCopy(gStringVar1, gText_Wallace);
+            break;
+    }
+}
+#endif //FREE_LINK_BATTLE_RECORDS
 
 void UpdateTrainerFansAfterLinkBattle(void)
 {
@@ -4205,4 +4433,25 @@ void SetPlayerGotFirstFans(void)
 u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
+}
+
+bool8 GetSeenMon(void)
+{
+    return GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_GET_SEEN);
+}
+
+bool8 GetCaughtMon(void)
+{
+    return GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_GET_CAUGHT);
+}
+
+void SetSeenMon(void)
+{
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_SET_SEEN);
+}
+
+void SetCaughtMon(void)
+{
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_SET_CAUGHT);
 }

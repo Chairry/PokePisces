@@ -17,7 +17,7 @@ Route133_EventScript_Linda::
 	end
 
 Route133_EventScript_Warren::
-	trainerbattle_single TRAINER_WARREN, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
+	trainerbattle_single TRAINER_P_JUNICHI, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
 	msgbox Route133_Text_WarrenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -27,7 +27,7 @@ Route133_EventScript_Beck::
 	end
 
 Route133_EventScript_Mollie::
-	trainerbattle_single TRAINER_MOLLIE, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
+	trainerbattle_single TRAINER_P_TSUNAMI, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
 	msgbox Route133_Text_MolliePostBattle, MSGBOX_AUTOCLOSE
 	end
 

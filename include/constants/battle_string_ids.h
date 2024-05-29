@@ -671,7 +671,7 @@
 #define STRINGID_TARGETISBEINGSALTCURED               669
 #define STRINGID_TARGETISHURTBYSALTCURE               670
 #define STRINGID_PKMNSITEMCAUSEBURN                   671
-#define STRINGID_CUSEDAMULETDISABLED                  672
+#define STRINGID_CURSEDAMULETDISABLED                 672
 // New strings
 #define STRINGID_PKMNMAKESPOISONMISS                  673
 #define STRINGID_WATERVEILPROTECTED                   674
@@ -687,10 +687,86 @@
 #define STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE        684  
 #define STRINGID_SHEDITSTAIL                          685
 #define STRINGID_ELECTROSHOCKCHARGING                 686
-//Shunyong
-#define STRINGID_CANTHEALINOFFENSIVEFORM              687
+#define STRINGID_DESTROYROOMANDTERRAIN                687
+#define STRINGID_TARGETABILITYSTATRAISESHARPLY        688
+#define STRINGID_TARGETABILITYSTATRAISEDRASTICALLY    690
+#define STRINGID_DRAGONRUINCHARGING                   691
+#define STRINGID_PKMNRESTOREDHPUSINGABILITY           692
+#define STRINGID_ELECTRICITYANDFIREWEAKENED           693
+#define STRINGID_PKMNMAKESPSYCHICMISS                 694
+#define STRINGID_SILENCESTARTS                        695
+#define STRINGID_SILENCEEND                           696
+#define STRINGID_PKMNMAXEDSTATS                       697
+#define STRINGID_FICKLEBEAMDOUBLED                    698
+#define STRINGID_SILENCECONTINUES                     699
+#define STRINGID_TIDYINGUPCOMPLETE                    700
+#define STRINGID_PKMNTOOKAIM2                         701
+#define STRINGID_PKMNDOUBLEDSTATS                     702
+#define STRINGID_PKMNCUTSSPATTACKWITH                 703
+#define STRINGID_PKMNSABILITYRESTOREDHPALITTLE        704
+#define STRINGID_PKMNWELCOMETHEAUDIENCE               705
+#define STRINGID_DRAGONPOKERNOPAIR                    706
+#define STRINGID_DRAGONPOKERONEPAIR                   707
+#define STRINGID_DRAGONPOKERTWOPAIR                   708
+#define STRINGID_DRAGONPOKERTHREEOFAKIND              709
+#define STRINGID_DRAGONPOKERSTRAIGHT                  710
+#define STRINGID_DRAGONPOKERFLUSH                     711
+#define STRINGID_DRAGONPOKERFULLHOUSE                 712
+#define STRINGID_DRAGONPOKERFOUROFAKIND               713
+#define STRINGID_DRAGONPOKERSTRAIGHTFLUSH             714
+#define STRINGID_DRAGONPOKERROYALFLUSH                715
+#define STRINGID_PKMNLEAVINGITSELFOPEN                716
+#define STRINGID_ATTACKERCANTESCAPENOW                717
+#define STRINGID_PKMNCUTSDEFENCEWITH                  718
+#define STRINGID_PKMNCUTSSPDEFENCEWITH                719
+#define STRINGID_ABILITYSUMMONEDMIST                  720  
+#define STRINGID_PKMNHEALEDPOISON                     721
+#define	STRINGID_GHOSTTYPEADDED                       722
+#define STRINGID_TARGETCANTESCAPEFORNOW               723
+#define STRINGID_STRONGHOLDDOESNTALLOW                724
+#define STRINGID_PKMNISEMPTY                          725
+#define STRINGID_ABILITYENTRANCED                     726
+#define STRINGID_PKMNCUTSSPEEDWITH                    727  
+#define STRINGID_PKMNGOTPANICKED                      728
+#define STRINGID_PKMNPANICKEDBY                       729
+#define STRINGID_PKMNSITEMCAUSEPANIC                  730
+#define STRINGID_PKMNSXPREVENTSPANIC                  731
+#define STRINGID_PKMNSISPANICKED                      732
+#define STRINGID_PKMNSTARTEDBLOOMING                  733
+#define STRINGID_PKMNBLOOMINGFROM                     734
+#define STRINGID_PKMNSITEMCAUSEBLOOMING               735
+#define STRINGID_PKMNGOTEXPOSED                       736
+#define STRINGID_PKMNEXPOSEDBY                        737
+#define STRINGID_PKMNSITEMCAUSEEXPOSED                738
+#define STRINGID_PKMNSXPREVENTSBLOOMING               739
+#define STRINGID_PKMNSXPREVENTSEXPOSED                740
+#define STRINGID_PKMNSISBLOOMING                      741
+#define STRINGID_PKMNCONSTRICTED                      742
+#define STRINGID_PKMNISALREADYPANICKING               743
+#define STRINGID_INVERSEROOMENDS                      744
+#define STRINGID_THETYPECHARTINVERTED                 745
+#define STRINGID_PKMNSISNOLONGERBLOOMING              746
+#define STRINGID_ATHINGHAPPENED                       747
+#define STRINGID_ATHINGHAPPENEDFR                     748
+#define STRINGID_PKMNSAPPEDBYTICKED                   749
+#define STRINGID_PKMNTICKED                           750
+#define STRINGID_PKMNSHEDTICK                         751
+#define STRINGID_SPEEDSTATCHANGESGONE                 752
+#define STRINGID_USERSTATCHANGESGONE                  753
+#define STRINGID_PKMNISPREPARINGFORDECIMATION         754
+#define STRINGID_PKMNISALREADYEXPOSED                 755
+#define STRINGID_HEARTHWARMHEAL                       756
+#define STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT         757
+#define STRINGID_TARGETLOSTELECTRICTYPE               758
+#define STRINGID_PKMNGRIPPED                          759
+#define	STRINGID_GRASSTYPEADDED                       760
+#define	STRINGID_SEED_WRAP                            761
+#define STRINGID_READYINGSNAP                         762
+#define STRINGID_FLORESCENCESTATUSNORMAL              763
+#define STRINGID_PKMNSXINFATUATEDY2                   764
+#define STRINGID_CANTHEALINOFFENSIVEFORM              765
 
-#define BATTLESTRINGS_COUNT                           688
+#define BATTLESTRINGS_COUNT                           766
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -723,6 +799,9 @@
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
 #define B_MSG_POISON_MISS  5
+#define B_MSG_PSYCHIC_MISS 6
+#define B_MSG_IMMUNE       7
+#define B_MSG_IS_EMPTY     8
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0
@@ -750,6 +829,7 @@
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
 #define B_MSG_TURN1_ELECTRO_SHOCK  13
+#define B_MSG_TURN1_DRAGON_RUIN    14
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
@@ -838,6 +918,7 @@
 // gFutureMoveUsedStringIds
 #define B_MSG_FUTURE_SIGHT 0
 #define B_MSG_DOOM_DESIRE  1
+#define B_MSG_DECIMATION   2
 
 // gItemSwapStringIds
 #define B_MSG_ITEM_SWAP_TAKEN 0
@@ -898,7 +979,8 @@
 #define B_MSG_STATUSED_BY_ABILITY 1
 #define B_MSG_STATUSED_BY_ITEM    2
 
-// gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds
+// gBRNPreventionStringIds / gPRLZPreventionStringIds / gPSNPreventionStringIds / gPNCPreventionStringIds
+// gStartedBloomingStringIds / gWasExposedStringIds
 #define B_MSG_ABILITY_PREVENTS_MOVE_STATUS          0
 #define B_MSG_ABILITY_PREVENTS_ABILITY_STATUS       1
 #define B_MSG_STATUS_HAD_NO_EFFECT                  2
@@ -974,6 +1056,8 @@
 #define B_MSG_TERRAIN_END_GRASSY    7
 #define B_MSG_TERRAIN_COUNT         8
 
+#define B_MSG_DESTROY_ROOM_AND_TERRAIN  0
+
 // gWrappedStringIds
 #define B_MSG_WRAPPED_BIND         0
 #define B_MSG_WRAPPED_WRAP         1
@@ -985,7 +1069,9 @@
 #define B_MSG_WRAPPED_INFESTATION  7
 #define B_MSG_WRAPPED_SNAP_TRAP    8
 #define B_MSG_WRAPPED_THUNDER_CAGE 9
-#define NUM_TRAPPING_MOVES         10
+#define B_MSG_CONSTRICTED          10
+#define B_MSG_SEED_WRAP             11
+#define NUM_TRAPPING_MOVES         12
 
 // z effects
 #define B_MSG_Z_RESET_STATS   0

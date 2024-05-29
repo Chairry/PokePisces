@@ -1386,7 +1386,6 @@ gCryTable::
 	cry Cry_Snurrowl
 	cry Cry_Stolyce
 	cry Cry_Dudunspars
-	cry Cry_Lottabats
 	cry Cry_Pomelonian
 	cry Cry_Gourdoug
 	cry Cry_Fogglehind
@@ -1538,7 +1537,21 @@ gCryTable::
 	cry Cry_Orrowhelm
 	cry Cry_ShaYon
 	cry Cry_LuoShan
+	cry Cry_Lottabats
 	cry Cry_Gaoterra
+	cry Cry_Bishoucha
+	cry Cry_Papypus
+	cry Cry_Shishima
+	cry Cry_Shunyong
+	cry Cry_Kingambit
+	cry Cry_Shellylouh
+	cry Cry_Infairno
+	cry Cry_Purgatival
+	cry Cry_Deteriotl
+	cry Cry_Dakkapod
+	cry Cry_Unberrable
+	cry Cry_Peblranium
+	cry Cry_Vaiking
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2270,11 +2283,32 @@ gCryTable::
 	cry Cry_Basculegion
 	@ Dudunspars
 	cry Cry_Dudunspars
+	cry Cry_Dudunspars
+	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
 	@ Gaoterra
 	cry Cry_GaoterraSolar
 	cry Cry_GaoterraLunar
+	@ Bishoucha
+	cry Cry_BishouchaWarmonger
+	@ Papypus
+	cry Cry_PapypusFemale
+	@ Shishima
+	cry Cry_ShishimaPunisher
+	@ Cindrillon
+	cry Cry_CindrillonPirouette
+	cry Cry_CindrillonFearouette
+	@ Shunyong
+	cry Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	cry Cry_Spinda
+	@ Kodough
+	cry Cry_Kodough
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -2320,6 +2354,17 @@ gCryTable::
 	@ Lottabats
 	cry Cry_Unown
 	@ Gaoterra
+	cry Cry_Unown
+	@ Bishoucha
+	cry Cry_Unown
+	@ Papypus
+	cry Cry_Unown
+	@ Shishima
+	cry Cry_Unown
+	@ Cindrillon
+	cry Cry_Unown
+	cry Cry_Unown
+	@ Shunyong
 	cry Cry_Unown
 .endif
 
@@ -3711,7 +3756,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Snurrowl
 	cry_reverse Cry_Stolyce
 	cry_reverse Cry_Dudunspars
-	cry_reverse Cry_Lottabats
 	cry_reverse Cry_Pomelonian
 	cry_reverse Cry_Gourdoug
 	cry_reverse Cry_Fogglehind
@@ -3863,7 +3907,21 @@ gCryTable_Reverse::
 	cry_reverse Cry_Orrowhelm
 	cry_reverse Cry_ShaYon
 	cry_reverse Cry_LuoShan
+	cry_reverse Cry_Lottabats
 	cry_reverse Cry_Gaoterra
+	cry_reverse Cry_Bishoucha
+	cry_reverse Cry_Papypus
+	cry_reverse Cry_Shishima
+	cry_reverse Cry_Shunyong
+	cry_reverse Cry_Kingambit
+	cry_reverse Cry_Shellylouh
+	cry_reverse Cry_Infairno
+	cry_reverse Cry_Purgatival
+	cry_reverse Cry_Deteriotl
+	cry_reverse Cry_Dakkapod
+	cry_reverse Cry_Unberrable
+	cry_reverse Cry_Peblranium
+	cry_reverse Cry_Vaiking
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4562,11 +4620,32 @@ gCryTable_Reverse::
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Dudunspars
+	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
 	@ Gaoterra
 	cry_reverse Cry_GaoterraSolar
 	cry_reverse Cry_GaoterraLunar
+	@ Bishoucha
+	cry_reverse Cry_BishouchaWarmonger
+	@ Papypus
+	cry_reverse Cry_PapypusFemale
+	@ Shishima
+	cry_reverse Cry_ShishimaPunisher
+	@ Cindrillon
+	cry_reverse Cry_CindrillonPirouette
+	cry_reverse Cry_CindrillonFearouette
+	@ Shunyong
+	cry_reverse Cry_ShunyongGoldenOffense
+	@ Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	cry_reverse Cry_Spinda
+	@ Kodough
+	cry_reverse Cry_Kodough
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

@@ -4,11 +4,11 @@ SSTidalRooms_MapScripts::
 SSTidalRooms_EventScript_SnatchGiver::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalRooms_EventScript_ExplainSnatch
+	goto_if_set FLAG_RECEIVED_TM_INFESTATION, SSTidalRooms_EventScript_ExplainSnatch
 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_ROCK_SLIDE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_SNATCH
+	setflag FLAG_RECEIVED_TM_INFESTATION
 	msgbox SSTidalRooms_Text_ExplainSnatch, MSGBOX_DEFAULT
 	release
 	end
@@ -53,12 +53,12 @@ SSTidalRooms_EventScript_Lea::
 	end
 
 SSTidalRooms_EventScript_Garret::
-	trainerbattle_single TRAINER_GARRET, SSTidalRooms_Text_GarretIntro, SSTidalRooms_Text_GarretDefeat
+	trainerbattle_single TRAINER_P_JINXIE, SSTidalRooms_Text_GarretIntro, SSTidalRooms_Text_GarretDefeat
 	msgbox SSTidalRooms_Text_GarretPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Naomi::
-	trainerbattle_single TRAINER_NAOMI, SSTidalRooms_Text_NaomiIntro, SSTidalRooms_Text_NaomiDefeat
+	trainerbattle_single TRAINER_P_NICOLE, SSTidalRooms_Text_NaomiIntro, SSTidalRooms_Text_NaomiDefeat
 	msgbox SSTidalRooms_Text_NaomiPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -245,6 +245,17 @@ const struct SpriteTemplate gAnchorShotChainTemplate =
     .callback = AnimThunderWave
 };
 
+const struct SpriteTemplate gSpiritShackleChainTemplate =
+{
+    .tileTag = ANIM_TAG_CHAIN_LINK,
+    .paletteTag = ANIM_TAG_CHAIN_LINK,
+    .oam = &gOamData_AffineOff_ObjNormal_32x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThunderWave
+};
+
 static const s8 sElectricChargingParticleCoordOffsets[][2] =
 {
     { 58, -60},
@@ -476,6 +487,17 @@ const struct SpriteTemplate gVoltTackleBoltSpriteTemplate =
     .anims = sAnims_VoltTackleBolt,
     .images = NULL,
     .affineAnims = sAffineAnims_VoltTackleBolt,
+    .callback = AnimVoltTackleBolt,
+};
+
+const struct SpriteTemplate gFairyLockChainsSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FAIRY_LOCK_CHAINS,
+    .paletteTag = ANIM_TAG_FAIRY_LOCK_CHAINS,
+    .oam = &gOamData_AffineOff_ObjNormal_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimVoltTackleBolt,
 };
 
@@ -871,13 +893,19 @@ static void AnimElectricBoltSegment(struct Sprite *sprite)
 void AnimThunderWave(struct Sprite *sprite)
 {
     u8 spriteId;
+    bool32 isAnchorShot = (gAnimMoveIndex == MOVE_ANCHOR_SHOT);
+    bool32 isSpiritShackle = (gAnimMoveIndex == MOVE_SPIRIT_SHACKLE);
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += gBattleAnimArgs[1];
-    if (gAnimMoveIndex != MOVE_ANCHOR_SHOT)
-        spriteId = CreateSprite(&gThunderWaveSpriteTemplate, sprite->x + 32, sprite->y, sprite->subpriority);
-    else
+    if (isAnchorShot || isSpiritShackle)
+    { 
         spriteId = CreateSprite(&gAnchorShotChainTemplate, sprite->x + 32, sprite->y, sprite->subpriority);
+    }
+    else
+    { 
+        spriteId = CreateSprite(&gThunderWaveSpriteTemplate, sprite->x + 32, sprite->y, sprite->subpriority);
+    }
 
     gSprites[spriteId].oam.tileNum += 8;
     gAnimVisualTaskCount++;
@@ -1190,11 +1218,20 @@ void AnimTask_VoltTackleBolt(u8 taskId)
 
 static bool8 CreateVoltTackleBolt(struct Task *task, u8 taskId)
 {
-    u8 spriteId = CreateSprite(&gVoltTackleBoltSpriteTemplate, task->data[3], task->data[5], 35);
+    u32 spriteId;
+    bool32 isFairyLock = (gAnimMoveIndex == MOVE_FAIRY_LOCK);
+
+    if (isFairyLock)
+        spriteId = CreateSprite(&gFairyLockChainsSpriteTemplate, task->data[3], task->data[5] + 10, 35);
+    else
+        spriteId = CreateSprite(&gVoltTackleBoltSpriteTemplate, task->data[3], task->data[5], 35);
+
     if (spriteId != MAX_SPRITES)
     {
         gSprites[spriteId].data[6] = taskId;
         gSprites[spriteId].data[7] = 7;
+        gSprites[spriteId].data[1] = isFairyLock ? 25 : 12; // How long the chains / bolts stay on screen.
+        gSprites[spriteId].data[2] = isFairyLock; // Whether to destroy the Oam Matrix.
         task->data[7]++;
     }
 

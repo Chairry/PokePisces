@@ -235,3 +235,13 @@ MoveTutor_Text_ExplosionTaught:
 	.string "to ignite my own EXPLOSION…\p"
 	.string "Maybe it's because deep down,\n"
 	.string "I would rather stay here…$"
+
+MoveTutor_Text_WhoWillLearnTheMove:
+	.string "Who will learn the move?$"
+
+MoveTutor_Text_MoveTaught:
+	.string "Move has been taught.$"
+
+MoveTutor_Text_LearnMove:
+	.string "What move would your\n"
+	.string "Pokémon like to learn?$"

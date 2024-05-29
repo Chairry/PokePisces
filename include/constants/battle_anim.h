@@ -399,7 +399,25 @@
 #define ANIM_TAG_TEAPOT                     (ANIM_SPRITES_START + 385)
 #define ANIM_TAG_WOOD_HAMMER_HAMMER         (ANIM_SPRITES_START + 386)
 #define ANIM_TAG_WHITE_BALL                 (ANIM_SPRITES_START + 387)
-
+#define ANIM_TAG_MUDSLIDE                   (ANIM_SPRITES_START + 388)
+#define ANIM_TAG_BIG_SPOON                  (ANIM_SPRITES_START + 389)
+#define ANIM_TAG_WHITE_BAT                  (ANIM_SPRITES_START + 390)
+#define ANIM_TAG_BERRY_THOUGHT_BUBBLE       (ANIM_SPRITES_START + 391)
+#define ANIM_TAG_DRAGON_SCALE               (ANIM_SPRITES_START + 392)
+#define ANIM_TAG_PURPLE_CHAIN               (ANIM_SPRITES_START + 393)
+#define ANIM_TAG_DRAGON_HEAD                (ANIM_SPRITES_START + 394)
+#define ANIM_TAG_DRAGON_ORB                 (ANIM_SPRITES_START + 395)
+#define ANIM_TAG_DRAGON_HEAD_OPPONENT       (ANIM_SPRITES_START + 396)
+#define ANIM_TAG_RED_SHADOW                 (ANIM_SPRITES_START + 397)
+#define ANIM_TAG_GEM_GREEN                  (ANIM_SPRITES_START + 398)
+#define ANIM_TAG_GEM_BLUE                   (ANIM_SPRITES_START + 399)
+#define ANIM_TAG_GEM_PINK                   (ANIM_SPRITES_START + 400)
+#define ANIM_TAG_GEM_YELLOW                 (ANIM_SPRITES_START + 401)
+#define ANIM_TAG_SPIRIT_HAND                (ANIM_SPRITES_START + 402)
+#define ANIM_TAG_PILGRIMAGE_RISING          (ANIM_SPRITES_START + 403)
+#define ANIM_TAG_PILGRIMAGE_FALLING         (ANIM_SPRITES_START + 404)
+#define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 405)
+#define ANIM_TAG_GIANTS_SPEAR               (ANIM_SPRITES_START + 406)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -510,6 +528,9 @@
 #define BG_STEEL_BEAM_OPPONENT 78
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
+#define BG_URANIUM 81
+#define BG_THUNDER_2 82
+#define BG_INVERSE_ROOM 83
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -551,6 +572,19 @@
 #define B_ANIM_SNOW_CONTINUES           36
 #define B_ANIM_ULTRA_BURST              37
 #define B_ANIM_SALT_CURE_DAMAGE         38
+#define B_ANIM_MUD_SPORT                39
+#define B_ANIM_WATER_SPORT              40
+#define B_ANIM_MUD_WATER_SPORT          41
+#define B_ANIM_SILENCE                  42
+#define B_ANIM_WHITE_SMOKE              43
+#define B_ANIM_SWITCH_ITEMS             44
+#define B_ANIM_TIME_TURN                45
+#define B_ANIM_ENTRANCING               46
+#define B_ANIM_REVERSI                  47
+#define B_ANIM_A_THING                  48
+#define B_ANIM_DECIMATION_HIT           49
+#define B_ANIM_HEARTHWARM_HEAL          50
+#define B_ANIM_BLOSSOM_SNAP_SETUP       51
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -573,6 +607,10 @@
 #define B_ANIM_STATUS_CURSED            7
 #define B_ANIM_STATUS_NIGHTMARE         8
 #define B_ANIM_STATUS_WRAPPED           9 // does not actually exist
+#define B_ANIM_STATUS_PNC               10
+#define B_ANIM_STATUS_BLOOMING          11
+#define B_ANIM_STATUS_EXPOSED           12
+#define B_ANIM_STATUS_REST              13
 
 // Tasks with return values often assign them to gBattleAnimArgs[7].
 #define ARG_RET_ID 7
@@ -591,6 +629,8 @@
 #define TRAP_ANIM_INFESTATION 6
 #define TRAP_ANIM_SNAP_TRAP 7
 #define TRAP_ANIM_THUNDER_CAGE 8
+#define TRAP_ANIM_CONSTRICT 9
+#define TRAP_ANIM_LEECH_SEED 10
 
 // Weather defines for battle animation scripts.
 #define ANIM_WEATHER_NONE 0

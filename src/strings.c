@@ -55,8 +55,8 @@ ALIGNED(4) const u8 gText_NextBack[] = _("{A_BUTTON}NEXT {B_BUTTON}BACK"); // Un
 ALIGNED(4) const u8 gText_PickNextCancel[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}NEXT {B_BUTTON}CANCEL");
 ALIGNED(4) const u8 gText_PickCancel[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}{B_BUTTON}CANCEL");
 ALIGNED(4) const u8 gText_AButtonExit[] = _("{A_BUTTON}EXIT");
-const u8 gText_BirchBoy[] = _("BOY");
-const u8 gText_BirchGirl[] = _("GIRL");
+const u8 gText_BirchBoy[] = _("MALE");
+const u8 gText_BirchGirl[] = _("FEMALE");
 const u8 gText_DefaultNameStu[] = _("STU");
 const u8 gText_DefaultNameMilton[] = _("MILTON");
 const u8 gText_DefaultNameTom[] = _("TOM");
@@ -97,7 +97,7 @@ const u8 gText_DefaultNameLillie[] = _("LILLIE");
 const u8 gText_DefaultNameTerra[] = _("TERRA");
 const u8 gText_DefaultNameLucy[] = _("LUCY");
 const u8 gText_DefaultNameHalie[] = _("HALIE");
-const u8 gText_ThisIsAPokemon[] = _("This is what we call a “POKéMON.”{PAUSE 96}\p");
+const u8 gText_ThisIsAPokemon[] = _("This is my Partner POKéMON!{PAUSE 96}\p");
 const u8 gText_5MarksPokemon[] = _("????? POKéMON");
 const u8 gText_UnkHeight[] = _("{CLEAR_TO 0x0C}??'??”");
 const u8 gText_UnkWeight[] = _("????.? lbs.");
@@ -107,7 +107,7 @@ const u8 gText_EmptyWeight[] = _("        .   lbs."); // Unused
 const u8 gText_EmptyPokedexInfo1[] = _(""); // Unused
 const u8 gText_CryOf[] = _("CRY OF");
 const u8 gText_EmptyPokedexInfo2[] = _(""); // Unused
-const u8 gText_SizeComparedTo[] = _("SIZE COMPARED TO ");
+const u8 gText_SizeComparedTo[] = _("SIZE COMPARED TO A PRESENTER");
 const u8 gText_PokedexRegistration[] = _("POKéDEX registration completed.");
 const u8 gText_HTHeight[] = _("HT");
 const u8 gText_WTWeight[] = _("WT");
@@ -174,7 +174,7 @@ const u8 gText_Level[] = _("Lv. ");
 const u8 gText_IdNumberSlash[] = _("IDNo. /"); // Unused
 const u8 gText_Name[] = _("NAME");
 const u8 gText_IDNumber[] = _("IDNo.");
-const u8 gText_BirchInTrouble[] = _("PROF. BIRCH is in trouble!\nRelease a POKéMON and rescue him!");
+const u8 gText_BirchInTrouble[] = _("It's your choice! Which of\nthese 3 POKéMON will you choose?");
 const u8 gText_ConfirmStarterChoice[] = _("Do you choose this POKéMON?");
 const u8 gText_Pokemon4[] = _("POKéMON"); // Unused
 const u8 gText_FlyToWhere[] = _("FLY to where?");
@@ -285,12 +285,16 @@ const u8 gText_PokeBallsPocket[] = _("POKé BALLS");
 const u8 gText_TMHMPocket[] = _("TMs & HMs");
 const u8 gText_BerriesPocket[] = _("BERRIES");
 const u8 gText_KeyItemsPocket[] = _("KEY ITEMS");
+const u8 gText_MedicinePocket[] = _("MEDICINE");
+const u8 gText_BattleItemsPocket[] = _("BATTLE ITEM");
 
 const u8 *const gPocketNamesStringsTable[] =
 {
     [ITEMS_POCKET] = gText_ItemsPocket,
     [BALLS_POCKET] = gText_PokeBallsPocket,
     [TMHM_POCKET]  = gText_TMHMPocket,
+    [MEDICINE_POCKET] = gText_MedicinePocket,
+    [BATTLEITEMS_POCKET] = gText_BattleItemsPocket,
     [BERRIES_POCKET] = gText_BerriesPocket,
     [KEYITEMS_POCKET] = gText_KeyItemsPocket
 };
@@ -341,24 +345,25 @@ const u8 gText_Var1DisdainfullyAteVar2[] = _("{STR_VAR_1} disdainfully ate the\n
 const u8 gText_ShopBuy[] = _("BUY");
 const u8 gText_ShopSell[] = _("SELL");
 const u8 gText_ShopQuit[] = _("QUIT");
-const u8 gText_ThatItemIsSoldOut[] = _("I'm sorry, but that item is sold out.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThatItemIsSoldOut[] = _("I'm sorry, but\nthat item is\nsold out.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SoldOut[] = _("SOLD OUT");
 const u8 gText_InBagVar1[] = _("IN BAG: {STR_VAR_1}");
 const u8 gText_QuitShopping[] = _("Quit shopping.");
-const u8 gText_Var1CertainlyHowMany[] = _("{STR_VAR_1}? Certainly.\nHow many would you like?");
-const u8 gText_Var1CertainlyHowMany2[] = _("{STR_VAR_1}? Certainly.\nHow many would you like?");
-const u8 gText_Var1AndYouWantedVar2[] = _("{STR_VAR_1}? And you wanted {STR_VAR_2}?\nThat will be ¥{STR_VAR_3}.");
-const u8 gText_Var1IsItThatllBeVar2[] = _("{STR_VAR_1}, is it?\nThat'll be ¥{STR_VAR_2}. Do you want it?");
-const u8 gText_YouWantedVar1ThatllBeVar2[] = _("You wanted {STR_VAR_1}?\nThat'll be ¥{STR_VAR_2}. Will that be okay?");
+const u8 gText_Var1CertainlyHowMany[] = _("{STR_VAR_1}?\nCertainly.\nHow many?");
+const u8 gText_Var1CertainlyHowMany2[] = _("{STR_VAR_1}?\nCertainly.\nHow many?");
+const u8 gText_Var1AndYouWantedVar2[] = _("So you wanted\n{STR_VAR_2} {STR_VAR_1}?\nThat'll be ¥{STR_VAR_3}.");
+const u8 gText_Var1IsItThatllBeVar2[] = _("{STR_VAR_1}, is it?\nThat'll be ¥{STR_VAR_2}.\nDo you want it?");
+const u8 gText_YouWantedVar1ThatllBeVar2[] = _("You wanted the\n{STR_VAR_1}?\nThat'll be ¥{STR_VAR_2}.");
 const u8 gText_HereYouGoThankYou[] = _("Here you go!\nThank you very much.");
-const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to your home PC.");
-const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your PC at home.");
-const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
-const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
-const u8 gText_SpaceForVar1Full[] = _("The space for {STR_VAR_1} is full.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to\nyour home PC.");
+const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your\nPC at home.");
+const u8 gText_YouDontHaveMoney[] = _("You don't have\nenough money.{PAUSE_UNTIL_PRESS}");
+const u8 gText_NoMoreRoomForThis[] = _("You have no more\nroom for this\nitem.{PAUSE_UNTIL_PRESS}");
+const u8 gText_SpaceForVar1Full[] = _("The space for\n{STR_VAR_1}\nis full.{PAUSE_UNTIL_PRESS}");
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
 const u8 gText_CanIHelpWithAnythingElse[] = _("Can I help you with anything else?");
-const u8 gText_ThrowInPremierBall[] = _("I'll throw in a PREMIER BALL, too.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInPremierBall[] = _("I'll throw in\na Premier Ball,\ntoo.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInSomePremierBalls[] = _("I'll throw in some\n Premier Balls,\ntoo.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantBuyKeyItem[] = _("{STR_VAR_2}? Oh, no.\nI can't buy that.{PAUSE_UNTIL_PRESS}");
 const u8 gText_HowManyToSell[] = _("{STR_VAR_2}?\nHow many would you like to sell?");
 const u8 gText_ICanPayVar1[] = _("I can pay ¥{STR_VAR_1}.\nWould that be okay?");
@@ -522,15 +527,38 @@ const u8 gText_EggWillTakeSomeTime[] = _("What will hatch from this?\nIt will ta
 const u8 gText_EggWillHatchSoon[] = _("It moves occasionally.\nIt should hatch soon.");
 const u8 gText_EggAboutToHatch[] = _("It's making sounds.\nIt's about to hatch!");
 const u8 gText_HMMovesCantBeForgotten2[] = _("HM moves can't be\nforgotten now.");
-const u8 gText_XNatureMetAtYZ[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nmet at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\n{DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
-const u8 gText_XNatureHatchedAtYZ[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nhatched at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\n{DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
-const u8 gText_XNatureObtainedInTrade[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nobtained in a trade.");
-const u8 gText_XNatureFatefulEncounter[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nobtained in a fateful\nencounter at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
-const u8 gText_XNatureProbablyMetAt[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nprobably met at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\n{DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
+
+const u8 gText_XNatureMetAtYZ[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature, met at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\n"
+    "{DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
+
+const u8 gText_XNatureHatchedAtYZ[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
+    "hatched at {DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
+
+const u8 gText_XNatureObtainedInTrade[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
+    "obtained in a trade.");
+
+const u8 gText_XNatureFatefulEncounter[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
+    "obtained in a fateful\nencounter at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
+
+const u8 gText_XNatureProbablyMetAt[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature, met at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1},\n"
+    "{DYNAMIC 0}{DYNAMIC 4}{DYNAMIC 1}.");
+
 const u8 gText_XNature[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature");
-const u8 gText_XNatureMetSomewhereAt[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nmet somewhere at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
-const u8 gText_XNatureHatchedSomewhereAt[] = _("{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\nhatched somewhere at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
-const u8 gText_OddEggFoundByCouple[] = _("An odd POKéMON EGG found\nby the DAY CARE couple.");
+
+const u8 gText_XNatureMetSomewhereAt[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
+    "met somewhere at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
+
+const u8 gText_XNatureHatchedSomewhereAt[] = _(
+    "{DYNAMIC 0}{DYNAMIC 2}{DYNAMIC 1}{DYNAMIC 5} nature,\n"
+    "hatched somewhere at {LV_2}{DYNAMIC 0}{DYNAMIC 3}{DYNAMIC 1}.");
+
+const u8 gText_OddEggFoundByCouple[] = _("A peculiar Pokémon Egg\nobtained at a strange place.");
 const u8 gText_PeculiarEggNicePlace[] = _("A peculiar POKéMON EGG\nobtained at the nice place.");
 const u8 gText_PeculiarEggTrade[] = _("A peculiar POKéMON EGG\nobtained in a trade.");
 const u8 gText_EggFromHotSprings[] = _("A POKéMON EGG obtained\nat the hot springs.");
@@ -680,6 +708,10 @@ const u8 gText_50CoinsAndPrice[] = _("  50 COINS    ¥1,000");
 const u8 gText_500CoinsAndPrice[] = _("500 COINS  ¥10,000");
 const u8 gText_Excellent2[] = _("Excellent");
 const u8 gText_NotSoGood[] = _("Not so good");
+const u8 gText_Desti1[] = _("Pacifidlog");
+const u8 gText_Desti2[] = _("Mossdeep");
+const u8 gText_Desti3[] = _("Lilycove");
+const u8 gText_Desti4[] = _("Wait a bit");
 const u8 gText_RedShard[] = _("RED SHARD");
 const u8 gText_YellowShard[] = _("YELLOW SHARD");
 const u8 gText_BlueShard[] = _("BLUE SHARD");
@@ -711,6 +743,8 @@ const u8 gText_Key_Items[] = _("KEY ITEMS");
 const u8 gText_Poke_Balls[] = _("POKé BALLS");
 const u8 gText_TMs_Hms[] = _("TMs & HMs");
 const u8 gText_Berries2[] = _("BERRIES");
+const u8 gText_Medicine[] = _("MEDICINE");
+const u8 gText_BattleItems[] = _("BATTLE ITEM");
 const u8 gText_SomeonesPC[] = _("SOMEONE'S PC");
 const u8 gText_LanettesPC[] = _("LANETTE'S PC");
 const u8 gText_PlayersPC[] = _("{PLAYER}'s PC");

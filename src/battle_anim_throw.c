@@ -2767,6 +2767,12 @@ void AnimTask_GetTrappedMoveAnimId(u8 taskId)
     case MOVE_THUNDER_CAGE:
         gBattleAnimArgs[0] = TRAP_ANIM_THUNDER_CAGE;
         break;
+    case MOVE_CONSTRICT:
+        gBattleAnimArgs[0] = TRAP_ANIM_CONSTRICT;
+        break;
+    case MOVE_LEECH_SEED:
+        gBattleAnimArgs[0] = TRAP_ANIM_LEECH_SEED;
+        break;
     default:
         gBattleAnimArgs[0] = TRAP_ANIM_BIND;
         break;

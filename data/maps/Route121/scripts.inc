@@ -1,192 +1,201 @@
-.set LOCALID_GRUNT_1, 12
-.set LOCALID_GRUNT_2, 13
-.set LOCALID_GRUNT_3, 14
+.set LOCALID_SNOWNINJA, 12
 
 Route121_MapScripts::
 	.byte 0
 
-Route121_EventScript_Woman::
-	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC
-	end
+Route121_EventScript_Barney::
+    trainerbattle_single TRAINER_P_BARNEY, Route121_Text_BarneyIntro, Route121_Text_BarneyDefeated
+    msgbox Route121_Text_BarneyPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route121_EventScript_MtPyrePierSign::
-	msgbox Route121_Text_MtPyrePierSign, MSGBOX_SIGN
-	end
+Route121_EventScript_Charon::
+    trainerbattle_single TRAINER_P_CHARON, Route121_Text_CharonIntro, Route121_Text_CharonDefeated
+    msgbox Route121_Text_CharonPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route121_EventScript_SafariZoneSign::
-	msgbox Route121_Text_SafariZoneSign, MSGBOX_SIGN
-	end
+Route121_EventScript_Garnet::
+    trainerbattle_single TRAINER_P_GARNET, Route121_Text_GarnetIntro, Route121_Text_GarnetDefeated
+    msgbox Route121_Text_GarnetPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route121_EventScript_AquaGruntsMoveOut::
-	lockall
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	applymovement LOCALID_GRUNT_2, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	msgbox Route121_Text_OkayMoveOutToMtPyre, MSGBOX_DEFAULT
+Route121_EventScript_Lapiz::
+    trainerbattle_single TRAINER_P_LAPIZ, Route121_Text_LapizIntro, Route121_Text_LapizDefeated
+    msgbox Route121_Text_LapizPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Vergil::
+    trainerbattle_single TRAINER_P_VERGIL, Route121_Text_VergilIntro, Route121_Text_VergilDefeated
+    msgbox Route121_Text_VergilPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Yosh::
+    trainerbattle_single TRAINER_P_YOSH, Route121_Text_YoshIntro, Route121_Text_YoshDefeated
+    msgbox Route121_Text_YoshPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Kaiji::
+    trainerbattle_single TRAINER_P_KAIJI, Route121_Text_KaijiIntro, Route121_Text_KaijiDefeated
+    msgbox Route121_Text_KaijiPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Lars::
+    trainerbattle_single TRAINER_P_LARS, Route121_Text_LarsIntro, Route121_Text_LarsDefeated
+    msgbox Route121_Text_LarsPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Darcie::
+    trainerbattle_single TRAINER_P_DARCIE, Route121_Text_DarcieIntro, Route121_Text_DarcieDefeated
+    msgbox Route121_Text_DarciePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_Wynton::
+    trainerbattle_single TRAINER_P_WYNTON, Route121_Text_WyntonIntro, Route121_Text_WyntonDefeated
+    msgbox Route121_Text_WyntonPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+Route121_EventScript_SnowballFight::
+	lock
+	faceplayer
+	checkitem ITEM_SNOWBALL
+	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_GaveSnowball
+	msgbox Route121_Text_WannaHaveSnowballFight, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GRUNT_1, Route121_Movement_Grunt1Exit
-	applymovement LOCALID_GRUNT_2, Route121_Movement_Grunt2Exit
-	applymovement LOCALID_GRUNT_3, Route121_Movement_Grunt3Exit
-	waitmovement 0
-	fadedefaultbgm
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	removeobject LOCALID_GRUNT_3
-	setvar VAR_ROUTE121_STATE, 1
-	releaseall
-	end
-
-Route121_Movement_Grunt1Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-Route121_Movement_Grunt2Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-Route121_Movement_Grunt3Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-Route121_EventScript_Vanessa::
-	trainerbattle_single TRAINER_VANESSA, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
-	msgbox Route121_Text_VanessaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Walter::
-	trainerbattle_single TRAINER_WALTER_1, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchWalter
-	msgbox Route121_Text_WalterPostBattle, MSGBOX_DEFAULT
+	playse SE_M_VITAL_THROW2
+	setmetatile 74, 12, METATILE_Snow_SnowPileTopLeft, FALSE
+	setmetatile 75, 12, METATILE_Snow_SnowPileTopRight, FALSE
+	setmetatile 74, 13, METATILE_Snow_SnowPileBottomLeft, TRUE
+	setmetatile 75, 13, METATILE_Snow_SnowPileBottomRight, TRUE
+	special DrawWholeMapView
+	removeobject LOCALID_SNOWNINJA
+	setflag FLAG_SNOWBALL_BOY
+	delay 16
+	delay 16
+	giveitem ITEM_SNOWBALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	release
 	end
 
-Route121_EventScript_RegisterWalter::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_WalterRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WALTER_1
+Route121_EventScript_GaveSnowball::
+	msgbox Route121_Text_IShallGetRevenge, MSGBOX_AUTOCLOSE
 	release
 	end
 
-Route121_EventScript_RematchWalter::
-	trainerbattle_rematch TRAINER_WALTER_1, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
-	msgbox Route121_Text_WalterPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Tammy::
-	trainerbattle_single TRAINER_TAMMY, Route121_Text_TammyIntro, Route121_Text_TammyDefeat
-	msgbox Route121_Text_TammyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Kate::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_KateIntro, Route121_Text_KateDefeat, Route121_Text_KateNotEnoughMons
-	msgbox Route121_Text_KatePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Joy::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_JoyIntro, Route121_Text_JoyDefeat, Route121_Text_JoyNotEnoughMons
-	msgbox Route121_Text_JoyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Jessica::
-	trainerbattle_single TRAINER_JESSICA_1, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchJessica
-	msgbox Route121_Text_JessicaPostBattle, MSGBOX_DEFAULT
+Route121_EventScript_OneWayTripDown::
+	lock
+	faceplayer
+	msgbox Route121_Text_WantToHopDownTheMountain, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route121_EventScript_WarpToLilycove
+	msgbox Route121_Text_ThatsFine, MSGBOX_AUTOCLOSE
 	release
 	end
 
-Route121_EventScript_RegisterJessica::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_JessicaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JESSICA_1
+Route121_EventScript_WarpToLilycove::
+	msgbox Route121_Text_TryNotToSlip, MSGBOX_DEFAULT
+	warp MAP_LILYCOVE_CITY, 17, 14
 	release
 	end
 
-Route121_EventScript_RematchJessica::
-	trainerbattle_rematch TRAINER_JESSICA_1, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
-	msgbox Route121_Text_JessicaPostRematch, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_WannaHaveSnowballFight:
+	.string "test$"
 
-Route121_EventScript_Cale::
-	trainerbattle_single TRAINER_CALE, Route121_Text_CaleIntro, Route121_Text_CaleDefeat
-	msgbox Route121_Text_CalePostBattle, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_IShallGetRevenge:
+	.string "test$"
 
-Route121_EventScript_Myles::
-	trainerbattle_single TRAINER_MYLES, Route121_Text_MylesIntro, Route121_Text_MylesDefeat
-	msgbox Route121_Text_MylesPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_WantToHopDownTheMountain:
+	.string "test$"
 
-Route121_EventScript_Pat::
-	trainerbattle_single TRAINER_PAT, Route121_Text_PatIntro, Route121_Text_PatDefeat
-	msgbox Route121_Text_PatPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_ThatsFine:
+	.string "test$"
 
-Route121_EventScript_Marcel::
-	trainerbattle_single TRAINER_MARCEL, Route121_Text_MarcelIntro, Route121_Text_MarcelDefeat
-	msgbox Route121_Text_MarcelPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_TryNotToSlip:
+	.string "test$"
 
-Route121_EventScript_Cristin::
-	trainerbattle_single TRAINER_CRISTIN_1, Route121_Text_CristinIntro, Route121_Text_CristinDefeat, Route121_EventScript_RegisterCristin
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchCristin
-	msgbox Route121_Text_CristinPostBattle, MSGBOX_DEFAULT
-	release
-	end
+Route121_Text_BarneyIntro:
+	.string "intro$"
 
-Route121_EventScript_RegisterCristin::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_CristinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CRISTIN_1
-	release
-	end
+Route121_Text_BarneyDefeated:
+	.string "defeat$"
 
-Route121_EventScript_RematchCristin::
-	trainerbattle_rematch TRAINER_CRISTIN_1, Route121_Text_CristinRematchIntro, Route121_Text_CristinRematchDefeat
-	msgbox Route121_Text_CristinPostRematch, MSGBOX_AUTOCLOSE
-	end
+Route121_Text_BarneyPostBattle:
+	.string "post$"
 
-Route121_Text_OkayMoveOutToMtPyre:
-	.string "Okay!\n"
-	.string "We're to move out to MT. PYRE!$"
+Route121_Text_CharonIntro:
+	.string "intro$"
 
-Route121_Text_AheadLoomsMtPyre:
-	.string "Ahead looms MT. PYRE…\p"
-	.string "It is a natural monument to the spirits \n"
-	.string "of departed POKéMON…$"
+Route121_Text_CharonDefeated:
+	.string "defeat$"
 
-Route121_Text_MtPyrePierSign:
-	.string "MT. PYRE PIER\p"
-	.string "…The sign is old and worn out.\n"
-	.string "The words are barely legible…$"
+Route121_Text_CharonPostBattle:
+	.string "post$"
 
-Route121_Text_SafariZoneSign:
-	.string "“Filled with rare POKéMON!”\n"
-	.string "SAFARI ZONE$"
+Route121_Text_GarnetIntro:
+	.string "intro$"
 
+Route121_Text_GarnetDefeated:
+	.string "defeat$"
+
+Route121_Text_GarnetPostBattle:
+	.string "post$"
+
+Route121_Text_LapizIntro:
+	.string "intro$"
+
+Route121_Text_LapizDefeated:
+	.string "defeat$"
+
+Route121_Text_LapizPostBattle:
+	.string "post$"
+
+Route121_Text_VergilIntro:
+	.string "intro$"
+
+Route121_Text_VergilDefeated:
+	.string "defeat$"
+
+Route121_Text_VergilPostBattle:
+	.string "post$"
+
+Route121_Text_YoshIntro:
+	.string "intro$"
+
+Route121_Text_YoshDefeated:
+	.string "defeat$"
+
+Route121_Text_YoshPostBattle:
+	.string "post$"
+
+Route121_Text_KaijiIntro:
+	.string "intro$"
+
+Route121_Text_KaijiDefeated:
+	.string "defeat$"
+
+Route121_Text_KaijiPostBattle:
+	.string "post$"
+
+Route121_Text_LarsIntro:
+	.string "intro$"
+
+Route121_Text_LarsDefeated:
+	.string "defeat$"
+
+Route121_Text_LarsPostBattle:
+	.string "post$"
+
+Route121_Text_DarcieIntro:
+	.string "intro$"
+
+Route121_Text_DarcieDefeated:
+	.string "defeat$"
+
+Route121_Text_DarciePostBattle:
+	.string "post$"
+
+Route121_Text_WyntonIntro:
+	.string "intro$"
+
+Route121_Text_WyntonDefeated:
+	.string "defeat$"
+
+Route121_Text_WyntonPostBattle:
+	.string "post$"

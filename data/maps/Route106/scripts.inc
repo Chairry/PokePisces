@@ -6,7 +6,7 @@ Route106_EventScript_TrainerTipsSign::
 	end
 
 Route106_EventScript_Douglas::
-	trainerbattle_single TRAINER_DOUGLAS, Route106_Text_DouglasIntro, Route106_Text_DouglasDefeated
+	trainerbattle_single TRAINER_P_MORGAN, Route106_Text_DouglasIntro, Route106_Text_DouglasDefeated
 	msgbox Route106_Text_DouglasPostBattle, MSGBOX_AUTOCLOSE
 	end
 

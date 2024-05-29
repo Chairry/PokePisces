@@ -55,7 +55,7 @@ Mystic One, Raises Special Attack.
 Permafrost, Removes weaknesses in hail.
 Potency, Powers up Poison moves.
 Power Spike, Boosts horn moves at 50% HP.
-Verdict, 
+Arbiter, 
 Seafarer, Powers up Water moves.
 Star Screen, Extends screens.
 Stronghold, Ups Defenses and locks moves.

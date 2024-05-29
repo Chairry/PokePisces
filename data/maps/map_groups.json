@@ -56,37 +56,58 @@
     "gMapGroup_IndoorRoute124"
   ],
   "gMapGroup_PiscesPart1Major": [
+    "SSTidalExterior",
     "PacifidlogTown",
+    "BirchMaritimeLab",
     "SkyPillarNew",
+    "SkyPillarInteriors",
+    "Flotshore",
+    "BasalinCoast",
+    "NewSooto",
+    "SootopolisCity_Gym_1F",
+    "SootopolisCity_Gym_B1F"
+  ],
+  "gMapGroup_PiscesPart1Minor": [
+    "PacifidlogTown_PokemonCenter_1F",
+    "PacifidlogTown_PokemonCenter_2F",
+    "SootopolisCity_PokemonCenter_1F",
+    "RivalRoom",
+    "SSTidalInteriors",
+    "PacifidlogInteriors",
+    "LabBasement",
+    "LabBasement2",
+    "SootopolisInteriors",
+    "Gym1Corridor",
     "SkyPillar_Entrance",
-    "SkyPillar_Outside",
     "SkyPillar_1F",
     "SkyPillar_2F",
     "SkyPillar_3F",
     "SkyPillar_4F",
     "SkyPillar_5F",
     "SkyPillar_Top",
+    "SkyPillar_Outside",
+    "SootopolisCity",
     "Route131",
     "Route129",
-    "SootopolisCity",
-    "SootopolisCity_Gym_1F",
-    "SootopolisCity_Gym_B1F",
-    "Flotshore"
-  ],
-  "gMapGroup_PiscesPart1Minor": [
-    "PacifidlogTown_PokemonCenter_1F",
-    "PacifidlogTown_PokemonCenter_2F",
-    "SootopolisCity_PokemonCenter_1F"
+    "SootoRestaurant"
   ],
   "gMapGroup_PiscesPart2Major": [
     "CaveOfOrigin",
     "MangrottoTunnel",
     "MossdeepCity",
-    "MossdeepCity_Gym"
+    "MossdeepCity_Gym",
+    "CosmossSpaceCenter"
   ],
   "gMapGroup_PiscesPart2Minor": [
     "SootopolisCity_PokemonCenter_2F",
-    "MossdeepCity_PokemonCenter_1F"
+    "MossdeepCity_PokemonCenter_1F",
+    "MossdeepInteriors",
+    "Gym2Corridor",
+    "StevenHouse",
+    "StevenCorridor",
+    "StevenMaze",
+    "SecretMossdeepCave",
+    "MangrottoRockSmashRoom"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",
@@ -97,13 +118,26 @@
     "MtPyre_1F",
     "MtPyre_2F",
     "Route122",
-    "PetalburgCity_Gym"
+    "PetalburgCity_Gym",
+    "TheColdMines",
+    "ZotpyreGym",
+    "NewSunbeach"
   ],
   "gMapGroup_PiscesPart3Minor": [
     "MossdeepCity_PokemonCenter_2F",
     "LilycoveCity_PokemonCenter_1F",
     "LilycoveCity_PokemonCenter_2F",
-    "VerdanturfTown_PokemonCenter_1F"
+    "VerdanturfTown_PokemonCenter_1F",
+    "PrecipikeInteriors",
+    "OzoneLilycoveHQ",
+    "LilycoveInteriors",
+    "LilycoveMuseumNew",
+    "SSTidalMidgame",
+    "SSTidalMidTeriors",
+    "PrettyPetalsScuttill",
+    "Gym3Corridor",
+    "ZotpyreInteriors",
+    "ZotpyreSecretBasement"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",
@@ -116,7 +150,8 @@
   "gMapGroup_PiscesPart4Minor": [
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_Mart",
-    "FortreeCity_PokemonCenter_1F"
+    "FortreeCity_PokemonCenter_1F",
+    "ScuttillSecretTreeHouse"
   ],
   "gMapGroup_PiscesPart5Major": [
     "OzoneInstitute",

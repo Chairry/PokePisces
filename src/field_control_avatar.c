@@ -624,11 +624,6 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext_SetupScript(MauvilleCity_EventScript_RegisterWallyCall);
             return TRUE;
         }
-        if (ShouldDoScottFortreeCall() == TRUE)
-        {
-            ScriptContext_SetupScript(Route119_EventScript_ScottWonAtFortreeGymCall);
-            return TRUE;
-        }
         if (ShouldDoScottBattleFrontierCall() == TRUE)
         {
             ScriptContext_SetupScript(LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall);
@@ -650,7 +645,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         return TRUE;
     if (CountSSTidalStep(1) == TRUE)
     {
-        ScriptContext_SetupScript(SSTidalCorridor_EventScript_ReachedStepCount);
+        ScriptContext_SetupScript(MangrottoRockSmashRoom_EventScript_FailedChallenge);
         return TRUE;
     }
     if (TryStartMatchCall())

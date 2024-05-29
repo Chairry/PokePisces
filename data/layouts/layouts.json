@@ -444,8 +444,8 @@
     {
       "id": "LAYOUT_ROUTE129",
       "name": "Route129_Layout",
-      "width": 80,
-      "height": 60,
+      "width": 7,
+      "height": 4,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/Route129/border.bin",
@@ -624,10 +624,10 @@
     {
       "id": "LAYOUT_MART",
       "name": "Mart_Layout",
-      "width": 11,
-      "height": 8,
+      "width": 17,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin"
     },
@@ -704,8 +704,8 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "name": "LavaridgeTown_PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
+      "width": 23,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/LavaridgeTown_PokemonCenter_1F/border.bin",
@@ -1074,9 +1074,9 @@
     {
       "id": "LAYOUT_MOSSDEEP_CITY_GYM",
       "name": "MossdeepCity_Gym_Layout",
-      "width": 26,
-      "height": 36,
-      "primary_tileset": "gTileset_Building",
+      "width": 54,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MossdeepGym",
       "border_filepath": "data/layouts/MossdeepCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_Gym/map.bin"
@@ -1096,8 +1096,8 @@
       "name": "SootopolisCity_Gym_B1F_Layout",
       "width": 17,
       "height": 26,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_SootopolisGym",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/SootopolisCity_Gym_B1F/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_Gym_B1F/map.bin"
     },
@@ -3834,7 +3834,7 @@
     {
       "id": "LAYOUT_BATTLE_TENT_LOBBY",
       "name": "BattleTentLobby_Layout",
-      "width": 13,
+      "width": 17,
       "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleTent",
@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -4615,7 +4615,7 @@
       "id": "LAYOUT_DEWFORD_NEW",
       "name": "DewfordNew_Layout",
       "width": 56,
-      "height": 40,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordNew/border.bin",
@@ -4825,7 +4825,7 @@
       "id": "LAYOUT_MIDNEOR_FALLS",
       "name": "MidneorFalls_Layout",
       "width": 60,
-      "height": 80,
+      "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFalls/border.bin",
@@ -4994,12 +4994,362 @@
     {
       "id": "LAYOUT_FLOTSHORE",
       "name": "Flotshore_Layout",
-      "width": 60,
-      "height": 42,
+      "width": 64,
+      "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Seaside",
       "border_filepath": "data/layouts/Flotshore/border.bin",
       "blockdata_filepath": "data/layouts/Flotshore/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_MARITIME_LAB",
+      "name": "BirchMaritimeLab_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BirchLab",
+      "border_filepath": "data/layouts/BirchMaritimeLab/border.bin",
+      "blockdata_filepath": "data/layouts/BirchMaritimeLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_PACIFIDLOG_INTERIORS",
+      "name": "PacifidlogInteriors_Layout",
+      "width": 46,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PacifidlogInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/PacifidlogInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKY_PILLAR_INTERIORS",
+      "name": "SkyPillarInteriors_Layout",
+      "width": 14,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SkyPillarInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SkyPillarInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_INTERIORS",
+      "name": "SSTidalInteriors_Layout",
+      "width": 38,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SSTidalInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT",
+      "name": "LabBasement_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAB_BASEMENT2",
+      "name": "LabBasement2_Layout",
+      "width": 4,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/LabBasement2/border.bin",
+      "blockdata_filepath": "data/layouts/LabBasement2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALIN_COAST",
+      "name": "BasalinCoast_Layout",
+      "width": 80,
+      "height": 56,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/BasalinCoast/border.bin",
+      "blockdata_filepath": "data/layouts/BasalinCoast/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_ROOM",
+      "name": "RivalRoom_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/RivalRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RivalRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_EXTERIOR",
+      "name": "SSTidalExterior_Layout",
+      "width": 38,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalExterior/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalExterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_SOOTO",
+      "name": "NewSooto_Layout",
+      "width": 72,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/NewSooto/border.bin",
+      "blockdata_filepath": "data/layouts/NewSooto/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM1CORRIDOR",
+      "name": "Gym1Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym1Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym1Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTOPOLIS_INTERIORS",
+      "name": "SootopolisInteriors_Layout",
+      "width": 38,
+      "height": 32,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SootopolisInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SootopolisInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTO_RESTAURANT",
+      "name": "SootoRestaurant_Layout",
+      "width": 8,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/SootoRestaurant/border.bin",
+      "blockdata_filepath": "data/layouts/SootoRestaurant/map.bin"
+    },
+    {
+      "id": "LAYOUT_COSMOSS_SPACE_CENTER",
+      "name": "CosmossSpaceCenter_Layout",
+      "width": 16,
+      "height": 46,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/CosmossSpaceCenter/border.bin",
+      "blockdata_filepath": "data/layouts/CosmossSpaceCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_INTERIORS",
+      "name": "MossdeepInteriors_Layout",
+      "width": 48,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MossdeepInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM2CORRIDOR",
+      "name": "Gym2Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym2Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym2Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_HOUSE",
+      "name": "StevenHouse_Layout",
+      "width": 12,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MossdeepGameCorner",
+      "border_filepath": "data/layouts/StevenHouse/border.bin",
+      "blockdata_filepath": "data/layouts/StevenHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_CORRIDOR",
+      "name": "StevenCorridor_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenCorridor/border.bin",
+      "blockdata_filepath": "data/layouts/StevenCorridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_STEVEN_MAZE",
+      "name": "StevenMaze_Layout",
+      "width": 38,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/StevenMaze/border.bin",
+      "blockdata_filepath": "data/layouts/StevenMaze/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_MOSSDEEP_CAVE",
+      "name": "SecretMossdeepCave_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MossdeepGym",
+      "border_filepath": "data/layouts/SecretMossdeepCave/border.bin",
+      "blockdata_filepath": "data/layouts/SecretMossdeepCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRECIPIKE_INTERIORS",
+      "name": "PrecipikeInteriors_Layout",
+      "width": 11,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PrecipikeInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/PrecipikeInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_OZONE_LILYCOVE_HQ",
+      "name": "OzoneLilycoveHQ_Layout",
+      "width": 16,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_OzoneInterior",
+      "border_filepath": "data/layouts/OzoneLilycoveHQ/border.bin",
+      "blockdata_filepath": "data/layouts/OzoneLilycoveHQ/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_INTERIORS",
+      "name": "LilycoveInteriors_Layout",
+      "width": 38,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_MUSEUM_NEW",
+      "name": "LilycoveMuseumNew_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
+      "border_filepath": "data/layouts/LilycoveMuseumNew/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveMuseumNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_MIDGAME",
+      "name": "SSTidalMidgame_Layout",
+      "width": 38,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/SSTidalMidgame/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalMidgame/map.bin"
+    },
+    {
+      "id": "LAYOUT_SS_TIDAL_MID_TERIORS",
+      "name": "SSTidalMidTeriors_Layout",
+      "width": 38,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SSTidalMidTeriors/border.bin",
+      "blockdata_filepath": "data/layouts/SSTidalMidTeriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_MANGROTTO_ROCK_SMASH_ROOM",
+      "name": "MangrottoRockSmashRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/MangrottoRockSmashRoom/border.bin",
+      "blockdata_filepath": "data/layouts/MangrottoRockSmashRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_THE_COLD_MINES",
+      "name": "TheColdMines_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Snow",
+      "border_filepath": "data/layouts/TheColdMines/border.bin",
+      "blockdata_filepath": "data/layouts/TheColdMines/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRETTY_PETALS_SCUTTILL",
+      "name": "PrettyPetalsScuttill_Layout",
+      "width": 16,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PrettyPetalFlowerShop",
+      "border_filepath": "data/layouts/PrettyPetalsScuttill/border.bin",
+      "blockdata_filepath": "data/layouts/PrettyPetalsScuttill/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZOTPYRE_GYM",
+      "name": "ZotpyreGym_Layout",
+      "width": 40,
+      "height": 36,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
+      "border_filepath": "data/layouts/ZotpyreGym/border.bin",
+      "blockdata_filepath": "data/layouts/ZotpyreGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SCUTTILL_SECRET_TREE_HOUSE",
+      "name": "ScuttillSecretTreeHouse_Layout",
+      "width": 32,
+      "height": 26,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseTree",
+      "border_filepath": "data/layouts/ScuttillSecretTreeHouse/border.bin",
+      "blockdata_filepath": "data/layouts/ScuttillSecretTreeHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM3CORRIDOR",
+      "name": "Gym3Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym3Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym3Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZOTPYRE_INTERIORS",
+      "name": "ZotpyreInteriors_Layout",
+      "width": 43,
+      "height": 25,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/ZotpyreInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/ZotpyreInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZOTPYRE_SECRET_BASEMENT",
+      "name": "ZotpyreSecretBasement_Layout",
+      "width": 7,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OldStoneBuildings",
+      "border_filepath": "data/layouts/ZotpyreSecretBasement/border.bin",
+      "blockdata_filepath": "data/layouts/ZotpyreSecretBasement/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_SUNBEACH",
+      "name": "NewSunbeach_Layout",
+      "width": 80,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/NewSunbeach/border.bin",
+      "blockdata_filepath": "data/layouts/NewSunbeach/map.bin"
     }
   ]
 }

@@ -912,6 +912,17 @@ const struct SpriteTemplate gConstrictBindingSpriteTemplate =
     .callback = AnimConstrictBinding,
 };
 
+const struct SpriteTemplate gChainBindingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PURPLE_CHAIN,
+    .paletteTag = ANIM_TAG_PURPLE_CHAIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x32,
+    .anims = sAnims_ConstrictBinding,
+    .images = NULL,
+    .affineAnims = sAffineAnims_ConstrictBinding,
+    .callback = AnimConstrictBinding,
+};
+
 const union AffineAnimCmd gMimicOrbAffineAnimCmds1[] = {
     AFFINEANIMCMD_FRAME(0, 0, 0, 0),
     AFFINEANIMCMD_FRAME(48, 48, 0, 14),
@@ -1386,6 +1397,17 @@ const struct SpriteTemplate gVineWhipSpriteTemplate =
 {
     .tileTag = ANIM_TAG_WHIP_HIT,
     .paletteTag = ANIM_TAG_WHIP_HIT,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_Whip,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWhipHit,
+};
+
+const struct SpriteTemplate gWaterFlogSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHIP_HIT,
+    .paletteTag = ANIM_TAG_WATER_GUN,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = sAnims_Whip,
     .images = NULL,
@@ -2176,6 +2198,17 @@ const struct SpriteTemplate gHornHitSpriteTemplate =
     .callback = AnimHornHit,
 };
 
+const struct SpriteTemplate gBlackBuffetHitSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HORN_HIT,
+    .paletteTag = ANIM_TAG_HANDS_AND_FEET,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHornHit,
+};
+
 const union AnimCmd gSuperFangAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 2),
@@ -2385,6 +2418,17 @@ const struct SpriteTemplate gThoughtBubbleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THOUGHT_BUBBLE,
     .paletteTag = ANIM_TAG_THOUGHT_BUBBLE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gMetronomeThroughtBubbleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimThoughtBubble,
+};
+
+const struct SpriteTemplate gBerryThoughtBubbleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BERRY_THOUGHT_BUBBLE,
+    .paletteTag = ANIM_TAG_BERRY_THOUGHT_BUBBLE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gMetronomeThroughtBubbleAnimTable,
     .images = NULL,
@@ -2760,6 +2804,17 @@ const struct SpriteTemplate gNightSlashLeftSpriteTemplate =
     .callback = AnimNightSlash,
 };
 
+const struct SpriteTemplate gAquaCutterLeftSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SLASH,
+    .paletteTag = ANIM_TAG_WATER_GUN,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gNightSlashLeftAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNightSlash,
+};
+
 const union AnimCmd gNightSlashRightAnimCmd0[] =
 {
     ANIMCMD_FRAME(0, 4, .vFlip = TRUE, .hFlip = TRUE),
@@ -2785,6 +2840,17 @@ const struct SpriteTemplate gNightSlashRightSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SLASH,
     .paletteTag = ANIM_TAG_SLASH,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gNightSlashRightAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimNightSlash,
+};
+
+const struct SpriteTemplate gAquaCutterRightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SLASH,
+    .paletteTag = ANIM_TAG_WATER_GUN,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gNightSlashRightAnimTable,
     .images = NULL,

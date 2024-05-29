@@ -1686,11 +1686,11 @@ bool8 ScrCmd_givemon(struct ScriptContext *ctx)
     u16 species = VarGet(ScriptReadHalfword(ctx));
     u8 level = ScriptReadByte(ctx);
     u16 item = VarGet(ScriptReadHalfword(ctx));
-    u32 unkParam1 = ScriptReadWord(ctx);
+    u8 abilityNum = ScriptReadWord(ctx);
     u32 unkParam2 = ScriptReadWord(ctx);
     u8 unkParam3 = ScriptReadByte(ctx);
 
-    gSpecialVar_Result = ScriptGiveMon(species, level, item, unkParam1, unkParam2, unkParam3);
+    gSpecialVar_Result = ScriptGiveMon(species, level, item, abilityNum, unkParam2, unkParam3);
     return FALSE;
 }
 
@@ -1724,6 +1724,52 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
         if (!species)
             break;
         if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && (CanLearnTeachableMove(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES), moveId) || MonKnowsMove(&gPlayerParty[i], moveId) == TRUE) )
+        {
+            gSpecialVar_Result = i;
+            gSpecialVar_0x8004 = species;
+            break;
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_checkpartynonhmmove(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 moveId = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = PARTY_SIZE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && MonKnowsMove(&gPlayerParty[i], moveId) == TRUE)
+        {
+            gSpecialVar_Result = i;
+            gSpecialVar_0x8004 = species;
+            break;
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_checkpartyitem(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 heldItem;
+    u16 itemId = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = PARTY_SIZE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        
+        heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && heldItem == itemId)
         {
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;

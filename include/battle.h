@@ -76,7 +76,6 @@ struct DisableStruct
     u8 furyCutterCounter;
     u8 rolloutTimer:4;
     u8 rolloutTimerStartValue:4;
-    u8 chargeTimer:4;
     u8 tauntTimer:4;
     u8 battlerPreventingEscape;
     u8 battlerWithSureHit;
@@ -103,7 +102,8 @@ struct DisableStruct
     u8 toxicSpikesDone:1;
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
-    s32 shunyongFlinchTimer;
+    u8 spiderweb:1;
+    u8 shunyongFlinchTimer:2;
 };
 
 struct ProtectStruct
@@ -111,6 +111,7 @@ struct ProtectStruct
     u32 protected:1;
     u32 spikyShielded:1;
     u32 kingsShielded:1;
+    u32 shelltered:1;
     u32 detectShielded:1;
     u32 banefulBunkered:1;
     u32 obstructed:1;
@@ -151,11 +152,13 @@ struct ProtectStruct
     u16 shellTrap:1;
     u16 silkTrapped:1;
     u16 burningBulwarked:1;
+    u16 drakenGuarded:1;
     u16 eatMirrorHerb:1;
     u32 physicalDmg;
     u32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
+    u16 blossomSnapCharge:1;
 };
 
 struct SpecialStatus
@@ -184,7 +187,7 @@ struct SpecialStatus
     // End of byte
     u8 gemParam;
     // End of byte
-    u8 gemBoost:1;
+     u8 gemBoost:1;
     u8 rototillerAffected:1;  // to be affected by rototiller
     u8 parentalBondState:2;
     u8 multiHitOn:1;
@@ -202,6 +205,7 @@ struct SpecialStatus
     u8 afterYou:1;
     u8 magnetPullRedirected:1;
     u8 witchcraftRedirected:1;
+    u8 soulLockerRedirected:1;
 };
 
 struct SideTimer
@@ -231,6 +235,8 @@ struct SideTimer
     u8 followmeTarget:3;
     u8 followmePowder:1; // Rage powder, does not affect grass type pokemon.
     u8 retaliateTimer;
+    u8 silenceTimer;
+    u8 silenceTimerBattlerId;
 };
 
 struct FieldTimer
@@ -240,6 +246,7 @@ struct FieldTimer
     u8 wonderRoomTimer;
     u8 magicRoomTimer;
     u8 trickRoomTimer;
+    u8 inverseRoomTimer;
     u8 terrainTimer;
     u8 gravityTimer;
     u8 fairyLockTimer;
@@ -633,6 +640,8 @@ struct BattleStruct
     u8 alreadyStatusedMoveAttempt; // As bits for battlers; For example when using Thunder Wave on an already paralyzed pokemon.
     u8 debugBattler;
     u8 magnitudeBasePower;
+    u8 dragonpokerBasePower;
+    u8 ficklebeamBasePower;
     u8 presentBasePower;
     u8 roostTypes[MAX_BATTLERS_COUNT][2];
     u8 savedBattlerTarget;
@@ -726,7 +735,9 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_IF_MISS     \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS   \
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD)
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))
@@ -753,11 +764,13 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                                         || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_MAT_BLOCK            \
                                         || gProtectStructs[battlerId].spikyShielded                                    \
                                         || gProtectStructs[battlerId].kingsShielded                                    \
+                                        || gProtectStructs[battlerId].shelltered                                       \
                                         || gProtectStructs[battlerId].detectShielded                                   \
                                         || gProtectStructs[battlerId].banefulBunkered                                  \
                                         || gProtectStructs[battlerId].burningBulwarked                                 \
                                         || gProtectStructs[battlerId].obstructed                                       \
-                                        || gProtectStructs[battlerId].silkTrapped)
+                                        || gProtectStructs[battlerId].silkTrapped                                      \
+                                        || gProtectStructs[battlerId].drakenGuarded)
 
 #define GET_STAT_BUFF_ID(n)((n & 7))              // first three bits 0x1, 0x2, 0x4
 #define GET_STAT_BUFF_VALUE_WITH_SIGN(n)((n & 0xF8))

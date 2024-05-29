@@ -19,24 +19,25 @@ SootopolisCity_Gym_1F_OnLoad:
 	end
 
 SootopolisCity_Gym_1F_EventScript_CheckSetStairMetatiles::
-	goto_if_lt VAR_ICE_STEP_COUNT, 8, SootopolisCity_Gym_1F_EventScript_StopCheckingStairs  @ All stairs ice
-	goto_if_lt VAR_ICE_STEP_COUNT, 28, SootopolisCity_Gym_1F_EventScript_OpenFirstStairs
-	goto_if_lt VAR_ICE_STEP_COUNT, 67, SootopolisCity_Gym_1F_EventScript_OpenFirstAndSecondStairs
-	setmetatile 8, 4, METATILE_SootopolisGym_Stairs, FALSE
-	setmetatile 8, 5, METATILE_SootopolisGym_Stairs, FALSE
+	goto_if_lt VAR_ICE_STEP_COUNT, 111, SootopolisCity_Gym_1F_EventScript_StopCheckingStairs  @ All stairs ice
+	goto_if_lt VAR_ICE_STEP_COUNT, 113, SootopolisCity_Gym_1F_EventScript_OpenFirstStairs
+	setmetatile 10, 7, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 8, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 9, METATILE_SootopolisGym_Stairs, FALSE
 SootopolisCity_Gym_1F_EventScript_OpenFirstAndSecondStairs::
-	setmetatile 8, 10, METATILE_SootopolisGym_Stairs, FALSE
-	setmetatile 8, 11, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 7, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 8, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 9, METATILE_SootopolisGym_Stairs, FALSE
 SootopolisCity_Gym_1F_EventScript_OpenFirstStairs::
-	setmetatile 8, 15, METATILE_SootopolisGym_Stairs, FALSE
-	setmetatile 8, 16, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 7, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 8, METATILE_SootopolisGym_Stairs, FALSE
+	setmetatile 10, 9, METATILE_SootopolisGym_Stairs, FALSE
 SootopolisCity_Gym_1F_EventScript_StopCheckingStairs::
 	return
 
 SootopolisCity_Gym_1F_OnFrame:
-	map_script_2 VAR_ICE_STEP_COUNT, 8, SootopolisCity_Gym_1F_EventScript_UnlockFirstStairs
-	map_script_2 VAR_ICE_STEP_COUNT, 28, SootopolisCity_Gym_1F_EventScript_UnlockSecondStairs
-	map_script_2 VAR_ICE_STEP_COUNT, 67, SootopolisCity_Gym_1F_EventScript_UnlockThirdStairs
+	map_script_2 VAR_ICE_STEP_COUNT, 111, SootopolisCity_Gym_1F_EventScript_UnlockFirstStairs
+	map_script_2 VAR_ICE_STEP_COUNT, 113, SootopolisCity_Gym_1F_EventScript_FinalFall
 	map_script_2 VAR_ICE_STEP_COUNT, 0, SootopolisCity_Gym_1F_EventScript_FallThroughIce
 	.2byte 0
 
@@ -62,6 +63,21 @@ SootopolisCity_Gym_1F_EventScript_UnlockThirdStairs::
 	playse SE_ICE_STAIRS
 	call SootopolisCity_Gym_1F_EventScript_CheckSetStairMetatiles
 	special DrawWholeMapView
+	end
+
+SootopolisCity_Gym_1F_EventScript_FinalFall::
+	lockall
+	clearflag FLAG_PISCES_A
+	delay 20
+	setmetatile 10, 6, METATILE_SootopolisGym_Ice_Broken, FALSE
+	special DrawWholeMapView
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Gym_1F_Movement_FallThroughIce
+	waitmovement 0
+	playse SE_FALL
+	delay 60
+	warphole MAP_SOOTOPOLIS_CITY_GYM_B1F
+	waitstate
 	end
 
 SootopolisCity_Gym_1F_EventScript_FallThroughIce::
@@ -95,13 +111,13 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_SOOTOPOLIS_GYM
-	setflag FLAG_BADGE08_GET
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_HIDE_TEAM_OZONE_COSMOSS
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 6
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
-	setvar VAR_0x8008, 8
+	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	call SootopolisCity_Gym_1F_EventScript_GiveWaterPulse
 	closemessage
@@ -174,6 +190,36 @@ SootopolisCity_Gym_1F_EventScript_GymStatue::
 	msgbox SootopolisCity_Gym_1F_Text_GymStatue, MSGBOX_DEFAULT
 	releaseall
 	end
+
+SootopolisCity_Gym_1F_EventScript_IceTiles::
+	msgbox SootopolisCity_Gym_1F_Text_IceTiles, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_1F_EventScript_WhereToStart::
+	msgbox SootopolisCity_Gym_1F_Text_WhereToStart, MSGBOX_NPC
+	end
+
+SootopolisCity_Gym_1F_Text_IceTiles:
+	.string "The ice that makes up this layer is,\n"
+	.string "in some ways, magical…\l"
+	.string "thanks to some Fairy-type Pokémon.\p"
+	.string "Any cracked ice? It will auto-\n"
+	.string "matically be repaired if you\l"
+	.string "give it some time.\p"
+	.string "There's a failsafe emergency hatch\n"
+	.string "that we used to use before\l"
+	.string "we had Pokémon help out.\p"
+	.string "It'd open up if every tile\n"
+	.string "somehow got cracked.\l"
+	.string "I'd wager theer's no use in it now.$"
+
+SootopolisCity_Gym_1F_Text_WhereToStart:
+	.string "Hey. You lookin' to break through\n"
+	.string "above the stage too?\p"
+	.string "Great minds think alike…\p"
+	.string "I haven't fully figured it out, but\n"
+	.string "I have a strong feeling that you need\l"
+	.string "to start at the northernmost ladder.$"
 
 SootopolisCity_Gym_1F_Text_GymGuideAdvice:
 	.string "Yo! How's it going, CHAMPION-\n"

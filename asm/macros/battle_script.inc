@@ -805,7 +805,7 @@
 	.4byte \failInstr
 	.endm
 
-	.macro damagetohalftargethp
+	.macro damagetopercentagetargethp
 	.byte 0x94
 	.endm
 
@@ -1164,9 +1164,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro unused2 ptr:req
+	.macro dragonpokerdamagecalculation
 	.byte 0xe1
-	.4byte \ptr
 	.endm
 
 	.macro switchoutabilities battler:req
@@ -1188,12 +1187,14 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro ficklebeamdamagecalculation
 	.byte 0xe6
 	.endm
 
-	.macro unused4
+	.macro setuserstatus4 flags:req, failInstr:req
 	.byte 0xe7
+	.4byte \flags
+	.4byte \failInstr
 	.endm
 
 	.macro settypebasedhalvers failInstr:req
@@ -1292,9 +1293,9 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro unused ptr:req
+	.macro tryswapitemsmagician failInstr:req
 	.byte 0xfd
-	.4byte \ptr
+	.4byte \failInstr
 	.endm
 
 	.macro tryworryseed failInstr:req
@@ -1308,6 +1309,11 @@
 	.endm
 
 @ callnative macros
+    
+    .macro setticked
+    callnative BS_SetTicked
+    .endm
+
 	.macro metalburstdamagecalculator failInstr:req
 	callnative BS_CalcMetalBurstDmg
 	.4byte \failInstr
@@ -1334,6 +1340,12 @@
 
 	.macro jumpifmorethanhalfHP battler:req, jumpInstr:req
 	callnative BS_JumpIfMoreThanHalfHP
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifmorethanthirdHP battler:req, jumpInstr:req
+	callnative BS_JumpIfMoreThanThirdHP
 	.byte \battler
 	.4byte \jumpInstr
 	.endm
@@ -1365,6 +1377,14 @@
 	.macro applysaltcure battler:req
 	callnative BS_ApplySaltCure
 	.byte \battler
+	.endm
+
+	.macro setglaiverush
+	callnative BS_SetGlaiveRush
+	.endm
+
+	.macro setglaiverush2
+	callnative BS_SetGlaiveRush2
 	.endm
 
 	.macro trycopycat failInstr:req
@@ -1459,6 +1479,12 @@
 	callnative BS_JumpIfTerrainAffected
 	.byte \battler
 	.4byte \terrainFlags
+	.4byte \jumpInstr
+	.endm
+
+	.macro trytidyup clear:req, jumpInstr:req
+	callnative BS_TryTidyUp
+	.byte \clear
 	.4byte \jumpInstr
 	.endm
 
@@ -1608,6 +1634,10 @@
 	various \battler, VARIOUS_TRY_ACTIVATE_MOXIE
 	.endm
 
+	.macro tryactivateappetite battler:req
+	various \battler, VARIOUS_TRY_ACTIVATE_APPETITE
+	.endm
+
 	.macro tryactivatebeastboost battler:req
 	various \battler, VARIOUS_TRY_ACTIVATE_BEAST_BOOST
 	.endm
@@ -1636,6 +1666,11 @@
 
 	.macro suckerpunchcheck failInstr:req
 	various BS_ATTACKER, VARIOUS_SUCKER_PUNCH_CHECK
+	.4byte \failInstr
+	.endm
+
+	.macro seizechancecheck failInstr:req
+	various BS_ATTACKER, VARIOUS_SEIZE_CHANCE_CHECK
 	.4byte \failInstr
 	.endm
 
@@ -1789,6 +1824,11 @@
 	various \battler, VARIOUS_SET_AURORA_VEIL
 	.endm
 
+	.macro setsilence battler:req, failInstr:req
+	various \battler VARIOUS_SET_SILENCE
+	.4byte \failInstr
+	.endm
+
 	.macro trysetthirdtype battler:req, failInstr:req
 	various \battler, VARIOUS_TRY_THIRD_TYPE
 	.4byte \failInstr
@@ -1796,6 +1836,11 @@
 
 	.macro tryaccupressure battler:req, failInstr:req
 	various \battler, VARIOUS_ACUPRESSURE
+	.4byte \failInstr
+	.endm
+
+	.macro trycheesing battler:req, failInstr:req
+	various \battler, VARIOUS_CHEESING
 	.4byte \failInstr
 	.endm
 
@@ -1905,6 +1950,31 @@
 	.byte \infatuateWith
 	.endm
 
+	.macro destinyknotdisable battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_DISABLE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottorment battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TORMENT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknottaunt battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_TAUNT
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknotencore battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_ENCORE
+	.4byte \failInstr
+	.endm
+
+	.macro destinyknothealblock battler:req, failInstr:req
+	various \battler, VARIOUS_DESTINY_KNOT_HEAL_BLOCK
+	.4byte \failInstr
+	.endm
+
 	.macro setlastuseditem battler:req
 	various \battler, VARIOUS_SET_LAST_USED_ITEM
 	.endm
@@ -1982,6 +2052,10 @@
 	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_PRIMAL_WEATHER
 	.endm
 
+	.macro trytoclearweather
+	various BS_ATTACKER, VARIOUS_TRY_TO_CLEAR_WEATHER
+	.endm
+
 	.macro setattackertostickywebuser
 	various BS_TARGET, VARIOUS_SET_ATTACKER_STICKY_WEB_USER
 	.endm
@@ -2050,6 +2124,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro setspiderweb battler:req, failInstr:req
+	various \battler, VARIOUS_SET_SPIDER_WEB
+	.4byte \failInstr
+	.endm
+
 	.macro cutonethirdhpraisestats failInstr:req
 	various BS_ATTACKER, VARIOUS_CUT_1_3_HP_RAISE_STATS
 	.4byte \failInstr
@@ -2106,6 +2185,10 @@
 
 	.macro setbeakblast battler:req
 	various \battler, VARIOUS_SET_BEAK_BLAST
+	.endm
+
+	.macro setblossomsnap battler:req
+	various \battler, VARIOUS_SET_BLOSSOM_SNAP
 	.endm
 
 	.macro swapsidestatuses
@@ -2241,6 +2324,10 @@
 	manipulatedamage DMG_1_2_ATTACKER_HP
 	.endm
 
+	.macro dmg_1_3_attackerhp
+	manipulatedamage DMG_1_3_ATTACKER_HP
+	.endm
+
 	.macro jumpifflowerveil jumpInstr:req
 	jumpifnottype BS_TARGET, TYPE_GRASS, 1f
 	jumpifability BS_TARGET_SIDE, ABILITY_FLOWER_VEIL, \jumpInstr
@@ -2264,6 +2351,11 @@
 
 	.macro jumpifleafguardprotected battler:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_LEAF_GUARD_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifeeriemaskprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_EERIE_MASK_PROTECTED
 	.4byte \jumpInstr
 	.endm
 
@@ -2334,6 +2426,40 @@
 	.macro tryrevivalblessing, jumpInstr:req
 	various 0, VARIOUS_TRY_REVIVAL_BLESSING
 	.4byte \jumpInstr
+	.endm
+
+	.macro tryyellowsodafocusenergy
+	various 0, VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY
+	.endm
+
+	.macro normalisespeed
+	various 0, VARIOUS_TRY_NORMALISE_SPEED
+	.endm
+
+	.macro normaliseattackernerfs
+	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
+	.endm
+
+	.macro tryhealallhealth failInstr:req
+	various 0, VARIOUS_TRY_HEAL_ALL_HEALTH
+	.4byte \failInstr
+	.endm
+
+	.macro remodelcheck jumpInstr:req
+	various 0, VARIOUS_REMODEL_CHECK
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifstatus4condition battler:req, flags:req, jumpIfTrue:req, jumpInstr:req
+	various 0, VARIOUS_JUMP_IF_STATUS4
+	.byte \battler
+	.4byte \flags
+	.byte \jumpIfTrue
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifstatus4 battler:req, flags:req, jumpInstr:req
+	jumpifstatus4condition \battler, \flags, FALSE, \jumpInstr
 	.endm
 
 	@ Will jump to script pointer if the specified battler has or has not fainted.

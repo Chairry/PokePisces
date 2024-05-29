@@ -27,11 +27,6 @@
       "map": "MAP_SWELTORN_DESERT",
       "offset": -22,
       "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE121",
-      "offset": 4,
-      "direction": "right"
     }
   ],
   "object_events": [

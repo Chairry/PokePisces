@@ -765,7 +765,7 @@ static bool8 TryToWaterSudowoodo(void)
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     elevation = PlayerGetElevation();
     objId = GetObjectEventIdByPosition(x, y, elevation);
-    if (objId == OBJECT_EVENTS_COUNT || gObjectEvents[objId].graphicsId != OBJ_EVENT_GFX_SUDOWOODO)
+    if (objId == OBJECT_EVENTS_COUNT || gObjectEvents[objId].graphicsId != OBJ_EVENT_GFX_LITO)
         return FALSE;
     else
         return TRUE;
@@ -1218,7 +1218,7 @@ static bool32 CannotUseBagBattleItem(u16 itemId)
     }
     // Dire Hit
     if (battleUsage == EFFECT_ITEM_SET_FOCUS_ENERGY
-        && (gBattleMons[gBattlerInMenuId].status2 & STATUS2_FOCUS_ENERGY))
+        && (gBattleMons[gBattlerInMenuId].status2 & STATUS2_FOCUS_ENERGY_ANY))
     {
         cannotUse++;
     }

@@ -27,6 +27,7 @@
 #include "starter_choose.h"
 #include "strings.h"
 #include "graphics.h"
+#include "battle_tent.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_tent.h"
 #include "constants/songs.h"
@@ -259,9 +260,9 @@ static struct FactorySwapScreen *sFactorySwapScreen;
 u8 (*gFactorySelect_CurrentOptionFunc)(void);
 
 static const u16 sPokeballGray_Pal[]         = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_gray.gbapal");
-static const u16 sPokeballSelected_Pal[]     = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_selected.gbapal");
+static const u16 sPokeballSelected_Pal[]     = INCBIN_U16("graphics/battle_frontier/factory_screen/pokeball_select.gbapal");
 static const u16 sInterface_Pal[]            = INCBIN_U16("graphics/battle_frontier/factory_screen/interface.gbapal"); // Arrow, menu/action highlights, action box, etc
-static const u8 sPokeball_Gfx[]              = INCBIN_U8( "graphics/battle_frontier/factory_screen/pokeball.4bpp"); // Unused, gPokeballSelection_Gfx used instead
+static const u32 sPokeball_Gfx[]             = INCBIN_U32("graphics/battle_frontier/factory_screen/pokeball_select.4bpp.lz");
 static const u8 sArrow_Gfx[]                 = INCBIN_U8( "graphics/battle_frontier/factory_screen/arrow.4bpp");
 static const u8 sMenuHighlightLeft_Gfx[]     = INCBIN_U8( "graphics/battle_frontier/factory_screen/menu_highlight_left.4bpp");
 static const u8 sMenuHighlightRight_Gfx[]    = INCBIN_U8( "graphics/battle_frontier/factory_screen/menu_highlight_right.4bpp");
@@ -286,7 +287,7 @@ static const struct SpriteSheet sSelect_SpriteSheets[] =
 
 static const struct CompressedSpriteSheet sSelect_BallGfx[] =
 {
-    {gPokeballSelection_Gfx, 0x800, GFXTAG_BALL},
+    {sPokeball_Gfx, 0x800, GFXTAG_BALL},
     {},
 };
 
@@ -1735,10 +1736,9 @@ static void Select_Task_HandleChooseMons(u8 taskId)
 
 static void CreateFrontierFactorySelectableMons(u8 firstMonId)
 {
-    u8 i, j = 0;
+    u8 i = 0;
     u8 ivs = 0;
     u8 level = 0;
-    u8 friendship = 0;
     u32 otId = 0;
     u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
     u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
@@ -1762,48 +1762,30 @@ static void CreateFrontierFactorySelectableMons(u8 firstMonId)
             ivs = GetFactoryMonFixedIV(challengeNum + 1, FALSE);
         else
             ivs = GetFactoryMonFixedIV(challengeNum, FALSE);
-        CreateMonWithEVSpreadNatureOTID(&sFactorySelectScreen->mons[i + firstMonId].monData,
-                                             gFacilityTrainerMons[monId].species,
-                                             level,
-                                             gFacilityTrainerMons[monId].nature,
-                                             ivs,
-                                             gFacilityTrainerMons[monId].evSpread,
-                                             otId);
-        friendship = 0;
-        for (j = 0; j < MAX_MON_MOVES; j++)
-            SetMonMoveAvoidReturn(&sFactorySelectScreen->mons[i + firstMonId].monData, gFacilityTrainerMons[monId].moves[j], j);
-        SetMonData(&sFactorySelectScreen->mons[i + firstMonId].monData, MON_DATA_FRIENDSHIP, &friendship);
-        SetMonData(&sFactorySelectScreen->mons[i + firstMonId].monData, MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[gFacilityTrainerMons[monId].itemTableId]);
+        CreateFacilityMon(&gFacilityTrainerMons[monId],
+                level, ivs, otId, FLAG_FRONTIER_MON_FACTORY,
+                &sFactorySelectScreen->mons[i + firstMonId].monData);
     }
 }
 
 static void CreateSlateportTentSelectableMons(u8 firstMonId)
 {
-    u8 i, j;
+    u8 i;
     u8 ivs = 0;
-    u8 level = TENT_MIN_LEVEL;
-    u8 friendship = 0;
+    u8 level, league;
     u32 otId = 0;
 
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    league = GetBattleTentLeague();
+    SetBattleTentMonsTrainers(league);
+    level = GetBattleTentLevel(league);
+    
     otId = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
 
     for (i = 0; i < SELECTABLE_MONS_COUNT; i++)
     {
         u16 monId = gSaveBlock2Ptr->frontier.rentalMons[i].monId;
         sFactorySelectScreen->mons[i + firstMonId].monId = monId;
-        CreateMonWithEVSpreadNatureOTID(&sFactorySelectScreen->mons[i + firstMonId].monData,
-                                             gFacilityTrainerMons[monId].species,
-                                             level,
-                                             gFacilityTrainerMons[monId].nature,
-                                             ivs,
-                                             gFacilityTrainerMons[monId].evSpread,
-                                             otId);
-        friendship = 0;
-        for (j = 0; j < MAX_MON_MOVES; j++)
-            SetMonMoveAvoidReturn(&sFactorySelectScreen->mons[i + firstMonId].monData, gFacilityTrainerMons[monId].moves[j], j);
-        SetMonData(&sFactorySelectScreen->mons[i + firstMonId].monData, MON_DATA_FRIENDSHIP, &friendship);
-        SetMonData(&sFactorySelectScreen->mons[i + firstMonId].monData, MON_DATA_HELD_ITEM, &gBattleFrontierHeldItems[gFacilityTrainerMons[monId].itemTableId]);
+        CreateFacilityMon(&gFacilityTrainerMons[monId], level, ivs, otId, 0, &sFactorySelectScreen->mons[i + firstMonId].monData);
     }
 }
 

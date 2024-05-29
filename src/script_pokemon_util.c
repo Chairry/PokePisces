@@ -58,7 +58,7 @@ void HealPlayerParty(void)
     }
 }
 
-u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
+u8 ScriptGiveMon(u16 species, u8 level, u16 item, u8 abilityNum, u32 unused2, u8 unused3)
 {
     u16 nationalDexNum;
     int sentToPc;
@@ -70,6 +70,21 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);
+
+    if (abilityNum == 0)
+    {
+        GetAbilityBySpecies(species, 0);
+    }
+    else if (abilityNum == 1)
+    {
+        GetAbilityBySpecies(species, 1);
+    }
+    else if (abilityNum == 2)
+    {
+        GetAbilityBySpecies(species, 2);
+    }
+
+    SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
 
     // In case a mon with a form changing item is given. Eg: SPECIES_ARCEUS with ITEM_SPLASH_PLATE will transform into SPECIES_ARCEUS_WATER upon gifted.
     targetSpecies = GetFormChangeTargetSpecies(&mon, FORM_CHANGE_ITEM_HOLD, 0);
@@ -258,4 +273,16 @@ void ReducePlayerPartyToSelectedMons(void)
         gPlayerParty[i] = party[i];
 
     CalculatePlayerPartyCount();
+}
+
+void ScriptSetMonData(struct ScriptContext *ctx)
+{
+    u8 slot = ScriptReadByte(ctx);
+    u8 dataIndex = ScriptReadByte(ctx);
+    u32 value = ScriptReadWord(ctx);
+    u8 side = ScriptReadByte(ctx);
+    
+    struct Pokemon *mon = (side == 0) ? &gPlayerParty[slot] : &gEnemyParty[slot];
+    
+    SetMonData(mon, dataIndex, &value);
 }

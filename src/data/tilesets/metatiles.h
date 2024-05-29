@@ -231,3 +231,12 @@ const u16 gMetatileAttributes_heypeta[] = INCBIN_U16("data/tilesets/secondary/he
 
 const u16 gMetatiles_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatiles.bin");
 const u16 gMetatileAttributes_Golden[] = INCBIN_U16("data/tilesets/secondary/golden/metatile_attributes.bin");
+
+const u16 gMetatiles_BirchLab[] = INCBIN_U16("data/tilesets/secondary/birch_lab/metatiles.bin");
+const u16 gMetatileAttributes_BirchLab[] = INCBIN_U16("data/tilesets/secondary/birch_lab/metatile_attributes.bin");
+
+const u16 gMetatiles_OzoneInterior[] = INCBIN_U16("data/tilesets/secondary/ozone_interior/metatiles.bin");
+const u16 gMetatileAttributes_OzoneInterior[] = INCBIN_U16("data/tilesets/secondary/ozone_interior/metatile_attributes.bin");
+
+const u16 gMetatiles_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatiles.bin");
+const u16 gMetatileAttributes_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatile_attributes.bin");

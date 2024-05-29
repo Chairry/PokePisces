@@ -1,7 +1,19 @@
 #ifndef GUARD_CONSTANTS_BATTLE_TENT_H
 #define GUARD_CONSTANTS_BATTLE_TENT_H
 
+#define BATTLE_TENT_LEAGUE_MINOR    0
+#define BATTLE_TENT_LEAGUE_MAJOR    1
+#define BATTLE_TENT_LEAGUE_CHAMP    2
+#define BATTLE_TENT_LEAGUE_COUNT    3
+
+#define SLATEPORT_TENT_MAX_WINS     9999
+
 #define TENT_MIN_LEVEL 30
+
+#define TENT_MINOR_LEVEL    30
+#define TENT_MAJOR_LEVEL    50
+#define TENT_CHAMP_LEVEL    80
+
 
 // The number of battles in each Battle Tent challenge.
 // Battle Tent equivalent of FRONTIER_STAGES_PER_CHALLENGE.

@@ -38,6 +38,9 @@ SlateportCity_BattleTentLobby_EventScript_QuitWithoutSaving::
 
 SlateportCity_BattleTentLobby_EventScript_WonChallenge::
 	lockall
+    frontier_get FRONTIER_DATA_BATTLE_NUM
+    addvar VAR_RESULT, 1    @ 1-index it
+    buffernumberstring STR_VAR_1, VAR_RESULT
 	message SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons
 	waitmessage
 	slateporttent_setrandomprize
@@ -107,6 +110,35 @@ SlateportCity_BattleTentLobby_EventScript_AskEnterChallenge::
 	case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
 
 SlateportCity_BattleTentLobby_EventScript_TryEnterChallenge::
+    @ select league (if you can)
+    slateporttent_getleagues
+    switch VAR_RESULT
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+    case 1, SlateportCity_BattleTentLobby_EventScript_MinorOrMajor
+SlateportCity_BattleTentLobby_EventScript_ChooseAnyLeague:
+    multichoice 17, 4, MULTI_SLATEPORT_ANY_LEAGUE, FALSE
+    switch VAR_RESULT
+    case 3, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+    case 1, SlateportCity_BattleTentLobby_EventScript_SetMajorLeague
+SlateportCity_BattleTentLobby_EventScript_SetChampLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_CHAMP
+    goto SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge
+    
+SlateportCity_BattleTentLobby_EventScript_MinorOrMajor:
+    multichoice 17, 6, MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE, FALSE
+    switch VAR_RESULT
+    case 2, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case MULTI_B_PRESSED, SlateportCity_BattleTentLobby_EventScript_CancelChallenge
+    case 0, SlateportCity_BattleTentLobby_EventScript_SetMinorLeague
+SlateportCity_BattleTentLobby_EventScript_SetMajorLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_MAJOR
+    goto SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge
+
+SlateportCity_BattleTentLobby_EventScript_SetMinorLeague:
+    slateporttent_setleague BATTLE_TENT_LEAGUE_MINOR
+SlateportCity_BattleTentLobby_EventScript_AskSaveBeforeChallenge:
 	setvar VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_FACTORY
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_TENT
@@ -199,11 +231,11 @@ SlateportCity_BattleTentLobby_Movement_UnusedEnterDoor::
 SlateportCity_BattleTentLobby_EventScript_TormentGiver::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_TORMENT, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
+	goto_if_set FLAG_RECEIVED_TM_BREAK_SWIPE, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
 	giveitem ITEM_TM_DRAGON_BREATH
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_TORMENT
+	setflag FLAG_RECEIVED_TM_BREAK_SWIPE
 	msgbox SlateportCity_BattleTentLobby_Text_ExplainTorment, MSGBOX_DEFAULT
 	release
 	end
@@ -273,6 +305,42 @@ SlateportCity_BattleTentLobby_EventScript_RulesMons::
 SlateportCity_BattleTentLobby_EventScript_ExitRules::
 	releaseall
 	end
+
+SlateportCity_BattleTentLobby_EventScript_TMCounter::
+	lock
+	faceplayer
+	goto_if_set FLAG_BATTLE_TENT_STREAK_MINOR, SlateportCity_BattleTentLobby_EventScript_TMShop
+	msgbox SlateportCity_BattleTentLobby_Text_YouNeedToHaveStreak, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SlateportCity_BattleTentLobby_EventScript_TMShop::
+	message SlateportCity_BattleTentLobby_Text_WelcomeToTMShop
+	waitmessage
+	pokemart SlateportCity_BattleTentLobby_Mart_TMShop
+	msgbox SlateportCity_BattleTentLobby_Text_HaveAGoodDay, MSGBOX_AUTOCLOSE
+	release
+	end
+
+	.align 2
+SlateportCity_BattleTentLobby_Mart_TMShop:
+	.2byte ITEM_TM_ROLLOUT
+	.2byte ITEM_TM_CHARGE_BEAM
+	.2byte ITEM_TM_WATER_PULSE
+	.2byte ITEM_TM_INCINERATE
+	.2byte ITEM_TM_LOW_SWEEP
+	.2byte ITEM_NONE
+	release
+	end	
+
+SlateportCity_BattleTentLobby_Text_YouNeedToHaveStreak:
+	.string "u needa git gud$"
+
+SlateportCity_BattleTentLobby_Text_WelcomeToTMShop:
+	.string "welcome 2 da tm shop$"
+
+SlateportCity_BattleTentLobby_Text_HaveAGoodDay:
+	.string "have a good day$"
 
 SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe:
 	.string "So, like, I couldn't find myself any\n"

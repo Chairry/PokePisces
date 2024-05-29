@@ -153,6 +153,7 @@ enum
     LIST_SIDE_STEALTH_ROCK,
     LIST_SIDE_TOXIC_SPIKES,
     LIST_SIDE_STICKY_WEB,
+    LIST_SIDE_SILENCE,
 };
 
 enum
@@ -183,6 +184,10 @@ static const u8 sText_Freeze[] = _("Freeze");
 static const u8 sText_Frostbite[] = _("Frostbite");
 static const u8 sText_ToxicPoison[] = _("Toxic Poison");
 static const u8 sText_ToxicCounter[] = _("Toxic Counter");
+static const u8 sText_Panic[] = _("Panic");
+static const u8 sText_Blooming[] = _("Blooming");
+static const u8 sText_Exposed[] = _("Exposed");
+static const u8 sText_Rest[] = _("Rest");
 static const u8 sText_Flinch[] = _("Flinch");
 static const u8 sText_Uproar[] = _("Uproar");
 static const u8 sText_Bide[] = _("Bide");
@@ -222,6 +227,7 @@ static const u8 sText_AquaRing[] = _("Aqua Ring");
 static const u8 sText_LaserFocus[] = _("Laser Focused");
 static const u8 sText_Electrified[] = _("Electrified");
 static const u8 sText_AuroraVeil[] = _("Aurora Veil");
+static const u8 sText_Silence[] = _("The 13 Tolls");
 static const u8 sText_LuckyChant[] = _("Lucky Chant");
 static const u8 sText_Tailwind[] = _("Tailwind");
 static const u8 sText_PP[] = _("PP");
@@ -250,7 +256,7 @@ static const u8 sText_EmptyString[] = _("");
 
 static const struct BitfieldInfo sStatus1Bitfield[] =
 {
-    {/*Sleep*/ 3, 0},
+    {/*Sleep*/ 2, 0},
     {/*Poison*/ 1, 3},
     {/*Burn*/ 1, 4},
     {/*Freeze*/ 1, 5},
@@ -258,6 +264,10 @@ static const struct BitfieldInfo sStatus1Bitfield[] =
     {/*Toxic Poison*/ 1, 7},
     {/*Toxic Counter*/ 4, 8},
     {/*Frostbite*/ 1, 12},
+    {/*Panic*/ 1, 13},
+    {/*Blooming*/ 1, 14},
+    {/*Exposed*/ 1, 16},
+    {/*Rest*/ 3, 17},
 };
 
 static const struct BitfieldInfo sStatus2Bitfield[] =
@@ -398,6 +408,10 @@ static const struct ListMenuItem sStatus1ListItems[] =
     {sText_ToxicPoison, 5},
     {sText_ToxicCounter, 6},
     {sText_Frostbite, 7},
+    {sText_Panic, 8},
+    {sText_Blooming, 9},
+    {sText_Exposed, 10},
+    {sText_Rest, 11},
 };
 
 static const struct ListMenuItem sStatus2ListItems[] =
@@ -450,6 +464,7 @@ static const struct ListMenuItem sSideStatusListItems[] =
     {sText_Safeguard, LIST_SIDE_SAFEGUARD},
     {sText_Mist, LIST_SIDE_MIST},
     {sText_AuroraVeil, LIST_SIDE_AURORA_VEIL},
+    {sText_Silence, LIST_SIDE_SILENCE},
     {sText_LuckyChant, LIST_SIDE_LUCKY_CHANT},
     {sText_Tailwind, LIST_SIDE_TAILWIND},
     {sText_StealthRock, LIST_SIDE_STEALTH_ROCK},
@@ -1689,6 +1704,16 @@ static u8 *GetSideStatusValue(struct BattleDebugMenu *data, bool32 changeStatus,
             sideTimer->auroraVeilBattlerId = data->battlerId;
         }
         return &sideTimer->auroraVeilTimer;
+    case LIST_SIDE_SILENCE:
+        if (changeStatus)
+        {
+            if (statusTrue)
+                *(u32 *)(data->modifyArrows.modifiedValPtr) |= SIDE_STATUS_SILENCE;
+            else
+                *(u32 *)(data->modifyArrows.modifiedValPtr) &= ~SIDE_STATUS_SILENCE;
+            sideTimer->silenceTimerBattlerId = data->battlerId;
+        }
+        return &sideTimer->silenceTimer;
     case LIST_SIDE_LUCKY_CHANT:
         if (changeStatus)
         {

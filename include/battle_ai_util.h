@@ -102,6 +102,7 @@ bool32 HasMoveWithSplit(u32 battler, u32 split);
 bool32 HasMoveWithType(u32 battler, u32 type);
 bool32 HasMoveWithTypeAndSplit(u32 battler, u32 type, u32 split);
 bool32 HasMoveEffect(u32 battlerId, u32 moveEffect);
+bool32 HasMoveWithCriticalHitChance(u32 battlerId);
 bool32 HasMoveWithLowAccuracy(u32 battlerAtk, u32 battlerDef, u32 accCheck, bool32 ignoreStatus, u32 atkAbility, u32 defAbility, u32 atkHoldEffect, u32 defHoldEffect);
 bool32 IsAromaVeilProtectedMove(u32 move);
 bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect);

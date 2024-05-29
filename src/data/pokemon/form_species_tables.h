@@ -478,6 +478,7 @@ static const u16 sCastformFormSpeciesIdTable[] = {
     SPECIES_CASTFORM_SUNNY,
     SPECIES_CASTFORM_RAINY,
     SPECIES_CASTFORM_SNOWY,
+    SPECIES_CASTFORM_SANDY,
     FORM_SPECIES_END,
 };
 
@@ -1141,6 +1142,7 @@ static const u16 sBasculegionFormSpeciesIdTable[] = {
 static const u16 sDudunsparsFormSpeciesIdTable[] = {
     SPECIES_DUDUNSPARS,
     SPECIES_DUDUNSPARS_THREE_SEGMENT,
+    SPECIES_DUDUNSPARS_EIGHT_SEGMENT,
     FORM_SPECIES_END,
 };
 
@@ -1151,9 +1153,56 @@ static const u16 sLottabatsFormSpeciesIdTable[] = {
 };
 
 static const u16 sGaoterraFormSpeciesIdTable[] = {
-    SPECIES_GAOTERRA,
     SPECIES_GAOTERRA_SOLAR,
+    SPECIES_GAOTERRA,
     SPECIES_GAOTERRA_LUNAR,
+    FORM_SPECIES_END,
+};
+
+static const u16 sBishouchaFormSpeciesIdTable[] = {
+    SPECIES_BISHOUCHA,
+    SPECIES_BISHOUCHA_WARMONGER,
+    FORM_SPECIES_END,
+};
+
+static const u16 sPapypusFormSpeciesIdTable[] = {
+    SPECIES_PAPYPUS,
+    SPECIES_PAPYPUS_FEMALE,
+    FORM_SPECIES_END,
+};
+
+static const u16 sCindrillonFormSpeciesIdTable[] = {
+    SPECIES_CINDRILLON,
+    SPECIES_CINDRILLON_PIROUETTE,
+    SPECIES_CINDRILLON_FEAROUETTE,
+    FORM_SPECIES_END,
+};
+
+static const u16 sShishimaFormSpeciesIdTable[] = {
+    SPECIES_SHISHIMA,
+    SPECIES_SHISHIMA_PUNISHER,
+    FORM_SPECIES_END,
+};
+
+static const u16 sShunyongFormSpeciesIdTable[] = {
+    SPECIES_SHUNYONG,
+    SPECIES_SHUNYONG_GOLDEN_OFFENSE,
+    FORM_SPECIES_END,
+};
+
+static const u16 sSpindaFormSpeciesIdTable[] = {
+    SPECIES_SPINDA,
+    SPECIES_SPINDA_CAVE,
+    SPECIES_SPINDA_DESERT,
+    SPECIES_SPINDA_FOREST,
+    SPECIES_SPINDA_MOUNTAIN,
+    SPECIES_SPINDA_PLAINS2,
+    FORM_SPECIES_END,
+};
+
+static const u16 sKodoughFormSpeciesIdTable[] = {
+    SPECIES_KODOUGH,
+    SPECIES_KODOUGH_BLUNT,
     FORM_SPECIES_END,
 };
 #endif

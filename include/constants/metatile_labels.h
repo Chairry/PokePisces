@@ -102,6 +102,12 @@
 #define METATILE_BikeShop_Generator_Off_Tile7      0x2F7
 #define METATILE_BikeShop_Wall_Edge_Top            0x281
 
+// gTileset_BirchLab
+#define METATILE_BirchLab_BirchTable1  0x283
+#define METATILE_BirchLab_BirchTable2  0x284
+#define METATILE_BirchLab_BirchTable3  0x28B
+#define METATILE_BirchLab_BirchTable4  0x28C
+
 // gTileset_BrendansMaysHouse
 #define METATILE_BrendansMaysHouse_BookOnTable       0x293
 #define METATILE_BrendansMaysHouse_BrendanPC_Off     0x25A
@@ -367,8 +373,71 @@
 #define METATILE_MossdeepGym_YellowArrow_Right  0x250
 
 // gTileset_Mossdeep
-#define METATILE_Mossdeep_Door              0x2A1
-#define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
+#define METATILE_Mossdeep_Door               0x2A1
+#define METATILE_Mossdeep_Door_SpaceCenter   0x2ED
+#define METATILE_Mossdeep_MangrottoCaveDoor  0x3F4
+
+// gTileset_OldStoneBuildings
+#define METATILE_OldStoneBuildings_BottomWall             0x28F
+#define METATILE_OldStoneBuildings_ColumnShaft            0x293
+#define METATILE_OldStoneBuildings_ColumnTop              0x28B
+#define METATILE_OldStoneBuildings_Painting10BottomLeft   0x2EA
+#define METATILE_OldStoneBuildings_Painting10BottomRight  0x2EB
+#define METATILE_OldStoneBuildings_Painting10TopLeft      0x2E2
+#define METATILE_OldStoneBuildings_Painting10TopRight     0x2E3
+#define METATILE_OldStoneBuildings_Painting11BottomLeft   0x2EC
+#define METATILE_OldStoneBuildings_Painting11BottomRight  0x2ED
+#define METATILE_OldStoneBuildings_Painting11TopLeft      0x2E4
+#define METATILE_OldStoneBuildings_Painting11TopRight     0x2E5
+#define METATILE_OldStoneBuildings_Painting12BottomLeft   0x2EE
+#define METATILE_OldStoneBuildings_Painting12BottomRight  0x2EF
+#define METATILE_OldStoneBuildings_Painting12TopLeft      0x2E6
+#define METATILE_OldStoneBuildings_Painting12TopRight     0x2E7
+#define METATILE_OldStoneBuildings_Painting13BottomLeft   0x2F8
+#define METATILE_OldStoneBuildings_Painting13BottomRight  0x2F9
+#define METATILE_OldStoneBuildings_Painting13TopLeft      0x2F0
+#define METATILE_OldStoneBuildings_Painting13TopRight     0x2F1
+#define METATILE_OldStoneBuildings_Painting14BottomLeft   0x2FA
+#define METATILE_OldStoneBuildings_Painting14BottomRight  0x2FB
+#define METATILE_OldStoneBuildings_Painting14TopLeft      0x2F2
+#define METATILE_OldStoneBuildings_Painting14TopRight     0x2F3
+#define METATILE_OldStoneBuildings_Painting1BottomLeft    0x2C8
+#define METATILE_OldStoneBuildings_Painting1BottomRight   0x2C9
+#define METATILE_OldStoneBuildings_Painting1TopLeft       0x2C0
+#define METATILE_OldStoneBuildings_Painting1TopRight      0x2C1
+#define METATILE_OldStoneBuildings_Painting2BottomLeft    0x2CA
+#define METATILE_OldStoneBuildings_Painting2BottomRight   0x2CB
+#define METATILE_OldStoneBuildings_Painting2TopLeft       0x2C2
+#define METATILE_OldStoneBuildings_Painting2TopRight      0x2C3
+#define METATILE_OldStoneBuildings_Painting3BottomLeft    0x2CC
+#define METATILE_OldStoneBuildings_Painting3BottomRight   0x2CD
+#define METATILE_OldStoneBuildings_Painting3TopLeft       0x2C4
+#define METATILE_OldStoneBuildings_Painting3TopRight      0x2C5
+#define METATILE_OldStoneBuildings_Painting4BottomLeft    0x2CE
+#define METATILE_OldStoneBuildings_Painting4BottomRight   0x2CF
+#define METATILE_OldStoneBuildings_Painting4TopLeft       0x2C6
+#define METATILE_OldStoneBuildings_Painting4TopRight      0x2C7
+#define METATILE_OldStoneBuildings_Painting5BottomLeft    0x2D8
+#define METATILE_OldStoneBuildings_Painting5BottomRight   0x2D9
+#define METATILE_OldStoneBuildings_Painting5TopLeft       0x2D0
+#define METATILE_OldStoneBuildings_Painting5TopRight      0x2D1
+#define METATILE_OldStoneBuildings_Painting6BottomLeft    0x2DA
+#define METATILE_OldStoneBuildings_Painting6BottomRight   0x2DB
+#define METATILE_OldStoneBuildings_Painting6TopLeft       0x2D2
+#define METATILE_OldStoneBuildings_Painting6TopRight      0x2D3
+#define METATILE_OldStoneBuildings_Painting7BottomLeft    0x2DC
+#define METATILE_OldStoneBuildings_Painting7BottomRight   0x2DD
+#define METATILE_OldStoneBuildings_Painting7TopLeft       0x2D4
+#define METATILE_OldStoneBuildings_Painting7TopRight      0x2D5
+#define METATILE_OldStoneBuildings_Painting8BottomLeft    0x2DE
+#define METATILE_OldStoneBuildings_Painting8BottomRight   0x2DF
+#define METATILE_OldStoneBuildings_Painting8TopLeft       0x2D6
+#define METATILE_OldStoneBuildings_Painting8TopRight      0x2D7
+#define METATILE_OldStoneBuildings_Painting9BottomLeft    0x2E8
+#define METATILE_OldStoneBuildings_Painting9BottomRight   0x2E9
+#define METATILE_OldStoneBuildings_Painting9TopLeft       0x2E0
+#define METATILE_OldStoneBuildings_Painting9TopRight      0x2E1
+#define METATILE_OldStoneBuildings_RelicFloor             0x289
 
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A
@@ -725,6 +794,21 @@
 // gTileset_Slateport
 #define METATILE_Slateport_Door             0x2DC
 #define METATILE_Slateport_Door_BattleTent  0x393
+
+// gTileset_Snow
+#define METATILE_Snow_ColdMineFloor        0x381
+#define METATILE_Snow_ColdMineLeftCliff    0x380
+#define METATILE_Snow_ColdMineRightCliff   0x382
+#define METATILE_Snow_MeralBuriedLeft1     0x3C5
+#define METATILE_Snow_MeralBuriedMiddle1   0x3C6
+#define METATILE_Snow_MeralBuriedMiddle2   0x3BD
+#define METATILE_Snow_MeralBuriedRight1    0x3C7
+#define METATILE_Snow_MeralBuriedTop1      0x3BE
+#define METATILE_Snow_MeralSnow            0x3AD
+#define METATILE_Snow_SnowPileBottomLeft   0x376
+#define METATILE_Snow_SnowPileBottomRight  0x377
+#define METATILE_Snow_SnowPileTopLeft      0x36E
+#define METATILE_Snow_SnowPileTopRight     0x36F
 
 // gTileset_SootopolisGym
 #define METATILE_SootopolisGym_Ice_Broken   0x206

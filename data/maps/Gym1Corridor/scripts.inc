@@ -1,0 +1,86 @@
+.set LOCALID_GYMGUARD, 1
+
+Gym1Corridor_MapScripts::
+	.byte 0
+
+Gym1Corridor_EventScript_DoorGuard::
+	lock
+	goto_if_eq VAR_PISCES_STORY_PROGRESS, 0, Gym1Corridor_EventScript_WantToGoIn
+	goto_if_gt VAR_PISCES_STORY_PROGRESS, 0, Gym1Corridor_EventScript_CantGoIn
+	release
+	end
+
+Gym1Corridor_EventScript_WantToGoIn::
+	applymovement LOCALID_GYMGUARD, Gym1Corridor_Movement_GuardFacesYou
+	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_YouFaceGuard
+	msgbox Gym1Corridor_Text_AreYouReady, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Gym1Corridor_EventScript_PrepForGym
+	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_MoveAway
+	waitmovement 0
+	msgbox Gym1Corridor_Text_ThenGoPrepare, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Gym1Corridor_EventScript_PrepForGym::
+	setflag FLAG_PISCES_A
+	clearflag FLAG_PISCES_B
+	clearflag FLAG_PISCES_C
+	clearflag FLAG_PISCES_D
+	clearflag FLAG_PISCES_E
+	clearflag FLAG_PISCES_F
+	cleartrainerflag TRAINER_P_ARTHUR
+	cleartrainerflag TRAINER_P_HASPAROTH
+	cleartrainerflag TRAINER_P_LISA
+	cleartrainerflag TRAINER_P_MIIKACHAN
+	cleartrainerflag TRAINER_P_EMILY
+	msgbox Gym1Corridor_Text_TimeForGym, MSGBOX_DEFAULT
+	warp MAP_SOOTOPOLIS_CITY_GYM_B1F, 1, 18
+	waitstate
+	release
+	end
+
+Gym1Corridor_EventScript_CantGoIn::
+	applymovement LOCALID_GYMGUARD, Gym1Corridor_Movement_GuardFacesYou
+	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_YouFaceGuard
+	msgbox Gym1Corridor_Text_YouAlreadyDidThis, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Gym1Corridor_Movement_MoveAway
+	waitmovement 0
+	release
+	end
+
+Gym1Corridor_Movement_GuardFacesYou:
+	face_right
+	step_end
+
+Gym1Corridor_Movement_YouFaceGuard:
+	face_left
+	step_end
+
+Gym1Corridor_Movement_MoveAway:
+	walk_down
+	step_end
+
+Gym1Corridor_Text_AreYouReady:
+	.string "Welcome to the\n"
+	.string "Sootopolis Gym, challenger.\p"
+	.string "We are prepared to receive you.\p"
+	.string "However, please be warned that upon\n"
+	.string "entry, you will be unable to leave the\l"
+	.string "Gym unless your entire\l"
+	.string "Pokémon party faints.\p"
+	.string "Knowing all this, do you feel that you\n"
+	.string "are adequately prepared to\l"
+	.string "challenge this gym?$"
+
+Gym1Corridor_Text_ThenGoPrepare:
+	.string "That's perfectly fine.\n"
+	.string "Please do come back when you are ready.$"
+
+Gym1Corridor_Text_TimeForGym:
+	.string "Good luck, challenger.$"
+
+Gym1Corridor_Text_YouAlreadyDidThis:
+	.string "You appear to already possess the\n"
+	.string "Margarita Badge.\p"
+	.string "Apologies, but this challenge is only\n"
+	.string "for those lacking said badge.$"

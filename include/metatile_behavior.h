@@ -87,6 +87,8 @@ bool8 MetatileBehavior_IsLandWildEncounter(u8);
 bool8 MetatileBehavior_IsWaterWildEncounter(u8);
 bool8 MetatileBehavior_IsIndoorEncounter(u8);
 bool8 MetatileBehavior_IsMountain(u8);
+bool8 MetatileBehavior_IsWooden(u8);
+bool8 MetatileBehavior_IsWhitePath(u8);
 bool8 MetatileBehavior_IsDiveable(u8);
 bool8 MetatileBehavior_IsUnableToEmerge(u8);
 bool8 MetatileBehavior_IsShallowFlowingWater(u8);

@@ -556,8 +556,8 @@ static void SetupRoomObjectEvents(void)
     u32 objGfx1;
     u16 objGfx2;
 
-    VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LINK_RECEPTIONIST);
-    VarSet(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_DUSCLOPS);
+    VarSet(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SHRINE_MAIDEN);
+    VarSet(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_GARZILLA);
     setObjGfx1 = TRUE;
     setObjGfx2 = FALSE;
     objGfx1 = 0;
@@ -570,7 +570,7 @@ static void SetupRoomObjectEvents(void)
         setObjGfx1 = FALSE;
         break;
     case PIKE_ROOM_HEAL_FULL:
-        objGfx1 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx1 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         break;
     case PIKE_ROOM_NPC:
         objGfx1 = (u8)(GetNPCRoomGraphicsId());
@@ -578,9 +578,9 @@ static void SetupRoomObjectEvents(void)
     case PIKE_ROOM_STATUS:
         objGfx1 = OBJ_EVENT_GFX_GENTLEMAN;
         if (sStatusMon == PIKE_STATUSMON_DUSCLOPS)
-            objGfx2 = OBJ_EVENT_GFX_DUSCLOPS;
+            objGfx2 = OBJ_EVENT_GFX_GARZILLA;
         else
-            objGfx2 = OBJ_EVENT_GFX_KIRLIA;
+            objGfx2 = OBJ_EVENT_GFX_NYARLY;
         setObjGfx2 = TRUE;
         break;
     case PIKE_ROOM_HEAL_PART:
@@ -591,7 +591,7 @@ static void SetupRoomObjectEvents(void)
         break;
     case PIKE_ROOM_HARD_BATTLE:
         PrepareOneTrainer(TRUE);
-        objGfx2 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx2 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         setObjGfx1 = FALSE;
         setObjGfx2 = TRUE;
         break;
@@ -601,7 +601,7 @@ static void SetupRoomObjectEvents(void)
         break;
     case PIKE_ROOM_BRAIN:
         SetFrontierBrainObjEventGfx(FRONTIER_FACILITY_PIKE);
-        objGfx2 = OBJ_EVENT_GFX_LINK_RECEPTIONIST;
+        objGfx2 = OBJ_EVENT_GFX_SHRINE_MAIDEN;
         setObjGfx1 = FALSE;
         setObjGfx2 = TRUE;
         break;
@@ -742,6 +742,7 @@ static void GetRoomInflictedStatus(void)
         gSpecialVar_Result = PIKE_STATUS_PARALYSIS;
         break;
     case STATUS1_SLEEP:
+    case STATUS1_REST:
         gSpecialVar_Result = PIKE_STATUS_SLEEP;
         break;
     }
@@ -832,6 +833,7 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
             ret = TRUE;
         break;
     case STATUS1_SLEEP:
+    case STATUS1_REST:
         if (ability == ABILITY_INSOMNIA || ability == ABILITY_VITAL_SPIRIT)
             ret = TRUE;
         break;
@@ -872,6 +874,7 @@ static bool8 DoesTypePreventStatus(u16 species, u32 status)
             ret = TRUE;
         break;
     case STATUS1_SLEEP:
+    case STATUS1_REST:
         break;
     }
     return ret;
@@ -966,6 +969,7 @@ static bool8 TryInflictRandomStatus(void)
         break;
     case STATUS1_PARALYSIS:
     case STATUS1_SLEEP:
+    case STATUS1_REST:
     case STATUS1_TOXIC_POISON:
     default:
         sStatusMon = PIKE_STATUSMON_KIRLIA;

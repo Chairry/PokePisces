@@ -34,7 +34,7 @@
 #define TAG_STARTER_CIRCLE  0x1001
 
 static void CB2_StarterChoose(void);
-static void ClearStarterLabel(void);
+static void ClearStarterLabel(u8 clearWin);
 static void Task_StarterChoose(u8 taskId);
 static void Task_HandleStarterChooseInput(u8 taskId);
 static void Task_WaitForStarterSprite(u8 taskId);
@@ -54,7 +54,7 @@ static u16 sStarterLabelWindowId;
 const u16 gBirchBagGrass_Pal[] = INCBIN_U16("graphics/starter_choose/tiles.gbapal");
 static const u16 sPokeballSelection_Pal[] = INCBIN_U16("graphics/starter_choose/pokeball_selection.gbapal");
 static const u16 sStarterCircle_Pal[] = INCBIN_U16("graphics/starter_choose/starter_circle.gbapal");
-const u32 gBirchBagTilemap[] = INCBIN_U32("graphics/starter_choose/birch_bag.bin.lz");
+const u32 gBirchBagTilemap[] = INCBIN_U32("graphics/starter_choose/tiles.bin.lz");
 const u32 gBirchGrassTilemap[] = INCBIN_U32("graphics/starter_choose/birch_grass.bin.lz");
 const u32 gBirchBagGrass_Gfx[] = INCBIN_U32("graphics/starter_choose/tiles.4bpp.lz");
 const u32 gPokeballSelection_Gfx[] = INCBIN_U32("graphics/starter_choose/pokeball_selection.4bpp.lz");
@@ -98,23 +98,23 @@ static const struct WindowTemplate sWindowTemplate_StarterLabel =
 
 static const u8 sPokeballCoords[STARTER_MON_COUNT][2] =
 {
-    {60, 64},
-    {120, 88},
-    {180, 64},
+    {60-4, 32+24},
+    {120, 32+24},
+    {180+4, 32+24},
 };
 
 static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 {
-    {0, 9},
-    {16, 10},
-    {8, 4},
+    {8, 10},
+    {8, 10},
+    {8, 10},
 };
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
+    SPECIES_TIDPIT,
+    SPECIES_FIEFREET,
+    SPECIES_PRONGY,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -143,7 +143,7 @@ static const struct BgTemplate sBgTemplates[3] =
         .mapBaseIndex = 6,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 2,
         .baseTile = 0
     },
 };
@@ -157,10 +157,10 @@ static const struct OamData sOam_Hand =
     .objMode = ST_OAM_OBJ_NORMAL,
     .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
+    .shape = SPRITE_SHAPE(64x64),
     .x = 0,
     .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
+    .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
     .priority = 1,
     .paletteNum = 0,
@@ -174,12 +174,12 @@ static const struct OamData sOam_Pokeball =
     .objMode = ST_OAM_OBJ_NORMAL,
     .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(32x32),
+    .shape = SPRITE_SHAPE(64x64),
     .x = 0,
     .matrixNum = 0,
-    .size = SPRITE_SIZE(32x32),
+    .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
-    .priority = 1,
+    .priority = 2,
     .paletteNum = 0,
     .affineParam = 0,
 };
@@ -203,14 +203,14 @@ static const struct OamData sOam_StarterCircle =
 
 static const u8 sCursorCoords[][2] =
 {
-    {60, 32},
-    {120, 56},
-    {180, 32},
+    {60-4, 16},
+    {120, 16},
+    {180+4, 16},
 };
 
 static const union AnimCmd sAnim_Hand[] =
 {
-    ANIMCMD_FRAME(48, 30),
+    ANIMCMD_FRAME(192, 30),
     ANIMCMD_END,
 };
 
@@ -222,23 +222,28 @@ static const union AnimCmd sAnim_Pokeball_Still[] =
 
 static const union AnimCmd sAnim_Pokeball_Moving[] =
 {
-    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(64, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(128, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(16, 4),
+
+    ANIMCMD_FRAME(64, 4),
     ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(128, 4),
     ANIMCMD_FRAME(0, 4),
+
     ANIMCMD_FRAME(0, 32),
-    ANIMCMD_FRAME(16, 8),
+
+    ANIMCMD_FRAME(64, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(128, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(16, 8),
+
+    ANIMCMD_FRAME(64, 8),
     ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(32, 8),
+    ANIMCMD_FRAME(128, 8),
     ANIMCMD_FRAME(0, 8),
+
     ANIMCMD_JUMP(0),
 };
 
@@ -285,7 +290,7 @@ static const struct CompressedSpriteSheet sSpriteSheet_PokeballSelect[] =
 {
     {
         .data = gPokeballSelection_Gfx,
-        .size = 0x0800,
+        .size = 0x2000,
         .tag = TAG_POKEBALL_SELECT
     },
     {}
@@ -399,7 +404,7 @@ void CB2_ChooseStarter(void)
 
     LZ77UnCompVram(gBirchBagGrass_Gfx, (void *)VRAM);
     LZ77UnCompVram(gBirchBagTilemap, (void *)(BG_SCREEN_ADDR(6)));
-    LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
+    // LZ77UnCompVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
 
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sBgTemplates, ARRAY_COUNT(sBgTemplates));
@@ -416,7 +421,7 @@ void CB2_ChooseStarter(void)
     ResetAllPicSprites();
 
     LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(14), PLTT_SIZE_4BPP);
-    LoadPalette(gBirchBagGrass_Pal, BG_PLTT_ID(0), sizeof(gBirchBagGrass_Pal));
+    LoadPalette(gBirchBagGrass_Pal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
     LoadCompressedSpriteSheet(&sSpriteSheet_PokeballSelect[0]);
     LoadCompressedSpriteSheet(&sSpriteSheet_StarterCircle[0]);
     LoadSpritePalettes(sSpritePalettes_StarterChoose);
@@ -436,7 +441,7 @@ void CB2_ChooseStarter(void)
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
 
     ShowBg(0);
-    ShowBg(2);
+    // ShowBg(2);
     ShowBg(3);
 
     taskId = CreateTask(Task_StarterChoose, 0);
@@ -489,7 +494,7 @@ static void Task_HandleStarterChooseInput(u8 taskId)
     {
         u8 spriteId;
 
-        ClearStarterLabel();
+        ClearStarterLabel(TRUE);
 
         // Create white circle background
         spriteId = CreateSprite(&sSpriteTemplate_StarterCircle, sPokeballCoords[selection][0], sPokeballCoords[selection][1], 1);
@@ -586,37 +591,40 @@ static void CreateStarterPokemonLabel(u8 selection)
     sStarterLabelWindowId = AddWindow(&winTemplate);
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
 
-    width = GetStringCenterAlignXOffset(FONT_NARROW, categoryText, 0x68);
+    width = GetStringCenterAlignXOffset(FONT_NARROW, categoryText, 112);
     AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NARROW, width, 1, sTextColors, 0, categoryText);
 
-    width = GetStringCenterAlignXOffset(FONT_NORMAL, speciesName, 0x68);
+    width = GetStringCenterAlignXOffset(FONT_NORMAL, speciesName, 112);
     AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NORMAL, width, 17, sTextColors, 0, speciesName);
 
     PutWindowTilemap(sStarterLabelWindowId);
     ScheduleBgCopyTilemapToVram(0);
 
-    labelLeft = sStarterLabelCoords[selection][0] * 8 - 4;
-    labelRight = (sStarterLabelCoords[selection][0] + 13) * 8 + 4;
+    labelLeft = sStarterLabelCoords[selection][0] * 8;
+    labelRight = (sStarterLabelCoords[selection][0] + 14) * 8;
     labelTop = sStarterLabelCoords[selection][1] * 8;
     labelBottom = (sStarterLabelCoords[selection][1] + 4) * 8;
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(labelLeft, labelRight));
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(labelTop, labelBottom));
 }
 
-static void ClearStarterLabel(void)
+static void ClearStarterLabel(u8 clearWin)
 {
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
     ClearWindowTilemap(sStarterLabelWindowId);
     RemoveWindow(sStarterLabelWindowId);
     sStarterLabelWindowId = WINDOW_NONE;
-    SetGpuReg(REG_OFFSET_WIN0H, 0);
-    SetGpuReg(REG_OFFSET_WIN0V, 0);
+    if (clearWin)
+    {
+        SetGpuReg(REG_OFFSET_WIN0H, 0);
+        SetGpuReg(REG_OFFSET_WIN0V, 0);
+    }
     ScheduleBgCopyTilemapToVram(0);
 }
 
 static void Task_MoveStarterChooseCursor(u8 taskId)
 {
-    ClearStarterLabel();
+    ClearStarterLabel(FALSE);
     gTasks[taskId].func = Task_CreateStarterLabel;
 }
 

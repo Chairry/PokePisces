@@ -1,20 +1,116 @@
+.set LOCALID_NURSE, 1
+
 PacifidlogTown_PokemonCenter_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CableClub_OnFrame
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, CableClub_OnWarp
-	map_script MAP_SCRIPT_ON_LOAD, CableClub_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, CableClub_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_PokemonCenter_2F_OnTransition
 	.byte 0
 
-@ The below 3 are unused and leftover from RS
-PacifidlogTown_PokemonCenter_2F_EventScript_Colosseum::
-	call CableClub_EventScript_Colosseum
+PacifidlogTown_PokemonCenter_2F_OnTransition:
+	setrespawn HEAL_LOCATION_PACIFIDLOG_TOWN
 	end
 
-PacifidlogTown_PokemonCenter_2F_EventScript_TradeCenter::
-	call CableClub_EventScript_TradeCenter
+PacifidlogTown_PokemonCenter_2F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
 	end
 
-PacifidlogTown_PokemonCenter_2F_EventScript_RecordCorner::
-	call CableClub_EventScript_RecordCorner
+PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
+	lock
+	faceplayer
+	goto_if_gt VAR_BALL_QUEST_STATE, 0, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
+	getcaughtmon SPECIES_BERM
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
 	end
 
+PacifidlogTown_PokemonCenter_2F_EventScript_Check2::
+	getcaughtmon SPECIES_EBIBI
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check3
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_Check3::
+	getcaughtmon SPECIES_KITIKITI
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall::
+	addvar VAR_BALL_QUEST_STATE, 1
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest::
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest, MSGBOX_NPC
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_BallCounterTest::
+	addvar VAR_BALL_QUEST_STATE, 1
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_BallCounterTest, MSGBOX_NPC
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_BadgeCounterTest::
+	addvar VAR_PISCES_STORY_PROGRESS, 1
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest, MSGBOX_NPC
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_Text_BallCounterTest:
+	.string "ball quest plus 1$"
+
+PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest:
+	.string "gym badge plus 1$"
+
+PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
+	.string "Salut! I am un artiste. You may\n"
+	.string "have heard of me, non? I run the\l"
+	.string "Musée de Lilycove, where I have\l"
+	.string "put all of my best pieces\l"
+	.string "on display.\p"
+	.string "Mais hélas, I am in dire need\n"
+	.string "of inspiration. I would like some\l"
+	.string "Pokémon to draw, but I am a\l"
+	.string "horrible catcher.\p"
+	.string "Ah! Perhaps vous may assist me!\p"
+	.string "I would like to lay an eye on\n"
+	.string "3 particular Pokémon.\p"
+	.string "Berm, Ebibi, and Kitikiti.\p"
+	.string "Catch those trés and show me your\n"
+	.string "Pokédex, and I will make it\l"
+	.string "worth your troubles.$"
+
+PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
+	.string "I see you have not the required\n"
+	.string "Pokémon, amie. They should be in\l"
+	.string "areas close to here.\p"
+	.string "Bonne chance!$"
+
+PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall:
+	.string "...\p"
+	.string "Ah! There they are! Lovely catches!\p"
+	.string "Berm's adorable charm...\n"
+	.string "That pesky smile on Kitikiti...\l"
+	.string "Ebibi's flaky fur...\p"
+	.string "Inspiration strikes! Incroyable!\n"
+	.string "I must get to painting.\p"
+	.string "Merci, trainer. I will put in a good\n"
+	.string "word for you with Purplina;\l"
+	.string "you should soon be able to\l"
+	.string "purchase Lure Balls from her.\p"
+	.string "Au revoir!$"
+
+PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest:
+	.string "Bon aprés-midi, trainer.\n"
+	.string "I have naught in the way of new\l"
+	.string "jobs for you this very moment.\p"
+	.string "Perhaps when we next meet,\n"
+	.string "we shall work together again.$"

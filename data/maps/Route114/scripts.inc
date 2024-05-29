@@ -43,11 +43,11 @@ Route114_EventScript_ReceivedBerry::
 Route114_EventScript_RoarGentleman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_ROAR, Route114_EventScript_ReceivedRoar
+	goto_if_set FLAG_RECEIVED_TM_POUNCE, Route114_EventScript_ReceivedRoar
 	msgbox Route114_Text_AllMyMonDoesIsRoarTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_GLACIATE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_ROAR
+	setflag FLAG_RECEIVED_TM_POUNCE
 	msgbox Route114_Text_ExplainRoar, MSGBOX_DEFAULT
 	release
 	end
@@ -100,7 +100,7 @@ Route114_EventScript_Nancy::
 	end
 
 Route114_EventScript_Steve::
-	trainerbattle_single TRAINER_STEVE_1, Route114_Text_SteveIntro, Route114_Text_SteveDefeat, Route114_EventScript_RegisterSteve
+	trainerbattle_single TRAINER_P_MAYA, Route114_Text_SteveIntro, Route114_Text_SteveDefeat, Route114_EventScript_RegisterSteve
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route114_EventScript_RematchSteve
 	msgbox Route114_Text_StevePostBattle, MSGBOX_DEFAULT
@@ -111,12 +111,12 @@ Route114_EventScript_RegisterSteve::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route114_Text_SteveRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_STEVE_1
+	register_matchcall TRAINER_P_MAYA
 	release
 	end
 
 Route114_EventScript_RematchSteve::
-	trainerbattle_rematch TRAINER_STEVE_1, Route114_Text_SteveRematchIntro, Route114_Text_SteveRematchDefeat
+	trainerbattle_rematch TRAINER_P_MAYA, Route114_Text_SteveRematchIntro, Route114_Text_SteveRematchDefeat
 	msgbox Route114_Text_StevePostRematch, MSGBOX_AUTOCLOSE
 	end
 

@@ -1031,6 +1031,20 @@
 	.2byte \move
 	.endm
 
+	@ COPY OF ABOVE FOR PISCES, USED FOR ANY NON HM CHECKS
+	.macro checkpartynonhmmove move:req
+	.byte 0xe5
+	.2byte \move
+	.endm
+
+	@ Checks if at least one Pokemon in the player's party holds the specified item. If so, VAR_RESULT is set to the
+	@ (zero-indexed) slot number of the first Pokemon that holds the item. If not, VAR_RESULT is set to PARTY_SIZE.
+	@ VAR_0x8004 is also set to this Pokemon's species.
+	.macro checkpartyitem item:req
+	.byte 0xe6
+	.2byte \item
+	.endm
+
 	@ Converts STR_VAR_1, STR_VAR_2, or STR_VAR_3 to its corresponding index into sScriptStringVars (0, 1, or 2).
 	@ If given anything else it will output it directly.
 	@ Note: Because the STR_VAR_# arguments given to this macro are not part of a processed string they are not
@@ -2053,3 +2067,42 @@
 	callnative CreateTrainerPartyForPlayer
 	trainerbattle_no_intro \trainer2, NULL
 	.endm
+
+    @ Checks the state of the Pokédex Seen flag of the specified Pokemon
+    @ The result is stored in VAR_RESULT
+    .macro getseenmon species:req
+    setvar VAR_TEMP_1, \species
+    specialvar VAR_RESULT, GetSeenMon
+    .endm
+
+    @ Checks the state of the Pokédex Caught flag of the specified Pokemon
+    @ The result is stored in VAR_RESULT
+    .macro getcaughtmon species:req
+    setvar VAR_TEMP_1, \species
+    specialvar VAR_RESULT, GetCaughtMon
+    .endm
+
+    @ Sets the Pokédex Seen flag of the specified Pokemon
+    .macro setseenmon species:req
+    setvar VAR_TEMP_1, \species
+    special SetSeenMon
+    .endm
+
+    @ Sets the Pokédex Caught flag of the specified Pokemon
+    .macro setcaughtmon species:req
+    setvar VAR_TEMP_1, \species
+    special SetCaughtMon
+    .endm
+    
+    @ set a pokemon's data to a given value
+    @ slot is the party index
+    @ data_index is the MON_DATA_xx label
+    @ value is the val to set
+    @ side is 0 for the player or 1 for the enemy
+    .macro setmondata slot:req, data_index:req, value:req, side=0
+    callnative ScriptSetMonData
+    .byte \slot
+    .byte \data_index
+    .4byte \value
+    .byte \side
+    .endm

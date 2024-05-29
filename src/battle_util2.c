@@ -130,12 +130,12 @@ u32 BattlePalace_TryEscapeStatus(u8 battler)
         switch (gBattleCommunication[MULTIUSE_STATE])
         {
         case 0:
-            if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+            if (gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
             {
                 if (UproarWakeUpCheck(battler))
                 {
                     // Wake up from Uproar
-                    gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
+                    gBattleMons[battler].status1 &= ~(STATUS1_SLEEP_ANY);
                     gBattleMons[battler].status2 &= ~(STATUS2_NIGHTMARE);
                     BattleScriptPushCursor();
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP_UPROAR;
@@ -152,12 +152,12 @@ u32 BattlePalace_TryEscapeStatus(u8 battler)
                         toSub = 1;
 
                     // Reduce number of sleep turns
-                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP) < toSub)
-                        gBattleMons[battler].status1 &= ~(STATUS1_SLEEP);
+                    if ((gBattleMons[battler].status1 & STATUS1_SLEEP_ANY) < toSub)
+                        gBattleMons[battler].status1 &= ~(STATUS1_SLEEP_ANY);
                     else
                         gBattleMons[battler].status1 -= toSub;
 
-                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
                     {
                         // Still asleep
                         gBattlescriptCurrInstr = BattleScript_MoveUsedIsAsleep;

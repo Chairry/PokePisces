@@ -11,6 +11,7 @@
 #include "battle_factory_screen.h"
 #include "frontier_util.h"
 #include "string_util.h"
+#include "script.h"
 #include "constants/battle_tent.h"
 #include "constants/battle_tent_trainers.h"
 #include "constants/battle_tent_mons.h"
@@ -117,12 +118,10 @@ static void InitVerdanturfTentChallenge(void)
 
 static void GetVerdanturfTentPrize(void)
 {
-    gSpecialVar_Result = gSaveBlock2Ptr->frontier.verdanturfTentPrize;
 }
 
 static void SetVerdanturfTentPrize(void)
 {
-    gSaveBlock2Ptr->frontier.verdanturfTentPrize = gSpecialVar_0x8006;
 }
 
 static void SetVerdanturfTentTrainerGfx(void)
@@ -147,21 +146,10 @@ static void SaveVerdanturfTentChallenge(void)
 
 static void SetRandomVerdanturfTentPrize(void)
 {
-    gSaveBlock2Ptr->frontier.verdanturfTentPrize = sVerdanturfTentRewards[Random() % ARRAY_COUNT(sVerdanturfTentRewards)];
 }
 
 static void GiveVerdanturfTentPrize(void)
 {
-    if (AddBagItem(gSaveBlock2Ptr->frontier.verdanturfTentPrize, 1) == TRUE)
-    {
-        CopyItemName(gSaveBlock2Ptr->frontier.verdanturfTentPrize, gStringVar1);
-        gSaveBlock2Ptr->frontier.verdanturfTentPrize = ITEM_NONE;
-        gSpecialVar_Result = TRUE;
-    }
-    else
-    {
-        gSpecialVar_Result = FALSE;
-    }
 }
 
 void CallFallarborTentFunction(void)
@@ -228,6 +216,7 @@ static void InitSlateportTentChallenge(void)
 {
     gSaveBlock2Ptr->frontier.challengeStatus = 0;
     gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+    gSaveBlock2Ptr->frontier.slateportTentTrainerId = 0;
     gSaveBlock2Ptr->frontier.challengePaused = FALSE;
     SetDynamicWarp(0, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, WARP_ID_NONE);
 }
@@ -286,6 +275,82 @@ bool8 InSlateportBattleTent(void)
            && (gMapHeader.mapLayoutId == LAYOUT_BATTLE_TENT_CORRIDOR || gMapHeader.mapLayoutId == LAYOUT_BATTLE_TENT_BATTLE_ROOM);
 }
 
+u32 GetBattleTentLevel(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        return TENT_CHAMP_LEVEL;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        return TENT_MAJOR_LEVEL;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        return TENT_MINOR_LEVEL;
+    }
+}
+
+// sets trainer pointers
+// returns the number of trainers in given league set
+u32 SetBattleTentTrainers(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        gFacilityTrainers = gBattleTentTrainers_ChampLeague;
+        return NUM_BATTLE_TENT_CHAMP_TRAINERS;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        gFacilityTrainers = gBattleTentTrainers_MajorLeague;
+        return NUM_BATTLE_TENT_MAJOR_TRAINERS;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        gFacilityTrainers = gBattleTentTrainers_MinorLeague;
+        return NUM_BATTLE_TENT_MINOR_TRAINERS;
+    }
+}
+
+// sets both mons and trainer pointers
+// returns the number of mons in the given league set
+u32 SetBattleTentMonsTrainers(u32 league)
+{
+    switch (league)
+    {
+    case BATTLE_TENT_LEAGUE_CHAMP:
+        gFacilityTrainers = gBattleTentTrainers_ChampLeague;
+        gFacilityTrainerMons = gBattleTentMons_ChampLeague;
+        return NUM_TENT_CHAMP_MONS;
+    case BATTLE_TENT_LEAGUE_MAJOR:
+        gFacilityTrainers = gBattleTentTrainers_MajorLeague;
+        gFacilityTrainerMons = gBattleTentMons_MajorLeague;
+        return NUM_TENT_MAJOR_MONS;
+    case BATTLE_TENT_LEAGUE_MINOR:
+    default:
+        gFacilityTrainers = gBattleTentTrainers_MinorLeague;
+        gFacilityTrainerMons = gBattleTentMons_MinorLeague;
+        return NUM_TENT_MINOR_MONS;
+    }
+}
+
+void ScriptGetBattleTentAvailableLeagues(struct ScriptContext *ctx)
+{
+    if (FlagGet(FLAG_BADGE08_GET))
+        gSpecialVar_Result = 2;
+    else if (FlagGet(FLAG_BADGE05_GET))
+        gSpecialVar_Result = 1;
+    else
+        gSpecialVar_Result = 0;
+}
+
+void ScriptSetBattleTentLeague(struct ScriptContext *ctx)
+{
+    u8 league = ScriptReadByte(ctx);
+    gSaveBlock2Ptr->frontier.slateportTentLeague = league;
+}
+
+u32 GetBattleTentLeague(void)
+{
+    return gSaveBlock2Ptr->frontier.slateportTentLeague;
+}
+
 static void GenerateInitialRentalMons(void)
 {
     s32 i, j;
@@ -295,22 +360,25 @@ static void GenerateInitialRentalMons(void)
     u16 species[PARTY_SIZE];
     u16 monIds[PARTY_SIZE];
     u16 heldItems[PARTY_SIZE];
+    u32 league, nMons;
+    
+    league = GetBattleTentLeague();
+    nMons = SetBattleTentMonsTrainers(league);
 
     firstMonId = 0;
-    gFacilityTrainers = gSlateportBattleTentTrainers;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         species[i] = 0;
         monIds[i] = 0;
         heldItems[i] = 0;
     }
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    
     currSpecies = SPECIES_NONE;
     i = 0;
     while (i != PARTY_SIZE)
     {
         // Cannot have two pokemon of the same species.
-        monSetId = Random() % NUM_SLATEPORT_TENT_MONS;
+        monSetId = Random() % nMons;
         for (j = firstMonId; j < firstMonId + i; j++)
         {
             u16 monId = monIds[j];
@@ -330,7 +398,7 @@ static void GenerateInitialRentalMons(void)
         // Cannot have two same held items.
         for (j = firstMonId; j < i + firstMonId; j++)
         {
-            if (heldItems[j] != 0 && heldItems[j] == gBattleFrontierHeldItems[gFacilityTrainerMons[monSetId].itemTableId])
+            if (heldItems[j] != 0 && heldItems[j] == gFacilityTrainerMons[monSetId].heldItem)
             {
                 if (gFacilityTrainerMons[monSetId].species == currSpecies)
                     currSpecies = SPECIES_NONE;
@@ -342,7 +410,7 @@ static void GenerateInitialRentalMons(void)
 
         gSaveBlock2Ptr->frontier.rentalMons[i].monId = monSetId;
         species[i] = gFacilityTrainerMons[monSetId].species;
-        heldItems[i] = gBattleFrontierHeldItems[gFacilityTrainerMons[monSetId].itemTableId];
+        heldItems[i] = gFacilityTrainerMons[monSetId].heldItem;
         monIds[i] = monSetId;
         i++;
     }
@@ -356,22 +424,23 @@ static void GenerateOpponentMons(void)
     u16 species[FRONTIER_PARTY_SIZE];
     u16 heldItems[FRONTIER_PARTY_SIZE];
     s32 numMons = 0;
+    u32 league = GetBattleTentLeague();
+    u32 nTrainers = SetBattleTentTrainers(league);
 
-    gFacilityTrainers = gSlateportBattleTentTrainers;
-    gFacilityTrainerMons = gSlateportBattleTentMons;
+    SetBattleTentMonsTrainers(league);
 
     while (1)
     {
         do
         {
             // Choose a random trainer, ensuring no repeats in this challenge
-            trainerId = Random() % NUM_BATTLE_TENT_TRAINERS;
-            for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+            trainerId = Random() % nTrainers;
+            for (i = 0; i < gSaveBlock2Ptr->frontier.slateportTentTrainerId; i++)
             {
                 if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
                     break;
             }
-        } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+        } while (i != gSaveBlock2Ptr->frontier.slateportTentTrainerId);
 
         gTrainerBattleOpponent_A = trainerId;
         monSet = gFacilityTrainers[gTrainerBattleOpponent_A].monSet;
@@ -382,9 +451,14 @@ static void GenerateOpponentMons(void)
         numMons = 0;
     }
 
-    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < TENT_STAGES_PER_CHALLENGE - 1)
-        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = gTrainerBattleOpponent_A;
-
+    if (gSaveBlock2Ptr->frontier.slateportTentTrainerId == NELEMS(gSaveBlock2Ptr->frontier.trainerIds) - 1)
+    {
+        // reset trainerid field and save new trainerid as first slot
+        gSaveBlock2Ptr->frontier.slateportTentTrainerId = 0;
+        ResetFrontierTrainerIds();
+        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.slateportTentTrainerId] = gTrainerBattleOpponent_A;
+    }
+    
     monSet = gFacilityTrainers[gTrainerBattleOpponent_A].monSet;
     i = 0;
     while (i != FRONTIER_PARTY_SIZE)
@@ -412,7 +486,7 @@ static void GenerateOpponentMons(void)
         // Ensure held items don't repeat on the opponent's team
         for (k = 0; k < i; k++)
         {
-            if (heldItems[k] != ITEM_NONE && heldItems[k] == gBattleFrontierHeldItems[gFacilityTrainerMons[sRandMonId].itemTableId])
+            if (heldItems[k] != ITEM_NONE && heldItems[k] == gFacilityTrainerMons[sRandMonId].heldItem)
                 break;
         }
         if (k != i)
@@ -420,8 +494,31 @@ static void GenerateOpponentMons(void)
 
         // Successful selection
         species[i] = gFacilityTrainerMons[sRandMonId].species;
-        heldItems[i] = gBattleFrontierHeldItems[gFacilityTrainerMons[sRandMonId].itemTableId];
+        heldItems[i] = gFacilityTrainerMons[sRandMonId].heldItem;
         gFrontierTempParty[i] = sRandMonId;
         i++;
     }
+}
+
+static const u16 sTrainerStreakFlagsByLeague[BATTLE_TENT_LEAGUE_COUNT] = {
+    [BATTLE_TENT_LEAGUE_MINOR] = FLAG_BATTLE_TENT_STREAK_MINOR,
+    [BATTLE_TENT_LEAGUE_MAJOR] = FLAG_BATTLE_TENT_STREAK_MAJOR,
+    [BATTLE_TENT_LEAGUE_CHAMP] = FLAG_BATTLE_TENT_STREAK_CHAMP,
+};
+
+void ScriptIncrementSlateportTentBattleNum(struct ScriptContext *ctx)
+{
+    u32 league = GetBattleTentLeague();
+    u32 flag;
+    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < SLATEPORT_TENT_MAX_WINS)
+        gSaveBlock2Ptr->frontier.curChallengeBattleNum++;
+    
+    // try to save off best win streak
+    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum > gSaveBlock2Ptr->frontier.slateportTentMaxStreak[league])
+        gSaveBlock2Ptr->frontier.slateportTentMaxStreak[league] = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+    
+    // try to set flag for beating 5 trainers for each league
+    flag = sTrainerStreakFlagsByLeague[league];
+    if (!FlagGet(flag) && gSaveBlock2Ptr->frontier.curChallengeBattleNum == 5)
+        FlagSet(flag);
 }

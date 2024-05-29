@@ -76,12 +76,52 @@ OldaleTown_EventScript_GoToMartEast::
 OldaleTown_EventScript_ExplainPokemonMart::
 	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
 	giveitem ITEM_BERRY_MIC
-	giveitem ITEM_BURNT_STICK
+	giveitem ITEM_BURNT_BRANCH
 	giveitem ITEM_CURSED_AMULET
 	giveitem ITEM_EERIE_MASK
 	giveitem ITEM_NEO_BATTERY
 	giveitem ITEM_SANDBAG
 	giveitem ITEM_SANDSTONE
+	giveitem ITEM_COMEDY_MASK
+	giveitem ITEM_TRAGEDY_MASK
+	giveitem ITEM_PEBBLERITE
+	giveitem ITEM_CHEESE
+	giveitem ITEM_FROTHY_CHEESE
+	giveitem ITEM_KEYCHAIN
+	giveitem ITEM_FLIP_COIN
+	giveitem ITEM_WARP_RIBBON
+	giveitem ITEM_GRAVITY_CORE
+	giveitem ITEM_FAVOR_SCARF
+	giveitem ITEM_WIDE_ARMOR
+	giveitem ITEM_LOST_MANTLE
+	giveitem ITEM_BATTLE_HELM
+	giveitem ITEM_SPECTRAL_IDOL
+	giveitem ITEM_GLUE_TUBE
+	giveitem ITEM_FROST_ORB
+	giveitem ITEM_POISON_ORB
+	giveitem ITEM_DILATANT_MOD
+	giveitem ITEM_ODD_STONE
+	giveitem ITEM_SHELL_POLISH
+	giveitem ITEM_VIBRANT_SCALE
+	giveitem ITEM_TRIUMPH_STAR
+	giveitem ITEM_ZIG_SASH
+	giveitem ITEM_DOUGH_STICK
+	giveitem ITEM_YELLOW_SODA
+	giveitem ITEM_ICY_CAPE
+	giveitem ITEM_DRIP_SHOES
+	giveitem ITEM_COARSE_SAND
+	giveitem ITEM_OBJECT_D_ARC
+	giveitem ITEM_FAMILY_MOSS
+	giveitem ITEM_A_THING
+	giveitem ITEM_SALTY_TEAR
+	giveitem ITEM_BLOOM_ORB
+	giveitem ITEM_PANIC_ORB
+	giveitem ITEM_SOLAR_SWORD
+	giveitem ITEM_MOON_MIRROR
+	giveitem ITEM_CROSSBONES
+	giveitem ITEM_FRIEND_RIBBON
+	giveitem ITEM_ROOM_EXTENDER
+	giveitem ITEM_TRADING_CARD
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_POTION_OLDALE

@@ -360,6 +360,7 @@ static bool8 ShouldSwitchIfGameStatePrompt(u32 battler)
 
         //Secondary Damage
         if (monAbility != ABILITY_MAGIC_GUARD
+            && monAbility != ABILITY_SUGAR_COAT
             && !AiExpectsToFaintPlayer(battler))
         {
             //Toxic
@@ -441,7 +442,7 @@ static bool8 ShouldSwitchIfAbilityBenefit(u32 battler)
         case ABILITY_NATURAL_CURE:
             moduloChance = 4; //25%
             //Attempt to cure bad ailment
-            if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_FREEZE | STATUS1_TOXIC_POISON)
+            if (gBattleMons[battler].status1 & (STATUS1_SLEEP_ANY | STATUS1_FREEZE | STATUS1_TOXIC_POISON)
                 && GetMostSuitableMonToSwitchInto(battler) != PARTY_SIZE)
                 break;
             //Attempt to cure lesser ailment
@@ -1083,7 +1084,7 @@ static bool8 ShouldUseItem(u32 battler)
             shouldUse = AI_ShouldHeal(battler, itemEffects[GetItemEffectParamOffset(battler, item, 4, ITEM4_HEAL_HP)]);
             break;
         case EFFECT_ITEM_CURE_STATUS:
-            if (itemEffects[3] & ITEM3_SLEEP && gBattleMons[battler].status1 & STATUS1_SLEEP)
+            if (itemEffects[3] & ITEM3_SLEEP && gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
                 shouldUse = TRUE;
             if (itemEffects[3] & ITEM3_POISON && (gBattleMons[battler].status1 & STATUS1_POISON
                                                || gBattleMons[battler].status1 & STATUS1_TOXIC_POISON))
@@ -1106,7 +1107,7 @@ static bool8 ShouldUseItem(u32 battler)
             break;
         case EFFECT_ITEM_SET_FOCUS_ENERGY:
             if (!gDisableStructs[battler].isFirstTurn
-                || gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY
+                || gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY_ANY
                 || AI_OpponentCanFaintAiWithMod(battler, 0))
                 break;
             shouldUse = TRUE;

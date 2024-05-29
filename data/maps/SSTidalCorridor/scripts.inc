@@ -124,7 +124,7 @@ SSTidalCorridor_EventScript_ExitSailor::
 SSTidalCorridor_EventScript_ExitLilycove::
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
+	call_if_set FLAG_RECEIVED_TM_INFESTATION, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_LILYCOVE_CITY_HARBOR, 8, 11
 	waitstate
 	release
@@ -133,7 +133,7 @@ SSTidalCorridor_EventScript_ExitLilycove::
 SSTidalCorridor_EventScript_ExitSlateport::
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
+	call_if_set FLAG_RECEIVED_TM_INFESTATION, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_SLATEPORT_CITY_HARBOR, 8, 11
 	waitstate
 	release
@@ -177,8 +177,8 @@ SSTidalCorridor_EventScript_CheckIfTrainersDefeated::
 	goto_if_not_defeated TRAINER_MICAH, SSTidalCorridor_EventScript_TrainerNotDefeated
 	goto_if_not_defeated TRAINER_THOMAS, SSTidalCorridor_EventScript_TrainerNotDefeated
 	goto_if_not_defeated TRAINER_LEA_AND_JED, SSTidalCorridor_EventScript_TrainerNotDefeated
-	goto_if_not_defeated TRAINER_GARRET, SSTidalCorridor_EventScript_TrainerNotDefeated
-	goto_if_not_defeated TRAINER_NAOMI, SSTidalCorridor_EventScript_TrainerNotDefeated
+	goto_if_not_defeated TRAINER_P_JINXIE, SSTidalCorridor_EventScript_TrainerNotDefeated
+	goto_if_not_defeated TRAINER_P_NICOLE, SSTidalCorridor_EventScript_TrainerNotDefeated
 	setflag FLAG_DEFEATED_SS_TIDAL_TRAINERS
 	goto SSTidalCorridor_EventScript_EnjoyYourCruise
 	return
