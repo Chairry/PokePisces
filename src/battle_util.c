@@ -5436,10 +5436,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                             validToRaise |= gBitTable[i];
                     }
 
-                    if(gBattleMons[battler].species == SPECIES_MORPEKO)
+                    if(gBattleMons[battler].species == SPECIES_SHUNYONG)
                         validToRaise = 0; // makes it so shunyongs stats wont increase in offensive form
-                    if(gBattleMons[battler].species == SPECIES_MORPEKO_HANGRY)
-                        {
+                    if(gBattleMons[battler].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
+                    {
                         validToLowerLeft = 0; // makes it so opponents stats wont lower when in defensive form
                         validToLowerRight = 0; // makes it so opponents stats wont lower when in defensive form
                         gStatuses3[gBattlerTarget] |= STATUS3_HEAL_BLOCK; //sets so offensive form can't heal
@@ -5448,7 +5448,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gDisableStructs[sBattlerTargetPlayerRight].healBlockTimer = 2; //sets so offensive form can't heal
                         BattleScriptPushCursorAndCallback(BattleScript_ShunyongCantHealInOffensiveForm);
                         effect++;
-                        }
+                    }
 
                     if (validToLowerLeft != 0 || validToRaise != 0 || validToLowerRight != 0) // Can lower one stat, or can raise one stat
                     {
@@ -10441,7 +10441,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_SHUNYONG:
-        if (gBattleMons[battlerAtk].species == SPECIES_MORPEKO_HANGRY)
+        if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
     case ABILITY_MYSTIC_ONE:
@@ -10742,7 +10742,7 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_SHUNYONG:
-        if (gBattleMons[battlerDef].species == SPECIES_MORPEKO)
+        if (gBattleMons[battlerDef].species == SPECIES_SHUNYONG)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
     case ABILITY_PURIFYING_SALT:

@@ -286,3 +286,14 @@ void ScriptSetMonData(struct ScriptContext *ctx)
     
     SetMonData(mon, dataIndex, &value);
 }
+
+extern bool8 gIsScriptedWildDouble;
+void ScriptSetShunyongBattle(struct ScriptContext *ctx)
+{
+    CreateScriptedWildMon(SPECIES_SHUNYONG, 70, ITEM_NONE);
+    
+    // TODO ivs, evs, etc?
+    
+    gIsScriptedWildDouble = TRUE;
+}
+

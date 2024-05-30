@@ -4690,9 +4690,9 @@ void CalculateMonStats(struct Pokemon *mon)
         newMaxHP = 5;
     }
 
-    else if (species == SPECIES_MORPEKO || species == SPECIES_MORPEKO_HANGRY)
+    else if (species == SPECIES_SHUNYONG || species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
     {
-        newMaxHP = 2500;
+        newMaxHP = 5500;
     }
 
     else
@@ -6299,7 +6299,6 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
     GetMonData(src, MON_DATA_NICKNAME, nickname);
     StringCopy_Nickname(dst->nickname, nickname);
     GetMonData(src, MON_DATA_OT_NAME, dst->otName);
-
     for (i = 0; i < NUM_BATTLE_STATS; i++)
         dst->statStages[i] = DEFAULT_STAT_STAGE;
 

@@ -4050,7 +4050,7 @@ void BattleTurnPassed(void)
     else if ((i = ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_PLAYER_MON_UNAFFECTED)))
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
 
-    if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_MORPEKO || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_MORPEKO_HANGRY))
+    if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE))
         SetOpponentMovesShunyong();
 }
 
@@ -5994,8 +5994,8 @@ bool32 IsSpeciesOneOf(u16 specie, const u16 *species)
 }
 
 const u16 gMegaBosses[] =
-    {
-        SPECIES_MORPEKO,
-        SPECIES_MORPEKO_HANGRY,
-        0xFFFF
-    };
+{
+    SPECIES_SHUNYONG,
+    SPECIES_SHUNYONG_GOLDEN_OFFENSE,
+    0xFFFF
+};
