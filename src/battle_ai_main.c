@@ -30,6 +30,7 @@
 
 static u32 ChooseMoveOrAction_Singles(u32 battlerAi);
 static u32 ChooseMoveOrAction_Doubles(u32 battlerAi);
+static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi);
 static inline void BattleAI_DoAIProcessing(struct AI_ThinkingStruct *aiThink, u32 battler);
 static bool32 IsPinchBerryItemEffect(u32 holdEffect);
 
@@ -50,6 +51,32 @@ static s32 AI_Roaming(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_Safari(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_FirstBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+
+#define MAX_SHUNYONG_MOVES  10
+// defense form
+static const u16 sShunyongMoves[MAX_SHUNYONG_MOVES] = {
+    //MOVE_GOLD_PLAINS, // TODO
+    //MOVE_DOWNFALL,    // TODO
+    MOVE_MAGIC_COAT,
+    MOVE_STRANGE_STEAM,
+    MOVE_BRICK_BREAK,
+    MOVE_SLUDGE_WAVE,
+    MOVE_WYVERN_WAVE,
+    MOVE_EERIE_IMPULSE,
+    MOVE_DEMOLISHER,
+};
+
+// offense form
+static const u16 sShunyongGoldenOffenseMoves[MAX_SHUNYONG_MOVES] = {
+    //MOVE_GOLD_PLAINS, // TODO
+    //MOVE_MT_SPLENDOR, // TODO
+    MOVE_SEARING_SHOT,
+    MOVE_VITAL_THROW,
+    MOVE_FEAR_FACTOR,
+    //MOVE_DOOM_WING, // TODO
+    //MOVE_NORTH_WIND, // TODO
+    MOVE_DEMOLISHER,
+};
 
 static s32 (*const sBattleAiFuncTable[])(u32, u32, u32, s32) =
 {
@@ -210,8 +237,10 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves, u32 battler)
 u32 BattleAI_ChooseMoveOrAction(void)
 {
     u32 ret;
-
-    if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+    
+    if (IsShunyongBattle())
+        ret = ChooseMoveOrAction_Shunyong(sBattler_AI);
+    else if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
         ret = ChooseMoveOrAction_Singles(sBattler_AI);
     else
         ret = ChooseMoveOrAction_Doubles(sBattler_AI);
@@ -525,6 +554,117 @@ static u32 ChooseMoveOrAction_Singles(u32 battlerAi)
         }
     }
     return consideredMoveArray[Random() % numOfBestMoves];
+}
+
+static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi)
+{
+    const u16 *moves = (gBattleMons[1].species == SPECIES_SHUNYONG) ? sShunyongMoves : sShunyongGoldenOffenseMoves;
+    s32 i, j, score, bestScore;
+    s32 moveidx = 0;
+    u32 flags, move, viableMoveCount;
+    
+    s32 scoresLeft[MAX_SHUNYONG_MOVES] = {0};
+    s32 scoresRight[MAX_SHUNYONG_MOVES] = {0};
+    
+    u16 *bestMoves = AllocZeroed(sizeof(u16) * 2 * MAX_SHUNYONG_MOVES);
+    u8 *bestTargets = AllocZeroed(sizeof(u8) * 2 * MAX_SHUNYONG_MOVES);
+    
+    for (i = 0; i < MAX_SHUNYONG_MOVES; i++) {
+        scoresLeft[i] = 0;
+        scoresRight[i] = 0;
+    }
+    
+    // loop through targets
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
+    {
+        if (i == battlerAi || gBattleMons[i].hp == 0)
+        {
+            continue;
+        }
+        else
+        {
+            BattleAI_SetupAIData(0xF, battlerAi);
+            gBattlerTarget = i;
+            AI_DATA->partnerMove = MOVE_NONE;
+            AI_THINKING_STRUCT->movesetIndex = 0;
+            for (moveidx = 0; moveidx < MAX_SHUNYONG_MOVES; moveidx++)
+            {
+                move = moves[moveidx];
+                if (move == 0)
+                    continue;
+                if (IsMoveUnusable(battlerAi, move, 1, MOVE_LIMITATIONS_ALL))
+                    continue;
+                
+                score = 100;
+                AI_THINKING_STRUCT->aiLogicId = 0;
+                flags = AI_THINKING_STRUCT->aiFlags;
+                while (flags != 0)
+                {
+                    if (flags & 1)
+                    {
+                        //BattleAI_DoAIProcessing(AI_THINKING_STRUCT, battlerAi);
+                        if (AI_THINKING_STRUCT->aiLogicId < ARRAY_COUNT(sBattleAiFuncTable)
+                              && sBattleAiFuncTable[AI_THINKING_STRUCT->aiLogicId] != NULL) {
+                            // Call AI function
+                            score = sBattleAiFuncTable[AI_THINKING_STRUCT->aiLogicId](battlerAi, gBattlerTarget, move, score);
+                        }
+                    }
+                    flags >>= 1;
+                    AI_THINKING_STRUCT->aiLogicId++;
+                } // flags
+                if (i == B_POSITION_PLAYER_LEFT) {
+                    scoresLeft[moveidx] = score;
+                } else if (i == B_POSITION_PLAYER_RIGHT) {
+                    scoresRight[moveidx] = score;
+                }
+                
+                //DebugPrintf("move %d score = %d", move, score);
+                
+            } // moves loop
+        }
+    }
+    
+    // get best score(s) from all moves/targets
+    bestScore = scoresLeft[0];
+    
+    bestMoves[0] = moves[0];
+    bestTargets[0] = 0;
+    viableMoveCount = 1;
+    for (i = 1; i < MAX_SHUNYONG_MOVES; i++) {
+        // left
+        if (scoresLeft[i] > bestScore) {
+            bestScore = scoresLeft[i];
+            bestMoves[0] = moves[i];
+            bestTargets[0] = 0;
+            viableMoveCount = 1;
+        } else if (scoresLeft[i] == bestScore) {
+            bestMoves[viableMoveCount] = moves[i];
+            bestTargets[viableMoveCount] = B_POSITION_PLAYER_LEFT;
+            viableMoveCount++;
+        }
+        
+        // right
+        if (scoresRight[i] > bestScore) {
+            bestScore = scoresLeft[i];
+            bestMoves[0] = moves[i];
+            bestTargets[0] = 0;
+            viableMoveCount = 1;
+        } else if (scoresRight[i] == bestScore) {
+            bestMoves[viableMoveCount] = moves[i];
+            bestTargets[viableMoveCount] = B_POSITION_PLAYER_RIGHT;
+            viableMoveCount++;
+        }
+    }
+    
+    i = Random() % viableMoveCount;
+    gBattleStruct->shunyongChosenMove = bestMoves[i];
+    gBattleStruct->shunyongTarget = bestTargets[i];
+    
+    //DebugPrintf("Shunyong choosing %d targeting %d", bestMoves[i], bestTargets[i]);
+    
+    Free(bestMoves);
+    Free(bestTargets);
+    return 0;
 }
 
 static u32 ChooseMoveOrAction_Doubles(u32 battlerAi)

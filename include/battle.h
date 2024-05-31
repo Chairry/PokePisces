@@ -708,6 +708,9 @@ struct BattleStruct
     u8 supremeOverlordCounter[MAX_BATTLERS_COUNT];
     u8 timesGotHit[NUM_BATTLE_SIDES][PARTY_SIZE];
     u8 enduredDamage;
+    /* shunyong battle */
+    u16 shunyongChosenMove;
+    u8 shunyongTarget;
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

@@ -13813,6 +13813,12 @@ static void Cmd_trysetencore(void)
     CMD_ARGS(const u8 *failInstr);
 
     s32 i;
+    
+    // shunyong is immune to encore
+    if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses)) {
+        gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {

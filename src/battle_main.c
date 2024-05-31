@@ -4050,10 +4050,11 @@ void BattleTurnPassed(void)
     else if ((i = ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_PLAYER_MON_UNAFFECTED)))
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
 
-    if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE))
-        SetOpponentMovesShunyong();
+    //if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE))
+    //    SetOpponentMovesShunyong();
 }
 
+// Unused. Replaced with ChooseMoveOrAction_Shunyong
 static void SetOpponentMovesShunyong(void)
 {
     s32 i;
@@ -4067,30 +4068,29 @@ static void SetOpponentMovesShunyong(void)
     }
 
     if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages >= 6 || playerRightTotalStatStages >= 6))
-            {
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_HAZE; //replace this with Gold Plains
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_HAZE; //replace this with Gold Plains
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_HAZE; //replace this with Gold Plains
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_HAZE; //replace this with Gold Plains
-                return;
-            }
+    {
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_HAZE; //replace this with Gold Plains
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_HAZE; //replace this with Gold Plains
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_HAZE; //replace this with Gold Plains
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_HAZE; //replace this with Gold Plains
+        return;
+    }
     else if(gBattleMons[B_POSITION_OPPONENT_LEFT].hp < (gBattleMons[B_POSITION_OPPONENT_LEFT].maxHP / 10))
-            {
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_SHEER_COLD; //replace this with Dragon Ruin
-                return;
-            }
+    {
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_DRAGON_RUIN;
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_DRAGON_RUIN;
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_DRAGON_RUIN;
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_DRAGON_RUIN;
+        return;
+    }
     else
-            {
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_QUICK_ATTACK; //replace this default moves
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_POWER_TRIP; //replace this default moves
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_AURA_WHEEL; //replace this default moves
-                gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_BITE; //replace this default moves
-                return;
-            }
-    
+    {
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_QUICK_ATTACK; //replace this default moves
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_POWER_TRIP; //replace this default moves
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_AURA_WHEEL; //replace this default moves
+        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_BITE; //replace this default moves
+        return;
+    }
 }
 
 u8 IsRunningFromBattleImpossible(u32 battler)
@@ -5999,3 +5999,10 @@ const u16 gMegaBosses[] =
     SPECIES_SHUNYONG_GOLDEN_OFFENSE,
     0xFFFF
 };
+
+bool32 IsShunyongBattle(void)
+{
+    if (IsSpeciesOneOf(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES), gMegaBosses))
+        return TRUE;
+    return FALSE;
+}

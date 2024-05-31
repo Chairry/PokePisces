@@ -80,6 +80,8 @@ void DestroyTypeIcon(void);
 void LoadTypeIcon(u8 type);
 void SetTypeIconPal(u8 typeId, u8 spriteId);
 
+bool32 IsShunyongBattle(void);
+
 extern struct MultiPartnerMenuPokemon gMultiPartnerParty[MULTI_PARTY_SIZE];
 
 extern const struct SpriteTemplate gUnusedBattleInitSprite;
