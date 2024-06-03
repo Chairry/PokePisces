@@ -1017,7 +1017,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_TORPEDOES] = _("Torpedoes"),
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
-    [MOVE_RESEVOIR] = _("Resevoir"),
+    [MOVE_RESERVOIR] = _("Reservoir"),
 };
 #else
 // 12 letters
@@ -2038,7 +2038,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_TORPEDOES] = _("Torpedoes"),
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
-    [MOVE_RESEVOIR] = _("Resevoir"),
+    [MOVE_RESERVOIR] = _("Reservoir"),
 };
 #endif
 

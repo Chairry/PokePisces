@@ -5288,7 +5288,7 @@ static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMudkipLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 1, MOVE_RESEVOIR),
+    //LEVEL_UP_MOVE( 1, MOVE_RESERVOIR),
     LEVEL_UP_MOVE( 1, MOVE_COOL_MIST),
     LEVEL_UP_MOVE( 1, MOVE_CHILLING_WATER),
     LEVEL_UP_MOVE( 1, MOVE_MUDDY_WATER),
