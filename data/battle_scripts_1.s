@@ -1265,9 +1265,12 @@ BattleScript_AlreadyExposed::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSkySplitter::
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_ANY, BattleScript_SkySplitterClearWeather
+	goto BattleScript_EffectHit
+BattleScript_SkySplitterClearWeather::
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	trytoclearprimalweather
+	trytoclearweather
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
