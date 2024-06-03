@@ -16806,7 +16806,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .meFirstBanned = TRUE,
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
-
     },
 
     [MOVE_FURIOUS_SEA] =
