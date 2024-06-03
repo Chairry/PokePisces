@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE124",
+      "map": "MAP_NEW_SUNBEACH",
       "offset": 11,
       "direction": "right"
     },

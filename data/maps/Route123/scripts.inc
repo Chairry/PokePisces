@@ -150,7 +150,7 @@ Route123_EventScript_Gravestone1::
 	lock
 	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
 	goto_if_set FLAG_TEMP_13, Route123_EventScript_KeepMoving
-	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	msgbox Route123_Text_WantToPayRespects1, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave1Respects
 	release
 	end
@@ -205,7 +205,7 @@ Route123_EventScript_Gravestone2::
 	lock
 	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
 	goto_if_set FLAG_TEMP_14, Route123_EventScript_KeepMoving
-	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	msgbox Route123_Text_WantToPayRespects2, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave2Respects
 	release
 	end
@@ -255,7 +255,7 @@ Route123_EventScript_Gravestone3::
 	lock
 	goto_if_ge VAR_GRAVE_QUEST_STATE, 3, Route123_EventScript_KeepMoving
 	goto_if_set FLAG_TEMP_15, Route123_EventScript_KeepMoving
-	msgbox Route123_Text_WantToPayRespects, MSGBOX_YESNO
+	msgbox Route123_Text_WantToPayRespects3, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, Route123_EventScript_Grave3Respects
 	release
 	end
@@ -382,7 +382,7 @@ Route123_EventScript_SnowNinja::
 	delay 16
 	applymovement LOCALID_SNOWNINJA, Route123_Movement_Ambush
 	waitmovement 0
-	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, 
+	trainerbattle_single TRAINER_P_HAZAKURA, Route123_Text_HazakuraIntro, Route123_Text_HazakuraDefeated, Route123_EventScript_SmokeBall
 	release
 	end
 
@@ -414,38 +414,56 @@ Route123_Text_BackToTheSnow:
 Route123_Text_HeLeftBehindSomething:
 	.string "he left behind smth$"
 
-Route123_Text_WantToPayRespects:
-	.string "want 2 pay respects$"
+Route123_Text_WantToPayRespects1:
+	.string "(Would you like to take a moment of\n"
+	.string "silence to respect the dead?)$"
+
+Route123_Text_WantToPayRespects2:
+	.string "(Would you like to pay respects\n"
+	.string "again here?)$"
+
+Route123_Text_WantToPayRespects3:
+	.string "(It's another epitaph.\n"
+	.string "Pay respects again?)$"
 
 Route123_Text_YouFoldYourHands:
-	.string "you fold your hands...$"
+	.string "…$"
 
 Route123_Text_MayTheyRestInPeace:
-	.string "may they rest in piss$"
+	.string "(May they rest in peace.)$"
 
 Route123_Text_GottaKeepMoving:
 	.string "lets get goin$"
 
 Route123_Text_TheresSomethingOnYourWrist:
-	.string "theres smth on your wrist now$"
+	.string "(After your prayer, you look down to\n"
+	.string "your wrist to find that there is\l"
+	.string "a band around it.)$"
 
 Route123_Text_TheEngravingSays:
-	.string "its engraved$"
+	.string "(It's engraved…)\p"
+	.string "OUR GRATITUDE$"
 
 Route123_Text_TheresAnOddFuzky:
-	.string "Theres a weird fuzky there$"
+	.string "(You can see a Fuzky pacing around\n"
+	.string "in the area that you can't reach.)\p"
+	.string "(It is wearing a red hood.)$"
 
 Route123_Text_WantToThrowStick:
-	.string "wanna throw a stick at it$"
+	.string "(You have a Stick in your inventory.\n"
+	.string "Throw the Stick?)$"
 
 Route123_Text_YouThrowTheStick:
-	.string "u threw the stick$"
+	.string "(You toss the stick in front\n"
+	.string "of you in an attempt to lure over\l"
+	.string "the odd Pokemon.)$"
 
 Route123_Text_TheFuzkyWantsToBattle:
-	.string "fuzky wants 2 beat u up$"
+	.string "(The Fuzky is attacking!)$"
 
 Route123_Text_ItTakesOffTheMantle:
-	.string "it gives you its mantle$"
+	.string "(The Fuzky, beaten, drops the\n"
+	.string "red hood it was wearing.)$"
 
 Route123_Text_RamiIntro:
 	.string "intro$"

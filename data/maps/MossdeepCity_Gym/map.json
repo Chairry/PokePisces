@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_WHITE_HAIR",
+      "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": 4,
       "y": 4,
       "elevation": 3,
@@ -210,7 +210,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_WHITE_HAIR",
+      "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": 25,
       "y": 28,
       "elevation": 3,
@@ -405,7 +405,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SNOW_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
       "x": 39,
       "y": 4,
       "elevation": 3,

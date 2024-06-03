@@ -60,7 +60,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_UPSTART",
+      "graphics_id": "OBJ_EVENT_GFX_SKIER",
       "x": 2,
       "y": 15,
       "elevation": 0,
@@ -125,7 +125,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SNOW_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
       "x": 59,
       "y": 10,
       "elevation": 0,
@@ -151,7 +151,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SNOW_BOY",
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
       "x": 86,
       "y": 17,
       "elevation": 0,
@@ -223,7 +223,7 @@
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_THE_COLD_MINES",
-      "dest_warp_id": "3"
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

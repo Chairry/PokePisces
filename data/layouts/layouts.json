@@ -394,8 +394,8 @@
     {
       "id": "LAYOUT_ROUTE124",
       "name": "Route124_Layout",
-      "width": 80,
-      "height": 40,
+      "width": 10,
+      "height": 10,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route124/border.bin",
