@@ -3749,12 +3749,12 @@ static const u8 sBoundaryDescription[] = _(
     "foe with an erratic blade.");
 
 static const u8 sPlasmaCutterDescription[] = _(
-    "An electrical blade that ignores\n"
+    "An electric blade that ignores\n"
     "immunities. May burn the foe.");
 
 static const u8 sPartyTrickDescription[] = _(
-    "Does a little trick that hurts\n"
-    "the foe and removes their items.");
+    "Does a little trick that\n"
+    "removes the foes' items.");
 
 static const u8 sMythBusterDescription[] = _(
     "A jumping body slam. If it\n"
@@ -3765,16 +3765,16 @@ static const u8 sDanceManiaDescription[] = _(
     "random dance move.");
 
 static const u8 sHotStepDescription[] = _(
-    "Two masterful blazing strikes\n"
-    "that have a chance to burn.");
+    "Two masterful blazing\n"
+    "strikes that may burn.");
 
 static const u8 sVinePalmStrikeDescription[] = _(
-    "Only usable if all other moves\n"
-    "have been used. Ignores abilities.");
+    "Only usable after all other\n"
+    "moves. Ignores abilities.");
 
 static const u8 sBeatboxDescription[] = _(
-    "Rythmically hits twice powering\n"
-    "up each time. Ignores Ghost-type.");
+    "Rythmically strikes twice\n"
+    "powering up after each hit.");
 
 static const u8 sLegDayDescription[] = _(
     "The user and its allies train\n"
@@ -3790,7 +3790,7 @@ static const u8 sRedEyesDescription[] = _(
 
 static const u8 sJumpNPopDescription[] = _(
     "Quickly jumps on the foe and\n"
-    "explodes. Makes the user faint.");
+    "explodes. User faints after.");
 
 static const u8 sIgnitionDescription[] = _(
     "Maximizes Special Attack\n"
@@ -3809,35 +3809,35 @@ static const u8 sAirCannonDescription[] = _(
     "sends a blast the next turn.");
 
 static const u8 sBanshriekDescription[] = _(
-    "A ghostly wail that may make the\n"
-    "foe panic and/or confused.");
+    "A ghostly wail that may make\n"
+    "the foe panic or confused.");
 
 static const u8 sGreenGuiseDescription[] = _(
     "Applies Blooming. Also boosts\n"
-    "Evasion and critical-hit ratio.");
+    "Eva and critical-hit ratio.");
 
 static const u8 sSandBurialDescription[] = _(
     "The user buries the foe in\n"
     "sand lowering their Attack.");
 
 static const u8 sRagingEarthDescription[] = _(
-    "The unwavering earth rushes into\n"
-    "the foe giving the user Speed.");
+    "The unwavering earth ravages\n"
+    "the foe, giving Speed.");
 
 static const u8 sWilderDanceDescription[] = _(
     "The user dances wildly\n"
     "raising Atk, Def and Speed.");
 
 static const u8 sFrostShredDescription[] = _(
-    "Slashes foe 2 times. Does extra\n"
-    "slashes for each speed raise.");
+    "Slashes foe 2 times, or more\n"
+    "for each speed raise.");
 
 static const u8 sGlacialShiftDescription[] = _(
-    "Does damage then switches out\n"
+    "Damages then switches out\n"
     "the user. Boosted in hail.");
 
 static const u8 sAxelHeelDescription[] = _(
-    "A 2-turn move that raises Attack\n"
+    "A 2-turn move that ups Atk\n"
     "and Speed before attacking.");
 
 static const u8 sSnowfadeDescription[] = _(
@@ -3849,8 +3849,8 @@ static const u8 sBreakLanceDescription[] = _(
     "ignoring resistances.");
 
 static const u8 sGrandSlamDescription[] = _(
-    "A powerful slam but leaves the\n"
-    "user immobile the next turn.");
+    "A powerful slam that leaves\n"
+    "the user immobile.");
 
 static const u8 sBeatDropDescription[] = _(
     "Drops a beat hard and fast.\n"
@@ -3858,27 +3858,27 @@ static const u8 sBeatDropDescription[] = _(
 
 static const u8 sPurificationDescription[] = _(
     "Purifies the foe, making it\n"
-    "Normal type and reseting stats.");
+    "Normal-type and resets stats.");
 
 static const u8 sSurpriseEggDescription[] = _(
-    "An egg-spansive set of random\n"
+    "An egg-spansive set of\n"
     "egg moves can be drawn.");
 
 static const u8 sPoisonDartDescription[] = _(
-    "Fails if the foe didn't attack.\n"
+    "Fails if foe didn't attack.\n"
     "Power doubles if poisoned.");
 
 static const u8 sGravitonArmDescription[] = _(
     "Power is doubled in Gravity.\n"
-    "Otherwise, sets Gravity on hit.");
+    "Otherwise, sets Gravity.");
 
 static const u8 sPsySwapDescription[] = _(
     "Switches the target out.\n"
     "Can't be used consecutively.");
 
 static const u8 sStalagBlastDescription[] = _(
-    "Deals double damage when user\n"
-    "is hit. Loses half of HP.");
+    "Deals double damage when\n"
+    "user is hit. Loses half HP.");
 
 static const u8 sMoonBeamDescription[] = _(
     "Lunar madness horrifies the\n"
@@ -3905,40 +3905,40 @@ static const u8 sSilverEdgeDescription[] = _(
     "High critical-hit ratio.");
 
 static const u8 sHeavySwingDescription[] = _(
-    "The user puts all its power\n"
-    "into a screen-shattering swing.");
+    "Puts all its power into a\n"
+    "screen-shattering swing.");
 
 static const u8 sHighRollHitDescription[] = _(
-    "The user gambles on a die roll,\n"
-    "hitting twice with random power.");
+    "The user gambles on a die,\n"
+    "hits twice with random power.");
 
 static const u8 sSharpshootDescription[] = _(
     "Snipes the target. The user\n"
     "can't move on the next turn.");
 
 static const u8 sRazorBeamDescription[] = _(
-    "A shredding beam that has a high\n"
-    "crit ratio, & can't miss in sand.");
+    "A shredding beam that has a\n"
+    "high critical-hit ratio.");
 
 static const u8 sAquascadeDescription[] = _(
     "A waterfall attack that hits\n"
     "the foe twice in rain.");
 
 static const u8 sTorpedoesDescription[] = _(
-    "Strikes first by firing missiles\n"
-    "at the foe with high speed.");
+    "Strikes first by firing at\n"
+    "the foe with high speed.");
 
 static const u8 sPlunderDescription[] = _(
     "While attackin', it may pilfer\n"
     "treasures 'n stats.");
 
 static const u8 sFuriousSeaDescription[] = _(
-    "The user calls upon the tides,\n"
-    "gaining speed on each use.");
+    "The user calls upon the\n"
+    "tides, giving Speed.");
 
 static const u8 sReservoirDescription[] = _(
-    "Restores HP, cures status, and\n"
-    "next Water move used gains power.");
+    "Restores HP, cures status,\n"
+    "powers up next Water move.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
