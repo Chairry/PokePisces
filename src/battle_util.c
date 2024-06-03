@@ -12041,6 +12041,10 @@ u8 GetBattleMoveSplit(u32 moveId)
         return gBattleStruct->zmove.activeSplit;
     if (gBattleStruct != NULL && gBattleStruct->swapDamageCategory) // Photon Geyser, Shell Side Arm, Light That Burns the Sky
         return SPLIT_PHYSICAL;
+    if (gProtectStructs != NULL && gProtectStructs[gBattlerAttacker].confusionSelfDmg && (gBattleMons[gBattlerAttacker].attack > gBattleMons[gBattlerAttacker].spAttack))
+        return SPLIT_PHYSICAL;
+    if (gProtectStructs != NULL && gProtectStructs[gBattlerAttacker].confusionSelfDmg && (gBattleMons[gBattlerAttacker].attack < gBattleMons[gBattlerAttacker].spAttack))
+        return SPLIT_SPECIAL;
 
 #if B_PHYSICAL_SPECIAL_SPLIT >= GEN_4
     return gBattleMoves[moveId].split;
