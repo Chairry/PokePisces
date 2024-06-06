@@ -22730,16 +22730,123 @@ Move_REDLINE::
 	end
 
 Move_ZAPPER::
-	goto Move_ZAP_CANNON
+	loadspritegfx ANIM_TAG_SPARK_2 @sparks
+	loadspritegfx ANIM_TAG_YELLOW_BALL @ball
+	loadspritegfx ANIM_TAG_THIN_RING @ring
+	loadspritegfx ANIM_TAG_SPARK_H @yellow color
+	loadspritegfx ANIM_TAG_SMALL_EMBER @yellow color
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SPARK_2, 0, 12, 12, RGB(0, 29, 29)
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SPARK_H, 0, 12, 12, RGB(0, 29, 29)
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SMALL_EMBER, 0, 12, 12, RGB(0, 29, 29)
+	monbg ANIM_TARGET
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 3, RGB_BLACK
+	waitforvisualfinish
+	createsprite gZingZapYellowBallTemplate, ANIM_TARGET, 2, 0x0, 0x0, 0xF
+	delay 0xA
+	delay 0x5
+	stopsound
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gZingZapRingTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x1, 0x0, 0x1f, 0x8
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	call ElectricityEffect
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	delay 20
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 3, 0, RGB_BLACK
+	end
 
 Move_PURGE_RAY::
-	goto Move_LUSTER_PURGE
+	loadspritegfx ANIM_TAG_ORBS
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	delay 10
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 5, 0, 5
+	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB_RED, 16, 0, 0
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 20, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(31, 31, 31)
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	call HyperBeamOrbs
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(31, 31, 31)
+	waitforvisualfinish
+	end
+
 
 Move_DIFFUSE_WAVE::
-	goto Move_PSYWAVE
+	loadspritegfx ANIM_TAG_THIN_RING
+	monbg ANIM_TARGET
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	delay 0
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 40, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 4, 0, 40, 1
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	loopsewithpan SE_M_PSYBEAM, SOUND_PAN_TARGET, 20, 3
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	delay 8
+	createsprite gUproarRingSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 0, 0, RGB(0, 29, 29), 12
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	clearmonbg ANIM_TARGET
+	delay 1
+	end
 
 Move_SKY_SPLITTER::
-	goto Move_SKY_UPPERCUT
+	loadspritegfx ANIM_TAG_HAVOC_SPEAR
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_ATTACKER
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -10, 3, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -30, 3, 0x0
+	delay 1
+	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -50, 3, 0x0
+	waitforvisualfinish
+	end
 
 Move_VAPORIZE::
 	goto Move_ZAP_CANNON

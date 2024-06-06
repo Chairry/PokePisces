@@ -18,7 +18,6 @@ Route124_MapScripts::
 	.byte 0
 
 Route124_OnTransition:
-	call_if_eq VAR_TEMP_7, 0
 	call_if_set FLAG_SUNBEACH_TUBER_1, Route124_EventScript_SetTuberTempFlags1
 	call_if_set FLAG_SUNBEACH_TUBER_2, Route124_EventScript_SetTuberTempFlags2
 	call_if_set FLAG_SUNBEACH_TUBER_3, Route124_EventScript_SetTuberTempFlags3

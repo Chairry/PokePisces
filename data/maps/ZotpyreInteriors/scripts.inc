@@ -75,7 +75,7 @@ ZotpyreInteriors_EventScript_Tragedy::
 
 ZotpyreInteriors_EventScript_GiveZorua::
 	msgbox ZotpyreInteriors_Text_Zorua, MSGBOX_DEFAULT
-	givemon SPECIES_ZORUA, 30
+	givemon SPECIES_ZORUA, 28
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, ZotpyreInteriors_EventScript_ReceiveZoruaParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, ZotpyreInteriors_EventScript_ReceiveZoruaPC
 	goto Common_EventScript_NoMoreRoomForPokemon

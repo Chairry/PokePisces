@@ -5469,6 +5469,16 @@ const struct SpriteTemplate gGigavoltHavocChargingSpearSpriteTemplate =
     .affineAnims = gAffineAnims_GrowingElectricOrb,
     .callback = AnimGrowingChargeOrb
 };
+const struct SpriteTemplate gSkySplittingLightSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_HAVOC_SPEAR,
+    .paletteTag = ANIM_TAG_HAVOC_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = TranslateAnimSpriteToTargetMonLocation
+};
 const struct SpriteTemplate gGigavoltHavocLaunchSpearSpriteTemplate =
 {
     .tileTag = ANIM_TAG_HAVOC_SPEAR,
