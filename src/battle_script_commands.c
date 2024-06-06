@@ -9065,6 +9065,13 @@ static u32 CalculateBattlerPartyCount(u32 battler)
     return count;
 }
 
+static bool32 InvalidDanceManiaMove(u32 move)
+{
+    return gBattleMoves[move].effect == EFFECT_PLACEHOLDER
+        || gBattleMoves[move].effect == EFFECT_DANCE_MANIA
+        || (!(gBattleMoves[move].danceMove));
+}    
+
 static void Cmd_various(void)
 {
     CMD_ARGS(u8 battler, u8 id);
@@ -10426,13 +10433,6 @@ static void Cmd_various(void)
     case VARIOUS_TRY_DANCE_MANIA:
     {
         VARIOUS_ARGS();
-
-        static bool32 InvalidDanceManiaMove(u32 move)
-        {
-            return gBattleMoves[move].effect == EFFECT_PLACEHOLDER
-                || gBattleMoves[move].effect == EFFECT_DANCE_MANIA
-                || (!(gBattleMoves[move].danceMove));
-        }        
     
         gSpecialStatuses[gBattlerTarget].instructedChosenTarget = *(gBattleStruct->moveTarget + gBattlerTarget) | 0x4;
         gBattlerAttacker = gBattlerTarget;
@@ -13704,7 +13704,7 @@ static void Cmd_metronome(void)
     CMD_ARGS();
 
 #if B_METRONOME_MOVES >= GEN_9
-    u32 moveCount = MOVES_COUNT_PISCES;
+    u32 moveCount = MOVES_COUNT_GEN9;
 #elif B_METRONOME_MOVES >= GEN_8
     u32 moveCount = MOVES_COUNT_GEN8;
 #elif B_METRONOME_MOVES >= GEN_7
