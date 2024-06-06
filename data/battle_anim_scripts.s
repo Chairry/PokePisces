@@ -994,6 +994,9 @@ gBattleAnims_Moves::
 	.4byte Move_PENALIZE
 	.4byte Move_BLOSSOM_SNAP
 	.4byte Move_GRASS_CANNON
+    .4byte ANIM_MOVE_GOLD_PLAINS
+    .4byte ANIM_MOVE_DOWNFALL
+    .4byte ANIM_MOVE_MT_SPLENDOR
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -22921,6 +22924,11 @@ Move_COMBAT_TORQUE::
 Move_MAGICAL_TORQUE::
 Move_PSYBLADE::
 	end @to do
+
+ANIM_MOVE_GOLD_PLAINS:
+ANIM_MOVE_MT_SPLENDOR:
+ANIM_MOVE_DOWNFALL:
+    goto Move_TACKLE @ TODO
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
 Move_NONE:

@@ -55,8 +55,8 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 #define MAX_SHUNYONG_MOVES  10
 // defense form
 static const u16 sShunyongMoves[MAX_SHUNYONG_MOVES] = {
-    //MOVE_GOLD_PLAINS, // TODO
-    //MOVE_DOWNFALL,    // TODO
+    MOVE_GOLD_PLAINS,
+    MOVE_DOWNFALL,
     MOVE_MAGIC_COAT,
     MOVE_STRANGE_STEAM,
     MOVE_BRICK_BREAK,
@@ -68,13 +68,17 @@ static const u16 sShunyongMoves[MAX_SHUNYONG_MOVES] = {
 
 // offense form
 static const u16 sShunyongGoldenOffenseMoves[MAX_SHUNYONG_MOVES] = {
-    //MOVE_GOLD_PLAINS, // TODO
-    //MOVE_MT_SPLENDOR, // TODO
+    MOVE_GOLD_PLAINS,
+    MOVE_MT_SPLENDOR,
     MOVE_SEARING_SHOT,
     MOVE_VITAL_THROW,
     MOVE_FEAR_FACTOR,
-    //MOVE_DOOM_WING, // TODO
-    //MOVE_NORTH_WIND, // TODO
+#ifdef MOVE_DOOM_WING
+    MOVE_DOOM_WING,
+#endif
+#ifdef MOVE_NORTH_WIND
+    MOVE_NORTH_WIND,
+#endif
     MOVE_DEMOLISHER,
 };
 

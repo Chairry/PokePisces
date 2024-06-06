@@ -558,6 +558,44 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGrassCannon             @ EFFECT_GRASS_CANNON
 	.4byte BattleScript_EffectSpecialDefenseUpHit     @ EFFECT_SPECIAL_DEFENSE_UP_HIT
 	.4byte BattleScript_EffectDefSpDefeUpHit          @ EFFECT_DEF_SP_DEF_UP_HIT
+    .4byte BattleScript_EffectGoldPlains              @ EFFECT_GOLD_PLAINS
+    .4byte BattleScript_EffectDownfall                @ EFFECT_DOWNFALL
+    .4byte BattleScript_EffectMtSplendor              @ EFFECT_MT_SPLENDOR
+    
+BattleScript_EffectGoldPlains::
+    attackcanceler
+	attackstring
+@	ppreduce
+    @ no need to check failure since its only selected when usable
+    attackanimation
+	waitanimation
+    printstring STRINGID_GOLDPLAINS
+    waitmessage B_WAIT_TIME_LONG
+    setbyte gBattlerTarget, 0
+BattleScript_EffectGoldPlains_Loop:
+    jumpifabsent BS_TARGET, BattleScript_EffectGoldPlains_NextBattler
+    dogoldplains BS_TARGET, BattleScript_EffectGoldPlains_UpdateStatus
+    orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectGoldPlains_UpdateStatus:
+    updatestatusicon BS_TARGET
+    waitstate
+BattleScript_EffectGoldPlains_NextBattler:
+    addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_EffectGoldPlains_Loop
+BattleScript_EffectGoldPlains_End:
+    goto BattleScript_MoveEnd
+    
+    
+
+BattleScript_EffectDownfall::
+
+BattleScript_EffectMtSplendor::
+    goto BattleScript_EffectHit
+
 
 BattleScript_EffectDefSpDefeUpHit::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER

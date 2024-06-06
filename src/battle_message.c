@@ -905,9 +905,11 @@ static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nr
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
+static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_GOLDPLAINS - BATTLESTRINGS_TABLE_START] = sText_GoldPlains,
     [STRINGID_TARGETISHURTBYSALTCURE - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtBySaltCure,
     [STRINGID_TARGETISBEINGSALTCURED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCured,
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START] = sText_CurrentMoveCantSelect,

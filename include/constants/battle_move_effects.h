@@ -535,7 +535,10 @@
 #define EFFECT_GRASS_CANNON                 529
 #define EFFECT_SPECIAL_DEFENSE_UP_HIT       530
 #define EFFECT_DEF_SP_DEF_UP_HIT            531
+#define EFFECT_GOLD_PLAINS                  532
+#define EFFECT_DOWNFALL                     533
+#define EFFECT_MT_SPLENDOR                  534
 
-#define NUM_BATTLE_MOVE_EFFECTS             532
+#define NUM_BATTLE_MOVE_EFFECTS             535
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

@@ -16205,6 +16205,17 @@ static void Cmd_snatchsetbattlers(void)
 }
 
 // Brick Break
+
+static inline void ClearScreens(u32 side)
+{
+    gSideStatuses[side] &= ~SIDE_STATUS_REFLECT;
+    gSideStatuses[side] &= ~SIDE_STATUS_LIGHTSCREEN;
+    gSideStatuses[side] &= ~SIDE_STATUS_AURORA_VEIL;
+    gSideTimers[side].reflectTimer = 0;
+    gSideTimers[side].lightscreenTimer = 0;
+    gSideTimers[side].auroraVeilTimer = 0;
+}
+
 static void Cmd_removelightscreenreflect(void)
 {
     CMD_ARGS();
@@ -16230,12 +16241,7 @@ static void Cmd_removelightscreenreflect(void)
       || gSideTimers[side].lightscreenTimer
       || gSideTimers[side].auroraVeilTimer))
     {
-        gSideStatuses[side] &= ~SIDE_STATUS_REFLECT;
-        gSideStatuses[side] &= ~SIDE_STATUS_LIGHTSCREEN;
-        gSideStatuses[side] &= ~SIDE_STATUS_AURORA_VEIL;
-        gSideTimers[side].reflectTimer = 0;
-        gSideTimers[side].lightscreenTimer = 0;
-        gSideTimers[side].auroraVeilTimer = 0;
+        ClearScreens(side);
         gBattleScripting.animTurn = 1;
         gBattleScripting.animTargetsHit = 1;
     }
@@ -17229,6 +17235,33 @@ static void Cmd_callnative(void)
 }
 
 // Callnative Funcs
+void BS_DoGoldPlains(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *noHealInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+    
+    // clear screens
+    ClearScreens(GetBattlerSide(battler));
+    // reset primary status
+    gBattleMons[battler].status1 = 0;
+    // reset stat stages
+    TryResetBattlerStatChanges(battler);
+    if (gBattleMons[battler].hp == gBattleMons[battler].maxHP)
+    {
+        gBattlescriptCurrInstr = cmd->noHealInstr;
+    }
+    else
+    {
+        if (gBattleMons[battler].maxHP - gBattleMons[battler].hp < 100)
+            gBattleMoveDamage = gBattleMons[battler].maxHP - gBattleMons[battler].hp;
+        else
+            gBattleMoveDamage = 100;
+        gBattleMoveDamage *= -1;
+        
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
 void BS_SetTicked(void)
 {
     NATIVE_ARGS();

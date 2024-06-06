@@ -1309,6 +1309,12 @@
 	.endm
 
 @ callnative macros
+
+    .macro dogoldplains battler:req, hpfailptr:req
+    callnative BS_DoGoldPlains
+    .byte \battler
+    .4byte \hpfailptr
+    .endm
     
     .macro setticked
     callnative BS_SetTicked
