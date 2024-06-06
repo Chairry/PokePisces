@@ -16221,6 +16221,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_NONE,
+        .snatchAffected = TRUE,
     },
 
     [MOVE_EVAPORATE] =
