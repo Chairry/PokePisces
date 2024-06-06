@@ -572,7 +572,7 @@ BattleScript_EffectDanceMania:
 	trydancemania
 	attackanimation
 	waitanimation
-	printstring STRINGID_USEDINSTRUCTEDMOVE
+	printstring STRINGID_STARTEDADANCEMANIA
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
