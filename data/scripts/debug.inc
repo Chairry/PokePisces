@@ -70,14 +70,6 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_Script_1::
-	@trainerbattle_double TRAINER_JOHN_AND_JAY_1, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat, AbandonedShip_Corridors_1F_Text_CharlieDefeat
-	@cleartrainerflag TRAINER_JOHN_AND_JAY_1 
-	
-    givemon SPECIES_SALAMENCE, 50, 0
-    givemon SPECIES_METAGROSS, 50, 0
-    
-    doshunyongbattle
-    
     end
 
 Debug_Script_2::
