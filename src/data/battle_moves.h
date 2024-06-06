@@ -16196,7 +16196,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BEATBOX] =
     {
         .power = 25,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_BEATBOX,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
@@ -16212,7 +16212,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_LEG_DAY] =
     {
         .power = 0,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SPEED_UP_USER_ALLY,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
         .pp = 20,
@@ -16226,7 +16226,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_EVAPORATE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_HIT,
         .power = 70,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -16268,7 +16268,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_IGNITION] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_IGNITION,
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 0,
