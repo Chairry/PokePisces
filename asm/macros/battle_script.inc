@@ -1876,6 +1876,10 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trydancemania
+	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm
@@ -1934,8 +1938,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro boundarydamagecalculation
-	various BS_ATTACKER, VARIOUS_BOUNDARY_OF_DEATH
+	.macro boundarydamagecalculation battler:req
+	various \battler, VARIOUS_BOUNDARY_OF_DEATH
 	.endm
 
 	.macro jumpifnoally battler:req, jumpInstr:req

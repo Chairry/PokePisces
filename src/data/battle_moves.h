@@ -16146,7 +16146,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_DANCE_MANIA] =
     {
         .power = 0,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_DANCE_MANIA,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,
