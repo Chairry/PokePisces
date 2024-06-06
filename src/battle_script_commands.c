@@ -9300,7 +9300,7 @@ static void Cmd_various(void)
     case VARIOUS_BOUNDARY_OF_DEATH:
     {
         VARIOUS_ARGS();
-        u32 boundary = Random() % 100;
+        u32 boundary = Random() % 4;
         for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
         {
             if (gBattlerTarget == gBattlerAttacker)
@@ -9309,25 +9309,26 @@ static void Cmd_various(void)
                 break;
         }
 
-        if (boundary < 25)
+        if (boundary < 1)
         {
             gBattleStruct->boundaryBasePower = 30;
-            gBattlescriptCurrInstr = cmd->nextInstr;
         }
-        else if (boundary < 50)
+        else if (boundary < 2)
         {
             gBattleStruct->boundaryBasePower = 60;
-            gBattlescriptCurrInstr = cmd->nextInstr;
         }
-        else if (boundary < 75)
+        else if (boundary < 3)
         {
-            gBattleStruct->boundaryBasePower = 90;
-            gBattlescriptCurrInstr = cmd->nextInstr;   
+            gBattleStruct->boundaryBasePower = 4;
         }
         else
         {
             gBattlescriptCurrInstr = BattleScript_BigBoundary;
         }
+ 
+        gBattlescriptCurrInstr = cmd->nextInstr;
+
+        return;
     }
     case VARIOUS_GET_STAT_VALUE:
     {

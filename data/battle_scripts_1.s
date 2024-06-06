@@ -562,15 +562,14 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_PLASMA_CUTTER
 	.4byte BattleScript_EffectBoundary                @ EFFECT_BOUNDARY
 
-BattleScript_EffectBoundary::
+BattleScript_EffectBoundary:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
 	attackcanceler
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
-    boundarydamagecalculation
+    boundarydamagecalculation BS_ATTACKER
     goto BattleScript_HitFromCritCalc
-
 BattleScript_BigBoundary::
 	typecalc
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
