@@ -11271,7 +11271,9 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_SOLAR_FLARE && defType == TYPE_DARK)
         mod = UQ_4_12(2.0);
-    if (gCurrentMove == MOVE_HEAT_SINK && defType == TYPE_WATER)
+    if (gCurrentMove == MOVE_HEAT_SINK && defType == TYPE_FIRE)
+        mod = UQ_4_12(2.0);
+    if (gCurrentMove == MOVE_EVAPORATE && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_EXORCISM && defType == TYPE_GHOST)
         mod = UQ_4_12(2.0);

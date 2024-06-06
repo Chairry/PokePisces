@@ -564,6 +564,63 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectKnockOff                @ EFFECT_PARTY_TRICK
 	.4byte BattleScript_EffectDanceMania              @ EFFECT_DANCE_MANIA
 	.4byte BattleScript_EffectHit                     @ EFFECT_BEATBOX
+	.4byte BattleScript_EffectSpeedUpUserAlly         @ EFFECT_SPEED_UP_USER_ALLY
+	.4byte BattleScript_EffectIgnition                @ EFFECT_IGNITION
+
+BattleScript_EffectIgnition::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_ButItFailed
+	halvehp BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPATK, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_MoveEnd
+	printstring STRINGID_PKMNCUTHPMAXEDSPATK
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSpeedUpUserAlly:
+	jumpifnoally BS_ATTACKER, BattleScript_EffectSpeedUp2
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_NOT_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_EffectSpeedUpUserAlly_Works
+	jumpifstat BS_ATTACKER_PARTNER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_ButItFailed
+BattleScript_EffectSpeedUpUserAlly_Works:
+	attackanimation
+	waitanimation
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectSpeedUpUserAlly_TryAlly
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectSpeedUpUserAllyUser_PrintString
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_EffectSpeedUpUserAllyUser_PrintString:
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectSpeedUpUserAlly_TryAlly:
+	setallytonexttarget BattleScript_EffectSpeedUpUserAlly_TryAlly_
+BattleScript_EffectSpeedUpUserAlly_End:
+	goto BattleScript_MoveEnd
+BattleScript_EffectSpeedUpUserAlly_TryAlly_:
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectSpeedUpUserAlly_End
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectSpeedUpUserAlly_AllyAnim
+	pause B_WAIT_TIME_SHORTEST
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectSpeedUpUserAlly_End
+BattleScript_EffectSpeedUpUserAlly_AllyAnim:
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectSpeedUpUserAlly_End
 
 BattleScript_EffectDanceMania:
 	attackcanceler
