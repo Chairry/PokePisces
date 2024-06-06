@@ -16107,7 +16107,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PARTY_TRICK] =
     {
         .power = 70,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_PARTY_TRICK,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,

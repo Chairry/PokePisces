@@ -561,6 +561,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_SAVAGE_WING
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_PLASMA_CUTTER
 	.4byte BattleScript_EffectBoundary                @ EFFECT_BOUNDARY
+	.4byte BattleScript_EffectKnockOff                @ EFFECT_PARTY_TRICK
 
 BattleScript_EffectBoundary:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
