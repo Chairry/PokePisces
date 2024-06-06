@@ -14143,6 +14143,9 @@ static void Cmd_tryspiteppreduce(void)
         #else
             s32 ppToDeduct = 4;
         #endif
+        
+            if (gBattleMoves[gCurrentMove].effect == EFFECT_DOWNFALL)
+                ppToDeduct = 2;
 
             if (gBattleMons[gBattlerTarget].pp[i] < ppToDeduct)
                 ppToDeduct = gBattleMons[gBattlerTarget].pp[i];

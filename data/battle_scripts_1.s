@@ -562,7 +562,7 @@ gBattleScriptsForMoveEffects::
     .4byte BattleScript_EffectDownfall                @ EFFECT_DOWNFALL
     .4byte BattleScript_EffectMtSplendor              @ EFFECT_MT_SPLENDOR
     
-BattleScript_EffectGoldPlains::
+BattleScript_EffectGoldPlains:
     attackcanceler
 	attackstring
 @	ppreduce
@@ -588,13 +588,68 @@ BattleScript_EffectGoldPlains_NextBattler:
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_EffectGoldPlains_Loop
 BattleScript_EffectGoldPlains_End:
     goto BattleScript_MoveEnd
-    
+
+
+BattleScript_EffectDownfall:
+    attackcanceler
+    jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+    attackstring
+@   ppreduce
+    critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DownfallTrySpite:
+    tryspiteppreduce BattleScript_DownfallTryPanic
+BattleScript_DownfallTryPanic:
+    jumpifstatus BS_TARGET, STATUS1_PANIC, BattleScript_DownfallTryLowerStats
+    setmoveeffect MOVE_EFFECT_PANIC
+	seteffectprimary
+BattleScript_DownfallTryLowerStats:
+    setmoveeffect MOVE_EFFECT_ALL_STATS_DOWN
+    seteffectwithchance
+	tryfaintmon BS_TARGET
+    goto BattleScript_MoveEnd
     
 
-BattleScript_EffectDownfall::
-
-BattleScript_EffectMtSplendor::
-    goto BattleScript_EffectHit
+BattleScript_EffectMtSplendor:
+    attackcanceler
+    jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+    attackstring
+@   ppreduce
+    critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectMtSplendor_TryRaiseStats:
+    jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMtSplendor_End
+    setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
+    seteffectwithchance
+BattleScript_EffectMtSplendor_End:
+    tryfaintmon BS_TARGET
+    goto BattleScript_MoveEnd
 
 
 BattleScript_EffectDefSpDefeUpHit::
