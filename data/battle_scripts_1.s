@@ -586,7 +586,9 @@ BattleScript_EffectIgnition::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpeedUpUserAlly:
+	jumpifspecieshasnolegs BS_ATTACKER, BattleScript_ButItFailed
 	jumpifnoally BS_ATTACKER, BattleScript_EffectSpeedUp2
+	jumpifallyhasnolegs BS_ATTACKER, BattleScript_EffectSpeedUp2
 	attackcanceler
 	attackstring
 	ppreduce
@@ -630,7 +632,7 @@ BattleScript_EffectDanceMania:
 	trydancemania
 	attackanimation
 	waitanimation
-	printstring STRINGID_USEDINSTRUCTEDMOVE
+	printstring STRINGID_STARTEDADANCEMANIA
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
@@ -7315,12 +7317,7 @@ BattleScript_PartyHealEnd::
 BattleScript_EffectTripleKick::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	jumpifmove MOVE_TRIPLE_AXEL BS_TripleAxel
-	addbyte sTRIPLE_KICK_POWER, 20 @ triple axel gets +20 power
-	goto BattleScript_HitFromAtkString
-
-BS_TripleAxel:
-	addbyte sTRIPLE_KICK_POWER, 20 @ triple axel gets +20 power
+	addbyte sTRIPLE_KICK_POWER, 20 @ triple kick/axel gets +20 power
 	goto BattleScript_HitFromAtkString
 
 BattleScript_EffectThief::
