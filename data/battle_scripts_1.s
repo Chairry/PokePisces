@@ -562,6 +562,21 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_PLASMA_CUTTER
 	.4byte BattleScript_EffectBoundary                @ EFFECT_BOUNDARY
 	.4byte BattleScript_EffectKnockOff                @ EFFECT_PARTY_TRICK
+	.4byte BattleScript_EffectDanceMania              @ EFFECT_DANCE_MANIA
+
+BattleScript_EffectDanceMania:
+	attackcanceler
+	attackstring
+	ppreduce
+	pause 5
+	trydancemania
+	attackanimation
+	waitanimation
+	printstring STRINGID_USEDINSTRUCTEDMOVE
+	waitmessage B_WAIT_TIME_LONG
+	setbyte sB_ANIM_TURN, 0
+	setbyte sB_ANIM_TARGETS_HIT, 0
+	jumptocalledmove TRUE
 
 BattleScript_EffectBoundary:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget

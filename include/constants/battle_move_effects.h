@@ -539,7 +539,8 @@
 #define EFFECT_PLASMA_CUTTER                533
 #define EFFECT_BOUNDARY                     534
 #define EFFECT_PARTY_TRICK                  535
+#define EFFECT_DANCE_MANIA                  536
 
-#define NUM_BATTLE_MOVE_EFFECTS             536
+#define NUM_BATTLE_MOVE_EFFECTS             537
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

@@ -1876,6 +1876,10 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trydancemania
+	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm

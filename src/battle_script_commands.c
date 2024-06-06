@@ -10423,6 +10423,39 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_TRY_DANCE_MANIA:
+    {
+        VARIOUS_ARGS();
+
+        static bool32 InvalidDanceManiaMove(u32 move)
+        {
+            return gBattleMoves[move].effect == EFFECT_PLACEHOLDER
+                || gBattleMoves[move].effect == EFFECT_DANCE_MANIA
+                || (!(gBattleMoves[move].danceMove));
+        }        
+    
+        gSpecialStatuses[gBattlerTarget].instructedChosenTarget = *(gBattleStruct->moveTarget + gBattlerTarget) | 0x4;
+        gBattlerAttacker = gBattlerTarget;
+        gCalledMove = RandomUniformExcept(RNG_METRONOME, 1, MOVES_COUNT_PISCES - 1, InvalidDanceManiaMove);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[gBattlerAttacker].moves[i] == gCalledMove)
+            {
+                gCurrMovePos = i;
+                i = 4;
+                break;
+            }
+        }
+
+        {
+            gBattlerTarget = SetRandomTarget(gBattlerAttacker);
+            gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+            PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        
+        return;
+    }
     case VARIOUS_ABILITY_POPUP:
     {
         VARIOUS_ARGS();
@@ -13671,7 +13704,7 @@ static void Cmd_metronome(void)
     CMD_ARGS();
 
 #if B_METRONOME_MOVES >= GEN_9
-    u32 moveCount = MOVES_COUNT_GEN9;
+    u32 moveCount = MOVES_COUNT_PISCES;
 #elif B_METRONOME_MOVES >= GEN_8
     u32 moveCount = MOVES_COUNT_GEN8;
 #elif B_METRONOME_MOVES >= GEN_7
