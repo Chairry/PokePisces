@@ -2103,6 +2103,16 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifspecieshasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifallyhasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS
+	.4byte \jumpInstr
+	.endm
+
 	.macro tryendneutralizinggas battler:req
 	various \battler, VARIOUS_TRY_END_NEUTRALIZING_GAS
 	.endm

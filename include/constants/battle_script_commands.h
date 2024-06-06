@@ -269,6 +269,8 @@
 #define VARIOUS_JUMP_IF_STATUS4                      176
 #define VARIOUS_BOUNDARY_OF_DEATH                    177
 #define VARIOUS_TRY_DANCE_MANIA                      178
+#define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          179
+#define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             180
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
