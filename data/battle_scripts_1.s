@@ -563,6 +563,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBoundary                @ EFFECT_BOUNDARY
 	.4byte BattleScript_EffectKnockOff                @ EFFECT_PARTY_TRICK
 	.4byte BattleScript_EffectDanceMania              @ EFFECT_DANCE_MANIA
+	.4byte BattleScript_EffectHit                     @ EFFECT_BEATBOX
 
 BattleScript_EffectDanceMania:
 	attackcanceler

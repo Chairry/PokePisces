@@ -16196,7 +16196,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BEATBOX] =
     {
         .power = 25,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_BEATBOX,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,

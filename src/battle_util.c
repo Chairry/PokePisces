@@ -9612,6 +9612,15 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
                 basePower = 200;
         }
         break;
+    case EFFECT_BEATBOX:
+        // gBattleStruct->sameMoveTurns incremented in ppreduce
+        if (gBattleStruct->sameMoveTurns[battlerAtk] != 0)
+        {
+            basePower += (basePower * gBattleStruct->sameMoveTurns[battlerAtk]);
+            if (basePower > 100)
+                basePower = 100;
+        }
+        break;
     case EFFECT_PAYBACK:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef)
 #if B_PAYBACK_SWITCH_BOOST >= GEN_5
@@ -11257,6 +11266,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_PLASMA_CUTTER && defType == TYPE_GROUND)
+        mod = UQ_4_12(1.0);
+    if (gBattleMoves[move].effect == EFFECT_BEATBOX && defType == TYPE_GHOST)
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_SOLAR_FLARE && defType == TYPE_DARK)
         mod = UQ_4_12(2.0);
