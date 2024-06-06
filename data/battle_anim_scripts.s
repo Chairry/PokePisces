@@ -994,6 +994,56 @@ gBattleAnims_Moves::
 	.4byte Move_PENALIZE
 	.4byte Move_BLOSSOM_SNAP
 	.4byte Move_GRASS_CANNON
+	.4byte Move_BOUNDARY
+    .4byte Move_SAVAGE_WING
+    .4byte Move_PLASMA_CUTTER
+    .4byte Move_PARTY_TRICK
+    .4byte Move_MYTH_BUSTER
+    .4byte Move_DANCE_MANIA
+    .4byte Move_HOT_STEP
+    .4byte Move_VINE_PALM_STRIKE
+    .4byte Move_BEATBOX
+    .4byte Move_LEG_DAY
+    .4byte Move_EVAPORATE
+    .4byte Move_RED_EYES
+    .4byte Move_JUMP_N_POP
+    .4byte Move_IGNITION
+    .4byte Move_SHARP_GLIDE
+    .4byte Move_CRASH_LAND
+    .4byte Move_AIR_CANNON
+    .4byte Move_BANSHRIEK
+    .4byte Move_GREEN_GUISE
+    .4byte Move_SAND_BURIAL
+    .4byte Move_RAGING_EARTH
+    .4byte Move_WILDER_DANCE
+    .4byte Move_FROST_SHRED
+    .4byte Move_GLACIAL_SHIFT
+    .4byte Move_AXEL_HEEL
+    .4byte Move_SNOWFADE
+    .4byte Move_BREAK_LANCE
+    .4byte Move_GRAND_SLAM
+    .4byte Move_BEAT_DROP
+    .4byte Move_PURIFICATION
+    .4byte Move_SURPRISE_EGG
+    .4byte Move_POISON_DART
+    .4byte Move_GRAVITON_ARM
+    .4byte Move_PSY_SWAP
+    .4byte Move_STALAG_BLAST
+    .4byte Move_MOON_BEAM
+    .4byte Move_HUNKER_DOWN
+    .4byte Move_SHIELDS_UP
+    .4byte Move_HAYWIRE
+    .4byte Move_OVERTAKE
+    .4byte Move_SILVER_EDGE
+    .4byte Move_HEAVY_SWING
+    .4byte Move_HIGH_ROLL_HIT
+    .4byte Move_SHARPSHOOT
+    .4byte Move_RAZOR_BEAM
+    .4byte Move_AQUASCADE
+    .4byte Move_TORPEDOES
+    .4byte Move_PLUNDER
+    .4byte Move_FURIOUS_SEA
+    .4byte Move_RESERVOIR
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -22978,6 +23028,157 @@ General_BlossomSnapSetUp:
 
 Move_GRASS_CANNON::
 	goto Move_FLEUR_CANNON
+
+
+Move_BOUNDARY::
+	goto Move_NIGHT_SLASH
+
+Move_SAVAGE_WING::
+	goto Move_WING_ATTACK
+
+Move_PLASMA_CUTTER::
+	goto Move_AIR_CUTTER
+
+Move_PARTY_TRICK::
+	goto Move_TRICK
+
+Move_MYTH_BUSTER::
+	goto Move_HIGH_JUMP_KICK
+
+Move_DANCE_MANIA::
+	goto Move_VICTORY_DANCE
+
+Move_HOT_STEP::
+	goto Move_AQUA_STEP
+
+Move_VINE_PALM_STRIKE::
+	goto Move_LAST_RESORT
+
+Move_BEATBOX::
+	goto Move_ECHOED_VOICE
+
+Move_LEG_DAY::
+	goto Move_COACHING
+
+Move_EVAPORATE::
+	goto Move_FLAMETHROWER
+
+Move_RED_EYES::
+	goto Move_EXPLOSION
+
+Move_JUMP_N_POP::
+	goto Move_EXPLOSION
+
+Move_IGNITION::
+	goto Move_BELLY_DRUM
+
+Move_SHARP_GLIDE::
+	goto Move_GRASSY_GLIDE
+
+Move_CRASH_LAND::
+	goto Move_HEAT_CRASH
+
+Move_AIR_CANNON::
+	goto Move_FLASH_CANNON
+
+Move_BANSHRIEK::
+	goto Move_FINAL_SHRIEK
+
+Move_GREEN_GUISE::
+	goto Move_ACID_ARMOR
+
+Move_SAND_BURIAL::
+	goto Move_SAND_TOMB
+
+Move_RAGING_EARTH::
+	goto Move_EARTHQUAKE
+
+Move_WILDER_DANCE::
+	goto Move_QUIVER_DANCE
+
+Move_FROST_SHRED::
+	goto Move_AQUA_CUTTER
+
+Move_GLACIAL_SHIFT::
+	goto Move_U_TURN
+
+Move_AXEL_HEEL::
+	goto Move_TRIPLE_AXEL
+
+Move_SNOWFADE::
+	goto Move_POWDER_SNOW
+
+Move_BREAK_LANCE::
+	goto Move_HORN_ATTACK
+
+Move_GRAND_SLAM::
+	goto Move_BODY_SLAM
+
+Move_BEAT_DROP::
+	goto Move_DRUM_BEATING
+
+Move_PURIFICATION::
+	goto Move_PURIFY
+
+Move_SURPRISE_EGG::
+	goto Move_EGG_BOMB
+
+Move_POISON_DART::
+	goto Move_POISON_STING
+
+Move_GRAVITON_ARM::
+	goto Move_GRAVITY
+
+Move_PSY_SWAP::
+	goto Move_SKILL_SWAP
+
+Move_STALAG_BLAST::
+	goto Move_ROCK_BLAST
+
+Move_MOON_BEAM::
+	goto Move_MOONGEIST_BEAM
+
+Move_HUNKER_DOWN::
+	goto Move_HARDEN
+
+Move_SHIELDS_UP::
+	goto Move_KINGS_SHIELD
+
+Move_HAYWIRE::
+	goto Move_WRAP
+
+Move_OVERTAKE::
+	goto Move_OVERHEAT
+
+Move_SILVER_EDGE::
+	goto Move_CUT
+
+Move_HEAVY_SWING::
+	goto Move_CUT
+
+Move_HIGH_ROLL_HIT::
+	goto Move_DRAGON_POKER
+
+Move_SHARPSHOOT::
+	goto Move_SHELL_SIDE_ARM
+
+Move_RAZOR_BEAM::
+	goto Move_PRISMATIC_LASER
+
+Move_AQUASCADE::
+	goto Move_WATERFALL
+
+Move_TORPEDOES::
+	goto Move_DRAGON_DARTS
+
+Move_PLUNDER::
+	goto Move_THIEF
+
+Move_FURIOUS_SEA::
+	goto Move_SURF
+
+Move_RESERVOIR::
+	goto Move_LIFE_DEW
 
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN
