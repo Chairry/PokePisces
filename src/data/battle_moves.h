@@ -16061,7 +16061,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BOUNDARY] =
     {
         .power = 1,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_BOUNDARY,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 4,
@@ -16076,7 +16076,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SAVAGE_WING] =
     {
         .power = 100,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SAVAGE_WING,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 10,
@@ -16091,11 +16091,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PLASMA_CUTTER] =
     {
         .power = 60,
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_PLASMA_CUTTER,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,

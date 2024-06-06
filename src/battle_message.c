@@ -904,6 +904,7 @@ static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH
 static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ndeadly hit!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1659,6 +1660,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
     [STRINGID_FLORESCENCESTATUSNORMAL - BATTLESTRINGS_TABLE_START] = sText_FlorescenceStatusNormal,
     [STRINGID_PKMNSXINFATUATEDY2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsXInfatuatedY2,
+    [STRINGID_BIGBOUNDARY - BATTLESTRINGS_TABLE_START] = sText_BigBoundary,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

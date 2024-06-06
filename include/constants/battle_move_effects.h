@@ -535,7 +535,10 @@
 #define EFFECT_GRASS_CANNON                 529
 #define EFFECT_SPECIAL_DEFENSE_UP_HIT       530
 #define EFFECT_DEF_SP_DEF_UP_HIT            531
+#define EFFECT_SAVAGE_WING                  532
+#define EFFECT_PLASMA_CUTTER                533
+#define EFFECT_BOUNDARY                     534
 
-#define NUM_BATTLE_MOVE_EFFECTS             532
+#define NUM_BATTLE_MOVE_EFFECTS             535
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

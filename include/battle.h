@@ -640,6 +640,7 @@ struct BattleStruct
     u8 magnitudeBasePower;
     u8 dragonpokerBasePower;
     u8 ficklebeamBasePower;
+    u8 boundaryBasePower;
     u8 presentBasePower;
     u8 roostTypes[MAX_BATTLERS_COUNT][2];
     u8 savedBattlerTarget;

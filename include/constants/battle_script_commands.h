@@ -266,7 +266,8 @@
 #define VARIOUS_TRY_HEAL_ALL_HEALTH                  173
 #define VARIOUS_REMODEL_CHECK                        174
 #define VARIOUS_SET_BLOSSOM_SNAP                     175
-#define VARIOUS_JUMP_IF_STATUS4                     176
+#define VARIOUS_JUMP_IF_STATUS4                      176
+#define VARIOUS_BOUNDARY_OF_DEATH                    177
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

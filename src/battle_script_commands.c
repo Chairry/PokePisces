@@ -9297,6 +9297,38 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_BOUNDARY_OF_DEATH:
+    {
+        VARIOUS_ARGS();
+        u32 boundary = Random() % 100;
+        for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+        {
+            if (gBattlerTarget == gBattlerAttacker)
+                continue;
+            if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // A valid target was found.
+                break;
+        }
+
+        if (boundary < 25)
+        {
+            gBattleStruct->boundaryBasePower = 30;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else if (boundary < 50)
+        {
+            gBattleStruct->boundaryBasePower = 60;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else if (boundary < 75)
+        {
+            gBattleStruct->boundaryBasePower = 90;
+            gBattlescriptCurrInstr = cmd->nextInstr;   
+        }
+        else
+        {
+            gBattlescriptCurrInstr = BattleScript_BigBoundary;
+        }
+    }
     case VARIOUS_GET_STAT_VALUE:
     {
         VARIOUS_ARGS(u8 stat);
