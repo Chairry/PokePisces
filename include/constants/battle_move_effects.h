@@ -538,7 +538,8 @@
 #define EFFECT_SAVAGE_WING                  532
 #define EFFECT_PLASMA_CUTTER                533
 #define EFFECT_BOUNDARY                     534
+#define EFFECT_PARTY_TRICK                  535
 
-#define NUM_BATTLE_MOVE_EFFECTS             535
+#define NUM_BATTLE_MOVE_EFFECTS             536
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
