@@ -566,6 +566,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_BEATBOX
 	.4byte BattleScript_EffectSpeedUpUserAlly         @ EFFECT_SPEED_UP_USER_ALLY
 	.4byte BattleScript_EffectIgnition                @ EFFECT_IGNITION
+	.4byte BattleScript_EffectFairyWind               @ EFFECT_FAIRY_WIND
+
+BattleScript_EffectFairyWind::
+	setmoveeffect MOVE_EFFECT_FAIRY_WIND
+	goto BattleScript_EffectHit
 
 BattleScript_EffectIgnition::
 	attackcanceler

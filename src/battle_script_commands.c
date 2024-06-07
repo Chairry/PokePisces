@@ -3751,6 +3751,10 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gBattleMons[gBattlerTarget].status2 |= STATUS2_NIGHTMARE;
                 gBattlescriptCurrInstr++;
                 break;
+            case MOVE_EFFECT_FAIRY_WIND:
+                gStatuses3[gBattlerTarget] |= STATUS3_MINIMIZED;
+                gBattlescriptCurrInstr++;
+                break;
             case MOVE_EFFECT_ALL_STATS_UP:
                 if (!NoAliveMonsForEitherParty())
                 {
