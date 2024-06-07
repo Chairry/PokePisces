@@ -11319,6 +11319,7 @@ static void Cmd_various(void)
         || gBattleMons[battler].species == SPECIES_ORROWHELM
         || gBattleMons[battler].species == SPECIES_SHAYON
         || gBattleMons[battler].species == SPECIES_LUOSHAN
+        //|| gBattleMons[battler].species == SPECIES_SHISHIMA_PUNISHER_ALTERNATE
         || gBattleMons[battler].species == SPECIES_PEBLRANIUM)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
@@ -11449,6 +11450,7 @@ static void Cmd_various(void)
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_ORROWHELM
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHAYON
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LUOSHAN
+        //|| gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHISHIMA_PUNISHER_ALTERNATE
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PEBLRANIUM)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
