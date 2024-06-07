@@ -542,8 +542,9 @@
 #define EFFECT_DANCE_MANIA                  536
 #define EFFECT_BEATBOX                      537
 #define EFFECT_SPEED_UP_USER_ALLY           538
-#define EFFECT_IGNITION                   539
+#define EFFECT_IGNITION                     539
+#define EFFECT_FAIRY_WIND                   540
 
-#define NUM_BATTLE_MOVE_EFFECTS             540
+#define NUM_BATTLE_MOVE_EFFECTS             541
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
