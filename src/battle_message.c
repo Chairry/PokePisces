@@ -229,7 +229,6 @@ static const u8 sText_PkmnBracedItself[] = _("{B_ATK_NAME_WITH_PREFIX} braced\ni
 static const u8 sText_PkmnEnduredHit[] = _("{B_DEF_NAME_WITH_PREFIX} ENDURED\nthe hit!");
 static const u8 sText_MagnitudeStrength[] = _("{B_CURRENT_MOVE} {B_BUFF1}!");
 static const u8 sText_PkmnCutHPMaxedAttack[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized ATTACK!");
-static const u8 sText_PkmnCutHPMaxedSpatk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
 static const u8 sText_PkmnCopiedStatChanges[] = _("{B_ATK_NAME_WITH_PREFIX} copied\n{B_DEF_NAME_WITH_PREFIX}'s stat changes!");
 static const u8 sText_PkmnGotFree[] = _("{B_ATK_NAME_WITH_PREFIX} got free of\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}!");
 static const u8 sText_PkmnShedLeechSeed[] = _("{B_ATK_NAME_WITH_PREFIX} shed\nLEECH SEED!");
@@ -906,6 +905,8 @@ static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nr
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ndeadly hit!");
+static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made everyone\ndance wildly!");
+static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1662,7 +1663,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_FLORESCENCESTATUSNORMAL - BATTLESTRINGS_TABLE_START] = sText_FlorescenceStatusNormal,
     [STRINGID_PKMNSXINFATUATEDY2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsXInfatuatedY2,
     [STRINGID_BIGBOUNDARY - BATTLESTRINGS_TABLE_START] = sText_BigBoundary,
-    [STRINGID_PKMNCUTHPMAXEDSPATK - BATTLESTRINGS_TABLE_START] = sText_PkmnCutHPMaxedSpatk,
+    [STRINGID_STARTEDADANCEMANIA - BATTLESTRINGS_TABLE_START] = sText_StartedADanceMania,
+    [STRINGID_PKMNCUTHPMAXEDSPATK - BATTLESTRINGS_TABLE_START] = sText_PkmnCutHPMaxedSpAtk,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
