@@ -131,7 +131,7 @@
 #define VARIOUS_SET_SIMPLE_BEAM                      39
 #define VARIOUS_TRY_ENTRAINMENT                      40
 #define VARIOUS_SET_LAST_USED_ABILITY                41
-#define VARIOUS_TRY_HEAL_PULSE                       42
+#define VARIOUS_TRY_HEAL_PULSE                       42 //Unused
 #define VARIOUS_TRY_QUASH                            43
 #define VARIOUS_INVERT_STAT_STAGES                   44
 #define VARIOUS_TRY_ME_FIRST                         45
