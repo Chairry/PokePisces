@@ -8552,6 +8552,24 @@ extern const u32 gMonPalette_CastformSandy[];
 extern const u32 gMonBackPic_CastformSandy[];
 extern const u32 gMonShinyPalette_CastformSandy[];
 extern const u8 gMonIcon_CastformSandy[];
+extern const u32 gMonFrontPic_Yolkween[];
+extern const u32 gMonPalette_Yolkween[];
+extern const u32 gMonFrontPic_ShishimaPunisherAlt[];
+extern const u32 gMonPalette_ShishimaPunisherAlt[];
+extern const u32 gMonBackPic_ShishimaPunisherAlt[];
+extern const u32 gMonShinyPalette_ShishimaPunisherAlt[];
+extern const u8 gMonIcon_ShishimaPunisherAlt[];
+extern const u32 gMonFrontPic_Lyolica[];
+extern const u32 gMonPalette_Lyolica[];
+extern const u32 gMonBackPic_Lyolica[];
+extern const u32 gMonShinyPalette_Lyolica[];
+extern const u8 gMonIcon_Lyolica[];
+extern const u32 gMonFrontPic_Pottricia[];
+extern const u32 gMonPalette_Pottricia[];
+extern const u32 gMonFrontPic_PottriciaShattered[];
+extern const u32 gMonPalette_PottriciaShattered[];
+extern const u32 gMonFrontPic_Wally[];
+extern const u32 gMonPalette_Wally[];
 #endif
 
 // trainer sprites

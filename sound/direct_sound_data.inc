@@ -4862,6 +4862,18 @@ Cry_Peblranium::
 	.align 2
 Cry_Vaiking::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Yolkween::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Lyolica::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+
+	.align 2
+Cry_Wally::
+	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 .endif
 
 	.align 2

@@ -23497,6 +23497,27 @@ static const struct LevelUpMove sVaikingLevelUpLearnset[] = {
     LEVEL_UP_MOVE(64, MOVE_OVERHEAT),
     LEVEL_UP_END
 };
+
+static const struct LevelUpMove sYolkweenLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_EGG_BOMB),
+    LEVEL_UP_MOVE(1, MOVE_DRAGON_PULSE),
+    LEVEL_UP_MOVE(1, MOVE_WYVERN_WAVE),
+    LEVEL_UP_MOVE(1, MOVE_SOFT_BOILED),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sWallyLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_PSYCHIC),
+    LEVEL_UP_MOVE(1, MOVE_SHADOW_BALL),
+    LEVEL_UP_MOVE(1, MOVE_DARK_PULSE),
+    LEVEL_UP_MOVE(1, MOVE_FOCUS_BLAST),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sPottriciaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_NOTHING),
+    LEVEL_UP_END
+};
 #endif
 
 static const struct LevelUpMove sRattataAlolanLevelUpLearnset[] = {

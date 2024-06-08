@@ -907,6 +907,8 @@ static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_AT
 static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ndeadly hit!");
 static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made everyone\ndance wildly!");
 static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
+static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
+static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1665,6 +1667,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_BIGBOUNDARY - BATTLESTRINGS_TABLE_START] = sText_BigBoundary,
     [STRINGID_STARTEDADANCEMANIA - BATTLESTRINGS_TABLE_START] = sText_StartedADanceMania,
     [STRINGID_PKMNCUTHPMAXEDSPATK - BATTLESTRINGS_TABLE_START] = sText_PkmnCutHPMaxedSpAtk,
+    [STRINGID_PKMNBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_PkmnBecameMinimized,
+    [STRINGID_TARGETBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_TargetBecameMinimized,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
