@@ -621,6 +621,20 @@ static const struct FormChange sShunyongFormChangeTable[] = {
     {FORM_CHANGE_END_BATTLE,        SPECIES_SHUNYONG},
     {FORM_CHANGE_TERMINATOR},
 };
+
+
+static const struct FormChange sShishimaAltFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_TURN_END,   SPECIES_SHISHIMA_PUNISHER_ALT, ABILITY_PUNISHER},
+    {FORM_CHANGE_FAINT,             SPECIES_SHISHIMA_ALT},
+    {FORM_CHANGE_END_BATTLE,        SPECIES_SHISHIMA_ALT},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sPottriciaFormChangeTable[] = {
+    {FORM_CHANGE_FAINT,         SPECIES_POTTRICIA},
+    {FORM_CHANGE_END_BATTLE,    SPECIES_POTTRICIA},
+    {FORM_CHANGE_TERMINATOR},
+};
 #endif
 
 #undef WHEN_LEARNED

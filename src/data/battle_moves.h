@@ -16838,6 +16838,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .snatchAffected = TRUE,
     },
 
+    [MOVE_NOTHING] =
+    {
+        .effect = EFFECT_DO_NOTHING,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 40,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = -7,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_ATK_UP_3,
+        .gravityBanned = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

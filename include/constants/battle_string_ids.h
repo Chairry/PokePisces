@@ -767,8 +767,10 @@
 #define STRINGID_BIGBOUNDARY                          765
 #define STRINGID_STARTEDADANCEMANIA                   766
 #define STRINGID_PKMNCUTHPMAXEDSPATK                  767
+#define STRINGID_PKMNBECAMEMINIMIZED                  768
+#define STRINGID_TARGETBECAMEMINIMIZED                769
 
-#define BATTLESTRINGS_COUNT                           768
+#define BATTLESTRINGS_COUNT                           770
 
 
 // This is the string id that gBattleStringsTable starts with.

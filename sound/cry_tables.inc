@@ -1552,6 +1552,7 @@ gCryTable::
 	cry Cry_Unberrable
 	cry Cry_Peblranium
 	cry Cry_Vaiking
+	cry Cry_Yolkween
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2283,8 +2284,6 @@ gCryTable::
 	cry Cry_Basculegion
 	@ Dudunspars
 	cry Cry_Dudunspars
-	cry Cry_Dudunspars
-	cry Cry_Dudunspars
 	@ Lottabats
 	cry Cry_LottabatsHuddled
 	@ Gaoterra
@@ -2307,8 +2306,17 @@ gCryTable::
 	cry Cry_Spinda
 	cry Cry_Spinda
 	cry Cry_Spinda
+	@ Dudunspars
+	cry Cry_Dudunspars
 	@ Kodough
 	cry Cry_Kodough
+	@ Castform
+	cry Cry_Castform
+	@ Shishima
+	cry Cry_Shishima
+	cry Cry_Shishima
+	@ Lyolica
+	cry Cry_Lyolica
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -3922,6 +3930,7 @@ gCryTable_Reverse::
 	cry_reverse Cry_Unberrable
 	cry_reverse Cry_Peblranium
 	cry_reverse Cry_Vaiking
+	cry_reverse Cry_Yolkween
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4621,7 +4630,6 @@ gCryTable_Reverse::
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
 	cry_reverse Cry_Dudunspars
-	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
 	@ Gaoterra
@@ -4644,8 +4652,19 @@ gCryTable_Reverse::
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
+	@ Dudunspars
+	cry Cry_Dudunspars
 	@ Kodough
-	cry_reverse Cry_Kodough
+	cry Cry_Kodough
+	@ Castform
+	cry Cry_Castform
+	@ Shishima
+	cry Cry_Shishima
+	cry Cry_Shishima
+	@ Lyolica
+	cry Cry_Lyolica
+	@ Wally
+	cry Cry_Wally
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

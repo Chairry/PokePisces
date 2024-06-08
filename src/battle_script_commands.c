@@ -2475,9 +2475,9 @@ static void Cmd_datahpupdate(void)
                 return;
             }
         }
-        else if (DoesDisguiseBlockMove(gBattlerAttacker, battler, gCurrentMove))
+        else if (DoesShatteredBlockMove(gBattlerAttacker, battler, gCurrentMove))
         {
-            gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            gBattleMons[battler].species = SPECIES_POTTRICIA_SHATTERED;
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_TargetFormChange;
             return;
@@ -3749,10 +3749,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;
             case MOVE_EFFECT_NIGHTMARE:
                 gBattleMons[gBattlerTarget].status2 |= STATUS2_NIGHTMARE;
-                gBattlescriptCurrInstr++;
-                break;
-            case MOVE_EFFECT_FAIRY_WIND:
-                gStatuses3[gBattlerTarget] |= STATUS3_MINIMIZED;
                 gBattlescriptCurrInstr++;
                 break;
             case MOVE_EFFECT_ALL_STATS_UP:
@@ -9971,6 +9967,7 @@ static void Cmd_various(void)
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
+            case ABILITY_SHATTERED:
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
@@ -11323,7 +11320,7 @@ static void Cmd_various(void)
         || gBattleMons[battler].species == SPECIES_ORROWHELM
         || gBattleMons[battler].species == SPECIES_SHAYON
         || gBattleMons[battler].species == SPECIES_LUOSHAN
-        //|| gBattleMons[battler].species == SPECIES_SHISHIMA_PUNISHER_ALTERNATE
+        || gBattleMons[battler].species == SPECIES_SHISHIMA_PUNISHER_ALT
         || gBattleMons[battler].species == SPECIES_PEBLRANIUM)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
@@ -11454,7 +11451,7 @@ static void Cmd_various(void)
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_ORROWHELM
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHAYON
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LUOSHAN
-        //|| gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHISHIMA_PUNISHER_ALTERNATE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHISHIMA_PUNISHER_ALT
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PEBLRANIUM)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
@@ -15336,7 +15333,7 @@ static void Cmd_setminimize(void)
     CMD_ARGS();
 
     if (gHitMarker & HITMARKER_OBEYS)
-        gStatuses3[gBattlerAttacker] |= STATUS3_MINIMIZED;
+        gStatuses3[gBattlerTarget] |= STATUS3_MINIMIZED;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -16365,11 +16362,22 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 
 bool32 DoesDisguiseBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 {
-    if (gBattleMons[battlerDef].species != SPECIES_MIMIKYU
-        || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
+    if (gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
         || IS_MOVE_STATUS(move)
         || gHitMarker & HITMARKER_IGNORE_DISGUISE
         || GetBattlerAbility(battlerDef) != ABILITY_DISGUISE)
+        return FALSE;
+    else
+        return TRUE;
+}
+
+bool32 DoesShatteredBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    if (gBattleMons[battlerDef].species != SPECIES_POTTRICIA
+        || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
+        || IS_MOVE_STATUS(move)
+        || gHitMarker & HITMARKER_IGNORE_DISGUISE
+        || GetBattlerAbility(battlerDef) != ABILITY_SHATTERED)
         return FALSE;
     else
         return TRUE;

@@ -423,9 +423,8 @@
 #define MOVE_EFFECT_ATK_DOWN            95
 #define MOVE_EFFECT_ALL_STATS_UP_2_FOE  96
 #define MOVE_EFFECT_TICKED              97
-#define MOVE_EFFECT_FAIRY_WIND          98
 
-#define NUM_MOVE_EFFECTS                99              
+#define NUM_MOVE_EFFECTS                98
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

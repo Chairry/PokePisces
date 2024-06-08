@@ -569,8 +569,14 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFairyWind               @ EFFECT_FAIRY_WIND
 
 BattleScript_EffectFairyWind::
-	setmoveeffect MOVE_EFFECT_FAIRY_WIND
-	goto BattleScript_EffectHit
+	jumpifstatus3 BS_TARGET, STATUS3_MINIMIZED, BattleScript_EffectHit
+	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
+	setminimize
+	printstring STRINGID_TARGETBECAMEMINIMIZED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectIgnition::
 	attackcanceler
@@ -5048,10 +5054,10 @@ BattleScript_EffectIonDeluge:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	orword gFieldStatuses, STATUS_FIELD_ION_DELUGE
+	tryelectrify BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	printstring STRINGID_IONDELUGEON
+	printstring STRINGID_TARGETELECTRIFIED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -7070,9 +7076,10 @@ BattleScript_EffectDoNothing::
 	waitanimation
 	jumpifmove MOVE_CELEBRATE, BattleScript_EffectCelebrate
 	jumpifmove MOVE_HAPPY_HOUR, BattleScript_EffectHappyHour
-	jumpifmove MOVE_REAL_TEARS, BattleScript_RealTearsStuff
+	jumpifmove MOVE_REAL_TEARS, BattleScript_IgnoreIncrementGameStat
+	jumpifmove MOVE_NOTHING, BattleScript_IgnoreIncrementGameStat
 	incrementgamestat GAME_STAT_USED_SPLASH
-BattleScript_RealTearsStuff::
+BattleScript_IgnoreIncrementGameStat::
 	printstring STRINGID_BUTNOTHINGHAPPENED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -7389,14 +7396,25 @@ BattleScript_NightmareWorked::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectMinimize::
+	jumpifstatus3 BS_ATTACKER, STATUS3_MINIMIZED, BattleScript_EffectEvasionUp2
 	attackcanceler
 	setminimize
-.if B_MINIMIZE_EVASION >= GEN_5
 	setstatchanger STAT_EVASION, 2, FALSE
-.else
-	setstatchanger STAT_EVASION, 1, FALSE
-.endif
-	goto BattleScript_EffectStatUpAfterAtkCanceler
+	attackstring
+	ppreduce
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_StatUpEnd
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StatUpAttackAnim
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StatUpPrintString
+	attackanimation
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNBECAMEMINIMIZED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectCurse::
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurse

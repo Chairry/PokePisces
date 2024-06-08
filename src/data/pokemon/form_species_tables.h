@@ -1181,6 +1181,8 @@ static const u16 sCindrillonFormSpeciesIdTable[] = {
 static const u16 sShishimaFormSpeciesIdTable[] = {
     SPECIES_SHISHIMA,
     SPECIES_SHISHIMA_PUNISHER,
+    SPECIES_SHISHIMA_ALT,
+    SPECIES_SHISHIMA_PUNISHER_ALT,
     FORM_SPECIES_END,
 };
 
@@ -1203,6 +1205,18 @@ static const u16 sSpindaFormSpeciesIdTable[] = {
 static const u16 sKodoughFormSpeciesIdTable[] = {
     SPECIES_KODOUGH,
     SPECIES_KODOUGH_BLUNT,
+    FORM_SPECIES_END,
+};
+
+static const u16 sLyoresaFormSpeciesIdTable[] = {
+    SPECIES_LYORESA,
+    SPECIES_LYOLICA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sPottriciaFormSpeciesIdTable[] = {
+    SPECIES_POTTRICIA,
+    SPECIES_POTTRICIA_SHATTERED,
     FORM_SPECIES_END,
 };
 #endif

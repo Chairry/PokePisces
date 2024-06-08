@@ -1132,10 +1132,17 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_INFAIRNO]                     = { .size = MON_COORDS_SIZE(40, 48), .y_offset = 12 },
     [SPECIES_PURGATIVAL]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_DETERIOTL]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
-    [SPECIES_DAKKAPOD]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
+    [SPECIES_DAKKAPOD]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_UNBERRABLE]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
     [SPECIES_PEBLRANIUM]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  4 },
     [SPECIES_VAIKING]                      = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  0 },
+    [SPECIES_YOLKWEEN]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_SHISHIMA_ALT]                 = { .size = MON_COORDS_SIZE(24, 18), .y_offset = 23 },
+    [SPECIES_SHISHIMA_PUNISHER_ALT]        = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_LYOLICA]                      = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  0 },
+    [SPECIES_WALLY]                        = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  1 },
+    [SPECIES_POTTRICIA]                    = { .size = MON_COORDS_SIZE(32, 64), .y_offset =  1 },
+    [SPECIES_POTTRICIA_SHATTERED]          = { .size = MON_COORDS_SIZE(64, 24), .y_offset =  0 },
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },
