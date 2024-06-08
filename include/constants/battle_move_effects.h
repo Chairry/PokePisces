@@ -544,7 +544,8 @@
 #define EFFECT_SPEED_UP_USER_ALLY           538
 #define EFFECT_IGNITION                     539
 #define EFFECT_FAIRY_WIND                   540
+#define EFFECT_FLORAL_HEALING               541
 
-#define NUM_BATTLE_MOVE_EFFECTS             541
+#define NUM_BATTLE_MOVE_EFFECTS             542
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
