@@ -4339,7 +4339,7 @@ BattleScript_EffectFlowerShield:
 BattleScript_FlowerShieldIsAnyGrass:
 	jumpiftype BS_TARGET, TYPE_GRASS, BattleScript_FlowerShieldLoopStart
 	jumpifnexttargetvalid BattleScript_FlowerShieldIsAnyGrass
-	goto BattleScript_ButItFailed
+	goto BattleScript_FlowerShieldFailedBloomingUser
 BattleScript_FlowerShieldLoopStart:
 	selectfirstvalidtarget
 BattleScript_FlowerShieldLoop:
@@ -4364,7 +4364,21 @@ BattleScript_FlowerShieldString:
 BattleScript_FlowerShieldMoveTargetEnd:
 	moveendto MOVEEND_NEXT_TARGET
 	jumpifnexttargetvalid BattleScript_FlowerShieldLoop
-	end
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_MoveEnd
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_MoveEnd
+	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_MoveEnd
+	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_MoveEnd
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	goto BattleScript_MoveEnd
+BattleScript_FlowerShieldFailedBloomingUser:
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_ButItFailed
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_ButItFailed
+	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_ButItFailed
+	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	goto BattleScript_ButItFailed
 
 BattleScript_EffectRototiller:
 	attackcanceler
