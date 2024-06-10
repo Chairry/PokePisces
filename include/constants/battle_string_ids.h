@@ -769,8 +769,9 @@
 #define STRINGID_PKMNCUTHPMAXEDSPATK                  767
 #define STRINGID_PKMNBECAMEMINIMIZED                  768
 #define STRINGID_TARGETBECAMEMINIMIZED                769
+#define STRINGID_PRESSURIZINGAIR                      770
 
-#define BATTLESTRINGS_COUNT                           770
+#define BATTLESTRINGS_COUNT                           771
 
 
 // This is the string id that gBattleStringsTable starts with.
@@ -835,6 +836,7 @@
 #define B_MSG_TURN1_METEOR_BEAM    12
 #define B_MSG_TURN1_ELECTRO_SHOCK  13
 #define B_MSG_TURN1_DRAGON_RUIN    14
+#define B_MSG_TURN1_AIR_CANNON     15
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0

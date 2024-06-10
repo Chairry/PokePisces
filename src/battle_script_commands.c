@@ -2036,7 +2036,9 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
+             || (gCurrentMove == MOVE_FLOWER_TRICK)
              || (gCurrentMove == MOVE_LEAF_BLADE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
+             || (gCurrentMove == MOVE_BRANCH_POKE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
              || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN))
              || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[battlerAtk] & SIDE_STATUS_TAILWIND)
@@ -3511,6 +3513,30 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
+            case MOVE_EFFECT_BANSHRIEK:
+                if (gBattleMons[gEffectBattler].status1 && gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    gBattlescriptCurrInstr++;
+                }
+                else if (gBattleMons[gEffectBattler].status1)
+                {
+                    static const u8 sBanshriekEffects1[] = { MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects1);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else if (gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    static const u8 sBanshriekEffects2[] = { MOVE_EFFECT_PANIC };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects2);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else
+                {
+                    static const u8 sBanshriekEffects3[] = { MOVE_EFFECT_PANIC, MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects3);
+                    SetMoveEffect(FALSE, 0);
+                }
+                break;
             case MOVE_EFFECT_RADIOACID:
                 if (gBattleMons[gEffectBattler].status1)
                 {
@@ -3830,6 +3856,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_DefSpDefUp;
+                }
+                break;
+            case MOVE_EFFECT_SPD_ACC_UP:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_SpdAccUp;
                 }
                 break;
             case MOVE_EFFECT_RECOIL_HP_25: // Struggle
@@ -5952,6 +5985,12 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
+                    effect = TRUE;
+                    break;
+                case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -13623,6 +13662,10 @@ static void Cmd_damagetopercentagetargethp(void)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
     }
+    else if (gCurrentMove == MOVE_NEEDLE_ARM)
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, TYPE_GRASS, 0, gIsCriticalHit, TRUE, TRUE) + gBattleMons[gBattlerTarget].maxHP / 4;
+    }
     else
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;  
@@ -14307,7 +14350,9 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_BIDE
      || gBattleMoves[move].effect == EFFECT_FLY
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
-     || gBattleMoves[move].effect == EFFECT_GEOMANCY)
+     || gBattleMoves[move].effect == EFFECT_GEOMANCY
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
         return TRUE;
     else
         return FALSE;
@@ -14320,12 +14365,18 @@ static u8 AttacksThisTurn(u8 battler, u16 move) // Note: returns 1 if it's a cha
     if (gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
         && IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
         return 2;
+    
+    if (gBattleMoves[move].effect == EFFECT_AIR_CANNON
+        && gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)
+        return 2;
 
     if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
      || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
      || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-     || gBattleMoves[move].effect == EFFECT_BIDE)
+     || gBattleMoves[move].effect == EFFECT_BIDE
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN)
     {
         if ((gHitMarker & HITMARKER_CHARGING))
             return 1;
@@ -17729,6 +17780,8 @@ static const u16 sParentalBondBannedEffects[] =
     EFFECT_TRIPLE_KICK,
     EFFECT_TWO_TURNS_ATTACK,
     EFFECT_UPROAR,
+    EFFECT_AIR_CANNON,
+    EFFECT_DRAGON_RUIN,
 };
 
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)
@@ -18366,3 +18419,12 @@ void BS_TryTidyUp(void)
     }
 }
 
+void BS_JumpIfNotHit(void)
+{
+    NATIVE_ARGS(const u8 *jumpInstr);
+
+    if ((gProtectStructs[gBattlerAttacker].physicalDmg && gProtectStructs[gBattlerAttacker].physicalBattlerId == gBattlerTarget) || (gProtectStructs[gBattlerAttacker].specialDmg && gProtectStructs[gBattlerAttacker].specialBattlerId == gBattlerTarget))
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    else
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+}
