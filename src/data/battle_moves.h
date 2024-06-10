@@ -14034,7 +14034,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_UPPER_HAND] =
     {
         .effect = EFFECT_SUCKER_PUNCH,
-        .power = 65,
+        .power = 80,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
@@ -16813,7 +16813,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FURIOUS_SEA] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SPEED_UP_HIT,
         .power = 150,
         .type = TYPE_WATER,
         .accuracy = 100,
