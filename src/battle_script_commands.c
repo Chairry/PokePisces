@@ -9345,13 +9345,13 @@ static void Cmd_various(void)
     case VARIOUS_TRY_FAIRY_LOCK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+        if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
         else
         {
-            gFieldStatuses |= STATUS_FIELD_FAIRY_LOCK;
+            gStatuses4[battler] |= STATUS4_FAIRY_LOCK;
             gFieldTimers.fairyLockTimer = 2;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }

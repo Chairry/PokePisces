@@ -10970,7 +10970,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BRUTAL_SWING] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 60,
         .type = TYPE_DARK,
         .accuracy = 100,
@@ -12314,7 +12314,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 75,
         .type = TYPE_DARK,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,

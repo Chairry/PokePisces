@@ -2565,8 +2565,8 @@ static const u8 sDragonHammerDescription[] = _(
     "like a hammer to damage.");
 
 static const u8 sBrutalSwingDescription[] = _(
-    "Violently swings around\n"
-    "to hurt everyone nearby.");
+    "Violently swings to hurt\n"
+    "everyone, lowering Defense.");
 
 static const u8 sAuroraVeilDescription[] = _(
     "Weakens all attacks, but\n"
@@ -2890,8 +2890,8 @@ static const u8 sBurningJealousyDescription[] = _(
     "during the turn get burned.");
 
 static const u8 sLashOutDescription[] = _(
-    "If stats lowered during this\n"
-    "turn, power is doubled.");
+    "If the user stats are lowered\n"
+    "this move's power is doubled.");
 
 static const u8 sPoltergeistDescription[] = _(
     "Control foe's item to attack.\n"

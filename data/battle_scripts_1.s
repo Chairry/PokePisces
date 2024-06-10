@@ -3771,7 +3771,7 @@ BattleScript_EffectFairyLock:
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_FairyJustLockOn
 	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_FairyJustLockOn
-	trysetfairylock BattleScript_FairyJustLockOn
+	trysetfairylock BS_TARGET, BattleScript_FairyJustLockOn
 	setalwayshitflag
 	attackanimation
 	waitanimation
