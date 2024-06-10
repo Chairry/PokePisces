@@ -909,6 +909,7 @@ static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made ev
 static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
 static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
 static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
+static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressurizing air!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1669,6 +1670,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCUTHPMAXEDSPATK - BATTLESTRINGS_TABLE_START] = sText_PkmnCutHPMaxedSpAtk,
     [STRINGID_PKMNBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_PkmnBecameMinimized,
     [STRINGID_TARGETBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_TargetBecameMinimized,
+    [STRINGID_PRESSURIZINGAIR - BATTLESTRINGS_TABLE_START] = sText_PressurizingAir,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1930,6 +1932,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_METEOR_BEAM]   = STRINGID_METEORBEAMCHARGING,
     [B_MSG_TURN1_ELECTRO_SHOCK] = STRINGID_ELECTROSHOCKCHARGING,
     [B_MSG_TURN1_DRAGON_RUIN]   = STRINGID_DRAGONRUINCHARGING,
+    [B_MSG_TURN1_AIR_CANNON]    = STRINGID_PRESSURIZINGAIR,
 };
 
 // Index copied from move's index in sTrappingMoves

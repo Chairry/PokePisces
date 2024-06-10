@@ -545,7 +545,16 @@
 #define EFFECT_IGNITION                     539
 #define EFFECT_FAIRY_WIND                   540
 #define EFFECT_FLORAL_HEALING               541
+#define EFFECT_SHARP_GLIDE                  542
+#define EFFECT_CRASH_LAND                   543
+#define EFFECT_AIR_CANNON                   544
+#define EFFECT_FEATHER_DANCE                545
+#define EFFECT_BANSHRIEK                    546
+#define EFFECT_VINE_WHIP                    547
+#define EFFECT_TRAILBLAZE                   548
+#define EFFECT_NEEDLE_ARM                   549
+#define EFFECT_TROP_KICK                    550
 
-#define NUM_BATTLE_MOVE_EFFECTS             542
+#define NUM_BATTLE_MOVE_EFFECTS             551
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
