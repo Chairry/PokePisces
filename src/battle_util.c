@@ -2735,13 +2735,6 @@ u8 DoBattlerEndTurnEffects(void)
             }
             gBattleStruct->turnEffectsTracker++;
             break;
-        case ENDTURN_FAIRY_LOCK:
-            if (gStatuses4[battler] & STATUS4_FAIRY_LOCK && --gFieldTimers.fairyLockTimer == 0)
-            {
-                gStatuses4[battler] &= ~STATUS4_ELECTRIFIED;
-            }
-            gBattleStruct->turnCountersTracker++;
-            break;
         case ENDTURN_ABILITIES: // end turn abilities
             if (AbilityBattleEffects(ABILITYEFFECT_ENDTURN, battler, 0, 0, 0))
                 effect++;
@@ -3141,6 +3134,14 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 if (gDisableStructs[battler].laserFocusTimer == 0 || --gDisableStructs[battler].laserFocusTimer == 0)
                     gStatuses3[battler] &= ~STATUS3_LASER_FOCUS;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_FAIRY_LOCK:
+            if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
+            {
+                if (gDisableStructs[battler].fairyLockTimer == 0 || --gDisableStructs[battler].fairyLockTimer == 0)
+                    gStatuses4[battler] &= ~STATUS4_FAIRY_LOCK;
             }
             gBattleStruct->turnEffectsTracker++;
             break;

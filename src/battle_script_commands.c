@@ -9352,7 +9352,7 @@ static void Cmd_various(void)
         else
         {
             gStatuses4[battler] |= STATUS4_FAIRY_LOCK;
-            gFieldTimers.fairyLockTimer = 2;
+            gDisableStructs[battler].fairyLockTimer = 2;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         return;
