@@ -22872,46 +22872,115 @@ Move_DIFFUSE_WAVE::
 	end
 
 Move_SKY_SPLITTER::
-	loadspritegfx ANIM_TAG_HAVOC_SPEAR
-	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_ATTACKER
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	loadspritegfx ANIM_TAG_AIR_WAVE
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	call SetHighSpeedBg
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, 0, 5, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, 0, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -10, 3, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -15, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -30, 3, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -30, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	delay 1
-	createsprite gSkySplittingLightSpriteTemplate, ANIM_ATTACKER, 2, 0x10, 0x0, 0x0, -50, 3, 0x0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -45, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -60, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -75, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -90, 15
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -105, 10
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -120, 10
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -135, 10
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSonicBoomSpriteTemplate, ANIM_TARGET, 2, 16, 0, 0, -150, 10
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 8, 1
 	waitforvisualfinish
+	call UnsetHighSpeedBg
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
 	end
 
 Move_VAPORIZE::
-	goto Move_ZAP_CANNON
+	goto Move_AURORA_BEAM
 
 Move_RAILGUN::
 	goto Move_WATER_GUN
@@ -33227,8 +33296,8 @@ General_TurnTrap:
 	jumpargeq 0, TRAP_ANIM_INFESTATION, Status_Infestation
 	jumpargeq 0, TRAP_ANIM_SNAP_TRAP, Status_Snap_Trap
 	jumpargeq 0, TRAP_ANIM_THUNDER_CAGE, Status_Thunder_Cage
-	jumpargeq 0, TRAP_ANIM_CONSTRICT, Move_CONSTRICT
-	jumpargeq 0, TRAP_ANIM_LEECH_SEED, Move_LEAF_TORNADO
+	jumpargeq 0, TRAP_ANIM_CONSTRICT, Status_BindWrap
+	jumpargeq 0, TRAP_ANIM_LEECH_SEED, Status_BindWrap
 	goto Status_BindWrap
 Status_BindWrap:
 	loadspritegfx ANIM_TAG_TENDRILS

@@ -900,7 +900,7 @@ static const u8 sText_PkmnSurroundedWithVeilOfHeat[] = _("{B_ATK_NAME_WITH_PREFI
 static const u8 sText_TargetLostElectricType[] = _("{B_DEF_NAME_WITH_PREFIX} had all of\nits electricity drained!");
 static const u8 sText_PkmnGripped[] = _("{B_ATK_NAME_WITH_PREFIX} gripped\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_GrassTypeAdded[] = _("Grass-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
-static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_SeedWrap[] = _("Life-stealing seeds wrapped\naround {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
@@ -1660,7 +1660,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TARGETLOSTELECTRICTYPE - BATTLESTRINGS_TABLE_START] = sText_TargetLostElectricType,
     [STRINGID_PKMNGRIPPED - BATTLESTRINGS_TABLE_START] = sText_PkmnGripped,
     [STRINGID_GRASSTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GrassTypeAdded,
-    [STRINGID_SEED_WRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
+    [STRINGID_SEEDWRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
     [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
     [STRINGID_FLORESCENCESTATUSNORMAL - BATTLESTRINGS_TABLE_START] = sText_FlorescenceStatusNormal,
     [STRINGID_PKMNSXINFATUATEDY2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsXInfatuatedY2,
@@ -1946,7 +1946,7 @@ const u16 gWrappedStringIds[NUM_TRAPPING_MOVES] =
     [B_MSG_WRAPPED_SNAP_TRAP]    = STRINGID_PKMNINSNAPTRAP,         // MOVE_SNAP_TRAP
     [B_MSG_WRAPPED_THUNDER_CAGE] = STRINGID_THUNDERCAGETRAPPED,     // MOVE_THUNDER_CAGE
     [B_MSG_CONSTRICTED]          = STRINGID_PKMNCONSTRICTED,        // MOVE_CONSTRICT
-    [B_MSG_SEED_WRAP]            = STRINGID_SEED_WRAP,              // MOVE_LEECH_SEED
+    [B_MSG_SEED_WRAP]            = STRINGID_SEEDWRAP,              // MOVE_LEECH_SEED
 };
 
 const u16 gMistUsedStringIds[] =

@@ -3517,8 +3517,8 @@ static const u8 sExorcismDescription[] = _(
     "effective on Ghost-types.");
 
 static const u8 sLoveTapDescription[] = _(
-    "A 1st-turn move that confuses\n"
-    "and infatuates.");
+    "A 1st-turn move that\n"
+    "confuses and infatuates.");
 
 static const u8 sHeatSinkDescription[] = _(
     "Drops the temperature. Super\n"
