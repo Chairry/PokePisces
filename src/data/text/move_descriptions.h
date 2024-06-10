@@ -3761,11 +3761,11 @@ static const u8 sMythBusterDescription[] = _(
     "misses, the user is hurt.");
 
 static const u8 sDanceManiaDescription[] = _(
-    "Forces all Pokémon to do a\n"
-    "random dance move.");
+    "Forces all Pokémon to\n"
+    "use a random dance move.");
 
 static const u8 sHotStepDescription[] = _(
-    "Two masterful blazing\n"
+    "Uses two masterful blazing\n"
     "strikes that may burn.");
 
 static const u8 sVinePalmStrikeDescription[] = _(

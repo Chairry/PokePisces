@@ -10549,17 +10549,16 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FLORAL_HEALING] =
     {
-        .effect = EFFECT_HEAL_PULSE,
+        .effect = EFFECT_FLORAL_HEALING,
         .power = 0,
         .type = TYPE_FAIRY,
         .accuracy = 0,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_ALLY,
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_RESET_STATS,
-        .argument = MOVE_EFFECT_FLORAL_HEALING,
         .magicCoatAffected = TRUE,
     },
 
