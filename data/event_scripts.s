@@ -3622,3 +3622,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ZotpyreSecretBasement/scripts.inc"
 
 	.include "data/maps/NewSunbeach/scripts.inc"
+
+	.include "data/maps/FamilyMossCave/scripts.inc"
