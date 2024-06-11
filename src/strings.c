@@ -1885,3 +1885,6 @@ const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTI
 
 // Evolution party screen option
 const u8 gText_Evolution[] = _("EVOLUTION");
+
+// move relearner screen option
+const u8 gText_Moves_Menu[] = _("RELEARNER");

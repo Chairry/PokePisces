@@ -3061,4 +3061,7 @@ extern const u8 gText_ExpShareOff[];
 // Evolution party screen option
 extern const u8 gText_Evolution[];
 
+// move relearner party screen option
+extern const u8 gText_Moves_Menu[];
+
 #endif // GUARD_STRINGS_H

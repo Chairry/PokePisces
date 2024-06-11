@@ -4822,12 +4822,13 @@ static void Cmd_getexp(void)
                     {
                         if (gLeveledUpInBattle & gBitTable[i])
                         {
+                            u16 species;
                             u8 levelUpBits = gLeveledUpInBattle;
-                            u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
 
                             levelUpBits &= ~(gBitTable[i]);
                             gLeveledUpInBattle = levelUpBits;
 
+                            species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
                             if (species != SPECIES_NONE)
                             {
                                 gBattlescriptCurrInstr = BattleScript_LevelUpWithEvoSugg;

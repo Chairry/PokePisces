@@ -12297,7 +12297,7 @@ static const struct LevelUpMove sPawniardLevelUpLearnset[] = {
 
 static const struct LevelUpMove sBisharpLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_FINISH_OFF),
-    LEVEL_UP_MOVE( 1, MOVE_WICKED_BLOW),
+    LEVEL_UP_MOVE( 1, MOVE_BEAT_UP),
     LEVEL_UP_MOVE( 1, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_MEAN_LOOK),
     LEVEL_UP_MOVE( 1, MOVE_LASER_FOCUS),
@@ -17799,6 +17799,7 @@ static const struct LevelUpMove sTidpitLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 4, MOVE_VINE_WHIP),
     LEVEL_UP_MOVE( 8, MOVE_LEECH_SEED),
     LEVEL_UP_MOVE(12, MOVE_STUN_SPORE),
+    LEVEL_UP_MOVE(12, MOVE_POISON_POWDER),
     LEVEL_UP_MOVE(16, MOVE_SNAP_TRAP),
     LEVEL_UP_MOVE(20, MOVE_INGRAIN),
     LEVEL_UP_MOVE(24, MOVE_COIL),
@@ -17821,6 +17822,7 @@ static const struct LevelUpMove sSlidlowLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_VINE_WHIP),
     LEVEL_UP_MOVE( 8, MOVE_LEECH_SEED),
     LEVEL_UP_MOVE(12, MOVE_STUN_SPORE),
+    LEVEL_UP_MOVE(12, MOVE_POISON_POWDER),
     LEVEL_UP_MOVE(20, MOVE_SNAP_TRAP),
     LEVEL_UP_MOVE(24, MOVE_INGRAIN),
     LEVEL_UP_MOVE(28, MOVE_POISON_FANG),
@@ -17849,6 +17851,7 @@ static const struct LevelUpMove sCardiovorLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_VINE_WHIP),
     LEVEL_UP_MOVE( 8, MOVE_LEECH_SEED),
     LEVEL_UP_MOVE(12, MOVE_STUN_SPORE),
+    LEVEL_UP_MOVE(12, MOVE_POISON_POWDER),
     LEVEL_UP_MOVE(20, MOVE_SNAP_TRAP),
     LEVEL_UP_MOVE(24, MOVE_INGRAIN),
     LEVEL_UP_MOVE(28, MOVE_POISON_FANG),
@@ -22959,7 +22962,7 @@ static const struct LevelUpMove sLuoShanLevelUpLearnset[] = {
 
 static const struct LevelUpMove sKingambitLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_FINAL_GAMBIT),
-    LEVEL_UP_MOVE(1, MOVE_WICKED_BLOW),
+    LEVEL_UP_MOVE(1, MOVE_BEAT_UP),
     LEVEL_UP_MOVE(1, MOVE_SUCKER_PUNCH),
     LEVEL_UP_MOVE(1, MOVE_MEAN_LOOK),
     LEVEL_UP_MOVE(1, MOVE_LASER_FOCUS),
