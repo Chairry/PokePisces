@@ -3058,4 +3058,7 @@ extern const u8 gText_TMCase_Blue[];
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
 
+// Evolution party screen option
+extern const u8 gText_Evolution[];
+
 #endif // GUARD_STRINGS_H

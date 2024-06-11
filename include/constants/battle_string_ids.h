@@ -770,8 +770,8 @@
 #define STRINGID_PKMNBECAMEMINIMIZED                  768
 #define STRINGID_TARGETBECAMEMINIMIZED                769
 #define STRINGID_PRESSURIZINGAIR                      770
-
-#define BATTLESTRINGS_COUNT                           771
+#define STRINGID_PKMNCANEVOLVE                        771
+#define BATTLESTRINGS_COUNT                           772
 
 
 // This is the string id that gBattleStringsTable starts with.

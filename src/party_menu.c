@@ -76,6 +76,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
 enum {
     MENU_SUMMARY,
     MENU_SWITCH,
@@ -97,6 +99,7 @@ enum {
     MENU_TRADE1,
     MENU_TRADE2,
     MENU_TOSS,
+    MENU_EVOLUTION,
     MENU_FIELD_MOVES
 };
 
@@ -490,6 +493,7 @@ static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
 static bool32 CannotUsePartyBattleItem(u16 itemId, struct Pokemon* mon);
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
+static void CursorCb_Evolution(u8 taskId);
 
 // static const data
 #include "data/party_menu.h"
@@ -2642,6 +2646,7 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
+    u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[gPartyMenu.slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
@@ -2649,34 +2654,15 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     // Add field moves to action list
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        for (j = 0; sFieldMoves[j] != FIELD_MOVES_COUNT; j++)
+        for (j = 0; j != FIELD_MOVES_COUNT; j++)
         {
             if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
             {
-                if (sFieldMoves[j] != MOVE_CUT)
-                    if (sFieldMoves[j] != MOVE_SURF)
-                        if (sFieldMoves[j] != MOVE_STRENGTH)
-                            if (sFieldMoves[j] != MOVE_ROCK_SMASH)
-                                if (sFieldMoves[j] != MOVE_WATERFALL)
-                                    if (sFieldMoves[j] != MOVE_DIVE)
-                                        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
-                                        break;
+                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
+                break;
             }
         }
     }
-
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE06_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_SURF)))
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 4 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE07_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_DIVE))) 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 6 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE08_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_WATERFALL))) 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 7 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE05_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_STRENGTH)))
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 3 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE01_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_ROCK_SMASH))) 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 2 + MENU_FIELD_MOVES);
-    if (sPartyMenuInternal->numActions < 5 && FlagGet(FLAG_BADGE03_GET) && CanLearnTeachableMove(GetMonData(&mons[slotId], MON_DATA_SPECIES), ItemIdToBattleMoveId(ITEM_HM_CUT))) 
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, 0 + MENU_FIELD_MOVES);
 
     if (!InBattlePike())
     {
@@ -2687,6 +2673,10 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         else
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
     }
+
+    if (targetSpecies != SPECIES_NONE)
+        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_EVOLUTION);
+
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
 
@@ -7123,6 +7113,24 @@ void IsLastMonThatKnowsSurf(void)
         }
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
+    }
+}
+
+static void CursorCb_Evolution(u8 taskId)
+{
+    u16 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[gPartyMenu.slotId], EVO_MODE_NORMAL, ITEM_NONE, NULL);
+
+    PlaySE(SE_SELECT);
+    if (targetSpecies != SPECIES_NONE)
+    {
+        gPartyMenu.exitCallback = CB2_ReturnToPartyMenuFromFlyMap;
+        PartyMenuTryEvolution(taskId);
+    }
+    else
+    {
+        DisplayPartyMenuMessage(gText_WontHaveEffect, FALSE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
     }
 }
 
