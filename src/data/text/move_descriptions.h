@@ -3478,7 +3478,7 @@ static const u8 sManeuverDescription[] = _(
 
 static const u8 sScorpFangDescription[] = _(
     "Poisons, grounds foes, and\n"
-    "hits Poison and Steel.");
+    "hits Poison and Steel neutrally .");
 
 static const u8 sCausticFinaleDescription[] = _(
     "A jab so powerful it damages\n"

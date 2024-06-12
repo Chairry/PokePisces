@@ -2830,7 +2830,6 @@ static void CursorCb_Moves(u8 taskId)
 	FlagSet(FLAG_PARTY_MOVES);
     gSpecialVar_0x8004 = gPartyMenu.slotId;
 	gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
-	DisplayPartyPokemonDataForRelearner(gSpecialVar_0x8004);
 	TeachMoveRelearnerMove();
     sPartyMenuInternal->exitCallback = TeachMoveRelearnerMove;
     Task_ClosePartyMenu(taskId);

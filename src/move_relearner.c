@@ -801,7 +801,7 @@ static void HandleInput(bool8 showContest)
 
         PlaySE(SE_SELECT);
 
-        if (showContest == FALSE)
+        if (showContest == TRUE)
         {
             PutWindowTilemap(RELEARNERWIN_DESC_CONTEST);
             sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
@@ -882,8 +882,8 @@ static void CreateUISprites(void)
 
 static void AddScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
-        sMoveRelearnerStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
+    if (sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE)
+        sMoveRelearnerStruct->moveDisplayArrowTask != AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
 
     if (sMoveRelearnerStruct->moveListScrollArrowTask == TASK_NONE)
     {
@@ -895,10 +895,10 @@ static void AddScrollArrows(void)
 
 static void RemoveScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE)
+    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
     {
         RemoveScrollIndicatorArrowPair(sMoveRelearnerStruct->moveDisplayArrowTask);
-        sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
+        sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE;
     }
 
     if (sMoveRelearnerStruct->moveListScrollArrowTask != TASK_NONE)

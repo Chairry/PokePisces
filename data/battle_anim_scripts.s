@@ -22980,10 +22980,85 @@ Move_SKY_SPLITTER::
 	end
 
 Move_VAPORIZE::
-	goto Move_AURORA_BEAM
+	loadspritegfx ANIM_TAG_RAINBOW_RINGS
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_RAINBOW_RINGS, 0, 12, 12, RGB_YELLOW
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 10, RGB_RED
+	waitbgfadein
+	playsewithpan SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER
+	setarg 7, 0
+	createvisualtask AnimTask_RotateAuroraRingColors, 10, 130
+	call AuroraBeamCreateRings
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 17, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	setarg 7, 0xFFFF
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 6, 0, 10
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 40, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 10, 0, RGB_RED
+	end
 
 Move_RAILGUN::
-	goto Move_WATER_GUN
+	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
+	loadspritegfx ANIM_TAG_GUST
+	loadspritegfx ANIM_TAG_HAVOC_SPEAR
+	loadspritegfx ANIM_TAG_ELECTRICITY
+	loadspritegfx ANIM_TAG_EXPLOSION
+	loadspritegfx ANIM_TAG_WATER_GUN
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 14, 0, 16, RGB_BLACK
+	createvisualtask AnimTask_ElectricChargingParticles, 2, ANIM_ATTACKER, 20, 0, 2
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	delay 35
+	createvisualtask AnimTask_ElectricChargingParticles, 2, ANIM_ATTACKER, 20, 0, 2
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	delay 35
+	createvisualtask AnimTask_ElectricChargingParticles, 2, ANIM_ATTACKER, 20, 0, 2
+	playsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	delay 60
+	playsewithpan SE_M_TRI_ATTACK2, SOUND_PAN_TARGET
+	createsprite gGigavoltHavocLaunchSpearSpriteTemplate, ANIM_TARGET, 3, 0x0
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_WHITE
+	createsprite gElectricPuffSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x10, 0x10
+	delay 0x2
+	createsprite gElectricPuffSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0xfff0, 0xfff0
+	delay 0xe
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 16, 0, RGB_WHITE
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 0, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	delay 0x20
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 10, 0, 20, 1
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 1, 1
+	delay 6
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gRoarOfTimeBombTemplate, ANIM_ATTACKER, 3, 0x18, 0xffe8, 1, 1
+	delay 6
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0xfff0, 16, 1, 1
+	delay 6
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gRoarOfTimeBombTemplate, ANIM_ATTACKER, 3, 0xffe8, -12, 1, 1
+	delay 6
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gExplosionSpriteTemplate, ANIM_ATTACKER, 3, 16, 16, 1, 1
+	delay 6
+	playsewithpan SE_M_EXPLOSION, SOUND_PAN_TARGET
+	createsprite gRoarOfTimeBombTemplate, ANIM_ATTACKER, 3, 0xffe8, 0x18, 1, 1
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 16, 0, RGB_BLACK
+	end
 
 Move_DECIMATION::
 	goto Move_ZAP_CANNON
