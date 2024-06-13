@@ -711,6 +711,7 @@ struct BattleStruct
     /* shunyong battle */
     u16 shunyongChosenMove;
     u8 shunyongTarget;
+    u8 shunyongGoldPlainsHpUses:2; // 75%, 50%, 25% flags
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

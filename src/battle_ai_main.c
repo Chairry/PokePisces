@@ -570,9 +570,14 @@ static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi)
     s32 scoresLeft[MAX_SHUNYONG_MOVES] = {0};
     s32 scoresRight[MAX_SHUNYONG_MOVES] = {0};
     
-    u16 *bestMoves = AllocZeroed(sizeof(u16) * 2 * MAX_SHUNYONG_MOVES);
-    u8 *bestTargets = AllocZeroed(sizeof(u8) * 2 * MAX_SHUNYONG_MOVES);
+    u16 *bestMoves;
+    u8 *bestTargets;
     
+    if (battlerAi == B_POSITION_OPPONENT_RIGHT)
+        return 0;
+    
+    bestMoves = AllocZeroed(sizeof(u16) * 2 * MAX_SHUNYONG_MOVES);;
+    bestTargets = AllocZeroed(sizeof(u8) * 2 * MAX_SHUNYONG_MOVES);
     for (i = 0; i < MAX_SHUNYONG_MOVES; i++) {
         scoresLeft[i] = 0;
         scoresRight[i] = 0;
@@ -581,7 +586,7 @@ static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi)
     // loop through targets
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (i == battlerAi || gBattleMons[i].hp == 0)
+        if (GetBattlerSide(i) == B_SIDE_OPPONENT)
         {
             continue;
         }
@@ -622,8 +627,7 @@ static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi)
                     scoresRight[moveidx] = score;
                 }
                 
-                //DebugPrintf("move %d score = %d", move, score);
-                
+                //DebugPrintfLevel(MGBA_LOG_WARN, "attacker %d tgt %d move %d score %d", battlerAi, gBattlerTarget, move, score);
             } // moves loop
         }
     }
@@ -664,7 +668,7 @@ static u32 ChooseMoveOrAction_Shunyong(u32 battlerAi)
     gBattleStruct->shunyongChosenMove = bestMoves[i];
     gBattleStruct->shunyongTarget = bestTargets[i];
     
-    //DebugPrintf("Shunyong choosing %d targeting %d", bestMoves[i], bestTargets[i]);
+    //DebugPrintfLevel(MGBA_LOG_WARN, "Shunyong choosing %d targeting %d", bestMoves[i], bestTargets[i]);
     
     Free(bestMoves);
     Free(bestTargets);
@@ -5093,6 +5097,98 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_SALT_CURE:
         if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_WATER) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_STEEL))
             score += 2;
+        break;
+    
+    // Pisces move effects
+    case EFFECT_DRAGON_RUIN:
+        if (IsShunyongBattle())
+        {
+            if (AI_DATA->hpPercents[battlerAtk] <= 10)
+                score += 40;
+        }
+        else
+        {
+            // other logic here
+        }
+        break;
+    case EFFECT_GOLD_PLAINS:
+        if (IsShunyongBattle())
+        {
+            bool32 use = FALSE;
+            s32 shunyongTotalStatStages = 0, playerLeftTotalStatStages = 0, playerRightTotalStatStages = 0;
+            for (i = 0; i < NUM_BATTLE_STATS; i++)
+            {
+                shunyongTotalStatStages += gBattleMons[B_POSITION_OPPONENT_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
+                playerLeftTotalStatStages += gBattleMons[B_POSITION_PLAYER_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
+                playerRightTotalStatStages += gBattleMons[B_POSITION_PLAYER_RIGHT].statStages[i] - DEFAULT_STAT_STAGE;
+            }
+            
+            // use at hp thresholds 75%, 50% and 25%
+            if (!(gBattleStruct->shunyongGoldPlainsHpUses & (1 << 0)) && AI_DATA->hpPercents[battlerAtk] <= 75)
+            {
+                gBattleStruct->shunyongGoldPlainsHpUses |= (1 << 0);
+                use = TRUE;
+            }
+            else if (!(gBattleStruct->shunyongGoldPlainsHpUses & (1 << 1)) && AI_DATA->hpPercents[battlerAtk] <= 50)
+            {
+                gBattleStruct->shunyongGoldPlainsHpUses |= (1 << 1);
+                use = TRUE;
+            }
+            else if (!(gBattleStruct->shunyongGoldPlainsHpUses & (1 << 2)) && AI_DATA->hpPercents[battlerAtk] <= 25)
+            {
+                gBattleStruct->shunyongGoldPlainsHpUses |= (1 << 2);
+                use = TRUE;
+            }
+            else if (gBattleResults.shunyongStatusCounter >= 3)
+            {
+                // use when statused for 3 turns
+                gBattleResults.shunyongStatusCounter = 0;
+                use = TRUE;
+            }
+            else if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages >= 6 || playerRightTotalStatStages >= 6))   
+            {
+                // use if significantly buffed target or significantly debuffed self
+                use = TRUE;
+            }
+            
+            if (use)
+                score += 40;
+            else
+                score = 0;
+        }
+        else
+        {
+            score = 0;
+        }
+        break;
+    case EFFECT_MT_SPLENDOR:
+        if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE
+                && (Random() % 100) < 5) // 5% chance
+        {
+            score += 35; // prioritize gold plains if those conditions are met otherwise
+            break;
+        }
+        else
+        {
+            score -= 20;
+        }
+        break;
+    case EFFECT_DOWNFALL:
+        if (gBattleMons[battlerAtk].status1 & STATUS1_ANY)
+            score = 0;
+        else if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG && (Random() & 100) < 5) // 5% chance
+            score += 35;
+        else
+            score -= 20;
+        break;
+    case EFFECT_HIT_SET_REMOVE_TERRAIN: // DEMOLISHER:
+        if (IsShunyongBattle())
+        {
+            if (gFieldStatuses & (STATUS_FIELD_TRICK_ROOM | STATUS_FIELD_TERRAIN_ANY) && (Random() % 100) < 20) // 20% chance to use
+                score += 20;
+            else
+                score -= 2;
+        }
         break;
     } // move effect checks
 

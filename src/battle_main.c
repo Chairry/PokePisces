@@ -4049,48 +4049,6 @@ void BattleTurnPassed(void)
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
     else if ((i = ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_PLAYER_MON_UNAFFECTED)))
         BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
-
-    //if ((gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG || gBattleMons[B_POSITION_OPPONENT_LEFT].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE))
-    //    SetOpponentMovesShunyong();
-}
-
-// Unused. Replaced with ChooseMoveOrAction_Shunyong
-static void SetOpponentMovesShunyong(void)
-{
-    s32 i;
-    s32 shunyongTotalStatStages = 0, playerLeftTotalStatStages = 0, playerRightTotalStatStages = 0;
-    
-    for (i = 0; i < NUM_BATTLE_STATS; i++)
-    {
-        shunyongTotalStatStages += gBattleMons[B_POSITION_OPPONENT_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
-        playerLeftTotalStatStages += gBattleMons[B_POSITION_PLAYER_LEFT].statStages[i] - DEFAULT_STAT_STAGE;
-        playerRightTotalStatStages += gBattleMons[B_POSITION_PLAYER_RIGHT].statStages[i] - DEFAULT_STAT_STAGE;
-    }
-
-    if (shunyongTotalStatStages <= -6 || (playerLeftTotalStatStages >= 6 || playerRightTotalStatStages >= 6))
-    {
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_HAZE; //replace this with Gold Plains
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_HAZE; //replace this with Gold Plains
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_HAZE; //replace this with Gold Plains
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_HAZE; //replace this with Gold Plains
-        return;
-    }
-    else if(gBattleMons[B_POSITION_OPPONENT_LEFT].hp < (gBattleMons[B_POSITION_OPPONENT_LEFT].maxHP / 10))
-    {
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_DRAGON_RUIN;
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_DRAGON_RUIN;
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_DRAGON_RUIN;
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_DRAGON_RUIN;
-        return;
-    }
-    else
-    {
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[0] = MOVE_QUICK_ATTACK; //replace this default moves
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[1] = MOVE_POWER_TRIP; //replace this default moves
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[2] = MOVE_AURA_WHEEL; //replace this default moves
-        gBattleMons[B_POSITION_OPPONENT_LEFT].moves[3] = MOVE_BITE; //replace this default moves
-        return;
-    }
 }
 
 u8 IsRunningFromBattleImpossible(u32 battler)
