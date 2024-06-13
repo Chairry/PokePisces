@@ -8587,7 +8587,6 @@ BattleScript_SemiInvulnerableTryHit::
 BattleScript_SemiInvulnerableMiss::
 	clearsemiinvulnerablebit
 	goto BattleScript_PrintMoveMissed
-
 BattleScript_TryTheDigFirstTurnSemiInvulnerable::
 	call BattleScriptFirstChargingTurn
 	setsemiinvulnerablebit

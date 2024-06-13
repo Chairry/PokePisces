@@ -1598,6 +1598,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .makesContact = TRUE,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
+        .argument = ARG_SET_GRASSY_TERRAIN,
     },
 
     [MOVE_TOXIC] =
