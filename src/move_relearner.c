@@ -270,10 +270,10 @@ static const struct ScrollArrowsTemplate sDisplayModeArrowsTemplate =
 static const struct ScrollArrowsTemplate sMoveListScrollArrowsTemplate =
 {
     .firstArrowType = SCROLL_ARROW_UP,
-    .firstX = 192,
-    .firstY = 8,
+    .firstX = 184,
+    .firstY = 24,
     .secondArrowType = SCROLL_ARROW_DOWN,
-    .secondX = 192,
+    .secondX = 184,
     .secondY = 104,
     .fullyUpThreshold = 0,
     .fullyDownThreshold = 0,
@@ -492,7 +492,6 @@ static void DoMoveRelearnerMain(void)
         sMoveRelearnerStruct->state++;
         break;
     case MENU_STATE_SETUP_BATTLE_MODE:
-
         HideHeartSpritesAndShowTeachMoveText(FALSE);
         sMoveRelearnerStruct->state++;
         AddScrollArrows();
@@ -782,9 +781,7 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
 
     if (!onlyHideSprites)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
     }
 }
 
@@ -814,6 +811,7 @@ static void HandleInput(bool8 showContest)
             sMoveRelearnerMenuSate.showContestInfo = FALSE;
         }
 
+        ScheduleBgCopyTilemapToVram(0);
         ScheduleBgCopyTilemapToVram(1);
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         break;
@@ -850,9 +848,7 @@ static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 {
     if (shouldDoNothingInstead == FALSE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
     }
 }
 
@@ -863,6 +859,7 @@ static void CreateUISprites(void)
     sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
     sMoveRelearnerStruct->moveListScrollArrowTask = TASK_NONE;
     AddScrollArrows();
+    LoadSplitIconSprite();
 
     // These are the appeal hearts.
     for (i = 0; i < 8; i++)
