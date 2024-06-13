@@ -14717,3 +14717,148 @@ BattleScript_BloomingHpGainEnd::
 	printstring STRINGID_PKMNSISNOLONGERBLOOMING
     waitmessage B_WAIT_TIME_LONG
 	end2
+
+
+
+@ SHUNYONG
+BattleScript_ShunyongAbilityActivates::
+	call BattleScript_AbilityPopUp
+	jumpifbyteequal sSTATCHANGER, sZero, BattleScript_ShunyongLowerLoop
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_NOT_PROTECT_AFFECTED, BattleScript_ShunyongLowerLoop
+	jumpifbyte CMP_GREATER_THAN, cMULTISTRING_CHOOSER, B_MSG_DEFENDER_STAT_ROSE, BattleScript_ShunyongLowerLoop
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShunyongLowerLoop:
+	jumpifbyteequal sSAVED_STAT_CHANGER, sZero, BattleScript_ShunyongEnd
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_ShunyongLowerLoopIncrement
+	jumpiftargetally BattleScript_ShunyongLowerLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_ShunyongLowerLoopIncrement
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ShunyongLowerLoopIncrement
+BattleScript_ShunyongLowerEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	copybyte sSTATCHANGER, sSAVED_STAT_CHANGER
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_ShunyongLowerLoopIncrement
+	setgraphicalstatchangevalues
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_ShunyongLowerContrary
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ShunyongLowerEffect_WaitString:
+	waitmessage B_WAIT_TIME_LONG
+	copybyte sBATTLER, gBattlerTarget
+	call BattleScript_TryAdrenalineOrb
+BattleScript_ShunyongLowerLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_ShunyongLowerLoop
+BattleScript_ShunyongLowerEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	printstring STRINGID_PRESSUREENTERS
+	waitmessage B_WAIT_TIME_LONG
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+BattleScript_ShunyongEnd:
+	end3
+
+BattleScript_ShunyongLowerContrary:
+	call BattleScript_AbilityPopUpTarget
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_ShunyongLowerContrary_WontIncrease
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatUpStringIds
+	goto BattleScript_ShunyongLowerEffect_WaitString
+BattleScript_ShunyongLowerContrary_WontIncrease:
+	printstring STRINGID_TARGETSTATWONTGOHIGHER
+	goto BattleScript_ShunyongLowerEffect_WaitString
+
+BattleScript_ShunyongCantHealInOffensiveForm::
+	printstring STRINGID_CANTHEALINOFFENSIVEFORM
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+
+BattleScript_EffectGoldPlains::
+    attackcanceler
+	attackstring
+@	ppreduce
+    @ no need to check failure since its only selected when usable
+    attackanimation
+	waitanimation
+    printstring STRINGID_GOLDPLAINS
+    waitmessage B_WAIT_TIME_LONG
+    setbyte gBattlerTarget, 0
+BattleScript_EffectGoldPlains_Loop:
+    jumpifabsent BS_TARGET, BattleScript_EffectGoldPlains_NextBattler
+    dogoldplains BS_TARGET, BattleScript_EffectGoldPlains_UpdateStatus
+    orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_EffectGoldPlains_UpdateStatus:
+    updatestatusicon BS_TARGET
+    waitstate
+BattleScript_EffectGoldPlains_NextBattler:
+    addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_EffectGoldPlains_Loop
+BattleScript_EffectGoldPlains_End:
+    goto BattleScript_MoveEnd
+
+BattleScript_EffectDownfall:
+    attackcanceler
+    jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+    attackstring
+@   ppreduce
+    critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DownfallTrySpite:
+    tryspiteppreduce BattleScript_DownfallTryPanic
+BattleScript_DownfallTryPanic:
+    jumpifstatus BS_TARGET, STATUS1_PANIC, BattleScript_DownfallTryLowerStats
+    setmoveeffect MOVE_EFFECT_PANIC
+	seteffectprimary
+BattleScript_DownfallTryLowerStats:
+    setmoveeffect MOVE_EFFECT_ALL_STATS_DOWN
+    seteffectwithchance
+	tryfaintmon BS_TARGET
+    goto BattleScript_MoveEnd
+    
+
+BattleScript_EffectMtSplendor:
+    attackcanceler
+    jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ButItFailed
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+    attackstring
+@   ppreduce
+    critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+BattleScript_EffectMtSplendor_TryRaiseStats:
+    jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMtSplendor_End
+    setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
+    seteffectwithchance
+BattleScript_EffectMtSplendor_End:
+    tryfaintmon BS_TARGET
+    goto BattleScript_MoveEnd
+

@@ -587,4 +587,8 @@ extern const u8 BattleScript_HealReplacementZMove[];
 extern const u8 BattleScript_EffectExtremeEvoboost[];
 extern const u8 BattleScript_IronBarbsActivates[];
 
+//Shunyong
+extern const u8 BattleScript_ShunyongAbilityActivates[];
+extern const u8 BattleScript_ShunyongCantHealInOffensiveForm[];
+
 #endif // GUARD_BATTLE_SCRIPTS_H

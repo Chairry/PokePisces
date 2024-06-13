@@ -131,6 +131,7 @@ void BattleScriptPush(const u8 *bsPtr);
 void BattleScriptPushCursor(void);
 void BattleScriptPop(void);
 u32 TrySetCantSelectMoveBattleScript(u32 battler);
+u8 IsMoveUnusable(u32 battler, u16 move, u8 pp, u16 check);
 u8 CheckMoveLimitations(u32 battler, u8 unusableMoves, u16 check);
 bool32 AreAllMovesUnusable(u32 battler);
 u8 GetImprisonedMovesCount(u32 battler, u16 move);

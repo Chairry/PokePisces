@@ -104,6 +104,7 @@ struct DisableStruct
     u8 stealthRockDone:1;
     u8 spiderweb:1;
     u8 fairyLockTimer;
+    u8 shunyongFlinchTimer:2;
 };
 
 struct ProtectStruct
@@ -399,6 +400,7 @@ struct BattleResults
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];     // 0x2A
     u8 filler35;           // 0x35
     u8 catchAttempts[POKEBALL_COUNT];     // 0x36
+    u8 shunyongStatusCounter;     
 };
 
 struct BattleTv_Side
@@ -706,6 +708,10 @@ struct BattleStruct
     u8 supremeOverlordCounter[MAX_BATTLERS_COUNT];
     u8 timesGotHit[NUM_BATTLE_SIDES][PARTY_SIZE];
     u8 enduredDamage;
+    /* shunyong battle */
+    u16 shunyongChosenMove;
+    u8 shunyongTarget;
+    u8 shunyongGoldPlainsHpUses:2; // 75%, 50%, 25% flags
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

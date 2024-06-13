@@ -770,13 +770,13 @@
 
 #define MORPEKO_SPECIES_INFO                               \
     {                                                      \
-        .baseHP        = 58,                               \
-        .baseAttack    = 95,                               \
-        .baseDefense   = 58,                               \
-        .baseSpeed     = 97,                               \
-        .baseSpAttack  = 70,                               \
-        .baseSpDefense = 58,                               \
-        .types = { TYPE_ELECTRIC, TYPE_DARK},              \
+        .baseHP        = 200,                               \
+        .baseAttack    = 100,                               \
+        .baseDefense   = 100,                               \
+        .baseSpeed     = 100,                               \
+        .baseSpAttack  = 100,                               \
+        .baseSpDefense = 100,                               \
+        .types = { TYPE_DRAGON, TYPE_STEEL},              \
         .catchRate = 180,                                  \
         .expYield = 153,                                   \
         .evYield_Speed     = 2,                            \
@@ -785,7 +785,7 @@
         .friendship = STANDARD_FRIENDSHIP,                                  \
         .growthRate = GROWTH_MEDIUM_FAST,                  \
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                      \
-        .abilities = {ABILITY_HUNGER_SWITCH, ABILITY_NONE},\
+        .abilities = {ABILITY_SHUNYONG, ABILITY_NONE},\
         .bodyColor = BODY_COLOR_YELLOW,                    \
         .noFlip = FALSE,                                   \
     }

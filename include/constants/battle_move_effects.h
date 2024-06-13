@@ -568,7 +568,10 @@
 #define EFFECT_SLEEP_POWDER                 562
 #define EFFECT_AXEL_HEEL                    563
 #define EFFECT_STUN_SPORE                   564
+#define EFFECT_GOLD_PLAINS                  565
+#define EFFECT_DOWNFALL                     566
+#define EFFECT_MT_SPLENDOR                  567
 
-#define NUM_BATTLE_MOVE_EFFECTS             565
+#define NUM_BATTLE_MOVE_EFFECTS             568
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

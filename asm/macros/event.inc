@@ -2106,3 +2106,8 @@
     .4byte \value
     .byte \side
     .endm
+
+    .macro doshunyongbattle
+    callnative ScriptSetShunyongBattle
+    dowildbattle
+    .endm

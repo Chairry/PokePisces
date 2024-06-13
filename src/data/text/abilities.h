@@ -364,6 +364,7 @@ static const u8 sCheeseGuardDescription[] = _("i don't get it");
 static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
 static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any Pokémon.");
 static const u8 sAllGameDescription[] = _("Plays Mud and Water Sports.\nHas Ground/Water Immunity.");
+static const u8 sShunyongDescription[] = _("Shunyong");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -740,6 +741,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATCHER] = _("Watcher"),
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
+    [ABILITY_SHUNYONG] = _("Shunyong"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1116,6 +1118,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATCHER] = _("Watcher"),
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
+    [ABILITY_SHUNYONG] = _("Shunyong");
 };
 #endif
 
@@ -1493,4 +1496,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WATCHER] = sWatcherDescription,
     [ABILITY_APPETITE] = sAppetiteDescription,
     [ABILITY_ALL_GAME] = sAllGameDescription,
+    [ABILITY_SHUNYONG] = sShunyongDescription,
 };
