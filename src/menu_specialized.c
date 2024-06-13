@@ -137,9 +137,9 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
     },
     [RELEARNERWIN_MSG] = {
         .bg = 1,
-        .tilemapLeft = 4,
+        .tilemapLeft = 1,
         .tilemapTop = 15,
-        .width = 22,
+        .width = 28,
         .height = 4,
         .paletteNum = 15,
         .baseBlock = 0x202
@@ -152,7 +152,7 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
         .width = 5,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = 0x25A
+        .baseBlock = 0x272
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -165,7 +165,7 @@ static const struct WindowTemplate sMoveRelearnerYesNoMenuTemplate =
     .width = 5,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x25A
+    .baseBlock = 0x272
 };
 
 
@@ -743,10 +743,10 @@ u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices)
     gMultiuseListMenuTemplate.totalItems = numChoices;
     gMultiuseListMenuTemplate.items = items;
 
-    if (numChoices < 6)
+    if (numChoices < 5)
         gMultiuseListMenuTemplate.maxShowed = numChoices;
     else
-        gMultiuseListMenuTemplate.maxShowed = 6;
+        gMultiuseListMenuTemplate.maxShowed = 5;
 
     return gMultiuseListMenuTemplate.maxShowed;
 }
