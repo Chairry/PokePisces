@@ -782,9 +782,6 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
     if (!onlyHideSprites)
     {
         MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
-        // StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        // FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        // AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     }
 }
 
@@ -814,6 +811,7 @@ static void HandleInput(bool8 showContest)
             sMoveRelearnerMenuSate.showContestInfo = FALSE;
         }
 
+        ScheduleBgCopyTilemapToVram(0);
         ScheduleBgCopyTilemapToVram(1);
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         break;
@@ -851,9 +849,6 @@ static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
     if (shouldDoNothingInstead == FALSE)
     {
         MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
-        // StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        // FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        // AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     }
 }
 

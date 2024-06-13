@@ -144,13 +144,12 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x202
     },
-    // Unused. Identical to sMoveRelearnerYesNoMenuTemplate
-    [RELEARNERWIN_YESNO] = {
+    [RELEARNERWIN_HEADER] = {
         .bg = 0,
-        .tilemapLeft = 22,
-        .tilemapTop = 8,
-        .width = 5,
-        .height = 4,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 30,
+        .height = 2,
         .paletteNum = 15,
         .baseBlock = 0x272
     },
@@ -160,14 +159,13 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
 static const struct WindowTemplate sMoveRelearnerYesNoMenuTemplate =
 {
     .bg = 0,
-    .tilemapLeft = 22,
+    .tilemapLeft = 23,
     .tilemapTop = 8,
     .width = 5,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x272
+    .baseBlock = 0x2D2
 };
-
 
 static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
 {
@@ -726,9 +724,12 @@ void InitMoveRelearnerWindows(bool8 useContestWindow)
     }
     PutWindowTilemap(RELEARNERWIN_MOVE_LIST);
     PutWindowTilemap(RELEARNERWIN_MSG);
+    PutWindowTilemap(RELEARNERWIN_HEADER);
     DrawStdFrameWithCustomTileAndPalette(RELEARNERWIN_MOVE_LIST, FALSE, 1, 0xE);
     DrawStdFrameWithCustomTileAndPalette(RELEARNERWIN_MSG, FALSE, 1, 0xE);
+    FillWindowPixelBuffer(RELEARNERWIN_HEADER, PIXEL_FILL(8)); // blue
     MoveRelearnerDummy();
+    ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
 }
 
@@ -869,7 +870,17 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
 static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
     if (onInit != TRUE)
+    {
         PlaySE(SE_SELECT);
+    }
+    else
+    {
+        const u8 color[] = {8, 1, 2};
+        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+        FillWindowPixelBuffer(RELEARNERWIN_HEADER, PIXEL_FILL(8));
+        AddTextPrinterParameterized3(RELEARNERWIN_HEADER, FONT_NORMAL, 8, 0, color, 0, gStringVar4);
+    }
+
     MoveRelearnerLoadBattleMoveDescription(itemIndex);
     MoveRelearnerMenuLoadContestMoveDescription(itemIndex);
     MoveRelearnerPrintMoveDescriptionToMsgWindow(itemIndex);
