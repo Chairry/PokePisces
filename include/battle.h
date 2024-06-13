@@ -737,7 +737,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS   \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD   \
-                          || gBattleMoves[move].effect == EFFECT_CRASH_LAND         )
+                          || gBattleMoves[move].effect == EFFECT_CRASH_LAND         \
+                          || gBattleMoves[move].effect == EFFECT_WOOD_HAMMER        )
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))

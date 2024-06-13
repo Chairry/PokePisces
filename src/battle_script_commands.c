@@ -5757,7 +5757,10 @@ static void Cmd_moveend(void)
                 if (gProtectStructs[gBattlerTarget].spikyShielded && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
+                    if (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 6;
+                    else
+                        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SPIKY_SHIELD);
@@ -5978,6 +5981,12 @@ static void Cmd_moveend(void)
                     break;
                 case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
+                    effect = TRUE;
+                    break;
+                case EFFECT_WOOD_HAMMER: // Wood Hammer, gains switch out effect if user has Blooming
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                     effect = TRUE;
@@ -6668,10 +6677,11 @@ static void Cmd_moveend(void)
                 *(gBattleStruct->moveTarget + gBattlerAttacker) = gSpecialStatuses[gBattlerAttacker].dancerOriginalTarget & 0x3;
 
         #if B_RAMPAGE_CANCELLING >= GEN_5
-            if (gBattleMoves[gCurrentMove].effect == EFFECT_RAMPAGE // If we're rampaging
-              && (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)         // And it is unusable
-              && (gBattleMons[gBattlerAttacker].status2 & STATUS2_LOCK_CONFUSE) != STATUS2_LOCK_CONFUSE_TURN(1))  // And won't end this turn
-                CancelMultiTurnMoves(gBattlerAttacker); // Cancel it
+            if ((gBattleMoves[gCurrentMove].effect == EFFECT_RAMPAGE // If we're rampaging
+                || gBattleMoves[gCurrentMove].effect == EFFECT_PETAL_DANCE)
+                && (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)         // And it is unusable
+                && (gBattleMons[gBattlerAttacker].status2 & STATUS2_LOCK_CONFUSE) != STATUS2_LOCK_CONFUSE_TURN(1))  // And won't end this turn
+                    CancelMultiTurnMoves(gBattlerAttacker); // Cancel it
         #endif
 
             gBattleStruct->targetsDone[gBattlerAttacker] = 0;
@@ -18312,6 +18322,10 @@ void BS_SetRemoveTerrain(void)
         case ARG_SET_PSYCHIC_TERRAIN: // Genesis Supernova
             statusFlag = STATUS_FIELD_PSYCHIC_TERRAIN;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_PSYCHIC;
+            break;
+        case ARG_SET_GRASSY_TERRAIN: // Drum Beating
+            statusFlag = STATUS_FIELD_GRASSY_TERRAIN;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_GRASSY;
             break;
         case ARG_TRY_REMOVE_TERRAIN_HIT: // Splintered Stormshards
         case ARG_TRY_REMOVE_TERRAIN_FAIL: // Steel Roller
