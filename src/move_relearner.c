@@ -859,6 +859,7 @@ static void CreateUISprites(void)
     sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
     sMoveRelearnerStruct->moveListScrollArrowTask = TASK_NONE;
     AddScrollArrows();
+    LoadSplitIconSprite();
 
     // These are the appeal hearts.
     for (i = 0; i < 8; i++)

@@ -23,6 +23,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "window.h"
+#include "battle_util.h"
 #include "constants/songs.h"
 #include "constants/battle_move_effects.h"
 #include "gba/io_reg.h"
@@ -31,6 +32,7 @@ extern const struct CompressedSpriteSheet gMonFrontPicTable[];
 
 EWRAM_DATA static u8 sMailboxWindowIds[MAILBOXWIN_COUNT] = {0};
 EWRAM_DATA static struct ListMenuItem *sMailboxList = NULL;
+EWRAM_DATA static u8 sMoveRelearnerSplitSpriteId = 0;
 
 static void MailboxMenu_MoveCursorFunc(s32, bool8, struct ListMenu *);
 static void ConditionGraph_CalcRightHalf(struct ConditionGraph *);
@@ -735,7 +737,7 @@ void InitMoveRelearnerWindows(bool8 useContestWindow)
 
 static void MoveRelearnerDummy(void)
 {
-
+    sMoveRelearnerSplitSpriteId = 0xFF;
 }
 
 u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices)
@@ -800,6 +802,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     if (chosenMove == LIST_CANCEL)
     {
         // On "Cancel", skip printing move data
+        DestroySplitIcon(&sMoveRelearnerSplitSpriteId);
         CopyWindowToVram(RELEARNERWIN_DESC_BATTLE, COPYWIN_GFX);
         return;
     }
@@ -808,7 +811,10 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 0, TEXT_SKIP_DRAW, NULL);
 
-    ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_LEFT_ALIGN, 2);
+    DestroySplitIcon(&sMoveRelearnerSplitSpriteId); // already checks if sMoveRelearnerSplitSpriteId is not 0xFF
+    ShowSplitIcon(GetBattleMoveSplit(chosenMove), 94+8, 40+8, &sMoveRelearnerSplitSpriteId);
+
+    ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
     x = GetStringRightAlignXOffset(FONT_NORMAL, buffer, width) - 4;
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, buffer, x, 32, TEXT_SKIP_DRAW, NULL);
 
@@ -818,7 +824,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     }
     else
     {
-        ConvertIntToDecimalStringN(buffer, move->power, STR_CONV_MODE_LEFT_ALIGN, 3);
+        ConvertIntToDecimalStringN(buffer, move->power, STR_CONV_MODE_RIGHT_ALIGN, 3);
         str = buffer;
     }
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
@@ -830,7 +836,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     }
     else
     {
-        ConvertIntToDecimalStringN(buffer, move->accuracy, STR_CONV_MODE_LEFT_ALIGN, 3);
+        ConvertIntToDecimalStringN(buffer, move->accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
         str = buffer;
     }
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
