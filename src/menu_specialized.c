@@ -888,10 +888,12 @@ static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct List
     }
     else
     {
+        int x;
         const u8 color[] = {8, 1, 2};
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
         FillWindowPixelBuffer(RELEARNERWIN_HEADER, PIXEL_FILL(8));
-        AddTextPrinterParameterized3(RELEARNERWIN_HEADER, FONT_NORMAL, 8, 0, color, 0, gStringVar4);
+        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+        x = GetStringCenterAlignXOffset(FONT_NORMAL, gStringVar4, 240);
+        AddTextPrinterParameterized3(RELEARNERWIN_HEADER, FONT_NORMAL, x, 0, color, 0, gStringVar4);
     }
 
     MoveRelearnerLoadBattleMoveDescription(itemIndex);
