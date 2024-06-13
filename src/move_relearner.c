@@ -271,7 +271,7 @@ static const struct ScrollArrowsTemplate sMoveListScrollArrowsTemplate =
 {
     .firstArrowType = SCROLL_ARROW_UP,
     .firstX = 192,
-    .firstY = 8,
+    .firstY = 24,
     .secondArrowType = SCROLL_ARROW_DOWN,
     .secondX = 192,
     .secondY = 104,
