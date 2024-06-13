@@ -678,6 +678,11 @@ static void DoMoveRelearnerMain(void)
     case MENU_STATE_RETURN_TO_FIELD:
         if (!gPaletteFade.active)
         {
+            if (FlagGet(FLAG_PARTY_MOVES))
+            {
+                gLastViewedMonIndex = sMoveRelearnerStruct->partyMon;
+            }
+
             FreeMoveRelearnerResources();
 			if (FlagGet(FLAG_PARTY_MOVES))
 			{
