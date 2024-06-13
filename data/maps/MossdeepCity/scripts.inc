@@ -47,7 +47,7 @@ MossdeepCity_EventScript_MonkEncounter1::
 	lock
 	applymovement LOCALID_MONK, MossdeepCity_Movement_MeetPlayer1
 	waitmovement 0
-	goto MossdeepCity_EventScript_MonkTakeToHouse
+	goto MossdeepCity_EventScript_MonkTakeToHouse1
 	release
 	end
 
@@ -68,7 +68,7 @@ MossdeepCity_EventScript_MonkEncounter2::
 	lock
 	applymovement LOCALID_MONK, MossdeepCity_Movement_MeetPlayer2
 	waitmovement 0
-	goto MossdeepCity_EventScript_MonkTakeToHouse
+	goto MossdeepCity_EventScript_MonkTakeToHouse2
 	release
 	end
 
@@ -84,10 +84,10 @@ MossdeepCity_Movement_MeetPlayer2:
 	walk_left
 	step_end
 
-MossdeepCity_EventScript_MonkTakeToHouse::
+MossdeepCity_EventScript_MonkTakeToHouse1::
 	msgbox MossdeepCity_Text_MonkGreeting, MSGBOX_DEFAULT
-	applymovement LOCALID_MONK, MossdeepCity_Movement_MonkTakePlayer
-	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerFollow
+	applymovement LOCALID_MONK, MossdeepCity_Movement_MonkTakePlayer1
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerFollow1
 	waitmovement 0
 	msgbox MossdeepCity_Text_Gugumbir, MSGBOX_DEFAULT
 	warp MAP_STEVEN_HOUSE, 3, 7
@@ -95,7 +95,7 @@ MossdeepCity_EventScript_MonkTakeToHouse::
 	release
 	end
 
-MossdeepCity_Movement_MonkTakePlayer:
+MossdeepCity_Movement_MonkTakePlayer1:
 	walk_right
 	walk_right
 	walk_right
@@ -121,6 +121,7 @@ MossdeepCity_Movement_MonkTakePlayer:
 	walk_down
 	walk_down
 	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -131,6 +132,7 @@ MossdeepCity_Movement_MonkTakePlayer:
 	walk_right
 	walk_right
 	walk_right
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -140,7 +142,7 @@ MossdeepCity_Movement_MonkTakePlayer:
 	face_down
 	step_end
 
-MossdeepCity_Movement_PlayerFollow:
+MossdeepCity_Movement_PlayerFollow1:
 	walk_right
 	walk_right
 	walk_right
@@ -167,6 +169,109 @@ MossdeepCity_Movement_PlayerFollow:
 	walk_down
 	walk_down
 	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MossdeepCity_EventScript_MonkTakeToHouse2::
+	msgbox MossdeepCity_Text_MonkGreeting, MSGBOX_DEFAULT
+	applymovement LOCALID_MONK, MossdeepCity_Movement_MonkTakePlayer2
+	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Movement_PlayerFollow2
+	waitmovement 0
+	msgbox MossdeepCity_Text_Gugumbir, MSGBOX_DEFAULT
+	warp MAP_STEVEN_HOUSE, 3, 7
+	waitstate
+	release
+	end
+
+MossdeepCity_Movement_MonkTakePlayer2:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_down
+	step_end
+
+MossdeepCity_Movement_PlayerFollow2:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
 	walk_right
 	walk_right
 	walk_right
@@ -632,4 +737,6 @@ MossdeepCity_Text_MonkGreeting:
 	.string "Allow me to escort you…$"
 
 MossdeepCity_Text_Gugumbir:
-	.string "test$"
+	.string "Please treat his dwellings with\n"
+	.string "the same amount of respect\l"
+	.string "as you would your own.$"
