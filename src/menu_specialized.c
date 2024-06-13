@@ -129,9 +129,9 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
     [RELEARNERWIN_MOVE_LIST] = {
         .bg = 1,
         .tilemapLeft = 19,
-        .tilemapTop = 1,
+        .tilemapTop = 3,
         .width = 10,
-        .height = 12,
+        .height = 10,
         .paletteNum = 15,
         .baseBlock = 0x18A
     },
