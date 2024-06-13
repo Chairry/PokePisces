@@ -772,7 +772,7 @@ void MoveRelearnerPrintMoveDescriptionToMsgWindow(u32 chosenMove)
     else
         str = gNotDoneYetDescription;
 
-    AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, str, 0, 0, 0, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, str, 0, 1, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(RELEARNERWIN_MSG, COPYWIN_GFX);
 }
 
@@ -786,19 +786,19 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     FillWindowPixelBuffer(RELEARNERWIN_DESC_BATTLE, PIXEL_FILL(1));
 
     str = gText_MoveRelearnerType;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 0, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 1, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerSplit;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 16, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 17, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerPP;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 32, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 33, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerPower;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 48, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 49, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerAccuracy;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 64, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 65, TEXT_SKIP_DRAW, NULL);
     if (chosenMove == LIST_CANCEL)
     {
         // On "Cancel", skip printing move data
@@ -809,14 +809,14 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     move = &gBattleMoves[chosenMove];
     str = gTypeNames[move->type];
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 0, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
 
     DestroySplitIcon(&sMoveRelearnerSplitSpriteId); // already checks if sMoveRelearnerSplitSpriteId is not 0xFF
     ShowSplitIcon(GetBattleMoveSplit(chosenMove), 94+8, 40+8, &sMoveRelearnerSplitSpriteId);
 
     ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
     x = GetStringRightAlignXOffset(FONT_NORMAL, buffer, width) - 4;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, buffer, x, 32, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, buffer, x, 33, TEXT_SKIP_DRAW, NULL);
 
     if (move->power < 2)
     {
@@ -828,7 +828,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         str = buffer;
     }
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 48, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 49, TEXT_SKIP_DRAW, NULL);
 
     if (move->accuracy == 0)
     {
@@ -840,7 +840,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         str = buffer;
     }
     x = GetStringRightAlignXOffset(FONT_NORMAL, str, width) - 4;
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 64, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 65, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(RELEARNERWIN_DESC_BATTLE, COPYWIN_GFX);
 }
 
