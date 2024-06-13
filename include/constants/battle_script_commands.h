@@ -261,16 +261,14 @@
 #define VARIOUS_CHEESING                             168
 #define VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY         169
 #define VARIOUS_TRY_NORMALISE_SPEED                  170
-#define VARIOUS_TRY_NORMALISE_ATTACKER_NERFS         171
-#define VARIOUS_TRY_TO_CLEAR_WEATHER                 172
-#define VARIOUS_TRY_HEAL_ALL_HEALTH                  173
-#define VARIOUS_REMODEL_CHECK                        174
-#define VARIOUS_SET_BLOSSOM_SNAP                     175
-#define VARIOUS_JUMP_IF_STATUS4                      176
-#define VARIOUS_BOUNDARY_OF_DEATH                    177
-#define VARIOUS_TRY_DANCE_MANIA                      178
-#define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          179
-#define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             180
+#define VARIOUS_TRY_TO_CLEAR_WEATHER                 171
+#define VARIOUS_TRY_HEAL_ALL_HEALTH                  172
+#define VARIOUS_REMODEL_CHECK                        173
+#define VARIOUS_JUMP_IF_STATUS4                      174
+#define VARIOUS_BOUNDARY_OF_DEATH                    175
+#define VARIOUS_TRY_DANCE_MANIA                      176
+#define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          177
+#define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             178
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

@@ -9686,10 +9686,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if ((gProtectStructs[battlerAtk].physicalDmg && gProtectStructs[battlerAtk].physicalBattlerId == battlerDef) || (gProtectStructs[battlerAtk].specialDmg && gProtectStructs[battlerAtk].specialBattlerId == battlerDef))
             basePower *= 2;
         break;
-    case EFFECT_BLOSSOM_SNAP:
-        if (gProtectStructs[battlerAtk].blossomSnapCharge && IsMoveMakingContact(gCurrentMove, battlerDef))
-            basePower *= 2;
-        break;
     case EFFECT_WEATHER_BALL:
         if (weather & B_WEATHER_ANY)
             basePower *= 2;
@@ -11506,6 +11502,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_PLASMA_CUTTER && defType == TYPE_GROUND)
+        mod = UQ_4_12(1.0);
+    if (gBattleMoves[move].effect == EFFECT_BLOSSOM_SNAP && typeEffectivenessModifier <= UQ_4_12(0.5) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_BEATBOX && defType == TYPE_GHOST)
         mod = UQ_4_12(1.0);

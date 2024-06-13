@@ -1157,7 +1157,6 @@ gBattleAnims_General::
 	.4byte Move_EXTREME_EVOBOOST            @ B_ANIM_A_THING
 	.4byte General_DecimationHit            @ B_ANIM_DECIMATION_HIT
 	.4byte General_AquaRingHeal             @ B_ANIM_HEARTHWARM_HEAL
-	.4byte General_BlossomSnapSetUp         @ B_ANIM_BLOSSOM_SNAP_SETUP
 
 	.align 2
 gBattleAnims_Special::
@@ -23180,14 +23179,6 @@ Move_PENALIZE::
 
 Move_BLOSSOM_SNAP::
 	goto Move_SNAP_TRAP
-General_BlossomSnapSetUp:
-	loadspritegfx ANIM_TAG_SMALL_EMBER @Fire
-	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
-	delay 0x3
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_ATTACKER, 2, 2, 0, 11, RGB_RED
-	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0x0, 0x0, 0x38, 0x0
-	waitforvisualfinish
-	end
 
 Move_GRASS_CANNON::
 	goto Move_FLEUR_CANNON

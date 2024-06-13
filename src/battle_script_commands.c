@@ -1538,11 +1538,6 @@ static void Cmd_attackcanceler(void)
         gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
-    else if (gProtectStructs[gBattlerTarget].blossomSnapCharge && IsMoveMakingContact(gCurrentMove, gBattlerAttacker))
-    {
-        gProtectStructs[gBattlerAttacker].touchedProtectLike = TRUE;
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
     else
     {
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -5906,18 +5901,6 @@ static void Cmd_moveend(void)
                     MarkBattlerForControllerExec(gBattlerAttacker);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BeakBlastBurn;
-                    effect = 1;
-                }
-                else if (gProtectStructs[gBattlerTarget].blossomSnapCharge
-                         && CanStartBlooming(gBattlerTarget)
-                         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
-                {
-                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                    gBattleMons[gBattlerTarget].status1 = STATUS1_BLOOMING;
-                    BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
-                    MarkBattlerForControllerExec(gBattlerTarget);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_BlossomSnapBlooming;
                     effect = 1;
                 }
             }
@@ -11898,12 +11881,6 @@ static void Cmd_various(void)
         gProtectStructs[battler].beakBlastCharge = TRUE;
         break;
     }
-    case VARIOUS_SET_BLOSSOM_SNAP:
-    {
-        VARIOUS_ARGS();
-        gProtectStructs[battler].blossomSnapCharge = TRUE;
-        break;
-    }
     case VARIOUS_SWAP_SIDE_STATUSES:
     {
         VARIOUS_ARGS();
@@ -12092,17 +12069,6 @@ static void Cmd_various(void)
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
-    }
-    case VARIOUS_TRY_NORMALISE_ATTACKER_NERFS:
-    {
-        VARIOUS_ARGS();
-
-        s32 i, j;
-
-        for (i = 0; i < gBattlersCount; i++)
-            TryResetAttackerNegativeStatChanges(i);
-
-        gBattlescriptCurrInstr = cmd->nextInstr;
     }
     case VARIOUS_TRY_HEAL_ALL_HEALTH:
     {
@@ -13123,23 +13089,6 @@ bool32 TryResetBattlerStatChanges(u8 battler)
             ret = TRUE; // returns TRUE if any stat was reset
 
         gBattleMons[battler].statStages[j] = DEFAULT_STAT_STAGE;
-    }
-
-    return ret;
-}
-
-bool32 TryResetAttackerNegativeStatChanges(u8 battler)
-{
-    u32 j;
-    bool32 ret = FALSE;
-
-    for (j = 0; j < NUM_BATTLE_STATS; j++)
-    {
-        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
-            ret = TRUE; // returns TRUE if any stat was reset
-
-        if (gBattleMons[gBattlerAttacker].statStages[j] < DEFAULT_STAT_STAGE)
-            gBattleMons[gBattlerAttacker].statStages[j] = DEFAULT_STAT_STAGE;
     }
 
     return ret;

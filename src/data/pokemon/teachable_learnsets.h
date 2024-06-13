@@ -48340,6 +48340,8 @@ static const u16 sJustrichaTeachableLearnset[] = {
     MOVE_PAIN_SPLIT,
     MOVE_TORMENT,
     MOVE_FORESTS_CURSE,
+    MOVE_MEAN_LOOK,
+    MOVE_MIRACLE_EYE,
     MOVE_CUT,
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,

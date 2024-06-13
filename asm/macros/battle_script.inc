@@ -2216,10 +2216,6 @@
 	various \battler, VARIOUS_SET_BEAK_BLAST
 	.endm
 
-	.macro setblossomsnap battler:req
-	various \battler, VARIOUS_SET_BLOSSOM_SNAP
-	.endm
-
 	.macro swapsidestatuses
 	various BS_ATTACKER, VARIOUS_SWAP_SIDE_STATUSES
 	.endm
@@ -2463,10 +2459,6 @@
 
 	.macro normalisespeed
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
-	.endm
-
-	.macro normaliseattackernerfs
-	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
 	.endm
 
 	.macro tryhealallhealth failInstr:req
