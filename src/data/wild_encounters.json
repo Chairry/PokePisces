@@ -1363,9 +1363,9 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 100,
-                "max_level": 100,
-                "species": "SPECIES_GLALIE"
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_WHISMUR"
               },
               {
                 "min_level": 6,

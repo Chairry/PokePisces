@@ -1938,8 +1938,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trysetfairylock failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_FAIRY_LOCK
+	.macro trysetfairylock battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_FAIRY_LOCK
 	.4byte \failInstr
 	.endm
 

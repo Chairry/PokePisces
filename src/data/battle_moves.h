@@ -1082,10 +1082,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_AURORA_BEAM] =
     {
         .effect = EFFECT_ATTACK_DOWN_HIT,
-        .power = 80,
+        .power = 70,
         .type = TYPE_ICE,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 20,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -10970,7 +10970,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BRUTAL_SWING] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
         .power = 60,
         .type = TYPE_DARK,
         .accuracy = 100,
@@ -12315,7 +12315,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 75,
         .type = TYPE_DARK,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14035,7 +14035,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_UPPER_HAND] =
     {
         .effect = EFFECT_SUCKER_PUNCH,
-        .power = 65,
+        .power = 80,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
@@ -16814,7 +16814,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FURIOUS_SEA] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SPEED_UP_HIT,
         .power = 150,
         .type = TYPE_WATER,
         .accuracy = 100,
