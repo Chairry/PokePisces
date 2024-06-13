@@ -554,7 +554,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPetalBlizzard           @ EFFECT_PETAL_BLIZZARD
 	.4byte BattleScript_EffectSpiritAway              @ EFFECT_SPIRIT_AWAY
 	.4byte BattleScript_EffectPhantasm                @ EFFECT_PHANTASM
-	.4byte BattleScript_EffectHit                     @ EFFECT_BLOSSOM_SNAP
+	.4byte BattleScript_EffectBlossomSnap             @ EFFECT_BLOSSOM_SNAP
 	.4byte BattleScript_EffectGrassCannon             @ EFFECT_GRASS_CANNON
 	.4byte BattleScript_EffectSpecialDefenseUpHit     @ EFFECT_SPECIAL_DEFENSE_UP_HIT
 	.4byte BattleScript_EffectDefSpDefeUpHit          @ EFFECT_DEF_SP_DEF_UP_HIT
@@ -577,6 +577,22 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTrailBlaze              @ EFFECT_TRAILBLAZE
 	.4byte BattleScript_EffectNeedleArm               @ EFFECT_NEEDLE_ARM
 	.4byte BattleScript_EffectTropKick                @ EFFECT_TROP_KICK
+
+BattleScript_EffectBlossomSnap::
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_EffectAbsorb
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_EffectAbsorb
+	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_EffectAbsorb
+	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_EffectAbsorb
+	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_AFFECTS_USER
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_AbsorbHealBlock
+	setdrainedhp
+	manipulatedamage DMG_BIG_ROOT
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
+	jumpifability BS_TARGET, ABILITY_LIQUID_OOZE, BattleScript_AbsorbLiquidOoze
+	setbyte cMULTISTRING_CHOOSER, B_MSG_ABSORB
+	goto BattleScript_AbsorbUpdateHp
 
 BattleScript_EffectTropKick::
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_TropKickCheckInfatuation
@@ -1206,7 +1222,6 @@ BattleScript_FlorescenceCureStatus:
 	waitmessage B_WAIT_TIME_LONG
 Florescence_GiveBlooming:
 	copybyte gBattlerAttacker, gBattlerTarget
-	jumpifsubstituteblocks BattleScript_FlorescenceTryRestoreAlly
 	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_FlorescenceTryRestoreAlly
 	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_FlorescenceTryRestoreAlly
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_FlorescenceTryRestoreAlly
@@ -1327,7 +1342,6 @@ BattleScript_EffectSunBask:
 	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN, BattleScript_EffectTrySunBaskBlooming
 	goto BattleScript_SunBaskStatBoost
 BattleScript_EffectTrySunBaskBlooming::
-	jumpifsubstituteblocks BattleScript_SunBaskStatBoost
 	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_SunBaskStatBoost
 	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_SunBaskStatBoost
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_SunBaskStatBoost
@@ -1549,7 +1563,7 @@ BattleScript_SkySplitterClearWeather::
 BattleScript_EffectRedline::
 	call BattleScript_EffectHit_Ret
 	tryfaintmon BS_TARGET
-	normaliseattackernerfs
+	tryresetnegativestatstages BS_ATTACKER
 	printstring STRINGID_USERSTATCHANGESGONE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -3164,21 +3178,6 @@ BattleScript_BeakBlastBurn::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
 	call BattleScript_MoveEffectBurn
-	return
-
-BattleScript_BlossomSnapSetUp::
-	setblossomsnap BS_ATTACKER
-	printstring STRINGID_EMPTYSTRING3
-	waitmessage 1
-	playanimation BS_ATTACKER, B_ANIM_BLOSSOM_SNAP_SETUP, NULL
-	printstring STRINGID_READYINGSNAP
-	waitmessage B_WAIT_TIME_LONG
-	end3
-
-BattleScript_BlossomSnapBlooming::
-	setbyte cMULTISTRING_CHOOSER, 0
-	copybyte gEffectBattler, gBattlerTarget
-	call BattleScript_MoveEffectBlooming
 	return
 
 BattleScript_EffectMeteorBeam::
@@ -4884,7 +4883,6 @@ BattleScript_EffectGrowth:
 	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SUN, BattleScript_EffectTryGrowthBlooming
 	goto BattleScript_GrowthStatBoost
 BattleScript_EffectTryGrowthBlooming::
-	jumpifsubstituteblocks BattleScript_GrowthStatBoost
 	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_GrowthStatBoost
 	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_GrowthStatBoost
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_GrowthStatBoost
@@ -7946,7 +7944,6 @@ BattleScript_EffectSonicboom::
 	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectMorningSun::
-BattleScript_EffectSynthesis::
 BattleScript_EffectMoonlight::
 BattleScript_EffectShoreUp::
 BattleScript_EffectColdMend::
@@ -7955,6 +7952,44 @@ BattleScript_EffectColdMend::
 	ppreduce
 	recoverbasedonsunlight BattleScript_AlreadyAtFullHp
 	goto BattleScript_PresentHealTarget
+
+BattleScript_EffectSynthesis::
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_EffectSynthesisBlooming
+	attackcanceler
+	attackstring
+	ppreduce
+	recoverbasedonsunlight BattleScript_AlreadyAtFullHp
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_EffectSynthesisBlooming:
+	attackcanceler
+	attackstring
+	ppreduce
+	recoverbasedonsunlight BattleScript_SynthesisFailedResetNegativeStats
+	tryresetnegativestatstages BS_ATTACKER
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_USERSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_SynthesisFailedResetNegativeStats::
+	tryresetnegativestatstages BS_ATTACKER
+	attackanimation
+	waitanimation
+	printstring STRINGID_USERSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectRainDance::
 	attackcanceler
@@ -8283,6 +8318,7 @@ BattleScript_FirstTurnPhantomForce:
 BattleScript_FirstTurnFly::
 	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_FLY
 BattleScript_FirstTurnSemiInvulnerable::
+	jumpifmove MOVE_DIG, BattleScript_TryTheDigFirstTurnSemiInvulnerable
 	call BattleScriptFirstChargingTurn
 	setsemiinvulnerablebit
 	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
@@ -8298,10 +8334,50 @@ BattleScript_SemiInvulnerableTryHit::
 	accuracycheck BattleScript_SemiInvulnerableMiss, ACC_CURR_MOVE
 	clearsemiinvulnerablebit
 	goto BattleScript_HitFromAtkString
-
 BattleScript_SemiInvulnerableMiss::
 	clearsemiinvulnerablebit
 	goto BattleScript_PrintMoveMissed
+
+BattleScript_TryTheDigFirstTurnSemiInvulnerable::
+	call BattleScriptFirstChargingTurn
+	setsemiinvulnerablebit
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	argumenttomoveeffect
+	accuracycheck BattleScript_SemiInvulnerableMiss, ACC_CURR_MOVE
+	clearsemiinvulnerablebit
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_DigSetGrassyTerrain
+	goto BattleScript_HitFromAtkString
+BattleScript_DigSetGrassyTerrain::
+	setremoveterrain BattleScript_HitFromAtkString
+	attackanimation
+	waitanimation
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printfromtable gTerrainStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectDefenseCurl::
 	attackcanceler
@@ -8791,7 +8867,6 @@ BattleScript_EffectIngrain:
 	attackstring
 	ppreduce
 	setuserstatus3 STATUS3_ROOTED, BattleScript_IngrainUserBlooming
-	jumpifsubstituteblocks BattleScript_EffectIngrainSucceededBloomingFailed
 	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_EffectIngrainSucceededBloomingFailed
 	jumpifability BS_ATTACKER, ABILITY_COMATOSE, BattleScript_EffectIngrainSucceededBloomingFailed
 	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_EffectIngrainSucceededBloomingFailed

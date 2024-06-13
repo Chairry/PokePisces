@@ -16020,23 +16020,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BLOSSOM_SNAP] =
     {
         .effect = EFFECT_BLOSSOM_SNAP,
-        .power = 75,
+        .power = 95,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = -3,
+        .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .mirrorMoveBanned = TRUE,
         .bitingMove = TRUE,
-        .meFirstBanned = TRUE,
-        .metronomeBanned = TRUE,
-        .copycatBanned = TRUE,
-        .sleepTalkBanned = TRUE,
-        .instructBanned = TRUE,
+        .argument = 30,
     },
 
     [MOVE_GRASS_CANNON] =

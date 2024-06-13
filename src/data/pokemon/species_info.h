@@ -20971,10 +20971,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MAKIBI] =
     {
-        .baseHP        = 50,
+        .baseHP        = 60,
         .baseAttack    = 70,
         .baseDefense   = 112,
-        .baseSpeed     = 65,
+        .baseSpeed     = 55,
         .baseSpAttack  = 90,
         .baseSpDefense = 80,
         .types = { TYPE_WATER, TYPE_DRAGON },
@@ -20993,12 +20993,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_EBIROSASHI] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 90,
-        .baseSpeed     = 95,
-        .baseSpAttack  = 135,
-        .baseSpDefense = 75,
+        .baseHP        = 90,
+        .baseAttack    = 70,
+        .baseDefense   = 80,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 130,
+        .baseSpDefense = 90,
         .types = { TYPE_WATER, TYPE_DRAGON },
         .catchRate = 25,
         .expYield = 220,
