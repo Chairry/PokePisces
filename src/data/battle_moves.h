@@ -1353,7 +1353,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_STUN_SPORE] =
     {
-        .effect = EFFECT_PARALYZE,
+        .effect = EFFECT_STUN_SPORE,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 75,
@@ -1369,7 +1369,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_SLEEP_POWDER] =
     {
-        .effect = EFFECT_SLEEP,
+        .effect = EFFECT_SLEEP_POWDER,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 75,
@@ -1395,7 +1395,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 70,
             .pp = 20,
         #endif
-        .effect = EFFECT_RAMPAGE,
+        .effect = EFFECT_PETAL_DANCE,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .secondaryEffectChance = 100,
@@ -3081,7 +3081,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_COTTON_SPORE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 100,
+            .accuracy = 90,
             .target = MOVE_TARGET_BOTH,
         #elif B_UPDATED_MOVE_DATA == GEN_5
             .accuracy = 100,
@@ -3090,10 +3090,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .accuracy = 85,
             .target = MOVE_TARGET_SELECTED,
         #endif
-        .effect = EFFECT_SPEED_DOWN_2,
+        .effect = EFFECT_COTTON_SPORE,
         .power = 0,
         .type = TYPE_GRASS,
-        .pp = 40,
+        .pp = 15,
         .secondaryEffectChance = 0,
         .priority = 0,
         .split = SPLIT_STATUS,
@@ -5360,7 +5360,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_AROMATHERAPY] =
     {
-        .effect = EFFECT_HEAL_BELL,
+        .effect = EFFECT_AROMATHERAPY,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,
@@ -5804,7 +5804,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FRENZY_PLANT] =
     {
-        .effect = EFFECT_RECHARGE,
+        .effect = EFFECT_FRENZY_PLANT,
         .power = 150,
         .type = TYPE_GRASS,
         .accuracy = 90,
@@ -7031,7 +7031,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .power = 80,
         #endif
-        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .effect = EFFECT_ENERGY_BALL,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 10,
@@ -7684,7 +7684,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_WOOD_HAMMER] =
     {
-        .effect = EFFECT_RECOIL_33,
+        .effect = EFFECT_WOOD_HAMMER,
         .power = 120,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -11830,7 +11830,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DRUM_BEATING] =
     {
-        .effect = EFFECT_SPEED_DOWN_HIT,
+        .effect = EFFECT_DRUM_BEATING,
         .power = 80,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -11840,6 +11840,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .argument = ARG_SET_GRASSY_TERRAIN,
         .sheerForceBoost = TRUE,
         .metronomeBanned = TRUE,
     },
@@ -11979,7 +11980,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_APPLE_ACID] =
     {
-        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
+        .effect = EFFECT_APPLE_ACID,
         .power = 80,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -15140,7 +15141,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FROST_NOVA] =
     {
-        .effect = EFFECT_FROSTBITE_HIT,
+        .effect = EFFECT_FROST_NOVA,
         .power = 50,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -16341,7 +16342,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_GREEN_GUISE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_GREEN_GUISE,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,
@@ -16401,7 +16402,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FROST_SHRED] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_FROST_SHRED,
         .power = 20,
         .type = TYPE_ICE,
         .accuracy = 90,
@@ -16434,7 +16435,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_AXEL_HEEL] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_AXEL_HEEL,
         .power = 100,
         .type = TYPE_ICE,
         .accuracy = 100,

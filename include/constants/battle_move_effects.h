@@ -554,7 +554,21 @@
 #define EFFECT_TRAILBLAZE                   548
 #define EFFECT_NEEDLE_ARM                   549
 #define EFFECT_TROP_KICK                    550
+#define EFFECT_DRUM_BEATING                 551
+#define EFFECT_WOOD_HAMMER                  552
+#define EFFECT_APPLE_ACID                   553
+#define EFFECT_ENERGY_BALL                  554
+#define EFFECT_PETAL_DANCE                  555
+#define EFFECT_FROST_SHRED                  556
+#define EFFECT_FRENZY_PLANT                 557
+#define EFFECT_AROMATHERAPY                 558
+#define EFFECT_GREEN_GUISE                  559
+#define EFFECT_FROST_NOVA                   560
+#define EFFECT_COTTON_SPORE                 561
+#define EFFECT_SLEEP_POWDER                 562
+#define EFFECT_AXEL_HEEL                    563
+#define EFFECT_STUN_SPORE                   564
 
-#define NUM_BATTLE_MOVE_EFFECTS             551
+#define NUM_BATTLE_MOVE_EFFECTS             565
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

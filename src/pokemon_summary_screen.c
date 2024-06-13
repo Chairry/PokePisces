@@ -1221,21 +1221,20 @@ static const u16 sMarkings_Pal[] = INCBIN_U16("graphics/summary_screen/markings.
 static const u8 sStatIdMap[NUM_STATS] = {STAT_HP, STAT_ATK, STAT_DEF, STAT_SPATK, STAT_SPDEF, STAT_SPEED};
 
 // code
-static u8 ShowSplitIcon(u32 split)
+void ShowSplitIcon(u32 split, s16 x, s16 y, u8 *spriteId)
 {
-    if (sMonSummaryScreen->splitIconSpriteId == 0xFF)
-        sMonSummaryScreen->splitIconSpriteId = CreateSprite(&sSpriteTemplate_SplitIcons, 48, 129, 0);
+    if (*spriteId == 0xFF)
+        *spriteId = CreateSprite(&sSpriteTemplate_SplitIcons, x, y, 0);
 
-    gSprites[sMonSummaryScreen->splitIconSpriteId].invisible = FALSE;
-    StartSpriteAnim(&gSprites[sMonSummaryScreen->splitIconSpriteId], split);
-    return sMonSummaryScreen->splitIconSpriteId;
+    gSprites[*spriteId].invisible = FALSE;
+    StartSpriteAnim(&gSprites[*spriteId], split);
 }
 
-static void DestroySplitIcon(void)
+void DestroySplitIcon(u8 *spriteId)
 {
-    if (sMonSummaryScreen->splitIconSpriteId != 0xFF)
-        DestroySprite(&gSprites[sMonSummaryScreen->splitIconSpriteId]);
-    sMonSummaryScreen->splitIconSpriteId = 0xFF;
+    if (*spriteId != 0xFF)
+        DestroySprite(&gSprites[*spriteId]);
+    *spriteId = 0xFF;
 }
 
 void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, void (*callback)(void))
@@ -1460,6 +1459,12 @@ static void InitBGs(void)
     ShowBg(3);
 }
 
+void LoadSplitIconSprite(void)
+{
+    LoadCompressedSpriteSheet(&sSpriteSheet_SplitIcons);
+    LoadSpritePalette(&sSpritePal_SplitIcons);
+}
+
 static bool8 DecompressGraphics(void)
 {
     switch (sMonSummaryScreen->switchCounter)
@@ -1519,8 +1524,7 @@ static bool8 DecompressGraphics(void)
         break;
     case 12:
         LoadCompressedPalette(gMoveTypes_Pal, OBJ_PLTT_ID(13), 3 * PLTT_SIZE_4BPP);
-        LoadCompressedSpriteSheet(&sSpriteSheet_SplitIcons);
-        LoadSpritePalette(&sSpritePal_SplitIcons);
+        LoadSplitIconSprite();
         sMonSummaryScreen->switchCounter = 0;
         return TRUE;
     }
@@ -2166,7 +2170,7 @@ static void ChangeSelectedMove(s16 *taskData, s8 direction, u8 *moveIndexPtr)
     {
         ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);
         ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_APPEAL_JAM);
-        DestroySplitIcon();
+        DestroySplitIcon(&sMonSummaryScreen->splitIconSpriteId);
         ScheduleBgCopyTilemapToVram(0);
         HandlePowerAccTilemap(0, 3);
         HandleAppealJamTilemap(0, 3, 0);
@@ -2193,7 +2197,7 @@ static void CloseMoveSelectMode(u8 taskId)
     {
         ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_POWER_ACC);
         ClearWindowTilemap(PSS_LABEL_WINDOW_MOVES_APPEAL_JAM);
-        DestroySplitIcon();
+        DestroySplitIcon(&sMonSummaryScreen->splitIconSpriteId);
         HandlePowerAccTilemap(0, 3);
         HandleAppealJamTilemap(0, 3, 0);
     }
@@ -3851,7 +3855,7 @@ static void PrintMoveDetails(u16 move)
         {
             moveEffect = gBattleMoves[move].effect;
         #if B_SHOW_SPLIT_ICON == TRUE
-            ShowSplitIcon(GetBattleMoveSplit(move));
+            ShowSplitIcon(GetBattleMoveSplit(move), 48, 129, &sMonSummaryScreen->splitIconSpriteId);
         #endif
             PrintMovePowerAndAccuracy(move);
 

@@ -21,7 +21,7 @@ enum {
     RELEARNERWIN_DESC_CONTEST,
     RELEARNERWIN_MOVE_LIST,
     RELEARNERWIN_MSG,
-    RELEARNERWIN_YESNO,
+    RELEARNERWIN_HEADER,
 };
 
 enum {
@@ -131,6 +131,7 @@ bool16 MoveRelearnerRunTextPrinters(void);
 void MoveRelearnerCreateYesNoMenu(void);
 u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
 void InitMoveRelearnerWindows(bool8 useContestWindow);
+void MoveRelearnerPrintMoveDescriptionToMsgWindow(u32 chosenMove);
 
 // Level up window
 void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bgClr, u8 fgClr, u8 shadowClr);
