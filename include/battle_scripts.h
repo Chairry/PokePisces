@@ -60,6 +60,7 @@ extern const u8 BattleScript_PrintFullBox[];
 extern const u8 BattleScript_ActionSwitch[];
 extern const u8 BattleScript_Pausex20[];
 extern const u8 BattleScript_LevelUp[];
+extern const u8 BattleScript_LevelUpWithEvoSugg[];
 extern const u8 BattleScript_RainContinuesOrEnds[];
 extern const u8 BattleScript_SnowContinuesOrEnds[];
 extern const u8 BattleScript_DamagingWeatherContinues[];

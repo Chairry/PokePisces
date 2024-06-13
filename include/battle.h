@@ -103,6 +103,7 @@ struct DisableStruct
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
     u8 spiderweb:1;
+    u8 fairyLockTimer;
 };
 
 struct ProtectStruct
@@ -248,7 +249,6 @@ struct FieldTimer
     u8 inverseRoomTimer;
     u8 terrainTimer;
     u8 gravityTimer;
-    u8 fairyLockTimer;
 };
 
 struct WishFutureKnock

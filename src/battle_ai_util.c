@@ -668,7 +668,7 @@ bool32 IsBattlerTrapped(u32 battler, bool32 checkSwitch)
         return TRUE;
     else if (gStatuses3[battler] & (STATUS3_ROOTED | STATUS3_SKY_DROPPED))
         return TRUE;
-    else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+    else if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         return TRUE;
     else if (IsAbilityPreventingEscape(battler))
         return TRUE;

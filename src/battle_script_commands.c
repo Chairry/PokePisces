@@ -1726,6 +1726,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         evasionStage = DEFAULT_STAT_STAGE;
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;
+    if (gCurrentMove == MOVE_GRASSY_GLIDE && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+        evasionStage = DEFAULT_STAT_STAGE;
     if (defAbility == ABILITY_UNAWARE)
         accStage = DEFAULT_STAT_STAGE;
 
@@ -3548,14 +3550,26 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 break;
             case MOVE_EFFECT_SIGNAL_BEAM:
-                if ((gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gBattlerTarget].statStages[STAT_ATK] == MIN_STAT_STAGE))
+                if ((gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gEffectBattler].statStages[STAT_ATK] == MIN_STAT_STAGE))
                 {
                     gBattlescriptCurrInstr++;
                 }
+                else if (gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    static const u8 sSignalBeamEffects1[] = { MOVE_EFFECT_ATK_MINUS_1 };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects1);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else if (gBattleMons[gEffectBattler].statStages[STAT_ATK] == MIN_STAT_STAGE)
+                {
+                    static const u8 sSignalBeamEffects2[] = { MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects2);
+                    SetMoveEffect(FALSE, 0);
+                }
                 else
                 {
-                    static const u8 sSignalBeamEffects[] = { MOVE_EFFECT_CONFUSION, MOVE_EFFECT_ATK_MINUS_1 };
-                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects);
+                    static const u8 sSignalBeamEffects3[] = { MOVE_EFFECT_CONFUSION, MOVE_EFFECT_ATK_MINUS_1 };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects3);
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
@@ -4788,6 +4802,7 @@ static void Cmd_getexp(void)
     case 4: // lvl up if necessary
         if (gBattleControllerExecFlags == 0)
         {
+            s32 i;
             u32 expBattler = gBattleStruct->expGetterBattlerId;
             if (gBattleResources->bufferB[expBattler][0] == CONTROLLER_TWORETURNVALUES && gBattleResources->bufferB[expBattler][1] == RET_VALUE_LEVELED_UP)
             {
@@ -4800,7 +4815,31 @@ static void Cmd_getexp(void)
 
                 BattleScriptPushCursor();
                 gLeveledUpInBattle |= gBitTable[*expMonId];
-                gBattlescriptCurrInstr = BattleScript_LevelUp;
+
+                while (gLeveledUpInBattle != 0)
+                {
+                    for (i = 0; i < PARTY_SIZE; i++)
+                    {
+                        if (gLeveledUpInBattle & gBitTable[i])
+                        {
+                            u16 species;
+                            u8 levelUpBits = gLeveledUpInBattle;
+
+                            levelUpBits &= ~(gBitTable[i]);
+                            gLeveledUpInBattle = levelUpBits;
+
+                            species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
+                            if (species != SPECIES_NONE)
+                            {
+                                gBattlescriptCurrInstr = BattleScript_LevelUpWithEvoSugg;
+                            }
+                            else
+                            {
+                                gBattlescriptCurrInstr = BattleScript_LevelUp;
+                            }
+                        }
+                    }
+                }
                 gBattleMoveDamage = T1_READ_32(&gBattleResources->bufferB[expBattler][2]);
                 AdjustFriendship(&gPlayerParty[*expMonId], FRIENDSHIP_EVENT_GROW_LEVEL);
 
@@ -9331,14 +9370,14 @@ static void Cmd_various(void)
     case VARIOUS_TRY_FAIRY_LOCK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+        if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
         else
         {
-            gFieldStatuses |= STATUS_FIELD_FAIRY_LOCK;
-            gFieldTimers.fairyLockTimer = 2;
+            gStatuses4[battler] |= STATUS4_FAIRY_LOCK;
+            gDisableStructs[battler].fairyLockTimer = 2;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         return;

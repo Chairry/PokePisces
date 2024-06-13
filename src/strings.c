@@ -1882,3 +1882,9 @@ const u8 gText_TMCase_Blue[] =          _("{COLOR_HIGHLIGHT_SHADOW BLUE TRANSPAR
 
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
+
+// Evolution party screen option
+const u8 gText_Evolution[] = _("EVOLUTION");
+
+// move relearner screen option
+const u8 gText_Moves_Menu[] = _("RELEARNER");

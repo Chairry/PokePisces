@@ -2020,7 +2020,6 @@ enum
     ENDTURN_GRASSY_TERRAIN,
     ENDTURN_PSYCHIC_TERRAIN,
     ENDTURN_ION_DELUGE,
-    ENDTURN_FAIRY_LOCK,
     ENDTURN_RETALIATE,
     ENDTURN_WEATHER_FORM,
     ENDTURN_STATUS_HEAL,
@@ -2581,13 +2580,6 @@ u8 DoFieldEndTurnEffects(void)
             gFieldStatuses &= ~STATUS_FIELD_ION_DELUGE;
             gBattleStruct->turnCountersTracker++;
             break;
-        case ENDTURN_FAIRY_LOCK:
-            if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK && --gFieldTimers.fairyLockTimer == 0)
-            {
-                gFieldStatuses &= ~STATUS_FIELD_FAIRY_LOCK;
-            }
-            gBattleStruct->turnCountersTracker++;
-            break;
         case ENDTURN_RETALIATE:
             if (gSideTimers[B_SIDE_PLAYER].retaliateTimer > 0)
                 gSideTimers[B_SIDE_PLAYER].retaliateTimer--;
@@ -2676,6 +2668,7 @@ enum
     ENDTURN_SPIDER_WEB,
     ENDTURN_GLAIVE_RUSH,
     ENDTURN_HEARTHWARM,
+    ENDTURN_FAIRY_LOCK,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3141,6 +3134,14 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 if (gDisableStructs[battler].laserFocusTimer == 0 || --gDisableStructs[battler].laserFocusTimer == 0)
                     gStatuses3[battler] &= ~STATUS3_LASER_FOCUS;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_FAIRY_LOCK:
+            if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
+            {
+                if (gDisableStructs[battler].fairyLockTimer == 0 || --gDisableStructs[battler].fairyLockTimer == 0)
+                    gStatuses4[battler] &= ~STATUS4_FAIRY_LOCK;
             }
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -6715,7 +6716,7 @@ bool32 CanBattlerEscape(u32 battler) // no ability check
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_ROOTED)
         return FALSE;
-    else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+    else if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_SKY_DROPPED)
         return FALSE;
@@ -9678,7 +9679,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
         break;
     case EFFECT_LASH_OUT:
-        if (gProtectStructs[battlerAtk].statFell)
+        if (gBattleMons[gBattlerAttacker].statStages[i] < DEFAULT_STAT_STAGE)
             basePower *= 2;
         break;
     case EFFECT_EXPLOSION:
@@ -10577,6 +10578,8 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
+        defStage = DEFAULT_STAT_STAGE;
+    if (gCurrentMove == MOVE_GRASSY_GLIDE && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
         defStage = DEFAULT_STAT_STAGE;
 
     defStat *= gStatStageRatios[defStage][0];
