@@ -130,9 +130,9 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
     },
     [RELEARNERWIN_MOVE_LIST] = {
         .bg = 1,
-        .tilemapLeft = 19,
+        .tilemapLeft = 16,
         .tilemapTop = 3,
-        .width = 10,
+        .width = 13,
         .height = 10,
         .paletteNum = 15,
         .baseBlock = 0x18A
@@ -144,7 +144,7 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
         .width = 28,
         .height = 4,
         .paletteNum = 15,
-        .baseBlock = 0x202
+        .baseBlock = 0x21A
     },
     [RELEARNERWIN_HEADER] = {
         .bg = 0,
@@ -153,7 +153,7 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
         .width = 30,
         .height = 2,
         .paletteNum = 15,
-        .baseBlock = 0x272
+        .baseBlock = 0x2BA
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -166,7 +166,7 @@ static const struct WindowTemplate sMoveRelearnerYesNoMenuTemplate =
     .width = 5,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x2D2
+    .baseBlock = 0x2F7
 };
 
 static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
