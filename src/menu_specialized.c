@@ -161,8 +161,8 @@ static const struct WindowTemplate sMoveRelearnerWindowTemplates[] =
 static const struct WindowTemplate sMoveRelearnerYesNoMenuTemplate =
 {
     .bg = 0,
-    .tilemapLeft = 23,
-    .tilemapTop = 8,
+    .tilemapLeft = 24,
+    .tilemapTop = 15,
     .width = 5,
     .height = 4,
     .paletteNum = 15,
