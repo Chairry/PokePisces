@@ -2565,8 +2565,8 @@ static const u8 sDragonHammerDescription[] = _(
     "like a hammer to damage.");
 
 static const u8 sBrutalSwingDescription[] = _(
-    "Violently swings around\n"
-    "to hurt everyone nearby.");
+    "Violently swings to hurt\n"
+    "everyone, lowering Defense.");
 
 static const u8 sAuroraVeilDescription[] = _(
     "Weakens all attacks, but\n"
@@ -2890,8 +2890,8 @@ static const u8 sBurningJealousyDescription[] = _(
     "during the turn get burned.");
 
 static const u8 sLashOutDescription[] = _(
-    "If stats lowered during this\n"
-    "turn, power is doubled.");
+    "If the user stats are lowered\n"
+    "this move's power is doubled.");
 
 static const u8 sPoltergeistDescription[] = _(
     "Control foe's item to attack.\n"
@@ -3478,7 +3478,7 @@ static const u8 sManeuverDescription[] = _(
 
 static const u8 sScorpFangDescription[] = _(
     "Poisons, grounds foes, and\n"
-    "hits Poison and Steel.");
+    "hits Poison and Steel neutrally .");
 
 static const u8 sCausticFinaleDescription[] = _(
     "A jab so powerful it damages\n"
@@ -3517,8 +3517,8 @@ static const u8 sExorcismDescription[] = _(
     "effective on Ghost-types.");
 
 static const u8 sLoveTapDescription[] = _(
-    "A 1st-turn move that confuses\n"
-    "and infatuates.");
+    "A 1st-turn move that\n"
+    "confuses and infatuates.");
 
 static const u8 sHeatSinkDescription[] = _(
     "Drops the temperature. Super\n"
@@ -3761,11 +3761,11 @@ static const u8 sMythBusterDescription[] = _(
     "misses, the user is hurt.");
 
 static const u8 sDanceManiaDescription[] = _(
-    "Forces all Pokémon to do a\n"
-    "random dance move.");
+    "Forces all Pokémon to\n"
+    "use a random dance move.");
 
 static const u8 sHotStepDescription[] = _(
-    "Two masterful blazing\n"
+    "Uses two masterful blazing\n"
     "strikes that may burn.");
 
 static const u8 sVinePalmStrikeDescription[] = _(

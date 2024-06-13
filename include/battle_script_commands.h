@@ -31,6 +31,7 @@ void HandleBattleWindow(u8 xStart, u8 yStart, u8 xEnd, u8 yEnd, u8 flags);
 bool8 UproarWakeUpCheck(u8 battlerId);
 bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move);
 bool32 DoesDisguiseBlockMove(u32 battlerAtk, u32 battlerDef, u32 move);
+bool32 DoesShatteredBlockMove(u32 battlerAtk, u32 battlerDef, u32 move);
 bool32 CanPoisonType(u8 battlerAttacker, u8 battlerTarget);
 bool32 CanParalyzeType(u8 battlerAttacker, u8 battlerTarget);
 bool32 CanUseLastResort(u8 battlerId);

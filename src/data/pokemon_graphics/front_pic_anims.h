@@ -10649,6 +10649,18 @@ static const union AnimCmd sAnim_Vaiking_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+static const union AnimCmd sAnim_Yolkween_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Pottricia_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
 #endif
 
 static const union AnimCmd sAnim_VenusaurMega_1[] =
@@ -11688,6 +11700,30 @@ static const union AnimCmd sAnim_ShishimaPunisher_1[] =
 };
 
 static const union AnimCmd sAnim_ShunyongGoldenOffense_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ShishimaAlt_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ShishimaPunisherAlt_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Lyolica_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_PottriciaShattered_1[] =
 {
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
@@ -12886,6 +12922,12 @@ SINGLE_ANIMATION(Dakkapod);
 SINGLE_ANIMATION(Unberrable);
 SINGLE_ANIMATION(Peblranium);
 SINGLE_ANIMATION(Vaiking);
+SINGLE_ANIMATION(Yolkween);
+SINGLE_ANIMATION(ShishimaAlt);
+SINGLE_ANIMATION(ShishimaPunisherAlt);
+SINGLE_ANIMATION(Lyolica);
+SINGLE_ANIMATION(Pottricia);
+SINGLE_ANIMATION(PottriciaShattered);
 #endif
 SINGLE_ANIMATION(VenusaurMega);
 SINGLE_ANIMATION(CHARIZARD_MEGA_X);
@@ -14196,6 +14238,13 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_UNBERRABLE] = sAnims_Unberrable,
     [SPECIES_PEBLRANIUM] = sAnims_Peblranium,
     [SPECIES_VAIKING] = sAnims_Vaiking,
+    [SPECIES_YOLKWEEN] = sAnims_Yolkween,
+    [SPECIES_SHISHIMA_ALT] = sAnims_ShishimaAlt,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = sAnims_ShishimaPunisherAlt,
+    [SPECIES_LYOLICA] = sAnims_Lyolica,
+    [SPECIES_WALLY] = sAnims_Lyolica,
+    [SPECIES_POTTRICIA] = sAnims_Pottricia,
+    [SPECIES_POTTRICIA_SHATTERED] = sAnims_PottriciaShattered,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

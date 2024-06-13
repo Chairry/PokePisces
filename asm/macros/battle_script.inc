@@ -1494,6 +1494,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifnothit jumpInstr:req
+	callnative BS_JumpIfNotHit
+	.4byte \jumpInstr
+	.endm
+
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req
 	various \battler, VARIOUS_CANCEL_MULTI_TURN_MOVES
@@ -1882,6 +1887,10 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trydancemania
+	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm
@@ -1935,9 +1944,13 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trysetfairylock failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_FAIRY_LOCK
+	.macro trysetfairylock battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_FAIRY_LOCK
 	.4byte \failInstr
+	.endm
+
+	.macro boundarydamagecalculation battler:req
+	various \battler, VARIOUS_BOUNDARY_OF_DEATH
 	.endm
 
 	.macro jumpifnoally battler:req, jumpInstr:req
@@ -2098,6 +2111,16 @@
 	.macro jumpifspecies battler:req, species:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_SPECIES
 	.2byte \species
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifspecieshasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifallyhasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS
 	.4byte \jumpInstr
 	.endm
 

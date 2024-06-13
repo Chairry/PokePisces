@@ -321,6 +321,7 @@ gSpecials::
 	def_special CheckMiniorIndigo
 	def_special CheckMiniorViolet
 	def_special CheckAllSadsod
+	def_special CheckPapypusAndMamypus
 	def_special CopyCurSecretBaseOwnerName_StrVar1
 	def_special ScriptCheckFreePokemonStorageSpace
 	def_special DoSealedChamberShakingEffect_Long

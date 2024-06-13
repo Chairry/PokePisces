@@ -1726,6 +1726,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         evasionStage = DEFAULT_STAT_STAGE;
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;
+    if (gCurrentMove == MOVE_GRASSY_GLIDE && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+        evasionStage = DEFAULT_STAT_STAGE;
     if (defAbility == ABILITY_UNAWARE)
         accStage = DEFAULT_STAT_STAGE;
 
@@ -2035,7 +2037,9 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
+             || (gCurrentMove == MOVE_FLOWER_TRICK)
              || (gCurrentMove == MOVE_LEAF_BLADE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
+             || (gCurrentMove == MOVE_BRANCH_POKE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
              || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN))
              || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[battlerAtk] & SIDE_STATUS_TAILWIND)
@@ -2476,9 +2480,9 @@ static void Cmd_datahpupdate(void)
                 return;
             }
         }
-        else if (DoesDisguiseBlockMove(gBattlerAttacker, battler, gCurrentMove))
+        else if (DoesShatteredBlockMove(gBattlerAttacker, battler, gCurrentMove))
         {
-            gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            gBattleMons[battler].species = SPECIES_POTTRICIA_SHATTERED;
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_TargetFormChange;
             return;
@@ -3524,6 +3528,30 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
+            case MOVE_EFFECT_BANSHRIEK:
+                if (gBattleMons[gEffectBattler].status1 && gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    gBattlescriptCurrInstr++;
+                }
+                else if (gBattleMons[gEffectBattler].status1)
+                {
+                    static const u8 sBanshriekEffects1[] = { MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects1);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else if (gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    static const u8 sBanshriekEffects2[] = { MOVE_EFFECT_PANIC };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects2);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else
+                {
+                    static const u8 sBanshriekEffects3[] = { MOVE_EFFECT_PANIC, MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_BANSHRIEK, sBanshriekEffects3);
+                    SetMoveEffect(FALSE, 0);
+                }
+                break;
             case MOVE_EFFECT_RADIOACID:
                 if (gBattleMons[gEffectBattler].status1)
                 {
@@ -3537,14 +3565,26 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 break;
             case MOVE_EFFECT_SIGNAL_BEAM:
-                if ((gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gBattlerTarget].statStages[STAT_ATK] == MIN_STAT_STAGE))
+                if ((gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION) && (gBattleMons[gEffectBattler].statStages[STAT_ATK] == MIN_STAT_STAGE))
                 {
                     gBattlescriptCurrInstr++;
                 }
+                else if (gBattleMons[gEffectBattler].status2 & STATUS2_CONFUSION)
+                {
+                    static const u8 sSignalBeamEffects1[] = { MOVE_EFFECT_ATK_MINUS_1 };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects1);
+                    SetMoveEffect(FALSE, 0);
+                }
+                else if (gBattleMons[gEffectBattler].statStages[STAT_ATK] == MIN_STAT_STAGE)
+                {
+                    static const u8 sSignalBeamEffects2[] = { MOVE_EFFECT_CONFUSION };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects2);
+                    SetMoveEffect(FALSE, 0);
+                }
                 else
                 {
-                    static const u8 sSignalBeamEffects[] = { MOVE_EFFECT_CONFUSION, MOVE_EFFECT_ATK_MINUS_1 };
-                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects);
+                    static const u8 sSignalBeamEffects3[] = { MOVE_EFFECT_CONFUSION, MOVE_EFFECT_ATK_MINUS_1 };
+                    gBattleScripting.moveEffect = RandomElement(RNG_SIGNAL_BEAM, sSignalBeamEffects3);
                     SetMoveEffect(FALSE, 0);
                 }
                 break;
@@ -3831,6 +3871,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_DefSpDefUp;
+                }
+                break;
+            case MOVE_EFFECT_SPD_ACC_UP:
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_SpdAccUp;
                 }
                 break;
             case MOVE_EFFECT_RECOIL_HP_25: // Struggle
@@ -4770,6 +4817,7 @@ static void Cmd_getexp(void)
     case 4: // lvl up if necessary
         if (gBattleControllerExecFlags == 0)
         {
+            s32 i;
             u32 expBattler = gBattleStruct->expGetterBattlerId;
             if (gBattleResources->bufferB[expBattler][0] == CONTROLLER_TWORETURNVALUES && gBattleResources->bufferB[expBattler][1] == RET_VALUE_LEVELED_UP)
             {
@@ -4782,7 +4830,31 @@ static void Cmd_getexp(void)
 
                 BattleScriptPushCursor();
                 gLeveledUpInBattle |= gBitTable[*expMonId];
-                gBattlescriptCurrInstr = BattleScript_LevelUp;
+
+                while (gLeveledUpInBattle != 0)
+                {
+                    for (i = 0; i < PARTY_SIZE; i++)
+                    {
+                        if (gLeveledUpInBattle & gBitTable[i])
+                        {
+                            u16 species;
+                            u8 levelUpBits = gLeveledUpInBattle;
+
+                            levelUpBits &= ~(gBitTable[i]);
+                            gLeveledUpInBattle = levelUpBits;
+
+                            species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
+                            if (species != SPECIES_NONE)
+                            {
+                                gBattlescriptCurrInstr = BattleScript_LevelUpWithEvoSugg;
+                            }
+                            else
+                            {
+                                gBattlescriptCurrInstr = BattleScript_LevelUp;
+                            }
+                        }
+                    }
+                }
                 gBattleMoveDamage = T1_READ_32(&gBattleResources->bufferB[expBattler][2]);
                 AdjustFriendship(&gPlayerParty[*expMonId], FRIENDSHIP_EVENT_GROW_LEVEL);
 
@@ -5953,6 +6025,12 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
+                    effect = TRUE;
+                    break;
+                case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -9080,6 +9158,13 @@ static u32 CalculateBattlerPartyCount(u32 battler)
     return count;
 }
 
+static bool32 InvalidDanceManiaMove(u32 move)
+{
+    return gBattleMoves[move].effect == EFFECT_PLACEHOLDER
+        || gBattleMoves[move].effect == EFFECT_DANCE_MANIA
+        || (!(gBattleMoves[move].danceMove));
+}    
+
 static void Cmd_various(void)
 {
     CMD_ARGS(u8 battler, u8 id);
@@ -9300,16 +9385,49 @@ static void Cmd_various(void)
     case VARIOUS_TRY_FAIRY_LOCK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+        if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
         else
         {
-            gFieldStatuses |= STATUS_FIELD_FAIRY_LOCK;
-            gFieldTimers.fairyLockTimer = 2;
+            gStatuses4[battler] |= STATUS4_FAIRY_LOCK;
+            gDisableStructs[battler].fairyLockTimer = 2;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
+        return;
+    }
+    case VARIOUS_BOUNDARY_OF_DEATH:
+    {
+        VARIOUS_ARGS();
+        u32 boundary = Random() % 4;
+        for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
+        {
+            if (gBattlerTarget == gBattlerAttacker)
+                continue;
+            if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // A valid target was found.
+                break;
+        }
+
+        if (boundary < 1)
+        {
+            gBattleStruct->boundaryBasePower = 30;
+        }
+        else if (boundary < 2)
+        {
+            gBattleStruct->boundaryBasePower = 60;
+        }
+        else if (boundary < 3)
+        {
+            gBattleStruct->boundaryBasePower = 4;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = BattleScript_BigBoundary;
+        }
+ 
+        gBattlescriptCurrInstr = cmd->nextInstr;
+
         return;
     }
     case VARIOUS_GET_STAT_VALUE:
@@ -9942,6 +10060,7 @@ static void Cmd_various(void)
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
+            case ABILITY_SHATTERED:
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
@@ -10132,6 +10251,8 @@ static void Cmd_various(void)
         {
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_MEGA_LAUNCHER && gBattleMoves[gCurrentMove].pulseMove)
                 gBattleMoveDamage = -(gBattleMons[battler].maxHP * 75 / 100);
+            else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN && gCurrentMove == MOVE_FLORAL_HEALING)
+                gBattleMoveDamage = -(gBattleMons[gBattlerTarget].maxHP * 2 / 3);
             else
                 gBattleMoveDamage = -(gBattleMons[battler].maxHP / 2);
 
@@ -10403,6 +10524,32 @@ static void Cmd_various(void)
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
         }
+        return;
+    }
+    case VARIOUS_TRY_DANCE_MANIA:
+    {
+        VARIOUS_ARGS();
+    
+        gSpecialStatuses[gBattlerTarget].instructedChosenTarget = *(gBattleStruct->moveTarget + gBattlerTarget) | 0x4;
+        gBattlerAttacker = gBattlerTarget;
+        gCalledMove = RandomUniformExcept(RNG_METRONOME, 1, MOVES_COUNT_PISCES - 1, InvalidDanceManiaMove);
+        for (i = 0; i < MAX_MON_MOVES; i++)
+        {
+            if (gBattleMons[gBattlerAttacker].moves[i] == gCalledMove)
+            {
+                gCurrMovePos = i;
+                i = 4;
+                break;
+            }
+        }
+
+        {
+            gBattlerTarget = SetRandomTarget(gBattlerAttacker);
+            gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+            PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        
         return;
     }
     case VARIOUS_ABILITY_POPUP:
@@ -11139,6 +11286,268 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
         if (gBattleMons[battler].species == cmd->species)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
+    case VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS:
+    {
+        VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
+        if (gBattleMons[battler].species == SPECIES_TIDPIT
+        || gBattleMons[battler].species == SPECIES_SLIDLOW
+        || gBattleMons[battler].species == SPECIES_PRONGY
+        || gBattleMons[battler].species == SPECIES_TRIDALIER
+        || gBattleMons[battler].species == SPECIES_TRITONAUT
+        || gBattleMons[battler].species == SPECIES_SNELFREND
+        || gBattleMons[battler].species == SPECIES_SYCOPLOD
+        || gBattleMons[battler].species == SPECIES_SYCOSTROM
+        || gBattleMons[battler].species == SPECIES_GUPSPAR
+        || gBattleMons[battler].species == SPECIES_VANGAR
+        || gBattleMons[battler].species == SPECIES_GHAERIAL
+        || gBattleMons[battler].species == SPECIES_EBIBI
+        || gBattleMons[battler].species == SPECIES_MAKIBI
+        || gBattleMons[battler].species == SPECIES_EBIROSASHI
+        || gBattleMons[battler].species == SPECIES_SOWPHIROTH
+        || gBattleMons[battler].species == SPECIES_NANGGAL
+        || gBattleMons[battler].species == SPECIES_NINJASK
+        || gBattleMons[battler].species == SPECIES_SHEDINJA
+        || gBattleMons[battler].species == SPECIES_SNOTLOUD
+        || gBattleMons[battler].species == SPECIES_SADSOD
+        || gBattleMons[battler].species == SPECIES_MAERACHOLY
+        || gBattleMons[battler].species == SPECIES_SHOCKORE
+        || gBattleMons[battler].species == SPECIES_HEMOKO
+        || gBattleMons[battler].species == SPECIES_STOMAWAY
+        || gBattleMons[battler].species == SPECIES_CRAWLAXY
+        || gBattleMons[battler].species == SPECIES_UHEFOE
+        || gBattleMons[battler].species == SPECIES_MYSTOMANIA
+        || gBattleMons[battler].species == SPECIES_TORSTEVIC
+        || gBattleMons[battler].species == SPECIES_MINIOR
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_ORANGE
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_YELLOW
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_GREEN
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_BLUE
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_INDIGO
+        || gBattleMons[battler].species == SPECIES_MINIOR_METEOR_VIOLET
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_RED
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_ORANGE
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_YELLOW
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_GREEN
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_BLUE
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_INDIGO
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_VIOLET
+        || gBattleMons[battler].species == SPECIES_DUNSPARCE
+        || gBattleMons[battler].species == SPECIES_DUDUNSPARS
+        || gBattleMons[battler].species == SPECIES_DUDUNSPARS_THREE_SEGMENT
+        || gBattleMons[battler].species == SPECIES_DUDUNSPARS_EIGHT_SEGMENT
+        || gBattleMons[battler].species == SPECIES_CREAM
+        || gBattleMons[battler].species == SPECIES_CREMELETTS
+        || gBattleMons[battler].species == SPECIES_SNURROWL
+        || gBattleMons[battler].species == SPECIES_GLALIE
+        || gBattleMons[battler].species == SPECIES_FROSLASS
+        || gBattleMons[battler].species == SPECIES_PIDIUM
+        || gBattleMons[battler].species == SPECIES_MISDREAVUS
+        || gBattleMons[battler].species == SPECIES_MISMAGIUS
+        || gBattleMons[battler].species == SPECIES_TRANSERA
+        || gBattleMons[battler].species == SPECIES_EERIKO
+        || gBattleMons[battler].species == SPECIES_MANNIKO
+        || gBattleMons[battler].species == SPECIES_KOWAKO
+        || gBattleMons[battler].species == SPECIES_GOLDEROCK
+        || gBattleMons[battler].species == SPECIES_PETRIPA
+        || gBattleMons[battler].species == SPECIES_BRAMBOOZLE
+        || gBattleMons[battler].species == SPECIES_FRACTOFLY
+        || gBattleMons[battler].species == SPECIES_GRAVELITO
+        || gBattleMons[battler].species == SPECIES_MEGALITO
+        || gBattleMons[battler].species == SPECIES_PURGATIVAL
+        || gBattleMons[battler].species == SPECIES_BOLTEROCK
+        || gBattleMons[battler].species == SPECIES_CORISP
+        || gBattleMons[battler].species == SPECIES_KROLPYRE
+        || gBattleMons[battler].species == SPECIES_BIVAGUE
+        || gBattleMons[battler].species == SPECIES_TOXITIDE
+        || gBattleMons[battler].species == SPECIES_TOXITURF
+        || gBattleMons[battler].species == SPECIES_DUNEWICH
+        || gBattleMons[battler].species == SPECIES_MAJADIJUNN
+        || gBattleMons[battler].species == SPECIES_JARAMERA
+        || gBattleMons[battler].species == SPECIES_MAGNALURE
+        || gBattleMons[battler].species == SPECIES_MAGNANICOR
+        || gBattleMons[battler].species == SPECIES_GRIMER
+        || gBattleMons[battler].species == SPECIES_MUK
+        || gBattleMons[battler].species == SPECIES_RAITAIC
+        || gBattleMons[battler].species == SPECIES_NIMBOZOA
+        || gBattleMons[battler].species == SPECIES_MINOTE
+        || gBattleMons[battler].species == SPECIES_TUNAP
+        || gBattleMons[battler].species == SPECIES_BASSHARK
+        || gBattleMons[battler].species == SPECIES_SHARGUY
+        || gBattleMons[battler].species == SPECIES_SHARPREY
+        || gBattleMons[battler].species == SPECIES_CHUNGRIM
+        || gBattleMons[battler].species == SPECIES_DAKKAPOD
+        || gBattleMons[battler].species == SPECIES_SQUEESHY
+        || gBattleMons[battler].species == SPECIES_SQUISHIME
+        || gBattleMons[battler].species == SPECIES_OCTOHIME
+        || gBattleMons[battler].species == SPECIES_COLFIN
+        || gBattleMons[battler].species == SPECIES_MYSTICIAN
+        || gBattleMons[battler].species == SPECIES_LUVDISC
+        || gBattleMons[battler].species == SPECIES_MARINAROC
+        || gBattleMons[battler].species == SPECIES_METTATOLL
+        || gBattleMons[battler].species == SPECIES_WALRUST
+        || gBattleMons[battler].species == SPECIES_BOOZARD
+        || gBattleMons[battler].species == SPECIES_COCKABOO
+        || gBattleMons[battler].species == SPECIES_MORAGAN
+        || gBattleMons[battler].species == SPECIES_SHIVERSNAP
+        || gBattleMons[battler].species == SPECIES_CINDRILLON
+        || gBattleMons[battler].species == SPECIES_CINDRILLON_FEAROUETTE
+        || gBattleMons[battler].species == SPECIES_ARMAGATTON
+        || gBattleMons[battler].species == SPECIES_BLABBU
+        || gBattleMons[battler].species == SPECIES_TURRYTURRY
+        || gBattleMons[battler].species == SPECIES_AJOKUJOKU
+        || gBattleMons[battler].species == SPECIES_YANDEMIC
+        || gBattleMons[battler].species == SPECIES_FOOLTAGE
+        || gBattleMons[battler].species == SPECIES_LUNATONE
+        || gBattleMons[battler].species == SPECIES_SOLROCK
+        || gBattleMons[battler].species == SPECIES_AETHEREAL
+        || gBattleMons[battler].species == SPECIES_GLAREYALE
+        || gBattleMons[battler].species == SPECIES_LEVIALAGO
+        || gBattleMons[battler].species == SPECIES_AGOMAGO
+        || gBattleMons[battler].species == SPECIES_MORFTREE
+        || gBattleMons[battler].species == SPECIES_VIVISU
+        || gBattleMons[battler].species == SPECIES_OROFLOW
+        || gBattleMons[battler].species == SPECIES_ORROCAST
+        || gBattleMons[battler].species == SPECIES_ORROWHELM
+        || gBattleMons[battler].species == SPECIES_SHAYON
+        || gBattleMons[battler].species == SPECIES_LUOSHAN
+        || gBattleMons[battler].species == SPECIES_SHISHIMA_PUNISHER_ALT
+        || gBattleMons[battler].species == SPECIES_PEBLRANIUM)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
+    case VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS:
+    {
+        VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
+        if (gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TIDPIT
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SLIDLOW
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PRONGY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TRIDALIER
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TRITONAUT
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SNELFREND
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SYCOPLOD
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SYCOSTROM
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GUPSPAR
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_VANGAR
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GHAERIAL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_EBIBI
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MAKIBI
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_EBIROSASHI
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SOWPHIROTH
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_NANGGAL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_NINJASK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHEDINJA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SNOTLOUD
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SADSOD
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MAERACHOLY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHOCKORE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_HEMOKO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_STOMAWAY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CRAWLAXY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_UHEFOE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MYSTOMANIA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TORSTEVIC
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_ORANGE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_YELLOW
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_GREEN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_BLUE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_INDIGO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_METEOR_VIOLET
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_RED
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_ORANGE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_YELLOW
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_GREEN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_BLUE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_INDIGO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINIOR_CORE_VIOLET
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DUNSPARCE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DUDUNSPARS
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DUDUNSPARS_THREE_SEGMENT
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DUDUNSPARS_EIGHT_SEGMENT
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CREAM
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CREMELETTS
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SNURROWL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GLALIE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_FROSLASS
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PIDIUM
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MISDREAVUS
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MISMAGIUS
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TRANSERA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_EERIKO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MANNIKO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_KOWAKO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GOLDEROCK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PETRIPA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BRAMBOOZLE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_FRACTOFLY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GRAVELITO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MEGALITO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PURGATIVAL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BOLTEROCK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CORISP
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_KROLPYRE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BIVAGUE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TOXITIDE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TOXITURF
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DUNEWICH
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MAJADIJUNN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_JARAMERA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MAGNALURE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MAGNANICOR
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GRIMER
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MUK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_RAITAIC
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_NIMBOZOA
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MINOTE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TUNAP
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BASSHARK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHARGUY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHARPREY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CHUNGRIM
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_DAKKAPOD
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SQUEESHY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SQUISHIME
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_OCTOHIME
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_COLFIN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MYSTICIAN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LUVDISC
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MARINAROC
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_METTATOLL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_WALRUST
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BOOZARD
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_COCKABOO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MORAGAN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHIVERSNAP
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CINDRILLON
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_CINDRILLON_FEAROUETTE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_ARMAGATTON
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_BLABBU
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TURRYTURRY
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_AJOKUJOKU
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_YANDEMIC
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_FOOLTAGE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LUNATONE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SOLROCK
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_AETHEREAL
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_GLAREYALE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LEVIALAGO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_AGOMAGO
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_MORFTREE
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_VIVISU
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_OROFLOW
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_ORROCAST
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_ORROWHELM
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHAYON
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_LUOSHAN
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SHISHIMA_PUNISHER_ALT
+        || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PEBLRANIUM)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -13298,6 +13707,10 @@ static void Cmd_damagetopercentagetargethp(void)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
     }
+    else if (gCurrentMove == MOVE_NEEDLE_ARM)
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, TYPE_GRASS, 0, gIsCriticalHit, TRUE, TRUE) + gBattleMons[gBattlerTarget].maxHP / 4;
+    }
     else
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;  
@@ -14005,7 +14418,9 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_BIDE
      || gBattleMoves[move].effect == EFFECT_FLY
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
-     || gBattleMoves[move].effect == EFFECT_GEOMANCY)
+     || gBattleMoves[move].effect == EFFECT_GEOMANCY
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
         return TRUE;
     else
         return FALSE;
@@ -14018,12 +14433,18 @@ static u8 AttacksThisTurn(u8 battler, u16 move) // Note: returns 1 if it's a cha
     if (gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
         && IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
         return 2;
+    
+    if (gBattleMoves[move].effect == EFFECT_AIR_CANNON
+        && gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)
+        return 2;
 
     if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
      || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
      || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-     || gBattleMoves[move].effect == EFFECT_BIDE)
+     || gBattleMoves[move].effect == EFFECT_BIDE
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN)
     {
         if ((gHitMarker & HITMARKER_CHARGING))
             return 1;
@@ -15050,7 +15471,7 @@ static void Cmd_setminimize(void)
     CMD_ARGS();
 
     if (gHitMarker & HITMARKER_OBEYS)
-        gStatuses3[gBattlerAttacker] |= STATUS3_MINIMIZED;
+        gStatuses3[gBattlerTarget] |= STATUS3_MINIMIZED;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -16079,11 +16500,22 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 
 bool32 DoesDisguiseBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 {
-    if (gBattleMons[battlerDef].species != SPECIES_MIMIKYU
-        || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
+    if (gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
         || IS_MOVE_STATUS(move)
         || gHitMarker & HITMARKER_IGNORE_DISGUISE
         || GetBattlerAbility(battlerDef) != ABILITY_DISGUISE)
+        return FALSE;
+    else
+        return TRUE;
+}
+
+bool32 DoesShatteredBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    if (gBattleMons[battlerDef].species != SPECIES_POTTRICIA
+        || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
+        || IS_MOVE_STATUS(move)
+        || gHitMarker & HITMARKER_IGNORE_DISGUISE
+        || GetBattlerAbility(battlerDef) != ABILITY_SHATTERED)
         return FALSE;
     else
         return TRUE;
@@ -17452,6 +17884,8 @@ static const u16 sParentalBondBannedEffects[] =
     EFFECT_TRIPLE_KICK,
     EFFECT_TWO_TURNS_ATTACK,
     EFFECT_UPROAR,
+    EFFECT_AIR_CANNON,
+    EFFECT_DRAGON_RUIN,
 };
 
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)
@@ -18087,4 +18521,14 @@ void BS_TryTidyUp(void)
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
     }
+}
+
+void BS_JumpIfNotHit(void)
+{
+    NATIVE_ARGS(const u8 *jumpInstr);
+
+    if ((gProtectStructs[gBattlerAttacker].physicalDmg && gProtectStructs[gBattlerAttacker].physicalBattlerId == gBattlerTarget) || (gProtectStructs[gBattlerAttacker].specialDmg && gProtectStructs[gBattlerAttacker].specialBattlerId == gBattlerTarget))
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    else
+        gBattlescriptCurrInstr = cmd->jumpInstr;
 }

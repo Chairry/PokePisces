@@ -131,7 +131,7 @@
 #define VARIOUS_SET_SIMPLE_BEAM                      39
 #define VARIOUS_TRY_ENTRAINMENT                      40
 #define VARIOUS_SET_LAST_USED_ABILITY                41
-#define VARIOUS_TRY_HEAL_PULSE                       42
+#define VARIOUS_TRY_HEAL_PULSE                       42 //Unused
 #define VARIOUS_TRY_QUASH                            43
 #define VARIOUS_INVERT_STAT_STAGES                   44
 #define VARIOUS_TRY_ME_FIRST                         45
@@ -266,7 +266,11 @@
 #define VARIOUS_TRY_HEAL_ALL_HEALTH                  173
 #define VARIOUS_REMODEL_CHECK                        174
 #define VARIOUS_SET_BLOSSOM_SNAP                     175
-#define VARIOUS_JUMP_IF_STATUS4                     176
+#define VARIOUS_JUMP_IF_STATUS4                      176
+#define VARIOUS_BOUNDARY_OF_DEATH                    177
+#define VARIOUS_TRY_DANCE_MANIA                      178
+#define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          179
+#define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             180
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

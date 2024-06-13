@@ -241,8 +241,8 @@
       "x": 25,
       "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_SCUTTILL_SECRET_TREE_HOUSE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE120",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [

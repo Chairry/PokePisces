@@ -103,6 +103,7 @@ struct DisableStruct
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
     u8 spiderweb:1;
+    u8 fairyLockTimer;
     u8 shunyongFlinchTimer:2;
 };
 
@@ -249,7 +250,6 @@ struct FieldTimer
     u8 inverseRoomTimer;
     u8 terrainTimer;
     u8 gravityTimer;
-    u8 fairyLockTimer;
 };
 
 struct WishFutureKnock
@@ -642,6 +642,7 @@ struct BattleStruct
     u8 magnitudeBasePower;
     u8 dragonpokerBasePower;
     u8 ficklebeamBasePower;
+    u8 boundaryBasePower;
     u8 presentBasePower;
     u8 roostTypes[MAX_BATTLERS_COUNT][2];
     u8 savedBattlerTarget;
@@ -741,7 +742,8 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS   \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD   \
+                          || gBattleMoves[move].effect == EFFECT_CRASH_LAND         )
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))

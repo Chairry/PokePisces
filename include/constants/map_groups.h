@@ -58,6 +58,7 @@
 #define MAP_STEVEN_MAZE                       (6 | (3 << 8))
 #define MAP_SECRET_MOSSDEEP_CAVE              (7 | (3 << 8))
 #define MAP_MANGROTTO_ROCK_SMASH_ROOM         (8 | (3 << 8))
+#define MAP_FAMILY_MOSS_CAVE                  (9 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))
