@@ -911,9 +911,12 @@ static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became
 static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
 static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressurizing air!");
 static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and can evolve!{WAIT_SE}\p");
+static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
+static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_GOLDPLAINS - BATTLESTRINGS_TABLE_START] = sText_GoldPlains,
     [STRINGID_TARGETISHURTBYSALTCURE - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtBySaltCure,
     [STRINGID_TARGETISBEINGSALTCURED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCured,
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START] = sText_CurrentMoveCantSelect,
@@ -1673,6 +1676,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TARGETBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_TargetBecameMinimized,
     [STRINGID_PRESSURIZINGAIR - BATTLESTRINGS_TABLE_START] = sText_PressurizingAir,
     [STRINGID_PKMNCANEVOLVE - BATTLESTRINGS_TABLE_START] = sText_PkmnCanEvolve,
+    [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

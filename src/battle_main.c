@@ -122,6 +122,7 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
 static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
+static void SetOpponentMovesShunyong(void);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -5936,4 +5937,29 @@ bool32 IsWildMonSmart(void)
 #else
     return FALSE;
 #endif
+}
+
+// misc
+bool32 IsSpeciesOneOf(u16 specie, const u16 *species)
+{
+    for (; *species !=0xFFFF; species ++)
+        {
+        if (*species == specie)
+            return TRUE;
+        }
+        return FALSE;
+}
+
+const u16 gMegaBosses[] =
+{
+    SPECIES_SHUNYONG,
+    SPECIES_SHUNYONG_GOLDEN_OFFENSE,
+    0xFFFF
+};
+
+bool32 IsShunyongBattle(void)
+{
+    if (IsSpeciesOneOf(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES), gMegaBosses))
+        return TRUE;
+    return FALSE;
 }

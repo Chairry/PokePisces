@@ -771,8 +771,10 @@
 #define STRINGID_TARGETBECAMEMINIMIZED                769
 #define STRINGID_PRESSURIZINGAIR                      770
 #define STRINGID_PKMNCANEVOLVE                        771
-#define BATTLESTRINGS_COUNT                           772
+#define STRINGID_CANTHEALINOFFENSIVEFORM              772
+#define STRINGID_GOLDPLAINS                           773
 
+#define BATTLESTRINGS_COUNT                           774
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
