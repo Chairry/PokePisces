@@ -492,7 +492,6 @@ static void DoMoveRelearnerMain(void)
         sMoveRelearnerStruct->state++;
         break;
     case MENU_STATE_SETUP_BATTLE_MODE:
-
         HideHeartSpritesAndShowTeachMoveText(FALSE);
         sMoveRelearnerStruct->state++;
         AddScrollArrows();
@@ -782,9 +781,10 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
 
     if (!onlyHideSprites)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
+        // StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+        // FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
+        // AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     }
 }
 
@@ -850,9 +850,10 @@ static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 {
     if (shouldDoNothingInstead == FALSE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
+        // StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
+        // FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
+        // AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     }
 }
 

@@ -751,6 +751,28 @@ u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices)
     return gMultiuseListMenuTemplate.maxShowed;
 }
 
+void MoveRelearnerPrintMoveDescriptionToMsgWindow(u32 chosenMove)
+{
+    const u8 *str;
+    const struct BattleMove *move;
+
+    FillWindowPixelBuffer(RELEARNERWIN_MSG, PIXEL_FILL(1));
+    if (chosenMove == LIST_CANCEL)
+    {
+        CopyWindowToVram(RELEARNERWIN_MSG, COPYWIN_GFX);
+        return;
+    }
+
+    move = &gBattleMoves[chosenMove];
+    if (move->effect != EFFECT_PLACEHOLDER)
+        str = gMoveDescriptionPointers[chosenMove - 1];
+    else
+        str = gNotDoneYetDescription;
+
+    AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, str, 0, 0, 0, NULL);
+    CopyWindowToVram(RELEARNERWIN_MSG, COPYWIN_GFX);
+}
+
 static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
 {
     s32 x;
@@ -759,9 +781,6 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     const u8 *str;
 
     FillWindowPixelBuffer(RELEARNERWIN_DESC_BATTLE, PIXEL_FILL(1));
-    //str = gText_MoveRelearnerBattleMoves;
-    //x = GetStringCenterAlignXOffset(FONT_NORMAL, str, 128);
-    //AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, x, 1, TEXT_SKIP_DRAW, NULL);
 
     str = gText_MoveRelearnerPP;
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 4, 41, TEXT_SKIP_DRAW, NULL);
@@ -808,13 +827,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         str = buffer;
     }
     AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NORMAL, str, 106, 41, TEXT_SKIP_DRAW, NULL);
-
-    if (move->effect != EFFECT_PLACEHOLDER)
-        str = gMoveDescriptionPointers[chosenMove - 1];
-    else
-        str = gNotDoneYetDescription;
-
-    AddTextPrinterParameterized(RELEARNERWIN_DESC_BATTLE, FONT_NARROW, str, 0, 65, 0, NULL);
+    CopyWindowToVram(RELEARNERWIN_DESC_BATTLE, COPYWIN_GFX);
 }
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
@@ -859,6 +872,7 @@ static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct List
         PlaySE(SE_SELECT);
     MoveRelearnerLoadBattleMoveDescription(itemIndex);
     MoveRelearnerMenuLoadContestMoveDescription(itemIndex);
+    MoveRelearnerPrintMoveDescriptionToMsgWindow(itemIndex);
 }
 
 void MoveRelearnerPrintMessage(u8 *str)
