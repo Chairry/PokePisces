@@ -93,7 +93,8 @@
  * DoMoveRelearnerMain: MENU_STATE_WAIT_FOR_A_BUTTON
  * DoMoveRelearnerMain: MENU_STATE_FADE_AND_RETURN
  * DoMoveRelearnerMain: MENU_STATE_RETURN_TO_FIELD
- *   - Clean up and go to CB2_ReturnToField.
+ *   - If flag FLAG_PARTY_MOVES is set, clean up, unset the flag and go to the party screen
+ *   - Otherwise, clean up and go to CB2_ReturnToField.
  *
  * DoMoveRelearnerMain: MENU_STATE_PRINT_GIVE_UP_PROMPT
  * DoMoveRelearnerMain: MENU_STATE_GIVE_UP_CONFIRM
