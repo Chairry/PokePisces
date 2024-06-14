@@ -4078,6 +4078,10 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 {
                     gMultiHitCounter = RandomUniform(RNG_LOADED_DICE, 4, 10);
                 }
+                else if (gBattleMoves[gCurrentMove].effect == EFFECT_GATTLING_PINS && GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LOADED_DICE)
+                {
+                    gMultiHitCounter = RandomUniform(RNG_LOADED_DICE, 4, 5);
+                }
                 else
                 {
                     gMultiHitCounter = gBattleMoves[gCurrentMove].strikeCount;

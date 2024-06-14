@@ -591,6 +591,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSleepPowder             @ EFFECT_SLEEP_POWDER
 	.4byte BattleScript_EffectAxelHeel                @ EFFECT_AXEL_HEEL
 	.4byte BattleScript_EffectStunSpore               @ EFFECT_STUN_SPORE
+	.4byte BattleScript_EffectGoldPlains              @ EFFECT_GOLD_PLAINS
+	.4byte BattleScript_EffectDownfall                @ EFFECT_DOWNFALL
+	.4byte BattleScript_EffectMtSplendor              @ EFFECT_MT_SPLENDOR
+	.4byte BattleScript_EffectHit                     @ EFFECT_GATTLING_PINS
 
 BattleScript_EffectStunSpore:
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_StunSporeFlinch

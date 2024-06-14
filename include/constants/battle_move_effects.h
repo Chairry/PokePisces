@@ -571,7 +571,8 @@
 #define EFFECT_GOLD_PLAINS                  565
 #define EFFECT_DOWNFALL                     566
 #define EFFECT_MT_SPLENDOR                  567
+#define EFFECT_GATTLING_PINS                568
 
-#define NUM_BATTLE_MOVE_EFFECTS             568
+#define NUM_BATTLE_MOVE_EFFECTS             569
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

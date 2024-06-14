@@ -15415,7 +15415,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_GATTLING_PINS] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_GATTLING_PINS,
         .power = 40,
         .type = TYPE_RELIC,
         .accuracy = 70,
