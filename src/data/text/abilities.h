@@ -365,6 +365,7 @@ static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every
 static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any Pokémon.");
 static const u8 sAllGameDescription[] = _("Plays Mud and Water Sports.\nHas Ground/Water Immunity.");
 static const u8 sShunyongDescription[] = _("Shunyong");
+static const u8 sRegeneratorDescription[] = _("Restores a little HP when\nwithdrawn from battle.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1268,7 +1269,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MOODY] = sMoodyDescription,
     [ABILITY_OVERCOAT] = sOvercoatDescription,
     [ABILITY_POISON_TOUCH] = sPoisonTouchDescription,
-    [ABILITY_REGENERATOR] = sNaturalCureDescription,
+    [ABILITY_REGENERATOR] = sRegeneratorDescription,
     [ABILITY_BIG_PECKS] = sBigPecksDescription,
     [ABILITY_SAND_RUSH] = sSandRushDescription,
     [ABILITY_WONDER_SKIN] = sWonderSkinDescription,
