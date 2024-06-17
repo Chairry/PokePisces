@@ -25813,7 +25813,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_APPETITE, ABILITY_SERENE_GRACE},
+        .abilities = {ABILITY_ANGER_POINT, ABILITY_LINGERING_AROMA, ABILITY_SERENE_GRACE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
