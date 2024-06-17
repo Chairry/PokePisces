@@ -3624,3 +3624,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/NewSunbeach/scripts.inc"
 
 	.include "data/maps/FamilyMossCave/scripts.inc"
+
+	.include "data/maps/BattleStudioLobby/scripts.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
