@@ -73,12 +73,8 @@ static const u16 sShunyongGoldenOffenseMoves[MAX_SHUNYONG_MOVES] = {
     MOVE_SEARING_SHOT,
     MOVE_VITAL_THROW,
     MOVE_FEAR_FACTOR,
-#ifdef MOVE_DOOM_WING
-    MOVE_DOOM_WING,
-#endif
-#ifdef MOVE_NORTH_WIND
-    MOVE_NORTH_WIND,
-#endif
+    MOVE_OBLIVION_WING,
+    MOVE_BLEAKWIND_STORM,
     MOVE_DEMOLISHER,
 };
 

@@ -22134,25 +22134,25 @@ Move_LUMINA_CRASH::
 	end
 
 Move_GATTLING_PINS::
-	loadspritegfx ANIM_TAG_NEEDLE
+	loadspritegfx ANIM_TAG_PIN
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_TARGET
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gLinearStingerSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
+	createsprite gLinearPinSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
 	delay 1
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gLinearStingerSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
+	createsprite gLinearPinSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
 	delay 1
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gLinearStingerSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
+	createsprite gLinearPinSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
 	delay 1
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gLinearStingerSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
+	createsprite gLinearPinSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
 	delay 1
 	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
-	createsprite gLinearStingerSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
+	createsprite gLinearPinSpriteTemplate, 2, ANIM_TARGET, 20, 0, -8, 0, 10, 1
 	delay 1
 	waitforvisualfinish
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 5, 1

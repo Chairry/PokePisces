@@ -1018,6 +1018,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
     [MOVE_RESERVOIR] = _("Reservoir"),
+    [MOVE_GOLD_PLAINS] = _("Golden Plains"),
+    [MOVE_DOWNFALL] = _("Downfall"),
+    [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
 };
 #else
@@ -2040,6 +2043,9 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
     [MOVE_RESERVOIR] = _("Reservoir"),
+    [MOVE_GOLD_PLAINS] = _("Golden Plains"),
+    [MOVE_DOWNFALL] = _("Downfall"),
+    [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
 };
 #endif

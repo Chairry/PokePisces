@@ -11153,6 +11153,8 @@ extern const u32 gBattleAnimSpriteGfx_Spore[];
 extern const u32 gBattleAnimSpriteGfx_Flower[];
 extern const u32 gBattleAnimSpriteGfx_RazorLeaf[];
 extern const u32 gBattleAnimSpriteGfx_Needle[];
+extern const u32 gBattleAnimSpriteGfx_Pin[];
+extern const u32 gBattleAnimSpritePal_Pin[];
 extern const u32 gBattleAnimSpriteGfx_WhirlwindLines[];
 extern const u32 gBattleAnimSpriteGfx_GoldRing[];
 extern const u32 gBattleAnimSpriteGfx_GreenLightWall[];
