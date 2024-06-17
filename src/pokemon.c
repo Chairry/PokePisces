@@ -4700,7 +4700,7 @@ void CalculateMonStats(struct Pokemon *mon)
 
     else if (species == SPECIES_SHUNYONG || species == SPECIES_SHUNYONG_GOLDEN_OFFENSE)
     {
-        newMaxHP = 5500;
+        newMaxHP = 2500;
     }
 
     else

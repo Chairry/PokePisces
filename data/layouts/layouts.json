@@ -5360,6 +5360,26 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/FamilyMossCave/border.bin",
       "blockdata_filepath": "data/layouts/FamilyMossCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_LOBBY",
+      "name": "BattleStudioLobby_Layout",
+      "width": 20,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/BattleStudioLobby/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP1",
+      "name": "NewMap1_Layout",
+      "width": 16,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/NewMap1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     }
   ]
 }
