@@ -364,7 +364,17 @@ void HandleAction_UseMove(void)
         side = GetBattlerSide(gBattlerAttacker);
         for (battler = 0; battler < gBattlersCount; battler++)
         {
-            if (*(gBattleStruct->moveTarget + gBattlerAttacker) != battler && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC) || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER) || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL) || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY) || (GetBattlerAbility(battler) == ABILITY_SOUL_LOCKER && moveType == TYPE_GHOST)) && GetBattlerTurnOrderNum(battler) < var && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL || GetBattlerAbility(gBattlerAttacker) != ABILITY_STALWART))
+            if (*(gBattleStruct->moveTarget + gBattlerAttacker) != battler 
+            && battler != gBattlerAttacker
+            && ((GetBattlerAbility(battler) == ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC)
+            || (GetBattlerAbility(battler) == ABILITY_STORM_DRAIN && moveType == TYPE_WATER) 
+            || (GetBattlerAbility(battler) == ABILITY_MAGNET_PULL && moveType == TYPE_STEEL) 
+            || (GetBattlerAbility(battler) == ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY) 
+            || (GetBattlerAbility(battler) == ABILITY_SOUL_LOCKER && moveType == TYPE_GHOST)) 
+            && GetBattlerTurnOrderNum(battler) < var 
+            && gBattleMoves[gCurrentMove].effect != EFFECT_SNIPE_SHOT 
+            && (GetBattlerAbility(gBattlerAttacker) != ABILITY_PROPELLER_TAIL 
+            || GetBattlerAbility(gBattlerAttacker) != ABILITY_STALWART))
             {
                 var = GetBattlerTurnOrderNum(battler);
             }
