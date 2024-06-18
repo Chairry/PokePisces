@@ -1,8 +1,8 @@
 {
-  "id": "MAP_BATTLE_STUDIO_LOBBY",
-  "name": "BattleStudioLobby",
-  "layout": "LAYOUT_BATTLE_STUDIO_LOBBY",
-  "music": "MUS_B_DOME_LOBBY",
+  "id": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
+  "name": "BattleStudioFakeLobby",
+  "layout": "LAYOUT_BATTLE_STUDIO_FAKE_LOBBY",
+  "music": "MUS_NONE",
   "region_map_section": "MAPSEC_LILYCOVE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -18,31 +18,24 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 12,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "4"
-    },
-    {
       "x": 3,
-      "y": 1,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAP1",
-      "dest_warp_id": "0"
+      "dest_warp_id": "4"
     },
     {
-      "x": 15,
-      "y": 1,
+      "x": 4,
+      "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
+      "dest_map": "MAP_NEW_MAP1",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_FAKE_ARENA",
       "dest_warp_id": "0"
     }
   ],

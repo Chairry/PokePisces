@@ -206,6 +206,8 @@
 #define STATUS4_GLAIVE_RUSH_2           (1 << 10)
 #define STATUS4_HEARTHWARM              (1 << 11)
 #define STATUS4_FAIRY_LOCK              (1 << 12)
+#define STATUS4_RECHARGE_REDUCE         (1 << 13)
+#define STATUS4_MEAN_LOOKER             (1 << 14)
 
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
@@ -425,8 +427,9 @@
 #define MOVE_EFFECT_TICKED              97
 #define MOVE_EFFECT_BANSHRIEK           98
 #define MOVE_EFFECT_SPD_ACC_UP          99
+#define MOVE_EFFECT_RECHARGE_REDUCE     100
 
-#define NUM_MOVE_EFFECTS                100
+#define NUM_MOVE_EFFECTS                101
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

@@ -572,7 +572,13 @@
 #define EFFECT_DOWNFALL                     566
 #define EFFECT_MT_SPLENDOR                  567
 #define EFFECT_GATTLING_PINS                568
+#define EFFECT_CONSTRICT                    569
+#define EFFECT_HYPER_DRILL                  570
+#define EFFECT_RECHARGE_REDUCE              571
+#define EFFECT_PURIFICATION                 572
+#define EFFECT_MIND_READER                  573
+#define EFFECT_ODOR_SLEUTH                  574
 
-#define NUM_BATTLE_MOVE_EFFECTS             569
+#define NUM_BATTLE_MOVE_EFFECTS             575
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

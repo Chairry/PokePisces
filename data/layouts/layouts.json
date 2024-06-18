@@ -5380,6 +5380,46 @@
       "secondary_tileset": "gTileset_BattleTent",
       "border_filepath": "data/layouts/NewMap1/border.bin",
       "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_STORAGE",
+      "name": "BattleStudioStorage_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/BattleStudioStorage/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioStorage/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_OFFICE",
+      "name": "BattleStudioOffice_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/BattleStudioOffice/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioOffice/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_FAKE_LOBBY",
+      "name": "BattleStudioFakeLobby_Layout",
+      "width": 17,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/BattleStudioFakeLobby/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioFakeLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_FAKE_ARENA",
+      "name": "BattleStudioFakeArena_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/BattleStudioFakeArena/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioFakeArena/map.bin"
     }
   ]
 }

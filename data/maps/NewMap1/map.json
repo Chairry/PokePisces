@@ -17,7 +17,48 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 1,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_LOBBY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 2,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_LOBBY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_OFFICE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_STORAGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

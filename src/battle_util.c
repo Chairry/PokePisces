@@ -296,7 +296,7 @@ void HandleAction_UseMove(void)
         gHitMarker |= HITMARKER_NO_PPDEDUCT;
         *(gBattleStruct->moveTarget + gBattlerAttacker) = GetMoveTarget(MOVE_STRUGGLE, NO_TARGET_OVERRIDE);
     }
-    else if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS || gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
+    else if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS || gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE || gStatuses4[gBattlerAttacker] == STATUS4_RECHARGE_REDUCE)
     {
         gCurrentMove = gChosenMove = gLockedMoves[gBattlerAttacker];
     }
@@ -3766,9 +3766,10 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_RECHARGE: // recharge
-            if (gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE)
+            if (gBattleMons[gBattlerAttacker].status2 & STATUS2_RECHARGE || gStatuses4[gBattlerAttacker] == STATUS4_RECHARGE_REDUCE)
             {
                 gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_RECHARGE;
+                gStatuses4[gBattlerAttacker] &= ~STATUS4_RECHARGE_REDUCE;
                 gDisableStructs[gBattlerAttacker].rechargeTimer = 0;
                 CancelMultiTurnMoves(gBattlerAttacker);
                 gBattlescriptCurrInstr = BattleScript_MoveUsedMustRecharge;
@@ -11104,6 +11105,20 @@ static inline uq4_12_t GetGlaiveRushModifier(u32 battlerDef)
     return UQ_4_12(1.0);
 }
 
+static inline uq4_12_t GetRechargeReduceModifier(u32 battlerDef)
+{
+    if (gStatuses4[battlerDef] & STATUS4_RECHARGE_REDUCE)
+        return UQ_4_12(0.5);
+    return UQ_4_12(1.0);
+}
+
+static inline uq4_12_t GetLuckyChantModifier(u32 battlerDef, uq4_12_t typeEffectivenessModifier)
+{
+    if ((gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
+        return UQ_4_12(0.7);
+    return UQ_4_12(1.0);
+}
+
 static inline uq4_12_t GetTargetStatusDamageModifier(u32 battlerDef)
 {
     if (gBattleMons[battlerDef].status1 & STATUS1_EXPOSED)
@@ -11444,6 +11459,8 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(battlerAtk, move, moveType, holdEffectAtk, holdEffectDef, weather));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));
+    DAMAGE_APPLY_MODIFIER(GetRechargeReduceModifier(battlerDef));
+    DAMAGE_APPLY_MODIFIER(GetLuckyChantModifier(battlerDef, typeEffectivenessModifier));
     DAMAGE_APPLY_MODIFIER(GetTargetStatusDamageModifier(battlerDef));
     // TODO: Glaive Rush (Gen IX effect)
     if (randomFactor)
@@ -11538,7 +11555,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_PLASMA_CUTTER && defType == TYPE_GROUND)
         mod = UQ_4_12(1.0);
-    if (gBattleMoves[move].effect == EFFECT_BLOSSOM_SNAP && typeEffectivenessModifier <= UQ_4_12(0.5) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+    if (gCurrentMove == MOVE_BREAK_LANCE && typeEffectivenessModifier <= UQ_4_12(0.5))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_BEATBOX && defType == TYPE_GHOST)
         mod = UQ_4_12(1.0);
