@@ -140,7 +140,11 @@
     "ZotpyreInteriors",
     "ZotpyreSecretBasement",
     "BattleStudioLobby",
-    "NewMap1"
+    "NewMap1",
+    "BattleStudioStorage",
+    "BattleStudioOffice",
+    "BattleStudioFakeLobby",
+    "BattleStudioFakeArena"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",

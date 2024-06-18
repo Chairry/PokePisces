@@ -91,6 +91,10 @@
 #define MAP_ZOTPYRE_SECRET_BASEMENT           (13 | (5 << 8))
 #define MAP_BATTLE_STUDIO_LOBBY               (14 | (5 << 8))
 #define MAP_NEW_MAP1                          (15 | (5 << 8))
+#define MAP_BATTLE_STUDIO_STORAGE             (16 | (5 << 8))
+#define MAP_BATTLE_STUDIO_OFFICE              (17 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_LOBBY          (18 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_ARENA          (19 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))

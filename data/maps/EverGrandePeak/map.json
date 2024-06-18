@@ -36,13 +36,6 @@
   ],
   "warp_events": [
     {
-      "x": 18,
-      "y": 37,
-      "elevation": 0,
-      "dest_map": "MAP_EVER_GRANDE_PEAK",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 38,
       "y": 47,
       "elevation": 0,
