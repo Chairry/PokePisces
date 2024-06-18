@@ -9164,6 +9164,11 @@ static bool32 InvalidDanceManiaMove(u32 move)
         || (!(gBattleMoves[move].danceMove));
 }    
 
+static bool32 InvalidSurpriseEggMove(u32 move)
+{
+    return (!(gBattleMoves[move].surpriseEggMove));
+}    
+
 static void Cmd_various(void)
 {
     CMD_ARGS(u8 battler, u8 id);
@@ -10559,6 +10564,18 @@ static void Cmd_various(void)
         }
         
         return;
+    }
+    case VARIOUS_SURPRISE_EGG:
+    {
+        VARIOUS_ARGS();
+        u32 moveCount = MOVES_COUNT_PISCES;
+
+        gCurrentMove = RandomUniformExcept(RNG_METRONOME, 1, moveCount - 1, InvalidSurpriseEggMove);
+        gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+        SetAtkCancellerForCalledMove();
+        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+        break;
     }
     case VARIOUS_ABILITY_POPUP:
     {
@@ -14062,7 +14079,7 @@ static void Cmd_metronome(void)
     CMD_ARGS();
 
 #if B_METRONOME_MOVES >= GEN_9
-    u32 moveCount = MOVES_COUNT_GEN9;
+    u32 moveCount = MOVES_COUNT_PISCES;
 #elif B_METRONOME_MOVES >= GEN_8
     u32 moveCount = MOVES_COUNT_GEN8;
 #elif B_METRONOME_MOVES >= GEN_7

@@ -601,6 +601,17 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectPurification            @ EFFECT_PURIFICATION
 	.4byte BattleScript_EffectMindReader              @ EFFECT_MIND_READER
 	.4byte BattleScript_EffectOdorSleuth              @ EFFECT_ODOR_SLEUTH
+	.4byte BattleScript_EffectSurpriseEgg             @ EFFECT_SURPRISE_EGG
+
+BattleScript_EffectSurpriseEgg::
+	attackcanceler
+	attackstring
+	pause B_WAIT_TIME_SHORT
+	attackanimation
+	waitanimation
+	setbyte sB_ANIM_TURN, 0
+	setbyte sB_ANIM_TARGETS_HIT, 0
+	surpriseegg
 
 BattleScript_EffectOdorSleuth:
 	jumpiftargethpthreshold BS_TARGET, BattleScript_EffectForesight

@@ -270,6 +270,7 @@
 #define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          177
 #define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             178
 #define VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD          179
+#define VARIOUS_SURPRISE_EGG                         180
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
