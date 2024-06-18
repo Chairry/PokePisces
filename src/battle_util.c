@@ -9694,12 +9694,28 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= (4 - gMultiHitCounter);
         break;
     case EFFECT_SPIT_UP:
-        basePower = 100 * gDisableStructs[battlerAtk].stockpileCounter;
+        basePower = 50 + (50 * gDisableStructs[battlerAtk].stockpileCounter);
         break;
     case EFFECT_REVENGE:
         if ((gProtectStructs[battlerAtk].physicalDmg && gProtectStructs[battlerAtk].physicalBattlerId == battlerDef) || (gProtectStructs[battlerAtk].specialDmg && gProtectStructs[battlerAtk].specialBattlerId == battlerDef))
             basePower *= 2;
         break;
+    case EFFECT_FEINT:
+        if (gProtectStructs[gBattlerTarget].protected
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_WIDE_GUARD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_QUICK_GUARD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_CRAFTY_SHIELD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_MAT_BLOCK
+            || gProtectStructs[gBattlerTarget].spikyShielded
+            || gProtectStructs[gBattlerTarget].kingsShielded
+            || gProtectStructs[gBattlerTarget].shelltered
+            || gProtectStructs[gBattlerTarget].detectShielded
+            || gProtectStructs[gBattlerTarget].banefulBunkered
+            || gProtectStructs[gBattlerTarget].obstructed
+            || gProtectStructs[gBattlerTarget].silkTrapped
+            || gProtectStructs[gBattlerTarget].burningBulwarked
+            || gProtectStructs[gBattlerTarget].drakenGuarded)
+            basePower *= 2;
     case EFFECT_WEATHER_BALL:
         if (weather & B_WEATHER_ANY)
             basePower *= 2;
@@ -9946,8 +9962,8 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = (basePower > 200) ? 200 : basePower;
         break;
     case EFFECT_BARI_BARI_BEAM:
-        basePower = 40 + (40 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
-        basePower = (basePower > 200) ? 200 : basePower;
+        basePower = 40 + (30 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
+        basePower = (basePower > 160) ? 160 : basePower;
         break;
     case EFFECT_FICKLE_BEAM:
         basePower = gBattleStruct->ficklebeamBasePower;
@@ -10759,12 +10775,17 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         usesDefStat = FALSE;
     }
 
-#if B_EXPLOSION_DEFENSE <= GEN_4
     // Self-destruct / Explosion cut defense in half
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
-        defStat /= 2;
-#endif
-    
+    if (gCurrentMove == MOVE_EXPLOSION || gCurrentMove == MOVE_SELF_DESTRUCT)
+        defStat /= 4;
+
+    if (gCurrentMove == MOVE_FINAL_SHRIEK || gCurrentMove == MOVE_JUMP_N_POP)
+    {
+        defStat = spDef;
+        defStage = gBattleMons[battlerDef].statStages[STAT_SPDEF];
+        defStat /= 4;
+    }
+
     // freeze status cuts defense in half
     if (gBattleMons[battlerDef].status1 & STATUS1_FREEZE)
         defStat /= 2;

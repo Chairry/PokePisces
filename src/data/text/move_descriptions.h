@@ -205,8 +205,8 @@ static const u8 sSupersonicDescription[] = _(
     "that may confuse the foe.");
 
 static const u8 sSonicBoomDescription[] = _(
-    "Launches shock waves that\n"
-    "always inflict 20 HP damage.");
+    "Deals 20 HP damage. If at\n"
+    "least LV. 50 then deals 150.");
 
 static const u8 sDisableDescription[] = _(
     "Psychically disables one of\n"
@@ -265,6 +265,10 @@ static const u8 sAuroraBeamDescription[] = _(
     "beam that may lower Attack.");
 
 static const u8 sHyperBeamDescription[] = _(
+    "Leaves the user immobile but\n"
+    "they take less damage.");
+
+static const u8 sRockWreckerDescription[] = _(
     "Powerful, but leaves the\n"
     "user immobile the next turn.");
 
@@ -497,8 +501,8 @@ static const u8 sSelfDestructDescription[] = _(
     "makes the user faint.");
 
 static const u8 sEggBombDescription[] = _(
-    "An egg is forcibly hurled at\n"
-    "the foe.");
+    "An egg is hurled at the foe,\n"
+    "disabling their ability.");
 
 static const u8 sLickDescription[] = _(
     "Licks with a long tongue to\n"
@@ -693,8 +697,8 @@ static const u8 sSpiderWebDescription[] = _(
     "and Speed each turn.");
 
 static const u8 sMindReaderDescription[] = _(
-    "Senses the foe's action to\n"
-    "ensure the next move's hit.");
+    "Flinches if foe used a status\n"
+    "move. Next move always hits.");
 
 static const u8 sNightmareDescription[] = _(
     "Puts foe to sleep, then\n"
@@ -1165,8 +1169,8 @@ static const u8 sImprisonDescription[] = _(
     "moves known by the user.");
 
 static const u8 sRefreshDescription[] = _(
-    "Heals any type of negative.\n"
-    "status.");
+    "Restores negative status and\n"
+    "stats for user and ally.");
 
 static const u8 sGrudgeDescription[] = _(
     "If the user faints, deletes\n"
@@ -1473,8 +1477,8 @@ static const u8 sNaturalGiftDescription[] = _(
     "with the held Berry.");
 
 static const u8 sFeintDescription[] = _(
-    "An attack that hits foes\n"
-    "using moves like Protect.");
+    "Ignores and powers up on foes\n"
+    "using Protect-like moves.");
 
 static const u8 sPluckDescription[] = _(
     "Eats the foe's held Berry\n"
@@ -1545,8 +1549,8 @@ static const u8 sGastroAcidDescription[] = _(
     "the foe's ability.");
 
 static const u8 sLuckyChantDescription[] = _(
-    "Prevents the foe from\n"
-    "landing critical hits.");
+    "Crits are ignored and super-\n"
+    "effective hits are nerfed.");
 
 static const u8 sMeFirstDescription[] = _(
     "Executes the foe's attack\n"
@@ -2053,8 +2057,8 @@ static const u8 sFinalGambitDescription[] = _(
     "the foe equal to its HP.");
 
 static const u8 sBestowDescription[] = _(
-    "The user gives its held\n"
-    "item to the foe.");
+    "Bestows a blessing and\n"
+    "an item to the target.");
 
 static const u8 sInfernoDescription[] = _(
     "Powerful and sure to inflict\n"
@@ -2485,8 +2489,8 @@ static const u8 sToxicThreadDescription[] = _(
     "poisons and drops Speed.");
 
 static const u8 sLaserFocusDescription[] = _(
-    "Guarantees the next move\n"
-    "will be a critical hit.");
+    "The next move will crit.\n"
+    "If not hit raises Atk by 2.");
 
 static const u8 sGearUpDescription[] = _(
     "Boosts the attacks of\n"
@@ -3202,8 +3206,8 @@ static const u8 sChillingWaterDescription[] = _(
     "lowers the target's Attack.");
 
 static const u8 sHyperDrillDescription[] = _(
-    "A spinning pointed part\n"
-    "bypasses a foe's Protect.");
+    "Bypasses Protect-like moves\n"
+    "and screens. May lower Def.");
 
 static const u8 sTwinBeamDescription[] = _(
     "Mystical eye-beams that hit\n"
@@ -3849,8 +3853,8 @@ static const u8 sBreakLanceDescription[] = _(
     "ignoring resistances.");
 
 static const u8 sGrandSlamDescription[] = _(
-    "A powerful slam that leaves\n"
-    "the user immobile.");
+    "Leaves the user immobile but\n"
+    "they take less damage.");
 
 static const u8 sBeatDropDescription[] = _(
     "Drops a beat hard and fast.\n"
@@ -4387,7 +4391,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_LAVA_PLUME - 1] = sLavaPlumeDescription,
     [MOVE_LEAF_STORM - 1] = sLeafStormDescription,
     [MOVE_POWER_WHIP - 1] = sPowerWhipDescription,
-    [MOVE_ROCK_WRECKER - 1] = sHyperBeamDescription,
+    [MOVE_ROCK_WRECKER - 1] = sRockWreckerDescription,
     [MOVE_CROSS_POISON - 1] = sCrossPoisonDescription,
     [MOVE_GUNK_SHOT - 1] = sGunkShotDescription,
     [MOVE_IRON_HEAD - 1] = sIronHeadDescription,

@@ -2842,6 +2842,7 @@ BattleScript_EffectShedTail:
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_ButItFailed
 	setsubstitute TRUE
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_SUBSTITUTE_FAILED, BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_PASSIVE_DAMAGE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
@@ -2934,7 +2935,7 @@ BattleScript_EffectFilletAway:
 	attackstring
 	ppreduce
 	cutonethirdhpraisestats BattleScript_ButItFailed
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
@@ -7402,6 +7403,7 @@ BattleScript_EffectSubstitute::
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_SubstituteString
 BattleScript_SubstituteAnim::
+	orword gHitMarker, HITMARKER_PASSIVE_DAMAGE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
@@ -8375,7 +8377,7 @@ BattleScript_EffectBellyDrum::
 	ppreduce
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_ButItFailed
 	halvehp BattleScript_ButItFailed
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	attackanimation
 	waitanimation
 	healthbarupdate BS_ATTACKER
@@ -13618,7 +13620,7 @@ BattleScript_AbilityHealHP_Ret::
 	call BattleScript_AbilityPopUpTarget
 	printstring STRINGID_PKMNRESTOREDHPUSING
 	waitmessage B_WAIT_TIME_SHORTEST
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	return

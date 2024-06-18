@@ -13591,7 +13591,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 100,
         .type = TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -15056,7 +15056,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_TIPSY_STEP] =
     {
         .effect = EFFECT_KERFUFFLE,
-        .power = 100,
+        .power = 80,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 10,

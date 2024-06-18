@@ -3959,8 +3959,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
-                    gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
-                    gProtectStructs[gBattlerAttacker].drakenGuarded = FALSE;
+                    gProtectStructs[gBattlerTarget].burningBulwarked = FALSE;
+                    gProtectStructs[gBattlerTarget].drakenGuarded = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     if (gCurrentMove == MOVE_HYPERSPACE_FURY)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
@@ -10138,7 +10138,7 @@ static void Cmd_various(void)
         {
             gSideStatuses[GetBattlerSide(battler)] |= SIDE_STATUS_LUCKY_CHANT;
             gSideTimers[GetBattlerSide(battler)].luckyChantBattlerId = battler;
-            gSideTimers[GetBattlerSide(battler)].luckyChantTimer = 5;
+            gSideTimers[GetBattlerSide(battler)].luckyChantTimer = 6;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else
@@ -12679,7 +12679,7 @@ static void Cmd_stockpiletohpheal(void)
         }
         else
         {
-            gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / (1 << (3 - gDisableStructs[gBattlerAttacker].stockpileCounter));
+            gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / (20 + (20 * gDisableStructs[gBattlerAttacker].stockpileCounter));
 
             if (gBattleMoveDamage == 0)
                 gBattleMoveDamage = 1;
@@ -14890,7 +14890,7 @@ static void Cmd_setsafeguard(void)
     else
     {
         gSideStatuses[GetBattlerSide(gBattlerAttacker)] |= SIDE_STATUS_SAFEGUARD;
-        gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardTimer = 5;
+        gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardTimer = 6;
         gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardBattlerId = gBattlerAttacker;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SAFEGUARD;
     }
