@@ -4182,7 +4182,8 @@ static void HandleTurnActionSelectionState(void)
                 else
                 {
                     if (gBattleMons[battler].status2 & STATUS2_MULTIPLETURNS
-                        || gBattleMons[battler].status2 & STATUS2_RECHARGE)
+                        || gBattleMons[battler].status2 & STATUS2_RECHARGE 
+                        || gStatuses4[battler] == STATUS4_RECHARGE_REDUCE)
                     {
                         gChosenActionByBattler[battler] = B_ACTION_USE_MOVE;
                         gBattleCommunication[battler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
@@ -4331,7 +4332,8 @@ static void HandleTurnActionSelectionState(void)
                     gBattleCommunication[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))] = STATE_BEFORE_ACTION_CHOSEN;
                     RecordedBattle_ClearBattlerAction(battler, 1);
                     if (gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_MULTIPLETURNS
-                        || gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_RECHARGE)
+                        || gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_RECHARGE
+                        || gStatuses4[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))] == STATUS4_RECHARGE_REDUCE)
                     {
                         BtlController_EmitEndBounceEffect(battler, BUFFER_A);
                         MarkBattlerForControllerExec(battler);
@@ -4855,6 +4857,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    else if ((gCurrentMove == MOVE_CONSTRICT) && gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
+    {
+        priority = 4;
+    }
     else if (ability == ABILITY_TRIAGE)
     {
         switch (gBattleMoves[move].effect)
@@ -5131,6 +5137,7 @@ static void TurnValuesCleanUp(bool8 var0)
                 gDisableStructs[i].rechargeTimer--;
                 if (gDisableStructs[i].rechargeTimer == 0)
                     gBattleMons[i].status2 &= ~STATUS2_RECHARGE;
+                    gStatuses4[i] &= ~STATUS4_RECHARGE_REDUCE;
             }
         }
 

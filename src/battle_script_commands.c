@@ -915,6 +915,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_PREVENT_ESCAPE] = STATUS2_ESCAPE_PREVENTION,
     [MOVE_EFFECT_NIGHTMARE]      = STATUS2_NIGHTMARE,
     [MOVE_EFFECT_THRASH]         = STATUS2_LOCK_CONFUSE,
+    [MOVE_EFFECT_RECHARGE_REDUCE] = STATUS4_RECHARGE_REDUCE,
 };
 
 static const u8 *const sMoveEffectBS_Ptrs[] =
@@ -3734,6 +3735,12 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 gLockedMoves[gEffectBattler] = gCurrentMove;
                 gBattlescriptCurrInstr++;
                 break;
+            case MOVE_EFFECT_RECHARGE_REDUCE:
+                gStatuses4[gEffectBattler] |= STATUS4_RECHARGE_REDUCE;
+                gDisableStructs[gEffectBattler].rechargeTimer = 2;
+                gLockedMoves[gEffectBattler] = gCurrentMove;
+                gBattlescriptCurrInstr++;
+                break;
             case MOVE_EFFECT_RAGE:
                 gBattleMons[gBattlerAttacker].status2 |= STATUS2_RAGE;
                 gBattlescriptCurrInstr++;
@@ -4019,8 +4026,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 break;
             case MOVE_EFFECT_CORE_ENFORCER:
-                if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget)
-                 && !NoAliveMonsForEitherParty())
+                if (!NoAliveMonsForEitherParty())
                 {
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MoveEffectCoreEnforcer;
@@ -10175,6 +10181,15 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
+    case VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        if (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 3))
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        else
+            gBattlescriptCurrInstr = cmd->failInstr;
+        return;
+    }
     case VARIOUS_SET_SIMPLE_BEAM:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -14073,7 +14088,18 @@ static void Cmd_dmgtolevel(void)
 {
     CMD_ARGS();
 
-    gBattleMoveDamage = gBattleMons[gBattlerAttacker].level;
+    if ((gCurrentMove == MOVE_SONIC_BOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
+    {
+        gBattleMoveDamage = 150;
+    }
+    else if (gBattleMoves[gCurrentMove].effect == EFFECT_LEVEL_DAMAGE)
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerAttacker].level;
+    }
+    else
+    {
+        gBattleMoveDamage = 20;
+    }
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -15533,12 +15559,12 @@ static void Cmd_cureifburnedparalysedorpoisoned(void)
     CMD_ARGS(const u8 *failInstr);
     u32 refreshStatuses = STATUS1_ANY_NEGATIVE & ~(STATUS1_SLEEP);
 
-    if (gBattleMons[gBattlerAttacker].status1 & refreshStatuses)
+    if (gBattleMons[gBattlerTarget].status1 & refreshStatuses)
     {
-        gBattleMons[gBattlerAttacker].status1 = 0;
+        gBattleMons[gBattlerTarget].status1 = 0;
         gBattlescriptCurrInstr = cmd->nextInstr;
-        BtlController_EmitSetMonData(gBattlerAttacker, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerAttacker].status1), &gBattleMons[gBattlerAttacker].status1);
-        MarkBattlerForControllerExec(gBattlerAttacker);
+        BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+        MarkBattlerForControllerExec(gBattlerTarget);
     }
     else
     {

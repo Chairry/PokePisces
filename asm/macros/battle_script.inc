@@ -1685,6 +1685,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro jumpiftargethpthreshold battler:req, failInstr:req
+	various \battler VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD
+	.4byte \failInstr
+	.endm
+
 	.macro setabilitysimple battler:req, failInstr:req
 	various \battler VARIOUS_SET_SIMPLE_BEAM
 	.4byte \failInstr
