@@ -24,6 +24,7 @@
 #include "task.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "party_menu.h"
 
 /*
  * Move relearner state machine
@@ -92,7 +93,8 @@
  * DoMoveRelearnerMain: MENU_STATE_WAIT_FOR_A_BUTTON
  * DoMoveRelearnerMain: MENU_STATE_FADE_AND_RETURN
  * DoMoveRelearnerMain: MENU_STATE_RETURN_TO_FIELD
- *   - Clean up and go to CB2_ReturnToField.
+ *   - If flag FLAG_PARTY_MOVES is set, clean up, unset the flag and go to the party screen
+ *   - Otherwise, clean up and go to CB2_ReturnToField.
  *
  * DoMoveRelearnerMain: MENU_STATE_PRINT_GIVE_UP_PROMPT
  * DoMoveRelearnerMain: MENU_STATE_GIVE_UP_CONFIRM
@@ -269,10 +271,10 @@ static const struct ScrollArrowsTemplate sDisplayModeArrowsTemplate =
 static const struct ScrollArrowsTemplate sMoveListScrollArrowsTemplate =
 {
     .firstArrowType = SCROLL_ARROW_UP,
-    .firstX = 192,
-    .firstY = 8,
+    .firstX = 184,
+    .firstY = 24,
     .secondArrowType = SCROLL_ARROW_DOWN,
-    .secondX = 192,
+    .secondX = 184,
     .secondY = 104,
     .fullyUpThreshold = 0,
     .fullyDownThreshold = 0,
@@ -491,7 +493,6 @@ static void DoMoveRelearnerMain(void)
         sMoveRelearnerStruct->state++;
         break;
     case MENU_STATE_SETUP_BATTLE_MODE:
-
         HideHeartSpritesAndShowTeachMoveText(FALSE);
         sMoveRelearnerStruct->state++;
         AddScrollArrows();
@@ -678,8 +679,21 @@ static void DoMoveRelearnerMain(void)
     case MENU_STATE_RETURN_TO_FIELD:
         if (!gPaletteFade.active)
         {
+            if (FlagGet(FLAG_PARTY_MOVES))
+            {
+                gLastViewedMonIndex = sMoveRelearnerStruct->partyMon;
+            }
+
             FreeMoveRelearnerResources();
-            SetMainCallback2(CB2_ReturnToField);
+			if (FlagGet(FLAG_PARTY_MOVES))
+			{
+				CB2_ReturnToPartyMenuFromSummaryScreen();
+				FlagClear(FLAG_PARTY_MOVES);
+			}
+			else
+			{
+				SetMainCallback2(CB2_ReturnToField);
+			}
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
@@ -706,10 +720,14 @@ static void DoMoveRelearnerMain(void)
             else
             {
                 u16 moveId = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
+                u8 oldPP;
 
                 StringCopy(gStringVar3, gMoveNames[moveId]);
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
+                oldPP = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), NULL);
                 SetMonMoveSlot(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove(), sMoveRelearnerStruct->moveSlot);
+                if (GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), NULL) > oldPP)
+                    SetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), &oldPP);
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
                 PrintMessageWithPlaceholders(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
@@ -769,9 +787,7 @@ static void HideHeartSpritesAndShowTeachMoveText(bool8 onlyHideSprites)
 
     if (!onlyHideSprites)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
     }
 }
 
@@ -788,7 +804,7 @@ static void HandleInput(bool8 showContest)
 
         PlaySE(SE_SELECT);
 
-        if (showContest == FALSE)
+        if (showContest == TRUE)
         {
             PutWindowTilemap(RELEARNERWIN_DESC_CONTEST);
             sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
@@ -801,6 +817,7 @@ static void HandleInput(bool8 showContest)
             sMoveRelearnerMenuSate.showContestInfo = FALSE;
         }
 
+        ScheduleBgCopyTilemapToVram(0);
         ScheduleBgCopyTilemapToVram(1);
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         break;
@@ -837,9 +854,7 @@ static void ShowTeachMoveText(bool8 shouldDoNothingInstead)
 {
     if (shouldDoNothingInstead == FALSE)
     {
-        StringExpandPlaceholders(gStringVar4, gText_TeachWhichMoveToPkmn);
-        FillWindowPixelBuffer(RELEARNERWIN_MSG, 0x11);
-        AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
+        MoveRelearnerPrintMoveDescriptionToMsgWindow(GetCurrentSelectedMove());
     }
 }
 
@@ -850,6 +865,7 @@ static void CreateUISprites(void)
     sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
     sMoveRelearnerStruct->moveListScrollArrowTask = TASK_NONE;
     AddScrollArrows();
+    LoadSplitIconSprite();
 
     // These are the appeal hearts.
     for (i = 0; i < 8; i++)
@@ -869,8 +885,8 @@ static void CreateUISprites(void)
 
 static void AddScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
-        sMoveRelearnerStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
+    if (sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE)
+        sMoveRelearnerStruct->moveDisplayArrowTask != AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
 
     if (sMoveRelearnerStruct->moveListScrollArrowTask == TASK_NONE)
     {
@@ -882,10 +898,10 @@ static void AddScrollArrows(void)
 
 static void RemoveScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE)
+    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
     {
         RemoveScrollIndicatorArrowPair(sMoveRelearnerStruct->moveDisplayArrowTask);
-        sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
+        sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE;
     }
 
     if (sMoveRelearnerStruct->moveListScrollArrowTask != TASK_NONE)

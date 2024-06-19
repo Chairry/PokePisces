@@ -18,7 +18,6 @@ Route124_MapScripts::
 	.byte 0
 
 Route124_OnTransition:
-	call_if_eq VAR_TEMP_7, 0
 	call_if_set FLAG_SUNBEACH_TUBER_1, Route124_EventScript_SetTuberTempFlags1
 	call_if_set FLAG_SUNBEACH_TUBER_2, Route124_EventScript_SetTuberTempFlags2
 	call_if_set FLAG_SUNBEACH_TUBER_3, Route124_EventScript_SetTuberTempFlags3
@@ -49,13 +48,14 @@ Route124_EventScript_SetParasolTempVar::
 	return
 
 Route124_EventScript_EvilTuber1::
-	lock
+	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Route124_Movement_PlayerMoveIntoPos1
 	waitmovement 0
 	applymovement LOCALID_VICTIM1, Route124_Movement_Helpme1
 	waitmovement 0
+	msgbox Route124_Text_DistressedMan, MSGBOX_DEFAULT
 	trainerbattle_single TRAINER_P_TOBY, Route124_Text_TobyIntro, Route124_Text_TobyDefeated, Route124_EventScript_TobyLeaves
-	release
+	releaseall
 	end
 
 Route124_Movement_PlayerMoveIntoPos1:
@@ -140,7 +140,7 @@ Route124_Movement_VictimLeaves1:
 	step_end
 
 Route124_EventScript_EvilTuber2::
-	msgbox Route124_Text_EbbPostBattle, MSGBOX_DEFAULT
+	msgbox Route124_Text_FloPostBattle, MSGBOX_DEFAULT
 	applymovement LOCALID_TUBER2, Route124_Movement_EbbNFloWalkAway
 	applymovement LOCALID_TUBER3, Route124_Movement_EbbNFloWalkAway
 	waitmovement 0
@@ -432,26 +432,70 @@ Route124_EventScript_Morning::
     msgbox Route124_Text_MorningPostBattle, MSGBOX_AUTOCLOSE
     end
 
+Route124_EventScript_TuberWarning::
+	msgbox Route124_Text_TuberWarning, MSGBOX_NPC
+	end
+
+Route124_EventScript_RichGuyGunpoint::
+	lock
+	msgbox Route124_Text_RichGuyGunpoint, MSGBOX_AUTOCLOSE
+	release
+	end
+
 Route124_Text_WantThoseBrellas:
 	.string "gimme your brellas$"
 
 Route124_Text_ScaredOfUmbrellas:
-	.string "too scary!$"
+	.string "(There is a group of Parasol Ladies\n"
+	.string "singing up ahead.)\p"
+	.string "(Best not to disturb them.)$"
+
+Route124_Text_TuberWarning:
+	.string "I'd tread carefully up ahead.\p"
+	.string "A large group of Tubers took over the\n"
+	.string "beach and are causing quite a ruckus!$"
+
+Route124_Text_RichGuyGunpoint:
+	.string "(There is a rich-looking man being held\n"
+	.string "up by a child at water-gunpoint.)\p"
+	.string "(You are ambivalent to this.)$"
+
+Route124_Text_DistressedMan:
+	.string "H-help!\p"
+	.string "I'm being h-held hostage by this\n"
+	.string "ruffian a-and his attack dog…!$"
 
 Route124_Text_YouSavedMe1:
-	.string "you saved me 1$"
+	.string "Gee whiz!\p"
+	.string "Thanks for the help! That cad\n"
+	.string "interrupted my valuable\l"
+	.string "moss-munchin' time!\p"
+	.string "I'll give you some to chow down on,\n"
+	.string "as thanks.$"
 
 Route124_Text_GottaGo1:
-	.string "Gotta blast 1$"
+	.string "Whelp!\p"
+	.string "I'm off to find an underground cave to\n"
+	.string "track down some more moss…$"
 
 Route124_Text_YouSavedMe2:
-	.string "you saved me 2$"
+	.string "Oh, my. What bothersome little ones…\p"
+	.string "I've been growing plants here that\n"
+	.string "absorb large excesses of water.\p"
+	.string "Perhaps one may be of use, should you\n"
+	.string "find yourself held up by another of\l"
+	.string "those hooligans.$"
 
 Route124_Text_GottaGo2:
-	.string "Gotta blast 2$"
+	.string "I seem to faintly recall a Pokémon that\n"
+	.string "had a bulb that grew upon its back…\p"
+	.string "“Sapusaur,” was it?$"
 
 Route124_Text_YouSavedMe3:
-	.string "you saved me 3$"
+	.string "What a relief… I'm soaked!\p"
+	.string "This berry really didn't help me, but…\n"
+	.string "eh, here. Maybe it'll come in handy\l"
+	.string "for your Pokémon.$"
 
 Route124_Text_ArielNeedTwoMons:
 	.string "need 2 dood$"
@@ -493,13 +537,15 @@ Route124_Text_JosukePostBattle:
 	.string "post$"
 
 Route124_Text_TobyIntro:
-	.string "intro$"
+	.string "(The dog appears to be\n"
+	.string "giving the orders!)$"
 
 Route124_Text_TobyDefeated:
-	.string "defeat$"
+	.string "(Toby hangs his head in defeat.)$"
 
 Route124_Text_TobyPostBattle:
-	.string "post$"
+	.string "(The dog and the tuber bark incessantly\n"
+	.string "at you, before taking their leave.)$"
 
 Route124_Text_ArbuckleIntro:
 	.string "intro$"
@@ -529,31 +575,49 @@ Route124_Text_BethaPostBattle:
 	.string "post$"
 
 Route124_Text_EbbIntro:
-	.string "intro$"
+	.string "Kehehehe!\p"
+	.string "Hey, sis! We got another one!$"
 
 Route124_Text_EbbDefeated:
-	.string "defeat$"
+	.string "Uh-oh! Sis… what do we do now?$"
 
 Route124_Text_EbbPostBattle:
 	.string "post$"
 
 Route124_Text_FloIntro:
-	.string "intro$"
+	.string "More easy prey… karharhar!\p"
+	.string "Give us all your money!!!$"
 
 Route124_Text_FloDefeated:
-	.string "defeat$"
+	.string "I didn't think that far ahead!$"
 
 Route124_Text_FloPostBattle:
-	.string "post$"
+	.string "Quick! Make a break for it!!$"
 
 Route124_Text_JulioIntro:
-	.string "intro$"
+	.string "HANDS UP!\p"
+	.string "(You cooperate.)\p"
+	.string "That's right! You ain't seen anythin'!\p"
+	.string "Now back away slowly 'n\n"
+	.string "nobody gets hurt!\p"
+	.string "(You do not continue to cooperate.)\p"
+	.string "Wha…!?\p"
+	.string "Hey!\n"
+	.string "No fair!\p"
+	.string "M-me and my buddies… we'll…\n"
+	.string "w-we'll show you what's what!$"
 
 Route124_Text_JulioDefeated:
-	.string "defeat$"
+	.string "I-I ain't down yet!!\p"
+	.string "(The child begins to shoot you furiously\n"
+	.string "with his gun.)\p"
+	.string "(This does not change\n"
+	.string "the battle's outcome.)$"
 
 Route124_Text_JulioPostBattle:
-	.string "post$"
+	.string "…Aw, m-man… out of ammo…\p"
+	.string "I'll…I-I'll be back!\n"
+	.string "Don't think you've won!$"
 
 Route124_Text_HomerIntro:
 	.string "intro$"
@@ -574,55 +638,66 @@ Route124_Text_MargePostBattle:
 	.string "post$"
 
 Route124_Text_ShalaIntro:
-	.string "intro Ä$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_ShalaDefeated:
-	.string "defeat$"
+	.string "In theÄSunshineÄ!$"
 
 Route124_Text_ShalaPostBattle:
 	.string "post$"
 
 Route124_Text_LalaIntro:
-	.string "intro$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_LalaDefeated:
-	.string "defeat$"
+	.string "In theÄSunshineÄ!$"
 
 Route124_Text_LalaPostBattle:
-	.string "post$"
+	.string "(4 Ladies Remain...)$"
 
 Route124_Text_LaIntro:
-	.string "intro$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_LaDefeated:
-	.string "defeat$"
+	.string "In theÄEveningÄ!$"
 
 Route124_Text_LaPostBattle:
 	.string "post$"
 
 Route124_Text_ShalalaIntro:
-	.string "intro$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_ShalalaDefeated:
-	.string "defeat$"
+	.string "In theÄEveningÄ!$"
 
 Route124_Text_ShalalaPostBattle:
-	.string "post$"
+	.string "(2 Ladies Remain...!)$"
 
 Route124_Text_IndaIntro:
-	.string "intro$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_IndaDefeated:
-	.string "defeat$"
+	.string "Just forÄYouÄ!$"
 
 Route124_Text_IndaPostBattle:
-	.string "post$"
+	.string "All the way to the day and the night…\n"
+	.string "the stars shine above us!\p"
+	.string "You must have talents unimaginable if\n"
+	.string "you were able to fell the\l"
+	.string "ÄVenga GirlsÄ!\p"
+	.string "We've listened to your heart, singing.\n"
+	.string "We can tell you're here\l"
+	.string "for our umbrellas.\p"
+	.string "Some sweet day it is…\n"
+	.string "We'll return them.\l"
+	.string "You'll be happy, right?$"
 
 Route124_Text_MorningIntro:
-	.string "intro$"
+	.string "MyÄHeartÄGoes…!$"
 
 Route124_Text_MorningDefeated:
-	.string "defeat$"
+	.string "Just forÄYouÄ!$"
 
 Route124_Text_MorningPostBattle:
-	.string "post$"
+	.string "{PLAYER} received the\n"
+	.string "lended umbrellas!$"

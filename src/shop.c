@@ -1286,47 +1286,6 @@ static void SetupSellerMugshot(void)
     }
 }
 
-static void ReformatItemDescription(u16 item, u8 *dest)
-{
-    u8 count = 0;
-    u8 numLines = 1;
-    u8 maxChars = 14;
-    u8 *desc = (u8 *)ItemId_GetDescription(sMartInfo.itemList[item]);
-
-    while (*desc != EOS)
-    {
-        if (count >= maxChars)
-        {
-            while (*desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
-            {
-                *dest = *desc;  //finish word
-                dest++;
-                desc++;
-            }
-
-            *dest = CHAR_NEWLINE;
-            count = 0;
-            numLines++;
-            dest++;
-            desc++;
-            continue;
-        }
-
-        *dest = *desc;
-        if (*desc == CHAR_NEWLINE)
-        {
-            *dest = CHAR_SPACE;
-        }
-
-        dest++;
-        desc++;
-        count++;
-    }
-
-    // finish string
-    *dest = EOS;
-}
-
 static void BuyMenuInitWindows(void)
 {
     const u8 *name = BuyMenuGetItemName(0), *desc = BuyMenuGetItemDesc(0);
@@ -1352,7 +1311,7 @@ static void BuyMenuInitWindows(void)
         if (ItemId_GetPocket(item) == POCKET_TM_HM)
         {
             const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
-            ReformatItemDescription(0, gStringVar2);
+            FormatTextByWidth(gStringVar2, 80, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
             desc = gStringVar2;
             BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
@@ -1491,7 +1450,7 @@ static void UpdateItemData(void)
             if (ItemId_GetPocket(item) == POCKET_TM_HM && item != ITEM_NONE)
             {
                 const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
-                ReformatItemDescription(i, gStringVar2);
+                FormatTextByWidth(gStringVar2, 80, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
                 desc = gStringVar2;
                 BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             }

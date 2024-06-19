@@ -150,6 +150,7 @@ PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney3, MSGBOX_DEFAULT
 	setvar VAR_OZONE_ADMINS_STATE, 4
+	setflag FLAG_DEFEATED_OZONE_BRANCH
 	release
 	end
 

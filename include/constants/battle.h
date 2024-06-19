@@ -205,6 +205,9 @@
 #define STATUS4_TICKED_BY(battler)      ((battler) << 8)
 #define STATUS4_GLAIVE_RUSH_2           (1 << 10)
 #define STATUS4_HEARTHWARM              (1 << 11)
+#define STATUS4_FAIRY_LOCK              (1 << 12)
+#define STATUS4_RECHARGE_REDUCE         (1 << 13)
+#define STATUS4_MEAN_LOOKER             (1 << 14)
 
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
@@ -270,9 +273,8 @@
 #define STATUS_FIELD_ELECTRIC_TERRAIN               (1 << 8)
 #define STATUS_FIELD_PSYCHIC_TERRAIN                (1 << 9)
 #define STATUS_FIELD_ION_DELUGE                     (1 << 10)
-#define STATUS_FIELD_FAIRY_LOCK                     (1 << 11)
-#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 12)   // Overworld thunderstorm generates electric terrain
-#define STATUS_FIELD_INVERSE_ROOM                   (1 << 13)
+#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 11)   // Overworld thunderstorm generates electric terrain
+#define STATUS_FIELD_INVERSE_ROOM                   (1 << 12)
 
 #define STATUS_FIELD_TERRAIN_ANY        (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN)
 
@@ -423,8 +425,11 @@
 #define MOVE_EFFECT_ATK_DOWN            95
 #define MOVE_EFFECT_ALL_STATS_UP_2_FOE  96
 #define MOVE_EFFECT_TICKED              97
+#define MOVE_EFFECT_BANSHRIEK           98
+#define MOVE_EFFECT_SPD_ACC_UP          99
+#define MOVE_EFFECT_RECHARGE_REDUCE     100
 
-#define NUM_MOVE_EFFECTS                98              
+#define NUM_MOVE_EFFECTS                101
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

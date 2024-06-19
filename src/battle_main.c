@@ -122,6 +122,7 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
 static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
+static void SetOpponentMovesShunyong(void);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -4181,7 +4182,8 @@ static void HandleTurnActionSelectionState(void)
                 else
                 {
                     if (gBattleMons[battler].status2 & STATUS2_MULTIPLETURNS
-                        || gBattleMons[battler].status2 & STATUS2_RECHARGE)
+                        || gBattleMons[battler].status2 & STATUS2_RECHARGE 
+                        || gStatuses4[battler] == STATUS4_RECHARGE_REDUCE)
                     {
                         gChosenActionByBattler[battler] = B_ACTION_USE_MOVE;
                         gBattleCommunication[battler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
@@ -4330,7 +4332,8 @@ static void HandleTurnActionSelectionState(void)
                     gBattleCommunication[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))] = STATE_BEFORE_ACTION_CHOSEN;
                     RecordedBattle_ClearBattlerAction(battler, 1);
                     if (gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_MULTIPLETURNS
-                        || gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_RECHARGE)
+                        || gBattleMons[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))].status2 & STATUS2_RECHARGE
+                        || gStatuses4[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(battler)))] == STATUS4_RECHARGE_REDUCE)
                     {
                         BtlController_EmitEndBounceEffect(battler, BUFFER_A);
                         MarkBattlerForControllerExec(battler);
@@ -4806,7 +4809,9 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
      || gBattleMoves[move].effect == EFFECT_BIDE
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
-     || gBattleMoves[move].effect == EFFECT_GEOMANCY)
+     || gBattleMoves[move].effect == EFFECT_GEOMANCY
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
         return TRUE;
     else
         return FALSE;
@@ -4848,9 +4853,13 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
-    else if ((gCurrentMove == MOVE_MAGICAL_LEAF || gCurrentMove == MOVE_WORRY_SEED) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+    else if ((gCurrentMove == MOVE_MAGICAL_LEAF || gCurrentMove == MOVE_WORRY_SEED || gCurrentMove == MOVE_COTTON_GUARD) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
     {
         priority++;
+    }
+    else if ((gCurrentMove == MOVE_CONSTRICT) && gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
+    {
+        priority = 4;
     }
     else if (ability == ABILITY_TRIAGE)
     {
@@ -5128,6 +5137,7 @@ static void TurnValuesCleanUp(bool8 var0)
                 gDisableStructs[i].rechargeTimer--;
                 if (gDisableStructs[i].rechargeTimer == 0)
                     gBattleMons[i].status2 &= ~STATUS2_RECHARGE;
+                    gStatuses4[i] &= ~STATUS4_RECHARGE_REDUCE;
             }
         }
 
@@ -5232,9 +5242,6 @@ static bool32 TryDoMoveEffectsBeforeMoves(void)
                     return TRUE;
                 case MOVE_BEAK_BLAST:
                     BattleScriptExecute(BattleScript_BeakBlastSetUp);
-                    return TRUE;
-                case MOVE_BLOSSOM_SNAP:
-                    BattleScriptExecute(BattleScript_BlossomSnapSetUp);
                     return TRUE;
                 case MOVE_SHELL_TRAP:
                     BattleScriptExecute(BattleScript_ShellTrapSetUp);
@@ -5674,9 +5681,6 @@ static void TryEvolvePokemon(void)
                 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, NULL);
                 if (species != SPECIES_NONE)
                 {
-                    FreeAllWindowBuffers();
-                    gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
                     return;
                 }
             }
@@ -5937,4 +5941,29 @@ bool32 IsWildMonSmart(void)
 #else
     return FALSE;
 #endif
+}
+
+// misc
+bool32 IsSpeciesOneOf(u16 specie, const u16 *species)
+{
+    for (; *species !=0xFFFF; species ++)
+        {
+        if (*species == specie)
+            return TRUE;
+        }
+        return FALSE;
+}
+
+const u16 gMegaBosses[] =
+{
+    SPECIES_SHUNYONG,
+    SPECIES_SHUNYONG_GOLDEN_OFFENSE,
+    0xFFFF
+};
+
+bool32 IsShunyongBattle(void)
+{
+    if (IsSpeciesOneOf(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES), gMegaBosses))
+        return TRUE;
+    return FALSE;
 }

@@ -107,7 +107,8 @@
     "StevenCorridor",
     "StevenMaze",
     "SecretMossdeepCave",
-    "MangrottoRockSmashRoom"
+    "MangrottoRockSmashRoom",
+    "FamilyMossCave"
   ],
   "gMapGroup_PiscesPart3Major": [
     "Route125",
@@ -137,7 +138,13 @@
     "PrettyPetalsScuttill",
     "Gym3Corridor",
     "ZotpyreInteriors",
-    "ZotpyreSecretBasement"
+    "ZotpyreSecretBasement",
+    "BattleStudioLobby",
+    "NewMap1",
+    "BattleStudioStorage",
+    "BattleStudioOffice",
+    "BattleStudioFakeLobby",
+    "BattleStudioFakeArena"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",

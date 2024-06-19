@@ -130,7 +130,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT",
+      "graphics_id": "OBJ_EVENT_GFX_GILDED_MONK",
       "x": 22,
       "y": 21,
       "elevation": 0,
@@ -330,6 +330,13 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_SECRET_MOSSDEEP_CAVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_FAMILY_MOSS_CAVE",
       "dest_warp_id": "0"
     }
   ],

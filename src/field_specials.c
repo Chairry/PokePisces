@@ -1567,6 +1567,25 @@ bool8 CheckAllSadsod(void)
     return FALSE;
 }
 
+bool8 CheckPapypusAndMamypus(void)
+{
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_PAPYPUS)
+    {
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_PAPYPUS_FEMALE)
+        {
+            return TRUE;
+        }
+    }
+    if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_PAPYPUS_FEMALE)
+    {
+        if (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_PAPYPUS)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 bool8 ScriptCheckFreePokemonStorageSpace(void)
 {
     return CheckFreePokemonStorageSpace();

@@ -58,6 +58,7 @@
 #define MAP_STEVEN_MAZE                       (6 | (3 << 8))
 #define MAP_SECRET_MOSSDEEP_CAVE              (7 | (3 << 8))
 #define MAP_MANGROTTO_ROCK_SMASH_ROOM         (8 | (3 << 8))
+#define MAP_FAMILY_MOSS_CAVE                  (9 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))
@@ -88,6 +89,12 @@
 #define MAP_GYM3CORRIDOR                      (11 | (5 << 8))
 #define MAP_ZOTPYRE_INTERIORS                 (12 | (5 << 8))
 #define MAP_ZOTPYRE_SECRET_BASEMENT           (13 | (5 << 8))
+#define MAP_BATTLE_STUDIO_LOBBY               (14 | (5 << 8))
+#define MAP_NEW_MAP1                          (15 | (5 << 8))
+#define MAP_BATTLE_STUDIO_STORAGE             (16 | (5 << 8))
+#define MAP_BATTLE_STUDIO_OFFICE              (17 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_LOBBY          (18 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_ARENA          (19 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))

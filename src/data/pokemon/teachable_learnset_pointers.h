@@ -1559,5 +1559,8 @@ const u16 *const gTeachableLearnsets[NUM_SPECIES] =
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsTeachableLearnset,
     [SPECIES_KODOUGH_BLUNT] = sKodoughTeachableLearnset,
     [SPECIES_CASTFORM_SANDY] = sCastformTeachableLearnset,
+    [SPECIES_SHISHIMA_ALT] = sShishimaTeachableLearnset,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = sShishimaTeachableLearnset,
+    [SPECIES_LYOLICA] = sLyoresaTeachableLearnset,
 #endif
 };

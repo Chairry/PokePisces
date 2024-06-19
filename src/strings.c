@@ -1802,10 +1802,11 @@ const u8 gText_MoveRelearnerGiveUp[] = _("Give up trying to teach a new\nmove to
 const u8 gText_MoveRelearnerWhichMoveToForget[] = _("Which move should be\nforgotten?\p");
 const u8 gText_MoveRelearnerBattleMoves[] = _("BATTLE MOVES");
 const u8 gText_MoveRelearnerContestMovesTitle[] = _("CONTEST MOVES");
-const u8 gText_MoveRelearnerType[] = _("TYPE/"); // Unused
-const u8 gText_MoveRelearnerPP[] = _("PP/");
-const u8 gText_MoveRelearnerPower[] = _("POWER/");
-const u8 gText_MoveRelearnerAccuracy[] = _("ACCURACY/");
+const u8 gText_MoveRelearnerType[] = _("TYPE");
+const u8 gText_MoveRelearnerSplit[] = _("SPLIT");
+const u8 gText_MoveRelearnerPP[] = _("PP");
+const u8 gText_MoveRelearnerPower[] = _("POWER");
+const u8 gText_MoveRelearnerAccuracy[] = _("ACCURACY");
 const u8 gText_MoveRelearnerAppeal[] = _("APPEAL");
 const u8 gText_MoveRelearnerJam[] = _("JAM");
 const u8 gText_Kira[] = _("KIRA");
@@ -1882,3 +1883,9 @@ const u8 gText_TMCase_Blue[] =          _("{COLOR_HIGHLIGHT_SHADOW BLUE TRANSPAR
 
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
+
+// Evolution party screen option
+const u8 gText_Evolution[] = _("EVOLUTION");
+
+// move relearner screen option
+const u8 gText_Moves_Menu[] = _("RELEARN");

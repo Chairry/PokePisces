@@ -131,7 +131,7 @@
 #define VARIOUS_SET_SIMPLE_BEAM                      39
 #define VARIOUS_TRY_ENTRAINMENT                      40
 #define VARIOUS_SET_LAST_USED_ABILITY                41
-#define VARIOUS_TRY_HEAL_PULSE                       42
+#define VARIOUS_TRY_HEAL_PULSE                       42 //Unused
 #define VARIOUS_TRY_QUASH                            43
 #define VARIOUS_INVERT_STAT_STAGES                   44
 #define VARIOUS_TRY_ME_FIRST                         45
@@ -261,12 +261,15 @@
 #define VARIOUS_CHEESING                             168
 #define VARIOUS_TRY_YELLOW_SODA_FOCUS_ENERGY         169
 #define VARIOUS_TRY_NORMALISE_SPEED                  170
-#define VARIOUS_TRY_NORMALISE_ATTACKER_NERFS         171
-#define VARIOUS_TRY_TO_CLEAR_WEATHER                 172
-#define VARIOUS_TRY_HEAL_ALL_HEALTH                  173
-#define VARIOUS_REMODEL_CHECK                        174
-#define VARIOUS_SET_BLOSSOM_SNAP                     175
-#define VARIOUS_JUMP_IF_STATUS4                     176
+#define VARIOUS_TRY_TO_CLEAR_WEATHER                 171
+#define VARIOUS_TRY_HEAL_ALL_HEALTH                  172
+#define VARIOUS_REMODEL_CHECK                        173
+#define VARIOUS_JUMP_IF_STATUS4                      174
+#define VARIOUS_BOUNDARY_OF_DEATH                    175
+#define VARIOUS_TRY_DANCE_MANIA                      176
+#define VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS          177
+#define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             178
+#define VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD          179
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
@@ -355,5 +358,6 @@
 #define ARG_SET_PSYCHIC_TERRAIN        0
 #define ARG_TRY_REMOVE_TERRAIN_HIT     1
 #define ARG_TRY_REMOVE_TERRAIN_FAIL    2
+#define ARG_SET_GRASSY_TERRAIN         3
 
 #endif // GUARD_CONSTANTS_BATTLE_SCRIPT_COMMANDS_H

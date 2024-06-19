@@ -1309,6 +1309,12 @@
 	.endm
 
 @ callnative macros
+
+    .macro dogoldplains battler:req, hpfailptr:req
+    callnative BS_DoGoldPlains
+    .byte \battler
+    .4byte \hpfailptr
+    .endm
     
     .macro setticked
     callnative BS_SetTicked
@@ -1485,6 +1491,11 @@
 	.macro trytidyup clear:req, jumpInstr:req
 	callnative BS_TryTidyUp
 	.byte \clear
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifnothit jumpInstr:req
+	callnative BS_JumpIfNotHit
 	.4byte \jumpInstr
 	.endm
 
@@ -1671,6 +1682,11 @@
 
 	.macro seizechancecheck failInstr:req
 	various BS_ATTACKER, VARIOUS_SEIZE_CHANCE_CHECK
+	.4byte \failInstr
+	.endm
+
+	.macro jumpiftargethpthreshold battler:req, failInstr:req
+	various \battler VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD
 	.4byte \failInstr
 	.endm
 
@@ -1876,6 +1892,10 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trydancemania
+	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm
@@ -1929,9 +1949,13 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trysetfairylock failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_FAIRY_LOCK
+	.macro trysetfairylock battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_FAIRY_LOCK
 	.4byte \failInstr
+	.endm
+
+	.macro boundarydamagecalculation battler:req
+	various \battler, VARIOUS_BOUNDARY_OF_DEATH
 	.endm
 
 	.macro jumpifnoally battler:req, jumpInstr:req
@@ -2095,6 +2119,16 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifspecieshasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifallyhasnolegs battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS
+	.4byte \jumpInstr
+	.endm
+
 	.macro tryendneutralizinggas battler:req
 	various \battler, VARIOUS_TRY_END_NEUTRALIZING_GAS
 	.endm
@@ -2185,10 +2219,6 @@
 
 	.macro setbeakblast battler:req
 	various \battler, VARIOUS_SET_BEAK_BLAST
-	.endm
-
-	.macro setblossomsnap battler:req
-	various \battler, VARIOUS_SET_BLOSSOM_SNAP
 	.endm
 
 	.macro swapsidestatuses
@@ -2434,10 +2464,6 @@
 
 	.macro normalisespeed
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
-	.endm
-
-	.macro normaliseattackernerfs
-	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
 	.endm
 
 	.macro tryhealallhealth failInstr:req

@@ -62,7 +62,7 @@ static EWRAM_DATA u16 sMovingNpcMapNum = 0;
 static EWRAM_DATA u16 sFieldEffectScriptId = 0;
 
 static u8 sBrailleWindowId;
-static bool8 gIsScriptedWildDouble;
+EWRAM_DATA bool8 gIsScriptedWildDouble = 0;
 
 extern const SpecialFunc gSpecials[];
 extern const u8 *gStdScripts[];

@@ -1126,6 +1126,9 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_UNBERRABLE] = sUnberrableLevelUpLearnset,
     [SPECIES_PEBLRANIUM] = sPeblraniumLevelUpLearnset,
     [SPECIES_VAIKING] = sVaikingLevelUpLearnset,
+    [SPECIES_YOLKWEEN] = sYolkweenLevelUpLearnset,
+    [SPECIES_WALLY] = sWallyLevelUpLearnset,
+    [SPECIES_POTTRICIA] = sPottriciaLevelUpLearnset,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,
@@ -1558,5 +1561,9 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsLevelUpLearnset,
     [SPECIES_KODOUGH_BLUNT] = sKodoughLevelUpLearnset,
     [SPECIES_CASTFORM_SANDY] = sCastformLevelUpLearnset,
+    [SPECIES_SHISHIMA_ALT] = sShishimaLevelUpLearnset,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = sShishimaLevelUpLearnset,
+    [SPECIES_LYOLICA] = sLyoresaLevelUpLearnset,
+    [SPECIES_POTTRICIA_SHATTERED] = sPottriciaLevelUpLearnset,
 #endif
 };

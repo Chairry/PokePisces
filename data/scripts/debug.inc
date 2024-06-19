@@ -70,7 +70,7 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_Script_1::
-	end
+    end
 
 Debug_Script_2::
 	end

@@ -1130,6 +1130,9 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_UNBERRABLE] = _("Unberrable"),
     [SPECIES_PEBLRANIUM] = _("Peblranium"),
     [SPECIES_VAIKING] = _("Vaiking"),
+    [SPECIES_YOLKWEEN] = _("Yolkween"),
+    [SPECIES_WALLY] = _("Wally"),
+    [SPECIES_POTTRICIA] = _("Pottricia"),
 #endif
 
     // Megas
@@ -1560,5 +1563,9 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = _("Dudunspars"),
     [SPECIES_KODOUGH_BLUNT] = _("Kodough"),
     [SPECIES_CASTFORM_SANDY] = _("Castform"),
+    [SPECIES_SHISHIMA_ALT] = _("Shishima"),
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = _("Shishima"),
+    [SPECIES_LYOLICA] = _("Lyolica"),
+    [SPECIES_POTTRICIA_SHATTERED] = _("Pottricia"),
 #endif
 };

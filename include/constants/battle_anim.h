@@ -418,6 +418,8 @@
 #define ANIM_TAG_PILGRIMAGE_FALLING         (ANIM_SPRITES_START + 404)
 #define ANIM_TAG_BULLET                     (ANIM_SPRITES_START + 405)
 #define ANIM_TAG_GIANTS_SPEAR               (ANIM_SPRITES_START + 406)
+#define ANIM_TAG_LIGHT_BALL                 (ANIM_SPRITES_START + 407)
+#define ANIM_TAG_PIN                        (ANIM_SPRITES_START + 408)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -584,7 +586,6 @@
 #define B_ANIM_A_THING                  48
 #define B_ANIM_DECIMATION_HIT           49
 #define B_ANIM_HEARTHWARM_HEAL          50
-#define B_ANIM_BLOSSOM_SNAP_SETUP       51
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
