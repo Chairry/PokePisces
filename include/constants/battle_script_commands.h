@@ -272,6 +272,7 @@
 #define VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD          179
 #define VARIOUS_SURPRISE_EGG                         180
 #define VARIOUS_CURE_IF_BLOOMING                     181
+#define VARIOUS_TAILWIND_REMOVAL                     182
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

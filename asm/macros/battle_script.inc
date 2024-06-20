@@ -2260,6 +2260,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro tailwindremoval failInstr:req
+	various BS_TARGET, VARIOUS_TAILWIND_REMOVAL
+	.4byte \failInstr
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER, \stat | \stages << 3 | \down << 7

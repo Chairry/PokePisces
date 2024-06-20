@@ -4819,6 +4819,7 @@ static bool8 IsTwoTurnsMove(u16 move)
 
 s8 GetMovePriority(u32 battler, u16 move)
 {
+    s32 i;
     s8 priority;
     u16 ability = GetBattlerAbility(battler);
 
@@ -4890,6 +4891,17 @@ s8 GetMovePriority(u32 battler, u16 move)
 
     if (gProtectStructs[battler].quash)
         priority = -8;
+
+    if (gBattleMoves[move].effect == EFFECT_CLEAR_SMOG)
+    {
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+        {
+            if (gBattleMons[gEffectBattler].statStages[i] != DEFAULT_STAT_STAGE)
+            {
+                priority++;
+            }
+        }
+    }
 
     return priority;
 }
