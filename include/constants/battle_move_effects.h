@@ -578,7 +578,8 @@
 #define EFFECT_PURIFICATION                 572
 #define EFFECT_MIND_READER                  573
 #define EFFECT_ODOR_SLEUTH                  574
+#define EFFECT_SURPRISE_EGG                 575
 
-#define NUM_BATTLE_MOVE_EFFECTS             575
+#define NUM_BATTLE_MOVE_EFFECTS             576
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
