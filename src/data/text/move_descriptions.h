@@ -81,8 +81,8 @@ static const u8 sWingAttackDescription[] = _(
     "spread wide.");
 
 static const u8 sWhirlwindDescription[] = _(
-    "Blows away the foe with\n"
-    "wind and ends the battle.");
+    "Blows away the foe's Tailwind\n"
+    "and ends the battle.");
 
 static const u8 sFlyDescription[] = _(
     "Flies up on the first turn,\n"
@@ -537,8 +537,8 @@ static const u8 sSwiftDescription[] = _(
     "rays that never miss.");
 
 static const u8 sSkullBashDescription[] = _(
-    "Tucks in the head, then\n"
-    "attacks on the next turn.");
+    "Raises Def on the 1st turn.\n"
+    "Then strikes using Def.");
 
 static const u8 sSpikeCannonDescription[] = _(
     "Launches sharp spikes that\n"
@@ -1941,8 +1941,8 @@ static const u8 sElectroBallDescription[] = _(
     "damage to slower foes.");
 
 static const u8 sSoakDescription[] = _(
-    "Sprays water at the foe\n"
-    "making it Water-type.");
+    "Sprays water making the\n"
+    "foe Water-type and Damp.");
 
 static const u8 sFlameChargeDescription[] = _(
     "Attacks in a cloak of\n"
@@ -3385,7 +3385,7 @@ static const u8 sVexingKiDescription[] = _(
     "taunts and torments the foe.");
 
 static const u8 sDecayBeamDescription[] = _(
-    "SE against Bug/Dragon/Fairy.\n"
+    "SE against Bug and Grass.\n"
     "Foe's last move has 3 PP cut.");
 
 static const u8 sCannonadeDescription[] = _(
@@ -3943,6 +3943,10 @@ static const u8 sFuriousSeaDescription[] = _(
 static const u8 sReservoirDescription[] = _(
     "Restores HP, cures status,\n"
     "powers up next Water move.");
+
+static const u8 sBrainDamageDescription[] = _(
+    "A one-hit KO move that\n"
+    "gives the foe brain damage.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4970,4 +4974,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PLUNDER - 1] = sPlunderDescription,
     [MOVE_FURIOUS_SEA - 1] = sFuriousSeaDescription,
     [MOVE_RESERVOIR - 1] = sReservoirDescription,
+    [MOVE_NOTHING - 1] = sSplashDescription,
+    [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
 };

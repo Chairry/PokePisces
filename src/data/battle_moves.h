@@ -2241,7 +2241,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .pp = 15,
         #endif
         .effect = EFFECT_SKULL_BASH,
-        .type = TYPE_NORMAL,
+        .type = TYPE_ROCK,
         .accuracy = 100,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -7315,9 +7315,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_ACCURACY_DOWN_HIT,
         .power = 65,
         .type = TYPE_STEEL,
-        .accuracy = 85,
+        .accuracy = 90,
         .pp = 10,
-        .secondaryEffectChance = 30,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -16452,7 +16452,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_WILDER_DANCE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_VICTORY_DANCE,
         .power = 0,
         .type = TYPE_GROUND,
         .accuracy = 0,
@@ -16747,7 +16747,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_SILVER_EDGE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_HIT,
         .power = 90,
         .type = TYPE_STEEL,
         .accuracy = 100,
@@ -16812,7 +16812,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAZOR_BEAM] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_HIT,
         .power = 110,
         .type = TYPE_STEEL,
         .accuracy = 70,
@@ -16822,6 +16822,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .highCritRatio = TRUE,
     },
 
     [MOVE_AQUASCADE] =
