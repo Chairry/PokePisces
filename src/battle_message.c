@@ -913,6 +913,7 @@ static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressu
 static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and can evolve!{WAIT_SE}\p");
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
 static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
+static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1677,6 +1678,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PRESSURIZINGAIR - BATTLESTRINGS_TABLE_START] = sText_PressurizingAir,
     [STRINGID_PKMNCANEVOLVE - BATTLESTRINGS_TABLE_START] = sText_PkmnCanEvolve,
     [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
+    [STRINGID_CUREDBLOOMING - BATTLESTRINGS_TABLE_START] = sText_CuredBlooming,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

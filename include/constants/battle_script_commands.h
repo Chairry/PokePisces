@@ -271,6 +271,7 @@
 #define VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS             178
 #define VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD          179
 #define VARIOUS_SURPRISE_EGG                         180
+#define VARIOUS_CURE_IF_BLOOMING                     181
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
