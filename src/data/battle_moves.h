@@ -6599,7 +6599,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PUNISHMENT] =
     {
         .effect = EFFECT_PUNISHMENT,
-        .power = 70,
+        .power = 50,
         .type = TYPE_DARK,
         .accuracy = 100,
         .pp = 10,
@@ -14044,7 +14044,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_UPPER_HAND] =
     {
         .effect = EFFECT_SUCKER_PUNCH,
-        .power = 80,
+        .power = 30,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
@@ -16022,7 +16022,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PENALIZE] =
     {
         .effect = EFFECT_PUNISHMENT,
-        .power = 70,
+        .power = 50,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,

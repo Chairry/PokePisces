@@ -1361,8 +1361,8 @@ static const u8 sIronDefenseDescription[] = _(
     "to sharply raise Defense.");
 
 static const u8 sBlockDescription[] = _(
-    "Blocks the foe's way to\n"
-    "prevent escape.");
+    "Blocks the foe to prevent\n"
+    "escape and lowers Speed.");
 
 static const u8 sHowlDescription[] = _(
     "Howls to raise the spirit\n"
@@ -2045,8 +2045,8 @@ static const u8 sAcrobaticsDescription[] = _(
     "user has no item.");
 
 static const u8 sReflectTypeDescription[] = _(
-    "The user reflects the foe's\n"
-    "type, copying it.");
+    "Reflects the foe's type,\n"
+    "and becomes immune to it.");
 
 static const u8 sRetaliateDescription[] = _(
     "An attack that does more\n"
@@ -3297,8 +3297,8 @@ static const u8 sPsychicNoiseDescription[] = _(
     "the foe from recovering HP.");
 
 static const u8 sUpperHandDescription[] = _(
-    "Flinches foe if they are\n"
-    "readying a priority move.");
+    "Flinches and boosts when foe\n"
+    "is readying a priority move.");
 
 static const u8 sMalignantChainDescription[] = _(
     "Corrosive chains wrap around\n"
@@ -3565,7 +3565,7 @@ static const u8 sFinishOffDescription[] = _(
     "full HP. Also lowers user's Atk.");
 
 static const u8 sSeizeChanceDescription[] = _(
-    "Fails if the target didn't use\n"
+    "Drastically boosted if foe uses\n"
     "a status move. Always crits.");
 
 static const u8 sBrutalizeDescription[] = _(
