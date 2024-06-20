@@ -8035,10 +8035,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8180,11 +8183,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
-                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                        RecordItemEffectBattle(battler, battlerHoldEffect);
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8670,12 +8676,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    effect = ITEM_STATS_CHANGE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_InvertStats;
-                    effect++;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        effect = ITEM_STATS_CHANGE;
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_InvertStats;
+                        effect++;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:

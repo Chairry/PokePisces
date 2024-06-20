@@ -1989,8 +1989,8 @@ static const u8 sChipAwayDescription[] = _(
     "stat changes.");
 
 static const u8 sClearSmogDescription[] = _(
-    "Attacks with white haze that\n"
-    "eliminates all stat changes.");
+    "If foe has stat changes becomes\n"
+    "priority, then eliminates them.");
 
 static const u8 sStoredPowerDescription[] = _(
     "The higher the user's stats\n"
@@ -2890,8 +2890,8 @@ static const u8 sSkitterSmackDescription[] = _(
     "attack. Lowers foe's Sp. Atk.");
 
 static const u8 sBurningJealousyDescription[] = _(
-    "Foes that have stats upped\n"
-    "during the turn get burned.");
+    "Burns and torments both foes\n"
+    "when one has a stat drop.");
 
 static const u8 sLashOutDescription[] = _(
     "If the user stats are lowered\n"
@@ -3317,8 +3317,8 @@ static const u8 sBurningSpiritDescription[] = _(
     "that may burn the foe.");
 
 static const u8 sPurgingFlamesDescription[] = _(
-    "Uses purple flames to\n"
-    "eliminates all stat changes.");
+    "If foe has stat changes becomes\n"
+    "priority, then eliminates them.");
 
 static const u8 sSnuffOutDescription[] = _(
     "User blows real hard. Super\n"
