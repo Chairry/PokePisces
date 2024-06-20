@@ -144,7 +144,8 @@
     "BattleStudioStorage",
     "BattleStudioOffice",
     "BattleStudioFakeLobby",
-    "BattleStudioFakeArena"
+    "BattleStudioFakeArena",
+    "BattleStudioCages"
   ],
   "gMapGroup_PiscesPart4Major": [
     "Route120",

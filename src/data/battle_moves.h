@@ -1429,7 +1429,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DRAGON_RAGE] =
     {
-        .effect = EFFECT_DRAGON_RAGE,
+        .effect = EFFECT_SONICBOOM,
         .power = 1,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -5759,7 +5759,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BLOCK] =
     {
-        .effect = EFFECT_MEAN_LOOK,
+        .effect = EFFECT_BLOCK,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -9679,7 +9679,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DISARMING_VOICE] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_CUTIE_CRY,
         .power = 40,
         .type = TYPE_FAIRY,
         .accuracy = 0,
@@ -11026,7 +11026,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FLEUR_CANNON] =
     {
-        .effect = EFFECT_OVERHEAT,
+        .effect = EFFECT_FLEUR_CANNON,
         .power = 130,
         .type = TYPE_FAIRY,
         .accuracy = 90,
@@ -14043,8 +14043,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_UPPER_HAND] =
     {
-        .effect = EFFECT_SUCKER_PUNCH,
-        .power = 30,
+        .effect = EFFECT_UPPER_HAND,
+        .power = 80,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 15,
@@ -15315,9 +15315,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SEIZE_CHANCE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_7
-            .power = 100,
+            .power = 30,
         #else
-            .power = 100,
+            .power = 30,
         #endif
         .effect = EFFECT_SEIZE_CHANCE,
         .type = TYPE_DARK,
@@ -16915,6 +16915,20 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_ATK_UP_3,
         .gravityBanned = TRUE,
+    },
+
+    [MOVE_BRAIN_DAMAGE] =
+    {
+        .effect = EFFECT_OHKO,
+        .power = 1,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 30,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
     },
 
     // Z-Moves

@@ -2255,6 +2255,11 @@
 	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_MEGA_EVOLUTION
 	.endm
 
+	.macro cureifblooming failInstr:req
+	various BS_ATTACKER, VARIOUS_CURE_IF_BLOOMING
+	.4byte \failInstr
+	.endm
+
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER, \stat | \stages << 3 | \down << 7

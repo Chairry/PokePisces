@@ -760,7 +760,7 @@
 #define STRINGID_TARGETLOSTELECTRICTYPE               758
 #define STRINGID_PKMNGRIPPED                          759
 #define	STRINGID_GRASSTYPEADDED                       760
-#define	STRINGID_SEEDWRAP                            761
+#define	STRINGID_SEEDWRAP                             761
 #define STRINGID_READYINGSNAP                         762
 #define STRINGID_FLORESCENCESTATUSNORMAL              763
 #define STRINGID_PKMNSXINFATUATEDY2                   764
@@ -773,8 +773,9 @@
 #define STRINGID_PKMNCANEVOLVE                        771
 #define STRINGID_CANTHEALINOFFENSIVEFORM              772
 #define STRINGID_GOLDPLAINS                           773
+#define STRINGID_CUREDBLOOMING                        774
 
-#define BATTLESTRINGS_COUNT                           774
+#define BATTLESTRINGS_COUNT                           775
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

@@ -5,7 +5,7 @@
   "music": "MUS_NONE",
   "region_map_section": "MAPSEC_LILYCOVE_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -18,11 +18,18 @@
   ],
   "warp_events": [
     {
-      "x": 15,
+      "x": 48,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAP1",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 48,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_CAGES",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

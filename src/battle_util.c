@@ -9701,6 +9701,29 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if ((gProtectStructs[battlerAtk].physicalDmg && gProtectStructs[battlerAtk].physicalBattlerId == battlerDef) || (gProtectStructs[battlerAtk].specialDmg && gProtectStructs[battlerAtk].specialBattlerId == battlerDef))
             basePower *= 2;
         break;
+    case EFFECT_SEIZE_CHANCE:
+    {
+        if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            basePower = 30;
+        else if (IS_MOVE_PHYSICAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            basePower = 30;
+        else if (IS_MOVE_SPECIAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            basePower = 30;
+        else
+            basePower = 100;
+        break;
+    }
+    case EFFECT_UPPER_HAND:
+    {
+        if ((GetChosenMovePriority(gBattlerTarget) < 1) || (gChosenMoveByBattler[gBattlerTarget] == MOVE_NONE))
+            basePower = 30;
+        else if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            basePower = 30;
+        else
+            basePower = 70;
+        break;
+    }
+
     case EFFECT_FEINT:
         if (gProtectStructs[gBattlerTarget].protected
             || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_WIDE_GUARD
@@ -11692,7 +11715,10 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         modifier = UQ_4_12(0.0);
     }
 #endif
-
+    if ((gBattleMoves[gCurrentMove].type == ((GetBattlerType(gBattlerTarget, 0)) || (GetBattlerType(gBattlerTarget, 1)) || (GetBattlerType(gBattlerTarget, 2)))))
+    {
+        modifier = UQ_4_12(0.0);
+    }
     // Immunity
     if (gBattleMoves[move].type == TYPE_POISON && defAbility == ABILITY_IMMUNITY)
     {

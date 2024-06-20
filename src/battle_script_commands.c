@@ -3861,6 +3861,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_DefSpDefDown;
                 }
                 break;
+            case MOVE_EFFECT_ATK_SPATK_DOWN: // Cutie Cry
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AtkSpAtkDown;
+                }
+                break;
             case MOVE_EFFECT_DEF_ACC_DOWN:
                 if (!NoAliveMonsForEitherParty())
                 {
@@ -10195,6 +10202,22 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->failInstr;
         return;
     }
+    case VARIOUS_CURE_IF_BLOOMING:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
+        {
+            gBattleMons[gBattlerTarget].status1 = 0;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+            BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].status1), &gBattleMons[gBattlerTarget].status1);
+            MarkBattlerForControllerExec(gBattlerTarget);
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
     case VARIOUS_SET_SIMPLE_BEAM:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -14105,13 +14128,17 @@ static void Cmd_dmgtolevel(void)
 {
     CMD_ARGS();
 
-    if ((gCurrentMove == MOVE_SONIC_BOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
+    if ((gBattleMoves[gCurrentMove].effect == EFFECT_SONICBOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
     {
         gBattleMoveDamage = 150;
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_LEVEL_DAMAGE)
     {
         gBattleMoveDamage = gBattleMons[gBattlerAttacker].level;
+    }
+    else if (gCurrentMove == MOVE_DRAGON_RAGE)
+    {
+        gBattleMoveDamage = 40;
     }
     else
     {
