@@ -1896,6 +1896,10 @@
 	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
 	.endm
 
+	.macro surpriseegg
+	various BS_ATTACKER, VARIOUS_SURPRISE_EGG
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm

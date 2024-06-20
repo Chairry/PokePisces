@@ -272,6 +272,7 @@ struct BattleMove
     u32 protectionMove:1;
     u32 powderMove:1;
     u32 danceMove:1;
+    u32 surpriseEggMove:1;
     u32 windMove:1;
     u32 slicingMove:1;
     u32 sandMove:1;
