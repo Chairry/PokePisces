@@ -606,6 +606,26 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCutieCry                @ EFFECT_CUTIE_CRY
 	.4byte BattleScript_EffectFleurCannon             @ EFFECT_FLEUR_CANNON
 	.4byte BattleScript_EffectUpperHand               @ EFFECT_UPPER_HAND
+	.4byte BattleScript_EffectWhirlwind               @ EFFECT_WHIRLWIND
+
+BattleScript_EffectWhirlwind::
+	attackcanceler
+	attackstring
+	ppreduce
+
+	jumpifroarfails BattleScript_ButItFailed
+	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_ButItFailed
+	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
+	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut
+	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
+	forcerandomswitch BattleScript_ButItFailed
+
+	tailwindremoval BattleScript_RoarContinues
+	printstring STRINGID_TAILWINDENDS
+	waitmessage B_WAIT_TIME_LONG
 
 BattleScript_EffectUpperHand:
 	suckerpunchcheck BattleScript_EffectHit
@@ -6982,6 +7002,7 @@ BattleScript_EffectRoar::
 	attackcanceler
 	attackstring
 	ppreduce
+BattleScript_RoarContinues:
 	jumpifroarfails BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
@@ -10619,6 +10640,21 @@ BattleScript_RoarSuccessRet_Ret:
 	returntoball BS_TARGET
 	waitstate
 	return
+
+BattleScript_WhirlwindTailwindRemoval::
+	call BattleScript_RoarSuccessRet
+	getswitchedmondata BS_TARGET
+	switchindataupdate BS_TARGET
+	trytoclearprimalweather
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
+	switchinanim BS_TARGET, FALSE
+	waitstate
+	printstring STRINGID_PKMNWASDRAGGEDOUT
+	switchineffects BS_TARGET
+	jumpifbyte CMP_EQUAL, sSWITCH_CASE, B_SWITCH_RED_CARD, BattleScript_RoarSuccessSwitch_Ret
+	setbyte sSWITCH_CASE, B_SWITCH_NORMAL
+	goto BattleScript_MoveEnd
 
 BattleScript_WeaknessPolicy::
 	copybyte sBATTLER, gBattlerTarget

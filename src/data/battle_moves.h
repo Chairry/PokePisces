@@ -304,7 +304,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .accuracy = 100,
         #endif
-        .effect = EFFECT_ROAR,
+        .effect = EFFECT_WHIRLWIND,
         .power = 0,
         .type = TYPE_NORMAL,
         .pp = 20,
@@ -10804,12 +10804,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BURN_UP] =
     {
         .effect = EFFECT_BURN_UP,
-        .power = 130,
+        .power = 150,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,

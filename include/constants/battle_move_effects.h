@@ -582,8 +582,9 @@
 #define EFFECT_BLOCK                        576
 #define EFFECT_CUTIE_CRY                    577
 #define EFFECT_FLEUR_CANNON                 578
-#define EFFECT_UPPER_HAND                   579 
+#define EFFECT_UPPER_HAND                   579
+#define EFFECT_WHIRLWIND                    580  
 
-#define NUM_BATTLE_MOVE_EFFECTS             580
+#define NUM_BATTLE_MOVE_EFFECTS             581
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

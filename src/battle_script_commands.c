@@ -10218,6 +10218,20 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->failInstr;
         }
     }
+    case VARIOUS_TAILWIND_REMOVAL:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+        if (gSideStatuses[gBattlerTarget] & SIDE_STATUS_TAILWIND)
+        {
+            gSideTimers[side].tailwindTimer == 0
+            gSideStatuses[side] &= ~SIDE_STATUS_TAILWIND;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+    }
     case VARIOUS_SET_SIMPLE_BEAM:
     {
         VARIOUS_ARGS(const u8 *failInstr);
@@ -13441,6 +13455,10 @@ static void Cmd_forcerandomswitch(void)
             if (gCurrentMove == MOVE_SPOOK)
             {
                 gBattlescriptCurrInstr = BattleScript_SpookSuccessSwitch;
+            }
+            else if (gCurrentMove == MOVE_WHIRLWIND)
+            {
+                gBattlescriptCurrInstr = BattleScript_WhirlwindTailwindRemoval;
             }
             else
             {
