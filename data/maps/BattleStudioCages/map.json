@@ -1,12 +1,12 @@
 {
-  "id": "MAP_BATTLE_STUDIO_FAKE_ARENA",
-  "name": "BattleStudioFakeArena",
-  "layout": "LAYOUT_BATTLE_STUDIO_FAKE_ARENA",
+  "id": "MAP_BATTLE_STUDIO_CAGES",
+  "name": "BattleStudioCages",
+  "layout": "LAYOUT_BATTLE_STUDIO_CAGES",
   "music": "MUS_NONE",
   "region_map_section": "MAPSEC_LILYCOVE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
-  "map_type": "MAP_TYPE_INDOOR",
+  "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -19,10 +19,17 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 1,
+      "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_BATTLE_STUDIO_STORAGE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_STORAGE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

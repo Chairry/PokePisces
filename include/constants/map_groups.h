@@ -95,6 +95,7 @@
 #define MAP_BATTLE_STUDIO_OFFICE              (17 | (5 << 8))
 #define MAP_BATTLE_STUDIO_FAKE_LOBBY          (18 | (5 << 8))
 #define MAP_BATTLE_STUDIO_FAKE_ARENA          (19 | (5 << 8))
+#define MAP_BATTLE_STUDIO_CAGES               (20 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))
