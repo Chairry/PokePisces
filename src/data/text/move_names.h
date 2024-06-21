@@ -1022,6 +1022,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DOWNFALL] = _("Downfall"),
     [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
+    [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
 };
 #else
 // 12 letters
@@ -2047,6 +2048,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DOWNFALL] = _("Downfall"),
     [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
+    [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
 };
 #endif
 

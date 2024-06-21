@@ -8062,10 +8062,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8207,11 +8210,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
-                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                        RecordItemEffectBattle(battler, battlerHoldEffect);
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8697,12 +8703,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    effect = ITEM_STATS_CHANGE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_InvertStats;
-                    effect++;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        effect = ITEM_STATS_CHANGE;
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_InvertStats;
+                        effect++;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -9722,12 +9731,51 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= (4 - gMultiHitCounter);
         break;
     case EFFECT_SPIT_UP:
-        basePower = 100 * gDisableStructs[battlerAtk].stockpileCounter;
+        basePower = 50 + (50 * gDisableStructs[battlerAtk].stockpileCounter);
         break;
     case EFFECT_REVENGE:
         if ((gProtectStructs[battlerAtk].physicalDmg && gProtectStructs[battlerAtk].physicalBattlerId == battlerDef) || (gProtectStructs[battlerAtk].specialDmg && gProtectStructs[battlerAtk].specialBattlerId == battlerDef))
             basePower *= 2;
         break;
+    case EFFECT_SEIZE_CHANCE:
+    {
+        if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            basePower = 30;
+        else if (IS_MOVE_PHYSICAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            basePower = 30;
+        else if (IS_MOVE_SPECIAL(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]]))
+            basePower = 30;
+        else
+            basePower = 100;
+        break;
+    }
+    case EFFECT_UPPER_HAND:
+    {
+        if ((GetChosenMovePriority(gBattlerTarget) < 1) || (gChosenMoveByBattler[gBattlerTarget] == MOVE_NONE))
+            basePower = 30;
+        else if (GetBattlerTurnOrderNum(gBattlerAttacker) > GetBattlerTurnOrderNum(gBattlerTarget))
+            basePower = 30;
+        else
+            basePower = 70;
+        break;
+    }
+
+    case EFFECT_FEINT:
+        if (gProtectStructs[gBattlerTarget].protected
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_WIDE_GUARD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_QUICK_GUARD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_CRAFTY_SHIELD
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_MAT_BLOCK
+            || gProtectStructs[gBattlerTarget].spikyShielded
+            || gProtectStructs[gBattlerTarget].kingsShielded
+            || gProtectStructs[gBattlerTarget].shelltered
+            || gProtectStructs[gBattlerTarget].detectShielded
+            || gProtectStructs[gBattlerTarget].banefulBunkered
+            || gProtectStructs[gBattlerTarget].obstructed
+            || gProtectStructs[gBattlerTarget].silkTrapped
+            || gProtectStructs[gBattlerTarget].burningBulwarked
+            || gProtectStructs[gBattlerTarget].drakenGuarded)
+            basePower *= 2;
     case EFFECT_WEATHER_BALL:
         if (weather & B_WEATHER_ANY)
             basePower *= 2;
@@ -9835,7 +9883,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower = sHeatCrashPowerTable[weight];
         break;
     case EFFECT_PUNISHMENT:
-        basePower = 70 + (CountBattlerStatIncreases(battlerDef, FALSE) * 50);
+        basePower = 50 + (CountBattlerStatIncreases(battlerDef, FALSE) * 50);
         break;
     case EFFECT_STORED_POWER:
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
@@ -9974,8 +10022,8 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = (basePower > 200) ? 200 : basePower;
         break;
     case EFFECT_BARI_BARI_BEAM:
-        basePower = 40 + (40 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
-        basePower = (basePower > 200) ? 200 : basePower;
+        basePower = 40 + (30 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]]);
+        basePower = (basePower > 160) ? 160 : basePower;
         break;
     case EFFECT_FICKLE_BEAM:
         basePower = gBattleStruct->ficklebeamBasePower;
@@ -10496,7 +10544,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         atkStat = gBattleMons[battlerDef].speed;
         atkStage = gBattleMons[battlerDef].statStages[STAT_SPEED];
     }
-    else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS)
+    else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS || gBattleMoves[move].effect == EFFECT_SKULL_BASH)
     {
         atkStat = gBattleMons[battlerAtk].defense;
         atkStage = gBattleMons[battlerAtk].statStages[STAT_DEF];
@@ -10787,12 +10835,17 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         usesDefStat = FALSE;
     }
 
-#if B_EXPLOSION_DEFENSE <= GEN_4
     // Self-destruct / Explosion cut defense in half
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
-        defStat /= 2;
-#endif
-    
+    if (gCurrentMove == MOVE_EXPLOSION || gCurrentMove == MOVE_SELF_DESTRUCT)
+        defStat /= 4;
+
+    if (gCurrentMove == MOVE_FINAL_SHRIEK || gCurrentMove == MOVE_JUMP_N_POP)
+    {
+        defStat = spDef;
+        defStage = gBattleMons[battlerDef].statStages[STAT_SPDEF];
+        defStat /= 4;
+    }
+
     // freeze status cuts defense in half
     if (gBattleMons[battlerDef].status1 & STATUS1_FREEZE)
         defStat /= 2;
@@ -11120,7 +11173,7 @@ static inline uq4_12_t GetRechargeReduceModifier(u32 battlerDef)
 
 static inline uq4_12_t GetLuckyChantModifier(u32 battlerDef, uq4_12_t typeEffectivenessModifier)
 {
-    if ((gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
+    if ((gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
         return UQ_4_12(0.7);
     return UQ_4_12(1.0);
 }
@@ -11555,6 +11608,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
             RecordAbilityBattle(battlerAtk, ABILITY_SCRAPPY);
     }
 
+    if ((moveType == defType) && gStatuses4[battlerDef] & STATUS4_REFLECTED_TYPE)
+        mod = UQ_4_12(0.0);
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
@@ -11579,10 +11634,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_IGNA_STRIKE && (defType == TYPE_FIRE || defType == TYPE_FLYING))
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && defType == TYPE_BUG)
+    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_BUG || defType == TYPE_GRASS))
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_DRAGON || defType == TYPE_FAIRY))
-        mod = UQ_4_12(4.0);
     if (gBattleMoves[move].effect == EFFECT_CINDER_DRILL && (defType == TYPE_BUG || defType == TYPE_GRASS || defType == TYPE_STEEL || defType == TYPE_ICE))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_SNUFF_OUT && defType == TYPE_FIRE)
@@ -11698,7 +11751,6 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         modifier = UQ_4_12(0.0);
     }
 #endif
-
     // Immunity
     if (gBattleMoves[move].type == TYPE_POISON && defAbility == ABILITY_IMMUNITY)
     {

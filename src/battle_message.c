@@ -892,7 +892,7 @@ static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is
 static const u8 sText_SappedByTicked[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\ndrained by its tick!");
 static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nby a tick!");
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
-static const u8 sText_UserStatChangesGone[] = _("The user's negative\nstat changes were eliminated!");
+static const u8 sText_UserStatChangesGone[] = _("Negative\nstat changes were eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
 static const u8 sText_HearthwarmHeal[] = _("Hearthwarm restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
@@ -913,6 +913,7 @@ static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressu
 static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and can evolve!{WAIT_SE}\p");
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
 static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
+static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1677,6 +1678,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PRESSURIZINGAIR - BATTLESTRINGS_TABLE_START] = sText_PressurizingAir,
     [STRINGID_PKMNCANEVOLVE - BATTLESTRINGS_TABLE_START] = sText_PkmnCanEvolve,
     [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
+    [STRINGID_CUREDBLOOMING - BATTLESTRINGS_TABLE_START] = sText_CuredBlooming,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

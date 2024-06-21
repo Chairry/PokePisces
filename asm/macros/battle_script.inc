@@ -1896,6 +1896,10 @@
 	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
 	.endm
 
+	.macro surpriseegg
+	various BS_ATTACKER, VARIOUS_SURPRISE_EGG
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm
@@ -2249,6 +2253,16 @@
 
 	.macro trytrainerslidemegaevolutionmsg battler:req
 	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_MEGA_EVOLUTION
+	.endm
+
+	.macro cureifblooming failInstr:req
+	various BS_ATTACKER, VARIOUS_CURE_IF_BLOOMING
+	.4byte \failInstr
+	.endm
+
+	.macro tailwindremoval failInstr:req
+	various BS_TARGET, VARIOUS_TAILWIND_REMOVAL
+	.4byte \failInstr
 	.endm
 
 @ helpful macros

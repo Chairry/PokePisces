@@ -578,7 +578,13 @@
 #define EFFECT_PURIFICATION                 572
 #define EFFECT_MIND_READER                  573
 #define EFFECT_ODOR_SLEUTH                  574
+#define EFFECT_SURPRISE_EGG                 575
+#define EFFECT_BLOCK                        576
+#define EFFECT_CUTIE_CRY                    577
+#define EFFECT_FLEUR_CANNON                 578
+#define EFFECT_UPPER_HAND                   579
+#define EFFECT_WHIRLWIND                    580  
 
-#define NUM_BATTLE_MOVE_EFFECTS             575
+#define NUM_BATTLE_MOVE_EFFECTS             581
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

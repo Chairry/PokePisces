@@ -23334,6 +23334,12 @@ Move_FURIOUS_SEA::
 Move_RESERVOIR::
 	goto Move_LIFE_DEW
 
+Move_NOTHING::
+	goto Move_NONE
+
+Move_BRAIN_DAMAGE::
+	goto Move_PSYCHIC
+
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN
 
