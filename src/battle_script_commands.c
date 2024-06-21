@@ -1646,6 +1646,12 @@ static bool32 AccuracyCalcHelper(u16 move)
             JumpIfMoveFailed(7, move);
             return TRUE;
         }
+        if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SANDSTORM) && gCurrentMove == MOVE_RAZOR_WIND))
+        {
+            // razor storm ignore acc checks in sand unless target is holding utility umbrella
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
     #if B_BLIZZARD_HAIL >= GEN_4
         else if ((gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && move == MOVE_BLIZZARD)
         {
@@ -10217,20 +10223,22 @@ static void Cmd_various(void)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
+        return;
     }
     case VARIOUS_TAILWIND_REMOVAL:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gSideStatuses[gBattlerTarget] & SIDE_STATUS_TAILWIND)
+        if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_TAILWIND)
         {
-            gSideTimers[side].tailwindTimer == 0
-            gSideStatuses[side] &= ~SIDE_STATUS_TAILWIND;
+            gSideTimers[GetBattlerSide(gBattlerTarget)].tailwindTimer == 0;
+            gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_TAILWIND;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
+        return;
     }
     case VARIOUS_SET_SIMPLE_BEAM:
     {
@@ -10421,7 +10429,25 @@ static void Cmd_various(void)
         {
             SET_BATTLER_TYPE(gBattlerTarget, gBattleMoves[gCurrentMove].type);
             PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
-            gBattlescriptCurrInstr = cmd->nextInstr;
+            if (gCurrentMove == MOVE_SOAK)
+            {
+                if (IsWorrySeedBannedAbility(gBattleMons[gBattlerTarget].ability))
+                {
+                    RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
+                    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = cmd->nextInstr;
+                }
+                else if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
+                {
+                    RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_ABILITY_SHIELD);
+                    gBattlescriptCurrInstr = cmd->nextInstr;
+                }
+                else
+                {
+                    gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_DAMP;
+                    gBattlescriptCurrInstr = cmd->nextInstr;
+                }            
+            }
         }
         return;
     }

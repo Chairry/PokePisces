@@ -612,7 +612,6 @@ BattleScript_EffectWhirlwind::
 	attackcanceler
 	attackstring
 	ppreduce
-
 	jumpifroarfails BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
@@ -622,10 +621,6 @@ BattleScript_EffectWhirlwind::
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
 	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_ButItFailed
 	forcerandomswitch BattleScript_ButItFailed
-
-	tailwindremoval BattleScript_RoarContinues
-	printstring STRINGID_TAILWINDENDS
-	waitmessage B_WAIT_TIME_LONG
 
 BattleScript_EffectUpperHand:
 	suckerpunchcheck BattleScript_EffectHit
@@ -5488,6 +5483,8 @@ BattleScript_EffectSoak:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectReflectType:
+	setuserstatus4 STATUS4_REFLECTED_TYPE, BattleScript_ReflectTypeContinue
+BattleScript_ReflectTypeContinue:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
@@ -5495,8 +5492,6 @@ BattleScript_EffectReflectType:
 	tryreflecttype BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	setuserstatus4 STATUS4_REFLECTED_TYPE, BattleScript_ReflectTypeFailed
-BattleScript_ReflectTypeFailed:
 	printstring STRINGID_REFLECTTARGETSTYPE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -7002,7 +6997,6 @@ BattleScript_EffectRoar::
 	attackcanceler
 	attackstring
 	ppreduce
-BattleScript_RoarContinues:
 	jumpifroarfails BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
@@ -10654,6 +10648,9 @@ BattleScript_WhirlwindTailwindRemoval::
 	switchineffects BS_TARGET
 	jumpifbyte CMP_EQUAL, sSWITCH_CASE, B_SWITCH_RED_CARD, BattleScript_RoarSuccessSwitch_Ret
 	setbyte sSWITCH_CASE, B_SWITCH_NORMAL
+	tailwindremoval BattleScript_MoveEnd
+	printstring STRINGID_TAILWINDENDS
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
 BattleScript_WeaknessPolicy::

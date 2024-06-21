@@ -8035,10 +8035,13 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8180,11 +8183,14 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    BattleScriptExecute(BattleScript_InvertStats);
-                    effect = ITEM_STATS_CHANGE;
-                    RecordItemEffectBattle(battler, battlerHoldEffect);
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        BattleScriptExecute(BattleScript_InvertStats);
+                        effect = ITEM_STATS_CHANGE;
+                        RecordItemEffectBattle(battler, battlerHoldEffect);
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -8670,12 +8676,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_FLIP_COIN:
-                if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
-                    effect = ITEM_STATS_CHANGE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_InvertStats;
-                    effect++;
+                    if (gBattleMons[battler].statStages[i] != DEFAULT_STAT_STAGE)
+                    {
+                        effect = ITEM_STATS_CHANGE;
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_InvertStats;
+                        effect++;
+                    }
                 }
                 break;
             case HOLD_EFFECT_WARP_RIBBON:
@@ -9847,7 +9856,7 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower = sHeatCrashPowerTable[weight];
         break;
     case EFFECT_PUNISHMENT:
-        basePower = 70 + (CountBattlerStatIncreases(battlerDef, FALSE) * 50);
+        basePower = 50 + (CountBattlerStatIncreases(battlerDef, FALSE) * 50);
         break;
     case EFFECT_STORED_POWER:
         basePower += (CountBattlerStatIncreases(battlerAtk, TRUE) * 20);
@@ -10508,7 +10517,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         atkStat = gBattleMons[battlerDef].speed;
         atkStage = gBattleMons[battlerDef].statStages[STAT_SPEED];
     }
-    else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS)
+    else if (gBattleMoves[move].effect == EFFECT_BODY_PRESS || gBattleMoves[move].effect == EFFECT_SKULL_BASH)
     {
         atkStat = gBattleMons[battlerAtk].defense;
         atkStage = gBattleMons[battlerAtk].statStages[STAT_DEF];
@@ -11137,7 +11146,7 @@ static inline uq4_12_t GetRechargeReduceModifier(u32 battlerDef)
 
 static inline uq4_12_t GetLuckyChantModifier(u32 battlerDef, uq4_12_t typeEffectivenessModifier)
 {
-    if ((gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
+    if ((gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
         return UQ_4_12(0.7);
     return UQ_4_12(1.0);
 }
@@ -11572,6 +11581,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
             RecordAbilityBattle(battlerAtk, ABILITY_SCRAPPY);
     }
 
+    if ((moveType == defType) && gStatuses4[battlerDef] & STATUS4_REFLECTED_TYPE)
+        mod = UQ_4_12(0.0);
     if (moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED && mod == UQ_4_12(0.0))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
@@ -11596,10 +11607,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_IGNA_STRIKE && (defType == TYPE_FIRE || defType == TYPE_FLYING))
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && defType == TYPE_BUG)
+    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_BUG || defType == TYPE_GRASS))
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_DRAGON || defType == TYPE_FAIRY))
-        mod = UQ_4_12(4.0);
     if (gBattleMoves[move].effect == EFFECT_CINDER_DRILL && (defType == TYPE_BUG || defType == TYPE_GRASS || defType == TYPE_STEEL || defType == TYPE_ICE))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_SNUFF_OUT && defType == TYPE_FIRE)
@@ -11715,10 +11724,6 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         modifier = UQ_4_12(0.0);
     }
 #endif
-    if ((gBattleMoves[gCurrentMove].type == ((GetBattlerType(gBattlerTarget, 0)) || (GetBattlerType(gBattlerTarget, 1)) || (GetBattlerType(gBattlerTarget, 2)))))
-    {
-        modifier = UQ_4_12(0.0);
-    }
     // Immunity
     if (gBattleMoves[move].type == TYPE_POISON && defAbility == ABILITY_IMMUNITY)
     {

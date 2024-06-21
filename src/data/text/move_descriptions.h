@@ -81,8 +81,8 @@ static const u8 sWingAttackDescription[] = _(
     "spread wide.");
 
 static const u8 sWhirlwindDescription[] = _(
-    "Blows away the foe with\n"
-    "wind and ends the battle.");
+    "Blows away the foe's Tailwind\n"
+    "and ends the battle.");
 
 static const u8 sFlyDescription[] = _(
     "Flies up on the first turn,\n"
@@ -537,8 +537,8 @@ static const u8 sSwiftDescription[] = _(
     "rays that never miss.");
 
 static const u8 sSkullBashDescription[] = _(
-    "Tucks in the head, then\n"
-    "attacks on the next turn.");
+    "Raises Def on the 1st turn.\n"
+    "Then strikes using Def.");
 
 static const u8 sSpikeCannonDescription[] = _(
     "Launches sharp spikes that\n"
@@ -1361,8 +1361,8 @@ static const u8 sIronDefenseDescription[] = _(
     "to sharply raise Defense.");
 
 static const u8 sBlockDescription[] = _(
-    "Blocks the foe's way to\n"
-    "prevent escape.");
+    "Blocks the foe to prevent\n"
+    "escape and lowers Speed.");
 
 static const u8 sHowlDescription[] = _(
     "Howls to raise the spirit\n"
@@ -1941,8 +1941,8 @@ static const u8 sElectroBallDescription[] = _(
     "damage to slower foes.");
 
 static const u8 sSoakDescription[] = _(
-    "Sprays water at the foe\n"
-    "making it Water-type.");
+    "Sprays water making the\n"
+    "foe Water-type and Damp.");
 
 static const u8 sFlameChargeDescription[] = _(
     "Attacks in a cloak of\n"
@@ -1989,8 +1989,8 @@ static const u8 sChipAwayDescription[] = _(
     "stat changes.");
 
 static const u8 sClearSmogDescription[] = _(
-    "Attacks with white haze that\n"
-    "eliminates all stat changes.");
+    "If foe has stat changes becomes\n"
+    "priority, then eliminates them.");
 
 static const u8 sStoredPowerDescription[] = _(
     "The higher the user's stats\n"
@@ -2045,8 +2045,8 @@ static const u8 sAcrobaticsDescription[] = _(
     "user has no item.");
 
 static const u8 sReflectTypeDescription[] = _(
-    "The user reflects the foe's\n"
-    "type, copying it.");
+    "Reflects the foe's type,\n"
+    "and becomes immune to it.");
 
 static const u8 sRetaliateDescription[] = _(
     "An attack that does more\n"
@@ -2890,8 +2890,8 @@ static const u8 sSkitterSmackDescription[] = _(
     "attack. Lowers foe's Sp. Atk.");
 
 static const u8 sBurningJealousyDescription[] = _(
-    "Foes that have stats upped\n"
-    "during the turn get burned.");
+    "Burns and torments both foes\n"
+    "when one has a stat drop.");
 
 static const u8 sLashOutDescription[] = _(
     "If the user stats are lowered\n"
@@ -3297,8 +3297,8 @@ static const u8 sPsychicNoiseDescription[] = _(
     "the foe from recovering HP.");
 
 static const u8 sUpperHandDescription[] = _(
-    "Flinches foe if they are\n"
-    "readying a priority move.");
+    "Flinches and boosts when foe\n"
+    "is readying a priority move.");
 
 static const u8 sMalignantChainDescription[] = _(
     "Corrosive chains wrap around\n"
@@ -3317,8 +3317,8 @@ static const u8 sBurningSpiritDescription[] = _(
     "that may burn the foe.");
 
 static const u8 sPurgingFlamesDescription[] = _(
-    "Uses purple flames to\n"
-    "eliminates all stat changes.");
+    "If foe has stat changes becomes\n"
+    "priority, then eliminates them.");
 
 static const u8 sSnuffOutDescription[] = _(
     "User blows real hard. Super\n"
@@ -3385,7 +3385,7 @@ static const u8 sVexingKiDescription[] = _(
     "taunts and torments the foe.");
 
 static const u8 sDecayBeamDescription[] = _(
-    "SE against Bug/Dragon/Fairy.\n"
+    "SE against Bug and Grass.\n"
     "Foe's last move has 3 PP cut.");
 
 static const u8 sCannonadeDescription[] = _(
@@ -3565,7 +3565,7 @@ static const u8 sFinishOffDescription[] = _(
     "full HP. Also lowers user's Atk.");
 
 static const u8 sSeizeChanceDescription[] = _(
-    "Fails if the target didn't use\n"
+    "Drastically boosted if foe uses\n"
     "a status move. Always crits.");
 
 static const u8 sBrutalizeDescription[] = _(
@@ -3943,6 +3943,10 @@ static const u8 sFuriousSeaDescription[] = _(
 static const u8 sReservoirDescription[] = _(
     "Restores HP, cures status,\n"
     "powers up next Water move.");
+
+static const u8 sBrainDamageDescription[] = _(
+    "A one-hit KO move that\n"
+    "gives the foe brain damage.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4970,4 +4974,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PLUNDER - 1] = sPlunderDescription,
     [MOVE_FURIOUS_SEA - 1] = sFuriousSeaDescription,
     [MOVE_RESERVOIR - 1] = sReservoirDescription,
+    [MOVE_NOTHING - 1] = sSplashDescription,
+    [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
 };
