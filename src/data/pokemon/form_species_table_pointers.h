@@ -180,6 +180,8 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_SHISHIMA] = sShishimaFormSpeciesIdTable,
     [SPECIES_SHUNYONG] = sShunyongFormSpeciesIdTable,
     [SPECIES_KODOUGH] = sKodoughFormSpeciesIdTable,
+    [SPECIES_LYORESA] = sLyoresaFormSpeciesIdTable,
+    [SPECIES_POTTRICIA] = sPottriciaFormSpeciesIdTable,
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurFormSpeciesIdTable,
@@ -613,5 +615,9 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = sDudunsparsFormSpeciesIdTable,
     [SPECIES_KODOUGH_BLUNT] = sKodoughFormSpeciesIdTable,
     [SPECIES_CASTFORM_SANDY] = sKodoughFormSpeciesIdTable,
+    [SPECIES_SHISHIMA_ALT] = sShishimaFormSpeciesIdTable,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = sShishimaFormSpeciesIdTable,
+    [SPECIES_LYOLICA] = sLyoresaFormSpeciesIdTable,
+    [SPECIES_POTTRICIA_SHATTERED] = sPottriciaFormSpeciesIdTable,
 #endif
 };

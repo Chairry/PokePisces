@@ -1,0 +1,81 @@
+{
+  "id": "MAP_NEW_MAP1",
+  "name": "NewMap1",
+  "layout": "LAYOUT_NEW_MAP1",
+  "music": "MUS_B_DOME_LOBBY",
+  "region_map_section": "MAPSEC_LILYCOVE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 1,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 1,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_LOBBY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 2,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_LOBBY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_OFFICE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_STORAGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_STUDIO_FAKE_LOBBY",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -916,6 +916,8 @@ extern const u8 gText_TeachWhichMoveToPkmn[];
 extern const u8 gText_MoveRelearnerGiveUp[];
 extern const u8 gText_MoveRelearnerTeachMoveConfirm[];
 extern const u8 gText_MoveRelearnerBattleMoves[];
+extern const u8 gText_MoveRelearnerType[];
+extern const u8 gText_MoveRelearnerSplit[];
 extern const u8 gText_MoveRelearnerPP[];
 extern const u8 gText_MoveRelearnerPower[];
 extern const u8 gText_MoveRelearnerAccuracy[];
@@ -3057,5 +3059,11 @@ extern const u8 gText_TMCase_Blue[];
 // Exp. Share
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
+
+// Evolution party screen option
+extern const u8 gText_Evolution[];
+
+// move relearner party screen option
+extern const u8 gText_Moves_Menu[];
 
 #endif // GUARD_STRINGS_H

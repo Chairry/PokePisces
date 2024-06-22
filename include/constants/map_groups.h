@@ -58,6 +58,7 @@
 #define MAP_STEVEN_MAZE                       (6 | (3 << 8))
 #define MAP_SECRET_MOSSDEEP_CAVE              (7 | (3 << 8))
 #define MAP_MANGROTTO_ROCK_SMASH_ROOM         (8 | (3 << 8))
+#define MAP_FAMILY_MOSS_CAVE                  (9 | (3 << 8))
 
 // gMapGroup_PiscesPart3Major
 #define MAP_ROUTE125           (0 | (4 << 8))
@@ -88,6 +89,13 @@
 #define MAP_GYM3CORRIDOR                      (11 | (5 << 8))
 #define MAP_ZOTPYRE_INTERIORS                 (12 | (5 << 8))
 #define MAP_ZOTPYRE_SECRET_BASEMENT           (13 | (5 << 8))
+#define MAP_BATTLE_STUDIO_LOBBY               (14 | (5 << 8))
+#define MAP_NEW_MAP1                          (15 | (5 << 8))
+#define MAP_BATTLE_STUDIO_STORAGE             (16 | (5 << 8))
+#define MAP_BATTLE_STUDIO_OFFICE              (17 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_LOBBY          (18 | (5 << 8))
+#define MAP_BATTLE_STUDIO_FAKE_ARENA          (19 | (5 << 8))
+#define MAP_BATTLE_STUDIO_CAGES               (20 | (5 << 8))
 
 // gMapGroup_PiscesPart4Major
 #define MAP_ROUTE120         (0 | (6 << 8))
@@ -102,6 +110,7 @@
 #define MAP_VERDANTURF_TOWN_MART              (1 | (7 << 8))
 #define MAP_FORTREE_CITY_POKEMON_CENTER_1F    (2 | (7 << 8))
 #define MAP_SCUTTILL_SECRET_TREE_HOUSE        (3 | (7 << 8))
+#define MAP_GYM4CORRIDOR                      (4 | (7 << 8))
 
 // gMapGroup_PiscesPart5Major
 #define MAP_OZONE_INSTITUTE        (0 | (8 << 8))
@@ -120,6 +129,7 @@
 #define MAP_FORTREE_CITY_MART                (1 | (9 << 8))
 #define MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F (2 | (9 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (3 | (9 << 8))
+#define MAP_GYM5CORRIDOR                     (4 | (9 << 8))
 
 // gMapGroup_PiscesPart6Major
 #define MAP_SWELTORN_TRANSITION_CAVE  (0 | (10 << 8))
@@ -158,6 +168,7 @@
 #define MAP_MAUVILLE_CITY_POKEMON_CENTER_2F   (14 | (11 << 8))
 #define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F  (15 | (11 << 8))
 #define MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F (16 | (11 << 8))
+#define MAP_GYM6CORRIDOR                      (17 | (11 << 8))
 
 // gMapGroup_PiscesPart7Major
 #define MAP_SLATEPORT_SHORE       (0 | (12 << 8))
@@ -172,6 +183,7 @@
 
 // gMapGroup_PiscesPart7Minor
 #define MAP_DEWFORD_TOWN_POKEMON_CENTER_1F (0 | (13 << 8))
+#define MAP_GYM7CORRIDOR                   (1 | (13 << 8))
 
 // gMapGroup_PiscesPart8Major
 #define MAP_DETERMANITE_BEACH    (0 | (14 << 8))
@@ -191,6 +203,7 @@
 #define MAP_DEWFORD_TOWN_POKEMON_CENTER_2F   (0 | (15 << 8))
 #define MAP_FALLARBOR_TOWN_POKEMON_CENTER_2F (1 | (15 << 8))
 #define MAP_RUSTBORO_CITY_POKEMON_CENTER_1F  (2 | (15 << 8))
+#define MAP_GYM8CORRIDOR                     (3 | (15 << 8))
 
 // gMapGroup_PiscesPart9Major
 #define MAP_PETALBURG_NEW       (0 | (16 << 8))

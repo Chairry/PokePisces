@@ -3622,3 +3622,29 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ZotpyreSecretBasement/scripts.inc"
 
 	.include "data/maps/NewSunbeach/scripts.inc"
+
+	.include "data/maps/FamilyMossCave/scripts.inc"
+
+	.include "data/maps/BattleStudioLobby/scripts.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/BattleStudioStorage/scripts.inc"
+
+	.include "data/maps/BattleStudioOffice/scripts.inc"
+
+	.include "data/maps/BattleStudioFakeLobby/scripts.inc"
+
+	.include "data/maps/BattleStudioFakeArena/scripts.inc"
+
+	.include "data/maps/BattleStudioCages/scripts.inc"
+
+	.include "data/maps/Gym4Corridor/scripts.inc"
+
+	.include "data/maps/Gym5Corridor/scripts.inc"
+
+	.include "data/maps/Gym6Corridor/scripts.inc"
+
+	.include "data/maps/Gym7Corridor/scripts.inc"
+
+	.include "data/maps/Gym8Corridor/scripts.inc"

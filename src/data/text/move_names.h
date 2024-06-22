@@ -574,7 +574,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_ION_DELUGE] = _("Ion Deluge"),
     [MOVE_PARABOLIC_CHARGE] = _("Paracharge"),
     [MOVE_FORESTS_CURSE] = _("Forest's Curse"),
-    [MOVE_PETAL_BLIZZARD] = _("Petal Fury"),
+    [MOVE_PETAL_BLIZZARD] = _("Petal Flurry"),
     [MOVE_FREEZE_DRY] = _("Freeze-Dry"),
     [MOVE_DISARMING_VOICE] = _("Cutie Cry"),
     [MOVE_PARTING_SHOT] = _("Parting Shot"),
@@ -1018,6 +1018,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
     [MOVE_RESERVOIR] = _("Reservoir"),
+    [MOVE_GOLD_PLAINS] = _("Golden Plains"),
+    [MOVE_DOWNFALL] = _("Downfall"),
+    [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
+    [MOVE_NOTHING] = _("Nothing"),
+    [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
 };
 #else
 // 12 letters
@@ -1595,7 +1600,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_ION_DELUGE] = _("Ion Deluge"),
     [MOVE_PARABOLIC_CHARGE] = _("Paracharge"),
     [MOVE_FORESTS_CURSE] = _("Forest'sCurs"),
-    [MOVE_PETAL_BLIZZARD] = _("Petal Fury"),
+    [MOVE_PETAL_BLIZZARD] = _("Petal Flurry"),
     [MOVE_FREEZE_DRY] = _("Freeze-Dry"),
     [MOVE_DISARMING_VOICE] = _("Cutie Cry"),
     [MOVE_PARTING_SHOT] = _("Parting Shot"),
@@ -2039,6 +2044,11 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PLUNDER] = _("Plunder"),
     [MOVE_FURIOUS_SEA] = _("Furious Sea"),
     [MOVE_RESERVOIR] = _("Reservoir"),
+    [MOVE_GOLD_PLAINS] = _("Golden Plains"),
+    [MOVE_DOWNFALL] = _("Downfall"),
+    [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
+    [MOVE_NOTHING] = _("Nothing"),
+    [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
 };
 #endif
 

@@ -6646,8 +6646,8 @@ const u8 gPeblraniumPokedexText[] = _(
     "mishandling them has grave consequences.");
 
 const u8 gVaikingPokedexText[] = _(
-    "Vaiking have many different flavors.\n"
-    "They can taste like fish, fruits, or even\n"
-    "cheese. However, they're both fearsome\n"
-    "and rare, so not just anyone can eat one.");
+    "Its taste and texture vary based on the\n"
+    "part, from its plum-flavored heart to its\n"
+    "syrupy saliva. But not just anyone can\n"
+    "eat it because of its spartan nature.");
 #endif

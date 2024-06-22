@@ -892,7 +892,7 @@ static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is
 static const u8 sText_SappedByTicked[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\ndrained by its tick!");
 static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nby a tick!");
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
-static const u8 sText_UserStatChangesGone[] = _("The user's negative\nstat changes were eliminated!");
+static const u8 sText_UserStatChangesGone[] = _("Negative\nstat changes were eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
 static const u8 sText_HearthwarmHeal[] = _("Hearthwarm restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
@@ -900,16 +900,24 @@ static const u8 sText_PkmnSurroundedWithVeilOfHeat[] = _("{B_ATK_NAME_WITH_PREFI
 static const u8 sText_TargetLostElectricType[] = _("{B_DEF_NAME_WITH_PREFIX} had all of\nits electricity drained!");
 static const u8 sText_PkmnGripped[] = _("{B_ATK_NAME_WITH_PREFIX} gripped\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_GrassTypeAdded[] = _("Grass-type was added to\n{B_DEF_NAME_WITH_PREFIX}!");
-static const u8 sText_SeedWrap[] = _("Leech Seed wrapped around {B_DEF_NAME_WITH_PREFIX}!");
+static const u8 sText_SeedWrap[] = _("Life-stealing seeds wrapped\naround {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ndeadly hit!");
 static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made everyone\ndance wildly!");
 static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
+static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
+static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
+static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressurizing air!");
+static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and can evolve!{WAIT_SE}\p");
+static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
+static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
+static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_GOLDPLAINS - BATTLESTRINGS_TABLE_START] = sText_GoldPlains,
     [STRINGID_TARGETISHURTBYSALTCURE - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtBySaltCure,
     [STRINGID_TARGETISBEINGSALTCURED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCured,
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START] = sText_CurrentMoveCantSelect,
@@ -1658,13 +1666,19 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TARGETLOSTELECTRICTYPE - BATTLESTRINGS_TABLE_START] = sText_TargetLostElectricType,
     [STRINGID_PKMNGRIPPED - BATTLESTRINGS_TABLE_START] = sText_PkmnGripped,
     [STRINGID_GRASSTYPEADDED - BATTLESTRINGS_TABLE_START] = sText_GrassTypeAdded,
-    [STRINGID_SEED_WRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
+    [STRINGID_SEEDWRAP - BATTLESTRINGS_TABLE_START] = sText_SeedWrap,
     [STRINGID_READYINGSNAP - BATTLESTRINGS_TABLE_START] = sText_ReadyingSnap,
     [STRINGID_FLORESCENCESTATUSNORMAL - BATTLESTRINGS_TABLE_START] = sText_FlorescenceStatusNormal,
     [STRINGID_PKMNSXINFATUATEDY2 - BATTLESTRINGS_TABLE_START] = sText_PkmnsXInfatuatedY2,
     [STRINGID_BIGBOUNDARY - BATTLESTRINGS_TABLE_START] = sText_BigBoundary,
     [STRINGID_STARTEDADANCEMANIA - BATTLESTRINGS_TABLE_START] = sText_StartedADanceMania,
     [STRINGID_PKMNCUTHPMAXEDSPATK - BATTLESTRINGS_TABLE_START] = sText_PkmnCutHPMaxedSpAtk,
+    [STRINGID_PKMNBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_PkmnBecameMinimized,
+    [STRINGID_TARGETBECAMEMINIMIZED - BATTLESTRINGS_TABLE_START] = sText_TargetBecameMinimized,
+    [STRINGID_PRESSURIZINGAIR - BATTLESTRINGS_TABLE_START] = sText_PressurizingAir,
+    [STRINGID_PKMNCANEVOLVE - BATTLESTRINGS_TABLE_START] = sText_PkmnCanEvolve,
+    [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
+    [STRINGID_CUREDBLOOMING - BATTLESTRINGS_TABLE_START] = sText_CuredBlooming,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1926,6 +1940,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_METEOR_BEAM]   = STRINGID_METEORBEAMCHARGING,
     [B_MSG_TURN1_ELECTRO_SHOCK] = STRINGID_ELECTROSHOCKCHARGING,
     [B_MSG_TURN1_DRAGON_RUIN]   = STRINGID_DRAGONRUINCHARGING,
+    [B_MSG_TURN1_AIR_CANNON]    = STRINGID_PRESSURIZINGAIR,
 };
 
 // Index copied from move's index in sTrappingMoves
@@ -1942,7 +1957,7 @@ const u16 gWrappedStringIds[NUM_TRAPPING_MOVES] =
     [B_MSG_WRAPPED_SNAP_TRAP]    = STRINGID_PKMNINSNAPTRAP,         // MOVE_SNAP_TRAP
     [B_MSG_WRAPPED_THUNDER_CAGE] = STRINGID_THUNDERCAGETRAPPED,     // MOVE_THUNDER_CAGE
     [B_MSG_CONSTRICTED]          = STRINGID_PKMNCONSTRICTED,        // MOVE_CONSTRICT
-    [B_MSG_SEED_WRAP]            = STRINGID_SEED_WRAP,              // MOVE_LEECH_SEED
+    [B_MSG_SEED_WRAP]            = STRINGID_SEEDWRAP,              // MOVE_LEECH_SEED
 };
 
 const u16 gMistUsedStringIds[] =

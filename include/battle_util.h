@@ -16,8 +16,9 @@
 #define MOVE_LIMITATION_THROAT_CHOP             (1 << 12)
 #define MOVE_LIMITATION_STUFF_CHEEKS            (1 << 13)
 #define MOVE_LIMITATION_GIGATON_HAMMER          (1 << 14)
+#define MOVE_LIMITATION_ION_DELUGE              (1 << 15)
 
-#define MOVE_LIMITATION_PLACEHOLDER             (1 << 15)
+#define MOVE_LIMITATION_PLACEHOLDER             (1 << 16)
 #define MOVE_LIMITATIONS_ALL                    0xFFFF
 
 #define ABILITYEFFECT_ON_SWITCHIN                0
@@ -130,6 +131,7 @@ void BattleScriptPush(const u8 *bsPtr);
 void BattleScriptPushCursor(void);
 void BattleScriptPop(void);
 u32 TrySetCantSelectMoveBattleScript(u32 battler);
+u8 IsMoveUnusable(u32 battler, u16 move, u8 pp, u16 check);
 u8 CheckMoveLimitations(u32 battler, u8 unusableMoves, u16 check);
 bool32 AreAllMovesUnusable(u32 battler);
 u8 GetImprisonedMovesCount(u32 battler, u16 move);

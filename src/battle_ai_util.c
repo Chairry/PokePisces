@@ -297,6 +297,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_PERISH_BODY] = -1,
     [ABILITY_WANDERING_SPIRIT] = 2,
     [ABILITY_GORILLA_TACTICS] = 4,
+    [ABILITY_SHUNYONG] = 2,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -668,7 +669,7 @@ bool32 IsBattlerTrapped(u32 battler, bool32 checkSwitch)
         return TRUE;
     else if (gStatuses3[battler] & (STATUS3_ROOTED | STATUS3_SKY_DROPPED))
         return TRUE;
-    else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
+    else if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
         return TRUE;
     else if (IsAbilityPreventingEscape(battler))
         return TRUE;
@@ -2764,7 +2765,7 @@ bool32 IsBattlerIncapacitated(u32 battler, u32 ability)
     if (gBattleMons[battler].status1 & STATUS1_SLEEP_ANY)
         return TRUE;
 
-    if (gBattleMons[battler].status2 & STATUS2_RECHARGE || (ability == ABILITY_TRUANT && gDisableStructs[battler].truantCounter != 0))
+    if (gBattleMons[battler].status2 & STATUS2_RECHARGE || gStatuses4[battler] == STATUS4_RECHARGE_REDUCE || (ability == ABILITY_TRUANT && gDisableStructs[battler].truantCounter != 0))
         return TRUE;
 
     return FALSE;

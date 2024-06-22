@@ -1309,6 +1309,12 @@
 	.endm
 
 @ callnative macros
+
+    .macro dogoldplains battler:req, hpfailptr:req
+    callnative BS_DoGoldPlains
+    .byte \battler
+    .4byte \hpfailptr
+    .endm
     
     .macro setticked
     callnative BS_SetTicked
@@ -1485,6 +1491,11 @@
 	.macro trytidyup clear:req, jumpInstr:req
 	callnative BS_TryTidyUp
 	.byte \clear
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifnothit jumpInstr:req
+	callnative BS_JumpIfNotHit
 	.4byte \jumpInstr
 	.endm
 
@@ -1671,6 +1682,11 @@
 
 	.macro seizechancecheck failInstr:req
 	various BS_ATTACKER, VARIOUS_SEIZE_CHANCE_CHECK
+	.4byte \failInstr
+	.endm
+
+	.macro jumpiftargethpthreshold battler:req, failInstr:req
+	various \battler VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD
 	.4byte \failInstr
 	.endm
 
@@ -1880,6 +1896,10 @@
 	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
 	.endm
 
+	.macro surpriseegg
+	various BS_ATTACKER, VARIOUS_SURPRISE_EGG
+	.endm
+
 	.macro settracedability battler:req
 	various \battler, VARIOUS_TRACE_ABILITY
 	.endm
@@ -1933,8 +1953,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro trysetfairylock failInstr:req
-	various BS_ATTACKER, VARIOUS_TRY_FAIRY_LOCK
+	.macro trysetfairylock battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_FAIRY_LOCK
 	.4byte \failInstr
 	.endm
 
@@ -2205,10 +2225,6 @@
 	various \battler, VARIOUS_SET_BEAK_BLAST
 	.endm
 
-	.macro setblossomsnap battler:req
-	various \battler, VARIOUS_SET_BLOSSOM_SNAP
-	.endm
-
 	.macro swapsidestatuses
 	various BS_ATTACKER, VARIOUS_SWAP_SIDE_STATUSES
 	.endm
@@ -2237,6 +2253,16 @@
 
 	.macro trytrainerslidemegaevolutionmsg battler:req
 	various \battler, VARIOUS_TRY_TRAINER_SLIDE_MSG_MEGA_EVOLUTION
+	.endm
+
+	.macro cureifblooming failInstr:req
+	various BS_ATTACKER, VARIOUS_CURE_IF_BLOOMING
+	.4byte \failInstr
+	.endm
+
+	.macro tailwindremoval failInstr:req
+	various BS_TARGET, VARIOUS_TAILWIND_REMOVAL
+	.4byte \failInstr
 	.endm
 
 @ helpful macros
@@ -2452,10 +2478,6 @@
 
 	.macro normalisespeed
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
-	.endm
-
-	.macro normaliseattackernerfs
-	various 0, VARIOUS_TRY_NORMALISE_ATTACKER_NERFS
 	.endm
 
 	.macro tryhealallhealth failInstr:req

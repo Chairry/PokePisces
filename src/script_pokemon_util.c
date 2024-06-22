@@ -23,6 +23,7 @@
 #include "tv.h"
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
+#include "constants/battle_ai.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -286,3 +287,26 @@ void ScriptSetMonData(struct ScriptContext *ctx)
     
     SetMonData(mon, dataIndex, &value);
 }
+
+extern bool8 gIsScriptedWildDouble;
+void ScriptSetShunyongBattle(struct ScriptContext *ctx)
+{
+    struct Pokemon *mon = &gEnemyParty[0];
+    u32 i, val;
+    
+    CreateMonWithNature(mon, SPECIES_SHUNYONG, 100, 31, NATURE_HARDY);
+    
+    // even evs
+    val = 84;
+    for (i = 0; i < NUM_STATS; i++) {
+        SetMonData(mon, MON_DATA_HP_IV + i, &val);
+    }
+    
+    // set AI
+    FlagSet(FLAG_SMART_WILD_AI_FLAG);
+    VarSet(VAR_WILD_AI_FLAGS, AI_FLAGS_SHUNYONG);
+    
+    // set 2v1
+    gIsScriptedWildDouble = TRUE;
+}
+

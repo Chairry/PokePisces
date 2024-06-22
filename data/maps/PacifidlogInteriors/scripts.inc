@@ -5,6 +5,7 @@ PacifidlogInteriors_EventScript_OldRodFisherman::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_OLD_ROD, PacifidlogInteriors_EventScript_HowsFishing
+	goto_if_set FLAG_RECEIVED_GOOD_ROD, PacifidlogInteriors_EventScript_SaltySeas
 	msgbox PacifidlogInteriors_Text_GettingItchToFish, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PacifidlogInteriors_EventScript_BattleSadFisher
 	goto_if_eq VAR_RESULT, NO, PacifidlogInteriors_EventScript_NotGettingItchToFish
@@ -43,6 +44,27 @@ PacifidlogInteriors_EventScript_FishingExcellent::
 
 PacifidlogInteriors_EventScript_FishingNotSoGood::
 	msgbox PacifidlogInteriors_Text_FishingAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+PacifidlogInteriors_EventScript_SaltySeas::
+	msgbox PacifidlogInteriors_Text_HowsYourFishing, MSGBOX_AUTOCLOSE
+	specialvar VAR_RESULT, CheckAllSadsod
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogInteriors_EventScript_SaltyTear
+	release
+	end
+
+PacifidlogInteriors_EventScript_SaltyTear::
+	checkitem ITEM_SALTY_TEAR
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogInteriors_EventScript_GaveSaltyTear
+	msgbox PacifidlogInteriors_Text_SadsodMaster, MSGBOX_DEFAULT
+	giveitem ITEM_SALTY_TEAR
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+PacifidlogInteriors_EventScript_GaveSaltyTear::
+	msgbox PacifidlogInteriors_Text_AlreadyGaveIt, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -184,3 +206,9 @@ PacifidlogInteriors_Text_OldWoman:
 	.string "Its old home, Sky Pillar, lies north\n"
 	.string "of our humble town. Mayhaps\l"
 	.string "I will pay it a visit today.$"
+
+PacifidlogInteriors_Text_SadsodMaster:
+	.string "woah u have 6 sadsod$"
+
+PacifidlogInteriors_Text_AlreadyGaveIt:
+	.string "already gave it charlatan$"

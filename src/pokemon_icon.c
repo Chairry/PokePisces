@@ -1519,6 +1519,9 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = gMonIcon_DudunsparsEightSegment,
     [SPECIES_KODOUGH_BLUNT] = gMonIcon_KodoughBlunt,
     [SPECIES_CASTFORM_SANDY] = gMonIcon_CastformSandy,
+    [SPECIES_SHISHIMA_ALT] = gMonIcon_Shishima,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = gMonIcon_ShishimaPunisherAlt,
+    [SPECIES_LYOLICA] = gMonIcon_Lyolica,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2658,6 +2661,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_UNBERRABLE] = 2,
     [SPECIES_PEBLRANIUM] = 3,
     [SPECIES_VAIKING] = 0,
+    [SPECIES_YOLKWEEN] = 0,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
@@ -2978,6 +2982,9 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT] = 0,
     [SPECIES_KODOUGH_BLUNT] = 2,
     [SPECIES_CASTFORM_SANDY] = 0,
+    [SPECIES_SHISHIMA_ALT] = 2,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = 0,
+    [SPECIES_LYOLICA] = 4,
 #endif
     [SPECIES_EGG] = 1,
 };

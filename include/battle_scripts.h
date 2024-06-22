@@ -60,6 +60,7 @@ extern const u8 BattleScript_PrintFullBox[];
 extern const u8 BattleScript_ActionSwitch[];
 extern const u8 BattleScript_Pausex20[];
 extern const u8 BattleScript_LevelUp[];
+extern const u8 BattleScript_LevelUpWithEvoSugg[];
 extern const u8 BattleScript_RainContinuesOrEnds[];
 extern const u8 BattleScript_SnowContinuesOrEnds[];
 extern const u8 BattleScript_DamagingWeatherContinues[];
@@ -76,6 +77,7 @@ extern const u8 BattleScript_BideStoringEnergy[];
 extern const u8 BattleScript_BideAttack[];
 extern const u8 BattleScript_BideNoEnergyToAttack[];
 extern const u8 BattleScript_SpookSuccessSwitch[];
+extern const u8 BattleScript_WhirlwindTailwindRemoval[];
 extern const u8 BattleScript_RoarSuccessSwitch[];
 extern const u8 BattleScript_RoarSuccessEndBattle[];
 extern const u8 BattleScript_MistProtected[];
@@ -116,8 +118,10 @@ extern const u8 BattleScript_WishComesTrue[];
 extern const u8 BattleScript_IngrainTurnHeal[];
 extern const u8 BattleScript_AtkDefDown[];
 extern const u8 BattleScript_DefSpDefDown[];
+extern const u8 BattleScript_AtkSpAtkDown[];
 extern const u8 BattleScript_DefAccDown[];
 extern const u8 BattleScript_DefSpDefUp[];
+extern const u8 BattleScript_SpdAccUp[];
 extern const u8 BattleScript_KnockedOff[];
 extern const u8 BattleScript_MoveUsedIsImprisoned[];
 extern const u8 BattleScript_SelectingImprisonedMove[];
@@ -513,8 +517,6 @@ extern const u8 BattleScript_NeutralizingGasExits[];
 extern const u8 BattleScript_MagicianActivates[];
 extern const u8 BattleScript_BeakBlastSetUp[];
 extern const u8 BattleScript_BeakBlastBurn[];
-extern const u8 BattleScript_BlossomSnapSetUp[];
-extern const u8 BattleScript_BlossomSnapBlooming[];
 extern const u8 BattleScript_DefDownSpeedUp[];
 extern const u8 BattleScript_BarbBarrage[];
 extern const u8 BattleScript_AffectionBasedStatusHeal[];
@@ -586,5 +588,9 @@ extern const u8 BattleScript_StatUpZMove[];
 extern const u8 BattleScript_HealReplacementZMove[];
 extern const u8 BattleScript_EffectExtremeEvoboost[];
 extern const u8 BattleScript_IronBarbsActivates[];
+
+//Shunyong
+extern const u8 BattleScript_ShunyongAbilityActivates[];
+extern const u8 BattleScript_ShunyongCantHealInOffensiveForm[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

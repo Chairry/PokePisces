@@ -103,6 +103,8 @@ struct DisableStruct
     u8 stickyWebDone:1;
     u8 stealthRockDone:1;
     u8 spiderweb:1;
+    u8 fairyLockTimer;
+    u8 shunyongFlinchTimer:2;
 };
 
 struct ProtectStruct
@@ -157,7 +159,6 @@ struct ProtectStruct
     u32 specialDmg;
     u8 physicalBattlerId;
     u8 specialBattlerId;
-    u16 blossomSnapCharge:1;
 };
 
 struct SpecialStatus
@@ -248,7 +249,6 @@ struct FieldTimer
     u8 inverseRoomTimer;
     u8 terrainTimer;
     u8 gravityTimer;
-    u8 fairyLockTimer;
 };
 
 struct WishFutureKnock
@@ -400,6 +400,7 @@ struct BattleResults
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];     // 0x2A
     u8 filler35;           // 0x35
     u8 catchAttempts[POKEBALL_COUNT];     // 0x36
+    u8 shunyongStatusCounter;     
 };
 
 struct BattleTv_Side
@@ -707,6 +708,10 @@ struct BattleStruct
     u8 supremeOverlordCounter[MAX_BATTLERS_COUNT];
     u8 timesGotHit[NUM_BATTLE_SIDES][PARTY_SIZE];
     u8 enduredDamage;
+    /* shunyong battle */
+    u16 shunyongChosenMove;
+    u8 shunyongTarget;
+    u8 shunyongGoldPlainsHpUses:2; // 75%, 50%, 25% flags
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,
@@ -736,7 +741,9 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33          \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_33_STATUS   \
                           || gBattleMoves[move].effect == EFFECT_RECOIL_50_STATUS   \
-                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD)
+                          || gBattleMoves[move].effect == EFFECT_RECOIL_50_HAZARD   \
+                          || gBattleMoves[move].effect == EFFECT_CRASH_LAND         \
+                          || gBattleMoves[move].effect == EFFECT_WOOD_HAMMER        )
 
 #define BATTLER_MAX_HP(battlerId)(gBattleMons[battlerId].hp == gBattleMons[battlerId].maxHP)
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0) || (gBattleStruct->enduredDamage & gBitTable[gBattlerTarget]))

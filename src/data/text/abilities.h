@@ -357,13 +357,15 @@ static const u8 sTransfusionDescription[] = _("Copies abilities when using\na dr
 static const u8 sWhiteOutDescription[] = _("Boosts the Pokémon's Sp.\nAttack in hail.");
 static const u8 sCinderWaltzDescription[] = _("If hit, counters with a 50\nBP Relic move that may burn.");
 static const u8 sIgnorantBlissDescription[] = _("Ignores a lot.");
-static const u8 sHardboiledDescription[] = _("Ups defenses after being hit\nby a super effective move.");
+static const u8 sHardboiledDescription[] = _("Ups defenses when hit by\na super effective move.");
 static const u8 sToxicChainDescription[] = _("May badly poison a foe when\nthe user uses a move.");
 static const u8 sPoisonTouchDescription[] = _("May poison a target when\nthe user makes contact.");
 static const u8 sCheeseGuardDescription[] = _("i don't get it");
 static const u8 sWatcherDescription[] = _("Uses Mind Reader at the end\nof every other turn.");
 static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any Pokémon.");
 static const u8 sAllGameDescription[] = _("Plays Mud and Water Sports.\nHas Ground/Water Immunity.");
+static const u8 sShunyongDescription[] = _("Shunyong");
+static const u8 sRegeneratorDescription[] = _("Restores a little HP when\nwithdrawn from battle.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -740,6 +742,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATCHER] = _("Watcher"),
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
+    [ABILITY_SHUNYONG] = _("Shunyong"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1116,6 +1119,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATCHER] = _("Watcher"),
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
+    [ABILITY_SHUNYONG] = _("Shunyong");
 };
 #endif
 
@@ -1265,7 +1269,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MOODY] = sMoodyDescription,
     [ABILITY_OVERCOAT] = sOvercoatDescription,
     [ABILITY_POISON_TOUCH] = sPoisonTouchDescription,
-    [ABILITY_REGENERATOR] = sNaturalCureDescription,
+    [ABILITY_REGENERATOR] = sRegeneratorDescription,
     [ABILITY_BIG_PECKS] = sBigPecksDescription,
     [ABILITY_SAND_RUSH] = sSandRushDescription,
     [ABILITY_WONDER_SKIN] = sWonderSkinDescription,
@@ -1493,4 +1497,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_WATCHER] = sWatcherDescription,
     [ABILITY_APPETITE] = sAppetiteDescription,
     [ABILITY_ALL_GAME] = sAllGameDescription,
+    [ABILITY_SHUNYONG] = sShunyongDescription,
 };

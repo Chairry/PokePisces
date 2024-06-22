@@ -7720,6 +7720,18 @@ const struct Item gItems[] =
         .secondaryId = MOVE_RETALIATE,
     },
 
+    [ITEM_TM_AURORA_BEAM] =
+    {
+        .name = _("TM48"),
+        .price = 3000,
+        .description = sTM53Desc,
+        .importance = I_REUSABLE_TMS,
+        .pocket = POCKET_TM_HM,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
+        .secondaryId = MOVE_AURORA_BEAM,
+    },
+
     [ITEM_TM_SPIRIT_BREAK] =
     {
         .name = _("TM48"),
@@ -7734,7 +7746,7 @@ const struct Item gItems[] =
 
     [ITEM_TM_BRICK_BREAK] =
     {
-        .name = _("TM48"),
+        .name = _("TM50"),
         .price = 3000,
         .description = sTM49Desc,
         .importance = I_REUSABLE_TMS,
@@ -7746,7 +7758,7 @@ const struct Item gItems[] =
 
     [ITEM_TM_ROCK_SLIDE] =
     {
-        .name = _("TM50"),
+        .name = _("TM51"),
         .price = 3000,
         .description = sTM50Desc,
         .importance = I_REUSABLE_TMS,
@@ -7758,19 +7770,19 @@ const struct Item gItems[] =
 
     [ITEM_TM_ZING_ZAP] =
     {
-        .name = _("TM51"),
+        .name = _("TM52"),
         .price = 3000,
         .description = sTM51Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ZING_ZAP,
+        .secondaryId = MOVE_ZING_ZAP, // Todo
     },
 
     [ITEM_TM_FLASH_CANNON] =
     {
-        .name = _("TM52"),
+        .name = _("TM53"),
         .price = 3000,
         .description = sTM52Desc,
         .importance = I_REUSABLE_TMS,
@@ -7778,18 +7790,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_FLASH_CANNON, // Todo
-    },
-
-    [ITEM_TM_AURORA_BEAM] =
-    {
-        .name = _("TM53"),
-        .price = 3000,
-        .description = sTM53Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_AURORA_BEAM, // Todo
     },
 
     [ITEM_TM_DRAGON_CLAW] =

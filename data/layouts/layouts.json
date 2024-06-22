@@ -5350,6 +5350,136 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/NewSunbeach/border.bin",
       "blockdata_filepath": "data/layouts/NewSunbeach/map.bin"
+    },
+    {
+      "id": "LAYOUT_FAMILY_MOSS_CAVE",
+      "name": "FamilyMossCave_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/FamilyMossCave/border.bin",
+      "blockdata_filepath": "data/layouts/FamilyMossCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_LOBBY",
+      "name": "BattleStudioLobby_Layout",
+      "width": 20,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/BattleStudioLobby/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP1",
+      "name": "NewMap1_Layout",
+      "width": 16,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/NewMap1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_STORAGE",
+      "name": "BattleStudioStorage_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/BattleStudioStorage/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioStorage/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_OFFICE",
+      "name": "BattleStudioOffice_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/BattleStudioOffice/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioOffice/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_FAKE_LOBBY",
+      "name": "BattleStudioFakeLobby_Layout",
+      "width": 17,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/BattleStudioFakeLobby/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioFakeLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_FAKE_ARENA",
+      "name": "BattleStudioFakeArena_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleTent",
+      "border_filepath": "data/layouts/BattleStudioFakeArena/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioFakeArena/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_STUDIO_CAGES",
+      "name": "BattleStudioCages_Layout",
+      "width": 7,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/BattleStudioCages/border.bin",
+      "blockdata_filepath": "data/layouts/BattleStudioCages/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM4CORRIDOR",
+      "name": "Gym4Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym4Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym4Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM5CORRIDOR",
+      "name": "Gym5Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym5Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym5Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM6CORRIDOR",
+      "name": "Gym6Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym6Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym6Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM7CORRIDOR",
+      "name": "Gym7Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym7Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym7Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM8CORRIDOR",
+      "name": "Gym8Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym8Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym8Corridor/map.bin"
     }
   ]
 }

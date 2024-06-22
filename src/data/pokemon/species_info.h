@@ -770,13 +770,13 @@
 
 #define MORPEKO_SPECIES_INFO                               \
     {                                                      \
-        .baseHP        = 58,                               \
-        .baseAttack    = 95,                               \
-        .baseDefense   = 58,                               \
-        .baseSpeed     = 97,                               \
-        .baseSpAttack  = 70,                               \
-        .baseSpDefense = 58,                               \
-        .types = { TYPE_ELECTRIC, TYPE_DARK},              \
+        .baseHP        = 200,                               \
+        .baseAttack    = 100,                               \
+        .baseDefense   = 100,                               \
+        .baseSpeed     = 100,                               \
+        .baseSpAttack  = 100,                               \
+        .baseSpDefense = 100,                               \
+        .types = { TYPE_DRAGON, TYPE_STEEL},              \
         .catchRate = 180,                                  \
         .expYield = 153,                                   \
         .evYield_Speed     = 2,                            \
@@ -785,7 +785,7 @@
         .friendship = STANDARD_FRIENDSHIP,                                  \
         .growthRate = GROWTH_MEDIUM_FAST,                  \
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                      \
-        .abilities = {ABILITY_HUNGER_SWITCH, ABILITY_NONE},\
+        .abilities = {ABILITY_SHUNYONG, ABILITY_NONE},\
         .bodyColor = BODY_COLOR_YELLOW,                    \
         .noFlip = FALSE,                                   \
     }
@@ -877,6 +877,27 @@
         .bodyColor = BODY_COLOR_YELLOW, \
         .noFlip = FALSE, \
         .flags = SPECIES_FLAG_LEGENDARY,                \
+    }
+
+#define POTTRICIA_SPECIES_INFO \
+    { \
+        .baseHP        = 1, \
+        .baseAttack    = 1, \
+        .baseDefense   = 1, \
+        .baseSpeed     = 1, \
+        .baseSpAttack  = 1, \
+        .baseSpDefense = 1, \
+        .types = { TYPE_GRASS, TYPE_GRASS }, \
+        .catchRate = 1, \
+        .expYield = 1, \
+        .genderRatio = MON_GENDERLESS, \
+        .eggCycles = 1, \
+        .friendship = 1, \
+        .growthRate = GROWTH_SLOW, \
+        .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS}, \
+        .abilities = {ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_NONE}, \
+        .bodyColor = BODY_COLOR_BROWN, \
+        .noFlip = FALSE, \
     }
 
 const struct SpeciesInfo gSpeciesInfo[] =
@@ -20950,10 +20971,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_MAKIBI] =
     {
-        .baseHP        = 50,
+        .baseHP        = 60,
         .baseAttack    = 70,
         .baseDefense   = 112,
-        .baseSpeed     = 65,
+        .baseSpeed     = 55,
         .baseSpAttack  = 90,
         .baseSpDefense = 80,
         .types = { TYPE_WATER, TYPE_DRAGON },
@@ -20972,12 +20993,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_EBIROSASHI] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 90,
-        .baseSpeed     = 95,
-        .baseSpAttack  = 135,
-        .baseSpDefense = 75,
+        .baseHP        = 90,
+        .baseAttack    = 70,
+        .baseDefense   = 80,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 130,
+        .baseSpDefense = 90,
         .types = { TYPE_WATER, TYPE_DRAGON },
         .catchRate = 25,
         .expYield = 220,
@@ -21746,6 +21767,28 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
 
     [SPECIES_LYORESA] =
+    {
+        .baseHP        = 121,
+        .baseAttack    = 10,
+        .baseDefense   = 90,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 140,
+        .baseSpDefense = 70,
+        .types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
+        .catchRate = 45,
+        .expYield = 192,
+        .evYield_SpAttack = 2,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED},
+        .abilities = {ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_GUARD, ABILITY_STARS_GRACE, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_LYOLICA] =
     {
         .baseHP        = 121,
         .baseAttack    = 10,
@@ -23664,6 +23707,29 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
+    [SPECIES_YOLKWEEN] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 130,
+        .baseDefense   = 80,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 125,
+        .baseSpDefense = 80,
+        .types = { TYPE_DRAGON,TYPE_DARK },
+        .catchRate = 75,
+        .expYield = 129,
+        .evYield_Attack = 2,
+        .evYield_SpAttack = 1,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 10,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FAIRY},
+        .abilities = {ABILITY_EGGS_ROYALE, ABILITY_EGGS_ROYALE, ABILITY_EGGS_ROYALE},
+        .bodyColor = BODY_COLOR_YELLOW,
+        .noFlip = FALSE,
+    },
+
     [SPECIES_LEVLADE] =
     {
         .baseHP        = 30,
@@ -25544,6 +25610,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_SHISHIMA] = SHISHIMA_SPECIES_INFO,
     [SPECIES_SHISHIMA_PUNISHER] = SHISHIMA_SPECIES_INFO,
+    [SPECIES_SHISHIMA_ALT] = SHISHIMA_SPECIES_INFO,
+    [SPECIES_SHISHIMA_PUNISHER_ALT] = SHISHIMA_SPECIES_INFO,
 
     [SPECIES_SHUNYONG] = SHUNYONG_SPECIES_INFO,
     [SPECIES_SHUNYONG_GOLDEN_OFFENSE] = SHUNYONG_SPECIES_INFO,
@@ -25633,7 +25701,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG},
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_APPETITE, ABILITY_TIME_TURN},
+        .abilities = {ABILITY_MISTY_SURGE, ABILITY_APPETITE, ABILITY_TIME_TURN},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -25669,7 +25737,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed     = 40,
         .baseSpAttack  = 110,
         .baseSpDefense = 80,
-        .types = { TYPE_DRAGON, TYPE_FIGHTING},
+        .types = { TYPE_DRAGON, TYPE_FIRE},
         .catchRate = 55,
         .expYield = 204,
         .evYield_SpAttack = 2,
@@ -25745,10 +25813,35 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_APPETITE, ABILITY_SERENE_GRACE},
+        .abilities = {ABILITY_ANGER_POINT, ABILITY_LINGERING_AROMA, ABILITY_SERENE_GRACE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
+
+    [SPECIES_WALLY] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 85,
+        .baseDefense   = 85,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 165,
+        .baseSpDefense = 145,
+        .types = { TYPE_PSYCHIC, TYPE_DARK },
+        .catchRate = 1,
+        .expYield = 216,
+        .evYield_SpAttack = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 0,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
+        .abilities = {ABILITY_DARK_AURA, ABILITY_DARK_AURA, ABILITY_DARK_AURA},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_POTTRICIA] = POTTRICIA_SPECIES_INFO,
+    [SPECIES_POTTRICIA_SHATTERED] = POTTRICIA_SPECIES_INFO,
 #endif
 
     [SPECIES_VENUSAUR_MEGA] =
