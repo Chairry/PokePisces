@@ -8,7 +8,7 @@ class Move:
     name = ""
     condition = ""
     
-def parse_move_name(moveName, commentList):
+def parse_move_name(moveName, commentList, renameDict):
     parsedMoveName = ""
     if moveName in commentList:
         parsedMoveName += "//"
@@ -17,9 +17,13 @@ def parse_move_name(moveName, commentList):
     for word in splitName:
         parsedMoveName += "_" + word.upper()
         
+    if parsedMoveName in renameDict:
+        parsedMoveName = renameDict[parsedMoveName]
+        
     return parsedMoveName
 
 url = f''
+# moveset_path.txt simply contains the path to the csv we want to read in.  Using this to be machine agnostic and not reveal personal stuff on check in.
 with open("moveset_path.txt", "r") as speciesHeader:
     data = speciesHeader.readlines()
     url = data[0]
@@ -32,19 +36,15 @@ columnNames = []
 for series_name, series in sheetData.items():
     columnNames.append(series_name)
 
-currentNames = []
-
-moveSetsDict = {}
-moveConditionSetsDict = {}
-
-tutorMovesDict = {}
+tutorMovesDict = {} #Key = pokemon name, Value = array of tutor moves
 tutorMoves = []
 
 firstTime = True
 for name in columnNames:
     if not name.startswith("Unnamed"):
         tutorMovesDict[name] = []
-        for sheetIndex in sheetData.iloc[0:306,].index:
+        # sheetData.iloc[X:Y,] -- X = Beginning row of tutor moves, Y = Ending row of tutor moves.  Doesn't exactly match row number on sheet.
+        for sheetIndex in sheetData.iloc[44:391,].index:
             if isinstance(sheetData["Unnamed: 1"][sheetIndex], str):
                 if firstTime:
                     tutorMoves.append(sheetData["Unnamed: 1"][sheetIndex].replace("^", "").replace("-", "_").replace("'", ""))
@@ -81,8 +81,10 @@ for name, moveSet in tutorMovesDict.items():
         teachableLearnsetsHeader.write("".join(newData))
         teachableLearnsetsHeader.truncate()
         
-# If encountered will be commented out since these are not implemented yet
-commentList = ["Giants Spear", "Cinder Drill", "Cinder Twirl", "Stellar Fists","Benthic Whip","Tick Tack","Power Drain","Black Buffet","Heart Steal","Finish Off","Lone Shark","Wicked Winds","Savage Wing","Dragon Poker","Plasma Cutter","Love Tap","Dance Mania","Hot Step","Vine Palm Strike","Beatbox","Flare Crush","Igna Strike","Red Eyes","Razing Sun","Bluster","Sonic Burst","Crash Land","Void","Spirit Away","Banshriek","Grip Nail","Blossom Snap","Green Guise","Lily of Life","Vigor Root","Raging Earth","Frost Shred","Frost Nova","Axel Heel","Snowfade","Dine & Dash","Tipsy Step","Real Tears","Poison Dart","Heart Carve","Gunk Funk","Scorp Fang","Graviton Arm","Odd Step","Solar Flare","Chroma Beam","Psy Swap","Power Jam","Smash Shell","Moon Beam","Shields Up","Haywire","Overtake","Heavy Swing","High Roll Hit","Sharpshoot","Torpedoes","Hullbreaker","Plunder","Serpent Surge","Furious Sea","Resevoir","Creepy Crawl","Pester Raid","Seize Chance","Brutalize","Boundary","Dark Tide","Misery Wail","Terrorize","Castle Crash","Draken Guard","Storm Chase","Party Trick","Myth Buster","Penalize","Kerfuffle","Leg Day","Evaporate","Jump & Pop","Glimmer","Hearthwarm","Ignition","Maneuver","Sharp Glide","Air Cannon","Soul Cutter","Final Shriek","Phantasm","Grass Cannon","Sun Bask","Dune Slicer","Wilder Dance","Glacial Shift","Cold Snap","Heat Sink","Verglastrom","Break Lance","Grand Slam","Bass Cannon","Exorcism","Beat Drop","Purification","Venom Drain","Caustic Finale","Venom Gale","Willpower","Mind Break","Gattling Pins","Earth Shatter","Mass Break","Pilgrimage","Heavy Cannon","Giant's Spear","Redline","Zapper","Purge Ray","Diffuse Wave","Sky Splitter","Vaporize","Railgun","Decimation","Deep Gaze","Enervator","Erode Field","Heavy Cell","Reconstruct","Remodel","Stalag Blast","Roadblock","Gem Blaster","Hunker Down","Silver Edge","Razor Beam","Aquascade","Water Wheel","Cool Mist"]
+# If encountered will be commented out (for example, moves that aren't implemented yet.)
+commentList = []
+# due to the renames some moves have in the docs, the actual move name needs to be mapped to the internal name, not the final name the player sees.
+renameDict = {"MOVE_LOCKJAW":"MOVE_JAW_LOCK", "MOVE_DARK_LARIAT":"MOVE_DARKEST_LARIAT", "MOVE_BULL_RUSH":"MOVE_HEADLONG_RUSH","MOVE_BARRIER_BASH":"MOVE_PSYSHIELD_BASH","MOVE_DAZZLE_GLEAM":"MOVE_DAZZLING_GLEAM", "MOVE_PHASE_FORCE":"MOVE_PHANTOM_FORCE", "MOVE_EXPAND_FORCE":"MOVE_EXPANDING_FORCE", "MOVE_SOUL_SHACKLE": "MOVE_SPIRIT_SHACKLE", "MOVE_NIGHT_PARADE":"MOVE_INFERNAL_PARADE", "MOVE_BREAK_SWIPE":"MOVE_BREAKING_SWIPE", "MOVE_DRAGONBREATH":"MOVE_DRAGON_BREATH", "MOVE_DOUBLE_WING":"MOVE_DUAL_WINGBEAT", "MOVE_HIT_&_RUN":"MOVE_HIT_N_RUN", "MOVE_NORTH_WIND":"MOVE_BLEAKWIND_STORM","MOVE_FLAME_LASH":"MOVE_FIRE_LASH","MOVE_FLORESCENCE":"MOVE_JUNGLE_HEALING","MOVE_PARACHARGE":"MOVE_PARABOLIC_CHARGE","MOVE_HIGH_VOLTAGE":"MOVE_RISING_VOLTAGE","MOVE_FLOWING_ARIA":"MOVE_SPARKLING_ARIA"}
 
 for name, moveSet in tutorMovesDict.items():   
     name = name.replace("'", "").replace("-", "")
@@ -93,7 +95,7 @@ for name, moveSet in tutorMovesDict.items():
         for line in data:
             if "u16 s"+name+"TeachableLearnset" in line:
                 for move in moveSet:
-                    parsedMoveName = parse_move_name(move, commentList)   
+                    parsedMoveName = parse_move_name(move, commentList, renameDict)   
                     if parsedMoveName not in currentTeachableMoves[name]:
                         line += "    " + parsedMoveName + ",\n"  
 

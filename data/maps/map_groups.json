@@ -159,7 +159,8 @@
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_Mart",
     "FortreeCity_PokemonCenter_1F",
-    "ScuttillSecretTreeHouse"
+    "ScuttillSecretTreeHouse",
+    "Gym4Corridor"
   ],
   "gMapGroup_PiscesPart5Major": [
     "OzoneInstitute",
@@ -177,7 +178,8 @@
     "FortreeCity_PokemonCenter_2F",
     "FortreeCity_Mart",
     "FallarborTown_PokemonCenter_1F",
-    "LavaridgeTown_PokemonCenter_1F"
+    "LavaridgeTown_PokemonCenter_1F",
+    "Gym5Corridor"
   ],
   "gMapGroup_PiscesPart6Major": [
     "SweltornTransitionCave",
@@ -215,7 +217,8 @@
     "Route110_TrickHousePuzzle8",
     "MauvilleCity_PokemonCenter_2F",
     "SlateportCity_PokemonCenter_1F",
-    "BattleFrontier_PokemonCenter_1F"
+    "BattleFrontier_PokemonCenter_1F",
+    "Gym6Corridor"
   ],
   "gMapGroup_PiscesPart7Major": [
     "SlateportShore",
@@ -229,7 +232,8 @@
     "DewfordTown_Gym"
   ],
   "gMapGroup_PiscesPart7Minor": [
-    "DewfordTown_PokemonCenter_1F"
+    "DewfordTown_PokemonCenter_1F",
+    "Gym7Corridor"
   ],
   "gMapGroup_PiscesPart8Major": [
     "DetermaniteBeach",
@@ -248,7 +252,8 @@
   "gMapGroup_PiscesPart8Minor": [
     "DewfordTown_PokemonCenter_2F",
     "FallarborTown_PokemonCenter_2F",
-    "RustboroCity_PokemonCenter_1F"
+    "RustboroCity_PokemonCenter_1F",
+    "Gym8Corridor"
   ],
   "gMapGroup_PiscesPart9Major": [
     "PetalburgNew",
