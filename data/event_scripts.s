@@ -3638,3 +3638,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/BattleStudioFakeArena/scripts.inc"
 
 	.include "data/maps/BattleStudioCages/scripts.inc"
+
+	.include "data/maps/Gym4Corridor/scripts.inc"
+
+	.include "data/maps/Gym5Corridor/scripts.inc"
+
+	.include "data/maps/Gym6Corridor/scripts.inc"
+
+	.include "data/maps/Gym7Corridor/scripts.inc"
+
+	.include "data/maps/Gym8Corridor/scripts.inc"

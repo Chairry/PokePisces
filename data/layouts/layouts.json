@@ -5430,6 +5430,56 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/BattleStudioCages/border.bin",
       "blockdata_filepath": "data/layouts/BattleStudioCages/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM4CORRIDOR",
+      "name": "Gym4Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym4Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym4Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM5CORRIDOR",
+      "name": "Gym5Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym5Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym5Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM6CORRIDOR",
+      "name": "Gym6Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym6Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym6Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM7CORRIDOR",
+      "name": "Gym7Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym7Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym7Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_GYM8CORRIDOR",
+      "name": "Gym8Corridor_Layout",
+      "width": 9,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Gym8Corridor/border.bin",
+      "blockdata_filepath": "data/layouts/Gym8Corridor/map.bin"
     }
   ]
 }
