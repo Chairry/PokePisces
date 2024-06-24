@@ -1338,7 +1338,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_POISON_POWDER] =
     {
-        .effect = EFFECT_POISON,
+        .effect = EFFECT_POISON_POWDER,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 75,
@@ -1346,7 +1346,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .split = SPLIT_STATUS,
+        .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_DEF_UP_1,
         .magicCoatAffected = TRUE,
         .powderMove = TRUE,
@@ -2114,11 +2114,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .power = 20,
         #endif
-        .effect = EFFECT_POISON_HIT,
+        .effect = EFFECT_SMOG,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 20,
-        .secondaryEffectChance = 40,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -2303,7 +2303,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_KINESIS] =
     {
-        .effect = EFFECT_ACCURACY_DOWN,
+        .effect = EFFECT_KINESIS,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -5096,8 +5096,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_MIST_BALL] =
     {
-        .effect = EFFECT_SPECIAL_ATTACK_DOWN_HIT,
-        .power = 70,
+        .effect = EFFECT_MIST_BALL,
+        .power = 95,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 5,
@@ -14828,7 +14828,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .accuracy = 95,
         #endif
-        .effect = EFFECT_ALL_STATS_DOWN_HIT,
+        .effect = EFFECT_GUNK_FUNK,
         .power = 100,
         .type = TYPE_POISON,
         .pp = 10,
@@ -15157,7 +15157,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 50,
         .type = TYPE_ICE,
         .accuracy = 100,
-        .pp = 5,
+        .pp = 10,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
@@ -16468,11 +16468,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FROST_SHRED] =
     {
         .effect = EFFECT_FROST_SHRED,
-        .power = 20,
+        .power = 30,
         .type = TYPE_ICE,
         .accuracy = 90,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_RANDOM,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
@@ -16485,7 +16485,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_GLACIAL_SHIFT] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_GLACIAL_SHIFT,
         .power = 50,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -16500,7 +16500,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_AXEL_HEEL] =
     {
-        .effect = EFFECT_AXEL_HEEL,
+        .effect = EFFECT_METEOR_BEAM,
         .power = 100,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -16518,12 +16518,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_SNOWFADE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SNOWFADE,
         .power = 50,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -16611,14 +16611,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_POISON_DART] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_POISON_DART,
         .power = 80,
         .type = TYPE_POISON,
         .accuracy = 0,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
@@ -16627,7 +16627,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_GRAVITON_ARM] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_GRAVITON_ARM,
         .power = 80,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,

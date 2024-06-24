@@ -545,8 +545,9 @@
 
 #define MUS_VS_PTRAINER             610
 #define MUS_VS_WILD2                611
+#define MUS_VS_RAY                  612
 
-#define END_MUS                     MUS_VS_WILD2
+#define END_MUS                     MUS_VS_RAY
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

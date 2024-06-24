@@ -559,14 +559,14 @@
 #define EFFECT_APPLE_ACID                   553
 #define EFFECT_ENERGY_BALL                  554
 #define EFFECT_PETAL_DANCE                  555
-#define EFFECT_FROST_SHRED                  556
+#define EFFECT_SNOWFADE                     556
 #define EFFECT_FRENZY_PLANT                 557
 #define EFFECT_AROMATHERAPY                 558
 #define EFFECT_GREEN_GUISE                  559
-#define EFFECT_FROST_NOVA                   560
+#define EFFECT_FROST_SHRED                  560
 #define EFFECT_COTTON_SPORE                 561
 #define EFFECT_SLEEP_POWDER                 562
-#define EFFECT_AXEL_HEEL                    563
+#define EFFECT_PLUNDER                      563
 #define EFFECT_STUN_SPORE                   564
 #define EFFECT_GOLD_PLAINS                  565
 #define EFFECT_DOWNFALL                     566
@@ -583,8 +583,17 @@
 #define EFFECT_CUTIE_CRY                    577
 #define EFFECT_FLEUR_CANNON                 578
 #define EFFECT_UPPER_HAND                   579
-#define EFFECT_WHIRLWIND                    580  
+#define EFFECT_WHIRLWIND                    580
+#define EFFECT_GLACIAL_SHIFT                581
+#define EFFECT_FROST_NOVA                   582
+#define EFFECT_POISON_DART                  583
+#define EFFECT_SMOG                         584
+#define EFFECT_GUNK_FUNK                    585
+#define EFFECT_POISON_POWDER                586
+#define EFFECT_GRAVITON_ARM                 587
+#define EFFECT_MIST_BALL                    588
+#define EFFECT_KINESIS                      589
 
-#define NUM_BATTLE_MOVE_EFFECTS             581
+#define NUM_BATTLE_MOVE_EFFECTS             590
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
