@@ -4093,6 +4093,11 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 {
                     gMultiHitCounter = RandomUniform(RNG_LOADED_DICE, 4, 5);
                 }
+                else if ((gBattleMoves[gCurrentMove].effect == EFFECT_FROST_SHRED) && (gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE))
+                {
+                    gMultiHitCounter = (gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] - DEFAULT_STAT_STAGE) + gBattleMoves[gCurrentMove].strikeCount;
+                    PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+                }
                 else
                 {
                     gMultiHitCounter = gBattleMoves[gCurrentMove].strikeCount;
@@ -5864,7 +5869,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && IS_MOVE_PHYSICAL(gCurrentMove) && (CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN)       // Don't activate if speed cannot be raised
                                                                                                                                                     || CompareStat(battler, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN))) // Don't activate if defense cannot be lowered
             {
-                if (gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE && CanBattlerSwitch(gBattlerAttacker))
+                if ((gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE 
+                    || gBattleMoves[gCurrentMove].effect == EFFECT_U_TURN 
+                    || gBattleMoves[gCurrentMove].effect == EFFECT_GLACIAL_SHIFT 
+                    || gBattleMoves[gCurrentMove].effect == EFFECT_SNOWFADE) && CanBattlerSwitch(gBattlerAttacker))
                     gProtectStructs[battler].disableEjectPack = TRUE; // Set flag for target
 
                 BattleScriptPushCursor();
@@ -9957,6 +9965,10 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gFieldStatuses & STATUS_FIELD_GRAVITY)
             basePower = uq4_12_multiply(basePower, UQ_4_12(1.5));
         break;
+    case EFFECT_GRAVITON_ARM:
+        if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+            basePower = uq4_12_multiply(basePower, UQ_4_12(2.0));
+        break;
     case EFFECT_TERRAIN_PULSE:
         if ((gFieldStatuses & STATUS_FIELD_TERRAIN_ANY) && IsBattlerGrounded(battlerAtk))
             basePower *= 2;
@@ -10054,8 +10066,13 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
             modifier = uq4_12_multiply(modifier, UQ_4_12(3.0));
         break;
     case EFFECT_BARB_BARRAGE:
+    case EFFECT_POISON_DART:
     case EFFECT_VENOSHOCK:
         if (gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
+        break;
+    case EFFECT_FROST_NOVA:
+        if (gBattleMons[battlerDef].status1 & STATUS1_FROSTBITE)
             modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
         break;
     case EFFECT_RETALIATE:
@@ -10068,6 +10085,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_DUNE_SLICER:
         if (IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SANDSTORM))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case EFFECT_GLACIAL_SHIFT:
+        if (IsBattlerWeatherAffected(battlerAtk, B_WEATHER_HAIL))
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case EFFECT_STOMPING_TANTRUM:
