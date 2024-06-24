@@ -2036,6 +2036,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || gBattleMoves[move].effect == EFFECT_DUNE_SLICER
              || gBattleMoves[move].effect == EFFECT_SEIZE_CHANCE
              || gBattleMoves[move].effect == EFFECT_VITAL_THROW
+             || gCurrentMove == MOVE_SHARPSHOOT
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
@@ -12395,8 +12396,14 @@ static void Cmd_tryhealhalfhealth(void)
 
     if (cmd->battler == BS_ATTACKER)
         gBattlerTarget = gBattlerAttacker;
-
-    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 2;
+    if (gCurrentMove == MOVE_PURIFY)
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
+    }
+    else
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 2;
+    }    
     if (gBattleMoveDamage == 0)
         gBattleMoveDamage = 1;
     gBattleMoveDamage *= -1;
@@ -14197,7 +14204,7 @@ static void Cmd_psywavedamageeffect(void)
 
     s32 randDamage;
 #if B_PSYWAVE_DMG >= GEN_6
-    randDamage = (Random() % 101);
+    randDamage = (Random() % 251);
 #else
     randDamage = (Random() % 11) * 10;
 #endif
