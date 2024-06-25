@@ -96,19 +96,30 @@ Route121_EventScript_WarpToLilycove::
 	end
 
 Route121_Text_WannaHaveSnowballFight:
-	.string "test$"
+	.string "Hi! I wanna have a snowball fight!\p"
+	.string "C'mon, please…?\p"
+	.string "(You instantly absolutely bury this\n"
+	.string "child with volley after volley\l"
+	.string "of cold projectiles.)$"
 
 Route121_Text_IShallGetRevenge:
-	.string "test$"
+	.string "I WILL get my revenge!!!$"
 
 Route121_Text_WantToHopDownTheMountain:
-	.string "test$"
+	.string "Oh, top o' the mountain to ye.\n"
+	.string "There be a killer slidin' path\l"
+	.string "right 'round 'ere.\p"
+	.string "I think it be one way, though.\p"
+	.string "Ye want to slide on down\n"
+	.string "back to Lilycove?$"
 
 Route121_Text_ThatsFine:
-	.string "test$"
+	.string "Ey, no shame in that.$"
 
 Route121_Text_TryNotToSlip:
-	.string "test$"
+	.string "Now don't go fallin' and\n"
+	.string "crackin' ye wee 'ead open\l"
+	.string "on the way down!$"
 
 Route121_Text_BarneyIntro:
 	.string "intro$"

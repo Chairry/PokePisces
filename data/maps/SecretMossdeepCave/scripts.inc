@@ -25,10 +25,15 @@ SecretMossdeepCave_EventScript_GiveShellPolish::
 	end
 
 SecretMossdeepCave_Text_PomAtiaIntro:
-	.string "feel the power of shell$"
+	.string "Clever trainer, to come upon us\n"
+	.string "in this cave.\p"
+	.string "We have made many snail friends here!\p"
+	.string "Ours are especially glistening\n"
+	.string "and battle-hardened.\p"
+	.string "No way you can take us down!$"
 
 SecretMossdeepCave_Text_PomAtiaDefeated:
-	.string "shell naw$"
+	.string "Our pace was too sluggish…$"
 
 SecretMossdeepCave_Text_PomAtiaNeedTwoMons:
 	.string "need 2 dood$"
@@ -37,4 +42,8 @@ SecretMossdeepCave_Text_PomAtiaPostBattle:
 	.string "tsuinsu$"
 
 SecretMossdeepCave_Text_HaveSP:
-	.string "have some shell polish$"
+	.string "Snelfrend are wonderful\n"
+	.string "little Pokémon.\p"
+	.string "Since they had a good time fighting\n"
+	.string "with you, have this item\l"
+	.string "we use to keep 'em stronger.$"
