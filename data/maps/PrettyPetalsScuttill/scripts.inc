@@ -46,17 +46,22 @@ PrettyPetalsScuttill_EventScript_BloomingEvent::
 	applymovement OBJ_EVENT_ID_PLAYER, PrettyPetalsScuttill_Movement_WalkIn
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyGreet
 	waitmovement 0
-	msgbox PrettyPetalsScuttill_Text_ComeJoinOurLesson, MSGBOX_DEFAULT
+	msgbox PrettyPetalsScuttill_Text_Courtney1, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, PrettyPetalsScuttill_Movement_PlayerMoveToPos
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyMoveToPos
 	waitmovement 0
-	msgbox PrettyPetalsScuttill_Text_TeachingAboutBloom, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Rita1, MSGBOX_DEFAULT
 	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Natalie1, MSGBOX_DEFAULT
 	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Nicole1, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Natalie2, MSGBOX_DEFAULT
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
-	msgbox PrettyPetalsScuttill_Text_Courtney1, MSGBOX_DEFAULT
+	msgbox PrettyPetalsScuttill_Text_Courtney2, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Natalie3, MSGBOX_DEFAULT
 	trainerbattle_two_trainers TRAINER_P_NATALIE, PrettyPetalsScuttill_Text_NatalieDefeat, TRAINER_P_NICOLE, PrettyPetalsScuttill_Text_NicoleDefeat, PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated, NO_MUSIC
 	goto PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated
 	release
@@ -126,10 +131,8 @@ PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated::
 	lock
 	setvar VAR_TEMP_4, 1
 	cleartrainerflag TRAINER_P_RITA
-	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
-	msgbox PrettyPetalsScuttill_Text_Rita1, MSGBOX_DEFAULT
-	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
-	msgbox PrettyPetalsScuttill_Text_Courtney2, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Nicole2, MSGBOX_DEFAULT
 	release
 	end
 
@@ -137,20 +140,22 @@ PrettyPetalsScuttill_EventScript_FightRita::
 	lock
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	waitmovement 0
-	msgbox PrettyPetalsScuttill_Text_Rita2, MSGBOX_DEFAULT
-	trainerbattle_single TRAINER_P_RITA, PrettyPetalsScuttill_Text_RitaIntro, PrettyPetalsScuttill_Text_RitaDefeat, PrettyPetalsScuttill_EventScript_BloomingEventDone
+	trainerbattle_single TRAINER_P_RITA, PrettyPetalsScuttill_Text_Rita2, PrettyPetalsScuttill_Text_RitaDefeat, PrettyPetalsScuttill_EventScript_BloomingEventDone
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	lock
 	setvar VAR_TEMP_4, 2
-	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
-	msgbox PrettyPetalsScuttill_Text_Natalie2, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Rita3, MSGBOX_DEFAULT
+	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
+	msgbox PrettyPetalsScuttill_Text_Nicole3, MSGBOX_DEFAULT
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney3, MSGBOX_DEFAULT
 	setvar VAR_OZONE_ADMINS_STATE, 4
 	setflag FLAG_DEFEATED_OZONE_BRANCH
+	warp MAP_ROUTE120, 31, 83
 	release
 	end
 
@@ -389,46 +394,110 @@ PrettyPetalsScuttill_Text_Wow100Sticks:
 	.string "wow holy shit have this$"
 
 PrettyPetalsScuttill_Text_StickMaster:
-	.string "ur the stickmaster bruv$"
-
-PrettyPetalsScuttill_Text_ComeJoinOurLesson:
-	.string "come join the lesson$"
-
-PrettyPetalsScuttill_Text_TeachingAboutBloom:
-	.string "today we are talkin bou bloom$"
-
-PrettyPetalsScuttill_Text_Natalie1:
-	.string "natalie 1$"
-
-PrettyPetalsScuttill_Text_Nicole1:
-	.string "nicole 1$"
+	.string "stick master $"
 
 PrettyPetalsScuttill_Text_Courtney1:
-	.string "courtney 1$"
-
-PrettyPetalsScuttill_Text_NatalieDefeat:
-	.string "natalie defeat$"
-
-PrettyPetalsScuttill_Text_NicoleDefeat:
-	.string "nicole defeat$"
+	.string "Welcome to Pretty Petal Flower Shop!\p"
+	.string "We're actually holding a class today\n"
+	.string "if you'd like to join in.\l"
+	.string "Could I have your name?\p"
+	.string "…\p"
+	.string "{PLAYER}?\n"
+	.string "And, er, Tabitha sent you?\l"
+	.string "My, my. A small world we live in.\p"
+	.string "Let's not dawdle around here;\n"
+	.string "I should get to introductions.\l"
+	.string "Come along.$"
 
 PrettyPetalsScuttill_Text_Rita1:
-	.string "rita 1$"
+	.string "Ah, a new guest. Pleased\n"
+	.string "to make your acquaintance!\p"
+	.string "I am Rita; I own and run the shop\n"
+	.string "alongside my younger sisters,\l"
+	.string "Natalie and Nicole.\p"
+	.string "The lovely Courtney, who greeted you,\n"
+	.string "is a lifelong friend of mine.$"
 
-PrettyPetalsScuttill_Text_Courtney2:
-	.string "courtney 2$"
+PrettyPetalsScuttill_Text_Natalie1:
+	.string "Hmph! I'm not all impressed by 'em.\p"
+	.string "Hey, Trainer! Ready to get thrown\n"
+	.string "for a loop, Scuttill Style?$"
 
-PrettyPetalsScuttill_Text_Rita2:
-	.string "rita 2$"
-
-PrettyPetalsScuttill_Text_RitaIntro:
-	.string "rita 3$"
-
-PrettyPetalsScuttill_Text_RitaDefeat:
-	.string "rita defeat$"
+PrettyPetalsScuttill_Text_Nicole1:
+	.string "NAT! That's no way to treat newbies.\n"
+	.string "Aren't we SUPPOSED to be\l"
+	.string "teaching here?$"
 
 PrettyPetalsScuttill_Text_Natalie2:
-	.string "natalie 2$"
+	.string "Best way to learn is harsh punishment!$"
+
+PrettyPetalsScuttill_Text_Courtney2:
+	.string "{PLAYER}, keep a cool head.\p"
+	.string "These sisters are going to deploy the\n"
+	.string "fancy “Blooming” status\l"
+	.string "on you in battle.\p"
+	.string "It's a complex status that benefits\n"
+	.string "those that contract it in many ways;\l"
+	.string "ESPECIALLY Grass-type Pokémon.\p"
+	.string "Try and pay close attention to the way\n"
+	.string "it affects their moves.$"
+
+PrettyPetalsScuttill_Text_Natalie3:
+	.string "Ah-ah-ah!\p"
+	.string "Enough lecturing! More battling!$"
+
+PrettyPetalsScuttill_Text_NatalieDefeat:
+	.string "Crud! Blast! Fiddlesticks!$"
+
+PrettyPetalsScuttill_Text_NicoleDefeat:
+	.string "I do hope you learned\n"
+	.string "something from my moves!$"
+
+PrettyPetalsScuttill_Text_Nicole2:
+	.string "You're awfuly tough. Big sis\n"
+	.string "will need to bring her A-game!$"
+
+PrettyPetalsScuttill_Text_Rita2:
+	.string "Hee-hee… I do suppose I will.\p"
+	.string "Grass-type Pokémon become especially\n"
+	.string "potent and unpredictable whence\l"
+	.string "Blooming becomes involved.\p"
+	.string "Can you keep up?$"
+
+PrettyPetalsScuttill_Text_RitaDefeat:
+	.string "I see.\p"
+	.string "Your potential… it blooms as well.$"
+
+PrettyPetalsScuttill_Text_Rita3:
+	.string "That should wrap up our trial battles,\n"
+	.string "{PLAYER}.\p"
+	.string "I quite enjoyed myself!$"
+
+PrettyPetalsScuttill_Text_Nicole3:
+	.string "Y'see how Blooming can add to\n"
+	.string "your bag of tricks?\p"
+	.string "I really recommend searching for\n"
+	.string "a Grass type with Ingrain to\l"
+	.string "try it out more extensively\l"
+	.string "on your own!$"
 
 PrettyPetalsScuttill_Text_Courtney3:
-	.string "courtney 3$"
+	.string "You were an excellent student.\n"
+	.string "Grass 'mons are my favorites,\l"
+	.string "you know. I hope this gave you a\l"
+	.string "greater appreciation for what they can do.\p"
+	.string "…So, you know Tabitha, right?\p"
+	.string "Him and I used to work together in an\n"
+	.string "organization that, on paper, sought to\l"
+	.string "bathe the world in new land and\l"
+	.string "shining sunlight.\p"
+	.string "In the end, though, misguided ambition\n"
+	.string "took the team down the wrong path.\p"
+	.string "Since then, him and I have parted ways\n"
+	.string "to help our world with\l"
+	.string "our own unique methods.\p"
+	.string "I do sincerely hope he is improving\n"
+	.string "on himself, always.\p"
+	.string "Should you find yourself in central\n"
+	.string "Hoenn down the line, please consider\l"
+	.string "visiting me at the farm, {PLAYER}.$"
