@@ -76,6 +76,7 @@ Route123_EventScript_BreadRun::
 	playse SE_FLEE
 	applymovement LOCALID_BREAD, Route123_Movement_BreadEscape
 	waitmovement 0
+	msgbox Route123_Text_ProtectTM, MSGBOX_DEFAULT
 	giveitem ITEM_TM_PROTECT
 	setflag FLAG_TEMP_11
 	removeobject LOCALID_BREAD
@@ -409,10 +410,13 @@ Route123_Movement_BackToTheSnow:
 	step_end
 
 Route123_Text_BackToTheSnow:
-	.string "back 2 the snow ig$"
+	.string "Even after plotting my revenge over a\n"
+	.string "painstaking 20 minutes…\l"
+	.string "I lose…\p"
 
 Route123_Text_HeLeftBehindSomething:
-	.string "he left behind smth$"
+	.string "(The boy disappears,\n"
+	.string "leaving behind an item.)$"
 
 Route123_Text_WantToPayRespects1:
 	.string "(Would you like to take a moment of\n"
@@ -511,10 +515,11 @@ Route123_Text_BettyPostBattle:
 	.string "post$"
 
 Route123_Text_HazakuraIntro:
-	.string "AHA I WILL PAY YOU BACK$"
+	.string "Your guard was down, and I strike!\n"
+	.string "This'll teach you not to mess with me!$"
 
 Route123_Text_HazakuraDefeated:
-	.string "defeat$"
+	.string "Buried in the snow once more…!$"
 
 Route123_Text_HazakuraPostBattle:
 	.string "post$"
@@ -556,10 +561,30 @@ Route123_Text_HothPostBattle:
 	.string "post$"
 
 Route123_Text_BreadwinnerIntro:
-	.string "bread intro$"
+	.string "Many p-p-pardons!\p"
+	.string "This c-c-cold is so b-bitter,\n"
+	.string "it's d-d-dulling my senses…!\l"
+	.string "Not t-to mention, my g-g-glasses\l"
+	.string "are fogging right up!\p"
+	.string "…\p"
+	.string "…What!?\n"
+	.string "B-b-b-battle!?\l"
+	.string "Now!?\l"
+	.string "That's prepostero-$"
 
 Route123_Text_BreadwinnerDefeat:
-	.string "bread defeat$"
+	.string "I can BARELY even s-s-see!$"
 
 Route123_Text_BreadwinnerRunAway:
-	.string "runnin outta here$"
+	.string "(Pandou rummages through his briefcase\n"
+	.string "to find a glasses wipe.)\p"
+	.string "YOU!? Golly… you're s-s-super\n"
+	.string "b-battle hungry!\p"
+	.string "D-do you have it out for me or\n"
+	.string "s-s-something…?\p"
+	.string "Jeez Louise…\n"
+	.string "I'm way p-p-past schedule!\l"
+	.string "I g-gotta make up some t-t-time!$"
+
+Route123_Text_ProtectTM:
+	.string "(He seems to have dropped something.)$"

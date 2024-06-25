@@ -1494,6 +1494,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro tryhaze clear:req, jumpInstr:req
+	callnative BS_TryHaze
+	.byte \clear
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifnothit jumpInstr:req
 	callnative BS_JumpIfNotHit
 	.4byte \jumpInstr

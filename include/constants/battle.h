@@ -430,8 +430,11 @@
 #define MOVE_EFFECT_SPD_ACC_UP          99
 #define MOVE_EFFECT_RECHARGE_REDUCE     100
 #define MOVE_EFFECT_ATK_SPATK_DOWN      101
+#define MOVE_EFFECT_SNOWFADE            102
+#define MOVE_EFFECT_ATK_SPEED_PLUS      103
+#define MOVE_EFFECT_SMOG                104
 
-#define NUM_MOVE_EFFECTS                102
+#define NUM_MOVE_EFFECTS                105
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
