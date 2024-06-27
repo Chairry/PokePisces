@@ -3016,6 +3016,22 @@ void SetMoveEffect(bool32 primary, u32 certain)
         && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_CONFUSION)
         INCREMENT_RESET_RETURN
 
+    if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_NIGHTMARE)
+        INCREMENT_RESET_RETURN
+
+    if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_PREVENT_ESCAPE)
+        INCREMENT_RESET_RETURN
+
+    if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_WRAP)
+        INCREMENT_RESET_RETURN
+
+    if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_FLINCH)
+        INCREMENT_RESET_RETURN
+    
     if (TestSheerForceFlag(gBattlerAttacker, gCurrentMove) && affectsUser != MOVE_EFFECT_AFFECTS_USER)
         INCREMENT_RESET_RETURN
 
@@ -6935,7 +6951,7 @@ static void Cmd_sethealblock(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
-    if (gStatuses3[gBattlerTarget] & STATUS3_HEAL_BLOCK)
+    if ((gStatuses3[gBattlerTarget] & STATUS3_HEAL_BLOCK) || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD))
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -9596,7 +9612,7 @@ static void Cmd_various(void)
     case VARIOUS_TRY_FAIRY_LOCK:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-        if (gStatuses4[battler] & STATUS4_FAIRY_LOCK)
+        if ((gStatuses4[battler] & STATUS4_FAIRY_LOCK) || (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD))
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -10647,27 +10663,29 @@ static void Cmd_various(void)
         {
             SET_BATTLER_TYPE(gBattlerTarget, gBattleMoves[gCurrentMove].type);
             PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
-            if (gCurrentMove == MOVE_SOAK)
-            {
-                if (IsWorrySeedBannedAbility(gBattleMons[gBattlerTarget].ability))
-                {
-                    RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
-                    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }
-                else if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
-                {
-                    RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_ABILITY_SHIELD);
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }
-                else
-                {
-                    gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_DAMP;
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }            
-            }
         }
         return;
+    }
+    case VARIOUS_TRY_DAMPING:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+
+        if (IsWorrySeedBannedAbility(gBattleMons[gBattlerTarget].ability))
+        {
+            RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
+        {
+            RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_ABILITY_SHIELD);
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_DAMP;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
     case VARIOUS_HANDLE_FORM_CHANGE:
     {
@@ -12736,7 +12754,12 @@ static void Cmd_setseeded(void)
 {
     CMD_ARGS();
 
-    if (gCurrentMove == MOVE_TICK_TACK)
+    if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LEECH_SEED_FAIL;
+    }
+    else if (gCurrentMove == MOVE_TICK_TACK)
     {
         if (gMoveResultFlags & MOVE_RESULT_NO_EFFECT || gStatuses4[gBattlerTarget] & STATUS4_TICKED)
         {
@@ -14140,6 +14163,10 @@ static void Cmd_tryinfatuating(void)
         gLastUsedAbility = ABILITY_OBLIVIOUS;
         RecordAbilityBattle(gBattlerTarget, ABILITY_OBLIVIOUS);
     }
+    else if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
     else
     {
         if (GetBattlerAbility(gBattlerAttacker) != ABILITY_FREE_LOVE 
@@ -15029,21 +15056,25 @@ static void Cmd_cursetarget(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
-    if (gCurrentMove == MOVE_GRIPPING_NAIL && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)))
+    if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
     {
-        gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
-
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
-    else if (gCurrentMove == MOVE_VIGOR_ROOT && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)))
-    {
-        gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
-
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattlescriptCurrInstr = cmd->failInstr;
     }
     else if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else if (gCurrentMove == MOVE_GRIPPING_NAIL)
+    {
+        gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else if (gCurrentMove == MOVE_VIGOR_ROOT)
+    {
+        gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
     {
@@ -15174,7 +15205,7 @@ static void Cmd_setembargo(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
-    if (gStatuses3[gBattlerTarget] & STATUS3_EMBARGO)
+    if ((gStatuses3[gBattlerTarget] & STATUS3_EMBARGO) || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD))
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -15909,7 +15940,7 @@ static void Cmd_settorment(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
-    if (gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)
+    if (gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT || gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -15943,7 +15974,11 @@ static void Cmd_settaunt(void)
     }
     else
 #endif
-    if (gDisableStructs[gBattlerTarget].tauntTimer == 0)
+    if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else if (gDisableStructs[gBattlerTarget].tauntTimer == 0)
     {
         #if B_TAUNT_TURNS >= GEN_5
             u8 turns = 4;
@@ -16178,7 +16213,7 @@ static void Cmd_setgastroacid(void)
 {
     CMD_ARGS(const u8 *failInstr);
 
-    if (IsGastroAcidBannedAbility(gBattleMons[gBattlerTarget].ability))
+    if (IsGastroAcidBannedAbility(gBattleMons[gBattlerTarget].ability) || (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD))
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -16197,7 +16232,8 @@ static void Cmd_setyawn(void)
     CMD_ARGS(const u8 *failInstr);
 
     if (gStatuses3[gBattlerTarget] & STATUS3_YAWN
-        || gBattleMons[gBattlerTarget].status1 & STATUS1_ANY)
+        || gBattleMons[gBattlerTarget].status1 & STATUS1_ANY
+        || gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }

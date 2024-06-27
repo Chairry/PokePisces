@@ -1697,7 +1697,7 @@
 	.endm
 
 	.macro jumpifhasastatboost battler:req, jumpInstr:req
-	various \battler VARIOUS_JUMP_IF_HP_THRESHOLD
+	various \battler VARIOUS_JUMP_IF_HAS_A_STAT_BOOST
 	.4byte \jumpInstr
 	.endm
 
@@ -1761,6 +1761,11 @@
 
 	.macro trysoak failInstr:req
 	various BS_ATTACKER, VARIOUS_TRY_SOAK
+	.4byte \failInstr
+	.endm
+
+	.macro trydamping failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_DAMPING
 	.4byte \failInstr
 	.endm
 
