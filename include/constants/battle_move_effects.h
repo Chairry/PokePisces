@@ -601,7 +601,8 @@
 #define EFFECT_MAGIC_POWDER                 595
 #define EFFECT_PSY_SWAP                     596
 #define EFFECT_SHIELDS_UP                   597
+#define EFFECT_BERRY_BAD_JOKE               598
 
-#define NUM_BATTLE_MOVE_EFFECTS             598
+#define NUM_BATTLE_MOVE_EFFECTS             599
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

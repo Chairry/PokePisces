@@ -624,6 +624,59 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMagicPowder             @ EFFECT_MAGIC_POWDER
 	.4byte BattleScript_EffectRoar                    @ EFFECT_PSY_SWAP
 	.4byte BattleScript_EffectShieldsUp               @ EFFECT_SHIELDS_UP
+	.4byte BattleScript_EffectBerryBadJoke            @ EFFECT_BERRY_BAD_JOKE
+
+BattleScript_EffectBerryBadJoke::
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_BerryBadJokeAddFrostbite
+BattleScript_BerryBadJokeContinue:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifnotberry BS_TARGET, BattleScript_BerryBadJokeNoBerry
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setbyte sBERRY_OVERRIDE, 1
+	orword gHitMarker, HITMARKER_NO_ANIMATIONS
+	consumeberry BS_TARGET, TRUE
+	bicword gHitMarker, HITMARKER_NO_ANIMATIONS
+	setbyte sBERRY_OVERRIDE, 0
+	removeitem BS_TARGET
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	moveendall
+	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut 
+	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut 
+	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
+	tryhitswitchtarget BattleScript_MoveEnd
+	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
+	goto BattleScript_MoveEnd
+BattleScript_BerryBadJokeNoBerry:
+	call BattleScript_EffectHit_Ret
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	moveendall
+	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut 
+	jumpifability BS_TARGET, ABILITY_STALWART, BattleScript_AbilityPreventsPhasingOut 
+	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
+	tryhitswitchtarget BattleScript_MoveEnd
+	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
+	goto BattleScript_MoveEnd
+BattleScript_BerryBadJokeAddFrostbite:
+	setmoveeffect MOVE_EFFECT_FROSTBITE
+	goto BattleScript_BerryBadJokeContinue
 
 BattleScript_EffectShieldsUp::
 	attackcanceler
