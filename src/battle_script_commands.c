@@ -10663,27 +10663,29 @@ static void Cmd_various(void)
         {
             SET_BATTLER_TYPE(gBattlerTarget, gBattleMoves[gCurrentMove].type);
             PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
-            if (gCurrentMove == MOVE_SOAK)
-            {
-                if (IsWorrySeedBannedAbility(gBattleMons[gBattlerTarget].ability))
-                {
-                    RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
-                    gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }
-                else if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
-                {
-                    RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_ABILITY_SHIELD);
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }
-                else
-                {
-                    gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_DAMP;
-                    gBattlescriptCurrInstr = cmd->nextInstr;
-                }            
-            }
         }
         return;
+    }
+    case VARIOUS_TRY_DAMPING:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+
+        if (IsWorrySeedBannedAbility(gBattleMons[gBattlerTarget].ability))
+        {
+            RecordAbilityBattle(gBattlerTarget, gBattleMons[gBattlerTarget].ability);
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
+        {
+            RecordItemEffectBattle(gBattlerTarget, HOLD_EFFECT_ABILITY_SHIELD);
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gBattleMons[gBattlerTarget].ability = gBattleStruct->overwrittenAbilities[gBattlerTarget] = ABILITY_DAMP;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
     case VARIOUS_HANDLE_FORM_CHANGE:
     {

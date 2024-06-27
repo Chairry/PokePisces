@@ -1764,6 +1764,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trydamping failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_DAMPING
+	.4byte \failInstr
+	.endm
+
 	.macro handleformchange battler:req, case:req
 	various \battler, VARIOUS_HANDLE_FORM_CHANGE
 	.byte \case

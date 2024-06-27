@@ -6050,11 +6050,18 @@ BattleScript_EffectSoak:
 	jumpifability BS_TARGET, ABILITY_MULTITYPE, BattleScript_ButItFailed
 	jumpifability BS_TARGET, ABILITY_RKS_SYSTEM, BattleScript_ButItFailed
 	jumpifsubstituteblocks BattleScript_ButItFailed
+	trysoak BattleScript_ButItFailed
+	trydamping BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	trysoak BattleScript_ButItFailed
 	printstring STRINGID_TARGETCHANGEDTYPE
 	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNACQUIREDABILITY
+	waitmessage B_WAIT_TIME_LONG
+	trytoclearprimalweather
+	tryrevertweatherform
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 1
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectReflectType:
