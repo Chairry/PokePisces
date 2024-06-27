@@ -598,7 +598,10 @@
 #define EFFECT_BURNING_ENVY                 592
 #define EFFECT_ACID_ARMOR                   593
 #define EFFECT_POWER_SHIFT                  594
+#define EFFECT_MAGIC_POWDER                 595
+#define EFFECT_PSY_SWAP                     596
+#define EFFECT_SHIELDS_UP                   597
 
-#define NUM_BATTLE_MOVE_EFFECTS             595
+#define NUM_BATTLE_MOVE_EFFECTS             598
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
