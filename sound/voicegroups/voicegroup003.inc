@@ -25,7 +25,7 @@ voicegroup003::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound_no_resample 64, 39, DirectSoundWaveData_celadonk_closed_triangle, 255, 242, 103, 188
 	voice_directsound_no_resample 64, 39, DirectSoundWaveData_sd90_open_triangle, 255, 242, 103, 188
 	voice_directsound_no_resample 64, 79, DirectSoundWaveData_sd90_open_triangle, 255, 242, 103, 188
 	voice_directsound_no_resample 64, 39, DirectSoundWaveData_sd90_open_triangle, 255, 165, 103, 188

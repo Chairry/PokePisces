@@ -3259,7 +3259,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;     
             if (CanGetFrostbite(gEffectBattler))
                 statusChanged = TRUE;
-                break;
+            break;
         case STATUS1_PANIC:
             if (!CanGetPanicked(gEffectBattler)
                 && (gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
@@ -3274,8 +3274,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             if (gBattleMons[gEffectBattler].status1)
                 break;     
             if (CanGetPanicked(gEffectBattler))
-            statusChanged = TRUE;
-                break;
+                statusChanged = TRUE;
             break;
         case STATUS1_BLOOMING:
             if (!CanStartBlooming(gEffectBattler)

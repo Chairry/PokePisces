@@ -5172,7 +5172,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_DOWNFALL:
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY)
             score = 0;
-        else if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG && (Random() & 100) < 5) // 5% chance
+        else if (gBattleMons[battlerAtk].species == SPECIES_SHUNYONG && (Random() % 100) < 10) // 10% chance
             score += 35;
         else
             score -= 20;
