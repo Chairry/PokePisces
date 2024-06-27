@@ -11680,7 +11680,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_MAGIC_POWDER] =
     {
-        .effect = EFFECT_SOAK,
+        .effect = EFFECT_MAGIC_POWDER,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -16642,7 +16642,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_PSY_SWAP] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_PSY_SWAP,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -16700,7 +16700,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_SHIELDS_UP] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_SHIELDS_UP,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,

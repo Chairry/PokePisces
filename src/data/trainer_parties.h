@@ -15,17 +15,22 @@ static const struct TrainerMon sParty_Sawyer1[] = {
     }
 };
 //Example Struct Above
-static const struct TrainerMon sParty_GruntAquaHideout1[] = {
+static const struct TrainerMon sParty_PMendel[] = {
     {
-    .lvl = 32,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 40,
+    .species = SPECIES_SCALLYWARG,
+    .heldItem = ITEM_CURSED_AMULET,
+    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     }
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
-    .lvl = 31,
-    .species = SPECIES_ZUBAT,
+    .lvl = 40,
+    .species = SPECIES_ANNIHILAPE,
+    .ability = ABILITY_LEVITATE,
+    .heldItem = ITEM_MIRROR_HERB,
+    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
     .lvl = 31,

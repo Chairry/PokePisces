@@ -2043,6 +2043,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || gCurrentMove == MOVE_SHARPSHOOT
              || (gBattleMoves[move].effect == EFFECT_SNOWFADE && gBattleWeather & B_WEATHER_HAIL)
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
+             || (gBattleMoves[move].effect == EFFECT_SMACK_DOWN && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_FLOWER_TRICK)
@@ -4284,6 +4285,21 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = BattleScript_DefDown;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                }
+                break;
+            case MOVE_EFFECT_GRAV_APPLE:
+                {
+                    u8 randomFlinchChance = RandomPercentage(RNG_GRAV_APPLE_FLINCH, CalcSecondaryEffectChance(gBattlerAttacker, 20));
+
+                    if (randomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
+                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
+                    {
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
                     }
                     else
                     {

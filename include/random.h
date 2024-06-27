@@ -103,6 +103,7 @@ enum RandomTag
     RNG_SMOG_SPEED_DROP,
     RNG_VEXING_KI_TAUNT,
     RNG_VEXING_KI_TORMENT,
+    RNG_GRAV_APPLE_FLINCH,
 };
 
 #define RandomWeighted(tag, ...) \

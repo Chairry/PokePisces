@@ -1787,6 +1787,22 @@ u32 TrySetCantSelectMoveBattleScript(u32 battler)
         }
     }
 
+    if (gBattleMoves[move].effect == EFFECT_PSY_SWAP && move == gLastResultingMoves[battler])
+    {
+        gCurrentMove = move;
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, gCurrentMove);
+        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+        {
+            gPalaceSelectionBattleScripts[battler] = BattleScript_SelectingNotAllowedCurrentMoveInPalace;
+            gProtectStructs[battler].palaceUnableToUseMove = TRUE;
+        }
+        else
+        {
+            gSelectionBattleScripts[battler] = BattleScript_SelectingNotAllowedCurrentMove;
+            limitations++;
+        }
+    }
+
     if (gBattleMoves[move].effect == EFFECT_ION_DELUGE && move == gLastResultingMoves[battler])
     {
         gCurrentMove = move;
@@ -1961,6 +1977,10 @@ u8 IsMoveUnusable(u32 battler, u16 move, u8 pp, u16 check)
     else if (check & MOVE_LIMITATION_CHOICE_ITEM && GetBattlerAbility(battler) == ABILITY_ONE_WAY_TRIP && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
         return TRUE;
     else if (check & MOVE_LIMITATION_GIGATON_HAMMER && gBattleMoves[move].effect == EFFECT_GIGATON_HAMMER && move == gLastResultingMoves[battler])
+        return TRUE;
+    else if (check & MOVE_LIMITATION_ION_DELUGE && gBattleMoves[move].effect == EFFECT_ION_DELUGE && move == gLastResultingMoves[battler])
+        return TRUE;
+    else if (check & MOVE_LIMITATION_PSY_SWAP && gBattleMoves[move].effect == EFFECT_PSY_SWAP && move == gLastResultingMoves[battler])
         return TRUE;
     
     return 0;
@@ -6875,7 +6895,7 @@ u32 GetBattlerAbility(u32 battler)
     if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
         return ABILITY_NONE;
 
-    if ((((gBattleMons[gBattlerAttacker].ability == ABILITY_MOLD_BREAKER || gBattleMons[gBattlerAttacker].ability == ABILITY_TERAVOLT || gBattleMons[gBattlerAttacker].ability == ABILITY_TURBOBLAZE) && !(gStatuses3[gBattlerAttacker] & STATUS3_GASTRO_ACID)) || gBattleMoves[gCurrentMove].ignoresTargetAbility || ((gCurrentMove == MOVE_SPORE) && (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING))) && sAbilitiesAffectedByMoldBreaker[gBattleMons[battler].ability] && gBattlerByTurnOrder[gCurrentTurnActionNumber] == gBattlerAttacker && gActionsByTurnOrder[gBattlerByTurnOrder[gBattlerAttacker]] == B_ACTION_USE_MOVE && gCurrentTurnActionNumber < gBattlersCount)
+    if ((((gBattleMons[gBattlerAttacker].ability == ABILITY_MOLD_BREAKER || gBattleMons[gBattlerAttacker].ability == ABILITY_TERAVOLT || gBattleMons[gBattlerAttacker].ability == ABILITY_TURBOBLAZE) && !(gStatuses3[gBattlerAttacker] & STATUS3_GASTRO_ACID)) || gBattleMoves[gCurrentMove].ignoresTargetAbility || (((gCurrentMove == MOVE_SPORE) || (gCurrentMove == MOVE_SEED_FLARE)) && (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING))) && sAbilitiesAffectedByMoldBreaker[gBattleMons[battler].ability] && gBattlerByTurnOrder[gCurrentTurnActionNumber] == gBattlerAttacker && gActionsByTurnOrder[gBattlerByTurnOrder[gBattlerAttacker]] == B_ACTION_USE_MOVE && gCurrentTurnActionNumber < gBattlersCount)
         return ABILITY_NONE;
 
     return gBattleMons[battler].ability;
