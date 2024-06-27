@@ -531,7 +531,7 @@
 #define EFFECT_PETAL_BLIZZARD               525
 #define EFFECT_SPIRIT_AWAY                  526
 #define EFFECT_PHANTASM                     527
-#define EFFECT_BLOSSOM_SNAP                 528
+#define EFFECT_SNAPBLOSSOM                  528
 #define EFFECT_GRASS_CANNON                 529
 #define EFFECT_SPECIAL_DEFENSE_UP_HIT       530
 #define EFFECT_DEF_SP_DEF_UP_HIT            531
@@ -593,7 +593,12 @@
 #define EFFECT_GRAVITON_ARM                 587
 #define EFFECT_MIST_BALL                    588
 #define EFFECT_KINESIS                      589
+#define EFFECT_RESERVOIR                    590
+#define EFFECT_CANNONADE                    591
+#define EFFECT_BURNING_ENVY                 592
+#define EFFECT_ACID_ARMOR                   593
+#define EFFECT_POWER_SHIFT                  594
 
-#define NUM_BATTLE_MOVE_EFFECTS             590
+#define NUM_BATTLE_MOVE_EFFECTS             595
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

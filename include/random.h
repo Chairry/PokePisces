@@ -101,6 +101,8 @@ enum RandomTag
     RNG_SNOWFADE_FROSTBITE,
     RNG_SMOG_POISON,
     RNG_SMOG_SPEED_DROP,
+    RNG_VEXING_KI_TAUNT,
+    RNG_VEXING_KI_TORMENT,
 };
 
 #define RandomWeighted(tag, ...) \
