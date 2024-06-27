@@ -992,7 +992,7 @@ gBattleAnims_Moves::
 	.4byte Move_SPIRIT_AWAY
 	.4byte Move_PHANTASM
 	.4byte Move_PENALIZE
-	.4byte Move_BLOSSOM_SNAP
+	.4byte Move_SNAPBLOSSOM
 	.4byte Move_GRASS_CANNON
 	.4byte Move_BOUNDARY
     .4byte Move_SAVAGE_WING
@@ -21637,7 +21637,6 @@ Move_ODD_STEP::
 
 Move_CREEPY_CRAWL::
 	loadspritegfx ANIM_TAG_GREEN_SPIKE
-
 	fadetobg BG_DARK
 	waitbgfadeout
 	createvisualtask AnimTask_FadeScreenToWhite, 5
@@ -23177,7 +23176,7 @@ Move_PHANTASM::
 Move_PENALIZE::
 	goto Move_PUNISHMENT
 
-Move_BLOSSOM_SNAP::
+Move_SNAPBLOSSOM::
 	goto Move_SNAP_TRAP
 
 Move_GRASS_CANNON::
