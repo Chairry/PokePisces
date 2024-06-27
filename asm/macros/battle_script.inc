@@ -1697,7 +1697,7 @@
 	.endm
 
 	.macro jumpifhasastatboost battler:req, jumpInstr:req
-	various \battler VARIOUS_JUMP_IF_HP_THRESHOLD
+	various \battler VARIOUS_JUMP_IF_HAS_A_STAT_BOOST
 	.4byte \jumpInstr
 	.endm
 

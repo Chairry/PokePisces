@@ -649,7 +649,7 @@ BattleScript_JungleRageCheckBlooming:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectBurningEnvy:
-	jumpifhpthreshold BS_TARGET, BattleScript_BurningEnvyTormentandBurn
+	jumpifhasastatboost BS_TARGET, BattleScript_BurningEnvyTormentandBurn
 	goto BattleScript_EffectHit
 BattleScript_BurningEnvyTormentandBurn:
 	setmoveeffect MOVE_EFFECT_BURN
@@ -11049,7 +11049,7 @@ BattleScript_WeaknessPolicyEnd:
 	return
 
 BattleScript_LostMantle::
-	copybyte sBATTLER, gBattlerTarget
+	copybyte sBATTLER, gBattlerAttacker
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_LostMantleDef
 	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_LostMantleEnd
 BattleScript_LostMantleDef:
