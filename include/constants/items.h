@@ -963,7 +963,7 @@
 #define ITEM_FAIRY_FEATHER 845
 #define ITEM_ICE_POP 846
 #define ITEM_COOL_BALL 847
-#define ITEM_BAT_CREDIT_CARD 848
+#define ITEM_CREDIT_CARD 848
 #define ITEM_RIZZ_BERRY 849
 #define ITEM_PESKY_PLUSH 850
 #define ITEM_BLACK_SALAD 851
@@ -982,9 +982,15 @@
 #define ITEM_EXTRAPOLATOR 864
 #define ITEM_RELAXANT 865
 #define ITEM_SHELLY_BREW 867
-#define ITEM_HEARTFELT_GIFT 868
+#define ITEM_SURPRISE_GIFT 868
+#define ITEM_FCB_CARD 869
+#define ITEM_UNO_CARD 870
+#define ITEM_MTG_CARD 871
+#define ITEM_L5R_CARD 872
+#define ITEM_BUSINESS_CARD 873
+#define ITEM_POKEMON_CARD 874
 
-#define ITEMS_COUNT 869
+#define ITEMS_COUNT 875
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
