@@ -5153,6 +5153,12 @@ static void TurnValuesCleanUp(bool8 var0)
                     gBattleMons[i].status2 &= ~STATUS2_RECHARGE;
                     gStatuses4[i] &= ~STATUS4_RECHARGE_REDUCE;
             }
+            if (gDisableStructs[i].overtakenTimer)
+            {
+                gDisableStructs[i].overtakenTimer--;
+                if (gDisableStructs[i].overtakenTimer == 0)
+                    gStatuses4[i] &= ~STATUS4_OVERTAKEN;
+            }
         }
 
         if (gDisableStructs[i].substituteHP == 0)

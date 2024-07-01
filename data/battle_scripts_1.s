@@ -625,6 +625,72 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectRoar                    @ EFFECT_PSY_SWAP
 	.4byte BattleScript_EffectShieldsUp               @ EFFECT_SHIELDS_UP
 	.4byte BattleScript_EffectBerryBadJoke            @ EFFECT_BERRY_BAD_JOKE
+	.4byte BattleScript_EffectMindBlown               @ EFFECT_STALAG_BLAST
+	.4byte BattleScript_EffectMoonBeam                @ EFFECT_MOON_BEAM
+	.4byte BattleScript_EffectHunkerDown              @ EFFECT_HUNKER_DOWN
+	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
+
+BattleScript_EffectOvertake::
+	attackcanceler
+	attackstring
+	ppreduce
+	.if B_UPDATED_MOVE_DATA >= GEN_6
+	jumpifnotbattletype BATTLE_TYPE_DOUBLE, BattleScript_HitFromCritCalc
+	.endif
+	tryovertake
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNCENTERATTENTION
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectHunkerDown::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_RECHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_HunkerDownDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_HunkerDownDoMoveAnim::
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 3, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HunkerDownTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HunkerDownTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HunkerDownTrySpDef::
+	setstatchanger STAT_SPDEF, 3, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HunkerDownEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HunkerDownEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HunkerDownEnd::
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectMoonBeam:
+	setmoveeffect MOVE_EFFECT_PANIC
+	attackcanceler
+	attackstring
+	ppreduce
+	cureifburnedparalysedorpoisoned BattleScript_HitFromAtkAnimation
+	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectBerryBadJoke::
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_BerryBadJokeAddFrostbite
@@ -6542,10 +6608,15 @@ BattleScript_EffectPowerSplit:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	setuserstatus4 STATUS4_POWER_SPLIT, BattleScript_ButItFailed
 	averagestats STAT_ATK
 	averagestats STAT_SPATK
 	attackanimation
 	waitanimation
+	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_PowerSplitTrySpatkTarget, ANIM_ON
+BattleScript_PowerSplitTrySpatkTarget:
+	modifybattlerstatstage BS_TARGET, STAT_SPATK, INCREASE, 1, BattleScript_PowerSplitTriesOver, ANIM_ON
+BattleScript_PowerSplitTriesOver:
 	printstring STRINGID_SHAREDITSPOWER
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6555,10 +6626,15 @@ BattleScript_EffectGuardSplit:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	setuserstatus4 STATUS4_GUARD_SPLIT, BattleScript_ButItFailed
 	averagestats STAT_DEF
 	averagestats STAT_SPDEF
 	attackanimation
 	waitanimation
+	modifybattlerstatstage BS_TARGET, STAT_DEF, INCREASE, 1, BattleScript_GuardSplitTrySpdefTarget, ANIM_ON
+BattleScript_GuardSplitTrySpdefTarget:
+	modifybattlerstatstage BS_TARGET, STAT_SPDEF, INCREASE, 1, BattleScript_GuardSplitTriesOver, ANIM_ON
+BattleScript_GuardSplitTriesOver:
 	printstring STRINGID_SHAREDITSGUARD
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6586,10 +6662,19 @@ BattleScript_EffectPowerSwap:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	setuserstatus4 STATUS4_POWER_SWAP, BattleScript_ButItFailed
 	swapstatstages STAT_ATK
 	swapstatstages STAT_SPATK
 	attackanimation
 	waitanimation
+	modifybattlerstatstage BS_TARGET, STAT_ATK, DECREASE, 1, BattleScript_PowerSwapTrySpatkTarget, ANIM_ON
+BattleScript_PowerSwapTrySpatkTarget:
+	modifybattlerstatstage BS_TARGET, STAT_SPATK, DECREASE, 1, BattleScript_PowerSwapTryAtkSelf, ANIM_ON
+BattleScript_PowerSwapTryAtkSelf:
+	modifybattlerstatstage BS_ATTACKER, STAT_ATK, INCREASE, 1, BattleScript_PowerSwapTrySpatkSelf, ANIM_ON
+BattleScript_PowerSwapTrySpatkSelf:
+	modifybattlerstatstage BS_ATTACKER, STAT_SPATK, INCREASE, 1, BattleScript_PowerSwapTriesDone, ANIM_ON
+BattleScript_PowerSwapTriesDone:
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6599,10 +6684,19 @@ BattleScript_EffectGuardSwap:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	setuserstatus4 STATUS4_GUARD_SWAP, BattleScript_ButItFailed
 	swapstatstages STAT_DEF
 	swapstatstages STAT_SPDEF
 	attackanimation
 	waitanimation
+	modifybattlerstatstage BS_TARGET, STAT_DEF, DECREASE, 1, BattleScript_GuardSwapTrySpdefTarget, ANIM_ON
+BattleScript_GuardSwapTrySpdefTarget:
+	modifybattlerstatstage BS_TARGET, STAT_SPDEF, DECREASE, 1, BattleScript_GuardSwapTryDefSelf, ANIM_ON
+BattleScript_GuardSwapTryDefSelf:
+	modifybattlerstatstage BS_ATTACKER, STAT_DEF, INCREASE, 1, BattleScript_GuardSwapTrySpdefSelf, ANIM_ON
+BattleScript_GuardSwapTrySpdefSelf:
+	modifybattlerstatstage BS_ATTACKER, STAT_SPDEF, INCREASE, 1, BattleScript_GuardSwapTriesDone, ANIM_ON
+BattleScript_GuardSwapTriesDone:
 	printstring STRINGID_PKMNSWITCHEDSTATCHANGES
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -6612,9 +6706,14 @@ BattleScript_EffectSpeedSwap:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	setuserstatus4 STATUS4_SPEED_SWAP, BattleScript_ButItFailed
 	swapstats STAT_SPEED
 	attackanimation
 	waitanimation
+	modifybattlerstatstage BS_TARGET, STAT_SPEED, DECREASE, 1, BattleScript_SpeedSwapTrySpeedSelf, ANIM_ON
+BattleScript_SpeedSwapTrySpeedSelf:
+	modifybattlerstatstage BS_ATTACKER, STAT_SPEED, INCREASE, 1, BattleScript_SpeedSwapTriesDone, ANIM_ON
+BattleScript_SpeedSwapTriesDone:
 	printstring STRINGID_ATTACKERSWITCHEDSTATWITHTARGET
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

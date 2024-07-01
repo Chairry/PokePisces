@@ -16656,13 +16656,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_STALAG_BLAST] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_STALAG_BLAST,
         .power = 70,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
@@ -16670,12 +16670,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_MOON_BEAM] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_MOON_BEAM,
         .power = 100,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 5,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -16685,7 +16685,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_HUNKER_DOWN] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_HUNKER_DOWN,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,
@@ -16730,7 +16730,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_OVERTAKE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_OVERTAKE,
         .power = 80,
         .type = TYPE_STEEL,
         .accuracy = 100,

@@ -277,6 +277,7 @@
 #define VARIOUS_JUMP_IF_HAS_A_STAT_BOOST             184
 #define VARIOUS_POWER_SHIFT                          185
 #define VARIOUS_TRY_DAMPING                          186
+#define VARIOUS_TRY_OVERTAKE                         187
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

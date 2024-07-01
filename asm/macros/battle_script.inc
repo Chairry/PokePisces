@@ -1715,6 +1715,10 @@
 	various \battler, VARIOUS_SET_LAST_USED_ABILITY
 	.endm
 
+	.macro tryovertake
+	various 0, VARIOUS_TRY_OVERTAKE
+	.endm
+
 	.macro tryhealpulse battler:req, failInstr:req
 	various \battler, VARIOUS_TRY_HEAL_PULSE
 	.4byte \failInstr

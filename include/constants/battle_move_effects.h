@@ -602,7 +602,11 @@
 #define EFFECT_PSY_SWAP                     596
 #define EFFECT_SHIELDS_UP                   597
 #define EFFECT_BERRY_BAD_JOKE               598
+#define EFFECT_STALAG_BLAST                 599
+#define EFFECT_MOON_BEAM                    600
+#define EFFECT_HUNKER_DOWN                  601
+#define EFFECT_OVERTAKE                     602
 
-#define NUM_BATTLE_MOVE_EFFECTS             599
+#define NUM_BATTLE_MOVE_EFFECTS             603
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

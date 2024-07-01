@@ -212,6 +212,13 @@
 #define STATUS4_PUMPED_UP               (1 << 16)
 #define STATUS4_ACID_ARMORED            (1 << 17)
 #define STATUS4_POWER_SHIFT             (1 << 18)
+#define STATUS4_GUARD_SPLIT             (1 << 19)
+#define STATUS4_GUARD_SWAP              (1 << 20)
+#define STATUS4_POWER_SPLIT             (1 << 21)
+#define STATUS4_SPEED_SWAP              (1 << 22)
+#define STATUS4_POWER_SWAP              (1 << 23)
+#define STATUS4_OVERTAKER               (1 << 24)
+#define STATUS4_OVERTAKEN               (1 << 25)
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
