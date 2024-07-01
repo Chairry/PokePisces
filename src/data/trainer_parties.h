@@ -18,8 +18,8 @@ static const struct TrainerMon sParty_Sawyer1[] = {
 static const struct TrainerMon sParty_PMendel[] = {
     {
     .lvl = 40,
-    .species = SPECIES_SCALLYWARG,
-    .heldItem = ITEM_CURSED_AMULET,
+    .species = SPECIES_BISHOUCHA,
+    .ability = ABILITY_DORMANT,
     .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     }
 };
