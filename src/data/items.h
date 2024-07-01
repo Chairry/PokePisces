@@ -8678,7 +8678,7 @@ const struct Item gItems[] =
 
     [ITEM_GOOD_ROD] =
     {
-        .name = _("Just A Rod"),
+        .name = _("Regular Rod"),
         .price = 0,
         .description = sGoodRodDesc,
         .importance = 1,
@@ -9988,17 +9988,6 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 60,
     },
-    [ITEM_ICY_CAPE] =
-    {
-        .name = _("Icy Cape"),
-        .price = 4000,
-        .holdEffect = HOLD_EFFECT_ICY_CAPE,
-        .description = sIcyCapeDesc,
-        .pocket = POCKET_BATTLE_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
-    },
     [ITEM_DRIP_SHOES] =
     {
         .name = _("Drip Shoes"),
@@ -10103,16 +10092,6 @@ const struct Item gItems[] =
         .name = _("Moon Mirror"),
         .price = 2000,
         .description = sMoonMirrorDesc,
-        .pocket = POCKET_BATTLE_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 10,
-    },
-    [ITEM_CROSSBONES] =
-    {
-        .name = _("Crossbones"),
-        .price = 2000,
-        .description = sCrossbonesDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

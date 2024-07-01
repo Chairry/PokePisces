@@ -4084,11 +4084,6 @@ static const u8 sYellowSodaDesc[] = _(
     "and critical-hit\n"
     "ratio. For Voreon.");
 
-static const u8 sIcyCapeDesc[] = _(
-    "Boosts Snorunt's\n"
-    "offenses and\n"
-    "defenses in hail.");
-
 static const u8 sDripShoesDesc[] = _(
     "Boosts Pantney's\n"
     "Speed and Evasion\n"
@@ -4138,11 +4133,6 @@ static const u8 sMoonMirrorDesc[] = _(
     "A held item that\n"
     "makes Lunatone\n"
     "reflect stat drops.");
-
-static const u8 sCrossbonesDesc[] = _(
-    "Ups Dark and Water-\n"
-    "type moves in rain.\n"
-    "Only for Scallywarg.");
 
 static const u8 sFriendRibbonDesc[] = _(
     "Boosts user's Def\n"
