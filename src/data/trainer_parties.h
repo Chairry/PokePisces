@@ -18,23 +18,30 @@ static const struct TrainerMon sParty_Sawyer1[] = {
 static const struct TrainerMon sParty_PMendel[] = {
     {
     .lvl = 40,
-    .species = SPECIES_BISHOUCHA,
-    .ability = ABILITY_DORMANT,
-    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .species = SPECIES_CHAFFAW,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_SOLASU,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_YAGANGRAN,
     }
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
     .lvl = 40,
-    .species = SPECIES_ANNIHILAPE,
-    .ability = ABILITY_LEVITATE,
-    .heldItem = ITEM_MIRROR_HERB,
-    .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+    .species = SPECIES_EGGNEGGMA,
     },
     {
-    .lvl = 31,
-    .species = SPECIES_CARVANHA,
+    .lvl = 40,
+    .species = SPECIES_PUTREGON,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_KARODORAUG,
     }
 };
 

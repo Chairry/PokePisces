@@ -104,6 +104,7 @@
 #define MAP_PERPLUME_MAZE    (3 | (6 << 8))
 #define MAP_FORTREE_CITY     (4 | (6 << 8))
 #define MAP_FORTREE_CITY_GYM (5 | (6 << 8))
+#define MAP_CULTIPEX_CAVE    (6 | (6 << 8))
 
 // gMapGroup_PiscesPart4Minor
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F (0 | (7 << 8))
