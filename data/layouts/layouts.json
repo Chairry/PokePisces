@@ -5480,6 +5480,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/Gym8Corridor/border.bin",
       "blockdata_filepath": "data/layouts/Gym8Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_CULTIPEX_CAVE",
+      "name": "CultipexCave_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BossCave",
+      "border_filepath": "data/layouts/CultipexCave/border.bin",
+      "blockdata_filepath": "data/layouts/CultipexCave/map.bin"
     }
   ]
 }

@@ -240,3 +240,6 @@ const u16 gMetatileAttributes_OzoneInterior[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatiles.bin");
 const u16 gMetatileAttributes_OldStoneBuildings[] = INCBIN_U16("data/tilesets/secondary/old_stone_buildings/metatile_attributes.bin");
+
+const u16 gMetatiles_BossCave[] = INCBIN_U16("data/tilesets/secondary/boss_cave/metatiles.bin");
+const u16 gMetatileAttributes_BossCave[] = INCBIN_U16("data/tilesets/secondary/boss_cave/metatile_attributes.bin");
