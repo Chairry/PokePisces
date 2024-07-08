@@ -4076,7 +4076,7 @@ static const u8 sZigSashDesc[] = _(
 
 static const u8 sDoughStickDesc[] = _(
     "A held item that\n"
-    "raises Kodough's Sp.\n"
+    "ups Kodough's Sp.\n"
     "Atk and defenses.");
 
 static const u8 sYellowSodaDesc[] = _(
@@ -4125,9 +4125,9 @@ static const u8 sPanicOrbDesc[] = _(
     "panic in battle.");
 
 static const u8 sSolarSwordDesc[] = _(
-    "A held item that\n"
-    "raises Solrock's\n"
-    "Special Attack.");
+    "Raises Solrock's\n"
+    "crit rate and power\n"
+    "in Sun.");
 
 static const u8 sMoonMirrorDesc[] = _(
     "A held item that\n"
@@ -4179,8 +4179,8 @@ static const u8 sRizzBerryDesc[] = _(
     "ignoring gender.");
 
 static const u8 sPeskyPlushDesc[] = _(
-    "A held item that may\n"
-    "make Bug-type moves\n"
+    "Bug-type moves\n"
+    "have a chance to\n"
     "Taunt and Torment.");
 
 static const u8 sBlackSaladDesc[] = _(
@@ -4189,19 +4189,19 @@ static const u8 sBlackSaladDesc[] = _(
     "against Blooming.");
 
 static const u8 sDistillModDesc[] = _(
-    "Boosts supereffective\n"
-    "moves. Drops resisted\n"
-    "moves. For Relic-type.");
+    "Ups SE moves. Drops\n"
+    "resisted moves\n"
+    "For Relic-types.");
 
 static const u8 sCorrodeModDesc[] = _(
-    "Drops defensive stat\n"
-    "depending on move\n"
-    "category if Relic-type.");
+    "Drops defenses\n"
+    "based on category.\n"
+    "For Relic-types.");
 
 static const u8 sStilettoDesc[] = _(
-    "Boosts kicking moves\n"
-    "and makes them lower\n"
-    "the foe's Speed stat.");
+    "Boosts kicking\n"
+    "moves and makes\n"
+    "them lower Speed.");
 
 static const u8 sSilverCrownDesc[] = _(
     "Boosts HP by 200.\n"
@@ -4209,23 +4209,23 @@ static const u8 sSilverCrownDesc[] = _(
     "if hit. For Flague.");
 
 static const u8 sLongNoseDesc[] = _(
-    "Bug/Dark-type moves\n"
-    "strike first and drop\n"
+    "Bug/Dark moves\n"
+    "hit first and drop\n"
     "stats. For Moskopo.");
 
 static const u8 sKamenScarfDesc[] = _(
     "Drops SE moves. Ups\n"
-    "Sp. Atk. Gains Charge\n"
-    "if hit. For Shockore.");
+    "Sp. Atk. Charges if\n"
+    "hit. For Shockore.");
 
 static const u8 sGemstoneDesc[] = _(
-    "Maxes evasion then\n"
-    "drops each turn. Ups\n"
-    "Sp. Atk. For Harace.");
+    "Maxes Eva, drops\n"
+    "each turn. Ups Sp.\n"
+    "Atk. For Harace.");
 
 static const u8 sTeruCharmDesc[] = _(
-    "Prevents indirect\n"
-    "damage. Ups defenses.\n"
+    "Ups defenses. Gets\n"
+    "no indirect damage.\n"
     "For Chiroberra.");
 
 static const u8 sMaxEggplantDesc[] = _(
@@ -4246,7 +4246,7 @@ static const u8 sCarrotHornDesc[] = _(
 static const u8 sCoralCrownDesc[] = _(
     "A crown made from\n"
     "Corisp's line. They\n"
-    "are like currency.");
+    "are quite lovely.");
 
 static const u8 sExtrapolatorDesc[] = _(
     "Secures an exposed\n"

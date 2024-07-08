@@ -2188,8 +2188,8 @@ const u32 gItemIconPalette_DistillMod[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_CorrodeMod[] = INCBIN_U32("graphics/items/icons/corrode_mod.4bpp.lz");
 const u32 gItemIconPalette_CorrodeMod[] = INCBIN_U32("graphics/items/icon_palettes/corrode_mod.gbapal.lz");
 
-const u32 gItemIcon_Stiletto[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_Stiletto[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_Stiletto[] = INCBIN_U32("graphics/items/icons/stiletto.4bpp.lz");
+const u32 gItemIconPalette_Stiletto[] = INCBIN_U32("graphics/items/icon_palettes/stiletto.gbapal.lz");
 
 const u32 gItemIcon_SilverCrown[] = INCBIN_U32("graphics/items/icons/silver_crown.4bpp.lz");
 const u32 gItemIconPalette_SilverCrown[] = INCBIN_U32("graphics/items/icon_palettes/silver_crown.gbapal.lz");
