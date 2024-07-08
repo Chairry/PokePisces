@@ -19,9 +19,9 @@ static void AnimWhirlwindLine_Step(struct Sprite *);
 static void AnimUnusedBubbleThrow(struct Sprite *);
 static void AnimWhirlwindLine(struct Sprite *);
 static void AnimBounceBallShrink(struct Sprite *);
-static void AnimDiveBall(struct Sprite *);
-static void AnimDiveBall_Step1(struct Sprite *);
-static void AnimDiveBall_Step2(struct Sprite *);
+static void AnimCoolBall(struct Sprite *);
+static void AnimCoolBall_Step1(struct Sprite *);
+static void AnimCoolBall_Step2(struct Sprite *);
 static void AnimDiveWaterSplash(struct Sprite *);
 static void AnimSprayWaterDroplet(struct Sprite *);
 static void AnimSprayWaterDroplet_Step(struct Sprite *);
@@ -282,7 +282,7 @@ const struct SpriteTemplate gBounceBallLandSpriteTemplate =
     .callback = AnimBounceBallLand,
 };
 
-static const union AffineAnimCmd sAffineAnim_DiveBall[] =
+static const union AffineAnimCmd sAffineAnim_CoolBall[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x100, 0, 0),
     AFFINEANIMCMD_FRAME(0x28, 0x0, 0, 6),
@@ -291,20 +291,20 @@ static const union AffineAnimCmd sAffineAnim_DiveBall[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd *const sAffineAnims_DiveBall[] =
+static const union AffineAnimCmd *const sAffineAnims_CoolBall[] =
 {
-    sAffineAnim_DiveBall,
+    sAffineAnim_CoolBall,
 };
 
-const struct SpriteTemplate gDiveBallSpriteTemplate =
+const struct SpriteTemplate gCoolBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROUND_SHADOW,
     .paletteTag = ANIM_TAG_ROUND_SHADOW,
     .oam = &gOamData_AffineDouble_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAffineAnims_DiveBall,
-    .callback = AnimDiveBall,
+    .affineAnims = sAffineAnims_CoolBall,
+    .callback = AnimCoolBall,
 };
 
 static const union AffineAnimCmd sAnim_Unused[] =
@@ -1025,16 +1025,16 @@ void AnimBounceBallLand(struct Sprite *sprite)
     }
 }
 
-static void AnimDiveBall(struct Sprite *sprite)
+static void AnimCoolBall(struct Sprite *sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
     sprite->data[0] = gBattleAnimArgs[2];
     sprite->data[1] = gBattleAnimArgs[3];
-    sprite->callback = AnimDiveBall_Step1;
+    sprite->callback = AnimCoolBall_Step1;
     gSprites[GetAnimBattlerSpriteId(ANIM_ATTACKER)].invisible = TRUE;
 }
 
-void AnimDiveBall_Step1(struct Sprite *sprite)
+void AnimCoolBall_Step1(struct Sprite *sprite)
 {
     if (sprite->data[0] > 0)
     {
@@ -1049,11 +1049,11 @@ void AnimDiveBall_Step1(struct Sprite *sprite)
     {
         sprite->invisible = TRUE;
         if (sprite->data[3]++ > 20)
-            sprite->callback = AnimDiveBall_Step2;
+            sprite->callback = AnimCoolBall_Step2;
     }
 }
 
-static void AnimDiveBall_Step2(struct Sprite *sprite)
+static void AnimCoolBall_Step2(struct Sprite *sprite)
 {
     sprite->y2 += sprite->data[2] >> 8;
 

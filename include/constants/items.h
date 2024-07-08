@@ -12,7 +12,7 @@
 #define ITEM_HEAL_BALL 6
 #define ITEM_NET_BALL 7
 #define ITEM_NEST_BALL 8
-#define ITEM_DIVE_BALL 9 // replace: DA COOL BALL (works on da cool mons)
+#define ITEM_COOL_BALL 9 // replace: DA COOL BALL (works on da cool mons)
 #define ITEM_DUSK_BALL 10
 #define ITEM_TIMER_BALL 11
 #define ITEM_QUICK_BALL 12
@@ -623,7 +623,7 @@
 #define ITEM_AGUAV_BERRY 527
 #define ITEM_IAPAPA_BERRY 528
 #define ITEM_RAZZ_BERRY 529
-#define ITEM_YELLOW_SODA 530
+#define ITEM_BLUK_BERRY 530
 #define ITEM_NANAB_BERRY 531
 #define ITEM_WEPEAR_BERRY 532
 #define ITEM_PINAP_BERRY 533
@@ -962,36 +962,36 @@
 #define ITEM_WEIRD_STICK 844
 #define ITEM_FAIRY_FEATHER 845
 #define ITEM_ICE_POP 846
-#define ITEM_COOL_BALL 847
-#define ITEM_CREDIT_CARD 848
-#define ITEM_RIZZ_BERRY 849
-#define ITEM_PESKY_PLUSH 850
-#define ITEM_BLACK_SALAD 851
-#define ITEM_DISTILL_MOD 852
-#define ITEM_CORRODE_MOD 853
-#define ITEM_STILLETO 854
-#define ITEM_SILVER_CROWN 855
-#define ITEM_LONG_NOSE 856
-#define ITEM_KAMEN_SCARF 857
-#define ITEM_GEMSTONE 858
-#define ITEM_TERU_CHARM 859
-#define ITEM_MAX_EGGPLANT 860
-#define ITEM_GOLD_TOOTH 861
-#define ITEM_CARROT_HORN 862
-#define ITEM_CORAL_CROWN 863
-#define ITEM_EXTRAPOLATOR 864
-#define ITEM_RELAXANT 865
-#define ITEM_SHELLY_BREW 867
-#define ITEM_SURPRISE_GIFT 868
-#define ITEM_FCB_CARD 869
-#define ITEM_UNO_CARD 870
-#define ITEM_MTG_CARD 871
-#define ITEM_L5R_CARD 872
-#define ITEM_BUSINESS_CARD 873
-#define ITEM_POKEMON_CARD 874
+#define ITEM_CREDIT_CARD 847
+#define ITEM_PESKY_PLUSH 848
+#define ITEM_BLACK_SALAD 849
+#define ITEM_DISTILL_MOD 850
+#define ITEM_CORRODE_MOD 851
+#define ITEM_STILETTO 852
+#define ITEM_SILVER_CROWN 853
+#define ITEM_LONG_NOSE 854
+#define ITEM_KAMEN_SCARF 855
+#define ITEM_GEMSTONE 856
+#define ITEM_TERU_CHARM 857
+#define ITEM_MAX_EGGPLANT 858
+#define ITEM_GOLD_TOOTH 859
+#define ITEM_CARROT_HORN 860
+#define ITEM_CORAL_CROWN 861
+#define ITEM_EXTRAPOLATOR 862
+#define ITEM_RELAXANT 863
+#define ITEM_SHELLY_BREW 864
+#define ITEM_SURPRISE_GIFT 865
+#define ITEM_BUDDY_CARD 866
+#define ITEM_UNO_CARD 867
+#define ITEM_MAGIC_CARD 868
+#define ITEM_LEGEND_CARD 869
+#define ITEM_BUSINESS_CARD 870
+#define ITEM_POKEMON_CARD 871
 
-#define ITEMS_COUNT 875
+#define ITEMS_COUNT 872
 #define ITEM_FIELD_ARROW ITEMS_COUNT
+
+// need to add yellow soda and rizz berry to berry list
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow

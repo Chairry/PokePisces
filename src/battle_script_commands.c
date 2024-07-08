@@ -17147,7 +17147,7 @@ static void Cmd_handleballthrow(void)
                 else
                     ballAddition = 30;
                 break;
-            case ITEM_DIVE_BALL:
+            case ITEM_COOL_BALL:
                 if (GetCurrentMapType() == MAP_TYPE_UNDERWATER
                 #if B_DIVE_BALL_MODIFIER >= GEN_4
                     || gIsFishingEncounter || gIsSurfingEncounter

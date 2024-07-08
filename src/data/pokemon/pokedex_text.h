@@ -5219,16 +5219,16 @@ const u8 gCardiovorPokedexText[] = _(
     "traps the prey in vines, thorns, and fangs.");
 
 const u8 gFiefreetPokedexText[] = _(
-    "It never blinks. Some say it communes\n"
-    "with the underworld, while others say it\n"
-    "is the souls of the wicked reborn as a\n"
-    "Pokémon.");
+    "It never blinks. Many superstitions\n"
+    "surround Fiefreet, some say it communes\n"
+    "with the underworld, while others say\n"
+    "they are wicked souls reborn as Pokémon.");
 
 const u8 gBalbyrnPokedexText[] = _(
     "Formerly believed to be demons from\n"
-    "hell, they were signs of ill omens. It's\n"
-    "black-colored flames contributed to this\n"
-    "superstition.");
+    "hell, they were signs of ill omens.\n"
+    "Their black-colored flames contributed\n"
+    "to this superstition.");
 
 const u8 gBlazizahakPokedexText[] = _(
     "Blazizahak's domineering presence\n"

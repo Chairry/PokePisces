@@ -449,7 +449,7 @@ const struct Berry gBerries[] =
         .smoothness = 20,
     },
 
-    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX] =
+    [ITEM_BLUK_BERRY - FIRST_BERRY_INDEX] =
     {
         .name = _("Soda"),
         .firmness = BERRY_FIRMNESS_VERY_HARD,
@@ -1403,7 +1403,7 @@ const struct BerryCrushBerryData gBerryCrush_BerryData[] = {
     [ITEM_AGUAV_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  60, .powder =  50},
     [ITEM_IAPAPA_BERRY - FIRST_BERRY_INDEX]          = {.difficulty =  60, .powder =  50},
     [ITEM_RAZZ_BERRY - FIRST_BERRY_INDEX]            = {.difficulty =  80, .powder =  70},
-    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
+    [ITEM_BLUK_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_NANAB_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_WEPEAR_BERRY - FIRST_BERRY_INDEX]          = {.difficulty =  80, .powder =  70},
     [ITEM_PINAP_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},

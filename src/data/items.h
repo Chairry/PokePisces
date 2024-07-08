@@ -122,15 +122,15 @@ const struct Item gItems[] =
         .secondaryId = ITEM_NEST_BALL - FIRST_BALL,
     },
 
-    [ITEM_DIVE_BALL] =
+    [ITEM_COOL_BALL] =
     {
-        .name = _("Dive Ball"),
+        .name = _("Cool Ball"),
         .price = 500,
-        .description = sDiveBallDesc,
+        .description = sCoolBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
-        .secondaryId = ITEM_DIVE_BALL - FIRST_BALL,
+        .secondaryId = ITEM_COOL_BALL - FIRST_BALL,
     },
 
     [ITEM_DUSK_BALL] =
@@ -6522,12 +6522,11 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
-    [ITEM_YELLOW_SODA] =
+    [ITEM_BLUK_BERRY] =
     {
-        .name = _("Yellow Soda"),
+        .name = _("Bluk Berry"),
         .price = 2000,
-        .holdEffect = HOLD_EFFECT_YELLOW_SODA,
-        .description = sYellowSodaDesc,
+        .description = sBlukBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
