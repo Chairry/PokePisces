@@ -724,7 +724,7 @@ const struct Item gItems[] =
     [ITEM_LAVA_COOKIE] =
     {
         .name = _("Lava Cookie"),
-        .price = 350,
+        .price = 500,
         .description = sLavaCookieDesc,
         .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
@@ -1215,7 +1215,7 @@ const struct Item gItems[] =
         .name = _("Rare Candy"),
         .price = 10000,
         .description = sRareCandyDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -1227,7 +1227,7 @@ const struct Item gItems[] =
         .price = 20,
         .holdEffectParam = EXP_100,
         .description = sExpCandyXSDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -1239,7 +1239,7 @@ const struct Item gItems[] =
         .price = 240,
         .holdEffectParam = EXP_800,
         .description = sExpCandySDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -1251,7 +1251,7 @@ const struct Item gItems[] =
         .price = 1000,
         .holdEffectParam = EXP_3000,
         .description = sExpCandyMDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -1263,7 +1263,7 @@ const struct Item gItems[] =
         .price = 3000,
         .holdEffectParam = EXP_10000,
         .description = sExpCandyLDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -1275,7 +1275,7 @@ const struct Item gItems[] =
         .price = 10000,
         .holdEffectParam = EXP_30000,
         .description = sExpCandyXLDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
@@ -10128,7 +10128,6 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 100,
     },
-
     [ITEM_FAIRY_RING] =
     {
         .name = _("Fairy Ring"),
@@ -10140,7 +10139,6 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 25,
     },
-
     [ITEM_WEIRD_STICK] =
     {
         .name = _("Weird Stick"),
@@ -10149,7 +10147,325 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 8,
+    },
+    [ITEM_FAIRY_FEATHER] =
+    {
+        .name = _("Fairy Feather"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_FAIRY_POWER,
+        .description = sFairyFeatherDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 1,
+    },
+
+    [ITEM_ICE_POP] =
+    {
+        .name = _("Ice Pop"),
+        .price = 500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sIcePopDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 5,
+    },
+
+    [ITEM_CREDIT_CARD] =
+    {
+        .name = _("Credit Card"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sCreditCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_PESKY_PLUSH] =
+    {
+        .name = _("Pesky Plush"),
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sPeskyPlushDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 5,
+    },
+
+    [ITEM_BLACK_SALAD] =
+    {
+        .name = _("Black Salad"),
+        .price = 2500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sBlackSaladDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 5,
+    },
+
+    [ITEM_DISTILL_MOD] =
+    {
+        .name = _("Distill Mod"),
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sDistillModDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 90,
+    },
+
+    [ITEM_CORRODE_MOD] =
+    {
+        .name = _("Corrode Mod"),
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sCorrodeModDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 90,
+    },
+
+    [ITEM_STILETTO] =
+    {
+        .name = _("Stiletto"),
+        .price = 15000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sStilettoDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+    },
+    
+    [ITEM_SILVER_CROWN] =
+    {
+        .name = _("Silver Crown"),
+        .price = 60000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sSilverCrownDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+    },
+
+    [ITEM_LONG_NOSE] =
+    {
+        .name = _("Long Nose"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sLongNoseDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 30,
+    },
+
+    [ITEM_KAMEN_SCARF] =
+    {
+        .name = _("Kamen Scarf"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sKamenScarfDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+
+    [ITEM_GEMSTONE] =
+    {
+        .name = _("Gemstone"),
+        .price = 40000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sGemstoneDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+    },
+
+    [ITEM_TERU_CHARM] =
+    {
+        .name = _("Teru Charm"),
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sTeruCharmDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 5,
+    },
+
+    [ITEM_MAX_EGGPLANT] =
+    {
+        .name = _("Max Eggplant"),
+        .price = 50000,
+        .description = sMaxEggplantDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_SacredAsh,
+        .flingPower = 30,
+    },
+
+    [ITEM_GOLD_TOOTH] =
+    {
+        .name = _("Gold Tooth"),
+        .price = 7500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sGoldToothDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 100,
+    },
+
+    [ITEM_CARROT_HORN] =
+    {
+        .name = _("Carrot Horn"),
+        .price = 7500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sCarrotHornDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+    },
+    
+    [ITEM_CORAL_CROWN] =
+    {
+        .name = _("Coral Crown"),
+        .price = 7500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sCoralCrownDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+
+    [ITEM_EXTRAPOLATOR] =
+    {
+        .name = _("Extrapolator"),
+        .price = 500,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sExtrapolatorDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_CURE_STATUS,
+        .flingPower = 30,
+    },
+
+    [ITEM_RELAXANT] =
+    {
+        .name = _("Relaxant"),
+        .price = 400,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sRelaxantDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_CURE_STATUS,
+        .flingPower = 30,
+    },
+
+    [ITEM_SHELLY_BREW] =
+    {
+        .name = _("Shelly Brew"),
+        .price = 1,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sShellyBrewDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .flingPower = 30,
+    },
+
+    [ITEM_SURPRISE_GIFT] =
+    {
+        .name = _("Heart Gift"),
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = sSurpriseGiftDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 5,
+    },
+
+    [ITEM_BUDDY_CARD] =
+    {
+        .name = _("Buddy Card"),
+        .price = 0,
+        .description = sBuddyCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_UNO_CARD] =
+    {
+        .name = _("Uno Card"),
+        .price = 0,
+        .description = sUnoCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_MAGIC_CARD] =
+    {
+        .name = _("Magic Card"),
+        .price = 0,
+        .description = sMagicCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_LEGEND_CARD] =
+    {
+        .name = _("Legend Card"),
+        .price = 0,
+        .description = sLegendCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_BUSINESS_CARD] =
+    {
+        .name = _("Business Card"),
+        .price = 0,
+        .description = sBuddyCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_POKEMON_CARD] =
+    {
+        .name = _("Pokemon Card"),
+        .price = 0,
+        .description = sPokemonCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
 };
