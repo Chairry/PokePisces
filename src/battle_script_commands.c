@@ -3625,7 +3625,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 else
                 {
                     gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED;
-                    if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRIP_CLAW)
+                    if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_BINDING_BAND)
                 #if B_BINDING_TURNS >= GEN_5
                         gDisableStructs[gEffectBattler].wrapTurns = 7;
                     else
@@ -18519,6 +18519,9 @@ void BS_ItemRestoreHP(void)
             break;
         case ITEM6_HEAL_HP_QUARTER:
             healAmount = maxHP / 4;
+            break;
+        case ITEM6_HEAL_HP_THIRD:
+            healAmount = maxHP / 3;
             break;
         default:
             healAmount = healParam;

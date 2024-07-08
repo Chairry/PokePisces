@@ -725,11 +725,12 @@ const struct Item gItems[] =
     {
         .name = _("Lava Cookie"),
         .price = 500,
+        .holdEffectParam = 1,
         .description = sLavaCookieDesc,
         .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_CURE_STATUS,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_UP_STAT,
         .flingPower = 30,
     },
 
@@ -5718,7 +5719,7 @@ const struct Item gItems[] =
     {
         .name = _("Cleanse Tag"),
         .price = 5000,
-        .holdEffect = HOLD_EFFECT_REPEL,
+        .holdEffect = HOLD_EFFECT_CLEANSE_TAG,
         .description = sCleanseTagDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10165,11 +10166,12 @@ const struct Item gItems[] =
     {
         .name = _("Ice Pop"),
         .price = 500,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 1,
         .description = sIcePopDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_UP_STAT,
         .flingPower = 5,
     },
 
@@ -10382,11 +10384,11 @@ const struct Item gItems[] =
     {
         .name = _("Shelly Brew"),
         .price = 1,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 69,
         .description = sShellyBrewDesc,
         .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .fieldUseFunc = ItemUseOutOfBattle_ShellyBrew,
         .flingPower = 30,
     },
 

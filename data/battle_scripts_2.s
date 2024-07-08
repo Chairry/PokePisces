@@ -25,6 +25,7 @@ gBattlescriptsForUsingItem::
     .4byte BattleScript_ItemRestoreHP                @ EFFECT_ITEM_REVIVE
     .4byte BattleScript_ItemRestorePP                @ EFFECT_ITEM_RESTORE_PP
     .4byte BattleScript_ItemIncreaseAllStats         @ EFFECT_ITEM_INCREASE_ALL_STATS
+    .4byte BattleScript_ItemHealAndUpStat            @ EFFECT_ITEM_HEAL_AND_UP_STAT
 
     .align 2
 gBattlescriptsForSafariActions::
@@ -84,6 +85,23 @@ BattleScript_ItemHealAndCureStatus::
     datahpupdate BS_ATTACKER
     updatestatusicon BS_ATTACKER
     printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
+    waitmessage B_WAIT_TIME_LONG
+    end
+
+BattleScript_ItemHealAndUpStat::
+    call BattleScript_UseItemMessage
+    itemrestorehp
+    bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+    orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+    healthbarupdate BS_ATTACKER
+    datahpupdate BS_ATTACKER
+    printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
+    waitmessage B_WAIT_TIME_LONG
+    itemincreasestat
+    statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_ItemEnd
+    setgraphicalstatchangevalues
+    playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+    printfromtable gStatUpStringIds
     waitmessage B_WAIT_TIME_LONG
     end
 

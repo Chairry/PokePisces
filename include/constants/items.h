@@ -1045,6 +1045,7 @@
 #define EXP_3000  3
 #define EXP_10000 4
 #define EXP_30000 5
+#define EXP_SHELLY_BREW 6
 
 // Item type IDs (used to determine the exit callback)
 #define ITEM_USE_MAIL             0
@@ -1066,6 +1067,7 @@
 #define EFFECT_ITEM_REVIVE                  9
 #define EFFECT_ITEM_RESTORE_PP              10
 #define EFFECT_ITEM_INCREASE_ALL_STATS      11
+#define EFFECT_ITEM_HEAL_AND_UP_STAT        12
 
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1

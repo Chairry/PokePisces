@@ -960,6 +960,8 @@ u8 ItemId_GetBattleUsage(u16 itemId)
             case ITEM_EFFECT_CURE_BURN:
             case ITEM_EFFECT_CURE_FREEZE_FROSTBITE:
             case ITEM_EFFECT_CURE_PARALYSIS:
+            case ITEM_EFFECT_CURE_EXPOSED:
+            case ITEM_EFFECT_CURE_PANIC:
             case ITEM_EFFECT_CURE_ALL_STATUS:
             case ITEM_EFFECT_CURE_CONFUSION:
             case ITEM_EFFECT_CURE_INFATUATION:
@@ -1000,6 +1002,10 @@ u32 GetItemStatus1Mask(u16 itemId)
             return STATUS1_POISON | STATUS1_TOXIC_POISON;
         case ITEM3_SLEEP:
             return (STATUS1_SLEEP | STATUS1_REST);
+        case ITEM3_EXPOSED:
+            return STATUS1_EXPOSED;
+        case ITEM3_PANIC:
+            return STATUS1_PANIC;
         case ITEM3_STATUS_ALL:
             return STATUS1_ANY;
     }

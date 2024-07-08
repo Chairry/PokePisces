@@ -19,6 +19,14 @@ const u8 gItemEffect_Awakening[6] = {
     [3] = ITEM3_SLEEP,
 };
 
+const u8 gItemEffect_Extrapolator[6] = {
+    [3] = ITEM3_EXPOSED,
+};
+
+const u8 gItemEffect_Relaxant[6] = {
+    [3] = ITEM3_PANIC,
+};
+
 const u8 gItemEffect_ParalyzeHeal[6] = {
     [3] = ITEM3_PARALYSIS,
 };
@@ -270,12 +278,18 @@ const u8 gItemEffect_SpdefFeather[11] = {
     [10] = 0,
 };
 
-const u8 gItemEffect_RareCandy[10] = {
-    [3] = ITEM3_LEVEL_UP,
+const u8 gItemEffect_RareCandy[11] = {
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_HEAL_HP_LVL_UP,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_LEVEL_UP,
+};
+
+const u8 gItemEffect_ShellyBrew[11] = {
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    [10] = ITEM10_LEVEL_UP,
 };
 
 const u8 gItemEffect_PPUp[9] = {
@@ -293,10 +307,10 @@ const u8 gItemEffect_PPMax[9] = {
     [6] = 1, /* Friendship change, low */ \
     [7] = 1  /* Friendship change, mid */
 
-const u8 gItemEffect_GuardSpec[8] = {
-    [3] = ITEM3_GUARD_SPEC,
+const u8 gItemEffect_GuardSpec[11] = {
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
+    [10] = ITEM10_GUARD_SPEC,
 };
 
 // The first item effect value for the stat boost items
@@ -343,6 +357,18 @@ const u8 gItemEffect_XSpecialDefense[8] = {
     [1] = ITEM1_X_SPDEF,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
+};
+
+const u8 gItemEffect_LavaCookie[8] = {
+    [1] = ITEM1_X_DEFENSE,
+    [4] = ITEM4_HEAL_HP,
+    [6] = ITEM6_HEAL_HP_THIRD,
+};
+
+const u8 gItemEffect_IcePop[8] = {
+    [1] = ITEM1_X_SPDEF,
+    [4] = ITEM4_HEAL_HP,
+    [6] = ITEM6_HEAL_HP_THIRD,
 };
 
 const u8 gItemEffect_EvoItem[6] = {
@@ -458,6 +484,8 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_BURN_HEAL]          = gItemEffect_BurnHeal,
     [ITEM_ICE_HEAL]           = gItemEffect_IceHeal,
     [ITEM_AWAKENING]          = gItemEffect_Awakening,
+    [ITEM_EXTRAPOLATOR]       = gItemEffect_Extrapolator,
+    [ITEM_RELAXANT]           = gItemEffect_Relaxant,
     [ITEM_FULL_HEAL]          = gItemEffect_FullHeal,
     [ITEM_ETHER]              = gItemEffect_Ether,
     [ITEM_MAX_ETHER]          = gItemEffect_MaxEther,
@@ -471,7 +499,8 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     // Regional Specialties
     [ITEM_PEWTER_CRUNCHIES]   = gItemEffect_FullHeal,
     [ITEM_RAGE_CANDY_BAR]     = gItemEffect_FullHeal,
-    [ITEM_LAVA_COOKIE]        = gItemEffect_FullHeal,
+    [ITEM_LAVA_COOKIE]        = gItemEffect_LavaCookie,
+    [ITEM_ICE_POP]            = gItemEffect_IcePop,
     [ITEM_OLD_GATEAU]         = gItemEffect_FullHeal,
     [ITEM_CASTELIACONE]       = gItemEffect_FullHeal,
     [ITEM_LUMIOSE_GALETTE]    = gItemEffect_FullHeal,
@@ -503,6 +532,7 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_EXP_CANDY_M]        = gItemEffect_RareCandy,
     [ITEM_EXP_CANDY_L]        = gItemEffect_RareCandy,
     [ITEM_EXP_CANDY_XL]       = gItemEffect_RareCandy,
+    [ITEM_SHELLY_BREW]        = gItemEffect_ShellyBrew,
     //[ITEM_DYNAMAX_CANDY]      = gItemEffect_DynamaxCandy, // Todo
 
     // Medicinal Flutes

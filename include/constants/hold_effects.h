@@ -204,6 +204,7 @@
 #define HOLD_EFFECT_FLIP_COIN           219
 #define HOLD_EFFECT_WARP_RIBBON         220
 #define HOLD_EFFECT_FAIRY_RING          221
+#define HOLD_EFFECT_CLEANSE_TAG         222
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
