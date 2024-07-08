@@ -1960,7 +1960,9 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -1968,13 +1970,16 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         default:
             if (gBattlerAttacker != gBattlerTarget)
-                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE + GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL);
-                ppToDeduct += (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
+                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+                ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             break;
         }
     }
@@ -17148,13 +17153,46 @@ static void Cmd_handleballthrow(void)
                     ballAddition = 30;
                 break;
             case ITEM_COOL_BALL:
-                if (GetCurrentMapType() == MAP_TYPE_UNDERWATER
-                #if B_DIVE_BALL_MODIFIER >= GEN_4
-                    || gIsFishingEncounter || gIsSurfingEncounter
-                #endif
-                )
-                    ballMultiplier = 350;
-                break;
+                {
+                    if (gBattleMons[gBattlerTarget].species == SPECIES_EBIBI
+                    || gBattleMons[gBattlerTarget].species == SPECIES_MAKIBI
+                    || gBattleMons[gBattlerTarget].species == SPECIES_EBIROSASHI
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SNOTLOUD
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SICKBEAT
+                    || gBattleMons[gBattlerTarget].species == SPECIES_LEVLADE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SHOCKORE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_PLASMANTIS
+                    || gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY
+                    || gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY
+                    || gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN
+                    || gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
+                    || gBattleMons[gBattlerTarget].species == SPECIES_FUZKY
+                    || gBattleMons[gBattlerTarget].species == SPECIES_COOLMUTTE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SNORUNT
+                    || gBattleMons[gBattlerTarget].species == SPECIES_GLALIE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_FROSLASS
+                    || gBattleMons[gBattlerTarget].species == SPECIES_LAWPARD
+                    || gBattleMons[gBattlerTarget].species == SPECIES_NINCADA
+                    || gBattleMons[gBattlerTarget].species == SPECIES_NINJASK
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SHEDINJA
+                    || gBattleMons[gBattlerTarget].species == SPECIES_BIVAGUE
+                    || gBattleMons[gBattlerTarget].species == SPECIES_LUSCKAW
+                    || gBattleMons[gBattlerTarget].species == SPECIES_SHELLYLOUH
+                    || gBattleMons[gBattlerTarget].species == SPECIES_BLINGUIN
+                    || gBattleMons[gBattlerTarget].species == SPECIES_AXELFIN
+                    || gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL
+                    || gBattleMons[gBattlerTarget].species == SPECIES_OROFLOW
+                    || gBattleMons[gBattlerTarget].species == SPECIES_ORROCAST
+                    || gBattleMons[gBattlerTarget].species == SPECIES_ORROWHELM)
+                    {    
+                        ballMultiplier = 500;
+                    }
+                    else
+                    {
+                        ballMultiplier = 10;
+                    }
+                }
             case ITEM_NEST_BALL:
                 if (!IsBattlerGrounded(gBattlerTarget))
                     ballMultiplier = 350;

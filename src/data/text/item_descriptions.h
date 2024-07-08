@@ -4171,7 +4171,7 @@ static const u8 sIcePopDesc[] = _(
 
 static const u8 sCreditCardDesc[] = _(
     "An Umbrat credit\n"
-    "card...");
+    "card.");
 
 static const u8 sRizzBerryDesc[] = _(
     "A held item that\n"
