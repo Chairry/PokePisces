@@ -4298,6 +4298,7 @@ BattleScript_EffectFling:
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_ORB, BattleScript_FlingPoisonOrb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_BLOOM_ORB, BattleScript_FlingBloomOrb
 	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_PANIC_ORB, BattleScript_FlingPanicOrb
+	jumpiflastuseditemholdeffect BS_ATTACKER, HOLD_EFFECT_BLACK_SALAD, BattleScript_FlingBloomOrb
 BattleScript_EffectFlingConsumeBerry:
 	savebattleritem BS_TARGET
 	battleritemtolastuseditem BS_TARGET
@@ -11825,6 +11826,15 @@ BattleScript_WindPowerActivates::
 BattleScript_WindPowerActivates_Ret:
 	return
 
+BattleScript_KamenScarfActivates::
+	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	setcharge BS_TARGET
+	printstring STRINGID_SCARFWASCHARGEDBYBEINGHIT
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_KamenScarfActivates_Ret:
+	return
+
 BattleScript_ToxicDebrisActivates::
 	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_SHORT
@@ -13102,6 +13112,7 @@ BattleScript_MoveEffectPoison::
 	statusanimation BS_EFFECT_BATTLER
 	printfromtable gGotPoisonedStringIds
 	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_UpdateEffectStatusIconRet
 
 BattleScript_MoveEffectBurn::
@@ -13414,7 +13425,7 @@ BattleScript_ActivateWeatherAbilities_Increment:
 BattleScript_TryAdrenalineOrb:
 	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_ADRENALINE_ORB, BattleScript_TryAdrenalineOrbRet
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, 12, BattleScript_TryAdrenalineOrbRet
-	setstatchanger STAT_SPEED, 1, FALSE
+	setstatchanger STAT_SPEED, 2, FALSE
 	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_TryAdrenalineOrbRet
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	setgraphicalstatchangevalues
@@ -14597,6 +14608,18 @@ BattleScript_BerryCureSlpRet::
 	removeitem BS_SCRIPTING
 	return
 
+BattleScript_BerryCurePanicEnd2::
+	call BattleScript_BerryCurePanicRet
+	end2
+
+BattleScript_BerryCurePanicRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNSITEMCALMEDIT
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_SCRIPTING
+	removeitem BS_SCRIPTING
+	return
+
 BattleScript_GemActivates::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
@@ -14821,6 +14844,27 @@ BattleScript_ItemHurtEnd2::
 	playanimation BS_ATTACKER, B_ANIM_MON_HIT
 	waitanimation
 	call BattleScript_ItemHurtRet
+	end2
+
+BattleScript_StickyBarb::
+	playanimation BS_ATTACKER, B_ANIM_MON_HIT
+	waitanimation
+	call BattleScript_ItemHurtRet
+	setstatchanger STAT_EVASION, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_StickyBarbStatDownEnd
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_StickyBarbStatDownDoAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_StickyBarbStatDownEnd
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_StickyBarbStatDownPrintString
+BattleScript_StickyBarbStatDownDoAnim::
+	attackanimation
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_StickyBarbStatDownPrintString::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_StickyBarbStatDownEnd::
 	end2
 
 BattleScript_ItemHealHP_Ret::

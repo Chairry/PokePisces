@@ -859,7 +859,6 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FROTHY_CHEESE] = {gItemIcon_FrothyCheese, gItemIconPalette_FrothyCheese},
     [ITEM_KEYCHAIN] = {gItemIcon_Keychain, gItemIconPalette_Keychain},
     [ITEM_FLIP_COIN] = {gItemIcon_FlipCoin, gItemIconPalette_FlipCoin},
-    [ITEM_WARP_RIBBON] = {gItemIcon_WarpRibbon, gItemIconPalette_WarpRibbon},
     [ITEM_GRAVITY_CORE] = {gItemIcon_GravityCore, gItemIconPalette_GravityCore},
     [ITEM_FAVOR_SCARF] = {gItemIcon_FavorScarf, gItemIconPalette_FavorScarf},
     [ITEM_WIDE_ARMOR] = {gItemIcon_WideArmor, gItemIconPalette_WideArmor},

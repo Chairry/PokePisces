@@ -2576,9 +2576,9 @@ static const u8 sRazorClawDesc[] = _(
     "critical-hit ratio.");
 
 static const u8 sRazorFangDesc[] = _(
-    "A held item that\n"
-    "may cause flinching\n"
-    "when the foe is hit.");
+    "Makes biting moves\n"
+    "drop defense. For\n"
+    "Gligar's line.");
 
 static const u8 sEvioliteDesc[] = _(
     "Raises the Def and\n"
@@ -4171,7 +4171,7 @@ static const u8 sIcePopDesc[] = _(
 
 static const u8 sCreditCardDesc[] = _(
     "An Umbrat credit\n"
-    "card...");
+    "card.");
 
 static const u8 sRizzBerryDesc[] = _(
     "A held item that\n"
@@ -4190,13 +4190,13 @@ static const u8 sBlackSaladDesc[] = _(
 
 static const u8 sDistillModDesc[] = _(
     "Boosts supereffective\n"
-    "moves but drops\n"
-    "resisted moves.");
+    "moves. Drops resisted\n"
+    "moves. For Relic-type.");
 
 static const u8 sCorrodeModDesc[] = _(
     "Drops defensive stat\n"
     "depending on move\n"
-    "category.");
+    "category if Relic-type.");
 
 static const u8 sStilettoDesc[] = _(
     "Boosts kicking moves\n"

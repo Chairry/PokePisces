@@ -2068,9 +2068,6 @@ const u32 gItemIconPalette_Keychain[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIcon_FlipCoin[] = INCBIN_U32("graphics/items/icons/flip_coin.4bpp.lz");
 const u32 gItemIconPalette_FlipCoin[] = INCBIN_U32("graphics/items/icon_palettes/flip_coin.gbapal.lz");
 
-const u32 gItemIcon_WarpRibbon[] = INCBIN_U32("graphics/items/icons/warp_ribbon.4bpp.lz");
-const u32 gItemIconPalette_WarpRibbon[] = INCBIN_U32("graphics/items/icon_palettes/warp_ribbon.gbapal.lz");
-
 const u32 gItemIcon_GravityCore[] = INCBIN_U32("graphics/items/icons/gravity_core.4bpp.lz");
 const u32 gItemIconPalette_GravityCore[] = INCBIN_U32("graphics/items/icon_palettes/gravity_core.gbapal.lz");
 

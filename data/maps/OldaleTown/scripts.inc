@@ -89,7 +89,6 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_FROTHY_CHEESE
 	giveitem ITEM_KEYCHAIN
 	giveitem ITEM_FLIP_COIN
-	giveitem ITEM_WARP_RIBBON
 	giveitem ITEM_GRAVITY_CORE
 	giveitem ITEM_FAVOR_SCARF
 	giveitem ITEM_WIDE_ARMOR

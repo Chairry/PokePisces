@@ -115,9 +115,9 @@ const u8 gItemEffect_EnergyPowder[10] = {
 
 const u8 gItemEffect_EnergyRoot[10] = {
     [5] = ITEM5_FRIENDSHIP_ALL,
-    [7] = -30, // Friendship change, low
-    [8] = -35, // Friendship change, mid
-    [9] = -40, // Friendship change, high
+    [7] = -50, // Friendship change, low
+    [8] = -50, // Friendship change, mid
+    [9] = -50, // Friendship change, high
 };
 
 const u8 gItemEffect_HealPowder[9] = {
