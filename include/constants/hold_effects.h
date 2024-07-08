@@ -210,6 +210,7 @@
 #define HOLD_EFFECT_KAMEN_SCARF         225
 #define HOLD_EFFECT_CURE_PANIC          226
 #define HOLD_EFFECT_RAZOR_FANG          227
+#define HOLD_EFFECT_CLEANSE_TAG         228
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

@@ -826,6 +826,12 @@ void ItemUseOutOfBattle_RareCandy(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_ShellyBrew(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_ShellyBrew;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_TMHM(u8 taskId)
 {
     if (gSpecialVar_ItemId >= ITEM_HM01)
@@ -1311,6 +1317,8 @@ void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
     case ITEM_EFFECT_CURE_BURN:
     case ITEM_EFFECT_CURE_FREEZE_FROSTBITE:
     case ITEM_EFFECT_CURE_PARALYSIS:
+    case ITEM_EFFECT_CURE_EXPOSED:
+    case ITEM_EFFECT_CURE_PANIC:
     case ITEM_EFFECT_CURE_ALL_STATUS:
     case ITEM_EFFECT_ATK_EV:
     case ITEM_EFFECT_HP_EV:

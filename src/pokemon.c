@@ -6367,6 +6367,7 @@ const u32 sExpCandyExperienceTable[] = {
     [EXP_3000 - 1] = 3000,
     [EXP_10000 - 1] = 10000,
     [EXP_30000 - 1] = 30000,
+    [EXP_SHELLY_BREW - 1] = 40000,
 };
 
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise
@@ -6426,35 +6427,8 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
         case 2:
             break;
 
-        // Handle ITEM3 effects (Guard Spec, Rare Candy, cure status)
+        // Handle ITEM3 effects (Cure status)
         case 3:
-            // Rare Candy / EXP Candy
-            if ((itemEffect[i] & ITEM3_LEVEL_UP)
-             && GetMonData(mon, MON_DATA_LEVEL, NULL) != GetCurrentLevelCap())
-            {
-                u8 param = ItemId_GetHoldEffectParam(item);
-                dataUnsigned = 0;
-
-                if (param == 0) // Rare Candy
-                {
-                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
-                }
-                else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
-                {
-                    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-                    dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
-                    if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
-                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
-                }
-
-                if (dataUnsigned != 0) // Failsafe
-                {
-                    SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
-                    CalculateMonStats(mon);
-                    retVal = FALSE;
-                }
-            }
-
             // Cure status
             if ((itemEffect[i] & ITEM3_SLEEP) && HealStatusConditions(mon, partyIndex, STATUS1_SLEEP_ANY, battlerId) == 0)
                 retVal = FALSE;
@@ -6465,6 +6439,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[i] & ITEM3_FREEZE) && HealStatusConditions(mon, partyIndex, STATUS1_FREEZE | STATUS1_FROSTBITE, battlerId) == 0)
                 retVal = FALSE;
             if ((itemEffect[i] & ITEM3_PARALYSIS) && HealStatusConditions(mon, partyIndex, STATUS1_PARALYSIS, battlerId) == 0)
+                retVal = FALSE;
+            if ((itemEffect[i] & ITEM3_EXPOSED) && HealStatusConditions(mon, partyIndex, STATUS1_EXPOSED, battlerId) == 0)
+                retVal = FALSE;
+            if ((itemEffect[i] & ITEM3_PANIC) && HealStatusConditions(mon, partyIndex, STATUS1_PANIC, battlerId) == 0)
                 retVal = FALSE;
             break;
 
@@ -6582,6 +6560,11 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                             break;
                         case ITEM6_HEAL_HP_QUARTER:
                             dataUnsigned = GetMonData(mon, MON_DATA_MAX_HP, NULL) / 4;
+                            if (dataUnsigned == 0)
+                                dataUnsigned = 1;
+                            break;
+                        case ITEM6_HEAL_HP_THIRD:
+                            dataUnsigned = GetMonData(mon, MON_DATA_MAX_HP, NULL) / 3;
                             if (dataUnsigned == 0)
                                 dataUnsigned = 1;
                             break;
@@ -6783,6 +6766,39 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 effectFlags >>= 1;
             }
             break;
+        // Handle ITEM10 effects (Guard Spec, Rare Candy)
+        case 10:
+            // Rare Candy / EXP Candy
+            if ((itemEffect[i] & ITEM10_LEVEL_UP)
+             && GetMonData(mon, MON_DATA_LEVEL, NULL) != GetCurrentLevelCap())
+            {
+                u8 param = ItemId_GetHoldEffectParam(item);
+                dataUnsigned = 0;
+
+                if (param == 0) // Rare Candy
+                {
+                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+                }
+                else if (param == 69) // Shelly Brew
+                {
+                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+                }
+                else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
+                {
+                    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+                    dataUnsigned = sExpCandyExperienceTable[param - 1] + GetMonData(mon, MON_DATA_EXP, NULL);
+                    if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
+                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+                }
+
+                if (dataUnsigned != 0) // Failsafe
+                {
+                    SetMonData(mon, MON_DATA_EXP, &dataUnsigned);
+                    CalculateMonStats(mon);
+                    retVal = FALSE;
+                }
+            }
+            break;
         }
     }
     return retVal;
@@ -6982,9 +6998,15 @@ u8 *UseStatIncreaseItem(u16 itemId)
         case ITEM1_X_ACCURACY:
             BufferStatRoseMessage(STAT_ACC);
             break;
+        case ITEM1_LAVA_COOKIE:
+            BufferStatRoseMessage(STAT_DEF);
+            break;
+        case ITEM1_ICE_POP:
+            BufferStatRoseMessage(STAT_SPDEF);
+            break;
     }
 
-    if (itemEffect[3] & ITEM3_GUARD_SPEC)
+    if (itemEffect[10] & ITEM10_GUARD_SPEC)
     {
         gBattlerAttacker = gBattlerInMenuId;
         BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnShroudedInMist);

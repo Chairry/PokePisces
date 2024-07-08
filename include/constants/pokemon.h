@@ -177,6 +177,8 @@
 
 #define STAT_ACC     6 // Only in battles.
 #define STAT_EVASION 7 // Only in battles.
+#define STAT_LAVA_COOKIE 8
+#define STAT_ICE_POP 9
 
 #define NUM_NATURE_STATS (NUM_STATS - 1) // excludes HP
 #define NUM_BATTLE_STATS (NUM_STATS + 2) // includes Accuracy and Evasion

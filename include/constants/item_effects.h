@@ -13,6 +13,8 @@
 #define ITEM1_X_SPATK           STAT_SPATK
 #define ITEM1_X_SPDEF           STAT_SPDEF
 #define ITEM1_X_ACCURACY        STAT_ACC
+#define ITEM1_LAVA_COOKIE       STAT_LAVA_COOKIE
+#define ITEM1_ICE_POP           STAT_ICE_POP
 
 // field 3 masks
 #define ITEM3_CONFUSION         0x1
@@ -21,10 +23,10 @@
 #define ITEM3_BURN              0x8
 #define ITEM3_POISON            0x10
 #define ITEM3_SLEEP             0x20
-#define ITEM3_LEVEL_UP          0x40
-#define ITEM3_GUARD_SPEC        0x80 // Works the same way as the move Mist.
+#define ITEM3_EXPOSED           0x40
+#define ITEM3_PANIC             0x80
 
-#define ITEM3_STATUS_ALL        (ITEM3_CONFUSION | ITEM3_PARALYSIS | ITEM3_FREEZE | ITEM3_BURN | ITEM3_POISON | ITEM3_SLEEP)
+#define ITEM3_STATUS_ALL        (ITEM3_CONFUSION | ITEM3_PARALYSIS | ITEM3_FREEZE | ITEM3_BURN | ITEM3_POISON | ITEM3_SLEEP | ITEM3_PANIC | ITEM3_EXPOSED)
 
 // field 4 masks
 #define ITEM4_EV_HP             0x1
@@ -49,15 +51,18 @@
 #define ITEM5_FRIENDSHIP_ALL    (ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID | ITEM5_FRIENDSHIP_HIGH)
 
 #define ITEM10_IS_VITAMIN       0x1
+#define ITEM10_LEVEL_UP         0x2
+#define ITEM10_GUARD_SPEC       0x4 // Works the same way as the move Mist.
 
 // fields 6 and onwards (except field 10) are item-specific arguments
-#define ITEM_EFFECT_ARG_START 6
+#define ITEM_EFFECT_ARG_START 11
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
 #define ITEM6_HEAL_HP_FULL    ((u8) -1)
 #define ITEM6_HEAL_HP_HALF    ((u8) -2)
 #define ITEM6_HEAL_HP_LVL_UP  ((u8) -3)
 #define ITEM6_HEAL_HP_QUARTER ((u8) -4)
+#define ITEM6_HEAL_HP_THIRD   ((u8) -5)
 
 // Special PP recovery amounts for ITEM4_HEAL_PP
 #define ITEM6_HEAL_PP_FULL   0x7F
@@ -91,5 +96,7 @@
 #define ITEM_EFFECT_PP_MAX 20
 #define ITEM_EFFECT_HEAL_PP 21
 #define ITEM_EFFECT_NONE 22
+#define ITEM_EFFECT_CURE_EXPOSED 23
+#define ITEM_EFFECT_CURE_PANIC 24
 
 #endif // GUARD_CONSTANTS_ITEM_EFFECTS_H
