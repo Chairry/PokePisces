@@ -519,6 +519,7 @@ static const u8 sText_PkmnsItemHealedBurn[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 static const u8 sText_PkmnsItemHealedFrostbite[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nhealed its frostbite!");
 static const u8 sText_PkmnsItemDefrostedIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ndefrosted it!");
 static const u8 sText_PkmnsItemWokeIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwoke it from its sleep!");
+static const u8 sText_PkmnsItemCalmedIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncalmed it from its panic!");
 static const u8 sText_PkmnsItemSnappedOut[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nsnapped it out of confusion!");
 static const u8 sText_PkmnsItemCuredProblem[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncured its {B_BUFF1} problem!");
 static const u8 sText_PkmnsItemNormalizedStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nnormalized its status!");
@@ -917,6 +918,7 @@ static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!")
 static const u8 sText_PkmnPumpingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\npumping power!");
 static const u8 sText_CannonadeMalfunctioned[] = _("The {B_CURRENT_MOVE} has\nmalfunctioned!");
 static const u8 sText_PkmnSwitchedSpAtkAndSpDef[] = _("{B_ATK_NAME_WITH_PREFIX} switched its Sp.\nAttack and Sp. Defense!");
+static const u8 sText_ScarfWasChargedByBeingHit[] = _("Being hit by {B_CURRENT_MOVE} charged\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} with power!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1685,6 +1687,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNPUMPINGPOWER - BATTLESTRINGS_TABLE_START] = sText_PkmnPumpingPower,
     [STRINGID_CANNONADEMALFUNCTIONED - BATTLESTRINGS_TABLE_START] = sText_CannonadeMalfunctioned,
     [STRINGID_PKMNSWITCHEDSPATKANDSPDEF - BATTLESTRINGS_TABLE_START] = sText_PkmnSwitchedSpAtkAndSpDef,
+    [STRINGID_SCARFWASCHARGEDBYBEINGHIT - BATTLESTRINGS_TABLE_START] = sText_ScarfWasChargedByBeingHit,
+    [STRINGID_PKMNSITEMCALMEDIT - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCalmedIt,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

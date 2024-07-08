@@ -5743,7 +5743,7 @@ const struct Item gItems[] =
         .name = _("Focus Band"),
         .price = 4000,
         .holdEffect = HOLD_EFFECT_FOCUS_BAND,
-        .holdEffectParam = 10,
+        .holdEffectParam = 15,
         .description = sFocusBandDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -6040,8 +6040,8 @@ const struct Item gItems[] =
     {
         .name = _("Razor Fang"),
         .price = 5000,
-        .holdEffect = HOLD_EFFECT_FLINCH,
-        .holdEffectParam = 10,
+        .holdEffect = HOLD_EFFECT_RAZOR_FANG,
+        .holdEffectParam = 100,
         .description = sRazorFangDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -6690,6 +6690,7 @@ const struct Item gItems[] =
     {
         .name = _("Pamtre Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_CURE_PANIC,
         .description = sPamtreBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -9798,17 +9799,6 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 100,
     },
-    [ITEM_WARP_RIBBON] =
-    {
-        .name = _("Warp Ribbon"),
-        .price = 3000,
-        .holdEffect = HOLD_EFFECT_WARP_RIBBON,
-        .description = sWarpRibbonDesc,
-        .pocket = POCKET_BATTLE_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 50,
-    },
     [ITEM_GRAVITY_CORE] =
     {
         .name = _("Gravity Core"),
@@ -10080,6 +10070,7 @@ const struct Item gItems[] =
     {
         .name = _("Solar Sword"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_SOLAR_SWORD,
         .description = sSolarSwordDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10100,6 +10091,7 @@ const struct Item gItems[] =
     {
         .name = _("Friend Ribbon"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_FRIEND_RIBBON,
         .description = sFriendRibbonDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10201,7 +10193,8 @@ const struct Item gItems[] =
     {
         .name = _("Black Salad"),
         .price = 2500,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_BLACK_SALAD,
+        .holdEffectParam = 30,
         .description = sBlackSaladDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10213,7 +10206,7 @@ const struct Item gItems[] =
     {
         .name = _("Distill Mod"),
         .price = 4000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_DISTILL_MOD,
         .description = sDistillModDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10237,7 +10230,8 @@ const struct Item gItems[] =
     {
         .name = _("Stiletto"),
         .price = 15000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_STILETTO,
+        .holdEffectParam = 100,
         .description = sStilettoDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10273,7 +10267,7 @@ const struct Item gItems[] =
     {
         .name = _("Kamen Scarf"),
         .price = 1000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_KAMEN_SCARF,
         .description = sKamenScarfDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,

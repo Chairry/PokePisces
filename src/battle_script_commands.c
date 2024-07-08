@@ -929,7 +929,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_CONFUSION]        = BattleScript_MoveEffectConfusion,
     [MOVE_EFFECT_UPROAR]           = BattleScript_MoveEffectUproar,
     [MOVE_EFFECT_PAYDAY]           = BattleScript_MoveEffectPayDay,
-    [MOVE_EFFECT_PLUNDER]           = BattleScript_MoveEffectPayDay,
+    [MOVE_EFFECT_PLUNDER]          = BattleScript_MoveEffectPayDay,
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
     [MOVE_EFFECT_PANIC]            = BattleScript_MoveEffectPanic,
@@ -2071,6 +2071,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + 1 * ((gBattleMons[battlerAtk].status2 & STATUS2_DRAGON_CHEER) != 0)
                     + (gBattleMoves[gCurrentMove].highCritRatio)
                     + (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
+                    + (holdEffectAtk == HOLD_EFFECT_SOLAR_SWORD && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN))
                     + 2 * (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_CHANSEY)
                     + 2 * BENEFITS_FROM_LEEK(battlerAtk, holdEffectAtk)
                 #if B_AFFECTION_MECHANICS == TRUE
