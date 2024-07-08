@@ -22,6 +22,14 @@ TestMap_EventScript_GymLeader::
 	release
 	end
 
+TestMap_EventScript_ItemBurntBranch::
+	finditem ITEM_BURNT_BRANCH
+	end
+
+TestMap_EventScript_ItemCursedAmulet::
+	finditem ITEM_CURSED_AMULET
+	end
+
 TestMap_Text_MendelIntro:
 	.string "intro$"
 
