@@ -4297,7 +4297,7 @@ Move_AQUA_JET:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	loadspritegfx ANIM_TAG_SPLASH
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, 2, 4, 0, 0, 13, 336
+	createsprite gCoolBallSpriteTemplate, 2, 4, 0, 0, 13, 336
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, 3, 1, 0
@@ -32159,7 +32159,7 @@ Move_DIVE:
 DiveSetUp:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
+	createsprite gCoolBallSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, ANIM_ATTACKER, 3, 0
@@ -35494,7 +35494,7 @@ Move_HYDRO_VORTEX::
 	waitforvisualfinish
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
+	createsprite gCoolBallSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, ANIM_ATTACKER, 3, 0x0

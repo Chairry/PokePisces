@@ -42,7 +42,7 @@ static const u8 sNestBallDesc[] = _(
     "better on flying or\n"
     "levitating Pokémon.");
 
-static const u8 sDiveBallDesc[] = _(
+static const u8 sCoolBallDesc[] = _(
     "A Ball that works\n"
     "better on Pokémon\n"
     "on the ocean floor.");
@@ -4084,11 +4084,6 @@ static const u8 sYellowSodaDesc[] = _(
     "and critical-hit\n"
     "ratio. For Voreon.");
 
-static const u8 sIcyCapeDesc[] = _(
-    "Boosts Snorunt's\n"
-    "offenses and\n"
-    "defenses in hail.");
-
 static const u8 sDripShoesDesc[] = _(
     "Boosts Pantney's\n"
     "Speed and Evasion\n"
@@ -4139,11 +4134,6 @@ static const u8 sMoonMirrorDesc[] = _(
     "makes Lunatone\n"
     "reflect stat drops.");
 
-static const u8 sCrossbonesDesc[] = _(
-    "Ups Dark and Water-\n"
-    "type moves in rain.\n"
-    "Only for Scallywarg.");
-
 static const u8 sFriendRibbonDesc[] = _(
     "Boosts user's Def\n"
     "and ally's moves.\n"
@@ -4168,3 +4158,139 @@ static const u8 sWeirdStickDesc[] = _(
     "A cool, yet odd\n"
     "stick, that seems\n"
     "indescribable.");
+
+static const u8 sFairyFeatherDesc[] = _(
+    "A held item that\n"
+    "raises the power of\n"
+    "Fairy-type moves.");
+
+static const u8 sIcePopDesc[] = _(
+    "Restores 1/3 of a\n"
+    "Pokémon's HP and\n"
+    "raises Sp. Def.");
+
+static const u8 sCreditCardDesc[] = _(
+    "An Umbrat credit\n"
+    "card...");
+
+static const u8 sRizzBerryDesc[] = _(
+    "A held item that\n"
+    "that infatuates\n"
+    "ignoring gender.");
+
+static const u8 sPeskyPlushDesc[] = _(
+    "A held item that may\n"
+    "make Bug-type moves\n"
+    "Taunt and Torment.");
+
+static const u8 sBlackSaladDesc[] = _(
+    "Attacks may cause\n"
+    "Blooming. Boosts\n"
+    "against Blooming.");
+
+static const u8 sDistillModDesc[] = _(
+    "Boosts supereffective\n"
+    "moves but drops\n"
+    "resisted moves.");
+
+static const u8 sCorrodeModDesc[] = _(
+    "Drops defensive stat\n"
+    "depending on move\n"
+    "category.");
+
+static const u8 sStilettoDesc[] = _(
+    "Boosts kicking moves\n"
+    "and makes them lower\n"
+    "the foe's Speed stat.");
+
+static const u8 sSilverCrownDesc[] = _(
+    "Boosts HP by 200.\n"
+    "Infests the foe\n"
+    "if hit. For Flague.");
+
+static const u8 sLongNoseDesc[] = _(
+    "Bug/Dark-type moves\n"
+    "strike first and drop\n"
+    "stats. For Moskopo.");
+
+static const u8 sKamenScarfDesc[] = _(
+    "Drops SE moves. Ups\n"
+    "Sp. Atk. Gains Charge\n"
+    "if hit. For Shockore.");
+
+static const u8 sGemstoneDesc[] = _(
+    "Maxes evasion then\n"
+    "drops each turn. Ups\n"
+    "Sp. Atk. For Harace.");
+
+static const u8 sTeruCharmDesc[] = _(
+    "Prevents indirect\n"
+    "damage. Ups defenses.\n"
+    "For Chiroberra.");
+
+static const u8 sMaxEggplantDesc[] = _(
+    "Fully revives and\n"
+    "restores all\n"
+    "fainted Pokémon.");
+
+static const u8 sGoldToothDesc[] = _(
+    "A tooth from a\n"
+    "Blinguin. They're\n"
+    "very valuable.");
+
+static const u8 sCarrotHornDesc[] = _(
+    "A horn from the\n"
+    "Welproot line. They\n"
+    "are like trophies.");
+
+static const u8 sCoralCrownDesc[] = _(
+    "A crown made from\n"
+    "Corisp's line. They\n"
+    "are like currency.");
+
+static const u8 sExtrapolatorDesc[] = _(
+    "Secures an exposed\n"
+    "Pokémon.");
+
+static const u8 sRelaxantDesc[] = _(
+    "Calms down a\n"
+    "panicked Pokémon.");
+
+static const u8 sShellyBrewDesc[] = _(
+    "A mysterious mix\n"
+    "that makes a\n"
+    "Pokémon Level 50.");
+
+static const u8 sSurpriseGiftDesc[] = _(
+    "After 2 turns it\n"
+    "deals damage and\n"
+    "infests the holder.");
+
+static const u8 sBuddyCardDesc[] = _(
+    "A futuristic card\n"
+    "for your buddies\n"
+    "to fight with.");
+
+static const u8 sUnoCardDesc[] = _(
+    "A card with magical\n"
+    "reversing properties.");
+
+static const u8 sMagicCardDesc[] = _(
+    "A card that contains\n"
+    "the hatred of new\n"
+    "magic.");
+
+static const u8 sLegendCardDesc[] = _(
+    "A card with a story\n"
+    "of something nearly\n"
+    "forgotten.");
+
+static const u8 sBusinessCardDesc[] = _(
+    "A professional\n"
+    "looking card. Oddly\n"
+    "you want to trade it.");
+
+static const u8 sPokemonCardDesc[] = _(
+    "A card made from\n"
+    "love. You understand\n"
+    "now what it all meant.");

@@ -106,8 +106,7 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_TRIUMPH_STAR
 	giveitem ITEM_ZIG_SASH
 	giveitem ITEM_DOUGH_STICK
-	giveitem ITEM_YELLOW_SODA
-	giveitem ITEM_ICY_CAPE
+	giveitem ITEM_BLUK_BERRY
 	giveitem ITEM_DRIP_SHOES
 	giveitem ITEM_COARSE_SAND
 	giveitem ITEM_OBJECT_D_ARC
@@ -118,7 +117,6 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_PANIC_ORB
 	giveitem ITEM_SOLAR_SWORD
 	giveitem ITEM_MOON_MIRROR
-	giveitem ITEM_CROSSBONES
 	giveitem ITEM_FRIEND_RIBBON
 	giveitem ITEM_ROOM_EXTENDER
 	giveitem ITEM_TRADING_CARD
