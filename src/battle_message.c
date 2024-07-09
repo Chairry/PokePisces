@@ -532,6 +532,7 @@ static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM} allows the\nuse o
 static const u8 sText_PkmnHungOnWithX[] = _("{B_DEF_NAME_WITH_PREFIX} hung on\nusing its {B_LAST_ITEM}!");
 static const u8 sText_PkmnsItemCauseBurn[] = _("{B_LAST_ITEM}\ncaused a burn!");
 static const u8 sText_PkmnsItemCausePanic[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncaused it to panic!");
+static const u8 sText_PkmnsItemCauseTauntTorment[] = _("{B_LAST_ITEM}\nannoyed the opponent!");
 const u8 gText_EmptyString3[] = _("");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
 
@@ -1689,6 +1690,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSWITCHEDSPATKANDSPDEF - BATTLESTRINGS_TABLE_START] = sText_PkmnSwitchedSpAtkAndSpDef,
     [STRINGID_SCARFWASCHARGEDBYBEINGHIT - BATTLESTRINGS_TABLE_START] = sText_ScarfWasChargedByBeingHit,
     [STRINGID_PKMNSITEMCALMEDIT - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCalmedIt,
+    [STRINGID_PKMNSITEMCAUSETAUNTTORMENT - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCauseTauntTorment,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

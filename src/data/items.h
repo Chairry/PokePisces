@@ -10183,7 +10183,7 @@ const struct Item gItems[] =
     {
         .name = _("Pesky Plush"),
         .price = 100,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_PESKY_PLUSH,
         .description = sPeskyPlushDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,

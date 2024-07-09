@@ -8766,6 +8766,21 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             }
         }
         break;
+        case HOLD_EFFECT_PESKY_PLUSH:
+        {
+            u16 ability = GetBattlerAbility(gBattlerAttacker);
+
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp && moveType == TYPE_BUG && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_PESKY_PLUSH;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ItemTauntTorment;
+                effect++;
+                SetMoveEffect(TRUE, 0);
+            }
+        }
+        break;
         case HOLD_EFFECT_BLUNDER_POLICY:
             if (gBattleStruct->blunderPolicy && gBattleMons[gBattlerAttacker].hp != 0 && CompareStat(gBattlerAttacker, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN))
             {

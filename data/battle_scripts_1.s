@@ -14438,6 +14438,11 @@ BattleScript_ItemStatusEffect::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_ItemTauntTorment::
+	printstring STRINGID_PKMNSITEMCAUSETAUNTTORMENT
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_BattleBondActivatesOnMoveEndAttacker::
 	pause 5
 	copybyte gBattlerAbility, gBattlerAttacker

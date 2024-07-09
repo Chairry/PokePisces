@@ -444,8 +444,9 @@
 #define MOVE_EFFECT_PLUNDER             104
 #define MOVE_EFFECT_VEXING_KI           105
 #define MOVE_EFFECT_GRAV_APPLE          106
+#define MOVE_EFFECT_PESKY_PLUSH         107
 
-#define NUM_MOVE_EFFECTS                107
+#define NUM_MOVE_EFFECTS                108
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000
