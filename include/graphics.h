@@ -10690,6 +10690,8 @@ extern const u32 gItemIcon_BusinessCard[];
 extern const u32 gItemIconPalette_BusinessCard[];
 extern const u32 gItemIcon_PokemonCard[];
 extern const u32 gItemIconPalette_PokemonCard[];
+extern const u32 gItemIcon_PokerCard[];
+extern const u32 gItemIconPalette_PokerCard[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

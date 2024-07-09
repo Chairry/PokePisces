@@ -147,6 +147,7 @@ OldaleTown_EventScript_ExplainPokemonMart::
     giveitem ITEM_LEGEND_CARD
     giveitem ITEM_BUSINESS_CARD
     giveitem ITEM_POKEMON_CARD
+    giveitem ITEM_POKER_CARD
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_POTION_OLDALE
