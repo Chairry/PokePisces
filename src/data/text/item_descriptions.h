@@ -4181,7 +4181,7 @@ static const u8 sRizzBerryDesc[] = _(
 static const u8 sPeskyPlushDesc[] = _(
     "Bug-type moves\n"
     "have a chance to\n"
-    "Taunt and Torment.");
+    "Torment and Taunt.");
 
 static const u8 sBlackSaladDesc[] = _(
     "Attacks may cause\n"

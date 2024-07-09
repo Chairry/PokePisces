@@ -3382,7 +3382,7 @@ static const u8 sSilenceDescription[] = _(
 
 static const u8 sVexingKiDescription[] = _(
     "Releases a malice aura that\n"
-    "taunts and torments the foe.");
+    "torments and taunts the foe.");
 
 static const u8 sDecayBeamDescription[] = _(
     "SE against Bug and Grass.\n"
