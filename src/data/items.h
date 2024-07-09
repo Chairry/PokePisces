@@ -10446,7 +10446,7 @@ const struct Item gItems[] =
     {
         .name = _("Business Card"),
         .price = 0,
-        .description = sBuddyCardDesc,
+        .description = sBusinessCardDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

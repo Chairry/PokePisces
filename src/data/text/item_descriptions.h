@@ -4272,25 +4272,26 @@ static const u8 sBuddyCardDesc[] = _(
     "to fight with.");
 
 static const u8 sUnoCardDesc[] = _(
-    "A card with magical\n"
-    "reversing properties.");
+    "A card with the\n"
+    "magical properties\n"
+    "of reversing.");
 
 static const u8 sMagicCardDesc[] = _(
-    "A card that contains\n"
-    "the hatred of new\n"
-    "magic.");
+    "A card containing\n"
+    "the hatred of\n"
+    "flashy magic.");
 
 static const u8 sLegendCardDesc[] = _(
-    "A card with a story\n"
-    "of something nearly\n"
-    "forgotten.");
+    "A card with the\n"
+    "story of something\n"
+    "nearly forgotten.");
 
 static const u8 sBusinessCardDesc[] = _(
-    "A professional\n"
-    "looking card. Oddly\n"
-    "you want to trade it.");
+    "A nice looking\n"
+    "card. Oddly you\n"
+    "want to trade it.");
 
 static const u8 sPokemonCardDesc[] = _(
-    "A card made from\n"
-    "love. You understand\n"
-    "now what it all meant.");
+    "A card made with\n"
+    "love. You now know\n"
+    "what it all meant.");
