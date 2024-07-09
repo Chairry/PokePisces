@@ -10455,9 +10455,20 @@ const struct Item gItems[] =
 
     [ITEM_POKEMON_CARD] =
     {
-        .name = _("Pokemon Card"),
+        .name = _("Pokémon Card"),
         .price = 0,
         .description = sPokemonCardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_POKER_CARD] =
+    {
+        .name = _("Poker Card"),
+        .price = 0,
+        .description = sPokerCardDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

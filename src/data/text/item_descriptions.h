@@ -4295,3 +4295,8 @@ static const u8 sPokemonCardDesc[] = _(
     "A card made with\n"
     "love. You now know\n"
     "what it all meant.");
+
+static const u8 sPokerCardDesc[] = _(
+    "A card containing\n"
+    "the love of real\n"
+    "magic.");
