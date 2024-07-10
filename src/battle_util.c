@@ -11526,6 +11526,9 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
             return UQ_4_12(0.8);
         break;
+    case ABILITY_STALL:
+        return UQ_4_12(0.7);
+        break;
     }
     return UQ_4_12(1.0);
 }
