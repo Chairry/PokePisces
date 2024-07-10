@@ -6018,7 +6018,7 @@ const u8 gDraekarotPokedexText[] = _(
 
 const u8 gKarodoraugPokedexText[] = _(
     "Expeditions led by seasoned hunters\n"
-    "called 'Dragon Knights' search for their\n"
+    "called “Dragon Knights” search for their\n"
     "delicious horns. They rarely succeed due\n"
     "to how powerful Karodoraug are.");
 
