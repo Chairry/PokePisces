@@ -20,7 +20,17 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
 	goto_if_gt VAR_BALL_QUEST_STATE, 0, PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest
+	goto_if_set FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR, PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuyTruncated
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
+	setflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
+	getcaughtmon SPECIES_BERM
+	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuyTruncated::
+	msgbox PacifidlogTown_PokemonCenter_2F_Text_CaughtMonReminder, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_BERM
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
@@ -43,6 +53,7 @@ PacifidlogTown_PokemonCenter_2F_EventScript_Check3::
 
 PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall::
 	addvar VAR_BALL_QUEST_STATE, 1
+	clearflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -87,6 +98,12 @@ PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
 	.string "Catch those trés and show me your\n"
 	.string "Pokédex, and I will make it\l"
 	.string "worth your troubles.$"
+
+PacifidlogTown_PokemonCenter_2F_Text_CaughtMonReminder:
+	.string "Berm, Ebibi, and Kitikiti...\n"
+	.string "I very much would like to see them!\p"
+	.string "Do you have them registered\l"
+	.string "in your Pokédex?$"
 
 PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt:
 	.string "I see you have not the required\n"
