@@ -2248,5 +2248,5 @@ const u32 gItemIconPalette_BusinessCard[] = INCBIN_U32("graphics/items/icon_pale
 const u32 gItemIcon_PokemonCard[] = INCBIN_U32("graphics/items/icons/pokemon_card.4bpp.lz");
 const u32 gItemIconPalette_PokemonCard[] = INCBIN_U32("graphics/items/icon_palettes/pokemon_card.gbapal.lz");
 
-const u32 gItemIcon_PokerCard[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_PokerCard[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_PokerCard[] = INCBIN_U32("graphics/items/icons/poker_card.4bpp.lz");
+const u32 gItemIconPalette_PokerCard[] = INCBIN_U32("graphics/items/icon_palettes/poker_card.gbapal.lz");
