@@ -21,7 +21,17 @@ MossdeepCity_PokemonCenter_2F_EventScript_BallQuestGuy::
 	faceplayer
 	goto_if_lt VAR_BALL_QUEST_STATE, 2, MossdeepCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest
 	goto_if_gt VAR_BALL_QUEST_STATE, 2, MossdeepCity_PokemonCenter_2F_EventScript_NoMoreQuest
+	goto_if_set FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR, MossdeepCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated
+	setflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox MossdeepCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
+	getcaughtmon SPECIES_MINOTE
+	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_PokemonCenter_2F_EventScript_Check2
+	msgbox MossdeepCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+MossdeepCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated::
+	msgbox MossdeepCity_PokemonCenter_2F_Text_CaughtMonReminder, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_MINOTE
 	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_PokemonCenter_2F_EventScript_Check2
 	msgbox MossdeepCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
@@ -44,6 +54,7 @@ MossdeepCity_PokemonCenter_2F_EventScript_Check3::
 
 MossdeepCity_PokemonCenter_2F_EventScript_GiveNewBall::
 	addvar VAR_BALL_QUEST_STATE, 1
+	clearflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox MossdeepCity_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -61,6 +72,12 @@ MossdeepCity_PokemonCenter_2F_EventScript_NoMoreQuest::
 MossdeepCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
 	.string "you needa catch uhh\n"
 	.string "slickslice minote spoink$"
+
+MossdeepCity_PokemonCenter_2F_Text_CaughtMonReminder:
+	.string "Slickslice, Minote, and Spoink...\n"
+	.string "I very much would like to see them!\p"
+	.string "Do you have them registered\l"
+	.string "in your Pokédex?$"
 
 MossdeepCity_PokemonCenter_2F_Text_GoCatchIt:
 	.string "go GET em shithead$"
