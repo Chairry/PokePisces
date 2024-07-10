@@ -8771,13 +8771,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 
             if (gBattleMoveDamage != 0 // Need to have done damage
-                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp && moveType == TYPE_BUG && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && TARGET_TURN_DAMAGED 
+                && gBattleMons[gBattlerTarget].hp 
+                && moveType == TYPE_BUG)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_PESKY_PLUSH;
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ItemTauntTorment;
-                effect++;
-                SetMoveEffect(TRUE, 0);
+                SetMoveEffect(FALSE, 0);
+                BattleScriptPop();
             }
         }
         break;

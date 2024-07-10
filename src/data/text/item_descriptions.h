@@ -314,9 +314,9 @@ static const u8 sRageCandyBarDesc[] = _(
     "one Pokémon.");
 
 static const u8 sLavaCookieDesc[] = _(
-    "A local specialty\n"
-    "that heals all\n"
-    "status problems.");
+    "Restores 1/3 of a\n"
+    "Pokémon's HP and\n"
+    "raises Defense.");
 
 static const u8 sOldGateauDesc[] = _(
     "Heals all the\n"
@@ -4181,7 +4181,7 @@ static const u8 sRizzBerryDesc[] = _(
 static const u8 sPeskyPlushDesc[] = _(
     "Bug-type moves\n"
     "have a chance to\n"
-    "Taunt and Torment.");
+    "Torment and Taunt.");
 
 static const u8 sBlackSaladDesc[] = _(
     "Attacks may cause\n"

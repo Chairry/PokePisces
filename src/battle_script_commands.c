@@ -916,6 +916,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_NIGHTMARE]      = STATUS2_NIGHTMARE,
     [MOVE_EFFECT_THRASH]         = STATUS2_LOCK_CONFUSE,
     [MOVE_EFFECT_RECHARGE_REDUCE] = STATUS4_RECHARGE_REDUCE,
+    [MOVE_EFFECT_TORMENT]         = STATUS2_TORMENT,
 };
 
 static const u8 *const sMoveEffectBS_Ptrs[] =
@@ -3037,7 +3038,11 @@ void SetMoveEffect(bool32 primary, u32 certain)
     if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
         && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_FLINCH)
         INCREMENT_RESET_RETURN
-    
+
+    if (gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
+        && !primary && gBattleScripting.moveEffect <= MOVE_EFFECT_TORMENT)
+        INCREMENT_RESET_RETURN
+
     if (TestSheerForceFlag(gBattlerAttacker, gCurrentMove) && affectsUser != MOVE_EFFECT_AFFECTS_USER)
         INCREMENT_RESET_RETURN
 
@@ -3419,6 +3424,31 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
                     }
+                }
+                break;
+            case MOVE_EFFECT_TORMENT:
+                if (battlerAbility == ABILITY_AROMA_VEIL)
+                {
+                    if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
+                    {
+                        gLastUsedAbility = ABILITY_AROMA_VEIL;
+                        gBattlerAbility = gEffectBattler;
+                        RecordAbilityBattle(gEffectBattler, ABILITY_AROMA_VEIL);
+                        gBattlescriptCurrInstr = BattleScript_AromaVeilProtects;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
+                    }
+                }
+                else if (gBattleMons[gEffectBattler].status2 == STATUS2_TORMENT)
+                {
+                    gBattlescriptCurrInstr++;
+                }    
+                else
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
                 }
                 break;
             case MOVE_EFFECT_FLINCH:
@@ -4331,9 +4361,17 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;
             case MOVE_EFFECT_VEXING_KI:
                 {
-                    u8 randomTauntChance = RandomPercentage(RNG_VEXING_KI_TAUNT, CalcSecondaryEffectChance(gBattlerAttacker, 15));
                     u8 randomTormentChance = RandomPercentage(RNG_VEXING_KI_TORMENT, CalcSecondaryEffectChance(gBattlerAttacker, 15));
+                    u8 randomTauntChance = RandomPercentage(RNG_VEXING_KI_TAUNT, CalcSecondaryEffectChance(gBattlerAttacker, 15));
+                    bool32 tormentlanded = FALSE;
+                    bool32 tauntlanded = FALSE;
 
+                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    {
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_TORMENT];
+                        tormentlanded = TRUE;
+                    }
+                    
                     if (randomTauntChance && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
                     {
                         #if B_TAUNT_TURNS >= GEN_5
@@ -4346,15 +4384,30 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         u8 turns = 2;
                         #endif
                         gDisableStructs[gBattlerTarget].tauntTimer = turns;
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_TauntString;
+                        tauntlanded = TRUE;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
                     }
 
-                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    if (tormentlanded)
                     {
-                        gBattleMons[gBattlerTarget].status2 |= STATUS2_TORMENT;
+                        if (tauntlanded)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_TormentTauntString;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_TormentString;                        
+                        }
+                    }
+                    else if (tauntlanded)
+                    {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_TormentString;
+                        gBattlescriptCurrInstr = BattleScript_TauntString;
                     }
                     else
                     {
@@ -4364,9 +4417,17 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 break;
             case MOVE_EFFECT_PESKY_PLUSH:
                 {
-                    u8 randomTauntChance = RandomPercentage(RNG_PESKY_PLUSH_TAUNT, CalcSecondaryEffectChance(gBattlerAttacker, 10));
                     u8 randomTormentChance = RandomPercentage(RNG_PESKY_PLUSH_TORMENT, CalcSecondaryEffectChance(gBattlerAttacker, 10));
+                    u8 randomTauntChance = RandomPercentage(RNG_PESKY_PLUSH_TAUNT, CalcSecondaryEffectChance(gBattlerAttacker, 10));
+                    bool32 tormentlanded = FALSE;
+                    bool32 tauntlanded = FALSE;
 
+                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    {
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_TORMENT];
+                        tormentlanded = TRUE;
+                    }
+                    
                     if (randomTauntChance && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
                     {
                         #if B_TAUNT_TURNS >= GEN_5
@@ -4379,15 +4440,30 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         u8 turns = 2;
                         #endif
                         gDisableStructs[gBattlerTarget].tauntTimer = turns;
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_TauntString;
+                        tauntlanded = TRUE;
+                    }
+                    else
+                    {
+                        gBattlescriptCurrInstr++;
                     }
 
-                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    if (tormentlanded)
                     {
-                        gBattleMons[gBattlerTarget].status2 |= STATUS2_TORMENT;
+                        if (tauntlanded)
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_TormentTauntString;
+                        }
+                        else
+                        {
+                            BattleScriptPush(gBattlescriptCurrInstr + 1);
+                            gBattlescriptCurrInstr = BattleScript_TormentString;                        
+                        }
+                    }
+                    else if (tauntlanded)
+                    {
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_TormentString;
+                        gBattlescriptCurrInstr = BattleScript_TauntString;
                     }
                     else
                     {
@@ -9555,7 +9631,11 @@ static void Cmd_various(void)
         VARIOUS_ARGS(const u8 *failInstr);
         gBattleScripting.battler = battler;
 
-        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
+        if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else if (gBattleMons[battler].status2 & STATUS2_TORMENT)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -9570,7 +9650,11 @@ static void Cmd_various(void)
         VARIOUS_ARGS(const u8 *failInstr);
         gBattleScripting.battler = battler;
 
-        if (gDisableStructs[battler].tauntTimer == 0)
+        if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else if (gDisableStructs[battler].tauntTimer == 0)
         {
             #if B_TAUNT_TURNS >= GEN_5
                 u8 turns = 4;

@@ -4829,6 +4829,15 @@ BattleScript_TormentString::
 	call BattleScript_TryDestinyKnotTormentAttacker
 	return
 
+BattleScript_TormentTauntString::
+	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNFELLFORTAUNT
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotTormentAttacker
+	call BattleScript_TryDestinyKnotTauntAttacker
+	return
+
 BattleScript_SpeedDown::
 	modifybattlerstatstage BS_TARGET, STAT_SPEED, DECREASE, 1, BattleScript_SpeedDown_Ret, ANIM_ON
 BattleScript_SpeedDown_Ret:
@@ -7313,7 +7322,7 @@ BattleScript_AromaVeilProtectsRet::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_AromaVeilProtects:
+BattleScript_AromaVeilProtects::
 	call BattleScript_AromaVeilProtectsRet
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
@@ -14435,11 +14444,6 @@ BattleScript_AbilityStatusEffect::
 
 BattleScript_ItemStatusEffect::
 	printstring STRINGID_PKMNSITEMCAUSEBURN
-	waitmessage B_WAIT_TIME_LONG
-	return
-
-BattleScript_ItemTauntTorment::
-	printstring STRINGID_PKMNSITEMCAUSETAUNTTORMENT
 	waitmessage B_WAIT_TIME_LONG
 	return
 
