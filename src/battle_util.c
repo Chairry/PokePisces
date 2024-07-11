@@ -3388,7 +3388,7 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_STARS_GRACE:
-            if (gDisableStructs[battler].slowStartTimer && ++gDisableStructs[battler].slowStartTimer == 3 && ability == ABILITY_STARS_GRACE)
+            if (gDisableStructs[battler].slowStartTimer && ++gDisableStructs[battler].slowStartTimer == 4 && ability == ABILITY_STARS_GRACE)
             {
                 BattleScriptExecute(BattleScript_StarsGraceStarts);
                 effect++;
@@ -10806,7 +10806,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
         break;
     case ABILITY_STARS_GRACE:
-        if (gDisableStructs[battlerAtk].slowStartTimer >= 3 && IS_MOVE_SPECIAL(move))
+        if (gDisableStructs[battlerAtk].slowStartTimer >= 4 && IS_MOVE_SPECIAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case ABILITY_SOLAR_POWER:
@@ -11526,6 +11526,9 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
             return UQ_4_12(0.8);
         break;
+    case ABILITY_STALL:
+        return UQ_4_12(0.7);
+        break;
     }
     return UQ_4_12(1.0);
 }
@@ -11819,6 +11822,18 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
         if (recordAbilities)
             RecordAbilityBattle(battlerAtk, ABILITY_SCRAPPY);
+    }
+    else if (((GetBattlerType(battlerDef, 0) == TYPE_ICE
+         && GetTypeModifier(moveType, GetBattlerType(battlerDef, 0)) >= UQ_4_12(2.0))
+         || (GetBattlerType(battlerDef, 1) == TYPE_ICE
+         && GetTypeModifier(moveType, GetBattlerType(battlerDef, 1)) >= UQ_4_12(2.0))
+         || (GetBattlerType(battlerDef, 2) == TYPE_ICE
+         && GetTypeModifier(moveType, GetBattlerType(battlerDef, 2)) >= UQ_4_12(2.0)))
+         && (GetBattlerAbility(battlerDef) == ABILITY_PERMAFROST))
+    {
+        mod = UQ_4_12(1.0);
+        if (recordAbilities)
+            RecordAbilityBattle(battlerDef, ABILITY_PERMAFROST);
     }
 
     if ((moveType == defType) && gStatuses4[battlerDef] & STATUS4_REFLECTED_TYPE)
