@@ -10692,6 +10692,8 @@ extern const u32 gItemIcon_PokemonCard[];
 extern const u32 gItemIconPalette_PokemonCard[];
 extern const u32 gItemIcon_PokerCard[];
 extern const u32 gItemIconPalette_PokerCard[];
+extern const u32 gItemIcon_CrypticPlate[];
+extern const u32 gItemIconPalette_CrypticPlate[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

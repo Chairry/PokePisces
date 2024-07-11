@@ -4110,6 +4110,7 @@ BattleScript_EffectSteelBeam::
 	seteffectwithchance
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_SteelBeamAfterSelfDamage
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_SteelBeamAfterSelfDamage
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_SteelBeamAfterSelfDamage
 	call BattleScript_SteelBeamSelfDamage
 BattleScript_SteelBeamAfterSelfDamage::
 	waitstate
@@ -4123,6 +4124,7 @@ BattleScript_SteelBeamMiss::
 	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MoveEnd
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_MoveEnd
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_MoveEnd
 	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	call BattleScript_SteelBeamSelfDamage
 	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
@@ -8079,6 +8081,7 @@ BattleScript_EffectRecoilIfMiss::
 BattleScript_MoveMissedDoDamage::
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_PrintMoveMissed
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_PrintMoveMissed
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_PrintMoveMissed
 	attackstring
 	ppreduce
 	pause B_WAIT_TIME_LONG
@@ -11734,6 +11737,7 @@ BattleScript_GulpMissileGorging::
 	waitstate
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_GulpMissileNoDmgGorging
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_GulpMissileNoDmgGorging
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_GulpMissileNoDmgGorging
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
@@ -11763,6 +11767,7 @@ BattleScript_GulpMissileGulping::
 	waitstate
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_GulpMissileNoDmgGulping
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_GulpMissileNoDmgGulping
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_GulpMissileNoDmgGulping
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
@@ -12986,6 +12991,7 @@ BattleScript_PrintPayDayMoneyString::
 BattleScript_WrapTurnDmg::
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_DoTurnDmgEnd
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_DoTurnDmgEnd
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_DoTurnDmgEnd
 	playanimation BS_ATTACKER, B_ANIM_TURN_TRAP, sB_ANIM_ARG1
 	printstring STRINGID_PKMNHURTBY
 	waitmessage B_WAIT_TIME_LONG
@@ -13763,6 +13769,7 @@ BattleScript_BadDreamsLoop:
 	jumpiftargetally BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_SUGAR_COAT, BattleScript_BadDreamsIncrement
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_BadDreams_Dmg
 	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_BadDreams_Dmg
 	goto BattleScript_BadDreamsIncrement
@@ -13800,6 +13807,7 @@ BattleScript_MiasmaLoop:
 	jumpiftargetally BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_SUGAR_COAT, BattleScript_MiasmaIncrement
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_Miasma_Dmg
 	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_Miasma_Dmg
 	goto BattleScript_MiasmaIncrement
@@ -14829,6 +14837,27 @@ BattleScript_A_Thing_HappenedFR::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_CrypticPlateEntryEffect::
+	setgravity BattleScript_CrypticPlateFailed
+	setsafeguard
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_GRAVITYINTENSIFIED
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNCOVEREDBYVEIL
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_CrypticPlateFailed::
+	end3
+
+BattleScript_GemstoneEvasion::
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_EVASION, MAX_STAT_STAGE, BattleScript_GemstoneFailed
+	playstatchangeanimation BS_ATTACKER, BIT_EVASION, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_EVASION, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_GemstoneFailed
+	printstring STRINGID_PKMNGEMSTONEMAXEDEVASION
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_GemstoneFailed::
+	end3
+
 BattleScript_AirBaloonMsgIn::
 	printstring STRINGID_AIRBALLOONFLOAT
 	waitmessage B_WAIT_TIME_LONG
@@ -15667,6 +15696,17 @@ BattleScript_BerserkGeneRet_OwnTempoPrevents:
 BattleScript_BerserkGeneRet_End:
 	restoretarget
 	removeitem BS_SCRIPTING
+	end3
+
+BattleScript_GemstoneRet::
+	savetarget
+	copybyte gBattlerTarget, sBATTLER
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_GemstoneRet_End
+	setgraphicalstatchangevalues
+	setbyte cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_ITEM
+	call BattleScript_StatDown
+BattleScript_GemstoneRet_End:
+	restoretarget
 	end3
 
 BattleScript_EffectSnow::
