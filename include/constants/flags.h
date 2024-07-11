@@ -1253,7 +1253,7 @@
 #define FLAG_GAOTERRA_TRADE_COMPLETED                                           0x4B3 // Unused Flag
 #define FLAG_ITEM_TM_ZING_ZAP                                           0x4B4 // Unused Flag
 #define FLAG_TALKED_TO_MOSS_GUY                                           0x4B5 // Unused Flag
-#define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
+#define FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
 #define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
 #define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
