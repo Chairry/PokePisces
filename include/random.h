@@ -109,6 +109,7 @@ enum RandomTag
     RNG_HOLD_EFFECT_BLACK_SALAD,
     RNG_PESKY_PLUSH_TAUNT,
     RNG_PESKY_PLUSH_TORMENT,
+    RNG_HOLD_EFFECT_CORRODE_MOD,
 };
 
 #define RandomWeighted(tag, ...) \

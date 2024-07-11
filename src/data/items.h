@@ -10220,7 +10220,8 @@ const struct Item gItems[] =
     {
         .name = _("Corrode Mod"),
         .price = 4000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_CORRODE_MOD,
+        .holdEffectParam = 100,
         .description = sCorrodeModDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10257,7 +10258,7 @@ const struct Item gItems[] =
     {
         .name = _("Long Nose"),
         .price = 1000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_LONG_NOSE,
         .description = sLongNoseDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10281,7 +10282,7 @@ const struct Item gItems[] =
     {
         .name = _("Gemstone"),
         .price = 40000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_GEMSTONE,
         .description = sGemstoneDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10293,7 +10294,7 @@ const struct Item gItems[] =
     {
         .name = _("Teru Charm"),
         .price = 4000,
-        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffect = HOLD_EFFECT_TERU_CHARM,
         .description = sTeruCharmDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -10473,6 +10474,18 @@ const struct Item gItems[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_CRYPTIC_PLATE] =
+    {
+        .name = _("Cryptic Plate"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_CRYPTIC_PLATE,
+        .description = sCrypticPlateDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 90,
     },
 
 };

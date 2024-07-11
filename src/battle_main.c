@@ -4846,6 +4846,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    else if ((gBattleMons[battler].species == SPECIES_MOSKOPO) && (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LONG_NOSE) && ((gBattleMoves[move].type == TYPE_BUG) || (gBattleMoves[move].type == TYPE_DARK)))
+    {
+        priority++;
+    }
     else if (ability == ABILITY_QUICK_DRAW && IS_MOVE_SPECIAL(move) && gDisableStructs[battler].isFirstTurn)
     {
         priority++;
