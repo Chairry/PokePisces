@@ -1,25 +1,27 @@
 {
   "group_order": [
-    "gMapGroup_PiscesPart1Major",
-    "gMapGroup_PiscesPart1Minor",
-    "gMapGroup_PiscesPart2Major",
-    "gMapGroup_PiscesPart2Minor",
-    "gMapGroup_PiscesPart3Major",
-    "gMapGroup_PiscesPart3Minor",
-    "gMapGroup_PiscesPart4Major",
-    "gMapGroup_PiscesPart4Minor",
-    "gMapGroup_PiscesPart5Major",
-    "gMapGroup_PiscesPart5Minor",
-    "gMapGroup_PiscesPart6Major",
-    "gMapGroup_PiscesPart6Minor",
-    "gMapGroup_PiscesPart7Major",
-    "gMapGroup_PiscesPart7Minor",
-    "gMapGroup_PiscesPart8Major",
-    "gMapGroup_PiscesPart8Minor",
-    "gMapGroup_PiscesPart9Major",
-    "gMapGroup_PiscesPart9Minor",
-    "gMapGroup_PiscesPart10Major",
-    "gMapGroup_PiscesPart10Minor",
+    "gMapGroup_PiscesLeg1Major",
+    "gMapGroup_PiscesLeg1Minor",
+    "gMapGroup_PiscesLeg2Major",
+    "gMapGroup_PiscesLeg2Minor",
+    "gMapGroup_PiscesLeg3Major",
+    "gMapGroup_PiscesLeg3Minor",
+    "gMapGroup_PiscesLeg4Major",
+    "gMapGroup_PiscesLeg4Minor",
+    "gMapGroup_PiscesLeg5Major",
+    "gMapGroup_PiscesLeg5Minor",
+    "gMapGroup_PiscesLeg6Major",
+    "gMapGroup_PiscesLeg6Minor",
+    "gMapGroup_PiscesLeg7Major",
+    "gMapGroup_PiscesLeg7Minor",
+    "gMapGroup_PiscesLeg8Major",
+    "gMapGroup_PiscesLeg8Minor",
+    "gMapGroup_PiscesLeg9Major",
+    "gMapGroup_PiscesLeg9Minor",
+    "gMapGroup_PiscesLeg10Major",
+    "gMapGroup_PiscesLeg10Minor",
+    "gMapGroup_PiscesLeg11Major",
+    "gMapGroup_PiscesLeg11Minor",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -55,7 +57,7 @@
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124"
   ],
-  "gMapGroup_PiscesPart1Major": [
+  "gMapGroup_PiscesLeg1Major": [
     "SSTidalExterior",
     "PacifidlogTown",
     "BirchMaritimeLab",
@@ -67,7 +69,7 @@
     "SootopolisCity_Gym_1F",
     "SootopolisCity_Gym_B1F"
   ],
-  "gMapGroup_PiscesPart1Minor": [
+  "gMapGroup_PiscesLeg1Minor": [
     "PacifidlogTown_PokemonCenter_1F",
     "PacifidlogTown_PokemonCenter_2F",
     "SootopolisCity_PokemonCenter_1F",
@@ -77,6 +79,7 @@
     "LabBasement",
     "LabBasement2",
     "SootopolisInteriors",
+    "SootoRestaurant",
     "Gym1Corridor",
     "SkyPillar_Entrance",
     "SkyPillar_1F",
@@ -88,66 +91,69 @@
     "SkyPillar_Outside",
     "SootopolisCity",
     "Route131",
-    "Route129",
-    "SootoRestaurant"
+    "Route129"
   ],
-  "gMapGroup_PiscesPart2Major": [
+  "gMapGroup_PiscesLeg2Major": [
     "CaveOfOrigin",
     "MangrottoTunnel",
+    "CosmossSpaceCenter",
     "MossdeepCity",
-    "MossdeepCity_Gym",
-    "CosmossSpaceCenter"
+    "MossdeepCity_Gym"
   ],
-  "gMapGroup_PiscesPart2Minor": [
+  "gMapGroup_PiscesLeg2Minor": [
     "SootopolisCity_PokemonCenter_2F",
     "MossdeepCity_PokemonCenter_1F",
+    "MangrottoRockSmashRoom",
     "MossdeepInteriors",
     "Gym2Corridor",
     "StevenHouse",
     "StevenCorridor",
     "StevenMaze",
     "SecretMossdeepCave",
-    "MangrottoRockSmashRoom",
     "FamilyMossCave"
   ],
-  "gMapGroup_PiscesPart3Major": [
+  "gMapGroup_PiscesLeg3Major": [
     "Route125",
-    "Route124",
+    "NewSunbeach",
     "LilycoveCity",
-    "Route121",
-    "Route123",
-    "MtPyre_1F",
-    "MtPyre_2F",
-    "Route122",
-    "PetalburgCity_Gym",
-    "TheColdMines",
-    "ZotpyreGym",
-    "NewSunbeach"
+    "OzoneLilycoveHQ",
+    "PrettyPetalsScuttill"
   ],
-  "gMapGroup_PiscesPart3Minor": [
+  "gMapGroup_PiscesLeg3Minor": [
     "MossdeepCity_PokemonCenter_2F",
     "LilycoveCity_PokemonCenter_1F",
-    "LilycoveCity_PokemonCenter_2F",
-    "VerdanturfTown_PokemonCenter_1F",
     "PrecipikeInteriors",
-    "OzoneLilycoveHQ",
     "LilycoveInteriors",
     "LilycoveMuseumNew",
     "SSTidalMidgame",
     "SSTidalMidTeriors",
-    "PrettyPetalsScuttill",
-    "Gym3Corridor",
-    "ZotpyreInteriors",
-    "ZotpyreSecretBasement",
     "BattleStudioLobby",
     "NewMap1",
     "BattleStudioStorage",
     "BattleStudioOffice",
     "BattleStudioFakeLobby",
     "BattleStudioFakeArena",
-    "BattleStudioCages"
+    "BattleStudioCages",
+    "Route124"
   ],
-  "gMapGroup_PiscesPart4Major": [
+  "gMapGroup_PiscesLeg4Major": [
+    "TheColdMines",
+    "Route121",
+    "Route123",
+    "MtPyre_1F",
+    "MtPyre_2F",
+    "Route122",
+    "ZotpyreGym"
+  ],
+  "gMapGroup_PiscesLeg4Minor": [
+    "LilycoveCity_PokemonCenter_2F",
+    "VerdanturfTown_PokemonCenter_1F",
+    "ZotpyreInteriors",
+    "ZotpyreSecretBasement",
+    "Gym3Corridor",
+    "PetalburgCity_Gym"
+  ],
+  "gMapGroup_PiscesLeg5Major": [
     "Route120",
     "ScuttillHuts",
     "CanopourWilds",
@@ -156,14 +162,14 @@
     "FortreeCity_Gym",
     "CultipexCave"
   ],
-  "gMapGroup_PiscesPart4Minor": [
+  "gMapGroup_PiscesLeg5Minor": [
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_Mart",
     "FortreeCity_PokemonCenter_1F",
     "ScuttillSecretTreeHouse",
     "Gym4Corridor"
   ],
-  "gMapGroup_PiscesPart5Major": [
+  "gMapGroup_PiscesLeg6Major": [
     "OzoneInstitute",
     "MasoriedHike",
     "Route113",
@@ -175,14 +181,14 @@
     "LavaridgeTown_Gym_1F",
     "LavaridgeTown_Gym_B1F"
   ],
-  "gMapGroup_PiscesPart5Minor": [
+  "gMapGroup_PiscesLeg6Minor": [
     "FortreeCity_PokemonCenter_2F",
     "FortreeCity_Mart",
     "FallarborTown_PokemonCenter_1F",
     "LavaridgeTown_PokemonCenter_1F",
     "Gym5Corridor"
   ],
-  "gMapGroup_PiscesPart6Major": [
+  "gMapGroup_PiscesLeg7Major": [
     "SweltornTransitionCave",
     "SweltornDesert",
     "SweltornPalace",
@@ -201,7 +207,7 @@
     "VerdanturfNew",
     "MauvilleCity_Gym"
   ],
-  "gMapGroup_PiscesPart6Minor": [
+  "gMapGroup_PiscesLeg7Minor": [
     "LavaridgeTown_PokemonCenter_2F",
     "NewMauvilleCenter1",
     "NewMauvilleCenter2",
@@ -221,7 +227,7 @@
     "BattleFrontier_PokemonCenter_1F",
     "Gym6Corridor"
   ],
-  "gMapGroup_PiscesPart7Major": [
+  "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",
     "NavigulfWaves",
     "DewfordNew",
@@ -232,11 +238,11 @@
     "ShoalCaveNewFloor2",
     "DewfordTown_Gym"
   ],
-  "gMapGroup_PiscesPart7Minor": [
+  "gMapGroup_PiscesLeg8Minor": [
     "DewfordTown_PokemonCenter_1F",
     "Gym7Corridor"
   ],
-  "gMapGroup_PiscesPart8Major": [
+  "gMapGroup_PiscesLeg9Major": [
     "DetermaniteBeach",
     "DetermaniteQuarry",
     "DetermaniteQuarB1F",
@@ -250,13 +256,13 @@
     "RustboroNew",
     "RustboroCity_Gym"
   ],
-  "gMapGroup_PiscesPart8Minor": [
+  "gMapGroup_PiscesLeg9Minor": [
     "DewfordTown_PokemonCenter_2F",
     "FallarborTown_PokemonCenter_2F",
     "RustboroCity_PokemonCenter_1F",
     "Gym8Corridor"
   ],
-  "gMapGroup_PiscesPart9Major": [
+  "gMapGroup_PiscesLeg10Major": [
     "PetalburgNew",
     "PetalburgWoodsNew",
     "OldaleNew",
@@ -265,19 +271,19 @@
     "PendingDev",
     "TestMap"
   ],
-  "gMapGroup_PiscesPart9Minor": [
+  "gMapGroup_PiscesLeg10Minor": [
     "PetalburgCity_PokemonCenter_1F",
     "OldaleTown_PokemonCenter_1F",
     "OldaleTown_PokemonCenter_2F"
   ],
-  "gMapGroup_PiscesPart10Major": [
+  "gMapGroup_PiscesLeg11Major": [
     "CrimneyCaldera",
     "MeteorNadir",
     "EverGrandeTransitionCave",
     "EverGrandeRoad",
     "EverGrandePeak"
   ],
-  "gMapGroup_PiscesPart10Minor": [
+  "gMapGroup_PiscesLeg11Minor": [
     "EverGrandeCity_PokemonCenter_1F",
     "EverGrandeCity_PokemonCenter_2F"
   ],
