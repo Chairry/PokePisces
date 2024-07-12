@@ -4281,7 +4281,7 @@ Cry_Oohbaaba::
 
 	.align 2
 Cry_Golderock::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/golderock.bin"
 
 	.align 2
 Cry_Maynimo::
@@ -4369,11 +4369,11 @@ Cry_Ingbun::
 
 	.align 2
 Cry_Chaffaw::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/chaffaw.bin"
 
 	.align 2
 Cry_Ferror::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/ferror.bin"
 
 	.align 2
 Cry_Cobbtle::
@@ -4829,7 +4829,7 @@ Cry_Kingambit::
 
 	.align 2
 Cry_Shellylouh::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/shellylouh.bin"
 
 	.align 2
 Cry_Infairno::
@@ -5254,7 +5254,7 @@ Cry_ShishimaPunisher::
 
 	.align 2
 Cry_ShunyongGoldenOffense::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/shunyong.bin"
 
 	.align 2
 DirectSoundWaveData_register_noise::
