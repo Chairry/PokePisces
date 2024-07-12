@@ -14637,6 +14637,25 @@ BattleScript_BerryCurePanicRet::
 	removeitem BS_SCRIPTING
 	return
 
+BattleScript_BerryCureBloomEnd2::
+	call BattleScript_BerryCureBloomRet
+	end2
+
+BattleScript_BerryCureBloomRet::
+	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_WatmelBerryActivate_Ripen
+	goto BattleScript_WatmelBerryActivate_Anim
+BattleScript_WatmelBerryActivate_Ripen:
+	call BattleScript_AbilityPopUp
+BattleScript_WatmelBerryActivate_Anim:
+	jumpifabsent BS_SCRIPTING, BattleScript_WatmelBerryActivate_Dmg   @ dont play the animation for a fainted target
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+BattleScript_WatmelBerryActivate_Dmg:
+	call BattleScript_HurtAttacker
+	updatestatusicon BS_SCRIPTING
+	removeitem BS_SCRIPTING
+	return
+
 BattleScript_GemActivates::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
@@ -15293,20 +15312,6 @@ BattleScript_JabocaRowapBerryActivate_Anim:
 BattleScript_JabocaRowapBerryActivate_Dmg:
 	call BattleScript_HurtAttacker
 	removeitem BS_TARGET
-	return
-
-BattleScript_WatmelBerryActivates::
-	jumpifability BS_ATTACKER, ABILITY_RIPEN, BattleScript_WatmelBerryActivate_Ripen
-	goto BattleScript_WatmelBerryActivate_Anim
-BattleScript_WatmelBerryActivate_Ripen:
-	call BattleScript_AbilityPopUp
-BattleScript_WatmelBerryActivate_Anim:
-	jumpifabsent BS_ATTACKER, BattleScript_WatmelBerryActivate_Dmg   @ dont play the animation for a fainted target
-	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
-	waitanimation
-BattleScript_WatmelBerryActivate_Dmg:
-	call BattleScript_HurtAttacker
-	removeitem BS_ATTACKER
 	return
 
 @ z moves / effects

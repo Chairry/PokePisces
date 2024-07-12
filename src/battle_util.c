@@ -7736,6 +7736,20 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             effect = ITEM_STATUS_CHANGE;
         }
         break;
+    case HOLD_EFFECT_WATMEL_BERRY:
+        if (gBattleMons[battler].status1 & STATUS1_BLOOMING && !UnnerveOn(battler, gLastUsedItem))
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+            if (GetBattlerAbility(battler) == ABILITY_RIPEN)
+                gBattleMoveDamage *= 2;
+            gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_BerryCureBloomRet;
+            effect = ITEM_STATUS_CHANGE;
+        }
+        break;
     case HOLD_EFFECT_CURE_CONFUSION:
         if (gBattleMons[battler].status2 & STATUS2_CONFUSION && !UnnerveOn(battler, gLastUsedItem))
         {
@@ -8016,6 +8030,20 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 {
                     gBattleMons[battler].status1 &= ~STATUS1_PANIC;
                     BattleScriptExecute(BattleScript_BerryCurePanicEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
+                break;
+            case HOLD_EFFECT_WATMEL_BERRY:
+                if (gBattleMons[battler].status1 & STATUS1_BLOOMING && !UnnerveOn(battler, gLastUsedItem))
+                {
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    if (GetBattlerAbility(battler) == ABILITY_RIPEN)
+                        gBattleMoveDamage *= 2;
+                    gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryCureBloomRet;
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
@@ -8303,22 +8331,6 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     RecordItemEffectBattle(battler, battlerHoldEffect);
                 }
                 break;
-            case HOLD_EFFECT_WATMEL_BERRY: // consume and damage holder if has blooming
-                if (IsBattlerAlive(battler) && !moveTurn && (gBattleMons[battler].status1 & STATUS1_BLOOMING) && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT && !((GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM) && (gBattleMons[battler].species == SPECIES_CHIROBERRA)))
-                {
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
-                    if (gBattleMoveDamage == 0)
-                        gBattleMoveDamage = 1;
-                    if (GetBattlerAbility(battler) == ABILITY_RIPEN)
-                        gBattleMoveDamage *= 2;
-
-                    effect = ITEM_HP_CHANGE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_WatmelBerryActivates;
-                    PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
-                    RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
-                }
-                break;
             case HOLD_EFFECT_FLIP_COIN:
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
                 {
@@ -8493,6 +8505,20 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 {
                     gBattleMons[battler].status1 &= ~STATUS1_PANIC;
                     BattleScriptExecute(BattleScript_BerryCurePanicEnd2);
+                    effect = ITEM_STATUS_CHANGE;
+                }
+                break;
+            case HOLD_EFFECT_WATMEL_BERRY:
+                if (gBattleMons[battler].status1 & STATUS1_BLOOMING && !UnnerveOn(battler, gLastUsedItem))
+                {
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 2;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    if (GetBattlerAbility(battler) == ABILITY_RIPEN)
+                        gBattleMoveDamage *= 2;
+                    gBattleMons[battler].status1 &= ~STATUS1_BLOOMING;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BerryCureBloomRet;
                     effect = ITEM_STATUS_CHANGE;
                 }
                 break;
