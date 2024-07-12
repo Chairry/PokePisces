@@ -4865,7 +4865,7 @@ Cry_Yolkween::
 
 	.align 2
 Cry_Lyolica::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/lyoresa.bin"
 
 	.align 2
 Cry_Wally::
@@ -5225,16 +5225,16 @@ Cry_LottabatsHuddled::
 
 	.align 2
 Cry_GaoterraSolar::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/gaoterra.bin"
 
 	.align 2
 Cry_GaoterraLunar::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/gaoterra.bin"
 .endif
 
 	.align 2
 Cry_BishouchaWarmonger::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/bishoucha.bin"
 
 	.align 2
 Cry_PapypusFemale::
@@ -5242,11 +5242,11 @@ Cry_PapypusFemale::
 
 	.align 2
 Cry_CindrillonPirouette::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/cindrillon.bin"
 
 	.align 2
 Cry_CindrillonFearouette::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/cindrillon.bin"
 
 	.align 2
 Cry_ShishimaPunisher::
