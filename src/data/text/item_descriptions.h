@@ -4300,3 +4300,8 @@ static const u8 sPokerCardDesc[] = _(
     "A card containing\n"
     "the love of real\n"
     "magic.");
+
+static const u8 sCrypticPlateDesc[] = _(
+    "Sets Gravity and\n"
+    "Safeguard, and ups\n"
+    "SPATK. For Uhefoe.");

@@ -212,6 +212,12 @@
 #define HOLD_EFFECT_RAZOR_FANG          227
 #define HOLD_EFFECT_CLEANSE_TAG         228
 #define HOLD_EFFECT_PESKY_PLUSH         229
+#define HOLD_EFFECT_CORRODE_MOD         230
+#define HOLD_EFFECT_GEMSTONE            231
+#define HOLD_EFFECT_TERU_CHARM          232
+#define HOLD_EFFECT_LONG_NOSE           233
+#define HOLD_EFFECT_CRYPTIC_PLATE       234
+#define HOLD_EFFECT_MOON_MIRROR         235
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

@@ -919,6 +919,8 @@ static const u8 sText_PkmnPumpingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\npu
 static const u8 sText_CannonadeMalfunctioned[] = _("The {B_CURRENT_MOVE} has\nmalfunctioned!");
 static const u8 sText_PkmnSwitchedSpAtkAndSpDef[] = _("{B_ATK_NAME_WITH_PREFIX} switched its Sp.\nAttack and Sp. Defense!");
 static const u8 sText_ScarfWasChargedByBeingHit[] = _("Being hit by {B_CURRENT_MOVE} charged\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} with power!");
+static const u8 sText_PkmnGemstoneMaxedEvasion[] = _("Gemstone maxed out\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s Evasion!");
+static const u8 sText_UsingItemTheStatOfPkmnFell[] = _("Using {B_LAST_ITEM}, the {B_BUFF1}\nof {B_SCR_ACTIVE_NAME_WITH_PREFIX} {B_BUFF2}");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1689,6 +1691,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNSWITCHEDSPATKANDSPDEF - BATTLESTRINGS_TABLE_START] = sText_PkmnSwitchedSpAtkAndSpDef,
     [STRINGID_SCARFWASCHARGEDBYBEINGHIT - BATTLESTRINGS_TABLE_START] = sText_ScarfWasChargedByBeingHit,
     [STRINGID_PKMNSITEMCALMEDIT - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCalmedIt,
+    [STRINGID_PKMNGEMSTONEMAXEDEVASION - BATTLESTRINGS_TABLE_START] = sText_PkmnGemstoneMaxedEvasion,
+    [STRINGID_USINGITEMSTATOFPKMNFELL - BATTLESTRINGS_TABLE_START] = sText_UsingItemTheStatOfPkmnFell,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1930,6 +1934,7 @@ const u16 gStatDownStringIds[] =
     [B_MSG_DEFENDER_STAT_FELL] = STRINGID_DEFENDERSSTATFELL,
     [B_MSG_STAT_WONT_DECREASE] = STRINGID_STATSWONTDECREASE,
     [B_MSG_STAT_FELL_EMPTY]    = STRINGID_EMPTYSTRING3,
+    [B_MSG_STAT_FELL_ITEM]     = STRINGID_USINGITEMSTATOFPKMNFELL,
 };
 
 // Index read from sTWOTURN_STRINGID

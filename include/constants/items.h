@@ -987,8 +987,9 @@
 #define ITEM_BUSINESS_CARD 869
 #define ITEM_POKEMON_CARD 870
 #define ITEM_POKER_CARD 871
+#define ITEM_CRYPTIC_PLATE 872
 
-#define ITEMS_COUNT 872
+#define ITEMS_COUNT 873
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // need to add yellow soda and rizz berry to berry list
