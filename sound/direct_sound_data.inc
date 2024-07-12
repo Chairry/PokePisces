@@ -4581,7 +4581,7 @@ Cry_Walrust::
 
 	.align 2
 Cry_Scallywarg::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/scallywarg.bin"
 
 	.align 2
 Cry_Waargh::
@@ -4605,7 +4605,7 @@ Cry_Boozard::
 
 	.align 2
 Cry_Cockaboo::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/cockaboo.bin"
 
 	.align 2
 Cry_Axelfin::
