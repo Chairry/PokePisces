@@ -218,6 +218,7 @@
 #define HOLD_EFFECT_LONG_NOSE           233
 #define HOLD_EFFECT_CRYPTIC_PLATE       234
 #define HOLD_EFFECT_MOON_MIRROR         235
+#define HOLD_EFFECT_WATMEL_BERRY        236
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
