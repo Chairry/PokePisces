@@ -7493,6 +7493,7 @@ static u32 ItemRestorePp(u32 battler, u32 itemId, bool32 execute)
 
 static u8 ItemHealHp(u32 battler, u32 itemId, bool32 end2, bool32 percentHeal)
 {
+    u32 pomegHP = (gBattleMons[battler].maxHP + 200);
     if (!(gBattleScripting.overrideBerryRequirements && gBattleMons[battler].hp == gBattleMons[battler].maxHP)
 #if B_HEAL_BLOCKING >= GEN_5
         && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK)
@@ -7512,6 +7513,13 @@ static u8 ItemHealHp(u32 battler, u32 itemId, bool32 end2, bool32 percentHeal)
         if (end2)
         {
             BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
+        }
+        else if (itemId == 534)
+        {
+            BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_MAX_HP_BATTLE, 0, sizeof(gBattleMons[battler].hp), &pomegHP);
+            MarkBattlerForControllerExec(battler);
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
         }
         else
         {
