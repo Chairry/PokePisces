@@ -4629,7 +4629,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Basculegion
 	@ Dudunspars
 	cry_reverse Cry_Dudunspars
-	cry_reverse Cry_Dudunspars
 	@ Lottabats
 	cry_reverse Cry_LottabatsHuddled
 	@ Gaoterra
@@ -4653,18 +4652,18 @@ gCryTable_Reverse::
 	cry_reverse Cry_Spinda
 	cry_reverse Cry_Spinda
 	@ Dudunspars
-	cry Cry_Dudunspars
+	cry_reverse Cry_Dudunspars
 	@ Kodough
-	cry Cry_Kodough
+	cry_reverse Cry_Kodough
 	@ Castform
-	cry Cry_Castform
+	cry_reverse Cry_Castform
 	@ Shishima
-	cry Cry_Shishima
-	cry Cry_Shishima
+	cry_reverse Cry_Shishima
+	cry_reverse Cry_Shishima
 	@ Lyolica
-	cry Cry_Lyolica
+	cry_reverse Cry_Lyolica
 	@ Wally
-	cry Cry_Wally
+	cry_reverse Cry_Wally
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
