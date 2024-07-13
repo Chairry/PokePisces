@@ -5937,6 +5937,51 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         }
             gSpecialStatuses[battlerAtk].gemBoost = TRUE;
     }
+    if (holdEffect == HOLD_EFFECT_KELPSY_BERRY)
+    {
+        if (gBattleMoves[move].pulseMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
+    if (holdEffect == HOLD_EFFECT_QUALOT_BERRY)
+    {
+        if (gBattleMoves[move].windMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
+    if (holdEffect == HOLD_EFFECT_GREPA_BERRY)
+    {
+        if (gBattleMoves[move].kickingMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
 
 }
 

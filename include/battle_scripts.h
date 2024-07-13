@@ -283,6 +283,7 @@ extern const u8 BattleScript_BerryStatRaiseEnd2[];
 extern const u8 BattleScript_InvertStats[];
 extern const u8 BattleScript_ClearSpeed[];
 extern const u8 BattleScript_BerryStatRaiseRet[];
+extern const u8 BattleScript_CornnBerryActivatesRet[];
 extern const u8 BattleScript_BerryFocusEnergyRet[];
 extern const u8 BattleScript_BerryFocusEnergyEnd2[];
 extern const u8 BattleScript_ActionSelectionItemsCantBeUsed[];
