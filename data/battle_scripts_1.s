@@ -15314,6 +15314,16 @@ BattleScript_JabocaRowapBerryActivate_Dmg:
 	removeitem BS_TARGET
 	return
 
+BattleScript_CornnBerryActivatesRet::
+	jumpifsafeguard BattleScript_CornnBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	applysaltcure BS_TARGET
+	printstring STRINGID_TARGETISBEINGSALTCURED
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_CornnBerryEnd:
+	return
+
 @ z moves / effects
 BattleScript_ZMoveActivateDamaging::
 	printstring STRINGID_EMPTYSTRING3

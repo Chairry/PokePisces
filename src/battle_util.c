@@ -7420,6 +7420,27 @@ static u8 DamagedStatBoostBerryEffect(u32 battler, u8 statId, u8 split)
     return 0;
 }
 
+static u8 DamagedCornnBerryEffect(u32 battler, u8 statId, u8 split)
+{
+    if (IsBattlerAlive(battler) && CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN) && (gBattleScripting.overrideBerryRequirements || (!DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove) && GetBattleMoveSplit(gCurrentMove) == split && TARGET_TURN_DAMAGED)))
+    {
+        BufferStatChange(battler, statId, STRINGID_STATROSE);
+
+        gEffectBattler = battler;
+        if (GetBattlerAbility(battler) == ABILITY_RIPEN)
+            SET_STATCHANGER(statId, 2, FALSE);
+        else
+            SET_STATCHANGER(statId, 1, FALSE);
+
+        gBattleScripting.animArg1 = 14 + statId;
+        gBattleScripting.animArg2 = 0;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_CornnBerryActivatesRet;
+        return ITEM_STATS_CHANGE;
+    }
+    return 0;
+}
+
 u8 TryHandleSeed(u32 battler, u32 terrainFlag, u8 statId, u16 itemId, bool32 execute)
 {
     if (gFieldStatuses & terrainFlag && CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
@@ -7493,6 +7514,7 @@ static u32 ItemRestorePp(u32 battler, u32 itemId, bool32 execute)
 
 static u8 ItemHealHp(u32 battler, u32 itemId, bool32 end2, bool32 percentHeal)
 {
+    u32 pomegHP = (gBattleMons[battler].maxHP + 200);
     if (!(gBattleScripting.overrideBerryRequirements && gBattleMons[battler].hp == gBattleMons[battler].maxHP)
 #if B_HEAL_BLOCKING >= GEN_5
         && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK)
@@ -7512,6 +7534,13 @@ static u8 ItemHealHp(u32 battler, u32 itemId, bool32 end2, bool32 percentHeal)
         if (end2)
         {
             BattleScriptExecute(BattleScript_ItemHealHP_RemoveItemEnd2);
+        }
+        else if (itemId == 534)
+        {
+            BtlController_EmitSetMonData(battler, BUFFER_A, REQUEST_MAX_HP_BATTLE, 0, sizeof(gBattleMons[battler].hp), &pomegHP);
+            MarkBattlerForControllerExec(battler);
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
         }
         else
         {
@@ -7661,9 +7690,10 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
     case HOLD_EFFECT_SP_DEFENSE_UP:
         effect = StatRaiseBerry(battler, gLastUsedItem, STAT_SPDEF, FALSE);
         break;
-    case HOLD_EFFECT_ENIGMA_BERRY: // consume and heal if hit by super effective move
-        effect = TrySetEnigmaBerry(battler);
-        break;
+    //OLD ENIGMA BERRY EFFECT
+    //case HOLD_EFFECT_ENIGMA_BERRY: // consume and heal if hit by super effective move
+        //effect = TrySetEnigmaBerry(battler);
+        //break;
     case HOLD_EFFECT_KEE_BERRY: // consume and boost defense if used physical move
         effect = DamagedStatBoostBerryEffect(battler, STAT_DEF, SPLIT_PHYSICAL);
         break;
@@ -9082,9 +9112,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     gBattleScripting.statChanger = SET_STATCHANGER(STAT_SPATK, 1, FALSE);
                 }
                 break;
-            case HOLD_EFFECT_ENIGMA_BERRY: // consume and heal if hit by super effective move
-                effect = TrySetEnigmaBerry(battler);
-                break;
+            // OLD ENIGMA BERRY EFFECT
+            //case HOLD_EFFECT_ENIGMA_BERRY: // consume and heal if hit by super effective move
+            //    effect = TrySetEnigmaBerry(battler);
+            //    break;
             case HOLD_EFFECT_JABOCA_BERRY: // consume and damage attacker if used physical move
                 if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove) && IS_MOVE_PHYSICAL(gCurrentMove) && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT && !((GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM) && (gBattleMons[battler].species == SPECIES_CHIROBERRA)))
                 {
@@ -11766,6 +11797,26 @@ static inline uq4_12_t GetDefenderItemsModifier(u32 move, u32 moveType, u32 batt
             if (updateFlags)
                 gSpecialStatuses[battlerDef].berryReduced = TRUE;
             return (abilityDef == ABILITY_RIPEN) ? UQ_4_12(0.25) : UQ_4_12(0.5);
+        }
+        break;
+    case HOLD_EFFECT_MAGOST_BERRY:
+        if (UnnerveOn(battlerDef, itemDef))
+            return UQ_4_12(1.0);
+        if (itemDef == ITEM_MAGOST_BERRY)
+        {
+            if (updateFlags)
+                gSpecialStatuses[battlerDef].berryReduced = TRUE;
+            return (abilityDef == ABILITY_RIPEN) ? UQ_4_12(0.37) : UQ_4_12(0.75);
+        }
+        break;
+    case HOLD_EFFECT_ENIGMA_BERRY:
+        if (UnnerveOn(battlerDef, itemDef))
+            return UQ_4_12(1.0);
+        if (itemDef == ITEM_ENIGMA_BERRY)
+        {
+            if (updateFlags)
+                gSpecialStatuses[battlerDef].berryReduced = TRUE;
+            return (abilityDef == ABILITY_RIPEN) ? UQ_4_12(0.0) : UQ_4_12(0.0);
         }
         break;
     case HOLD_EFFECT_DILATANT_MOD:
