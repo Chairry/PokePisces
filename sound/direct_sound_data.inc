@@ -4085,11 +4085,11 @@ Cry_Transera::
 
 	.align 2
 Cry_Bivague::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/bivague.bin"
 
 	.align 2
 Cry_Lusckaw::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/lusckaw.bin"
 
 	.align 2
 Cry_Sadsod::
@@ -4725,7 +4725,7 @@ Cry_Jackabox::
 
 	.align 2
 Cry_Fooltage::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/fooltage.bin"
 
 	.align 2
 Cry_Aethereal::
