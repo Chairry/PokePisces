@@ -1367,6 +1367,42 @@ const struct Berry gBerries[] =
         .smoothness = 60,
     },
 
+    [ITEM_RIZZ_BERRY - FIRST_BERRY_INDEX] =
+    {
+        .name = _("Rizz"), // "Maranga" is too long
+        .firmness = BERRY_FIRMNESS_UNKNOWN,
+        .size = 0,
+        .maxYield = 5,
+        .minYield = 2,
+        .description1 = sBerryDescriptionPart1_Maranga,
+        .description2 = sBerryDescriptionPart2_Maranga,
+        .stageDuration = 24,
+        .spicy = 10,
+        .dry = 10,
+        .sweet = 30,
+        .bitter = 30,
+        .sour = 10,
+        .smoothness = 60,
+    },
+
+    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX] =
+    {
+        .name = _("Marnga"), // "Maranga" is too long
+        .firmness = BERRY_FIRMNESS_UNKNOWN,
+        .size = 0,
+        .maxYield = 5,
+        .minYield = 2,
+        .description1 = sBerryDescriptionPart1_Maranga,
+        .description2 = sBerryDescriptionPart2_Maranga,
+        .stageDuration = 24,
+        .spicy = 10,
+        .dry = 10,
+        .sweet = 30,
+        .bitter = 30,
+        .sour = 10,
+        .smoothness = 60,
+    },
+    
     [ITEM_ENIGMA_BERRY_E_READER - FIRST_BERRY_INDEX] =
     {
         .name = _("Enigma"),

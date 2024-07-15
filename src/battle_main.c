@@ -5990,6 +5990,21 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
                 gSpecialStatuses[battlerAtk].gemBoost = TRUE;
         }
     }
+    if (holdEffect == HOLD_EFFECT_NOMEL_BERRY)
+    {
+        if (gBattleMoves[move].piercingMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
 
 }
 

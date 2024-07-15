@@ -6517,6 +6517,8 @@ const struct Item gItems[] =
     {
         .name = _("Razz Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_RAZZ_BERRY,
+        .holdEffectParam = 2,
         .description = sRazzBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6559,6 +6561,8 @@ const struct Item gItems[] =
     {
         .name = _("Pinap Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_PINAP_BERRY,
+        .holdEffectParam = 4,
         .description = sPinapBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6639,6 +6643,8 @@ const struct Item gItems[] =
     {
         .name = _("Cornn Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_CORNN_BERRY,
+        .holdEffectParam = 4,
         .description = sCornnBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6662,6 +6668,8 @@ const struct Item gItems[] =
     {
         .name = _("Rabuta Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_RABUTA_BERRY,
+        .holdEffectParam = 4,
         .description = sRabutaBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6673,6 +6681,7 @@ const struct Item gItems[] =
     {
         .name = _("Nomel Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_NOMEL_BERRY,
         .description = sNomelBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6684,6 +6693,8 @@ const struct Item gItems[] =
     {
         .name = _("Spelon Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_SPELON_BERRY,
+        .holdEffectParam = 4,
         .description = sSpelonBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6730,6 +6741,8 @@ const struct Item gItems[] =
     {
         .name = _("Belue Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_BELUE_BERRY,
+        .holdEffectParam = 4,
         .description = sBelueBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -7142,6 +7155,32 @@ const struct Item gItems[] =
         .price = 20,
         .holdEffect = HOLD_EFFECT_MARANGA_BERRY,
         .description = sMarangaBerryDesc,
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+
+    [ITEM_RIZZ_BERRY] =
+    {
+        .name = _("Rizz Berry"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_RIZZ_BERRY,
+        .holdEffectParam = 4,
+        .description = sRizzBerryDesc,
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+
+    [ITEM_YELLOW_SODA] =
+    {
+        .name = _("Rizz Berry"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_YELLOW_SODA,
+        .holdEffectParam = 4,
+        .description = sYellowSodaDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

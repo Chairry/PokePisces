@@ -15318,11 +15318,89 @@ BattleScript_JabocaRowapBerryActivate_Dmg:
 BattleScript_CornnBerryActivatesRet::
 	jumpifsafeguard BattleScript_CornnBerryEnd
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
-	applysaltcure BS_TARGET
-	printstring STRINGID_TARGETISBEINGSALTCURED
+	applysaltcure BS_ATTACKER
+	printstring STRINGID_TARGETISBEINGSALTCORNED
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
-BattleScript_CornnBerryEnd:
+BattleScript_CornnBerryEnd::
+	return
+
+BattleScript_RabutaBerryActivatesRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	jumpifability BS_ATTACKER, ABILITY_OWN_TEMPO, BattleScript_RabutaBerryRet_OwnTempoPrevents
+	jumpifsafeguard BattleScript_RabutaBerryRet_SafeguardProtected
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	goto BattleScript_RabutaBerryEnd
+BattleScript_RabutaBerryRet_SafeguardProtected:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNUSEDSAFEGUARD
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_RabutaBerryEnd
+BattleScript_RabutaBerryRet_OwnTempoPrevents:
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNPREVENTSCONFUSIONWITH
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_RabutaBerryEnd::
+	removeitem BS_SCRIPTING
+	return
+
+BattleScript_SpelonBerryActivatesRet::
+	jumpifsafeguard BattleScript_SpelonBerryEnd
+	trysetspikes BattleScript_SpelonBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	printstring STRINGID_SPIKESSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_SpelonBerryEnd::
+	return
+
+BattleScript_BelueBerryActivatesRet::
+	jumpifsafeguard BattleScript_BelueBerryEnd
+	cantarshotwork BS_ATTACKER, BattleScript_BelueBerryEnd
+	trytarshot BS_ATTACKER, BattleScript_BelueBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	applysaltcure BS_ATTACKER
+	printstring STRINGID_PKMNBECAMEWEAKERTOFIRE
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_BelueBerryEnd::
+	return
+
+BattleScript_PinapBerryActivatesRet::
+	jumpifability BS_TARGET, ABILITY_RIPEN, BattleScript_PinapBerryActivate_Ripen
+	goto BattleScript_PinapBerryActivate_Anim
+BattleScript_PinapBerryActivate_Ripen:
+	call BattleScript_AbilityPopUp
+BattleScript_PinapBerryActivate_Anim:
+	jumpifabsent BS_TARGET, BattleScript_PinapBerryActivate_Dmg   @ dont play the animation for a fainted target
+	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+BattleScript_PinapBerryActivate_Dmg:
+	call BattleScript_HurtAttacker
+	removeitem BS_TARGET
+BattleScript_PinapBerryEnd::
+	return
+
+BattleScript_RazzBerryActivatesRet::
+	jumpifsafeguard BattleScript_RazzBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	status2animation BS_ATTACKER, STATUS2_INFATUATION
+	printstring STRINGID_PKMNSXINFATUATEDY
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotInfatuateTarget
+BattleScript_RazzBerryEnd::
+	return
+
+BattleScript_RizzBerryActivatesRet::
+	jumpifsafeguard BattleScript_RizzBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	applysaltcure BS_ATTACKER
+	printstring STRINGID_TARGETISBEINGSALTCORNED
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_RizzBerryEnd::
 	return
 
 @ z moves / effects
