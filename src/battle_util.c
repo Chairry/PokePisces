@@ -5399,6 +5399,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
                     if (gBattleMons[battler].status1 & (STATUS1_FREEZE | STATUS1_FROSTBITE))
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+                    if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
 
                     gBattleMons[battler].status1 = 0;
                     gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;
@@ -7832,6 +7836,12 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
             if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
                 StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
 
+            if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
+
             if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
                 StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
 
@@ -7863,6 +7873,12 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
 
             if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
                 StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+
+            if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
 
             if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
                 StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
@@ -8119,6 +8135,16 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
                         i++;
                     }
+                    if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
+                        i++;
+                    }
                     if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
                     {
                         StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
@@ -8162,6 +8188,16 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
                     {
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
                         i++;
                     }
                     if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
@@ -8602,6 +8638,16 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
                         i++;
                     }
+                    if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
+                        i++;
+                    }
                     if (gBattleMons[battler].status2 & STATUS2_CONFUSION)
                     {
                         StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
@@ -8645,6 +8691,16 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
                     {
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PANIC)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_PanicJpn);
+                        i++;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_EXPOSED)
+                    {
+                        StringCopy(gBattleTextBuff1, gStatusConditionString_ExposedJpn);
                         i++;
                     }
                     if (gBattleMons[battler].status2 & STATUS2_CONFUSION)

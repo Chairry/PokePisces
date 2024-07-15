@@ -184,9 +184,7 @@ static const u8 sText_Freeze[] = _("Freeze");
 static const u8 sText_Frostbite[] = _("Frostbite");
 static const u8 sText_ToxicPoison[] = _("Toxic Poison");
 static const u8 sText_ToxicCounter[] = _("Toxic Counter");
-static const u8 sText_Panic[] = _("Panic");
 static const u8 sText_Blooming[] = _("Blooming");
-static const u8 sText_Exposed[] = _("Exposed");
 static const u8 sText_Rest[] = _("Rest");
 static const u8 sText_Flinch[] = _("Flinch");
 static const u8 sText_Uproar[] = _("Uproar");
@@ -408,9 +406,9 @@ static const struct ListMenuItem sStatus1ListItems[] =
     {sText_ToxicPoison, 5},
     {sText_ToxicCounter, 6},
     {sText_Frostbite, 7},
-    {sText_Panic, 8},
+    {gText_Panic, 8},
     {sText_Blooming, 9},
-    {sText_Exposed, 10},
+    {gText_Exposed, 10},
     {sText_Rest, 11},
 };
 
