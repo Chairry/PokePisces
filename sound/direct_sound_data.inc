@@ -4277,7 +4277,7 @@ Cry_Lawpard::
 
 	.align 2
 Cry_Oohbaaba::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/oohbaaba.bin"
 
 	.align 2
 Cry_Golderock::
@@ -4509,7 +4509,7 @@ Cry_Chika::
 
 	.align 2
 Cry_Sworduc::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/sworduc.bin"
 
 	.align 2
 Cry_Gosmark::
@@ -4861,7 +4861,7 @@ Cry_Vaiking::
 
 	.align 2
 Cry_Yolkween::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/yolkween.bin"
 
 	.align 2
 Cry_Wally::
@@ -4869,7 +4869,7 @@ Cry_Wally::
 
 	.align 2
 Cry_Pottricia::
-	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
+	.incbin "sound/direct_sound_samples/cries/pottricia.bin"
 .endif
 
 	.align 2
@@ -5262,7 +5262,7 @@ Cry_Lyolica::
 
 	.align 2
 Cry_PottriciaShattered::
-	.incbin "sound/direct_sound_samples/cries/lyoresa.bin"
+	.incbin "sound/direct_sound_samples/cries/pottricia.bin"
 
 	.align 2
 DirectSoundWaveData_register_noise::
