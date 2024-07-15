@@ -5355,6 +5355,17 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            case ABILITY_VITAL_SPIRIT:
+                if (gBattleMons[battler].hp < gBattleMons[battler].maxHP/2 && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+                {
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattleMoveDamage *= -1;
+                    BattleScriptExecute(BattleScript_AbilityHealHP_End2);
+                    effect++;
+                }
+                break;
             case ABILITY_DRY_SKIN:
                 if (IsBattlerWeatherAffected(battler, B_WEATHER_SUN))
                     goto SOLAR_POWER_HP_DROP;
@@ -6110,6 +6121,22 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     else
                         gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
                 #endif
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
+                effect++;
+            }
+            break;
+        case ABILITY_OVERCOAT:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+            && gBattleMons[gBattlerAttacker].hp != 0 && 
+            !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+            && TARGET_TURN_DAMAGED 
+            && !IsMoveMakingContact(move, gBattlerAttacker))
+            {
+                gBattleMoveDamage /= 2; // 50% Overcoat dmaage
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -11991,7 +12018,7 @@ static inline uq4_12_t GetAttackerAbilitiesModifier(u32 battlerAtk, uq4_12_t typ
         break;
     case ABILITY_PRODIGY:
         if (isCrit)
-            return UQ_4_12(2.0);
+            return UQ_4_12(1.35);
         break;
     case ABILITY_TINTED_LENS:
         if (typeEffectivenessModifier <= UQ_4_12(0.5))

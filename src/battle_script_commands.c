@@ -1769,7 +1769,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         calc = (calc * 130) / 100; // 1.3 compound eyes boost
         break;
     case ABILITY_VICTORY_STAR:
-        calc = (calc * 110) / 100; // 1.1 victory star boost
+        calc = (calc * 125) / 100; // 1.25 victory star boost
         break;
     case ABILITY_HUSTLE:
         if (IS_MOVE_PHYSICAL(move))
@@ -1792,6 +1792,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
             calc = (calc * 50) / 100; // 1.5 tangled feet loss
         break;
+    case ABILITY_LIMBER:
+        calc = (calc * 90) / 100; // 10% evasion increase
+        break;
     case ABILITY_ANTICIPATION:
         if(gDisableStructs[battlerDef].isFirstTurn) {
             calc = min(calc, 50);                 // max accuraccy of move is 50%
@@ -1803,7 +1806,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     {
     case ABILITY_VICTORY_STAR:
         if (IsBattlerAlive(atkAlly))
-            calc = (calc * 110) / 100; // 1.1 ally's victory star boost
+            calc = (calc * 125) / 100; // 1.25 ally's victory star boost
         break;
     }
 
@@ -16913,6 +16916,21 @@ static void Cmd_pickup(void)
                 if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
                 {
                     heldItem = ITEM_HONEY;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
+                }
+            }
+            else if (ability == ABILITY_MILKY_WAY
+                && species != 0
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE)
+            {
+                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
+                {
+                    if (Random() % 10 == 0) {
+                        heldItem = ITEM_FROTHY_CHEESE;
+                    } else {
+                        heldItem = ITEM_CHEESE;
+                    }                    
                     SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
             }
