@@ -124,7 +124,7 @@ static const u8 sText_PkmnWasParalyzedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'
 static const u8 sText_PkmnIsParalyzed[] = _("{B_ATK_NAME_WITH_PREFIX} is paralyzed!\nIt can't move!");
 static const u8 sText_PkmnIsAlreadyParalyzed[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready paralyzed!");
 static const u8 sText_PkmnHealedParalysis[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of paralysis!");
-static const u8 sText_PkmnGotPanicked[] = _("{B_ATK_NAME_WITH_PREFIX} is panicking!");
+static const u8 sText_PkmnGotPanicked[] = _("{B_EFF_NAME_WITH_PREFIX} is panicking!");
 static const u8 sText_PkmnPanickedBy[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nmade {B_EFF_NAME_WITH_PREFIX} start panicking!");
 static const u8 sText_PkmnDreamEaten[] = _("{B_DEF_NAME_WITH_PREFIX}'s\ndream was eaten!");
 static const u8 sText_StatsWontIncrease[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
@@ -519,6 +519,7 @@ static const u8 sText_PkmnsItemHealedBurn[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 static const u8 sText_PkmnsItemHealedFrostbite[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nhealed its frostbite!");
 static const u8 sText_PkmnsItemDefrostedIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ndefrosted it!");
 static const u8 sText_PkmnsItemWokeIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nwoke it from its sleep!");
+static const u8 sText_PkmnsItemCalmedIt[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncalmed it from its panic!");
 static const u8 sText_PkmnsItemSnappedOut[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nsnapped it out of confusion!");
 static const u8 sText_PkmnsItemCuredProblem[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\ncured its {B_BUFF1} problem!");
 static const u8 sText_PkmnsItemNormalizedStatus[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ITEM}\nnormalized its status!");
@@ -839,6 +840,7 @@ static const u8 sText_TeamGainedEXP[] = _("The rest of your team gained EXP.\nPo
 static const u8 sText_CurrentMoveCantSelect[] = _("{B_BUFF1} cannot be used!\p");
 static const u8 sText_TargetIsBeingSaltCured[] = _("{B_DEF_NAME_WITH_PREFIX} is being salt cured!");
 static const u8 sText_TargetIsHurtBySaltCure[] = _("{B_DEF_NAME_WITH_PREFIX} is hurt by {B_BUFF1}!");
+static const u8 sText_TargetIsBeingSaltCorned[] = _("{B_ATK_NAME_WITH_PREFIX} is being salt corned!");
 static const u8 sText_AbilityWeakenedSurroundingMonsStats[] = _("A falling valley is present...");
 static const u8 sText_AbilitySummonedMist[] = _("A strange mist appears...");
 static const u8 sText_AbilityEntranced[] = _("All opponents were entranced by\n{B_ATK_NAME_WITH_PREFIX}!");
@@ -914,12 +916,19 @@ static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and 
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
 static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
 static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!");
+static const u8 sText_PkmnPumpingPower[] = _("{B_ATK_NAME_WITH_PREFIX} began\npumping power!");
+static const u8 sText_CannonadeMalfunctioned[] = _("The {B_CURRENT_MOVE} has\nmalfunctioned!");
+static const u8 sText_PkmnSwitchedSpAtkAndSpDef[] = _("{B_ATK_NAME_WITH_PREFIX} switched its Sp.\nAttack and Sp. Defense!");
+static const u8 sText_ScarfWasChargedByBeingHit[] = _("Being hit by {B_CURRENT_MOVE} charged\n{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} with power!");
+static const u8 sText_PkmnGemstoneMaxedEvasion[] = _("Gemstone maxed out\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s Evasion!");
+static const u8 sText_UsingItemTheStatOfPkmnFell[] = _("Using {B_LAST_ITEM}, the {B_BUFF1}\nof {B_SCR_ACTIVE_NAME_WITH_PREFIX} {B_BUFF2}");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_GOLDPLAINS - BATTLESTRINGS_TABLE_START] = sText_GoldPlains,
     [STRINGID_TARGETISHURTBYSALTCURE - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtBySaltCure,
     [STRINGID_TARGETISBEINGSALTCURED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCured,
+    [STRINGID_TARGETISBEINGSALTCORNED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCorned,
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START] = sText_CurrentMoveCantSelect,
     [STRINGID_PKMNITEMMELTED - BATTLESTRINGS_TABLE_START] = sText_PkmnItemMelted,
     [STRINGID_MIRRORHERBCOPIED - BATTLESTRINGS_TABLE_START] = sText_MirrorHerbCopied,
@@ -1679,6 +1688,13 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCANEVOLVE - BATTLESTRINGS_TABLE_START] = sText_PkmnCanEvolve,
     [STRINGID_CANTHEALINOFFENSIVEFORM - BATTLESTRINGS_TABLE_START] = sText_CantHealInOffensiveForm,
     [STRINGID_CUREDBLOOMING - BATTLESTRINGS_TABLE_START] = sText_CuredBlooming,
+    [STRINGID_PKMNPUMPINGPOWER - BATTLESTRINGS_TABLE_START] = sText_PkmnPumpingPower,
+    [STRINGID_CANNONADEMALFUNCTIONED - BATTLESTRINGS_TABLE_START] = sText_CannonadeMalfunctioned,
+    [STRINGID_PKMNSWITCHEDSPATKANDSPDEF - BATTLESTRINGS_TABLE_START] = sText_PkmnSwitchedSpAtkAndSpDef,
+    [STRINGID_SCARFWASCHARGEDBYBEINGHIT - BATTLESTRINGS_TABLE_START] = sText_ScarfWasChargedByBeingHit,
+    [STRINGID_PKMNSITEMCALMEDIT - BATTLESTRINGS_TABLE_START] = sText_PkmnsItemCalmedIt,
+    [STRINGID_PKMNGEMSTONEMAXEDEVASION - BATTLESTRINGS_TABLE_START] = sText_PkmnGemstoneMaxedEvasion,
+    [STRINGID_USINGITEMSTATOFPKMNFELL - BATTLESTRINGS_TABLE_START] = sText_UsingItemTheStatOfPkmnFell,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1920,6 +1936,7 @@ const u16 gStatDownStringIds[] =
     [B_MSG_DEFENDER_STAT_FELL] = STRINGID_DEFENDERSSTATFELL,
     [B_MSG_STAT_WONT_DECREASE] = STRINGID_STATSWONTDECREASE,
     [B_MSG_STAT_FELL_EMPTY]    = STRINGID_EMPTYSTRING3,
+    [B_MSG_STAT_FELL_ITEM]     = STRINGID_USINGITEMSTATOFPKMNFELL,
 };
 
 // Index read from sTWOTURN_STRINGID
@@ -2278,6 +2295,8 @@ const u8 gText_Sleep[] = _("sleep");
 const u8 gText_Poison[] = _("poison");
 const u8 gText_Burn[] = _("burn");
 const u8 gText_Paralysis[] = _("paralysis");
+const u8 gText_Panic[] = _("panic");
+const u8 gText_Exposed[] = _("exposed");
 const u8 gText_Ice[] = _("ice");
 const u8 gText_Confusion[] = _("confusion");
 const u8 gText_Love[] = _("love");

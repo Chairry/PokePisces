@@ -1268,3 +1268,9 @@ $(MID_SUBDIR)/mus_vs_ptrainer.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_vs_wild2.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G192 -V100
+
+$(MID_SUBDIR)/mus_vs_ray.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
+
+$(MID_SUBDIR)/mus_pacifidlog.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G194 -V100

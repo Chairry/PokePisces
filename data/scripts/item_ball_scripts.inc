@@ -426,8 +426,8 @@ AbandonedShip_Rooms_B1F_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
 
-AbandonedShip_Rooms2_B1F_EventScript_ItemDiveBall::
-	finditem ITEM_DIVE_BALL
+AbandonedShip_Rooms2_B1F_EventScript_ItemCoolBall::
+	finditem ITEM_COOL_BALL
 	end
 
 AbandonedShip_Room_B1F_EventScript_ItemTMIceBeam::

@@ -3382,7 +3382,7 @@ static const u8 sSilenceDescription[] = _(
 
 static const u8 sVexingKiDescription[] = _(
     "Releases a malice aura that\n"
-    "taunts and torments the foe.");
+    "torments and taunts the foe.");
 
 static const u8 sDecayBeamDescription[] = _(
     "SE against Bug and Grass.\n"
@@ -3736,9 +3736,9 @@ static const u8 sPhantasmDescription[] = _(
     "Raises Atk, Sp. Atk, and\n"
     "Evasion. Lowers defenses.");
 
-static const u8 sBlossomSnapDescription[] = _(
-    "Drains HP. If hit by a contact\n"
-    "move ups power and blooms.");
+static const u8 sSnapblossomDescription[] = _(
+    "Drains the foe's HP and\n"
+    "applies Blooming to self.");
 
 static const u8 sGrassCannonDescription[] = _(
     "Boosts Def in Grassy Terrain.\n"
@@ -4922,7 +4922,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SPIRIT_AWAY - 1] = sSpiritAwayDescription,
     [MOVE_PHANTASM - 1] = sPhantasmDescription,
     [MOVE_PENALIZE - 1] = sPunishmentDescription,
-    [MOVE_BLOSSOM_SNAP - 1] = sBlossomSnapDescription,
+    [MOVE_SNAPBLOSSOM - 1] = sSnapblossomDescription,
     [MOVE_GRASS_CANNON - 1] = sGrassCannonDescription,
     [MOVE_BOUNDARY - 1] = sBoundaryDescription,
     [MOVE_SAVAGE_WING - 1] = sAcrobaticsDescription,

@@ -1494,6 +1494,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro tryhaze clear:req, jumpInstr:req
+	callnative BS_TryHaze
+	.byte \clear
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifnothit jumpInstr:req
 	callnative BS_JumpIfNotHit
 	.4byte \jumpInstr
@@ -1685,9 +1691,14 @@
 	.4byte \failInstr
 	.endm
 
-	.macro jumpiftargethpthreshold battler:req, failInstr:req
-	various \battler VARIOUS_JUMP_IF_TARGET_HP_THRESHOLD
-	.4byte \failInstr
+	.macro jumpifhpthreshold battler:req, jumpInstr:req
+	various \battler VARIOUS_JUMP_IF_HP_THRESHOLD
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifhasastatboost battler:req, jumpInstr:req
+	various \battler VARIOUS_JUMP_IF_HAS_A_STAT_BOOST
+	.4byte \jumpInstr
 	.endm
 
 	.macro setabilitysimple battler:req, failInstr:req
@@ -1702,6 +1713,10 @@
 
 	.macro setlastusedability battler:req
 	various \battler, VARIOUS_SET_LAST_USED_ABILITY
+	.endm
+
+	.macro tryovertake
+	various 0, VARIOUS_TRY_OVERTAKE
 	.endm
 
 	.macro tryhealpulse battler:req, failInstr:req
@@ -1750,6 +1765,11 @@
 
 	.macro trysoak failInstr:req
 	various BS_ATTACKER, VARIOUS_TRY_SOAK
+	.4byte \failInstr
+	.endm
+
+	.macro trydamping failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_DAMPING
 	.4byte \failInstr
 	.endm
 
@@ -1812,6 +1832,10 @@
 
 	.macro powertrick battler:req
 	various \battler, VARIOUS_POWER_TRICK
+	.endm
+
+	.macro powershift battler:req
+	various \battler, VARIOUS_POWER_SHIFT
 	.endm
 
 	.macro argumenttomoveeffect
@@ -2483,6 +2507,10 @@
 	.macro tryhealallhealth failInstr:req
 	various 0, VARIOUS_TRY_HEAL_ALL_HEALTH
 	.4byte \failInstr
+	.endm
+
+	.macro setpump battler:req
+	various \battler, VARIOUS_SET_PUMP
 	.endm
 
 	.macro remodelcheck jumpInstr:req

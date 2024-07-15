@@ -2328,13 +2328,30 @@ TheColdMines_Text_GaveBulldoze:
 	.string "alr gave u bulldoze$"
 
 TheColdMines_Text_UpForAToughBattle:
-	.string "up 4 a tough battle?$"
+	.string "This subzero cavern is the ideal place\n"
+	.string "to train, young one.\p"
+	.string "I have been meditating here for\n"
+	.string "quite some time. My chakra… this day,\l"
+	.string "they feel perfectly aligned.\p"
+	.string "I can sense you are a spunky trainer.\n"
+	.string "You wish for a challenge.\p"
+	.string "However, I must warn you.\n"
+	.string "Myself and my Pokémon will be\l"
+	.string "a steep hill to conquer.\p"
+	.string "Does your resolve\n"
+	.string "still stand resolutely?$"
 
 TheColdMines_Text_IMayBeTooTough:
-	.string "yeah thought so dweeb$"
+	.string "Then I ask you to leave me\n"
+	.string "to my meditation.$"
 
 TheColdMines_Text_AVeryThrillingMatch:
-	.string "very thrillin. have this$"
+	.string "Through that battle, I could easily\n"
+	.string "sense your heightened focus.\p"
+	.string "That talent can potentially\n"
+	.string "be honed further.\l"
+	.string "Please, accept this before you\l"
+	.string "take your leave.$"
 
 TheColdMines_Text_MustContinueTraining:
 	.string "i must continue my training$"
@@ -2373,10 +2390,10 @@ TheColdMines_Text_BigHertzPostBattle:
 	.string "post$"
 
 TheColdMines_Text_GotouIntro:
-	.string "intro$"
+	.string "Prepare, then, to take on the might of\na glacier!$"
 
 TheColdMines_Text_GotouDefeated:
-	.string "defeat$"
+	.string "Stalwart and confident. Very impressive.$"
 
 TheColdMines_Text_GotouPostBattle:
 	.string "post$"

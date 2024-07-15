@@ -482,6 +482,8 @@ extern const u8 gText_PkmnFrostbiteHealed[];
 extern const u8 gText_PkmnThawedOut[];
 extern const u8 gText_PkmnCuredOfParalysis[];
 extern const u8 gText_PkmnGotOverInfatuation[];
+extern const u8 gText_PkmnNoLongerExposed[];
+extern const u8 gText_PkmnStoppedPanicking[];
 extern const u8 gText_PkmnTransformed[];
 extern const u8 gText_PkmnBecameHealthy[];
 extern const u8 gText_HP3[];
@@ -2075,6 +2077,8 @@ extern const u8 BattleFrontier_BattleTowerBattleRoom_Text_RecordCouldntBeSaved[]
 extern const u8 gText_Poison[];
 extern const u8 gText_Sleep[];
 extern const u8 gText_Paralysis[];
+extern const u8 gText_Panic[];
+extern const u8 gText_Exposed[];
 extern const u8 gText_Burn[];
 extern const u8 gText_Ice[];
 extern const u8 gText_Confusion[];

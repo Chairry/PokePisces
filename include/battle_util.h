@@ -17,8 +17,9 @@
 #define MOVE_LIMITATION_STUFF_CHEEKS            (1 << 13)
 #define MOVE_LIMITATION_GIGATON_HAMMER          (1 << 14)
 #define MOVE_LIMITATION_ION_DELUGE              (1 << 15)
+#define MOVE_LIMITATION_PSY_SWAP                (1 << 16)
 
-#define MOVE_LIMITATION_PLACEHOLDER             (1 << 16)
+#define MOVE_LIMITATION_PLACEHOLDER             (1 << 17)
 #define MOVE_LIMITATIONS_ALL                    0xFFFF
 
 #define ABILITYEFFECT_ON_SWITCHIN                0
@@ -100,6 +101,7 @@ extern const struct TypePower gNaturalGiftTable[];
 
 void HandleAction_ThrowBall(void);
 bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move);
+bool32 IsAffectedByOvertake(u32 battlerAtk, u32 defSide, u32 move);
 void HandleAction_UseMove(void);
 void HandleAction_Switch(void);
 void HandleAction_UseItem(void);

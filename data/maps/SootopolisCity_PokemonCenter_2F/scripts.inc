@@ -21,7 +21,17 @@ SootopolisCity_PokemonCenter_2F_EventScript_BallQuestGuy::
 	faceplayer
 	goto_if_lt VAR_BALL_QUEST_STATE, 1, SootopolisCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest
 	goto_if_gt VAR_BALL_QUEST_STATE, 1, SootopolisCity_PokemonCenter_2F_EventScript_NoMoreQuest
+	goto_if_set FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR, SootopolisCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated
+	setflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox SootopolisCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon, MSGBOX_DEFAULT
+	getcaughtmon SPECIES_SNOTLOUD
+	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_PokemonCenter_2F_EventScript_Check2
+	msgbox SootopolisCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SootopolisCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated::
+	msgbox SootopolisCity_PokemonCenter_2F_Text_CaughtMonReminder, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_SNOTLOUD
 	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_PokemonCenter_2F_EventScript_Check2
 	msgbox SootopolisCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
@@ -44,6 +54,7 @@ SootopolisCity_PokemonCenter_2F_EventScript_Check3::
 
 SootopolisCity_PokemonCenter_2F_EventScript_GiveNewBall::
 	addvar VAR_BALL_QUEST_STATE, 1
+	clearflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox SootopolisCity_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
 	release
 	end
@@ -61,6 +72,12 @@ SootopolisCity_PokemonCenter_2F_EventScript_NoMoreQuest::
 SootopolisCity_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
 	.string "you needa catch uhh\n"
 	.string "spryte lumelmo snotloud$"
+
+SootopolisCity_PokemonCenter_2F_Text_CaughtMonReminder:
+	.string "Spryte, Lumelmo, and Snotloud...\n"
+	.string "I very much would like to see them!\p"
+	.string "Do you have them registered\l"
+	.string "in your Pokédex?$"
 
 SootopolisCity_PokemonCenter_2F_Text_GoCatchIt:
 	.string "go GET em shithead$"

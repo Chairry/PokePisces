@@ -84,6 +84,7 @@ struct DisableStruct
     u8 truantSwitchInHack:1;
     u8 mimickedMoves:4;
     u8 rechargeTimer;
+    u8 overtakenTimer;
     u8 autotomizeCount;
     u8 slowStartTimer;
     u8 embargoTimer;
@@ -233,6 +234,7 @@ struct SideTimer
     // Timers below this point are not swapped by Court Change
     u8 followmeTimer;
     u8 followmeTarget:3;
+    u8 overtakeTarget:3;
     u8 followmePowder:1; // Rage powder, does not affect grass type pokemon.
     u8 retaliateTimer;
     u8 silenceTimer;

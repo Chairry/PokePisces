@@ -774,8 +774,16 @@
 #define STRINGID_CANTHEALINOFFENSIVEFORM              772
 #define STRINGID_GOLDPLAINS                           773
 #define STRINGID_CUREDBLOOMING                        774
+#define STRINGID_PKMNPUMPINGPOWER                     775
+#define STRINGID_CANNONADEMALFUNCTIONED               776
+#define STRINGID_PKMNSWITCHEDSPATKANDSPDEF            777
+#define STRINGID_SCARFWASCHARGEDBYBEINGHIT            778
+#define STRINGID_PKMNSITEMCALMEDIT                    779
+#define STRINGID_PKMNGEMSTONEMAXEDEVASION             780
+#define STRINGID_USINGITEMSTATOFPKMNFELL              781
+#define STRINGID_TARGETISBEINGSALTCORNED              782
 
-#define BATTLESTRINGS_COUNT                           775
+#define BATTLESTRINGS_COUNT                           783
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -794,6 +802,7 @@
 #define B_MSG_STAT_ROSE_EMPTY    3
 #define B_MSG_STAT_ROSE_ITEM     4
 #define B_MSG_USED_DIRE_HIT      5
+#define B_MSG_STAT_FELL_ITEM     6
 
 // gStatDownStringIds
 #define B_MSG_ATTACKER_STAT_FELL 0

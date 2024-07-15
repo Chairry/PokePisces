@@ -449,7 +449,7 @@ const struct Berry gBerries[] =
         .smoothness = 20,
     },
 
-    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX] =
+    [ITEM_BLUK_BERRY - FIRST_BERRY_INDEX] =
     {
         .name = _("Soda"),
         .firmness = BERRY_FIRMNESS_VERY_HARD,
@@ -1367,6 +1367,42 @@ const struct Berry gBerries[] =
         .smoothness = 60,
     },
 
+    [ITEM_RIZZ_BERRY - FIRST_BERRY_INDEX] =
+    {
+        .name = _("Rizz"), // "Maranga" is too long
+        .firmness = BERRY_FIRMNESS_UNKNOWN,
+        .size = 0,
+        .maxYield = 5,
+        .minYield = 2,
+        .description1 = sBerryDescriptionPart1_Maranga,
+        .description2 = sBerryDescriptionPart2_Maranga,
+        .stageDuration = 24,
+        .spicy = 10,
+        .dry = 10,
+        .sweet = 30,
+        .bitter = 30,
+        .sour = 10,
+        .smoothness = 60,
+    },
+
+    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX] =
+    {
+        .name = _("Marnga"), // "Maranga" is too long
+        .firmness = BERRY_FIRMNESS_UNKNOWN,
+        .size = 0,
+        .maxYield = 5,
+        .minYield = 2,
+        .description1 = sBerryDescriptionPart1_Maranga,
+        .description2 = sBerryDescriptionPart2_Maranga,
+        .stageDuration = 24,
+        .spicy = 10,
+        .dry = 10,
+        .sweet = 30,
+        .bitter = 30,
+        .sour = 10,
+        .smoothness = 60,
+    },
+    
     [ITEM_ENIGMA_BERRY_E_READER - FIRST_BERRY_INDEX] =
     {
         .name = _("Enigma"),
@@ -1403,7 +1439,7 @@ const struct BerryCrushBerryData gBerryCrush_BerryData[] = {
     [ITEM_AGUAV_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  60, .powder =  50},
     [ITEM_IAPAPA_BERRY - FIRST_BERRY_INDEX]          = {.difficulty =  60, .powder =  50},
     [ITEM_RAZZ_BERRY - FIRST_BERRY_INDEX]            = {.difficulty =  80, .powder =  70},
-    [ITEM_YELLOW_SODA - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
+    [ITEM_BLUK_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_NANAB_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_WEPEAR_BERRY - FIRST_BERRY_INDEX]          = {.difficulty =  80, .powder =  70},
     [ITEM_PINAP_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},

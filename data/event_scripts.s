@@ -2183,7 +2183,7 @@ Common_Mart_BallShop6B12Q:
 	.2byte ITEM_NET_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -2215,7 +2215,7 @@ Common_Mart_BallShop6B13Q:
 	.2byte ITEM_NET_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -2569,7 +2569,7 @@ Common_Mart_BallShop7B12Q:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -2602,7 +2602,7 @@ Common_Mart_BallShop7B13Q:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -2970,7 +2970,7 @@ Common_Mart_BallShop8B12Q:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -3004,7 +3004,7 @@ Common_Mart_BallShop8B13Q:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -3039,7 +3039,7 @@ Common_Mart_BallShop8B14Q:
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_LURE_BALL
 	.2byte ITEM_MOON_BALL
 	.2byte ITEM_LEVEL_BALL
@@ -3638,3 +3638,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/BattleStudioFakeArena/scripts.inc"
 
 	.include "data/maps/BattleStudioCages/scripts.inc"
+
+	.include "data/maps/Gym4Corridor/scripts.inc"
+
+	.include "data/maps/Gym5Corridor/scripts.inc"
+
+	.include "data/maps/Gym6Corridor/scripts.inc"
+
+	.include "data/maps/Gym7Corridor/scripts.inc"
+
+	.include "data/maps/Gym8Corridor/scripts.inc"
+
+	.include "data/maps/CultipexCave/scripts.inc"

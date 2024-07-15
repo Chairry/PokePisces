@@ -209,7 +209,16 @@
 #define STATUS4_RECHARGE_REDUCE         (1 << 13)
 #define STATUS4_MEAN_LOOKER             (1 << 14)
 #define STATUS4_REFLECTED_TYPE          (1 << 15)
-
+#define STATUS4_PUMPED_UP               (1 << 16)
+#define STATUS4_ACID_ARMORED            (1 << 17)
+#define STATUS4_POWER_SHIFT             (1 << 18)
+#define STATUS4_GUARD_SPLIT             (1 << 19)
+#define STATUS4_GUARD_SWAP              (1 << 20)
+#define STATUS4_POWER_SPLIT             (1 << 21)
+#define STATUS4_SPEED_SWAP              (1 << 22)
+#define STATUS4_POWER_SWAP              (1 << 23)
+#define STATUS4_OVERTAKER               (1 << 24)
+#define STATUS4_OVERTAKEN               (1 << 25)
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
@@ -414,24 +423,31 @@
 #define MOVE_EFFECT_ALL_STATS_UP_2      83              
 #define MOVE_EFFECT_SIGNAL_BEAM         84              
 #define MOVE_EFFECT_ATK_TWO_DOWN        85              
-#define MOVE_EFFECT_METEOR_MASH         86              
-#define MOVE_EFFECT_DEF_SPDEF_UP        87              
-#define MOVE_EFFECT_CINDER_TWIRL        88              
-#define MOVE_EFFECT_CINDER_DRILL        89              
-#define MOVE_EFFECT_RADIOACID           90              
-#define MOVE_EFFECT_HEART_CARVE         91              
-#define MOVE_EFFECT_DEF_ACC_DOWN        92              
-#define MOVE_EFFECT_ALL_STATS_DOWN      93              
-#define MOVE_EFFECT_TOXIC_SPIKES        94
-#define MOVE_EFFECT_ATK_DOWN            95
-#define MOVE_EFFECT_ALL_STATS_UP_2_FOE  96
-#define MOVE_EFFECT_TICKED              97
-#define MOVE_EFFECT_BANSHRIEK           98
-#define MOVE_EFFECT_SPD_ACC_UP          99
-#define MOVE_EFFECT_RECHARGE_REDUCE     100
-#define MOVE_EFFECT_ATK_SPATK_DOWN      101
+#define MOVE_EFFECT_DEF_SPDEF_UP        86              
+#define MOVE_EFFECT_CINDER_TWIRL        87              
+#define MOVE_EFFECT_CINDER_DRILL        88              
+#define MOVE_EFFECT_RADIOACID           89              
+#define MOVE_EFFECT_HEART_CARVE         90              
+#define MOVE_EFFECT_DEF_ACC_DOWN        91              
+#define MOVE_EFFECT_ALL_STATS_DOWN      92              
+#define MOVE_EFFECT_TOXIC_SPIKES        93
+#define MOVE_EFFECT_ATK_DOWN            94
+#define MOVE_EFFECT_ALL_STATS_UP_2_FOE  95
+#define MOVE_EFFECT_TICKED              96
+#define MOVE_EFFECT_BANSHRIEK           97
+#define MOVE_EFFECT_SPD_ACC_UP          98
+#define MOVE_EFFECT_RECHARGE_REDUCE     99
+#define MOVE_EFFECT_ATK_SPATK_DOWN      100
+#define MOVE_EFFECT_SNOWFADE            101
+#define MOVE_EFFECT_ATK_SPEED_PLUS      102
+#define MOVE_EFFECT_SMOG                103
+#define MOVE_EFFECT_PLUNDER             104
+#define MOVE_EFFECT_VEXING_KI           105
+#define MOVE_EFFECT_GRAV_APPLE          106
+#define MOVE_EFFECT_TORMENT             107
+#define MOVE_EFFECT_PESKY_PLUSH         108
 
-#define NUM_MOVE_EFFECTS                102
+#define NUM_MOVE_EFFECTS                109
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

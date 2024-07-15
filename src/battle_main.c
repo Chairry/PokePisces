@@ -453,8 +453,8 @@ static const u16 sTrainerBallTable[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_SAILOR] = ITEM_NET_BALL,
     [TRAINER_CLASS_WAYFARER] = ITEM_NET_BALL,
     [TRAINER_CLASS_KINDLER] = ITEM_FAST_BALL,
-    [TRAINER_CLASS_SWIMMER_M] = ITEM_DIVE_BALL,
-    [TRAINER_CLASS_SWIMMER_F] = ITEM_DIVE_BALL,
+    [TRAINER_CLASS_SWIMMER_M] = ITEM_LURE_BALL,
+    [TRAINER_CLASS_SWIMMER_F] = ITEM_LURE_BALL,
     [TRAINER_CLASS_CLIMBER] = ITEM_HEAVY_BALL,
     [TRAINER_CLASS_COOLTRAINER_2] = ITEM_QUICK_BALL,
     [TRAINER_CLASS_TRIATHLETE] = ITEM_QUICK_BALL,
@@ -466,8 +466,8 @@ static const u16 sTrainerBallTable[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_KUNOICHI] = ITEM_HEAL_BALL,
     [TRAINER_CLASS_CLOWN] = ITEM_LOVE_BALL,
     [TRAINER_CLASS_ELECTRICIAN] = ITEM_TIMER_BALL,
-    [TRAINER_CLASS_SCUBA_DIVER] = ITEM_DIVE_BALL,
-    [TRAINER_CLASS_FREE_DIVER] = ITEM_DIVE_BALL,
+    [TRAINER_CLASS_SCUBA_DIVER] = ITEM_LURE_BALL,
+    [TRAINER_CLASS_FREE_DIVER] = ITEM_LURE_BALL,
     [TRAINER_CLASS_NURSE] = ITEM_HEAL_BALL,
     [TRAINER_CLASS_BLACK_BELT] = ITEM_ULTRA_BALL,
     [TRAINER_CLASS_BATTLE_GIRL] = ITEM_ULTRA_BALL,
@@ -535,6 +535,8 @@ const u8 gStatusConditionString_BurnJpn[] = _("やけど$$$$");
 const u8 gStatusConditionString_IceJpn[] = _("こおり$$$$");
 const u8 gStatusConditionString_ConfusionJpn[] = _("こんらん$$$");
 const u8 gStatusConditionString_LoveJpn[] = _("メロメロ$$$");
+const u8 gStatusConditionString_PanicJpn[] = _("こおり$$$$");
+const u8 gStatusConditionString_ExposedJpn[] = _("こおり$$$$");
 
 const u8 *const gStatusConditionStringsTable[][2] =
 {
@@ -544,7 +546,9 @@ const u8 *const gStatusConditionStringsTable[][2] =
     {gStatusConditionString_BurnJpn, gText_Burn},
     {gStatusConditionString_IceJpn, gText_Ice},
     {gStatusConditionString_ConfusionJpn, gText_Confusion},
-    {gStatusConditionString_LoveJpn, gText_Love}
+    {gStatusConditionString_LoveJpn, gText_Love},
+    {gStatusConditionString_PanicJpn, gText_Panic},
+    {gStatusConditionString_ExposedJpn, gText_Exposed}
 };
 
 void CB2_InitBattle(void)
@@ -3220,7 +3224,7 @@ void SwitchInClearSetData(u32 battler)
         gStatuses3[battler] &= (STATUS3_LEECHSEED_BATTLER | STATUS3_LEECHSEED | STATUS3_ALWAYS_HITS | STATUS3_PERISH_SONG | STATUS3_ROOTED
                                        | STATUS3_GASTRO_ACID | STATUS3_EMBARGO | STATUS3_TELEKINESIS | STATUS3_MAGNET_RISE | STATUS3_HEAL_BLOCK
                                        | STATUS3_AQUA_RING | STATUS3_POWER_TRICK);
-        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION | STATUS4_TICKED | STATUS4_TICKED_BATTLER | STATUS4_HEARTHWARM);
+        gStatuses4[battler] &= (STATUS4_MUD_SPORT | STATUS4_WATER_SPORT | STATUS4_INFINITE_CONFUSION | STATUS4_TICKED | STATUS4_TICKED_BATTLER | STATUS4_HEARTHWARM | STATUS4_POWER_SHIFT);
         for (i = 0; i < gBattlersCount; i++)
         {
             if (GetBattlerSide(battler) != GetBattlerSide(i)
@@ -3233,6 +3237,8 @@ void SwitchInClearSetData(u32 battler)
         }
         if (gStatuses3[battler] & STATUS3_POWER_TRICK)
             SWAP(gBattleMons[battler].attack, gBattleMons[battler].defense, i);
+        if (gStatuses4[battler] & STATUS4_POWER_SHIFT)
+            SWAP(gBattleMons[battler].spAttack, gBattleMons[battler].spDefense, i);
     }
     else
     {
@@ -4704,12 +4710,12 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
 
     // own abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY_NEGATIVE)
-        speed = (speed * 150) / 100;
+        speed *= 2;
     else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gDisableStructs[battler].slowStartTimer != 0)
         speed /= 2;
-    else if (ability == ABILITY_STARS_GRACE && gDisableStructs[battler].slowStartTimer >= 3)
+    else if (ability == ABILITY_STARS_GRACE && gDisableStructs[battler].slowStartTimer >= 4)
         speed *= 2;
     else if (ability == ABILITY_PROTOSYNTHESIS && gBattleWeather & B_WEATHER_SUN && highestStat == STAT_SPEED)
         speed = (speed * 150) / 100;
@@ -4757,6 +4763,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed = (speed * 130) / 100;
     else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF)
         speed = (speed * 110) / 100;
+    else if (holdEffect == HOLD_EFFECT_FLOAT_STONE)
+        speed = (speed * 120) / 100;
     else if (holdEffect == HOLD_EFFECT_DRIP_SHOES && gBattleMons[battler].species == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
         speed *= 2;
     else if (holdEffect == HOLD_EFFECT_SALTY_TEAR && gBattleMons[battler].species == SPECIES_SADSOD)
@@ -4839,6 +4847,14 @@ s8 GetMovePriority(u32 battler, u16 move)
         priority++;
     }
     else if (ability == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battler].isFirstTurn || IsTwoTurnsMove(move)))
+    {
+        priority++;
+    }
+    else if ((ability == ABILITY_SHAMBLES) && (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM) && (gBattleMoves[move].switchingMove))
+    {
+        priority++;
+    }
+    else if ((gBattleMons[battler].species == SPECIES_MOSKOPO) && (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LONG_NOSE) && ((gBattleMoves[move].type == TYPE_BUG) || (gBattleMoves[move].type == TYPE_DARK)))
     {
         priority++;
     }
@@ -5150,6 +5166,12 @@ static void TurnValuesCleanUp(bool8 var0)
                 if (gDisableStructs[i].rechargeTimer == 0)
                     gBattleMons[i].status2 &= ~STATUS2_RECHARGE;
                     gStatuses4[i] &= ~STATUS4_RECHARGE_REDUCE;
+            }
+            if (gDisableStructs[i].overtakenTimer)
+            {
+                gDisableStructs[i].overtakenTimer--;
+                if (gDisableStructs[i].overtakenTimer == 0)
+                    gStatuses4[i] &= ~STATUS4_OVERTAKEN;
             }
         }
 
@@ -5922,6 +5944,66 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
             gSpecialStatuses[battlerAtk].gemParam = 50;
         }
             gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+    }
+    if (holdEffect == HOLD_EFFECT_KELPSY_BERRY)
+    {
+        if (gBattleMoves[move].pulseMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
+    if (holdEffect == HOLD_EFFECT_QUALOT_BERRY)
+    {
+        if (gBattleMoves[move].windMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
+    if (holdEffect == HOLD_EFFECT_GREPA_BERRY)
+    {
+        if (gBattleMoves[move].kickingMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
+    }
+    if (holdEffect == HOLD_EFFECT_NOMEL_BERRY)
+    {
+        if (gBattleMoves[move].piercingMove)
+        {
+            if (attackerAbility == ABILITY_RIPEN)
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 100;
+            }
+            else
+            {
+                gSpecialStatuses[battlerAtk].gemParam = 50;
+            }
+                gSpecialStatuses[battlerAtk].gemBoost = TRUE;
+        }
     }
 
 }

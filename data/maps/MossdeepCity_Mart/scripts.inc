@@ -15,7 +15,7 @@ MossdeepCity_Mart_EventScript_Clerk::
 MossdeepCity_Mart_Pokemart:
 	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_COOL_BALL
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_REVIVE
@@ -35,7 +35,7 @@ MossdeepCity_Mart_EventScript_Boy::
 	end
 
 MossdeepCity_Mart_EventScript_Sailor::
-	msgbox MossdeepCity_Mart_Text_NetAndDiveBallsRare, MSGBOX_NPC
+	msgbox MossdeepCity_Mart_Text_NetAndCoolBallsRare, MSGBOX_NPC
 	end
 
 MossdeepCity_Mart_Text_ReviveIsFantastic:
@@ -50,7 +50,7 @@ MossdeepCity_Mart_Text_MaxRepelLastsLongest:
 	.string "Out of all the REPEL sprays, it lasts\n"
 	.string "the longest.$"
 
-MossdeepCity_Mart_Text_NetAndDiveBallsRare:
+MossdeepCity_Mart_Text_NetAndCoolBallsRare:
 	.string "The NET and DIVE BALLS are rare POKé\n"
 	.string "BALLS that are only made in MOSSDEEP.\p"
 	.string "A NET BALL is effective against\n"

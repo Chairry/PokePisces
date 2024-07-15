@@ -992,7 +992,7 @@ gBattleAnims_Moves::
 	.4byte Move_SPIRIT_AWAY
 	.4byte Move_PHANTASM
 	.4byte Move_PENALIZE
-	.4byte Move_BLOSSOM_SNAP
+	.4byte Move_SNAPBLOSSOM
 	.4byte Move_GRASS_CANNON
 	.4byte Move_BOUNDARY
     .4byte Move_SAVAGE_WING
@@ -4297,7 +4297,7 @@ Move_AQUA_JET:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	loadspritegfx ANIM_TAG_SPLASH
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, 2, 4, 0, 0, 13, 336
+	createsprite gCoolBallSpriteTemplate, 2, 4, 0, 0, 13, 336
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, 3, 1, 0
@@ -21637,7 +21637,6 @@ Move_ODD_STEP::
 
 Move_CREEPY_CRAWL::
 	loadspritegfx ANIM_TAG_GREEN_SPIKE
-
 	fadetobg BG_DARK
 	waitbgfadeout
 	createvisualtask AnimTask_FadeScreenToWhite, 5
@@ -23177,7 +23176,7 @@ Move_PHANTASM::
 Move_PENALIZE::
 	goto Move_PUNISHMENT
 
-Move_BLOSSOM_SNAP::
+Move_SNAPBLOSSOM::
 	goto Move_SNAP_TRAP
 
 Move_GRASS_CANNON::
@@ -32160,7 +32159,7 @@ Move_DIVE:
 DiveSetUp:
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
+	createsprite gCoolBallSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, ANIM_ATTACKER, 3, 0
@@ -35495,7 +35494,7 @@ Move_HYDRO_VORTEX::
 	waitforvisualfinish
 	loadspritegfx ANIM_TAG_ROUND_SHADOW
 	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
-	createsprite gDiveBallSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
+	createsprite gCoolBallSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
 	waitforvisualfinish
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
 	createsprite gDiveWaterSplashSpriteTemplate, ANIM_ATTACKER, 3, 0x0

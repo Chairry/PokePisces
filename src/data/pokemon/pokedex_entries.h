@@ -13381,13 +13381,13 @@ const struct PokedexEntry gPokedexEntries[] =
     [NATIONAL_DEX_UNBERRABLE] =
     {
         .categoryName = _("Bombeard"),
-        .height = 69,
+        .height = 21,
         .weight = 420,
         .description = gUnberrablePokedexText,
         .pokemonScale = 256,
         .pokemonOffset = 0,
-        .trainerScale = 672,
-        .trainerOffset = 12,
+        .trainerScale = 365,
+        .trainerOffset = 7,
     },
 
     [NATIONAL_DEX_PEBLRANIUM] =

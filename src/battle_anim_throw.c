@@ -95,7 +95,7 @@ static void GreatBallOpenParticleAnimation(u8);
 static void SafariBallOpenParticleAnimation(u8);
 static void UltraBallOpenParticleAnimation(u8);
 static void MasterBallOpenParticleAnimation(u8);
-static void DiveBallOpenParticleAnimation(u8);
+static void CoolBallOpenParticleAnimation(u8);
 static void RepeatBallOpenParticleAnimation(u8);
 static void TimerBallOpenParticleAnimation(u8);
 static void PremierBallOpenParticleAnimation(u8);
@@ -136,7 +136,7 @@ static const struct CaptureStar sCaptureStars[] =
 #define TAG_PARTICLES_HEALBALL    65035
 #define TAG_PARTICLES_NETBALL     65036
 #define TAG_PARTICLES_NESTBALL    65037
-#define TAG_PARTICLES_DIVEBALL    65038
+#define TAG_PARTICLES_COOLBALL    65038
 #define TAG_PARTICLES_DUSKBALL    65039
 #define TAG_PARTICLES_TIMERBALL   65040
 #define TAG_PARTICLES_QUICKBALL   65041
@@ -166,7 +166,7 @@ static const struct CompressedSpriteSheet sBallParticleSpriteSheets[] =
     [BALL_HEAL]     = {gBattleAnimSpriteGfx_Particles2,     0x100, TAG_PARTICLES_HEALBALL},
     [BALL_NET]      = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_NETBALL},
     [BALL_NEST]     = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_NESTBALL},
-    [BALL_DIVE]     = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_DIVEBALL},
+    [BALL_DIVE]     = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_COOLBALL},
     [BALL_DUSK]     = {gBattleAnimSpriteGfx_Particles2,     0x100, TAG_PARTICLES_DUSKBALL},
     [BALL_TIMER]    = {gBattleAnimSpriteGfx_Particles,      0x100, TAG_PARTICLES_TIMERBALL},
     [BALL_QUICK]    = {gBattleAnimSpriteGfx_Particles2,     0x100, TAG_PARTICLES_QUICKBALL},
@@ -197,7 +197,7 @@ static const struct CompressedSpritePalette sBallParticlePalettes[] =
     [BALL_HEAL]     = {gBattleAnimSpritePal_Particles2,     TAG_PARTICLES_HEALBALL},
     [BALL_NET]      = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_NETBALL},
     [BALL_NEST]     = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_NESTBALL},
-    [BALL_DIVE]     = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_DIVEBALL},
+    [BALL_DIVE]     = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_COOLBALL},
     [BALL_DUSK]     = {gBattleAnimSpritePal_Particles2,     TAG_PARTICLES_DUSKBALL},
     [BALL_TIMER]    = {gBattleAnimSpritePal_CircleImpact,   TAG_PARTICLES_TIMERBALL},
     [BALL_QUICK]    = {gBattleAnimSpritePal_Particles2,     TAG_PARTICLES_QUICKBALL},
@@ -235,7 +235,7 @@ static const union AnimCmd sAnim_MasterBall[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_NetDiveBall[] =
+static const union AnimCmd sAnim_NetCoolBall[] =
 {
     ANIMCMD_FRAME(4, 1),
     ANIMCMD_END,
@@ -264,7 +264,7 @@ static const union AnimCmd *const sAnims_BallParticles[] =
 {
     sAnim_RegularBall,
     sAnim_MasterBall,
-    sAnim_NetDiveBall,
+    sAnim_NetCoolBall,
     sAnim_NestBall,
     sAnim_LuxuryPremierBall,
     sAnim_UltraRepeatTimerBall,
@@ -312,7 +312,7 @@ static const TaskFunc sBallParticleAnimationFuncs[POKEBALL_COUNT] =
     [BALL_HEAL]    = PokeBallOpenParticleAnimation,
     [BALL_NET]     = SafariBallOpenParticleAnimation,
     [BALL_NEST]    = UltraBallOpenParticleAnimation,
-    [BALL_DIVE]    = DiveBallOpenParticleAnimation,
+    [BALL_DIVE]    = CoolBallOpenParticleAnimation,
     [BALL_DUSK]    = UltraBallOpenParticleAnimation,
     [BALL_TIMER]   = TimerBallOpenParticleAnimation,
     [BALL_QUICK]   = UltraBallOpenParticleAnimation,
@@ -408,8 +408,8 @@ static const struct SpriteTemplate sBallParticleSpriteTemplates[POKEBALL_COUNT] 
         .callback = SpriteCallbackDummy,
     },
     [BALL_DIVE] = {
-        .tileTag = TAG_PARTICLES_DIVEBALL,
-        .paletteTag = TAG_PARTICLES_DIVEBALL,
+        .tileTag = TAG_PARTICLES_COOLBALL,
+        .paletteTag = TAG_PARTICLES_COOLBALL,
         .oam = &gOamData_AffineOff_ObjNormal_8x8,
         .anims = sAnims_BallParticles,
         .images = NULL,
@@ -963,7 +963,7 @@ u8 ItemIdToBallId(u16 ballItem)
         return BALL_NET;
     case ITEM_NEST_BALL:
         return BALL_NEST;
-    case ITEM_DIVE_BALL:
+    case ITEM_COOL_BALL:
         return BALL_DIVE;
     case ITEM_DUSK_BALL:
         return BALL_DUSK;
@@ -1944,7 +1944,7 @@ static void TimerBallOpenParticleAnimation(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void DiveBallOpenParticleAnimation(u8 taskId)
+static void CoolBallOpenParticleAnimation(u8 taskId)
 {
     u8 i;
     u8 x, y, priority, subpriority, ballId;

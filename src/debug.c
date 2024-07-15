@@ -4028,6 +4028,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(PH_NURSE_SOLO) \
     X(MUS_VS_PTRAINER) \
     X(MUS_VS_WILD2) \
+    X(MUS_VS_RAY) \
+    X(MUS_PACIFIDLOG) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \
