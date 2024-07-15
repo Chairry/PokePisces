@@ -535,6 +535,8 @@ const u8 gStatusConditionString_BurnJpn[] = _("やけど$$$$");
 const u8 gStatusConditionString_IceJpn[] = _("こおり$$$$");
 const u8 gStatusConditionString_ConfusionJpn[] = _("こんらん$$$");
 const u8 gStatusConditionString_LoveJpn[] = _("メロメロ$$$");
+const u8 gStatusConditionString_PanicJpn[] = _("こおり$$$$");
+const u8 gStatusConditionString_ExposedJpn[] = _("こおり$$$$");
 
 const u8 *const gStatusConditionStringsTable[][2] =
 {
@@ -544,7 +546,9 @@ const u8 *const gStatusConditionStringsTable[][2] =
     {gStatusConditionString_BurnJpn, gText_Burn},
     {gStatusConditionString_IceJpn, gText_Ice},
     {gStatusConditionString_ConfusionJpn, gText_Confusion},
-    {gStatusConditionString_LoveJpn, gText_Love}
+    {gStatusConditionString_LoveJpn, gText_Love},
+    {gStatusConditionString_PanicJpn, gText_Panic},
+    {gStatusConditionString_ExposedJpn, gText_Exposed}
 };
 
 void CB2_InitBattle(void)
@@ -4843,6 +4847,10 @@ s8 GetMovePriority(u32 battler, u16 move)
         priority++;
     }
     else if (ability == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battler].isFirstTurn || IsTwoTurnsMove(move)))
+    {
+        priority++;
+    }
+    else if ((ability == ABILITY_SHAMBLES) && (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM) && (gBattleMoves[move].switchingMove))
     {
         priority++;
     }

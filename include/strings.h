@@ -2077,6 +2077,8 @@ extern const u8 BattleFrontier_BattleTowerBattleRoom_Text_RecordCouldntBeSaved[]
 extern const u8 gText_Poison[];
 extern const u8 gText_Sleep[];
 extern const u8 gText_Paralysis[];
+extern const u8 gText_Panic[];
+extern const u8 gText_Exposed[];
 extern const u8 gText_Burn[];
 extern const u8 gText_Ice[];
 extern const u8 gText_Confusion[];

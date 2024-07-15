@@ -1729,13 +1729,13 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
     evasionStage = gBattleMons[battlerDef].statStages[STAT_EVASION];
-    if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE)
+    if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_IGNORANT_BLISS)
         evasionStage = DEFAULT_STAT_STAGE;
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;
     if (gCurrentMove == MOVE_GRASSY_GLIDE && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
         evasionStage = DEFAULT_STAT_STAGE;
-    if (defAbility == ABILITY_UNAWARE)
+    if (defAbility == ABILITY_UNAWARE || atkAbility == ABILITY_IGNORANT_BLISS)
         accStage = DEFAULT_STAT_STAGE;
 
     if (gBattleMons[battlerDef].status2 & STATUS2_FORESIGHT || gStatuses3[battlerDef] & STATUS3_MIRACLE_EYED)
@@ -2037,7 +2037,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     s32 critChance = 0;
 
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT || gStatuses3[battlerAtk] & STATUS3_CANT_SCORE_A_CRIT
-       || abilityDef == ABILITY_SHELL_ARMOR)
+       || abilityDef == ABILITY_SHELL_ARMOR || abilityDef == ABILITY_IGNORANT_BLISS)
     {
         critChance = -1;
     }
@@ -2999,12 +2999,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
     gBattleScripting.moveEffect &= ~MOVE_EFFECT_CERTAIN;
 
     if ((battlerAbility == ABILITY_SHIELD_DUST
+     || battlerAbility == ABILITY_IGNORANT_BLISS
      || GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_COVERT_CLOAK
      || gSideStatuses[GetBattlerSide(gEffectBattler)] & SIDE_STATUS_MIST)
       && !(gHitMarker & HITMARKER_IGNORE_SAFEGUARD)
       && !primary) 
     {
-        if (battlerAbility == ABILITY_SHIELD_DUST)
+        if (battlerAbility == ABILITY_SHIELD_DUST || battlerAbility == ABILITY_IGNORANT_BLISS)
             RecordAbilityBattle(gEffectBattler, battlerAbility);
         else if (GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_COVERT_CLOAK)
             RecordItemEffectBattle(gEffectBattler, HOLD_EFFECT_COVERT_CLOAK);
@@ -3430,19 +3431,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 }
                 break;
             case MOVE_EFFECT_TORMENT:
-                if (battlerAbility == ABILITY_AROMA_VEIL)
+                if (IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
                 {
-                    if (primary == TRUE || certain == MOVE_EFFECT_CERTAIN)
-                    {
-                        gLastUsedAbility = ABILITY_AROMA_VEIL;
-                        gBattlerAbility = gEffectBattler;
-                        RecordAbilityBattle(gEffectBattler, ABILITY_AROMA_VEIL);
-                        gBattlescriptCurrInstr = BattleScript_AromaVeilProtects;
-                    }
-                    else
-                    {
-                        gBattlescriptCurrInstr++;
-                    }
+                    gBattlescriptCurrInstr++;
+                }
+                if (battlerAbility == ABILITY_IGNORANT_BLISS)
+                {
+                    gBattlescriptCurrInstr++;
                 }
                 else if (gBattleMons[gEffectBattler].status2 == STATUS2_TORMENT)
                 {
@@ -4370,13 +4365,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     bool32 tormentlanded = FALSE;
                     bool32 tauntlanded = FALSE;
 
-                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    if (randomTormentChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
                     {
                         gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_TORMENT];
                         tormentlanded = TRUE;
                     }
                     
-                    if (randomTauntChance && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
+                    if (randomTauntChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
                     {
                         #if B_TAUNT_TURNS >= GEN_5
                         u8 turns = 4;
@@ -4426,13 +4421,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     bool32 tormentlanded = FALSE;
                     bool32 tauntlanded = FALSE;
 
-                    if (randomTormentChance && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
+                    if (randomTormentChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
                     {
                         gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_TORMENT];
                         tormentlanded = TRUE;
                     }
                     
-                    if (randomTauntChance && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
+                    if (randomTauntChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
                     {
                         #if B_TAUNT_TURNS >= GEN_5
                         u8 turns = 4;
@@ -9637,11 +9632,7 @@ static void Cmd_various(void)
         VARIOUS_ARGS(const u8 *failInstr);
         gBattleScripting.battler = battler;
 
-        if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
-        {
-            gBattlescriptCurrInstr = cmd->failInstr;
-        }
-        else if (gBattleMons[battler].status2 & STATUS2_TORMENT)
+        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
         {
             gBattlescriptCurrInstr = cmd->failInstr;
         }
@@ -9656,11 +9647,7 @@ static void Cmd_various(void)
         VARIOUS_ARGS(const u8 *failInstr);
         gBattleScripting.battler = battler;
 
-        if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
-        {
-            gBattlescriptCurrInstr = cmd->failInstr;
-        }
-        else if (gDisableStructs[battler].tauntTimer == 0)
+        if (gDisableStructs[battler].tauntTimer == 0)
         {
             #if B_TAUNT_TURNS >= GEN_5
                 u8 turns = 4;
@@ -13461,6 +13448,11 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             RecordAbilityBattle(battler, ABILITY_SHIELD_DUST);
             return STAT_CHANGE_DIDNT_WORK;
         }
+        else if (battlerAbility == ABILITY_IGNORANT_BLISS && flags == 0)
+        {
+            RecordAbilityBattle(battler, ABILITY_IGNORANT_BLISS);
+            return STAT_CHANGE_DIDNT_WORK;
+        }
         else if (flags == 0 && battlerHoldEffect == HOLD_EFFECT_COVERT_CLOAK)
         {
             RecordItemEffectBattle(battler, HOLD_EFFECT_COVERT_CLOAK);
@@ -14318,6 +14310,12 @@ static void Cmd_tryinfatuating(void)
         gBattlescriptCurrInstr = BattleScript_NotAffectedAbilityPopUp;
         gLastUsedAbility = ABILITY_OBLIVIOUS;
         RecordAbilityBattle(gBattlerTarget, ABILITY_OBLIVIOUS);
+    }
+    if (GetBattlerAbility(gBattlerTarget) == ABILITY_IGNORANT_BLISS)
+    {
+        gBattlescriptCurrInstr = BattleScript_NotAffectedAbilityPopUp;
+        gLastUsedAbility = ABILITY_IGNORANT_BLISS;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_IGNORANT_BLISS);
     }
     else if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
     {
@@ -16136,7 +16134,13 @@ static void Cmd_settaunt(void)
     }
     else
 #endif
-    if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+    if (GetBattlerAbility(gBattlerTarget) == ABILITY_IGNORANT_BLISS)
+    {
+        gBattlescriptCurrInstr = BattleScript_NotAffectedAbilityPopUp;
+        gLastUsedAbility = ABILITY_IGNORANT_BLISS;
+        RecordAbilityBattle(gBattlerTarget, ABILITY_IGNORANT_BLISS);
+    }
+    else if (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
