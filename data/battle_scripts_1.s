@@ -9179,7 +9179,7 @@ BattleScript_TryDestinyKnotDisabledAttackerRet:
 
 BattleScript_TryDestinyKnotTormentAttacker:
 	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_DESTINY_KNOT, BattleScript_TryDestinyKnotTormentAttackerRet
-	destinyknotdisable BS_ATTACKER, BattleScript_TryDestinyKnotTormentAttackerRet
+	destinyknottorment BS_ATTACKER, BattleScript_TryDestinyKnotTormentAttackerRet
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 	printstring STRINGID_DESTINYKNOTACTIVATES
@@ -9189,7 +9189,7 @@ BattleScript_TryDestinyKnotTormentAttackerRet:
 
 BattleScript_TryDestinyKnotTauntAttacker:
 	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_DESTINY_KNOT, BattleScript_TryDestinyKnotTauntAttackerRet
-	destinyknotdisable BS_ATTACKER, BattleScript_TryDestinyKnotTauntAttackerRet
+	destinyknottaunt BS_ATTACKER, BattleScript_TryDestinyKnotTauntAttackerRet
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 	printstring STRINGID_DESTINYKNOTACTIVATES
@@ -9199,7 +9199,7 @@ BattleScript_TryDestinyKnotTauntAttackerRet:
 
 BattleScript_TryDestinyKnotEncoreAttacker:
 	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_DESTINY_KNOT, BattleScript_TryDestinyKnotEncoreAttackerRet
-	destinyknotdisable BS_ATTACKER, BattleScript_TryDestinyKnotEncoreAttackerRet
+	destinyknotencore BS_ATTACKER, BattleScript_TryDestinyKnotEncoreAttackerRet
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 	printstring STRINGID_DESTINYKNOTACTIVATES
@@ -9209,7 +9209,7 @@ BattleScript_TryDestinyKnotEncoreAttackerRet:
 
 BattleScript_TryDestinyKnotHealBlockAttacker:
 	jumpifnoholdeffect BS_TARGET, HOLD_EFFECT_DESTINY_KNOT, BattleScript_TryDestinyKnotHealBlockAttackerRet
-	destinyknotdisable BS_ATTACKER, BattleScript_TryDestinyKnotHealBlockAttackerRet
+	destinyknothealblock BS_ATTACKER, BattleScript_TryDestinyKnotHealBlockAttackerRet
 	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 	printstring STRINGID_DESTINYKNOTACTIVATES
@@ -13468,6 +13468,7 @@ BattleScript_IntimidateLoop:
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_IntimidatePrevented
+	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_IntimidateInReverse
 BattleScript_IntimidateEffect:
 	copybyte sBATTLER, gBattlerAttacker
@@ -15870,6 +15871,7 @@ BattleScript_DisturbLoop:
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented // SCRAPPY
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_DisturbPrevented
+	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_DisturbInReverse
 BattleScript_DisturbEffect:
 	copybyte sBATTLER, gBattlerAttacker
@@ -15935,6 +15937,7 @@ BattleScript_MockingLoop:
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_MockingPrevented
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_MockingPrevented
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_MockingPrevented
+	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_MockingPrevented
 	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MockingInReverse
 BattleScript_MockingEffect_Def:
 	copybyte sBATTLER, gBattlerAttacker

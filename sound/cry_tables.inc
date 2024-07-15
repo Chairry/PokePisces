@@ -1553,6 +1553,8 @@ gCryTable::
 	cry Cry_Peblranium
 	cry Cry_Vaiking
 	cry Cry_Yolkween
+	cry Cry_Wally
+	cry Cry_Pottricia
 .else
 	cry Cry_Unown
 	cry Cry_Unown
@@ -2317,6 +2319,8 @@ gCryTable::
 	cry Cry_Shishima
 	@ Lyolica
 	cry Cry_Lyolica
+	@ Pottricia
+	cry Cry_PottriciaShattered
 .else
 	@ Cramorant
 	cry Cry_Unown
@@ -3931,6 +3935,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Peblranium
 	cry_reverse Cry_Vaiking
 	cry_reverse Cry_Yolkween
+	cry_reverse Cry_Wally
+	cry_reverse Cry_Pottricia
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown
@@ -4662,8 +4668,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Shishima
 	@ Lyolica
 	cry_reverse Cry_Lyolica
-	@ Wally
-	cry_reverse Cry_Wally
+	@ Pottricia
+	cry_reverse Cry_PottriciaShattered
 .else
 	cry_reverse Cry_Unown
 	cry_reverse Cry_Unown

@@ -4846,6 +4846,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    else if ((ability == ABILITY_SHAMBLES) && (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY || gFieldStatuses & STATUS_FIELD_TRICK_ROOM || gFieldStatuses & STATUS_FIELD_WONDER_ROOM || gFieldStatuses & STATUS_FIELD_MAGIC_ROOM || gFieldStatuses & STATUS_FIELD_INVERSE_ROOM) && (gBattleMoves[move].switchingMove))
+    {
+        priority++;
+    }
     else if ((gBattleMons[battler].species == SPECIES_MOSKOPO) && (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LONG_NOSE) && ((gBattleMoves[move].type == TYPE_BUG) || (gBattleMoves[move].type == TYPE_DARK)))
     {
         priority++;

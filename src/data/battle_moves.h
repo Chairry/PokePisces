@@ -4930,6 +4930,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPD_UP_1,
+        .switchingMove = TRUE,
     },
 
     [MOVE_IMPRISON] =
@@ -6345,6 +6346,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_CLOSE_COMBAT] =
@@ -6580,6 +6582,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPD_UP_1,
+        .switchingMove = TRUE,
     },
 
     [MOVE_GUARD_SWAP] =
@@ -6594,6 +6597,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPD_UP_1,
+        .switchingMove = TRUE,
     },
 
     [MOVE_PUNISHMENT] =
@@ -8498,6 +8502,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .target = MOVE_TARGET_USER,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPD_UP_2,
+        .switchingMove = TRUE,
     },
 
     [MOVE_SCALD] =
@@ -8806,6 +8811,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_STRUGGLE_BUG] =
@@ -12376,7 +12382,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_FLIP_TURN] =
     {
-        .effect = EFFECT_HIT_ESCAPE,
+        .effect = EFFECT_FLIP_TURN,
         .power = 50,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -12387,6 +12393,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_TRIPLE_AXEL] =
@@ -14098,6 +14105,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_WYVERN_WAVE] =
@@ -14920,6 +14928,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_SCORP_FANG] =
@@ -16495,6 +16504,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_AXEL_HEEL] =
@@ -16652,6 +16662,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_NONE,
+        .switchingMove = TRUE,
     },
 
     [MOVE_STALAG_BLAST] =
