@@ -7174,6 +7174,19 @@ const struct Item gItems[] =
         .flingPower = 10,
     },
 
+    [ITEM_YELLOW_SODA] =
+    {
+        .name = _("Rizz Berry"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_YELLOW_SODA,
+        .holdEffectParam = 4,
+        .description = sYellowSodaDesc,
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+
     [ITEM_ENIGMA_BERRY_E_READER] =
     {
         .name = _("Enigma Berry"),
