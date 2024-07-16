@@ -1047,6 +1047,8 @@ gBattleAnims_Moves::
     .4byte ANIM_MOVE_GOLD_PLAINS
     .4byte ANIM_MOVE_DOWNFALL
     .4byte ANIM_MOVE_MT_SPLENDOR
+    .4byte Move_NOTHING
+    .4byte Move_BRAIN_DAMAGE
 
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
@@ -23066,7 +23068,43 @@ Move_DECIMATION::
 	goto Move_ZAP_CANNON
 
 Move_POWER_JAM::
-	goto Move_POWER_GEM
+	loadspritegfx ANIM_TAG_BEAM
+	playsewithpan SE_M_SOLAR_BEAM, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 4, 0, 17, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -15, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -15, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -10, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -15, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 5, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -20, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -15, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 5, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, -10, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 5, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 5, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 0, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 5, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 10, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 10, ANIM_TARGET, 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 15, ANIM_TARGET, 1
+	delay 1
+	createsprite gBeamSpriteTemplate, ANIM_TARGET, 3, 0, 20, ANIM_TARGET, 1
+	end
 
 Move_STORM_CHASE::
 	goto Move_VOLT_TACKLE

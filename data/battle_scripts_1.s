@@ -9572,7 +9572,7 @@ BattleScript_Decimation:
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_DecimationStatUpPrintString
 BattleScript_DecimationStatUpAttackAnim:
-	trysetfutureattack BattleScript_ButItFailed
+	trysetfutureattack BattleScript_StatUpDoAnim
 	attackanimation
 	waitanimation
 	setgraphicalstatchangevalues
@@ -9582,6 +9582,7 @@ BattleScript_DecimationStatUpPrintString:
 	waitmessage B_WAIT_TIME_LONG
 	printfromtable gFutureMoveUsedStringIds
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 BattleScript_DecimationFutureSight:
 	trysetfutureattack BattleScript_ButItFailed
 	attackanimation
