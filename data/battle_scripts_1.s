@@ -14399,6 +14399,14 @@ BattleScript_DetectEffect::
 	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	return
 
+BattleScript_ShellteredEffect::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
+	seteffectsecondary
+	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	return
+
 BattleScript_BanefulBunkerEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_SAFEGUARD | HITMARKER_PASSIVE_DAMAGE
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT

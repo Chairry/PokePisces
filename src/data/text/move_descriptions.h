@@ -3034,8 +3034,8 @@ static const u8 sBitterMaliceDescription[] = _(
     "an ailment. May frostbite.");
 
 static const u8 sShelterDescription[] = _(
-    "Evades damage, and reduces\n"
-    "Accuracy if struck.");
+    "Evades damage, and raises\n"
+    "Defense if struck.");
 
 static const u8 sTripleArrowsDescription[] = _(
     "High critical hit ratio.\n"

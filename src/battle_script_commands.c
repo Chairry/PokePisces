@@ -6144,7 +6144,8 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
                     effect = 1;
                 }
-                else if (gProtectStructs[gBattlerTarget].detectShielded) {
+                else if (gProtectStructs[gBattlerTarget].detectShielded) 
+                {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
                     gBattleScripting.moveEffect = MOVE_EFFECT_ACC_PLUS_1;
                     BattleScriptPushCursor();
@@ -6185,12 +6186,9 @@ static void Cmd_moveend(void)
                 else if (gProtectStructs[gBattlerTarget].shelltered)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                    i = gBattlerAttacker;
-                    gBattlerAttacker = gBattlerTarget;
-                    gBattlerTarget = i; // gBattlerTarget and gBattlerAttacker are swapped in order to activate Defiant, if applicable
-                    gBattleScripting.moveEffect = MOVE_EFFECT_ACC_MINUS_1;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_DEF_PLUS_1;
                     BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    gBattlescriptCurrInstr = BattleScript_ShellteredEffect;
                     effect = 1;
                 }
                 // Not strictly a protect effect, but works the same way

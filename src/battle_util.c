@@ -5978,6 +5978,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 switch (gBattleMons[gBattlerAttacker].ability)
                 {
                 case ABILITY_MUMMY:
+                case ABILITY_LINGERING_AROMA:
+                case ABILITY_MELANCHOLIA:
                 case ABILITY_BATTLE_BOND:
                 case ABILITY_COMATOSE:
                 case ABILITY_DISGUISE:
@@ -5997,6 +5999,42 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     }
 
                     gLastUsedAbility = gBattleMons[gBattlerAttacker].ability = gBattleStruct->overwrittenAbilities[gBattlerAttacker] = gBattleMons[gBattlerTarget].ability;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MummyActivates;
+                    effect++;
+                    break;
+                }
+            }
+            break;
+        case ABILITY_MELANCHOLIA:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+            && IsBattlerAlive(gBattlerAttacker) && TARGET_TURN_DAMAGED 
+            && gBattleStruct->overwrittenAbilities[gBattlerAttacker] != GetBattlerAbility(gBattlerTarget))
+            {
+                switch (gBattleMons[gBattlerAttacker].ability)
+                {
+                case ABILITY_MUMMY:
+                case ABILITY_LINGERING_AROMA:
+                case ABILITY_MELANCHOLIA:
+                case ABILITY_BATTLE_BOND:
+                case ABILITY_COMATOSE:
+                case ABILITY_DISGUISE:
+                case ABILITY_SHATTERED:
+                case ABILITY_MULTITYPE:
+                case ABILITY_DORMANT:
+                case ABILITY_RKS_SYSTEM:
+                case ABILITY_HUDDLE_UP:
+                case ABILITY_SHIELDS_DOWN:
+                case ABILITY_STELLAR_BODY:
+                    break;
+                default:
+                    if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_ABILITY_SHIELD)
+                    {
+                        RecordItemEffectBattle(gBattlerAttacker, HOLD_EFFECT_ABILITY_SHIELD);
+                        break;
+                    }
+
+                    gLastUsedAbility == gBattleMons[gBattlerAttacker].ability == gBattleStruct->overwrittenAbilities[gBattlerAttacker] == ABILITY_SADDENED;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MummyActivates;
                     effect++;
@@ -6176,13 +6214,52 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_EFFECT_SPORE:
             if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_GRASS) && GetBattlerAbility(gBattlerAttacker) != ABILITY_OVERCOAT && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
             {
-                i = Random() % 3;
+                i = Random() % 4;
                 if (i == 0)
-                    goto POISON_POINT;
+                    goto POISON;
                 if (i == 1)
-                    goto STATIC;
-                // Sleep
-                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && CanSleep(gBattlerAttacker) && IsMoveMakingContact(move, gBattlerAttacker) && (Random() % 3) == 0)
+                    goto PARALYSIS;
+                if (i == 2)
+                    goto SLEEP;
+                if (i == 3)
+                    goto PANIC;
+                POISON:
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && gBattleMons[gBattlerAttacker].hp != 0 
+                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+                && TARGET_TURN_DAMAGED 
+                && CanBePoisoned(gBattlerTarget, gBattlerAttacker)
+                && (Random() % 3) == 0)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_POISON;
+                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                    gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                    effect++;
+                }
+                PARALYSIS:
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && gBattleMons[gBattlerAttacker].hp != 0 
+                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+                && TARGET_TURN_DAMAGED 
+                && CanBeParalyzed(gBattlerAttacker)
+                && (Random() % 3) == 0)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_PARALYSIS;
+                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                    gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                    effect++;
+                }
+                SLEEP:
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && gBattleMons[gBattlerAttacker].hp != 0 
+                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+                && TARGET_TURN_DAMAGED 
+                && CanSleep(gBattlerAttacker) 
+                && (Random() % 3) == 0)
                 {
                     gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_SLEEP;
                     PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -6191,9 +6268,23 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
                     effect++;
                 }
+                PANIC:
+                if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+                && gBattleMons[gBattlerAttacker].hp != 0 
+                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+                && TARGET_TURN_DAMAGED 
+                && CanGetPanicked(gBattlerAttacker) 
+                && (Random() % 3) == 0)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_PANIC;
+                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                    gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                    effect++;
+                }
             }
             break;
-        POISON_POINT:
         case ABILITY_POISON_POINT:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED 
@@ -6208,7 +6299,6 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
-        STATIC:
         case ABILITY_STATIC:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && CanBeParalyzed(gBattlerAttacker) && IsMoveMakingContact(move, gBattlerAttacker) && RandomWeighted(RNG_STATIC, 2, 1))
             {
@@ -11131,6 +11221,9 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case ABILITY_SHARPNESS:
         if (gBattleMoves[move].slicingMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_RISING:
+        modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
         break;
     case ABILITY_SUPREME_OVERLORD:
         modifier = uq4_12_multiply(modifier, GetSupremeOverlordModifier(battlerAtk));
