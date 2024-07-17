@@ -7561,6 +7561,7 @@ static u8 DamagedSpelonBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 e
         }
         else
         {
+            gBattlerAttacker = battler;
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_SpelonBerryActivatesRet;
         }
@@ -7574,7 +7575,7 @@ static u8 DamagedBelueBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 en
     u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
     u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
     gBattlerTarget = opposingBattler;
-    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId) && !(gDisableStructs[battler].tarShot))
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId) && !(gDisableStructs[gBattlerTarget].tarShot))
     {
         BufferStatChange(battler, statId, STRINGID_STATROSE);
         gEffectBattler = battler;
@@ -7668,7 +7669,87 @@ static u8 DamagedRizzBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end
         {
             gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(gBattlerTarget);
             BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_RazzBerryActivatesRet;
+            gBattlescriptCurrInstr = BattleScript_RizzBerryActivatesRet;
+        }
+        return ITEM_EFFECT_OTHER;
+    }
+    return 0;
+}
+
+static u8 DamagedBlukBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
+{
+    u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
+    u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
+    gBattlerTarget = opposingBattler;
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
+    {
+        BufferStatChange(battler, statId, STRINGID_STATROSE);
+        gEffectBattler = battler;
+        gBattleScripting.animArg1 = 14 + statId;
+        gBattleScripting.animArg2 = 0;
+
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_BlukBerryEnd);
+        }
+        else
+        {
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_BlukBerryActivatesRet;
+        }
+        return ITEM_EFFECT_OTHER;
+    }
+    return 0;
+}
+
+static u8 DamagedNanabBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
+{
+    u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
+    u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
+    gBattlerTarget = opposingBattler;
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
+    {
+        BufferStatChange(battler, statId, STRINGID_STATROSE);
+        gEffectBattler = battler;
+        gBattleScripting.animArg1 = 14 + statId;
+        gBattleScripting.animArg2 = 0;
+
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_NanabBerryEnd);
+        }
+        else
+        {
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_NanabBerryActivatesRet;
+        }
+        return ITEM_EFFECT_OTHER;
+    }
+    return 0;
+}
+
+static u8 DamagedHondewBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
+{
+    u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
+    u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
+    gBattlerTarget = opposingBattler;
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId) && !(gStatuses4[battler] & STATUS4_HEARTHWARM) && !(gStatuses3[battler] & STATUS3_AQUA_RING))
+    {
+        BufferStatChange(battler, statId, STRINGID_STATROSE);
+        gEffectBattler = battler;
+        gBattleScripting.animArg1 = 14 + statId;
+        gBattleScripting.animArg2 = 0;
+
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_HondewBerryEnd);
+        }
+        else
+        {
+            gStatuses3[battler] |= STATUS3_AQUA_RING;
+            gStatuses4[battler] |= STATUS4_HEARTHWARM;
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_HondewBerryActivatesRet;
         }
         return ITEM_EFFECT_OTHER;
     }
@@ -7954,6 +8035,15 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
         break;
     case HOLD_EFFECT_RIZZ_BERRY:
         effect = DamagedRizzBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+        break;
+    case HOLD_EFFECT_BLUK_BERRY:
+        effect = DamagedBlukBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+        break;
+    case HOLD_EFFECT_NANAB_BERRY:
+        effect = DamagedNanabBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+        break;
+    case HOLD_EFFECT_HONDEW_BERRY:
+        effect = DamagedHondewBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
 #endif
     case HOLD_EFFECT_CURE_PAR:
@@ -8277,6 +8367,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 break;
             case HOLD_EFFECT_RIZZ_BERRY:
                 effect = DamagedRizzBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_BLUK_BERRY:
+                effect = DamagedBlukBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_NANAB_BERRY:
+                effect = DamagedNanabBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_HONDEW_BERRY:
+                effect = DamagedHondewBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
             case HOLD_EFFECT_CRITICAL_UP:
                 if (!(gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY_ANY) && HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, gLastUsedItem), gLastUsedItem))
@@ -8795,6 +8894,18 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_RIZZ_BERRY:
                 if (!moveTurn)
                     effect = DamagedRizzBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_BLUK_BERRY:
+                if (!moveTurn)
+                    effect = DamagedBlukBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_NANAB_BERRY:
+                if (!moveTurn)
+                    effect = DamagedNanabBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_HONDEW_BERRY:
+                if (!moveTurn)
+                    effect = DamagedHondewBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
             case HOLD_EFFECT_CRITICAL_UP:
                 if (!moveTurn && !(gBattleMons[battler].status2 & STATUS2_FOCUS_ENERGY_ANY) && HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, gLastUsedItem), gLastUsedItem))

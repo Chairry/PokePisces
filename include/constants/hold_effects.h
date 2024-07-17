@@ -231,6 +231,9 @@
 #define HOLD_EFFECT_RAZZ_BERRY          246
 #define HOLD_EFFECT_RIZZ_BERRY          247
 #define HOLD_EFFECT_NOMEL_BERRY         248
+#define HOLD_EFFECT_BLUK_BERRY          249
+#define HOLD_EFFECT_NANAB_BERRY         250
+#define HOLD_EFFECT_HONDEW_BERRY        251
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

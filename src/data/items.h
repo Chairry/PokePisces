@@ -6529,6 +6529,8 @@ const struct Item gItems[] =
     {
         .name = _("Bluk Berry"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_BLUK_BERRY,
+        .holdEffectParam = 2,
         .description = sBlukBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
@@ -6539,6 +6541,8 @@ const struct Item gItems[] =
     {
         .name = _("Nanab Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_NANAB_BERRY,
+        .holdEffectParam = 2,
         .description = sNanabBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -6610,10 +6614,12 @@ const struct Item gItems[] =
     {
         .name = _("Hondew Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_HONDEW_BERRY,
+        .holdEffectParam = 4,
         .description = sHondewBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
     },
 

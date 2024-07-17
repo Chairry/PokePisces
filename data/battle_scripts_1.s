@@ -15306,6 +15306,7 @@ BattleScript_CornnBerryEnd::
 
 BattleScript_RabutaBerryActivatesRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_SCRIPTING
 	jumpifability BS_ATTACKER, ABILITY_OWN_TEMPO, BattleScript_RabutaBerryRet_OwnTempoPrevents
 	jumpifsafeguard BattleScript_RabutaBerryRet_SafeguardProtected
 	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER
@@ -15322,7 +15323,6 @@ BattleScript_RabutaBerryRet_OwnTempoPrevents:
 	printstring STRINGID_PKMNPREVENTSCONFUSIONWITH
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_RabutaBerryEnd::
-	removeitem BS_SCRIPTING
 	return
 
 BattleScript_SpelonBerryActivatesRet::
@@ -15340,7 +15340,6 @@ BattleScript_BelueBerryActivatesRet::
 	cantarshotwork BS_ATTACKER, BattleScript_BelueBerryEnd
 	trytarshot BS_ATTACKER, BattleScript_BelueBerryEnd
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
-	applysaltcure BS_ATTACKER
 	printstring STRINGID_PKMNBECAMEWEAKERTOFIRE
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
@@ -15369,17 +15368,48 @@ BattleScript_RazzBerryActivatesRet::
 	printstring STRINGID_PKMNSXINFATUATEDY
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotInfatuateTarget
+	removeitem BS_SCRIPTING
 BattleScript_RazzBerryEnd::
 	return
 
 BattleScript_RizzBerryActivatesRet::
-	jumpifsafeguard BattleScript_RizzBerryEnd
+	jumpifsafeguard BattleScript_RazzBerryEnd
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
-	applysaltcure BS_ATTACKER
-	printstring STRINGID_TARGETISBEINGSALTCORNED
+	status2animation BS_ATTACKER, STATUS2_INFATUATION
+	printstring STRINGID_PKMNSXINFATUATEDY
 	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotInfatuateTarget
 	removeitem BS_SCRIPTING
 BattleScript_RizzBerryEnd::
+	return
+
+BattleScript_BlukBerryActivatesRet::
+	tryspiteppreduce BattleScript_BlukBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	printstring STRINGID_PKMNREDUCEDPP
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_BlukBerryEnd::
+	return
+
+BattleScript_NanabBerryActivatesRet::
+	stockpile 0
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_NanabBerryEnd::
+	stockpile 1
+	return
+
+BattleScript_HondewBerryActivatesRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFWATER
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_HondewBerryEnd::
 	return
 
 @ z moves / effects
