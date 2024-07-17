@@ -3516,8 +3516,6 @@ bool32 HandleWishPerishSongOnTurnEnd(void)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
                 else if (gWishFutureKnock.futureSightMove[battler] == MOVE_DOOM_DESIRE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
-                else
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, gWishFutureKnock.futureSightMove[battler]);
 

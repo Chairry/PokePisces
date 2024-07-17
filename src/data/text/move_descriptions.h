@@ -1633,8 +1633,8 @@ static const u8 sAquaTailDescription[] = _(
     "like a wave to attack.");
 
 static const u8 sSeedBombDescription[] = _(
-    "Shoots a barrage of hard seeds.\n"
-    "They are planted if Blooming.");
+    "Shoots explosive seeds. They\n"
+    "are planted if Blooming.");
 
 static const u8 sAirSlashDescription[] = _(
     "Attacks with a blade of\n"

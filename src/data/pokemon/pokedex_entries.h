@@ -13413,5 +13413,41 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 271,
         .trainerOffset = 1,
     },
+
+    [NATIONAL_DEX_YOLKWEEN] =
+    {
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = gDummyPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_WALLY] =
+    {
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = gDummyPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_POTTRICIA] =
+    {
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = gDummyPokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 #endif
 };

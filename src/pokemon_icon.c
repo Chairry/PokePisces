@@ -1152,6 +1152,9 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_UNBERRABLE] = gMonIcon_Unberrable,
     [SPECIES_PEBLRANIUM] = gMonIcon_Peblranium,
     [SPECIES_VAIKING] = gMonIcon_Vaiking,
+    [SPECIES_YOLKWEEN] = gMonIcon_QuestionMark,
+    [SPECIES_WALLY] = gMonIcon_QuestionMark,
+    [SPECIES_POTTRICIA] = gMonIcon_QuestionMark,
 #endif
     [SPECIES_VENUSAUR_MEGA] = gMonIcon_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = gMonIcon_CharizardMegaX,
@@ -2662,6 +2665,8 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_PEBLRANIUM] = 3,
     [SPECIES_VAIKING] = 0,
     [SPECIES_YOLKWEEN] = 0,
+    [SPECIES_WALLY] = 0,
+    [SPECIES_POTTRICIA] = 0,
     [SPECIES_VENUSAUR_MEGA] = 4,
     [SPECIES_CHARIZARD_MEGA_X] = 0,
     [SPECIES_CHARIZARD_MEGA_Y] = 0,
@@ -2985,6 +2990,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SHISHIMA_ALT] = 2,
     [SPECIES_SHISHIMA_PUNISHER_ALT] = 0,
     [SPECIES_LYOLICA] = 4,
+    [SPECIES_POTTRICIA_SHATTERED] = 0,
 #endif
     [SPECIES_EGG] = 1,
 };

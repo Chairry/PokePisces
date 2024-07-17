@@ -15887,8 +15887,6 @@ static void Cmd_trysetfutureattack(void)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
         else if (gCurrentMove == MOVE_FUTURE_SIGHT)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
-        else
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DECIMATION;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
@@ -18463,6 +18461,7 @@ static const u16 sParentalBondBannedEffects[] =
     EFFECT_TWO_TURNS_ATTACK,
     EFFECT_UPROAR,
     EFFECT_AIR_CANNON,
+    EFFECT_FUTURE_SIGHT,
     EFFECT_DRAGON_RUIN,
 };
 
