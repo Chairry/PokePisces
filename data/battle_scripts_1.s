@@ -9558,32 +9558,6 @@ BattleScript_EffectFutureSight::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifmove MOVE_DECIMATION, BattleScript_Decimation
-	trysetfutureattack BattleScript_ButItFailed
-	attackanimation
-	waitanimation
-	printfromtable gFutureMoveUsedStringIds
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
-BattleScript_Decimation:
-	setstatchanger STAT_SPATK, 1, FALSE
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_DecimationFutureSight
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_DecimationStatUpAttackAnim
-	pause B_WAIT_TIME_SHORT
-	goto BattleScript_DecimationStatUpPrintString
-BattleScript_DecimationStatUpAttackAnim:
-	trysetfutureattack BattleScript_StatUpDoAnim
-	attackanimation
-	waitanimation
-	setgraphicalstatchangevalues
-	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-BattleScript_DecimationStatUpPrintString:
-	printfromtable gStatUpStringIds
-	waitmessage B_WAIT_TIME_LONG
-	printfromtable gFutureMoveUsedStringIds
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
-BattleScript_DecimationFutureSight:
 	trysetfutureattack BattleScript_ButItFailed
 	attackanimation
 	waitanimation

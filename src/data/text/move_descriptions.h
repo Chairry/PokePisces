@@ -3825,8 +3825,8 @@ static const u8 sSandBurialDescription[] = _(
     "sand lowering their Attack.");
 
 static const u8 sRagingEarthDescription[] = _(
-    "The unwavering earth ravages\n"
-    "the foe, giving Speed.");
+    "Calls upon the unwavering\n"
+    "earth, giving Speed.");
 
 static const u8 sWilderDanceDescription[] = _(
     "The user dances wildly\n"
@@ -3937,7 +3937,7 @@ static const u8 sPlunderDescription[] = _(
     "treasures 'n stats.");
 
 static const u8 sFuriousSeaDescription[] = _(
-    "The user calls upon the\n"
+    "Calls upon the terrifying\n"
     "tides, giving Speed.");
 
 static const u8 sReservoirDescription[] = _(
