@@ -990,8 +990,10 @@
 #define ITEM_POKEMON_CARD 872
 #define ITEM_POKER_CARD 873
 #define ITEM_CRYPTIC_PLATE 874
+#define ITEM_CHUPACABRA 875
+#define ITEM_HEART_GIFT 876
 
-#define ITEMS_COUNT 875
+#define ITEMS_COUNT 877
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // need to add yellow soda and rizz berry to berry list

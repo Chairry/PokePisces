@@ -4305,3 +4305,13 @@ static const u8 sCrypticPlateDesc[] = _(
     "Sets Gravity and\n"
     "Safeguard, and ups\n"
     "SPATK. For Uhefoe.");
+
+static const u8 sChupacabraDesc[] = _(
+    "Holder moves last.\n"
+    "Attacks do\n"
+    "additional damage.");
+
+static const u8 sHeartGiftDesc[] = _(
+    "Explodes after 2\n"
+    "turns, infesting\n"
+    "the holder.");

@@ -7770,7 +7770,9 @@ BattleScript_StatDownEnd::
 
 BattleScript_MirrorArmorReflect::
 	pause B_WAIT_TIME_SHORT
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_MOON_MIRROR, BattleScript_MirrorArmorNoAbilityPopup
 	call BattleScript_AbilityPopUp
+BattleScript_MirrorArmorNoAbilityPopup:
 	jumpifsubstituteblocks BattleScript_AbilityNoSpecificStatLoss
 BattleScript_MirrorArmorReflectStatLoss:
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_MIRROR_ARMOR | STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_MirrorArmorReflectEnd
@@ -14513,6 +14515,11 @@ BattleScript_ItemStatusEffect::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_WepearHitThroughProtect::
+	printstring STRINGID_WEPEARBERRYHIT
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_BattleBondActivatesOnMoveEndAttacker::
 	pause 5
 	copybyte gBattlerAbility, gBattlerAttacker
@@ -14986,6 +14993,15 @@ BattleScript_StickyBarbStatDownPrintString::
 BattleScript_StickyBarbStatDownEnd::
 	end2
 
+BattleScript_HeartGift::
+	playanimation BS_ATTACKER, B_ANIM_MON_HIT
+	waitanimation
+	setmoveeffect MOVE_EFFECT_WRAP | MOVE_EFFECT_AFFECTS_USER
+	call BattleScript_ItemHurtRet
+BattleScript_HeartGiftStatDownEnd::
+	removeitem BS_ATTACKER
+	end2
+
 BattleScript_ItemHealHP_Ret::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHPALITTLE
@@ -15441,6 +15457,21 @@ BattleScript_PinapBerryActivate_Dmg:
 	call BattleScript_HurtAttacker
 	removeitem BS_TARGET
 BattleScript_PinapBerryEnd::
+	return
+
+BattleScript_DurinBerryActivatesRet::
+	jumpifability BS_TARGET, ABILITY_RIPEN, BattleScript_DurinBerryActivate_Ripen
+	goto BattleScript_DurinBerryActivate_Anim
+BattleScript_DurinBerryActivate_Ripen:
+	call BattleScript_AbilityPopUp
+BattleScript_DurinBerryActivate_Anim:
+	jumpifabsent BS_TARGET, BattleScript_DurinBerryActivate_Dmg   @ dont play the animation for a fainted target
+	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+BattleScript_DurinBerryActivate_Dmg:
+	call BattleScript_HurtAttacker
+	removeitem BS_TARGET
+BattleScript_DurinBerryEnd::
 	return
 
 BattleScript_RazzBerryActivatesRet::

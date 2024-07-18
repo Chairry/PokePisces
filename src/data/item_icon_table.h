@@ -921,6 +921,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_POKEMON_CARD] = {gItemIcon_PokemonCard, gItemIconPalette_PokemonCard},
     [ITEM_POKER_CARD] = {gItemIcon_PokerCard, gItemIconPalette_PokerCard},
     [ITEM_CRYPTIC_PLATE] = {gItemIcon_CrypticPlate, gItemIconPalette_CrypticPlate},
+    [ITEM_CHUPACABRA] = {gItemIcon_Chupacabra, gItemIconPalette_Chupacabra},
+    [ITEM_HEART_GIFT] = {gItemIcon_HeartGift, gItemIconPalette_HeartGift},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };
