@@ -106,6 +106,7 @@ struct DisableStruct
     u8 spiderweb:1;
     u8 fairyLockTimer;
     u8 shunyongFlinchTimer:2;
+    u8 heartGiftTimer:4;
 };
 
 struct ProtectStruct

@@ -6737,6 +6737,7 @@ const struct Item gItems[] =
     {
         .name = _("Durin Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_DURIN_BERRY,
         .description = sDurinBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -10133,6 +10134,7 @@ const struct Item gItems[] =
     {
         .name = _("Moon Mirror"),
         .price = 2000,
+        .holdEffect = HOLD_EFFECT_MOON_MIRROR,
         .description = sMoonMirrorDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10537,6 +10539,30 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 90,
+    },
+
+    [ITEM_CHUPACABRA] =
+    {
+        .name = _("Chupacabra"),
+        .price = 3000,
+        .holdEffect = HOLD_EFFECT_CHUPACABRA,
+        .description = sChupacabraDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 20,
+    },
+
+    [ITEM_HEART_GIFT] =
+    {
+        .name = _("Heart Gift"),
+        .price = 666,
+        .holdEffect = HOLD_EFFECT_HEART_GIFT,
+        .description = sHeartGiftDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 66,
     },
 
 };

@@ -10694,6 +10694,10 @@ extern const u32 gItemIcon_PokerCard[];
 extern const u32 gItemIconPalette_PokerCard[];
 extern const u32 gItemIcon_CrypticPlate[];
 extern const u32 gItemIconPalette_CrypticPlate[];
+extern const u32 gItemIcon_Chupacabra[];
+extern const u32 gItemIconPalette_Chupacabra[];
+extern const u32 gItemIcon_HeartGift[];
+extern const u32 gItemIconPalette_HeartGift[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

@@ -3239,7 +3239,7 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_ACID_ARMORED: // reservoir
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && (CompareStat(gBattlerAttacker, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN) || GetBattlerAbility(gBattlerAttacker) == ABILITY_MIRROR_ARMOR) && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED)
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && (CompareStat(gBattlerAttacker, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN) || GetBattlerAbility(gBattlerAttacker) == ABILITY_MIRROR_ARMOR) && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && (gStatuses4[battler] == STATUS4_ACID_ARMORED))
             {
                 SET_STATCHANGER(STAT_DEF, 1, TRUE);
                 gBattleScripting.moveEffect = MOVE_EFFECT_DEF_MINUS_1;
@@ -8730,6 +8730,26 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
                 }
                 break;
+            case HOLD_EFFECT_HEART_GIFT:
+                if (GetBattlerAbility(battler) != ABILITY_MAGIC_GUARD && !moveTurn && GetBattlerAbility(battler) != ABILITY_SUGAR_COAT)
+                {
+                    if (gDisableStructs[battler].heartGiftTimer == 0)
+                    {
+                        gDisableStructs[battler].heartGiftTimer = 1;
+                    }
+                    else if (gDisableStructs[battler].heartGiftTimer == 1)
+                    {
+                        gDisableStructs[battler].heartGiftTimer = 2;
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        BattleScriptExecute(BattleScript_HeartGift);
+                        effect = ITEM_HP_CHANGE;
+                        RecordItemEffectBattle(battler, battlerHoldEffect);
+                        PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
+                    }
+                }
+                break;
             case HOLD_EFFECT_LEFTOVERS:
             LEFTOVERS:
 #if B_HEAL_BLOCKING >= GEN_5
@@ -9628,6 +9648,22 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_HP_CHANGE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_PinapBerryActivatesRet;
+                    PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
+                    RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
+                }
+                break;
+            case HOLD_EFFECT_DURIN_BERRY: // consume and damage attacker if used physical move
+                if (gProtectStructs[gBattlerAttacker].touchedProtectLike && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove) && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT && !((GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM) && (gBattleMons[battler].species == SPECIES_CHIROBERRA)))
+                {
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 4;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    if (GetBattlerAbility(battler) == ABILITY_RIPEN)
+                        gBattleMoveDamage *= 2;
+
+                    effect = ITEM_HP_CHANGE;
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_DurinBerryActivatesRet;
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
                     RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
                 }

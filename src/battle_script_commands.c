@@ -2154,6 +2154,10 @@ static void Cmd_damagecalc(void)
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
     }
+    else if (atkHoldEffect == HOLD_EFFECT_CHUPACABRA)
+    {
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerTarget].maxHP / 5);
+    }
     else
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
@@ -13433,7 +13437,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (battlerHoldEffect == HOLD_EFFECT_MOON_MIRROR && !affectsUser && !mirrorArmored && gBattlerAttacker != gBattlerTarget && battler == gBattlerTarget)
+        else if (battlerHoldEffect == HOLD_EFFECT_MOON_MIRROR && !affectsUser && !mirrorArmored && gBattlerAttacker != gBattlerTarget && battler == gBattlerTarget && (gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE))
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
             {
