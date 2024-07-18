@@ -420,6 +420,7 @@
 #define ANIM_TAG_GIANTS_SPEAR               (ANIM_SPRITES_START + 406)
 #define ANIM_TAG_LIGHT_BALL                 (ANIM_SPRITES_START + 407)
 #define ANIM_TAG_PIN                        (ANIM_SPRITES_START + 408)
+#define ANIM_TAG_BEAM                       (ANIM_SPRITES_START + 409)
 
 // battlers
 #define ANIM_ATTACKER         0

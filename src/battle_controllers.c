@@ -1072,6 +1072,12 @@ static void BtlController_EmitPause(u32 battler, u32 bufferId, u8 toWait, void *
 
 void BtlController_EmitMoveAnimation(u32 battler, u32 bufferId, u16 move, u8 turnOfMove, u16 movePower, s32 dmg, u8 friendship, struct DisableStruct *disableStructPtr, u8 multihit)
 {
+    if(move == MOVE_NONE && gTempMove != MOVE_NONE){
+        move = gCurrentMove;
+        gCurrentMove = gTempMove;
+        gTempMove = MOVE_NONE;
+    }
+
     gBattleResources->transferBuffer[0] = CONTROLLER_MOVEANIMATION;
     gBattleResources->transferBuffer[1] = move;
     gBattleResources->transferBuffer[2] = (move & 0xFF00) >> 8;

@@ -427,6 +427,7 @@ extern const u8 BattleScript_VCreateStatLoss[];
 extern const u8 BattleScript_SpikyShieldEffect[];
 extern const u8 BattleScript_KingsShieldEffect[];
 extern const u8 BattleScript_DetectEffect[];
+extern const u8 BattleScript_ShellteredEffect[];
 extern const u8 BattleScript_BanefulBunkerEffect[];
 extern const u8 BattleScript_FlowerVeilProtectsRet[];
 extern const u8 BattleScript_SweetVeilProtectsRet[];
@@ -620,6 +621,8 @@ extern const u8 BattleScript_BloomingHpGainEnd[];
 extern const u8 BattleScript_GemstoneEvasion[];
 extern const u8 BattleScript_GemstoneRet[];
 extern const u8 BattleScript_CrypticPlateEntryEffect[];
+extern const u8 BattleScript_DefenderUsedAnExtraMove[];
+extern const u8 BattleScript_DefenderExplodedUsedAnExtraMove[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];
