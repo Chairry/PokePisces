@@ -5934,6 +5934,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                                                                                                                                                     || CompareStat(battler, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN))) // Don't activate if defense cannot be lowered
             {
                 if ((gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE 
+                    || gBattleMoves[gCurrentMove].effect == EFFECT_FLIP_TURN 
                     || gBattleMoves[gCurrentMove].effect == EFFECT_U_TURN 
                     || gBattleMoves[gCurrentMove].effect == EFFECT_GLACIAL_SHIFT 
                     || gBattleMoves[gCurrentMove].effect == EFFECT_SNOWFADE) && CanBattlerSwitch(gBattlerAttacker))
