@@ -714,32 +714,7 @@ BattleScript_DefenderExplodedExtraMoveEnd::
 	end
 
 BattleScript_EffectOvertake::
-	attackcanceler
-	attackstring
-	ppreduce
-	.if B_UPDATED_MOVE_DATA >= GEN_6
-	jumpifnotbattletype BATTLE_TYPE_DOUBLE, BattleScript_HitFromCritCalc
-	.endif
-	tryovertake
-	critcalc
-	damagecalc
-	adjustdamage
-	attackanimation
-	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	seteffectwithchance
-	tryfaintmon BS_TARGET
-	printstring STRINGID_PKMNCENTERATTENTION
-	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
+	goto BattleScript_EffectHit
 
 BattleScript_EffectHunkerDown::
 	attackcanceler

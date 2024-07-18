@@ -10037,11 +10037,9 @@ static void Cmd_various(void)
         gBattleStruct->attackerBeforeBounce = battler;
         gBattlerAttacker = gBattlerTarget;
         side = BATTLE_OPPOSITE(GetBattlerSide(gBattlerAttacker));
-        if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove)) {
+        if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove)) 
+        {
             gBattlerTarget = gSideTimers[side].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, side, gCurrentMove)) {
-            gBattlerTarget = gSideTimers[side].overtakeTarget;
         }
         else
             gBattlerTarget = battler;
@@ -10559,15 +10557,6 @@ static void Cmd_various(void)
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
         return;
-    }
-    case VARIOUS_TRY_OVERTAKE:
-    {
-        VARIOUS_ARGS();
-        gStatuses4[gBattlerTarget] |= STATUS4_OVERTAKEN;
-        gDisableStructs[gBattlerTarget].overtakenTimer = 1;
-        gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTimer = 1;
-        gSideTimers[GetBattlerSide(gBattlerAttacker)].overtakeTarget = gBattlerAttacker;
-        gBattlescriptCurrInstr = cmd->nextInstr;
     }
     case VARIOUS_JUMP_IF_HP_THRESHOLD:
     {
@@ -11537,8 +11526,6 @@ static void Cmd_various(void)
 
         // End any Follow Me/Rage Powder effects caused by the target
         if (gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer != 0 && gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget == gBattlerTarget)
-            gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 0;
-        if (gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer != 0 && gSideTimers[GetBattlerSide(gBattlerTarget)].overtakeTarget == gBattlerTarget)
             gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 0;
 
         break;
@@ -14676,11 +14663,9 @@ static void Cmd_counterdamagecalculator(void)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 2;
 
-        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) {
+        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) 
+        {
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, sideTarget, gCurrentMove)) {
-            gBattlerTarget = gSideTimers[sideTarget].overtakeTarget;
         }
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].physicalBattlerId;
@@ -14708,11 +14693,9 @@ static void Cmd_mirrorcoatdamagecalculator(void)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 2;
 
-        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) {
+        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) 
+        {
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, sideTarget, gCurrentMove)) {
-            gBattlerTarget = gSideTimers[sideTarget].overtakeTarget;
         }
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].specialBattlerId;
@@ -18325,11 +18308,9 @@ void BS_CalcMetalBurstDmg(void)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 150 / 100;
 
-        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) {
+        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) 
+        {
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, sideTarget, gCurrentMove)) {
-            gBattlerTarget = gSideTimers[sideTarget].overtakeTarget;
         }
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].physicalBattlerId;
@@ -18342,11 +18323,9 @@ void BS_CalcMetalBurstDmg(void)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 150 / 100;
 
-        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) {
+        if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove)) 
+        {
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, sideTarget, gCurrentMove)) {
-            gBattlerTarget = gSideTimers[sideTarget].overtakeTarget;
         }
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].specialBattlerId;

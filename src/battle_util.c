@@ -265,19 +265,6 @@ bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move)
     return TRUE;
 }
 
-bool32 IsAffectedByOvertake(u32 battlerAtk, u32 defSide, u32 move)
-{
-    u32 ability = GetBattlerAbility(battlerAtk);
-    if (gSideTimers[defSide].followmeTimer == 0 || gBattleMons[gSideTimers[defSide].overtakeTarget].hp == 0 || gBattleMoves[move].effect == EFFECT_SNIPE_SHOT || gBattleMoves[move].effect == EFFECT_SKY_DROP || ability == ABILITY_PROPELLER_TAIL || ability == ABILITY_STALWART)
-        return FALSE;
-    if (gStatuses4[gBattlerAttacker] == STATUS4_OVERTAKER)
-    {
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
 // Functions
 void HandleAction_UseMove(void)
 {
@@ -371,10 +358,6 @@ void HandleAction_UseMove(void)
     if (IsAffectedByFollowMe(gBattlerAttacker, side, gCurrentMove) && moveTarget == MOVE_TARGET_SELECTED && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gSideTimers[side].followmeTarget))
     {
         gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = gSideTimers[side].followmeTarget; // follow me moxie fix
-    }
-    else if (IsAffectedByOvertake(gBattlerAttacker, side, gCurrentMove) && moveTarget == MOVE_TARGET_SELECTED && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(gSideTimers[side].overtakeTarget))
-    {
-        gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = gSideTimers[side].overtakeTarget; // follow me moxie fix
     }
     else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gSideTimers[side].followmeTimer == 0 && (gBattleMoves[gCurrentMove].power != 0 || (moveTarget != MOVE_TARGET_USER && moveTarget != MOVE_TARGET_ALL_BATTLERS)) && ((GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_LIGHTNING_ROD && moveType == TYPE_ELECTRIC) || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_STORM_DRAIN && moveType == TYPE_WATER) || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_MAGNET_PULL && moveType == TYPE_STEEL) || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_WITCHCRAFT && moveType == TYPE_FAIRY) || (GetBattlerAbility(*(gBattleStruct->moveTarget + gBattlerAttacker)) != ABILITY_SOUL_LOCKER && moveType == TYPE_GHOST)))
     {
@@ -9886,10 +9869,6 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
         {
             targetBattler = gSideTimers[side].followmeTarget;
         }
-        else if (IsAffectedByOvertake(gBattlerAttacker, side, move))
-        {
-            targetBattler = gSideTimers[side].overtakeTarget;
-        }
         else
         {
             targetBattler = SetRandomTarget(gBattlerAttacker);
@@ -9938,10 +9917,6 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
         if (IsAffectedByFollowMe(gBattlerAttacker, side, move))
         {
             targetBattler = gSideTimers[side].followmeTarget;
-        }
-        else if (IsAffectedByOvertake(gBattlerAttacker, side, move))
-        {
-            targetBattler = gSideTimers[side].overtakeTarget;
         }
         else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && moveTarget & MOVE_TARGET_RANDOM)
             targetBattler = SetRandomTarget(gBattlerAttacker);
