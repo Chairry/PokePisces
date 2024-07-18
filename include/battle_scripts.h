@@ -228,6 +228,7 @@ extern const u8 BattleScript_CuteCharmActivates2[];
 extern const u8 BattleScript_EffectStickyHold[];
 extern const u8 BattleScript_AbilityStatusEffect[];
 extern const u8 BattleScript_ItemStatusEffect[];
+extern const u8 BattleScript_WepearHitThroughProtect[];
 extern const u8 BattleScript_SynchronizeActivates[];
 extern const u8 BattleScript_NoItemSteal[];
 extern const u8 BattleScript_AbilityCuredStatus[];

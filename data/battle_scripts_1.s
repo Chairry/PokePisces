@@ -14456,6 +14456,11 @@ BattleScript_ItemStatusEffect::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_WepearHitThroughProtect::
+	printstring STRINGID_WEPEARBERRYHIT
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_BattleBondActivatesOnMoveEndAttacker::
 	pause 5
 	copybyte gBattlerAbility, gBattlerAttacker

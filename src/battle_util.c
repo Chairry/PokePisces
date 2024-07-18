@@ -9369,6 +9369,17 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             }
         }
         break;
+        case HOLD_EFFECT_WEPEAR_BERRY:
+        {
+            u16 ability = GetBattlerAbility(gBattlerAttacker);
+            if ((IS_BATTLER_PROTECTED(gBattlerTarget)))
+            {
+                gSpecialStatuses[gBattlerAttacker].gemBoost = TRUE;
+                BattleScriptPushCursor();
+                effect++;
+            }
+        }
+        break;
         case HOLD_EFFECT_LONG_NOSE:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
@@ -10099,6 +10110,8 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
     else if (gBattleMoves[move].ignoresProtect)
         return FALSE;
     else if (gBattleMoves[move].effect == EFFECT_FEINT)
+        return FALSE;
+    else if (gSpecialStatuses[battler].gemBoost == TRUE)
         return FALSE;
     else if (gProtectStructs[battler].protected)
         return TRUE;

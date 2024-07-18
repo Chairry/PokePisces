@@ -6554,6 +6554,7 @@ const struct Item gItems[] =
     {
         .name = _("Wepear Berry"),
         .price = 20,
+        .holdEffect = HOLD_EFFECT_WEPEAR_BERRY,
         .description = sWepearBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
