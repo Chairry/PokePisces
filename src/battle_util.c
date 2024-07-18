@@ -7314,6 +7314,8 @@ bool32 CanGetPanicked(u32 battler)
       || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD
       || ability == ABILITY_COMATOSE
       || ability == ABILITY_IGNORANT_BLISS
+      || ability == ABILITY_OBLIVIOUS
+      || ability == ABILITY_UNAWARE
       || gBattleMons[battler].status1 & STATUS1_ANY
       || IsAbilityStatusProtected(battler)
       || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN)
