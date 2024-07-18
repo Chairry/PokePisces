@@ -2142,21 +2142,28 @@ static void Cmd_damagecalc(void)
     CMD_ARGS();
 
     u8 moveType;
+    u8 movePower = 0;
     u32 atkHoldEffect = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
+    bool8 isExtraMove = gProtectStructs[gBattlerAttacker].extraMoveUsed;
+
+    if(isExtraMove){
+        movePower = VarGet(VAR_EXTRA_MOVE_DAMAGE);
+        VarSet(VAR_EXTRA_MOVE_DAMAGE, 0);
+    }
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
     if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (!(gBattleMoves[gCurrentMove].piercingMove)))
     {
-        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack);
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack);
     }
     else if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD && (gBattleMoves[gCurrentMove].piercingMove))
     {
-        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].defense);
     }
     else
     {
-        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, 0, gIsCriticalHit, TRUE, TRUE);
+        gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE);
     }
     
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -2182,6 +2189,7 @@ static void Cmd_adjustdamage(void)
     u32 moveType;
     u32 friendshipScore = GetBattlerFriendshipScore(gBattlerTarget);
     u32 rand = Random() % 100;
+    u32 abilityDef = GetBattlerAbility(gBattlerTarget);
 
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
@@ -2213,7 +2221,12 @@ static void Cmd_adjustdamage(void)
     #if B_STURDY >= GEN_5
     else if (GetBattlerAbility(gBattlerTarget) == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
-        RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
+        RecordAbilityBattle(gBattlerTarget, abilityDef);
+        gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
+    }
+    else if (GetBattlerAbility(gBattlerTarget) == ABILITY_AFTERMATH && (gBattleMons[gBattlerTarget].hp >= 1))
+    {
+        RecordAbilityBattle(gBattlerTarget, abilityDef);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
     }
     #endif
@@ -2259,7 +2272,7 @@ static void Cmd_adjustdamage(void)
     else if (gSpecialStatuses[gBattlerTarget].sturdied)
     {
         gMoveResultFlags |= MOVE_RESULT_STURDIED;
-        gLastUsedAbility = ABILITY_STURDY;
+        gLastUsedAbility = abilityDef;
     }
 #if B_AFFECTION_MECHANICS == TRUE
     else if (gSpecialStatuses[gBattlerTarget].affectionEndured)
@@ -4530,6 +4543,22 @@ static void Cmd_seteffectwithchance(void)
     CMD_ARGS();
 
     u32 percentChance = CalcSecondaryEffectChance(gBattlerAttacker, gBattleMoves[gCurrentMove].secondaryEffectChance);
+    u8 moveEffect = gBattleMoves[gCurrentMove].effect;
+    
+    FlagClear(FLAG_LAST_MOVE_SECONDARY_EFFECT_ACTIVATED);
+
+    if(gProtectStructs[gBattlerAttacker].extraMoveUsed){
+        if(VarGet(VAR_TEMP_MOVEEFFECT_CHANCE) != 0){
+            percentChance = VarGet(VAR_TEMP_MOVEEFFECT_CHANCE);
+            VarSet(VAR_TEMP_MOVEEFFECT_CHANCE, 0);
+        }
+
+        if(VarGet(VAR_TEMP_MOVEEFFECT) != 0){
+            moveEffect = VarGet(VAR_TEMP_MOVEEFFECT);
+            gBattleScripting.moveEffect = moveEffect;
+            VarSet(VAR_TEMP_MOVEEFFECT, 0);
+        }
+    }
 
     if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
      && gBattleScripting.moveEffect)
@@ -4539,10 +4568,12 @@ static void Cmd_seteffectwithchance(void)
         {
             gBattleScripting.moveEffect &= ~MOVE_EFFECT_CERTAIN;
             SetMoveEffect(FALSE, MOVE_EFFECT_CERTAIN);
+            FlagSet(FLAG_LAST_MOVE_SECONDARY_EFFECT_ACTIVATED);
         }
         else if (RandomPercentage(RNG_SECONDARY_EFFECT, percentChance))
         {
             SetMoveEffect(FALSE, 0);
+            FlagSet(FLAG_LAST_MOVE_SECONDARY_EFFECT_ACTIVATED);
         }
         else
         {

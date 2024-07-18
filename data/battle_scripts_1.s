@@ -630,6 +630,89 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHunkerDown              @ EFFECT_HUNKER_DOWN
 	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
 
+BattleScript_DefenderUsedAnExtraMove::
+	savetarget
+	copybyte sSAVED_BATTLER, gBattlerAttacker
+	copybyte gBattlerAttacker, gBattlerTarget
+	copybyte gBattlerTarget, sSAVED_BATTLER
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ABILITYLETITUSEMOVE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefenderEffectExtraHit::
+BattleScript_DefenderExtraHitFromAtkCanceler::
+	attackcanceler
+BattleScript_DefenderExtraHitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript_DefenderExtraHitFromAtkString::
+	attackstring
+BattleScript_DefenderExtraHitFromCritCalc::
+	critcalc
+	damagecalc
+	adjustdamage
+BattleScript_DefenderExtraHitFromAtkAnimation::
+	playmoveanimation BS_ATTACKER, MOVE_NONE
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+BattleScript_DefenderExtraRestoreBattlers::
+	copybyte gBattlerAttacker, sSAVED_BATTLER
+	restoretarget
+BattleScript_DefenderExtraMoveEnd::
+	moveendall
+	end
+
+BattleScript_DefenderExplodedUsedAnExtraMove::
+	savetarget
+	copybyte sSAVED_BATTLER, gBattlerAttacker
+	copybyte gBattlerAttacker, gBattlerTarget
+	copybyte gBattlerTarget, sSAVED_BATTLER
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ABILITYLETITUSEMOVE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefenderExplodedEffectExtraHit::
+BattleScript_DefenderExplodedExtraHitFromAtkCanceler::
+	attackcanceler
+BattleScript_DefenderExplodedExtraHitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript_DefenderExplodedExtraHitFromAtkString::
+	attackstring
+BattleScript_DefenderExplodedExtraHitFromCritCalc::
+	critcalc
+	damagecalc
+	adjustdamage
+BattleScript_DefenderExplodedExtraHitFromAtkAnimation::
+	playmoveanimation BS_ATTACKER, MOVE_NONE
+	waitanimation
+	instanthpdrop BS_ATTACKER
+	setatkhptozero
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	tryfaintmon BS_ATTACKER
+BattleScript_DefenderExplodedExtraRestoreBattlers::
+	copybyte gBattlerAttacker, sSAVED_BATTLER
+	restoretarget
+BattleScript_DefenderExplodedExtraMoveEnd::
+	moveendall
+	end
+
 BattleScript_EffectOvertake::
 	attackcanceler
 	attackstring

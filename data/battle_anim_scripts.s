@@ -1049,6 +1049,7 @@ gBattleAnims_Moves::
     .4byte ANIM_MOVE_MT_SPLENDOR
     .4byte Move_NOTHING
     .4byte Move_BRAIN_DAMAGE
+    .4byte Move_BLOW_UP
 
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
@@ -23486,6 +23487,9 @@ Move_NOTHING::
 
 Move_BRAIN_DAMAGE::
 	goto Move_PSYCHIC
+
+Move_BLOW_UP::
+	goto Move_SELF_DESTRUCT
 
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN
