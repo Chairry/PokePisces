@@ -699,6 +699,8 @@ BattleScript_DefenderExplodedExtraHitFromAtkAnimation::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
+	instanthpdrop BS_ATTACKER
+	setatkhptozero
 	tryfaintmon BS_TARGET
 	tryfaintmon BS_ATTACKER
 BattleScript_DefenderExplodedExtraRestoreBattlers::
