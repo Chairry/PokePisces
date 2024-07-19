@@ -641,8 +641,6 @@ BattleScript_DefenderUsedAnExtraMove::
 BattleScript_DefenderEffectExtraHit::
 BattleScript_DefenderExtraHitFromAtkCanceler::
 	attackcanceler
-BattleScript_DefenderExtraHitFromAccCheck::
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 BattleScript_DefenderExtraHitFromAtkString::
 	attackstring
 BattleScript_DefenderExtraHitFromCritCalc::
@@ -681,10 +679,9 @@ BattleScript_DefenderExplodedUsedAnExtraMove::
 BattleScript_DefenderExplodedEffectExtraHit::
 BattleScript_DefenderExplodedExtraHitFromAtkCanceler::
 	attackcanceler
-BattleScript_DefenderExplodedExtraHitFromAccCheck::
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 BattleScript_DefenderExplodedExtraHitFromAtkString::
 	attackstring
+	jumpifability BS_TARGET, ABILITY_DAMP, BattleScript_DefenderExplodedExtraHitDamp
 BattleScript_DefenderExplodedExtraHitFromCritCalc::
 	critcalc
 	damagecalc
@@ -692,8 +689,6 @@ BattleScript_DefenderExplodedExtraHitFromCritCalc::
 BattleScript_DefenderExplodedExtraHitFromAtkAnimation::
 	playmoveanimation BS_ATTACKER, MOVE_NONE
 	waitanimation
-	instanthpdrop BS_ATTACKER
-	setatkhptozero
 	effectivenesssound
 	hitanimation BS_TARGET
 	waitstate
@@ -712,6 +707,11 @@ BattleScript_DefenderExplodedExtraRestoreBattlers::
 BattleScript_DefenderExplodedExtraMoveEnd::
 	moveendall
 	end
+BattleScript_DefenderExplodedExtraHitDamp::
+	instanthpdrop BS_ATTACKER
+	setatkhptozero
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_DefenderExplodedExtraRestoreBattlers
 
 BattleScript_EffectOvertake::
 	goto BattleScript_EffectHit
