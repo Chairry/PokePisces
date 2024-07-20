@@ -9629,16 +9629,24 @@ BattleScript_EffectFutureSightOnly:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 BattleScript_Decimation::
-	setstatchanger STAT_SPATK, 1, FALSE
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectFutureSightOnly
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectFutureSightOnly
+	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_DecimationDoubles
+BattleScript_DecimationContinue:
+	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	trysetfutureattack BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	setgraphicalstatchangevalues
-	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-	printfromtable gStatUpStringIds
+	seteffectprimary
+	printstring STRINGID_PKMNISPREPARINGFORDECIMATION
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_DecimationDoubles:
+	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_DecimationNoMoveEffect
+	goto BattleScript_DecimationContinue
+BattleScript_DecimationNoMoveEffect:
+	setmoveeffect 0
+	trysetfutureattack BattleScript_ButItFailed
+	attackanimation
+	waitanimation
 	printstring STRINGID_PKMNISPREPARINGFORDECIMATION
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -12044,7 +12052,7 @@ BattleScript_FutureAttackAnimate::
 	damagecalc
 	adjustdamage
 	jumpifmovehadnoeffect BattleScript_DoFutureAttackResult
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_FUTURE_SIGHT, BattleScript_FutureHitAnimDoomDesire
+	jumpifmove MOVE_FUTURE_SIGHT, BattleScript_FutureHitAnimFutureSight
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_FutureHitAnimDoomDesire
 	playanimation BS_ATTACKER, B_ANIM_DECIMATION_HIT
 	goto BattleScript_DoFutureAttackHit

@@ -23547,7 +23547,15 @@ Move_BRAIN_DAMAGE::
 	goto Move_PSYCHIC
 
 Move_BLOW_UP::
-	goto Move_SELF_DESTRUCT
+	loadspritegfx ANIM_TAG_EXPLOSION
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 9, RGB_RED
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_ATTACKER, 6, 0, 38, 1
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 6, 0, 38, 1
+	call SelfDestructExplode
+	call SelfDestructExplode
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 9, 0, RGB_RED
+	end
 
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN
