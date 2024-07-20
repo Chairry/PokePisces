@@ -8902,10 +8902,10 @@ BattleScript_EffectHitPreventEscape:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectMeanLook::
-	jumpifstatus4 BS_ATTACKER, STATUS4_MEAN_LOOKER, BattleScript_ButItFailed
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifstatus4 BS_ATTACKER, STATUS4_MEAN_LOOKER, BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	jumpifsafeguard BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_ButItFailed
@@ -12044,15 +12044,16 @@ BattleScript_FutureAttackAnimate::
 	damagecalc
 	adjustdamage
 	jumpifmovehadnoeffect BattleScript_DoFutureAttackResult
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_FUTURE_SIGHT, BattleScript_FutureHitAnimDoomDesire
-	playanimation BS_ATTACKER, B_ANIM_FUTURE_SIGHT_HIT
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_FUTURE_SIGHT, BattleScript_FutureHitAnimDoomDesire
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_FutureHitAnimDoomDesire
+	playanimation BS_ATTACKER, B_ANIM_DECIMATION_HIT
 	goto BattleScript_DoFutureAttackHit
 BattleScript_FutureHitAnimDoomDesire::
-	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_FutureHitAnimDecimation
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_DOOM_DESIRE, BattleScript_FutureHitAnimFutureSight
 	playanimation BS_ATTACKER, B_ANIM_DOOM_DESIRE_HIT
 	goto BattleScript_DoFutureAttackHit
-BattleScript_FutureHitAnimDecimation::
-	playanimation BS_ATTACKER, B_ANIM_DECIMATION_HIT
+BattleScript_FutureHitAnimFutureSight::
+	playanimation BS_ATTACKER, B_ANIM_FUTURE_SIGHT_HIT
 BattleScript_DoFutureAttackHit::
 	effectivenesssound
 	hitanimation BS_TARGET

@@ -5701,6 +5701,16 @@ const struct SpriteTemplate gDevastatingDrakePurpleBlastSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimBlastBurnTargetPlume
 };
+const struct SpriteTemplate gDecimationBlastBurnSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FIRE_PLUME,
+    .paletteTag = ANIM_TAG_WISP_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_FirePlume,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimBlastBurnTargetPlume
+};
 const struct SpriteTemplate gDevastatingDrakeHexSpriteTemplate =
 {
     .tileTag = ANIM_TAG_VERTICAL_HEX,
