@@ -119,6 +119,7 @@ extern const u8 BattleScript_IngrainTurnHeal[];
 extern const u8 BattleScript_AtkDefDown[];
 extern const u8 BattleScript_DefSpDefDown[];
 extern const u8 BattleScript_AtkSpAtkDown[];
+extern const u8 BattleScript_AtkSpeedDown[];
 extern const u8 BattleScript_DefAccDown[];
 extern const u8 BattleScript_DefSpDefUp[];
 extern const u8 BattleScript_SpdAccUp[];

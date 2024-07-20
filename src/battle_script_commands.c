@@ -4013,6 +4013,13 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_AtkSpAtkDown;
                 }
                 break;
+            case MOVE_EFFECT_ATK_SPEED_DOWN: // Enervator
+                if (!NoAliveMonsForEitherParty())
+                {
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_AtkSpeedDown;
+                }
+                break;
             case MOVE_EFFECT_ATK_SPEED_PLUS:
                 if (!NoAliveMonsForEitherParty())
                 {
