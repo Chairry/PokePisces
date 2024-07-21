@@ -2162,6 +2162,36 @@
 	.4byte \failInstr
 	.endm
 
+	.macro checkmeanlook failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_MEAN_LOOK
+	.4byte \failInstr
+	.endm
+
+	.macro checkguardsplit failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_GUARD_SPLIT
+	.4byte \failInstr
+	.endm
+
+	.macro checkguardswap failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_GUARD_SWAP
+	.4byte \failInstr
+	.endm
+
+	.macro checkpowersplit failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_POWER_SPLIT
+	.4byte \failInstr
+	.endm
+
+	.macro checkpowerswap failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_POWER_SWAP
+	.4byte \failInstr
+	.endm
+
+	.macro checkspeedswap failInstr:req
+	various BS_ATTACKER, VARIOUS_CHECK_SPEED_SWAP
+	.4byte \failInstr
+	.endm
+
 	.macro trytarshot battler:req, failInstr:req
 	various \battler, VARIOUS_TRY_TAR_SHOT
 	.4byte \failInstr

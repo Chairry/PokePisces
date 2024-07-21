@@ -106,6 +106,12 @@ struct DisableStruct
     u8 fairyLockTimer;
     u8 shunyongFlinchTimer:2;
     u8 heartGiftTimer:4;
+    u8 meanLook:1;
+    u8 guardSplit:1;
+    u8 guardSwap:1;
+    u8 powerSplit:1;
+    u8 powerSwap:1;
+    u8 speedSwap:1;
 };
 
 struct ProtectStruct

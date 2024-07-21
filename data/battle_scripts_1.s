@@ -6663,8 +6663,8 @@ BattleScript_EffectPowerSplit:
 	attackcanceler
 	attackstring
 	ppreduce
+	checkpowersplit BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	setuserstatus4 STATUS4_POWER_SPLIT, BattleScript_ButItFailed
 	averagestats STAT_ATK
 	averagestats STAT_SPATK
 	attackanimation
@@ -6681,8 +6681,8 @@ BattleScript_EffectGuardSplit:
 	attackcanceler
 	attackstring
 	ppreduce
+	checkguardsplit BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	setuserstatus4 STATUS4_GUARD_SPLIT, BattleScript_ButItFailed
 	averagestats STAT_DEF
 	averagestats STAT_SPDEF
 	attackanimation
@@ -6717,8 +6717,8 @@ BattleScript_EffectPowerSwap:
 	attackcanceler
 	attackstring
 	ppreduce
+	checkpowerswap BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	setuserstatus4 STATUS4_POWER_SWAP, BattleScript_ButItFailed
 	swapstatstages STAT_ATK
 	swapstatstages STAT_SPATK
 	attackanimation
@@ -6739,8 +6739,8 @@ BattleScript_EffectGuardSwap:
 	attackcanceler
 	attackstring
 	ppreduce
+	checkguardswap BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	setuserstatus4 STATUS4_GUARD_SWAP, BattleScript_ButItFailed
 	swapstatstages STAT_DEF
 	swapstatstages STAT_SPDEF
 	attackanimation
@@ -6761,8 +6761,8 @@ BattleScript_EffectSpeedSwap:
 	attackcanceler
 	attackstring
 	ppreduce
+	checkspeedswap BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	setuserstatus4 STATUS4_SPEED_SWAP, BattleScript_ButItFailed
 	swapstats STAT_SPEED
 	attackanimation
 	waitanimation
@@ -8889,7 +8889,7 @@ BattleScript_EffectMeanLook::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus4 BS_ATTACKER, STATUS4_MEAN_LOOKER, BattleScript_ButItFailed
+	checkmeanlook BattleScript_ButItFailed
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	jumpifsafeguard BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_ButItFailed
@@ -8899,7 +8899,6 @@ BattleScript_EffectMeanLook::
 .endif
 	attackanimation
 	waitanimation
-	setuserstatus4 STATUS4_MEAN_LOOKER, BattleScript_MoveEnd
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	seteffectprimary
 	setmoveeffect MOVE_EFFECT_FLINCH
