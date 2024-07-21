@@ -23232,7 +23232,7 @@ Move_DRAKEN_GUARD::
 	goto Move_PROTECT
 
 Move_TICK_TACK::
-	goto Move_ABSORB
+	goto General_DecimationHit
 
 Move_DEEP_GAZE::
 	loadspritegfx ANIM_TAG_EYE

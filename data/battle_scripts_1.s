@@ -2641,7 +2641,7 @@ BattleScript_EffectTickTack::
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_TickTackContinue
 	setseeded
-	printfromtable gLeechSeedStringIds
+	printfromtable gTickedStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_TickTackContinue::
 	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_AbsorbHealBlock
