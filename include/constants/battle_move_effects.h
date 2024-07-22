@@ -606,7 +606,8 @@
 #define EFFECT_MOON_BEAM                    600
 #define EFFECT_HUNKER_DOWN                  601
 #define EFFECT_OVERTAKE                     602
+#define EFFECT_POISON_GAS                   603
 
-#define NUM_BATTLE_MOVE_EFFECTS             603
+#define NUM_BATTLE_MOVE_EFFECTS             604
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

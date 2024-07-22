@@ -2119,7 +2119,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
@@ -2408,7 +2408,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .accuracy = 55,
             .target = MOVE_TARGET_SELECTED,
         #endif
-        .effect = EFFECT_POISON,
+        .effect = EFFECT_POISON_GAS,
         .power = 0,
         .type = TYPE_POISON,
         .pp = 40,
