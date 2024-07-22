@@ -1024,8 +1024,23 @@ BattleScript_PoisonPowderDamage::
 	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectSmog::
+	jumpifability BS_ATTACKER, ABILITY_PURPLE_HAZE, BattleScript_PurpleHazeSmog
 	setmoveeffect MOVE_EFFECT_SMOG
-	goto BattleScript_EffectHitEscape
+	goto BattleScript_EffectHit
+
+BattleScript_PurpleHazeSmog::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	setmoveeffect MOVE_EFFECT_SMOG
+	seteffectprimary
+	setmoveeffect MOVE_EFFECT_SPATK_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	seteffectsecondary
+	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectSnowfade::
 	setmoveeffect MOVE_EFFECT_SNOWFADE
@@ -7752,12 +7767,13 @@ BattleScript_EffectHaze::
 	pause B_WAIT_TIME_MED
 	ppreduce
 	waitstate
+	jumpifability BS_ATTACKER, ABILITY_PURPLE_HAZE, BattleScript_HazePurpleHazeStatRaise
+	attackanimation
+	waitanimation
 	tryhaze FALSE, BattleScript_EffectHazeDoMoveAnimation
 	goto BattleScript_HazeStatNormalize
 
 BattleScript_EffectHazeDoMoveAnimation::
-	attackanimation
-	waitanimation
 	tryhaze TRUE, NULL
 	printstring STRINGID_TIDYINGUPCOMPLETE
 	waitmessage B_WAIT_TIME_LONG
@@ -7765,6 +7781,31 @@ BattleScript_EffectHazeDoMoveAnimation::
 
 BattleScript_HazeStatNormalize::
 	normalisebuffs
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_HazePurpleHazeStatRaise:
+	normalisebuffs
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_HazePurpleHazeStatRaiseDoMoveAnim
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_HazePurpleHazeStatRaiseEnd
+BattleScript_HazePurpleHazeStatRaiseDoMoveAnim::
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF | BIT_SPATK, 0
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HazePurpleHazeStatRaiseTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HazePurpleHazeStatRaiseTrySpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HazePurpleHazeStatRaiseTrySpAtk::
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HazePurpleHazeStatRaiseEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HazePurpleHazeStatRaiseEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HazePurpleHazeStatRaiseEnd:
 	printstring STRINGID_STATCHANGESGONE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -12391,6 +12432,25 @@ BattleScript_SpdAccUpTryAcc::
 BattleScript_SpdAccUpRet::
 	return
 
+BattleScript_SpAtkSpDefUp::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK | BIT_SPDEF, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK, STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_SpAtkSpDefUpTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_SpAtkSpDefUpTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SpAtkSpDefUpTrySpDef::
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF, STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_SpAtkSpDefUpRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_SpAtkSpDefUpRet
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_SpAtkSpDefUpRet::
+	return
+
 BattleScript_AtkSpdUp::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_SPEED | BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_MULTIPLE_STATS
@@ -13933,6 +13993,29 @@ BattleScript_MoveStatDrain2End:
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_MoveStatNegativeDrain_PPLoss::
+	ppreduce
+BattleScript_MoveStatNegativeDrain::
+	attackstring
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	setstatchanger STAT_SPEED, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_MoveStatNegativeDrain_Cont
+.if B_ABSORBING_ABILITY_STRING >= GEN_5
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+.else
+	printstring STRINGID_TARGETABILITYSTATRAISE
+	waitmessage B_WAIT_TIME_LONG
+.endif
+BattleScript_MoveStatNegativeDrain_Cont:
+	clearsemiinvulnerablebit
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
 BattleScript_MonMadeMoveUseless_PPLoss::
 	ppreduce
 BattleScript_MonMadeMoveUseless::
@@ -14326,6 +14409,11 @@ BattleScript_FriskMsgWithPopup::
 BattleScript_FriskMsg::
 	printstring STRINGID_FRISKACTIVATES
 	waitmessage B_WAIT_TIME_LONG
+	setembargo BattleScript_FriskEmbargoFail
+	printstring STRINGID_PKMNCANTUSEITEMSANYMORE
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_FriskEmbargoFail:
+	end3
 	return
 
 BattleScript_FriskActivates::

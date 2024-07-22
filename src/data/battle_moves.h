@@ -2138,6 +2138,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .oozeMove = TRUE,
         .sheerForceBoost = TRUE,
     },
 
@@ -3276,6 +3277,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
         .ballisticMove = TRUE,
     },
 
@@ -7522,6 +7524,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_IRON_HEAD] =
@@ -8183,6 +8186,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_QUIVER_DANCE] =

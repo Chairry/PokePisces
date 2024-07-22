@@ -5715,9 +5715,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 break;
             case ABILITY_WATER_ABSORB:
-            case ABILITY_DRY_SKIN:
                 if (moveType == TYPE_WATER)
                     effect = 1;
+                break;
+            case ABILITY_DRY_SKIN:
+                if (moveType == TYPE_WATER)
+                    effect = 2, statId = STAT_SPEED;
+                if (moveType == TYPE_FIRE)
+                    effect = 4, statId = STAT_SPEED;
                 break;
             case ABILITY_WITCHCRAFT:
                 if (moveType == TYPE_FAIRY)
@@ -5825,6 +5830,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gBattlescriptCurrInstr = BattleScript_MoveStatDrain2;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveStatDrain2_PPLoss;
+                }
+            }
+            else if (effect == 4) // Lower Stat ability;
+            {
+                if (!CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
+                {
+                    if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
+                }
+                else
+                {
+                    if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                        gBattlescriptCurrInstr = BattleScript_MoveStatNegativeDrain;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MoveStatNegativeDrain_PPLoss;
+
+                    SET_STATCHANGER(statId, statAmount, FALSE);
                 }
             }
         }
@@ -11081,6 +11105,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case ABILITY_MEGA_LAUNCHER:
         if (gBattleMoves[move].pulseMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_LIQUID_OOZE:
+        if (gBattleMoves[move].oozeMove)
+            gBattleMoveDamage = CalculateMoveDamage(move, gBattlerAttacker, gBattlerTarget, TYPE_POISON, 0, gIsCriticalHit, TRUE, TRUE)  + (gBattleMons[gBattlerTarget].maxHP / 5);
         break;
     case ABILITY_WATER_BUBBLE:
         if (moveType == TYPE_WATER)
