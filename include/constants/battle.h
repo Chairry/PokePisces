@@ -440,8 +440,9 @@
 #define MOVE_EFFECT_PESKY_PLUSH         108
 #define MOVE_EFFECT_ATK_SPEED_DOWN      109
 #define MOVE_EFFECT_CINDER_WALTZ        110
+#define MOVE_EFFECT_SPATK_SPDEF_UP      111
 
-#define NUM_MOVE_EFFECTS                111
+#define NUM_MOVE_EFFECTS                112
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

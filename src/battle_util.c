@@ -5801,9 +5801,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 break;
             case ABILITY_WATER_ABSORB:
-            case ABILITY_DRY_SKIN:
                 if (moveType == TYPE_WATER)
                     effect = 1;
+                break;
+            case ABILITY_DRY_SKIN:
+                if (moveType == TYPE_WATER)
+                    effect = 2, statId = STAT_SPEED;
+                if (moveType == TYPE_FIRE)
+                    effect = 4, statId = STAT_SPEED;
                 break;
             case ABILITY_WITCHCRAFT:
                 if (moveType == TYPE_FAIRY)
@@ -5911,6 +5916,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         gBattlescriptCurrInstr = BattleScript_MoveStatDrain2;
                     else
                         gBattlescriptCurrInstr = BattleScript_MoveStatDrain2_PPLoss;
+                }
+            }
+            else if (effect == 4) // Lower Stat ability;
+            {
+                if (!CompareStat(battler, statId, MAX_STAT_STAGE, CMP_LESS_THAN))
+                {
+                    if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
+                }
+                else
+                {
+                    if (gProtectStructs[gBattlerAttacker].notFirstStrike)
+                        gBattlescriptCurrInstr = BattleScript_MoveStatNegativeDrain;
+                    else
+                        gBattlescriptCurrInstr = BattleScript_MoveStatNegativeDrain_PPLoss;
+
+                    SET_STATCHANGER(statId, statAmount, FALSE);
                 }
             }
         }
@@ -7762,6 +7786,32 @@ static u8 DamagedCornnBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 en
     return 0;
 }
 
+static u8 DamagedWepearBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
+{
+    u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
+    u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
+    gBattlerTarget = opposingBattler;
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
+    {
+        BufferStatChange(battler, statId, STRINGID_STATROSE);
+        gEffectBattler = battler;
+        gBattleScripting.animArg1 = 14 + statId;
+        gBattleScripting.animArg2 = 0;
+
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_WepearBerryEnd);
+        }
+        else
+        {
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_WepearBerryActivatesRet;
+        }
+        return ITEM_EFFECT_OTHER;
+    }
+    return 0;
+}
+
 static u8 DamagedRabutaBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
 {
     u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
@@ -8266,6 +8316,9 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
     case HOLD_EFFECT_CORNN_BERRY:
         effect = DamagedCornnBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
+    case HOLD_EFFECT_WEPEAR_BERRY:
+        effect = DamagedWepearBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+        break;
     case HOLD_EFFECT_RABUTA_BERRY:
         effect = DamagedRabutaBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
@@ -8597,6 +8650,9 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 break;
             case HOLD_EFFECT_CORNN_BERRY:
                 effect = DamagedCornnBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_WEPEAR_BERRY:
+                effect = DamagedWepearBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
             case HOLD_EFFECT_RABUTA_BERRY:
                 effect = DamagedRabutaBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
@@ -9140,6 +9196,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 if (!moveTurn)
                     effect = DamagedCornnBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
+            case HOLD_EFFECT_WEPEAR_BERRY:
+                if (!moveTurn)
+                    effect = DamagedWepearBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
             case HOLD_EFFECT_RABUTA_BERRY:
                 if (!moveTurn)  
                     effect = DamagedRabutaBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
@@ -9634,17 +9694,6 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             }
         }
         break;
-        case HOLD_EFFECT_WEPEAR_BERRY:
-        {
-            u16 ability = GetBattlerAbility(gBattlerAttacker);
-            if ((IS_BATTLER_PROTECTED(gBattlerTarget)))
-            {
-                gSpecialStatuses[gBattlerAttacker].gemBoost = TRUE;
-                BattleScriptPushCursor();
-                effect++;
-            }
-        }
-        break;
         case HOLD_EFFECT_LONG_NOSE:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
@@ -9893,22 +9942,6 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     effect = ITEM_HP_CHANGE;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_PinapBerryActivatesRet;
-                    PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
-                    RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
-                }
-                break;
-            case HOLD_EFFECT_DURIN_BERRY: // consume and damage attacker if used physical move
-                if (gProtectStructs[gBattlerAttacker].touchedProtectLike && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove) && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD && GetBattlerAbility(gBattlerAttacker) != ABILITY_SUGAR_COAT && !((GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM) && (gBattleMons[battler].species == SPECIES_CHIROBERRA)))
-                {
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 4;
-                    if (gBattleMoveDamage == 0)
-                        gBattleMoveDamage = 1;
-                    if (GetBattlerAbility(battler) == ABILITY_RIPEN)
-                        gBattleMoveDamage *= 2;
-
-                    effect = ITEM_HP_CHANGE;
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_DurinBerryActivatesRet;
                     PREPARE_ITEM_BUFFER(gBattleTextBuff1, gLastUsedItem);
                     RecordItemEffectBattle(battler, HOLD_EFFECT_ROCKY_HELMET);
                 }
@@ -11309,6 +11342,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case ABILITY_MEGA_LAUNCHER:
         if (gBattleMoves[move].pulseMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_LIQUID_OOZE:
+        if (gBattleMoves[move].oozeMove)
+            gBattleMoveDamage = CalculateMoveDamage(move, gBattlerAttacker, gBattlerTarget, TYPE_POISON, 0, gIsCriticalHit, TRUE, TRUE)  + (gBattleMons[gBattlerTarget].maxHP / 5);
         break;
     case ABILITY_WATER_BUBBLE:
         if (moveType == TYPE_WATER)
