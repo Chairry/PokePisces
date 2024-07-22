@@ -184,7 +184,6 @@ static const u8 sText_Freeze[] = _("Freeze");
 static const u8 sText_Frostbite[] = _("Frostbite");
 static const u8 sText_ToxicPoison[] = _("Toxic Poison");
 static const u8 sText_ToxicCounter[] = _("Toxic Counter");
-static const u8 gText_Blooming[] = _("Blooming");
 static const u8 sText_Rest[] = _("Rest");
 static const u8 sText_Flinch[] = _("Flinch");
 static const u8 sText_Uproar[] = _("Uproar");
