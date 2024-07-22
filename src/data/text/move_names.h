@@ -631,7 +631,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_DARKEST_LARIAT] = _("Dark Lariat"),
     [MOVE_SPARKLING_ARIA] = _("Flowing Aria"),
     [MOVE_ICE_HAMMER] = _("Ice Hammer"),
-    [MOVE_FLORAL_HEALING] = _("Floral Healng"),
+    [MOVE_FLORAL_HEALING] = _("Floral Healing"),
     [MOVE_HIGH_HORSEPOWER] = _("Horse-POWER"),
     [MOVE_STRENGTH_SAP] = _("Strength Sap"),
     [MOVE_SOLAR_BLADE] = _("Solar Blade"),
@@ -1023,6 +1023,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
     [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
+    [MOVE_BLOW_UP] = _("Blow Up"),
 };
 #else
 // 12 letters
@@ -2049,6 +2050,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_MT_SPLENDOR] = _("Mt. Splendor"),
     [MOVE_NOTHING] = _("Nothing"),
     [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
+    [MOVE_BLOW_UP] = _("Blow Up"),
 };
 #endif
 

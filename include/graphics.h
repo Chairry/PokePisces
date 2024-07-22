@@ -11179,6 +11179,8 @@ extern const u32 gBattleAnimSpriteGfx_Tongue[];
 extern const u32 gBattleAnimSpriteGfx_Smoke[];
 extern const u32 gBattleAnimSpriteGfx_Smoke2[];
 extern const u32 gBattleAnimSpriteGfx_Impact[];
+extern const u32 gBattleAnimSpriteGfx_Beam[];
+extern const u32 gBattleAnimSpritePal_Beam[];
 extern const u32 gBattleAnimSpriteGfx_Particles[];
 extern const u32 gBattleAnimSpriteGfx_Particles2[];
 extern const u32 gBattleAnimSpriteGfx_CircleImpact[];
