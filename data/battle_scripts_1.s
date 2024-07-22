@@ -14458,11 +14458,6 @@ BattleScript_ItemStatusEffect::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_WepearHitThroughProtect::
-	printstring STRINGID_WEPEARBERRYHIT
-	waitmessage B_WAIT_TIME_LONG
-	return
-
 BattleScript_BattleBondActivatesOnMoveEndAttacker::
 	pause 5
 	copybyte gBattlerAbility, gBattlerAttacker
@@ -15345,6 +15340,21 @@ BattleScript_CornnBerryActivatesRet::
 BattleScript_CornnBerryEnd::
 	return
 
+BattleScript_WepearBerryActivatesRet::
+	painsplitdmgcalc BattleScript_WepearBerryEnd
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	copyword gBattleMoveDamage, sPAINSPLIT_HP
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_SHAREDPAIN
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_WepearBerryEnd::
+	return
+
 BattleScript_RabutaBerryActivatesRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
 	removeitem BS_SCRIPTING
@@ -15400,21 +15410,6 @@ BattleScript_PinapBerryActivate_Dmg:
 	call BattleScript_HurtAttacker
 	removeitem BS_TARGET
 BattleScript_PinapBerryEnd::
-	return
-
-BattleScript_DurinBerryActivatesRet::
-	jumpifability BS_TARGET, ABILITY_RIPEN, BattleScript_DurinBerryActivate_Ripen
-	goto BattleScript_DurinBerryActivate_Anim
-BattleScript_DurinBerryActivate_Ripen:
-	call BattleScript_AbilityPopUp
-BattleScript_DurinBerryActivate_Anim:
-	jumpifabsent BS_TARGET, BattleScript_DurinBerryActivate_Dmg   @ dont play the animation for a fainted target
-	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
-	waitanimation
-BattleScript_DurinBerryActivate_Dmg:
-	call BattleScript_HurtAttacker
-	removeitem BS_TARGET
-BattleScript_DurinBerryEnd::
 	return
 
 BattleScript_RazzBerryActivatesRet::
@@ -15661,6 +15656,33 @@ BattleScript_RedCardIngrain:
 	swapattackerwithtarget
 	return
 BattleScript_RedCardSuctionCups:
+	printstring STRINGID_PKMNANCHORSITSELFWITH
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+	swapattackerwithtarget
+	return
+
+BattleScript_DurinBerryActivates::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_REDCARDACTIVATE
+	waitmessage B_WAIT_TIME_LONG
+	swapattackerwithtarget
+	jumpifstatus3 BS_EFFECT_BATTLER, STATUS3_ROOTED, BattleScript_DurinBerryIngrain
+	jumpifability BS_EFFECT_BATTLER, ABILITY_SUCTION_CUPS, BattleScript_DurinBerrySuctionCups
+	jumpifability BS_EFFECT_BATTLER, ABILITY_STALWART, BattleScript_DurinBerryIngrain
+	removeitem BS_SCRIPTING
+	setbyte sSWITCH_CASE, B_SWITCH_RED_CARD
+	forcerandomswitch BattleScript_DurinBerryEnd
+	@ changes the current battle script. the rest happens in BattleScript_RoarSuccessSwitch_Ret, if switch is successful
+BattleScript_DurinBerryEnd::
+	return
+BattleScript_DurinBerryIngrain:
+	printstring STRINGID_PKMNANCHOREDITSELF
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+	swapattackerwithtarget
+	return
+BattleScript_DurinBerrySuctionCups:
 	printstring STRINGID_PKMNANCHORSITSELFWITH
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING

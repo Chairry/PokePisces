@@ -6872,6 +6872,46 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_DURIN_BERRY:
+            if ((gBattleMoves[gCurrentMove].effect != EFFECT_HIT_SWITCH_TARGET || gBattleStruct->hitSwitchTargetFailed)
+              && (gBattleMoves[gCurrentMove].effect != EFFECT_VITAL_THROW || gBattleStruct->hitSwitchTargetFailed)
+              && IsBattlerAlive(gBattlerAttacker)
+              && !TestSheerForceFlag(gBattlerAttacker, gCurrentMove)
+              && GetBattlerAbility(gBattlerAttacker) != ABILITY_GUARD_DOG)
+            {
+                // Since we check if battler was damaged, we don't need to check move result.
+                // In fact, doing so actually prevents multi-target moves from activating red card properly
+                u8 battlers[4] = {0, 1, 2, 3};
+                SortBattlersBySpeed(battlers, FALSE);
+                for (i = 0; i < gBattlersCount; i++)
+                {
+                    u8 battler = battlers[i];
+                    // Search for fastest hit pokemon with a red card
+                    // Attacker is the one to be switched out, battler is one with red card
+                    if (battler != gBattlerAttacker
+                      && IsBattlerAlive(battler)
+                      && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove)
+                      && GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_DURIN_BERRY
+                      && (gSpecialStatuses[battler].physicalDmg != 0 || gSpecialStatuses[battler].specialDmg != 0)
+                      && CanBattlerSwitch(gBattlerAttacker))
+                    {
+                        gLastUsedItem = gBattleMons[battler].item;
+                        gBattleStruct->savedBattlerTarget = gBattleScripting.battler = battler;  // Battler with red card
+                        gEffectBattler = gBattlerAttacker;
+                        if (gBattleMoves[gCurrentMove].effect == EFFECT_HIT_ESCAPE
+                            || gBattleMoves[gCurrentMove].effect == EFFECT_GLACIAL_SHIFT
+                            || gBattleMoves[gCurrentMove].effect == EFFECT_U_TURN
+                            || gBattleMoves[gCurrentMove].effect == EFFECT_SNOWFADE)
+                            gBattlescriptCurrInstr = BattleScript_MoveEnd;  // Prevent user switch-in selection
+                        BattleScriptPushCursor();
+                        gBattlescriptCurrInstr = BattleScript_DurinBerryActivates;
+                        effect = TRUE;
+                        break;  // Only fastest red card activates
+                    }
+                }
+            }
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_EJECT_PACK:
             {
                 u8 battlers[4] = {0, 1, 2, 3};
