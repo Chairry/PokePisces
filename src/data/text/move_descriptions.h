@@ -4977,4 +4977,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_NOTHING - 1] = sSplashDescription,
     [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
+    [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
 };

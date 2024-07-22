@@ -14182,6 +14182,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .pulseMove = TRUE,
     },
 
     [MOVE_PURGING_FLAMES] =
@@ -15511,6 +15512,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .ballisticMove = TRUE,
+        .pulseMove = TRUE,
     },
 
     [MOVE_GIANTS_SPEAR] =
@@ -16958,6 +16960,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_CINDER_WALTZ] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_RELIC,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
     },
 
     // Z-Moves
