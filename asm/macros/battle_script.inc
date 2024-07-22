@@ -2535,6 +2535,10 @@
 	.4byte \failInstr
 	.endm
 
+	.macro staggerdamage
+	various 0, VARIOUS_STAGGER_DAMAGE
+	.endm
+
 	.macro setpump battler:req
 	various \battler, VARIOUS_SET_PUMP
 	.endm

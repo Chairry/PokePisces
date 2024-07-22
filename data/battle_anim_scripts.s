@@ -1050,7 +1050,7 @@ gBattleAnims_Moves::
     .4byte Move_NOTHING
     .4byte Move_BRAIN_DAMAGE
     .4byte Move_BLOW_UP
-
+    .4byte Move_CINDER_WALTZ
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -19235,7 +19235,7 @@ DRAGON_RUIN_BLAST:
 	waitforvisualfinish
 	end
 
-Move_CINDER_TWIRL:
+Move_CINDER_TWIRL::
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_RAPID_SPIN
 	loadspritegfx ANIM_TAG_SMALL_EMBER
@@ -23549,13 +23549,15 @@ Move_BRAIN_DAMAGE::
 Move_BLOW_UP::
 	loadspritegfx ANIM_TAG_EXPLOSION
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 9, RGB_RED
-	createvisualtask AnimTask_ShakeMon2, 5, ANIM_ATTACKER, 6, 0, 38, 1
-	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 6, 0, 38, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 6, 0, 38, 1
 	call SelfDestructExplode
 	call SelfDestructExplode
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 9, 0, RGB_RED
 	end
+
+Move_CINDER_WALTZ::
+	goto Move_CINDER_TWIRL
 
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN

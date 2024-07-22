@@ -4118,6 +4118,24 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_MoveEffectFlameBurst;
                 }
                 break;
+            case MOVE_EFFECT_CINDER_WALTZ:
+                if (IsBattlerAlive(BATTLE_PARTNER(gBattlerTarget))
+                        && !(gStatuses3[BATTLE_PARTNER(gBattlerTarget)] & STATUS3_SEMI_INVULNERABLE)
+                        && GetBattlerAbility(BATTLE_PARTNER(gBattlerTarget)) != ABILITY_MAGIC_GUARD
+                        && !((GetBattlerHoldEffect(BATTLE_PARTNER(gBattlerTarget), TRUE) == HOLD_EFFECT_TERU_CHARM) && (gBattleMons[BATTLE_PARTNER(gBattlerTarget)].species == SPECIES_CHIROBERRA)))
+                {
+                    gBattleScripting.savedBattler = BATTLE_PARTNER(gBattlerTarget);
+                    gBattleMoveDamage = gBattleMons[BATTLE_PARTNER(gBattlerTarget)].hp / 8;
+                    if (gBattleMoveDamage == 0)
+                        gBattleMoveDamage = 1;
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectFlameBurst;
+                }
+                if (CanBeBurned(gBattlerTarget) && (Random() % 5) == 0)
+                {
+                    gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
+                    SetMoveEffect(FALSE, 0);
+                }
+                break;
             case MOVE_EFFECT_FEINT:
                 if (IS_BATTLER_PROTECTED(gBattlerTarget))
                 {
@@ -12674,6 +12692,24 @@ static void Cmd_various(void)
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
     }
+    case VARIOUS_STAGGER_DAMAGE:
+    {    
+        VARIOUS_ARGS();
+
+        if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses))
+        {
+            gBattleMoveDamage = 0;
+        }
+        else
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 4;  
+        }
+
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
     case VARIOUS_SET_PUMP:
     {
         VARIOUS_ARGS();
@@ -14289,7 +14325,12 @@ static void Cmd_tryKO(void)
 static void Cmd_damagetopercentagetargethp(void)
 {
     CMD_ARGS();
-    if (gCurrentMove == MOVE_TICK_TACK)
+
+    if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses))
+    {
+        gBattleMoveDamage = 0;
+    }
+    else if (gCurrentMove == MOVE_TICK_TACK)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
     }
@@ -14305,11 +14346,6 @@ static void Cmd_damagetopercentagetargethp(void)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;  
     }
-
-    if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses))
-        gBattleMoveDamage = 0;
-    else
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].hp / 2;
 
     if (gBattleMoveDamage == 0)
         gBattleMoveDamage = 1;

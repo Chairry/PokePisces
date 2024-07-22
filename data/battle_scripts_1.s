@@ -13588,6 +13588,42 @@ BattleScript_IntimidateInReverse:
 	call BattleScript_TryAdrenalineOrb
 	goto BattleScript_IntimidateLoopIncrement
 
+BattleScript_GlaringStaggerActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+BattleScript_GlaringStaggerLoop:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_GlaringStaggerLoopIncrement
+	jumpiftargetally BattleScript_GlaringStaggerLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_GlaringStaggerLoopIncrement
+BattleScript_GlaringStaggerEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	staggerdamage
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNCUTSHPWITH
+BattleScript_GlaringStaggerEffect_WaitString:
+	waitmessage B_WAIT_TIME_LONG
+	copybyte sBATTLER, gBattlerTarget
+BattleScript_GlaringStaggerLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_GlaringStaggerLoop
+BattleScript_GlaringStaggerEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
 BattleScript_DroughtActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
@@ -14874,6 +14910,38 @@ BattleScript_ItemHealHP_End2::
 BattleScript_AbilityHealHP_End2::
 	call BattleScript_AbilityHealHP_Ret
 	end2
+
+BattleScript_ResetActivates::
+	call BattleScript_AbilityHealHP_Ret
+	normalisebuffs
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_ResetActivates2::
+	printstring STRINGID_PKMNSXCUREDYPROBLEM
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	normalisebuffs
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_ResetActivates3::
+	call BattleScript_AbilityHealHP_Ret
+	printstring STRINGID_PKMNSXCUREDYPROBLEM
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	normalisebuffs
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
+BattleScript_NormaliseBuffs::
+	normalisebuffs
+	printstring STRINGID_STATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	end3
 
 BattleScript_Cheese_End2::
 	trycheesing BS_ATTACKER, BattleScript_ButItFailed
