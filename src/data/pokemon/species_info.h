@@ -1344,11 +1344,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_RATICATE] =
     {
-        .baseHP        = 55,
-        .baseAttack    = 81,
-        .baseDefense   = 60,
-        .baseSpeed     = 97,
-        .baseSpAttack  = 50,
+        .baseHP        = 200,
+        .baseAttack    = 70,
+        .baseDefense   = 70,
+        .baseSpeed     = 2,
+        .baseSpAttack  = 70,
         .baseSpDefense = 70,
         .types = { TYPE_MYSTERY, TYPE_MYSTERY },
         .catchRate = 127,
