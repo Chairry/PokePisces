@@ -4507,6 +4507,8 @@ void SetMoveEffect(bool32 primary, u32 certain)
                         if (randomPoisonChance)
                         {
                             gBattleMons[gEffectBattler].status1 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_POISON];
+                            BtlController_EmitStatusAnimation(battler, BUFFER_A, FALSE, gBattleMons[gEffectBattler].status1);
+                            MarkBattlerForControllerExec(battler);
                         }
                     }
 

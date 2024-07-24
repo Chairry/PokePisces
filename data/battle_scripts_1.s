@@ -4987,6 +4987,7 @@ BattleScript_TormentTauntString::
 	return
 
 BattleScript_SpeedDown::
+	updatestatusicon BS_TARGET
 	modifybattlerstatstage BS_TARGET, STAT_SPEED, DECREASE, 1, BattleScript_SpeedDown_Ret, ANIM_ON
 BattleScript_SpeedDown_Ret:
 	return
