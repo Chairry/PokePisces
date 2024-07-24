@@ -207,16 +207,10 @@
 #define STATUS4_HEARTHWARM              (1 << 11)
 #define STATUS4_FAIRY_LOCK              (1 << 12)
 #define STATUS4_RECHARGE_REDUCE         (1 << 13)
-#define STATUS4_MEAN_LOOKER             (1 << 14)
-#define STATUS4_REFLECTED_TYPE          (1 << 15)
-#define STATUS4_PUMPED_UP               (1 << 16)
-#define STATUS4_ACID_ARMORED            (1 << 17)
-#define STATUS4_POWER_SHIFT             (1 << 18)
-#define STATUS4_GUARD_SPLIT             (1 << 19)
-#define STATUS4_GUARD_SWAP              (1 << 20)
-#define STATUS4_POWER_SPLIT             (1 << 21)
-#define STATUS4_SPEED_SWAP              (1 << 22)
-#define STATUS4_POWER_SWAP              (1 << 23)
+#define STATUS4_REFLECTED_TYPE          (1 << 14)
+#define STATUS4_PUMPED_UP               (1 << 15)
+#define STATUS4_ACID_ARMORED            (1 << 16)
+#define STATUS4_POWER_SHIFT             (1 << 17)
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
@@ -444,9 +438,11 @@
 #define MOVE_EFFECT_GRAV_APPLE          106
 #define MOVE_EFFECT_TORMENT             107
 #define MOVE_EFFECT_PESKY_PLUSH         108
-#define MOVE_EFFECT_SPATK_SPDEF_UP      109
+#define MOVE_EFFECT_ATK_SPEED_DOWN      109
+#define MOVE_EFFECT_CINDER_WALTZ        110
+#define MOVE_EFFECT_SPATK_SPDEF_UP      111
 
-#define NUM_MOVE_EFFECTS                110
+#define NUM_MOVE_EFFECTS                112
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

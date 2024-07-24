@@ -277,6 +277,13 @@
 #define VARIOUS_JUMP_IF_HAS_A_STAT_BOOST             184
 #define VARIOUS_POWER_SHIFT                          185
 #define VARIOUS_TRY_DAMPING                          186
+#define VARIOUS_CHECK_MEAN_LOOK                      187
+#define VARIOUS_CHECK_GUARD_SPLIT                    188
+#define VARIOUS_CHECK_GUARD_SWAP                     189
+#define VARIOUS_CHECK_POWER_SPLIT                    190
+#define VARIOUS_CHECK_POWER_SWAP                     191
+#define VARIOUS_CHECK_SPEED_SWAP                     192
+#define VARIOUS_STAGGER_DAMAGE                       193
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

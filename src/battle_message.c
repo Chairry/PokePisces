@@ -924,6 +924,7 @@ static const u8 sText_PkmnGemstoneMaxedEvasion[] = _("Gemstone maxed out\n{B_SCR
 static const u8 sText_UsingItemTheStatOfPkmnFell[] = _("Using {B_LAST_ITEM}, the {B_BUFF1}\nof {B_SCR_ACTIVE_NAME_WITH_PREFIX} {B_BUFF2}");
 static const u8 sText_AbilityLetItUseMove[] = _("{B_ATK_NAME_WITH_PREFIX}'s ability let it use\n{B_CURRENT_MOVE}!");
 static const u8 sText_WepearBerryHit[] = _("Wepear Berry allowed\nhitting through protection!");
+static const u8 sText_PkmnCutsHPWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s HP!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1699,6 +1700,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_USINGITEMSTATOFPKMNFELL - BATTLESTRINGS_TABLE_START] = sText_UsingItemTheStatOfPkmnFell,
     [STRINGID_ABILITYLETITUSEMOVE - BATTLESTRINGS_TABLE_START] = sText_AbilityLetItUseMove,
     [STRINGID_WEPEARBERRYHIT - BATTLESTRINGS_TABLE_START] = sText_WepearBerryHit,
+    [STRINGID_PKMNCUTSHPWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsHPWith,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -2300,6 +2302,7 @@ const u8 gText_Burn[] = _("burn");
 const u8 gText_Paralysis[] = _("paralysis");
 const u8 gText_Panic[] = _("panic");
 const u8 gText_Exposed[] = _("exposed");
+const u8 gText_Blooming[] = _("blooming");
 const u8 gText_Ice[] = _("ice");
 const u8 gText_Confusion[] = _("confusion");
 const u8 gText_Love[] = _("love");

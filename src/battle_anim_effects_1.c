@@ -99,6 +99,7 @@ static void AnimFalseSwipeSlice_Step1(struct Sprite *);
 static void AnimFalseSwipeSlice_Step2(struct Sprite *);
 static void AnimFalseSwipePositionedSlice(struct Sprite *);
 static void AnimEndureEnergy_Step(struct Sprite *);
+static void AnimEnervatorEnergy_Step(struct Sprite *);
 static void AnimSharpenSphere(struct Sprite *);
 static void AnimSharpenSphere_Step(struct Sprite *);
 static void AnimConversion2(struct Sprite *);
@@ -1931,12 +1932,37 @@ const struct SpriteTemplate gFalseSwipePositionedSliceSpriteTemplate =
     .callback = AnimFalseSwipePositionedSlice,
 };
 
+const union AnimCmd gEnervatorEnergyAnimCmds[] =
+{
+    ANIMCMD_FRAME(24, 4, .vFlip = TRUE),
+    ANIMCMD_FRAME(16, 4, .vFlip = TRUE),
+    ANIMCMD_FRAME(8, 12, .vFlip = TRUE),
+    ANIMCMD_FRAME(0, 4, .vFlip = TRUE ),
+    ANIMCMD_END,
+};
+
+const union AnimCmd *const gEnervatorEnergyAnimTable[] =
+{
+    gEnervatorEnergyAnimCmds,
+};
+
+const struct SpriteTemplate gEnervatorEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_FOCUS_ENERGY,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gEnervatorEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEnervatorEnergy,
+};
+
 const union AnimCmd gEndureEnergyAnimCmds[] =
 {
-    ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(8, 12),
-    ANIMCMD_FRAME(16, 4),
     ANIMCMD_FRAME(24, 4),
+    ANIMCMD_FRAME(16, 4),
+    ANIMCMD_FRAME(8, 12),
+    ANIMCMD_FRAME(0, 4),
     ANIMCMD_END,
 };
 
@@ -6130,6 +6156,58 @@ static void AnimEndureEnergy_Step(struct Sprite *sprite)
     {
         sprite->data[0] = 0;
         sprite->y--;
+    }
+
+    sprite->y -= sprite->data[0];
+    if (sprite->animEnded)
+        DestroyAnimSprite(sprite);
+}
+
+void AnimEnervatorEnergy(struct Sprite *sprite)
+{
+    s16 a;
+    s16 b;
+
+    if (gBattleAnimArgs[0] == 0)
+    {
+        if (IsDoubleBattle())
+        {
+            SetAverageBattlerPositions(gBattleAnimAttacker, TRUE, &a, &b);
+            sprite->x = a - gBattleAnimArgs[1];
+            sprite->y = b - gBattleAnimArgs[2];
+        }
+        else
+        {
+            sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X) - gBattleAnimArgs[1];
+            sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) - gBattleAnimArgs[2];
+        }
+    }
+    else
+    {
+        if (IsDoubleBattle())
+        {
+            SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &a, &b);
+            sprite->x = a - gBattleAnimArgs[1];
+            sprite->y = b - gBattleAnimArgs[2];
+        }
+        else
+        {
+            sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X) - gBattleAnimArgs[1];
+            sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) - gBattleAnimArgs[2];
+        }
+    }
+
+    sprite->data[0] = 0;
+    sprite->data[1] = gBattleAnimArgs[3];
+    sprite->callback = AnimEnervatorEnergy_Step;
+}
+
+static void AnimEnervatorEnergy_Step(struct Sprite *sprite)
+{
+    if (--sprite->data[0] < sprite->data[1])
+    {
+        sprite->data[0] = 0;
+        sprite->y++;
     }
 
     sprite->y -= sprite->data[0];

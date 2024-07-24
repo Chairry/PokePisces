@@ -286,6 +286,7 @@ extern const u8 gText_Burn[];
 extern const u8 gText_Paralysis[];
 extern const u8 gText_Panic[];
 extern const u8 gText_Exposed[];
+extern const u8 gText_Blooming[];
 extern const u8 gText_Ice[];
 extern const u8 gText_Confusion[];
 extern const u8 gText_Love[];
