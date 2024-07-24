@@ -9706,8 +9706,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 && TARGET_TURN_DAMAGED 
                 && gBattleMons[gBattlerTarget].hp 
                 && (moveType == (TYPE_BUG || TYPE_DARK))
-                && CompareStat(gBattlerTarget, STAT_ATK, MIN_STAT_STAGE, CMP_GREATER_THAN)
-                && CompareStat(gBattlerTarget, STAT_SPATK, MIN_STAT_STAGE, CMP_GREATER_THAN)
+                && (CompareStat(gBattlerTarget, STAT_ATK, MIN_STAT_STAGE, CMP_GREATER_THAN) || CompareStat(gBattlerTarget, STAT_SPATK, MIN_STAT_STAGE, CMP_GREATER_THAN))
                 && (gBattleMons[gBattlerAttacker].species == SPECIES_MOSKOPO))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_ATK_SPATK_DOWN;
