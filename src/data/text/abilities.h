@@ -366,6 +366,7 @@ static const u8 sAppetiteDescription[] = _("Restores HP after knocking\nout any 
 static const u8 sAllGameDescription[] = _("Plays Mud and Water Sports.\nHas Ground/Water Immunity.");
 static const u8 sShunyongDescription[] = _("Shunyong");
 static const u8 sRegeneratorDescription[] = _("Restores a little HP when\nwithdrawn from battle.");
+static const u8 sDomineerDescription[] = _("Psychic moves can hit Dark\ntypes, and lower attack.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -743,6 +744,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
     [ABILITY_SHUNYONG] = _("Shunyong"),
+    [ABILITY_DOMINEER] = _("Domineer"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1119,7 +1121,8 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_WATCHER] = _("Watcher"),
     [ABILITY_APPETITE] = _("Appetite"),
     [ABILITY_ALL_GAME] = _("All Game"),
-    [ABILITY_SHUNYONG] = _("Shunyong");
+    [ABILITY_SHUNYONG] = _("Shunyong"),
+    [ABILITY_DOMINEER] = _("Domineer"),
 };
 #endif
 
@@ -1498,4 +1501,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_APPETITE] = sAppetiteDescription,
     [ABILITY_ALL_GAME] = sAllGameDescription,
     [ABILITY_SHUNYONG] = sShunyongDescription,
+    [ABILITY_DOMINEER] = sDomineerDescription,
 };

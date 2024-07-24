@@ -6727,6 +6727,21 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_DOMINEER:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+            && TARGET_TURN_DAMAGED
+            && CompareStat(gBattlerTarget, STAT_ATK, MIN_STAT_STAGE, CMP_GREATER_THAN)
+            && moveType == TYPE_PSYCHIC)
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                effect++;
+            }
+            break;
         case ABILITY_MADNESS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeConfused(gBattlerAttacker) 
@@ -12827,6 +12842,10 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
         if (recordAbilities)
             RecordAbilityBattle(battlerAtk, ABILITY_SCRAPPY);
+    }
+    else if ((moveType == TYPE_PSYCHIC) && defType == TYPE_DARK && GetBattlerAbility(battlerAtk) == ABILITY_DOMINEER && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
     }
     else if (((GetBattlerType(battlerDef, 0) == TYPE_ICE
          && GetTypeModifier(moveType, GetBattlerType(battlerDef, 0)) >= UQ_4_12(2.0))
