@@ -111,6 +111,31 @@ static const u16 sSkillSwapBannedAbilities[] =
         ABILITY_GULP_MISSILE,
         ABILITY_GRIM_NEIGH,
         ABILITY_SHUNYONG,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -138,6 +163,31 @@ static const u16 sRolePlayBannedAbilities[] =
         ABILITY_GOLDEN_MEAN,
         ABILITY_GULP_MISSILE,
         ABILITY_SHUNYONG,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sRolePlayBannedAttackerAbilities[] =
@@ -157,6 +207,31 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
         ABILITY_GULP_MISSILE,
         ABILITY_GOLDEN_MEAN,
         ABILITY_SHUNYONG,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -175,6 +250,31 @@ static const u16 sWorrySeedBannedAbilities[] =
         ABILITY_ICE_FACE,
         ABILITY_GULP_MISSILE,
         ABILITY_SHUNYONG,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sGastroAcidBannedAbilities[] =
@@ -194,6 +294,31 @@ static const u16 sGastroAcidBannedAbilities[] =
         ABILITY_SHIELDS_DOWN,
         ABILITY_STELLAR_BODY,
         ABILITY_ZEN_MODE,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sEntrainmentBannedAttackerAbilities[] =
@@ -214,6 +339,31 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
         ABILITY_GOLDEN_MEAN,
         ABILITY_GULP_MISSILE,
         ABILITY_SHUNYONG,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
@@ -230,6 +380,31 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
         ABILITY_BATTLE_BOND,
         ABILITY_ICE_FACE,
         ABILITY_GULP_MISSILE,
+        ABILITY_TITANIC,
+        ABILITY_DORMANT,
+        ABILITY_ENDLESS,
+        ABILITY_RISING,
+        ABILITY_FALLING,
+        ABILITY_GOLDEN_MEAN,
+        ABILITY_PRODIGY,
+        ABILITY_PUNISHER,
+        ABILITY_ARBITER,
+        ABILITY_WATCHER,
+        ABILITY_REVERSI,
+        ABILITY_STARS_GRACE,
+        ABILITY_STELLAR_BODY,
+        ABILITY_SUGAR_COAT,
+        ABILITY_TIME_TURN,
+        ABILITY_WHITE_SMOKE,
+        ABILITY_ZEN_INCENSE,
+        ABILITY_IGNORANT_BLISS,
+        ABILITY_MELANCHOLIA,
+        ABILITY_MILKY_WAY,
+        ABILITY_CINDER_WALTZ,
+        ABILITY_RESET,
+        ABILITY_PURPLE_HAZE,
+        ABILITY_MAGMA_ARMOR,
+        ABILITY_LOVESICK,
 };
 
 static u8 CalcBeatUpPower(void)
@@ -980,6 +1155,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
         [ABILITY_GOOD_AS_GOLD] = 1,
         [ABILITY_PURIFYING_SALT] = 1,
         [ABILITY_WELL_BAKED_BODY] = 1,
+        [ABILITY_TITANIC] = 1,
 };
 
 static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
@@ -3069,7 +3245,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_OCTOLOCK:
         {
             u16 battlerAbility = GetBattlerAbility(battler);
-            if (gDisableStructs[battler].octolock && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+            if (gDisableStructs[battler].octolock && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
 
             {
                 gBattlerTarget = battler;
@@ -3082,7 +3258,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_SPIDER_WEB:
         {
             u16 battlerAbility = GetBattlerAbility(battler);
-            if (gDisableStructs[battler].spiderweb && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+            if (gDisableStructs[battler].spiderweb && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
             {
                 gBattlerTarget = battler;
                 BattleScriptExecute(BattleScript_SpiderWebEndTurn);
@@ -4014,9 +4190,9 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
             if ((gBattleMoves[gCurrentMove].powderMove) && (gBattlerAttacker != gBattlerTarget))
             {
 #if B_POWDER_GRASS >= GEN_6
-                if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS) || GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT)
+                if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS) || GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT || GetBattlerAbility(gBattlerTarget) == ABILITY_TITANIC)
 #else
-                if (GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT)
+                if ((GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT) || (GetBattlerAbility(gBattlerTarget) == ABILITY_TITANIC))
 #endif
                 {
                     gBattlerAbility = gBattlerTarget;
@@ -4529,6 +4705,25 @@ static uq4_12_t GetSupremeOverlordModifier(u32 battler)
     return modifier;
 }
 
+static inline bool32 IsMoveDraining(u32 move)
+{
+    bool32 ret = FALSE;
+    switch (gBattleMoves[move].effect)
+    {
+    case EFFECT_ABSORB:
+    case EFFECT_SPIRIT_AWAY:
+    case EFFECT_DRAINING_KISS:
+    case EFFECT_BLACK_BUFFET:
+    case EFFECT_LONE_SHARK:
+    case EFFECT_VENOM_DRAIN:
+        ret = TRUE;
+        break;
+    default:
+        break;
+    }
+    return ret;
+}
+
 u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 moveArg)
 {
     u32 effect = 0;
@@ -4721,9 +4916,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_UNNERVE:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
+                gBattlerAttacker = battler;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_UNNERVE;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
-                BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
+                BattleScriptPushCursorAndCallback(BattleScript_UnnerveActivates);
                 effect++;
             }
             break;
@@ -6391,7 +6587,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_EFFECT_SPORE:
-            if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_GRASS) && GetBattlerAbility(gBattlerAttacker) != ABILITY_OVERCOAT && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
+            if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_GRASS) && GetBattlerAbility(gBattlerAttacker) != ABILITY_OVERCOAT && GetBattlerAbility(gBattlerAttacker) != ABILITY_TITANIC && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
             {
                 i = Random() % 4;
                 if (i == 0)
@@ -6709,6 +6905,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                effect++;
+            }
+            break;
+        case ABILITY_TRANSFUSION:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && IsMoveDraining(move)
+            && TARGET_TURN_DAMAGED)
+            {
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_TransfusionAbilityCopy;
                 gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
                 effect++;
             }
@@ -11656,39 +11864,6 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
     }
 }
 #undef TERRAIN_TYPE_BOOST
-
-static inline bool32 IsMoveDraining(u32 move)
-{
-    bool32 ret = FALSE;
-    switch (gBattleMoves[move].effect)
-    {
-    case EFFECT_RESTORE_HP:
-    case EFFECT_RECONSTRUCT:
-    case EFFECT_REST:
-    case EFFECT_MORNING_SUN:
-    case EFFECT_MOONLIGHT:
-    case EFFECT_SYNTHESIS:
-    case EFFECT_COLD_MEND:
-    case EFFECT_HEAL_PULSE:
-    case EFFECT_HEALING_WISH:
-    case EFFECT_SWALLOW:
-    case EFFECT_WISH:
-    case EFFECT_SOFTBOILED:
-    case EFFECT_ABSORB:
-    case EFFECT_SPIRIT_AWAY:
-    case EFFECT_ROOST:
-    case EFFECT_JUNGLE_HEALING:
-    case EFFECT_DRAINING_KISS:
-    case EFFECT_BLACK_BUFFET:
-    case EFFECT_LONE_SHARK:
-    case EFFECT_VENOM_DRAIN:
-        ret = TRUE;
-        break;
-    default:
-        break;
-    }
-    return ret;
-}
 
 static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 isCrit, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk)
 {

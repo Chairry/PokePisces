@@ -925,6 +925,7 @@ static const u8 sText_UsingItemTheStatOfPkmnFell[] = _("Using {B_LAST_ITEM}, the
 static const u8 sText_AbilityLetItUseMove[] = _("{B_ATK_NAME_WITH_PREFIX}'s ability let it use\n{B_CURRENT_MOVE}!");
 static const u8 sText_WepearBerryHit[] = _("Wepear Berry allowed\nhitting through protection!");
 static const u8 sText_PkmnCutsHPWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s HP!");
+static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig to be affected!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1701,6 +1702,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ABILITYLETITUSEMOVE - BATTLESTRINGS_TABLE_START] = sText_AbilityLetItUseMove,
     [STRINGID_WEPEARBERRYHIT - BATTLESTRINGS_TABLE_START] = sText_WepearBerryHit,
     [STRINGID_PKMNCUTSHPWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsHPWith,
+    [STRINGID_TOOBIGTOCARE - BATTLESTRINGS_TABLE_START] = sText_TooBigToCare,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

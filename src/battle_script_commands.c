@@ -6019,6 +6019,7 @@ static void Cmd_playstatchangeanimation(void)
                         && GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_CLEAR_AMULET
                         && (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species != SPECIES_SEEDOT || gBattleMons[battler].species != SPECIES_NUZLEAF || gBattleMons[battler].species != SPECIES_SHIFTRY) && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
                         && ability != ABILITY_CLEAR_BODY
+                        && ability != ABILITY_TITANIC
                         && ability != ABILITY_FULL_METAL_BODY
                         && ability != ABILITY_WHITE_SMOKE
                         && !(ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
@@ -10516,7 +10517,19 @@ static void Cmd_various(void)
             case ABILITY_COMATOSE:          case ABILITY_HUDDLE_UP:
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
-            case ABILITY_SHATTERED:
+            case ABILITY_SHATTERED:         case ABILITY_TITANIC:
+            case ABILITY_ENDLESS:
+            case ABILITY_RISING:            case ABILITY_FALLING:
+            case ABILITY_GOLDEN_MEAN:       case ABILITY_PRODIGY:
+            case ABILITY_PUNISHER:          case ABILITY_ARBITER:
+            case ABILITY_WATCHER:           case ABILITY_REVERSI:
+            case ABILITY_STARS_GRACE:       case ABILITY_TRANSFUSION:
+            case ABILITY_SUGAR_COAT:        case ABILITY_TIME_TURN:
+            case ABILITY_WHITE_SMOKE:       case ABILITY_ZEN_INCENSE:
+            case ABILITY_IGNORANT_BLISS:    case ABILITY_MELANCHOLIA:
+            case ABILITY_MILKY_WAY:         case ABILITY_CINDER_WALTZ:
+            case ABILITY_RESET:             case ABILITY_PURPLE_HAZE:
+            case ABILITY_MAGMA_ARMOR:       case ABILITY_LOVESICK:
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
@@ -13543,6 +13556,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
         else if ((battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET
                   || (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
                   || battlerAbility == ABILITY_CLEAR_BODY
+                  || battlerAbility == ABILITY_TITANIC
                   || battlerAbility == ABILITY_FULL_METAL_BODY
                   || battlerAbility == ABILITY_WHITE_SMOKE)
                  && (!affectsUser || mirrorArmored) && !certain && gCurrentMove != MOVE_CURSE)
@@ -14436,6 +14450,7 @@ static void Cmd_weatherdamage(void)
                 && ability != ABILITY_SAND_FORCE
                 && ability != ABILITY_SAND_RUSH
                 && ability != ABILITY_OVERCOAT
+                && ability != ABILITY_TITANIC
                 && !(gStatuses3[gBattlerAttacker] & (STATUS3_UNDERGROUND | STATUS3_UNDERWATER))
                 && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_SAFETY_GOGGLES)
             {
@@ -14466,6 +14481,7 @@ static void Cmd_weatherdamage(void)
             else if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE)
                 && ability != ABILITY_SNOW_CLOAK
                 && ability != ABILITY_OVERCOAT
+                && ability != ABILITY_TITANIC
                 && ability != ABILITY_ICE_BODY
                 && ability != ABILITY_SLUSH_RUSH
                 && ability != ABILITY_HIBERNAL
