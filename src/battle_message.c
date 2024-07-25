@@ -926,6 +926,7 @@ static const u8 sText_AbilityLetItUseMove[] = _("{B_ATK_NAME_WITH_PREFIX}'s abil
 static const u8 sText_WepearBerryHit[] = _("Wepear Berry allowed\nhitting through protection!");
 static const u8 sText_PkmnCutsHPWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s HP!");
 static const u8 sText_HealerRestoration[] = _("{B_ATK_PARTNER_NAME} was healed\nby {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig to be affected!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1703,6 +1704,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_WEPEARBERRYHIT - BATTLESTRINGS_TABLE_START] = sText_WepearBerryHit,
     [STRINGID_PKMNCUTSHPWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsHPWith,
     [STRINGID_HEALERRESTORATION - BATTLESTRINGS_TABLE_START] = sText_HealerRestoration,
+    [STRINGID_TOOBIGTOCARE - BATTLESTRINGS_TABLE_START] = sText_TooBigToCare,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
