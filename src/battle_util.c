@@ -4923,6 +4923,15 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_HEARTSTRINGS:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gBattlerAttacker = battler;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_HeartstringsActivates);
+                effect++;
+            }
+            break;
         case ABILITY_AS_ONE_ICE_RIDER:
         case ABILITY_AS_ONE_SHADOW_RIDER:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
@@ -7716,7 +7725,8 @@ bool32 CanBeFrozen(u32 battler)
     if (IS_BATTLER_OF_TYPE(battler, TYPE_ICE) 
     || IsBattlerWeatherAffected(battler, B_WEATHER_SUN) 
     || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
-    || ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_COMATOSE 
+    || ability == ABILITY_MAGMA_ARMOR
+    || ability == ABILITY_COMATOSE 
     || gBattleMons[battler].status1 & STATUS1_ANY 
     || IsAbilityStatusProtected(battler) 
     || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) 
@@ -11087,6 +11097,9 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case EFFECT_BOUNDARY:
         basePower = gBattleStruct->boundaryBasePower;
+        break;
+    case EFFECT_HIGH_ROLL_HIT:
+        basePower = gBattleStruct->rollingBasePower;
         break;
     case EFFECT_DRAGON_POKER:
         basePower = gBattleStruct->dragonpokerBasePower;

@@ -284,6 +284,7 @@
 #define VARIOUS_CHECK_POWER_SWAP                     191
 #define VARIOUS_CHECK_SPEED_SWAP                     192
 #define VARIOUS_STAGGER_DAMAGE                       193
+#define VARIOUS_HIGH_ROLL_HIT                        194
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

@@ -1978,8 +1978,12 @@
 	.4byte \failInstr
 	.endm
 
-	.macro boundarydamagecalculation battler:req
-	various \battler, VARIOUS_BOUNDARY_OF_DEATH
+	.macro boundarydamagecalculation
+	various BS_ATTACKER, VARIOUS_BOUNDARY_OF_DEATH
+	.endm
+
+	.macro highrollhitdamagecalculation
+	various BS_ATTACKER, VARIOUS_HIGH_ROLL_HIT
 	.endm
 
 	.macro jumpifnoally battler:req, jumpInstr:req
