@@ -1196,7 +1196,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
 
     // Alolan Forms
     [SPECIES_RATTATA_ALOLAN] = _("Rattata"),
-    [SPECIES_RATICATE_ALOLAN] = _("Raticate"),
+    [SPECIES_RATICATE_ALOLAN] = _("DEDECO"),
     [SPECIES_RAICHU_ALOLAN] = _("Raichu"),
     [SPECIES_SANDSHREW_ALOLAN] = _("Sandshrew"),
     [SPECIES_SANDSLASH_ALOLAN] = _("Sandslash"),

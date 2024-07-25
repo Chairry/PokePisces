@@ -16547,7 +16547,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_BREAK_LANCE] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_NORMAL,
         .accuracy = 100,

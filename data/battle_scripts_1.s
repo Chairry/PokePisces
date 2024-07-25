@@ -1449,27 +1449,45 @@ BattleScript_EffectSleepPowder:
 BattleScript_EffectSleepPowderDefenseDrop:
 	setstatchanger STAT_DEF, 2, TRUE
 	attackcanceler
-	jumpifsubstituteblocks BattleScript_FailedFromAtkString
-	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_DEF, MIN_STAT_STAGE, BattleScript_SleepPowderWorks
-	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_FailedFromAtkString
-BattleScript_SleepPowderWorks:
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_StatDownFromAttackString
+	jumpiftype BS_TARGET, TYPE_RELIC, BattleScript_StatDownFromAttackString
+	jumpifuproarwakes BattleScript_StatDownFromAttackString
+	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_StatDownFromAttackString
+	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_StatDownFromAttackString
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_StatDownFromAttackString
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_StatDownFromAttackString
+	jumpifflowerveil BattleScript_StatDownFromAttackString
+	jumpifability BS_TARGET_SIDE, ABILITY_SWEET_VEIL, BattleScript_StatDownFromAttackString
+	jumpifleafguardprotected BS_TARGET, BattleScript_StatDownFromAttackString
+	jumpifeeriemaskprotected BS_TARGET, BattleScript_StatDownFromAttackString
+	jumpifshieldsdown BS_TARGET, BattleScript_StatDownFromAttackString
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_StatDownFromAttackString
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_ELECTRIC_TERRAIN, BattleScript_StatDownFromAttackString
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_StatDownFromAttackString
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifsafeguard BattleScript_StatDownFromAttackString
 	attackstring
 	ppreduce
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_SleepPowderTrySleep
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_SleepPowderJustSleep
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_SleepPowderDoAnim
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_SleepPowderTrySleep
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_SleepPowderJustSleep
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_SleepPowderPrintString
-BattleScript_SleepPowderDoAnim::
+BattleScript_SleepPowderDoAnim:
 	attackanimation
 	waitanimation
 	setgraphicalstatchangevalues
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
-BattleScript_SleepPowderPrintString::
+BattleScript_SleepPowderPrintString:
+	setmoveeffect MOVE_EFFECT_SLEEP
+	seteffectprimary
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_SleepPowderTrySleep::
+	goto BattleScript_MoveEnd
+BattleScript_SleepPowderJustSleep:
+	attackanimation
+	waitanimation
 	setmoveeffect MOVE_EFFECT_SLEEP
 	seteffectprimary
 	goto BattleScript_MoveEnd
@@ -7405,6 +7423,9 @@ BattleScript_EffectSleep::
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_AlreadyAsleep
+	jumpifmove MOVE_HYPNOSIS, BattleScript_HypnosisCheck
+BattleScript_SleepDoTheRest::
+	jumpiftype BS_TARGET, TYPE_RELIC, BattleScript_ButItFailed
 	jumpifuproarwakes BattleScript_CantMakeAsleep
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
 	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
@@ -7426,6 +7447,9 @@ BattleScript_EffectSleep::
 	setmoveeffect MOVE_EFFECT_SLEEP
 	seteffectprimary
 	goto BattleScript_MoveEnd
+BattleScript_HypnosisCheck:
+	jumpiftype BS_TARGET, TYPE_PSYCHIC, BattleScript_ButItFailed
+	goto BattleScript_SleepDoTheRest
 
 BattleScript_TerrainPreventsEnd2::
 	pause B_WAIT_TIME_SHORT
@@ -9117,6 +9141,7 @@ BattleScript_EffectNightmare::
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_CheckNightmareSleepFailed
+	jumpiftype BS_TARGET, TYPE_RELIC, BattleScript_ButItFailed
 	jumpifuproarwakes BattleScript_CantMakeAsleep
 	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
 	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
@@ -13775,6 +13800,7 @@ BattleScript_IntimidateLoop:
 	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_IntimidateLoopIncrement
 	jumpiftargetally BattleScript_IntimidateLoopIncrement
 	jumpifabsent BS_TARGET, BattleScript_IntimidateLoopIncrement
+	jumpiftype BS_TARGET, TYPE_DRAGON, BattleScript_IntimidatePrevented
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_IntimidateLoopIncrement
 	jumpifability BS_TARGET, ABILITY_HYPER_CUTTER, BattleScript_IntimidatePrevented
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_IntimidatePrevented
@@ -14050,6 +14076,16 @@ BattleScript_CostarActivates::
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
+BattleScript_HealerActivates2::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_HEALERRESTORATION
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	end3
+
 BattleScript_AttackWeakenedByStrongWinds::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_ATTACKWEAKENEDBSTRONGWINDS
@@ -14079,6 +14115,16 @@ BattleScript_SnowWarningActivatesSnow::
 	waitstate
 	playanimation BS_BATTLER_0, B_ANIM_SNOW_CONTINUES
 	call BattleScript_ActivateWeatherAbilities
+	end3
+
+BattleScript_GustyActivatesTailwind::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	settailwind BattleScript_TailwindEnd
+	printstring STRINGID_TAILWINDBLEW
+	waitstate
+	call BattleScript_TryTailwindAbilitiesLoop
+BattleScript_TailwindEnd::
 	end3
 
 BattleScript_ActivateTerrainEffects:
@@ -14884,6 +14930,11 @@ BattleScript_AbilityStatusEffect::
 	seteffectsecondary
 	return
 
+BattleScript_AbilitySetGlaiveRush::
+	waitstate
+	setglaiverush2
+	return
+
 BattleScript_TransfusionAbilityCopy::
 	waitstate
 	trycopyability BattleScript_ButItFailed
@@ -14927,8 +14978,24 @@ BattleScript_DancerActivates::
 
 BattleScript_SynchronizeActivates::
 	waitstate
+	copybyte gBattlerTarget, gBattlerAttacker
+	setbyte gBattleCommunication, 0
+	setbyte gBattleCommunication + 1, 0
+BattleScript_Synchronize_TryStatus:
+	copybyte gBattlerAttacker, gBattlerTarget
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_SynchronizeLoopIncrement
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication + 1, 0x0, BattleScript_SynchronizeNoPopUp
 	call BattleScript_AbilityPopUp
+	setbyte gBattleCommunication + 1, 1
+BattleScript_SynchronizeNoPopUp:
 	seteffectprimary
+BattleScript_SynchronizeLoopIncrement:
+	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_SynchronizeRet
+	addbyte gBattleCommunication, 1
+	jumpifnoally BS_TARGET, BattleScript_SynchronizeRet
+	setallytonexttarget BattleScript_Synchronize_TryStatus
+	goto BattleScript_SynchronizeRet
+BattleScript_SynchronizeRet:
 	return
 
 BattleScript_NoItemSteal::
@@ -16512,6 +16579,7 @@ BattleScript_DisturbLoop:
 	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_DisturbLoopIncrement
 	jumpiftargetally BattleScript_DisturbLoopIncrement
 	jumpifabsent BS_TARGET, BattleScript_DisturbLoopIncrement
+	jumpiftype BS_TARGET, TYPE_DRAGON, BattleScript_IntimidatePrevented
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_DisturbLoopIncrement
 	jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_DisturbPrevented
 	jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_DisturbPrevented // SCRAPPY
@@ -16592,7 +16660,7 @@ BattleScript_MockingEffect_Def:
 	setstatchanger STAT_DEF, 1, TRUE
 	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_MockingEffect_SpDef
 	setgraphicalstatchangevalues
-	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_MockingContrary
+	jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_MockingEffect_SpDef
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_MockingEffect_SpDef
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	printstring STRINGID_PKMNCUTSDEFENCEWITH
