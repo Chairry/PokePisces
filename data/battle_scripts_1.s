@@ -15679,21 +15679,6 @@ BattleScript_CornnBerryActivatesRet::
 BattleScript_CornnBerryEnd::
 	return
 
-BattleScript_WepearBerryActivatesRet::
-	painsplitdmgcalc BattleScript_WepearBerryEnd
-	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	copyword gBattleMoveDamage, sPAINSPLIT_HP
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	printstring STRINGID_SHAREDPAIN
-	waitmessage B_WAIT_TIME_LONG
-	removeitem BS_SCRIPTING
-BattleScript_WepearBerryEnd::
-	return
-
 BattleScript_RabutaBerryActivatesRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
 	removeitem BS_SCRIPTING
@@ -15713,6 +15698,22 @@ BattleScript_RabutaBerryRet_OwnTempoPrevents:
 	printstring STRINGID_PKMNPREVENTSCONFUSIONWITH
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_RabutaBerryEnd::
+	return
+
+BattleScript_WepearBerryActivatesRet::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	removeitem BS_SCRIPTING
+	jumpifsafeguard BattleScript_WepearBerryRet_SafeguardProtected
+	setforesight
+	goto BattleScript_WepearBerryEnd
+BattleScript_WepearBerryRet_SafeguardProtected:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNUSEDSAFEGUARD
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_WepearBerryEnd
+BattleScript_WepearBerryEnd::
+	printstring STRINGID_PKMNIDENTIFIED
+	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_SpelonBerryActivatesRet::

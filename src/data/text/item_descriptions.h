@@ -2778,9 +2778,9 @@ static const u8 sNanabBerryDesc[] = _(
     "counter by 1.");
 
 static const u8 sWepearBerryDesc[] = _(
-    "Allows user to hit\n"
-    "through protect once.\n"
-    "Eaten on use.");
+    "Eaten at 25% health\n"
+    "To identify\n"
+    "the opponent.");
 
 static const u8 sPinapBerryDesc[] = _(
     "Eaten at 25% health.\n"

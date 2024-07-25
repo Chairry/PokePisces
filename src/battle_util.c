@@ -7806,7 +7806,7 @@ static u8 DamagedWepearBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 e
     u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
     u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
     gBattlerTarget = opposingBattler;
-    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId) && !(gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT))
     {
         BufferStatChange(battler, statId, STRINGID_STATROSE);
         gEffectBattler = battler;
