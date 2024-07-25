@@ -1447,7 +1447,7 @@ BattleScript_EffectSleepPowder:
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_EffectSleepPowderDefenseDrop
 	goto BattleScript_EffectSleep
 BattleScript_EffectSleepPowderDefenseDrop:
-	setstatchanger STAT_EVASION, 1, TRUE
+	setstatchanger STAT_DEF, 2, TRUE
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_StatDownFromAttackString
