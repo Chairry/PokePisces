@@ -1849,7 +1849,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
             calc = (calc * 120) / 100;  // 20% acc boost
     }
 
-    if (gFieldStatuses & STATUS_FIELD_GRAVITY)
+    if (gFieldStatuses & STATUS_FIELD_GRAVITY && (!(IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_PSYCHIC))))
         calc = (calc * 5) / 3; // 1.66 Gravity acc boost
 
 #if B_AFFECTION_MECHANICS == TRUE
@@ -2082,6 +2082,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + 2 * (GetBattlerFriendshipScore(battlerAtk) >= FRIENDSHIP_200_TO_254)
                 #endif
                     + (abilityAtk == ABILITY_SUPER_LUCK);
+                    + 2 * (abilityAtk == ABILITY_RISKTAKER);
 
         // Record ability only if move had at least +3 chance to get a crit
         if (critChance >= 3 && recordAbility && (abilityDef == ABILITY_SHELL_ARMOR))

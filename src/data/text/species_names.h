@@ -19,7 +19,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_PIDGEOTTO] = _("Pidgeotto"),
     [SPECIES_PIDGEOT] = _("Pidgeot"),
     [SPECIES_RATTATA] = _("Rattata"),
-    [SPECIES_RATICATE] = _("Raticate"),
+    [SPECIES_RATICATE] = _("Dedeco"),
     [SPECIES_SPEAROW] = _("Spearow"),
     [SPECIES_FEAROW] = _("Fearow"),
     [SPECIES_EKANS] = _("Ekans"),
@@ -1196,7 +1196,7 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
 
     // Alolan Forms
     [SPECIES_RATTATA_ALOLAN] = _("Rattata"),
-    [SPECIES_RATICATE_ALOLAN] = _("Raticate"),
+    [SPECIES_RATICATE_ALOLAN] = _("Dedeco"),
     [SPECIES_RAICHU_ALOLAN] = _("Raichu"),
     [SPECIES_SANDSHREW_ALOLAN] = _("Sandshrew"),
     [SPECIES_SANDSLASH_ALOLAN] = _("Sandslash"),

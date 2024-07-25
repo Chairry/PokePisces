@@ -4701,7 +4701,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_SLOW_START:
             if (!gSpecialStatuses[battler].switchInAbilityDone)
             {
-                gDisableStructs[battler].slowStartTimer = 5;
+                gDisableStructs[battler].slowStartTimer = 2;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SWITCHIN_SLOWSTART;
                 gSpecialStatuses[battler].switchInAbilityDone = TRUE;
                 BattleScriptPushCursorAndCallback(BattleScript_SwitchInAbilityMsg);
@@ -4986,6 +4986,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_GUSTY:
+            if (!gSpecialStatuses[battler].switchInAbilityDone && (!(gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)))
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                BattleScriptPushCursorAndCallback(BattleScript_GustyActivatesTailwind);
+                effect++;
+            }
         case ABILITY_ALL_GAME:
             if (!(gFieldStatuses & STATUS_FIELD_MUDSPORT) && (gFieldStatuses & STATUS_FIELD_WATERSPORT))
             {
@@ -5343,6 +5350,17 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gBattleMons[battler].statStages[i] = gBattleMons[BATTLE_PARTNER(battler)].statStages[i];
                 gBattlerTarget = BATTLE_PARTNER(battler);
                 BattleScriptPushCursorAndCallback(BattleScript_CostarActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_HEALER:
+            if (!gSpecialStatuses[battler].switchInAbilityDone && IsDoubleBattle() && gBattleMons[BATTLE_PARTNER(battler)].hp < gBattleMons[BATTLE_PARTNER(battler)].maxHP)
+            {
+                gBattlerTarget = BATTLE_PARTNER(battler);
+                gBattlerAttacker = battler;
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                gBattleMoveDamage = (gBattleMons[BATTLE_PARTNER(battler)].maxHP / 3) * -1;
+                BattleScriptPushCursorAndCallback(BattleScript_HealerActivates2);
                 effect++;
             }
             break;
@@ -6713,6 +6731,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_RISKTAKER:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+            && gBattleMons[gBattlerTarget].hp != 0 
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && !(IS_MOVE_STATUS(move))
+            && TARGET_TURN_DAMAGED)
+            {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AbilitySetGlaiveRush;
+                effect++;
+            }
+            break;
         case ABILITY_DREAD_VEIL:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanGetPanicked(gBattlerTarget) 
@@ -7398,6 +7428,7 @@ bool32 CanSleep(u32 battler)
     if (ability == ABILITY_INSOMNIA 
     || ability == ABILITY_VITAL_SPIRIT 
     || ability == ABILITY_COMATOSE 
+    || (IS_BATTLER_OF_TYPE(battler, TYPE_RELIC))
     || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD 
     || gBattleMons[battler].status1 & STATUS1_ANY 
     || IsAbilityOnSide(battler, ABILITY_SWEET_VEIL) 
@@ -9553,7 +9584,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
             if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))
                 atkHoldEffectParam *= 2;
@@ -9572,7 +9603,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (gBattleMoveDamage != 0 // Need to have done damage
@@ -9593,7 +9624,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (gBattleMoveDamage != 0 // Need to have done damage
@@ -9614,7 +9645,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_RELIC))
@@ -9654,7 +9685,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (gBattleMoveDamage != 0 // Need to have done damage
@@ -9674,7 +9705,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         case HOLD_EFFECT_COARSE_SAND:
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
             if (gBattleMoveDamage != 0 // Need to have done damage
                 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
@@ -9695,7 +9726,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (gBattleMoveDamage != 0 // Need to have done damage
@@ -9713,7 +9744,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
         {
             u16 ability = GetBattlerAbility(gBattlerAttacker);
 #if B_SERENE_GRACE_BOOST >= GEN_5
-            if (ability == ABILITY_SERENE_GRACE)
+            if (ability == ABILITY_SERENE_GRACE || ability == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
                 atkHoldEffectParam *= 2;
 #endif
             if (gBattleMoveDamage != 0 // Need to have done damage
@@ -14222,7 +14253,7 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 
 u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance)
 {
-    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
+    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE || GetBattlerAbility(battler) == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
         secondaryEffectChance *= 2;
 
     if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))
