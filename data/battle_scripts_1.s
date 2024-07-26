@@ -630,6 +630,18 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHunkerDown              @ EFFECT_HUNKER_DOWN
 	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
 	.4byte BattleScript_EffectPoisonGas               @ EFFECT_POISON_GAS
+	.4byte BattleScript_EffectHighRollHit             @ EFFECT_HIGH_ROLL_HIT
+
+BattleScript_EffectHighRollHit::
+	attackcanceler
+	attackstring
+	ppreduce
+	highrollhitdamagecalculation
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_HIGHROLLHITROLL
+	waitmessage B_WAIT_TIME_LONG
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	goto BattleScript_HitFromCritCalc
 
 BattleScript_DefenderUsedAnExtraMove::
 	savetarget
@@ -1092,8 +1104,6 @@ BattleScript_EffectSmog::
 	goto BattleScript_EffectHit
 
 BattleScript_PurpleHazeSmog::
-	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_PurpleHazeSmogDoubles
-BattleScript_PurpleHazeSmogContinuous:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
@@ -1119,9 +1129,6 @@ BattleScript_PurpleHazeSmogContinuous:
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
-BattleScript_PurpleHazeSmogDoubles::
-	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
-	goto BattleScript_PurpleHazeSmogContinuous
 
 BattleScript_EffectSnowfade::
 	setmoveeffect MOVE_EFFECT_SNOWFADE
@@ -1975,7 +1982,7 @@ BattleScript_EffectBoundary:
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
-    boundarydamagecalculation BS_ATTACKER
+    boundarydamagecalculation
     goto BattleScript_HitFromCritCalc
 BattleScript_BigBoundary::
 	typecalc
@@ -7262,7 +7269,7 @@ BattleScript_EffectHealBlock:
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	sethealblock BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -7279,7 +7286,7 @@ BattleScript_EffectHealBlockNoBlock:
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	sethealblock BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -7507,15 +7514,15 @@ BattleScript_AromaVeilProtects::
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
 
-BattleScript_TitanicAVProtectsRet::
+BattleScript_TitanicProtectsRet::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_TOOBIGTOCARE
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_TitanicAVProtects::
-	call BattleScript_TitanicAVProtectsRet
+BattleScript_TitanicProtects::
+	call BattleScript_TitanicProtectsRet
 	orhalfword gMoveResultFlags, MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
 
@@ -8872,7 +8879,7 @@ BattleScript_EffectDisable::
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	disablelastusedattack BattleScript_ButItFailed
 	attackanimation
@@ -8921,7 +8928,7 @@ BattleScript_EffectEncore::
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	trysetencore BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -9501,7 +9508,7 @@ BattleScript_EffectAttract::
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	tryinfatuating BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -9988,6 +9995,7 @@ BattleScript_FirstTurnSemiInvulnerable::
 	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
 	call BattleScript_PowerHerbActivation
 BattleScript_SecondTurnSemiInvulnerable::
+	jumpifmove MOVE_DIG, BattleScript_TryTheDigSecondTurnSemiInvulnerable
 	attackcanceler
 	setmoveeffect MOVE_EFFECT_CHARGING
 	setbyte sB_ANIM_TURN, 1
@@ -10006,6 +10014,7 @@ BattleScript_TryTheDigFirstTurnSemiInvulnerable::
 	setsemiinvulnerablebit
 	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
 	call BattleScript_PowerHerbActivation
+BattleScript_TryTheDigSecondTurnSemiInvulnerable::
 	attackcanceler
 	setmoveeffect MOVE_EFFECT_CHARGING
 	setbyte sB_ANIM_TURN, 1
@@ -10242,7 +10251,7 @@ BattleScript_EffectTorment::
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	settorment BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -10452,7 +10461,7 @@ BattleScript_EffectTaunt::
 	attackstring
 	ppreduce
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVProtects
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicProtects
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	settaunt BattleScript_ButItFailed
 	attackanimation
@@ -13862,6 +13871,8 @@ BattleScript_IntimidateInReverse:
 BattleScript_UnnerveActivates::
 	showabilitypopup BS_ATTACKER
 	pause B_WAIT_TIME_LONG
+	printfromtable gSwitchInAbilityStringIds
+	waitmessage B_WAIT_TIME_LONG
 	destroyabilitypopup
 	setbyte gBattlerTarget, 0
 BattleScript_UnnerveLoop:
@@ -13871,7 +13882,7 @@ BattleScript_UnnerveLoop:
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_UnnerveLoopIncrement
 	jumpifstatus2 BS_TARGET, STATUS2_TORMENT, BattleScript_UnnerveLoopIncrement
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_UnnervePrevented
-	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicAVUnnervePrevented
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicUnnervePrevented
 BattleScript_UnnerveEffect:
 	copybyte sBATTLER, gBattlerAttacker
 	settorment BattleScript_UnnerveLoopIncrement
@@ -13894,10 +13905,36 @@ BattleScript_UnnervePrevented:
 	call BattleScript_AromaVeilProtectsRet
 	goto BattleScript_UnnerveLoopIncrement
 
-BattleScript_TitanicAVUnnervePrevented:
+BattleScript_TitanicUnnervePrevented:
 	call BattleScript_AbilityPopUp
-	call BattleScript_TitanicAVProtectsRet
+	call BattleScript_TitanicProtectsRet
 	goto BattleScript_UnnerveLoopIncrement
+
+BattleScript_HeartstringsActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+BattleScript_HeartstringsLoop:
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_HeartStringsPrevented
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_TitanicHeartstringsPrevented
+	tryinfatuating BattleScript_HeartstringEnds
+	printstring STRINGID_PKMNFELLINLOVE
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotInfatuateAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+BattleScript_HeartstringEnds:
+	end3
+
+BattleScript_HeartStringsPrevented:
+	call BattleScript_AbilityPopUp
+	call BattleScript_AromaVeilProtectsRet
+	end3
+
+BattleScript_TitanicHeartstringsPrevented:
+	call BattleScript_AbilityPopUp
+	call BattleScript_TitanicProtectsRet
+	end3
 
 BattleScript_GlaringStaggerActivates::
 	showabilitypopup BS_ATTACKER
@@ -13930,6 +13967,41 @@ BattleScript_GlaringStaggerLoopIncrement:
 	addbyte gBattlerTarget, 1
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_GlaringStaggerLoop
 BattleScript_GlaringStaggerEnd:
+	copybyte sBATTLER, gBattlerAttacker
+	destroyabilitypopup
+	pause B_WAIT_TIME_MED
+	end3
+
+BattleScript_ArbiterActivates::
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setbyte gBattlerTarget, 0
+BattleScript_ArbiterLoop:
+	jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_ArbiterLoopIncrement
+	jumpifabsent BS_TARGET, BattleScript_ArbiterLoopIncrement
+BattleScript_ArbiterEffect:
+	copybyte sBATTLER, gBattlerAttacker
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	arbiterdamage
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNCUTSHPWITH
+BattleScript_ArbiterEffect_WaitString:
+	waitmessage B_WAIT_TIME_LONG
+	copybyte sBATTLER, gBattlerTarget
+BattleScript_ArbiterLoopIncrement:
+	addbyte gBattlerTarget, 1
+	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_ArbiterLoop
+BattleScript_ArbiterEnd:
 	copybyte sBATTLER, gBattlerAttacker
 	destroyabilitypopup
 	pause B_WAIT_TIME_MED
@@ -15341,7 +15413,7 @@ BattleScript_NormaliseBuffs::
 	end3
 
 BattleScript_Cheese_End2::
-	trycheesing BS_ATTACKER, BattleScript_ButItFailed
+	trycheesing BS_ATTACKER, BattleScript_Cheese_End2Part2
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	setgraphicalstatchangevalues
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
@@ -15349,11 +15421,11 @@ BattleScript_Cheese_End2::
 	printstring STRINGID_DEFENDERSSTATROSE
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_Cheese_End2Part2:
-	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
-	waitmessage B_WAIT_TIME_LONG
 	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
 	end2
 

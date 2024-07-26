@@ -298,7 +298,7 @@ static const u8 sText_PkmnPreventsConfusionWith[] = _("{B_DEF_NAME_WITH_PREFIX}'
 static const u8 sText_PkmnRaisedFirePowerWith[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nraised its FIRE power!");
 static const u8 sText_PkmnAnchorsItselfWith[] = _("{B_DEF_NAME_WITH_PREFIX} anchors\nitself with {B_DEF_ABILITY}!");
 static const u8 sText_PkmnCutsAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s attack!");
-static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s special attack!");
+static const u8 sText_PkmnCutsSpAttackWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY} cuts\n{B_DEF_NAME_WITH_PREFIX}'s special attack!");
 static const u8 sText_PkmnCutsDefenceWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s defense!");
 static const u8 sText_PkmnCutsSpDefenceWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s special defense!");
 static const u8 sText_PkmnCutsSpeedWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s speed!");
@@ -927,6 +927,7 @@ static const u8 sText_WepearBerryHit[] = _("Wepear Berry allowed\nhitting throug
 static const u8 sText_PkmnCutsHPWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\ncuts {B_DEF_NAME_WITH_PREFIX}'s HP!");
 static const u8 sText_HealerRestoration[] = _("{B_ATK_PARTNER_NAME} was healed\nby {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig to be affected!");
+static const u8 sText_HighRollHitRoll[] = _("{B_ATK_NAME_WITH_PREFIX} rolled a {B_BUFF1}!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1705,6 +1706,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNCUTSHPWITH - BATTLESTRINGS_TABLE_START] = sText_PkmnCutsHPWith,
     [STRINGID_HEALERRESTORATION - BATTLESTRINGS_TABLE_START] = sText_HealerRestoration,
     [STRINGID_TOOBIGTOCARE - BATTLESTRINGS_TABLE_START] = sText_TooBigToCare,
+    [STRINGID_HIGHROLLHITROLL - BATTLESTRINGS_TABLE_START] = sText_HighRollHitRoll,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -607,7 +607,8 @@
 #define EFFECT_HUNKER_DOWN                  601
 #define EFFECT_OVERTAKE                     602
 #define EFFECT_POISON_GAS                   603
+#define EFFECT_HIGH_ROLL_HIT                604
 
-#define NUM_BATTLE_MOVE_EFFECTS             604
+#define NUM_BATTLE_MOVE_EFFECTS             605
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
