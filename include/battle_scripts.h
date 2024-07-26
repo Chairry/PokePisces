@@ -193,6 +193,7 @@ extern const u8 BattleScript_AppetiteActivates[];
 extern const u8 BattleScript_SandstreamActivates[];
 extern const u8 BattleScript_ShedSkinActivates[];
 extern const u8 BattleScript_IntimidateActivates[];
+extern const u8 BattleScript_ArbiterActivates[];
 extern const u8 BattleScript_UnnerveActivates[];
 extern const u8 BattleScript_HeartstringsActivates[];
 extern const u8 BattleScript_GlaringStaggerActivates[];

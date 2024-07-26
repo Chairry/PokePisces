@@ -12768,6 +12768,29 @@ static void Cmd_various(void)
 
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
+    case VARIOUS_ARBITER_DAMAGE:
+    {    
+        s32 j;
+        VARIOUS_ARGS();
+
+        if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses))
+        {
+            gBattleMoveDamage = 0;
+        }
+        else if (gBattleMons[gBattlerTarget].statStages[j] > DEFAULT_STAT_STAGE)
+        {
+            (gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5) * (CountBattlerStatIncreases(gBattlerTarget, TRUE) + 1);  
+        }
+        else
+        {
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
+        }
+
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 1;
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
     case VARIOUS_SET_PUMP:
     {
         VARIOUS_ARGS();
