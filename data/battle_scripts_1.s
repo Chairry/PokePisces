@@ -723,6 +723,10 @@ BattleScript_DefenderExplodedExtraMoveEnd::
 	moveendall
 	end
 BattleScript_DefenderExplodedExtraHitDamp::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUpTarget
+	printstring STRINGID_PKMNPREVENTSUSAGE
+	pause B_WAIT_TIME_LONG
 	instanthpdrop BS_ATTACKER
 	setatkhptozero
 	tryfaintmon BS_ATTACKER
