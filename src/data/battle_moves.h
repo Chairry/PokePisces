@@ -7814,6 +7814,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .instructBanned = TRUE,
+        .soundMove = TRUE,
     },
 
     [MOVE_SPACIAL_REND] =
@@ -13152,18 +13153,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_ORDER_UP] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_ORDER_UP
+        .effect = EFFECT_ATTACK_UP_HIT,
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 50,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
-        .metronomeBanned = TRUE,
     },
 
     [MOVE_JET_PUNCH] =
@@ -13422,18 +13422,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_RAGING_BULL] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_RAGING_BULL
+        .effect = EFFECT_BRICK_BREAK,
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0, // TO VERIFY
+        .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .metronomeBanned = TRUE,
     },
 
     [MOVE_MAKE_IT_RAIN] =
@@ -14377,7 +14376,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_GEO_PULSE] =
     {
         .effect = EFFECT_DEFENSE_UP_HIT,
-        .power = 80,
+        .power = 85,
         .type = TYPE_ROCK,
         .accuracy = 100,
         .pp = 15,

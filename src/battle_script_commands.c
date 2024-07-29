@@ -1651,7 +1651,31 @@ static bool32 AccuracyCalcHelper(u16 move)
             JumpIfMoveFailed(7, move);
             return TRUE;
         }
-        if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SANDSTORM) && gCurrentMove == MOVE_RAZOR_WIND))
+        else if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_HAIL) && gCurrentMove == MOVE_BLEAKWIND_STORM))
+        {
+            // razor storm ignore acc checks in sand unless target is holding utility umbrella
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
+        else if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SUN) && gCurrentMove == MOVE_SPRINGTIDE_STORM))
+        {
+            // razor storm ignore acc checks in sand unless target is holding utility umbrella
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
+        else if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SANDSTORM) && gCurrentMove == MOVE_SANDSEAR_STORM))
+        {
+            // razor storm ignore acc checks in sand unless target is holding utility umbrella
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
+        else if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_RAIN) && gCurrentMove == MOVE_WILDBOLT_STORM))
+        {
+            // razor storm ignore acc checks in sand unless target is holding utility umbrella
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
+        else if ((IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SANDSTORM) && gCurrentMove == MOVE_RAZOR_BEAM))
         {
             // razor storm ignore acc checks in sand unless target is holding utility umbrella
             JumpIfMoveFailed(7, move);
@@ -6246,11 +6270,11 @@ static void Cmd_moveend(void)
                     gBattlerAttacker = gBattlerTarget;
                     gBattlerTarget = i; // gBattlerTarget and gBattlerAttacker are swapped in order to activate Defiant, if applicable
                     if IS_MOVE_SPECIAL(originallyUsedMove)
-                        gBattleScripting.moveEffect = MOVE_EFFECT_SP_DEF_MINUS_1;
+                        gBattleScripting.moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1;
                     else 
                         gBattleScripting.moveEffect = 0;
                     BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
+                    gBattlescriptCurrInstr = BattleScript_DetectEffect;
                     effect = 1;
                 }
             }
@@ -14836,7 +14860,7 @@ static void Cmd_dmgtolevel(void)
 
     if ((gBattleMoves[gCurrentMove].effect == EFFECT_SONICBOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
     {
-        gBattleMoveDamage = 150;
+        gBattleMoveDamage = 120;
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_LEVEL_DAMAGE)
     {

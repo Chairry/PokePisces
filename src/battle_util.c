@@ -415,7 +415,7 @@ static u8 CalcBeatUpPower(void)
 
     // Party slot is incremented by the battle script for Beat Up after this damage calculation
     species = GetMonData(&party[gBattleStruct->beatUpSlot], MON_DATA_SPECIES);
-    basePower = (gSpeciesInfo[species].baseAttack / 10) + 5;
+    basePower = (gSpeciesInfo[species].baseAttack * 2) / 10;
 
     return basePower;
 }
@@ -6222,7 +6222,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && (moveType == TYPE_DARK || moveType == TYPE_BUG || moveType == TYPE_GHOST) && CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN))
             {
                 gEffectBattler = battler;
-                SET_STATCHANGER(STAT_SPEED, 1, FALSE);
+                SET_STATCHANGER(STAT_SPEED, 2, FALSE);
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaiseRet;
                 effect++;
@@ -13095,7 +13095,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_PLASMA_CUTTER && defType == TYPE_GROUND)
         mod = UQ_4_12(1.0);
-    if (gCurrentMove == MOVE_BREAK_LANCE && typeEffectivenessModifier <= UQ_4_12(0.5))
+    if (gCurrentMove == MOVE_BREAK_LANCE && (typeEffectivenessModifier > UQ_4_12(0.0)) && (typeEffectivenessModifier <= UQ_4_12(0.5)))
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_BEATBOX && defType == TYPE_GHOST)
         mod = UQ_4_12(1.0);

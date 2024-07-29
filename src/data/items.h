@@ -10445,15 +10445,14 @@ const struct Item gItems[] =
     [ITEM_SURPRISE_GIFT] =
     {
         .name = _("Heart Gift"),
-        .price = 4000,
-        .holdEffect = HOLD_EFFECT_NONE,
-        .description = sSurpriseGiftDesc,
+        .price = 666,
+        .holdEffect = HOLD_EFFECT_HEART_GIFT,
+        .description = sHeartGiftDesc,
         .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 5,
+        .flingPower = 66,
     },
-
     [ITEM_BUDDY_CARD] =
     {
         .name = _("Buddy Card"),
@@ -10553,18 +10552,6 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 20,
-    },
-
-    [ITEM_HEART_GIFT] =
-    {
-        .name = _("Heart Gift"),
-        .price = 666,
-        .holdEffect = HOLD_EFFECT_HEART_GIFT,
-        .description = sHeartGiftDesc,
-        .pocket = POCKET_BATTLE_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .flingPower = 66,
     },
 
 };

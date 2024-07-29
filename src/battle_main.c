@@ -5852,7 +5852,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         if (holdEffect == gBattleMoves[move].argument)
             gBattleStruct->dynamicMoveType = ItemId_GetSecondaryId(gBattleMons[battlerAtk].item) | F_DYNAMIC_TYPE_2;
     }
-    else if (gBattleMoves[move].effect == EFFECT_REVELATION_DANCE || gBattleMoves[move].effect == EFFECT_SPIT_UP || gBattleMoves[move].effect == EFFECT_RAGE)
+    else if (gBattleMoves[move].effect == EFFECT_REVELATION_DANCE || gBattleMoves[move].effect == EFFECT_SPIT_UP || gBattleMoves[move].effect == EFFECT_RAGE || gCurrentMove == MOVE_RAGING_BULL)
     {
         if (gBattleMons[battlerAtk].type1 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type1 | F_DYNAMIC_TYPE_2;

@@ -1106,6 +1106,7 @@ gBattleAnims_StatusConditions::
 	.4byte Status_Blooming				    @ B_ANIM_STATUS_BLOOMING
 	.4byte Status_Exposed				    @ B_ANIM_STATUS_EXPOSED
 	.4byte Status_Sleep                     @ B_ANIM_STATUS_REST
+	.4byte Status_Frostbite                 @ B_ANIM_STATUS_FRS
 
 	.align 2
 gBattleAnims_General::
@@ -1823,7 +1824,7 @@ Move_LUCKY_CHANT:
 	end
 
 Move_ME_FIRST:
-	end
+	goto Move_FIRST_IMPRESSION
 
 Move_COPYCAT:
 	loadspritegfx ANIM_TAG_GRAY_ORB
@@ -2040,7 +2041,7 @@ Move_TOXIC_SPIKES:
 	end
 
 Move_HEART_SWAP:
-	end
+	goto Move_HEART_STAMP
 
 Move_AQUA_RING:
 General_AquaRingHeal:
@@ -5703,7 +5704,7 @@ Move_QUICK_GUARD:
 	end
 
 Move_ALLY_SWITCH:
-	end
+	goto Move_SWITCHEROO
 
 Move_SCALD:
 	loadspritegfx ANIM_TAG_WATER_ORB
@@ -8503,15 +8504,7 @@ Move_FELL_STINGER:
 	end
 
 Move_PHANTOM_FORCE:
-	choosetwoturnanim PhantomForceSetUp, PhantomForceUnleash
-PhantomForceEnd:
-	end
-PhantomForceSetUp:
-	invisible ANIM_ATTACKER
-	goto PhantomForceEnd
-PhantomForceUnleash:
-	visible ANIM_ATTACKER
-	goto PhantomForceEnd
+	goto Move_SHADOW_FORCE
 
 Move_TRICK_OR_TREAT:
 	loadspritegfx ANIM_TAG_EYE_SPARKLE
@@ -8559,7 +8552,7 @@ Move_NOBLE_ROAR:
 	end
 
 Move_ION_DELUGE:
-	end
+	goto Move_ELECTRIFY
 
 Move_PARABOLIC_CHARGE:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS
@@ -13586,7 +13579,7 @@ Move_GLITZY_GLOW::
 	end @to do:
 
 Move_BADDY_BAD::
-	end @to do:
+	goto Move_SCARY_FACE
 
 Move_SAPPY_SEED::
 	end @to do:
@@ -23583,21 +23576,110 @@ Move_TIDY_UP::
 	blendoff
 	end
 
+Move_RAGING_BULL::
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ANGER
+	loadspritegfx ANIM_TAG_BREATH
+	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
+	loadspritegfx ANIM_TAG_TORN_METAL
+	choosetwoturnanim RagingBullShatteredWall, RagingBullShatteredWall
+RagingBullNormal:
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, -28
+	delay 20
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
+	waitforvisualfinish
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 18, 6, 2, 4
+	waitforvisualfinish
+	playsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER
+	call SetImpactBackground
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 0, 0, 4
+	delay 3
+	waitforvisualfinish
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 0
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -32, 0, 0, 3
+	waitforvisualfinish
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 0
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 0
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 4, 0, 12, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 1
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 1
+	waitforvisualfinish
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
+	delay 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_TARGET
+	end
+RagingBullShatteredWall:
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, -28
+	delay 20
+	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, -28
+	waitforvisualfinish
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 18, 6, 2, 4
+	waitforvisualfinish
+	playsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER
+	call SetImpactBackground
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 0, 20, 0, 0, 4
+	delay 3
+	waitforvisualfinish
+	createsprite gBrickBreakWallSpriteTemplate, ANIM_ATTACKER, 3, ANIM_TARGET, 0, 0, 90, 10
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, -10, 0, ANIM_TARGET, 0
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, 1, -32, 0, 0, 3
+	delay 20
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 0
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 0
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 4, 0, 12, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	delay 20
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_ATTACKER, 1
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 8, -256, ANIM_TARGET, 1
+	waitforvisualfinish
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, -8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 1, 8, -12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 2, -8, 12
+	createsprite gBrickBreakWallShardSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 3, 8, 12
+	playsewithpan SE_M_BRICK_BREAK, SOUND_PAN_TARGET
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 5
+	delay 3
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 1, 0, 7
+	waitforvisualfinish
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_TARGET
+	end
+
 Move_BLAZING_TORQUE::
 	goto Move_BLAZE_KICK
 
+Move_ORDER_UP::
+	goto Move_FISHIOUS_REND
+
+Move_SALT_CURE::
+	goto Move_RAGE_POWDER
+
 Move_TERA_BLAST::
 Move_AXE_KICK::
-Move_ORDER_UP::
 Move_JET_PUNCH::
 Move_SPICY_EXTRACT::
 Move_GLAIVE_RUSH::
 Move_REVIVAL_BLESSING::
-Move_SALT_CURE::
 Move_TRIPLE_DIVE::
 Move_DOODLE::
 Move_KOWTOW_CLEAVE::
-Move_RAGING_BULL::
 Move_COLLISION_COURSE::
 Move_ELECTRO_DRIFT::
 Move_ARMOR_CANNON::
@@ -23612,7 +23694,7 @@ Move_PSYBLADE::
 ANIM_MOVE_GOLD_PLAINS:
 ANIM_MOVE_MT_SPLENDOR:
 ANIM_MOVE_DOWNFALL:
-    goto Move_TACKLE @ TODO
+    goto Move_TACKLE
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
 Move_NONE:
@@ -33487,6 +33569,11 @@ Status_Freeze:
 	clearmonbg ANIM_DEF_PARTNER
 	end
 
+Status_Frostbite:
+	loadspritegfx ANIM_TAG_ICE_CRYSTALS @ice
+	call IceCrystalEffectShort
+	end
+
 Status_Curse:
 	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
 	monbg ANIM_DEF_PARTNER
@@ -34542,7 +34629,29 @@ General_WaterSport::
 	goto Move_WATER_SPORT
 
 General_SaltCureDamage::
-	goto Status_Freeze
+	loadspritegfx ANIM_TAG_STUN_SPORE
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_STUN_SPORE, 0, 14, 14, RGB_WHITE
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_TARGET, 10, 6
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -30, -22, 117, 80, 5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 10, -22, 117, 80, -5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -25, -22, 117, 112, 5, 3
+	delay 5
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -5, -22, 117, 80, -5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 5, -22, 117, 96, 5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 0, -22, 117, 69, -5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -15, -22, 117, 112, 5, 2
+	delay 10
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -15, -22, 117, 112, 5, 2
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 15, -22, 117, 80, -5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -10, -22, 117, 96, 7, 2
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -5, -22, 117, 90, -8, 0
+	delay 10
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, -10, -22, 117, 80, -5, 1
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 0, -22, 117, 89, 5, 2
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 20, -22, 117, 112, -8, 2
+	createsprite gStunSporeParticleSpriteTemplate, ANIM_TARGET, 2, 5, -22, 117, 80, 5, 1
+	waitforvisualfinish
+	end
 
 SnatchMoveTrySwapFromSubstitute:
 	createvisualtask AnimTask_IsAttackerBehindSubstitute, 2

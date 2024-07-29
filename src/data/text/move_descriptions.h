@@ -3649,8 +3649,8 @@ static const u8 sStormChaseDescription[] = _(
     "attack that goes first.");
 
 static const u8 sDrakenGuardDescription[] = _(
-    "Evades damage, and reduces\n"
-    "Special Defense if struck.");
+    "Evades damage, and raises\n"
+    "Special Attack if struck.");
 
 static const u8 sTickTackDescription[] = _(
     "Tacks ticks dealing fixed\n"
