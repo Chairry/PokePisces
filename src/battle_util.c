@@ -9923,7 +9923,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_BLOOMING;
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ItemStatusEffect;
+                gBattlescriptCurrInstr = BattleScript_ItemBloomingEffect;
                 effect++;
                 SetMoveEffect(TRUE, 0);
             }
@@ -9961,7 +9961,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ItemStatusEffect;
+                gBattlescriptCurrInstr = BattleScript_ItemBurnEffect;
                 effect++;
                 SetMoveEffect(TRUE, 0);
             }
@@ -9984,7 +9984,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_ATK_SPATK_DOWN;
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ItemStatusEffect;
+                gBattlescriptCurrInstr = BattleScript_TargetItemStatRaise;
                 effect++;
                 SetMoveEffect(TRUE, 0);
             }
@@ -10000,10 +10000,9 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 && gBattleMons[gBattlerTarget].hp 
                 && moveType == TYPE_BUG)
             {
-                gBattleScripting.moveEffect = MOVE_EFFECT_PESKY_PLUSH;
                 BattleScriptPushCursor();
-                SetMoveEffect(FALSE, 0);
-                BattleScriptPop();
+                gBattlescriptCurrInstr = BattleScript_ItemTauntEffect;
+                effect++;
             }
         }
         break;

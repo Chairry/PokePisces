@@ -4423,62 +4423,6 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     }
                 }
                 break;
-            case MOVE_EFFECT_VEXING_KI:
-                {
-                    u8 randomTormentChance = RandomPercentage(RNG_VEXING_KI_TORMENT, CalcSecondaryEffectChance(gBattlerAttacker, 15));
-                    u8 randomTauntChance = RandomPercentage(RNG_VEXING_KI_TAUNT, CalcSecondaryEffectChance(gBattlerAttacker, 15));
-                    bool32 tormentlanded = FALSE;
-                    bool32 tauntlanded = FALSE;
-
-                    if (randomTormentChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(gBattleMons[gBattlerTarget].status2 & STATUS2_TORMENT)))
-                    {
-                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_TORMENT];
-                        tormentlanded = TRUE;
-                    }
-                    
-                    if (randomTauntChance && (GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS) && (gDisableStructs[gBattlerTarget].tauntTimer == 0) && (!(IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))) && (!(GetBattlerAbility(gBattlerTarget) == ABILITY_OBLIVIOUS)))
-                    {
-                        #if B_TAUNT_TURNS >= GEN_5
-                        u8 turns = 4;
-                        if (GetBattlerTurnOrderNum(gBattlerTarget) > GetBattlerTurnOrderNum(gBattlerAttacker))
-                        turns--; // If the target hasn't yet moved this turn, Taunt lasts for only three turns (source: Bulbapedia)
-                        #elif B_TAUNT_TURNS == GEN_4
-                        u8 turns = (Random() & 2) + 3;
-                        #else
-                        u8 turns = 2;
-                        #endif
-                        gDisableStructs[gBattlerTarget].tauntTimer = turns;
-                        tauntlanded = TRUE;
-                    }
-                    else
-                    {
-                        gBattlescriptCurrInstr++;
-                    }
-
-                    if (tormentlanded)
-                    {
-                        if (tauntlanded)
-                        {
-                            BattleScriptPush(gBattlescriptCurrInstr + 1);
-                            gBattlescriptCurrInstr = BattleScript_TormentTauntString;
-                        }
-                        else
-                        {
-                            BattleScriptPush(gBattlescriptCurrInstr + 1);
-                            gBattlescriptCurrInstr = BattleScript_TormentString;                        
-                        }
-                    }
-                    else if (tauntlanded)
-                    {
-                        BattleScriptPush(gBattlescriptCurrInstr + 1);
-                        gBattlescriptCurrInstr = BattleScript_TauntString;
-                    }
-                    else
-                    {
-                        gBattlescriptCurrInstr++;
-                    }
-                }
-                break;
             case MOVE_EFFECT_PESKY_PLUSH:
                 {
                     u8 randomTormentChance = RandomPercentage(RNG_PESKY_PLUSH_TORMENT, CalcSecondaryEffectChance(gBattlerAttacker, 10));

@@ -448,7 +448,7 @@
 #define EFFECT_CINDER_TWIRL                 442
 #define EFFECT_CINDER_DRILL                 443
 #define EFFECT_SILENCE                      444
-#define EFFECT_VEXING_KI                    445
+#define EFFECT_TORMENT_HIT                  445
 #define EFFECT_DECAY_BEAM                   446
 #define EFFECT_WARM_WELCOME                 447
 #define EFFECT_RADIOACID                    448
