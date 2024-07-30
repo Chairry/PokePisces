@@ -8145,8 +8145,8 @@ static const struct TrainerMon sParty_GruntJaggedPass[] = {
 static const struct TrainerMon sParty_Marc[] = {
     {
     .lvl = 100,
-    .species = SPECIES_SCEPTILE,
-    .ability = ABILITY_SHARPNESS,
+    .species = SPECIES_GLALIE,
+    .ability = ABILITY_PERMAFROST,
     .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
     }
 };

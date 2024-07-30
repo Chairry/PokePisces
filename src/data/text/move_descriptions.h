@@ -3649,8 +3649,8 @@ static const u8 sStormChaseDescription[] = _(
     "attack that goes first.");
 
 static const u8 sDrakenGuardDescription[] = _(
-    "Evades damage, and reduces\n"
-    "Special Defense if struck.");
+    "Evades damage, and raises\n"
+    "Special Attack if struck.");
 
 static const u8 sTickTackDescription[] = _(
     "Tacks ticks dealing fixed\n"
@@ -3947,6 +3947,10 @@ static const u8 sReservoirDescription[] = _(
 static const u8 sBrainDamageDescription[] = _(
     "A one-hit KO move that\n"
     "gives the foe brain damage.");
+
+static const u8 sBloodMoonDescription[] = _(
+    "Unleashes the blood moon.\n"
+    "Can't be used twice in a row.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4978,4 +4982,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
     [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
+    [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
 };

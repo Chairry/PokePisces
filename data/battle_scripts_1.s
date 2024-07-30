@@ -471,7 +471,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCinderTwirl             @ EFFECT_CINDER_TWIRL
 	.4byte BattleScript_EffectCinderDrill             @ EFFECT_CINDER_DRILL
 	.4byte BattleScript_EffectSilence                 @ EFFECT_SILENCE
-	.4byte BattleScript_EffectVexingKi                @ EFFECT_VEXING_KI
+	.4byte BattleScript_EffectTormentHit              @ EFFECT_TORMENT_HIT
 	.4byte BattleScript_EffectEerieSpell              @ EFFECT_DECAY_BEAM
 	.4byte BattleScript_EffectWarmWelcome             @ EFFECT_WARM_WELCOME
 	.4byte BattleScript_EffectRadioacid               @ EFFECT_RADIOACID
@@ -483,9 +483,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHeartCarveHit           @ EFFECT_HEART_CARVE_HIT
 	.4byte BattleScript_EffectDragonPoker             @ EFFECT_DRAGON_POKER
 	.4byte BattleScript_EffectFlinchHit               @ EFFECT_WATERFALL
-	.4byte BattleScript_EffectHit                     @ EFFECT_CUT
+	.4byte BattleScript_EffectDefenseDownHit          @ EFFECT_CUT
 	.4byte BattleScript_EffectDefenseDownHit          @ EFFECT_ROCK_SMASH
-	.4byte BattleScript_EffectAttackUpHit             @ EFFECT_STRENGTH
+	.4byte BattleScript_EffectHit                     @ EFFECT_STRENGTH
 	.4byte BattleScript_EffectConfuseHit              @ EFFECT_ROCK_CLIMB
 	.4byte BattleScript_EffectHit                     @ EFFECT_SURF
 	.4byte BattleScript_EffectSemiInvulnerable        @ EFFECT_DIVE
@@ -723,6 +723,10 @@ BattleScript_DefenderExplodedExtraMoveEnd::
 	moveendall
 	end
 BattleScript_DefenderExplodedExtraHitDamp::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUpTarget
+	printstring STRINGID_PKMNPREVENTSUSAGE
+	pause B_WAIT_TIME_LONG
 	instanthpdrop BS_ATTACKER
 	setatkhptozero
 	tryfaintmon BS_ATTACKER
@@ -3216,9 +3220,34 @@ BattleScript_EffectWarmWelcomeSunnyDayFailedStuffCheeksSucceeded::
 	removeitem BS_ATTACKER
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectVexingKi:
-	setmoveeffect MOVE_EFFECT_VEXING_KI
-	goto BattleScript_EffectHit
+BattleScript_EffectTormentHit:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_HitFromCritCalc
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_HitFromCritCalc
+	settorment BattleScript_HitFromCritCalc
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_PKMNSUBJECTEDTOTORMENT
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotTormentAttacker
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSilence:
 	attackcanceler
@@ -9602,7 +9631,6 @@ BattleScript_EffectSonicboom::
 	ppreduce
 	typecalc
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
-	dmgtolevel
 	adjustdamage
 	goto BattleScript_HitFromAtkAnimation
 
@@ -11862,6 +11890,20 @@ BattleScript_TargetItemStatRaise::
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_TARGET
 BattleScript_TargetItemStatRaiseRemoveItemRet:
+	return
+
+BattleScript_TargetItemStatDrop::
+	copybyte sBATTLER, gBattlerTarget
+	statbuffchange 0, BattleScript_TargetItemStatDropRemoveItemRet
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_TargetItemStatDropRemoveItemRet
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	waitanimation
+	printstring STRINGID_USINGITEMSTATOFPKMNFELL
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_TargetItemStatDropRemoveItemRet:
 	return
 
 BattleScript_AttackerItemStatRaise::
@@ -15022,9 +15064,24 @@ BattleScript_TransfusionAbilityCopy::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_ItemStatusEffect::
+BattleScript_ItemBurnEffect::
 	printstring STRINGID_PKMNSITEMCAUSEBURN
 	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ItemBloomingEffect::
+	printstring STRINGID_PKMNSITEMCAUSEBLOOMING
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_ItemTauntEffect::
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_ItemTauntEffectRet
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_ItemTauntEffectRet
+	settaunt BattleScript_ItemTauntEffectRet
+	printstring STRINGID_PKMNFELLFORTAUNT
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotTauntAttacker
+BattleScript_ItemTauntEffectRet::
 	return
 
 BattleScript_BattleBondActivatesOnMoveEndAttacker::

@@ -2763,54 +2763,54 @@ static const u8 sIapapaBerryDesc[] = _(
     "may confuse.");
 
 static const u8 sRazzBerryDesc[] = _(
-    "Eaten at 50% health\n"
+    "Eaten at 1/2 HP\n"
     "to infatuate a foe\n"
     "of the opposite gender.");
 
 static const u8 sBlukBerryDesc[] = _(
-    "Eaten at 50% health\n"
+    "Eaten at 1/2 HP\n"
     "to reduce PP of foe's\n"
     "last used move.");
 
 static const u8 sNanabBerryDesc[] = _(
-    "Eaten at 50% health\n"
+    "Eaten at 1/2 HP\n"
     "to up user's stockpile\n"
     "counter by 1.");
 
 static const u8 sWepearBerryDesc[] = _(
-    "Eaten at 25% health\n"
+    "Eaten at 1/4 HP\n"
     "To identify\n"
     "the opponent.");
 
 static const u8 sPinapBerryDesc[] = _(
-    "Eaten at 25% health.\n"
-    "User will then do 25%\n"
-    "max HP damage to foe.");
+    "Eaten at 1/4 HP.\n"
+    "User will then do 1/4\n"
+    "Max HP damage to foe.");
 
 static const u8 sPomegBerryDesc[] = _(
-    "Eaten at 5% health.\n"
+    "Eaten at 1/20 HP.\n"
     "Increases max HP by\n"
     "200 and heals fully.");
 
 static const u8 sKelpsyBerryDesc[] = _(
     "When using a Pulse\n"
     "move, is consumed to\n"
-    "up damage by 50%.");
+    "up damage by 1.5x.");
 
 static const u8 sQualotBerryDesc[] = _(
     "When using a Wind\n"
     "move, is consumed to\n"
-    "up damage by 50%.");
+    "up damage by 1.5x.");
 
 static const u8 sHondewBerryDesc[] = _(
-    "Eaten at 25% health\n"
+    "Eaten at 1/4 HP\n"
     "to give user Aqua\n"
     "Ring and Hearthwarm.");
 
 static const u8 sGrepaBerryDesc[] = _(
     "When using a Kick\n"
     "move, is consumed to\n"
-    "up damage by 50%.");
+    "up damage by 1.5x.");
 
 static const u8 sTamatoBerryDesc[] = _(
     "A unique berry\n"
@@ -2818,7 +2818,7 @@ static const u8 sTamatoBerryDesc[] = _(
     "a lot.");
 
 static const u8 sCornnBerryDesc[] = _(
-    "Eaten at 25% health\n"
+    "Eaten at 1/4 HP\n"
     "to inflict Salt Corn\n"
     "on the opponent.");
 
@@ -2828,17 +2828,17 @@ static const u8 sMagostBerryDesc[] = _(
     "then is consumed.");
 
 static const u8 sRabutaBerryDesc[] = _(
-    "Eaten at 25% health\n"
+    "Eaten at 1/4 HP\n"
     "and will confuse\n"
     "the opponent.");
 
 static const u8 sNomelBerryDesc[] = _(
     "When using a Pierce\n"
     "move, is consumed to\n"
-    "up damage by 50%.");
+    "up damage by 1.5x.");
 
 static const u8 sSpelonBerryDesc[] = _(
-    "Eaten at 25% health.\n"
+    "Eaten at 1/4 HP.\n"
     "Spikes will be laid\n"
     "on the foe's side.");
 
@@ -2858,7 +2858,7 @@ static const u8 sDurinBerryDesc[] = _(
     "spike damage back.");
 
 static const u8 sBelueBerryDesc[] = _(
-    "Eaten at 25% health.\n"
+    "Eaten at 1/4 HP.\n"
     "to cover the\n"
     "opponent in Tar.");
 
@@ -4174,14 +4174,14 @@ static const u8 sCreditCardDesc[] = _(
     "card.");
 
 static const u8 sRizzBerryDesc[] = _(
-    "Eaten at 25% health\n"
+    "Eaten at 1/4 HP\n"
     "to infatuate a foe.\n"
     "Ignores gender.");
 
 static const u8 sPeskyPlushDesc[] = _(
-    "Bug-type moves\n"
-    "have a chance to\n"
-    "Torment and Taunt.");
+    "Bug-type attacking\n"
+    "moves Torment the\n"
+    "foe.");
 
 static const u8 sBlackSaladDesc[] = _(
     "Attacks may cause\n"

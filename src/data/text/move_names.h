@@ -761,7 +761,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_PSYSHIELD_BASH] = _("Barrier Bash"),
     [MOVE_POWER_SHIFT] = _("Power Shift"),
     [MOVE_STONE_AXE] = _("Stone Axe"),
-    [MOVE_SPRINGTIDE_STORM] = _("Springtide Storm"),
+    [MOVE_SPRINGTIDE_STORM] = _("Spring Breeze"),
     [MOVE_MYSTICAL_POWER] = _("Mystical Power"),
     [MOVE_RAGING_FURY] = _("Raging Fury"),
     [MOVE_WAVE_CRASH] = _("Tidal Crash"),
@@ -777,7 +777,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_INFERNAL_PARADE] = _("Night Parade"),
     [MOVE_CEASELESS_EDGE] = _("Ceaseless Edge"),
     [MOVE_BLEAKWIND_STORM] = _("North Wind"),
-    [MOVE_WILDBOLT_STORM] = _("Wildbolt Storm"),
+    [MOVE_WILDBOLT_STORM] = _("Ion Storm"),
     [MOVE_SANDSEAR_STORM] = _("Dust Devil"),
     [MOVE_LUNAR_BLESSING] = _("Lunar Blessing"),
     [MOVE_TAKE_HEART] = _("Take Heart"),
@@ -1025,6 +1025,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
     [MOVE_BLOW_UP] = _("Blow Up"),
     [MOVE_CINDER_WALTZ] = _("Cinder Waltz"),
+    [MOVE_BLOOD_MOON] = _("Blood Moon"),
 };
 #else
 // 12 letters
@@ -1783,13 +1784,13 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_FIERY_WRATH] = _("Fiery Wrath"),
     [MOVE_THUNDEROUS_KICK] = _("Thunder Kick"),
     [MOVE_GLACIAL_LANCE] = _("GlacialLance"),
-    [MOVE_ASTRAL_BARRAGE] = _("Astral Bit"),
+    [MOVE_ASTRAL_BARRAGE] = _("Astral Barrage"),
     [MOVE_EERIE_SPELL] = _("Eerie Spell"),
     [MOVE_DIRE_CLAW] = _("Dire Claw"),
     [MOVE_PSYSHIELD_BASH] = _("Barrier Bash"),
     [MOVE_POWER_SHIFT] = _("Power Shift"),
     [MOVE_STONE_AXE] = _("Stone Axe"),
-    [MOVE_SPRINGTIDE_STORM] = _("SprngtdeStrm"),
+    [MOVE_SPRINGTIDE_STORM] = _("Spring Breeze"),
     [MOVE_MYSTICAL_POWER] = _("MystcalPower"),
     [MOVE_RAGING_FURY] = _("Raging Fury"),
     [MOVE_WAVE_CRASH] = _("Tidal Crash"),
@@ -1805,7 +1806,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_INFERNAL_PARADE] = _("Night Parade"),
     [MOVE_CEASELESS_EDGE] = _("CeaslessEdge"),
     [MOVE_BLEAKWIND_STORM] = _("North Wind"),
-    [MOVE_WILDBOLT_STORM] = _("WildbltStorm"),
+    [MOVE_WILDBOLT_STORM] = _("Ion Storm"),
     [MOVE_SANDSEAR_STORM] = _("Dust Devil"),
     [MOVE_LUNAR_BLESSING] = _("LunarBlessng"),
     [MOVE_TAKE_HEART] = _("Take Heart"),
@@ -2053,6 +2054,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BRAIN_DAMAGE] = _("Brain Damage"),
     [MOVE_BLOW_UP] = _("Blow Up"),
     [MOVE_CINDER_WALTZ] = _("Cinder Waltz"),
+    [MOVE_BLOOD_MOON] = _("Blood Moon"),
 };
 #endif
 

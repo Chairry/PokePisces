@@ -434,15 +434,14 @@
 #define MOVE_EFFECT_ATK_SPEED_PLUS      102
 #define MOVE_EFFECT_SMOG                103
 #define MOVE_EFFECT_PLUNDER             104
-#define MOVE_EFFECT_VEXING_KI           105
-#define MOVE_EFFECT_GRAV_APPLE          106
-#define MOVE_EFFECT_TORMENT             107
-#define MOVE_EFFECT_PESKY_PLUSH         108
-#define MOVE_EFFECT_ATK_SPEED_DOWN      109
-#define MOVE_EFFECT_CINDER_WALTZ        110
-#define MOVE_EFFECT_SPATK_SPDEF_UP      111
+#define MOVE_EFFECT_GRAV_APPLE          105
+#define MOVE_EFFECT_TORMENT             106
+#define MOVE_EFFECT_PESKY_PLUSH         107
+#define MOVE_EFFECT_ATK_SPEED_DOWN      108
+#define MOVE_EFFECT_CINDER_WALTZ        109
+#define MOVE_EFFECT_SPATK_SPDEF_UP      110
 
-#define NUM_MOVE_EFFECTS                112
+#define NUM_MOVE_EFFECTS                111
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

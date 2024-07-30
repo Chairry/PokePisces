@@ -2227,8 +2227,8 @@ const u32 gItemIconPalette_Relaxant[] = INCBIN_U32("graphics/items/icon_palettes
 const u32 gItemIcon_ShellyBrew[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
 const u32 gItemIconPalette_ShellyBrew[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
 
-const u32 gItemIcon_SurpriseGift[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_SurpriseGift[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_SurpriseGift[] = INCBIN_U32("graphics/items/icons/heart_gift.4bpp.lz");
+const u32 gItemIconPalette_SurpriseGift[] = INCBIN_U32("graphics/items/icon_palettes/heart_gift.gbapal.lz");
 
 const u32 gItemIcon_BuddyCard[] = INCBIN_U32("graphics/items/icons/buddy_card.4bpp.lz");
 const u32 gItemIconPalette_BuddyCard[] = INCBIN_U32("graphics/items/icon_palettes/buddy_card.gbapal.lz");
@@ -2251,11 +2251,8 @@ const u32 gItemIconPalette_PokemonCard[] = INCBIN_U32("graphics/items/icon_palet
 const u32 gItemIcon_PokerCard[] = INCBIN_U32("graphics/items/icons/poker_card.4bpp.lz");
 const u32 gItemIconPalette_PokerCard[] = INCBIN_U32("graphics/items/icon_palettes/poker_card.gbapal.lz");
 
-const u32 gItemIcon_CrypticPlate[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_CrypticPlate[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_CrypticPlate[] = INCBIN_U32("graphics/items/icons/cryptic_plate.4bpp.lz");
+const u32 gItemIconPalette_CrypticPlate[] = INCBIN_U32("graphics/items/icon_palettes/cryptic_plate.gbapal.lz");
 
 const u32 gItemIcon_Chupacabra[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
 const u32 gItemIconPalette_Chupacabra[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
-
-const u32 gItemIcon_HeartGift[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_HeartGift[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
