@@ -4311,7 +4311,9 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 }
                 else if ((gBattleMoves[gCurrentMove].effect == EFFECT_FROST_SHRED) && (gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE))
                 {
-                    gMultiHitCounter = (gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] - DEFAULT_STAT_STAGE) + gBattleMoves[gCurrentMove].strikeCount;
+                    u32 count = 0;
+                    count += gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] - DEFAULT_STAT_STAGE;
+                    gMultiHitCounter = count + gBattleMoves[gCurrentMove].strikeCount;
                     PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
                 }
                 else if (gCurrentMove == MOVE_AQUASCADE && (!(gBattleWeather & B_WEATHER_RAIN)))
@@ -7038,7 +7040,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_FROST_JAW:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeFrozen(gBattlerTarget) && gBattleMoves[move].bitingMove && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 10) == 0)
+                && (Random() % 5) == 0)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);

@@ -12747,11 +12747,11 @@ static void Cmd_various(void)
         }
         else if (gBattleMons[gBattlerTarget].statStages[j] > DEFAULT_STAT_STAGE)
         {
-            (gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5) * (CountBattlerStatIncreases(gBattlerTarget, TRUE) + 1);  
+            (gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5) * (CountBattlerStatIncreases(gBattlerTarget, TRUE) + 1);
         }
         else
         {
-            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
+            gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;
         }
 
         if (gBattleMoveDamage == 0)

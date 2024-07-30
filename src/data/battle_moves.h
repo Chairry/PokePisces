@@ -12721,7 +12721,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .type = TYPE_FAIRY,
         .accuracy = 80,
         .pp = 5,
-        .secondaryEffectChance = 20,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -16481,7 +16481,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FROST_SHRED] =
     {
         .effect = EFFECT_FROST_SHRED,
-        .power = 30,
+        .power = 20,
         .type = TYPE_ICE,
         .accuracy = 90,
         .pp = 10,

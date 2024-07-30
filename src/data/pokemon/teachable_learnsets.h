@@ -47017,6 +47017,7 @@ static const u16 sMoraganTeachableLearnset[] = {
     MOVE_CROSS_POISON,
     MOVE_PSYCHO_CUT,
     MOVE_AQUA_CUTTER,
+    MOVE_RAPID_SPIN,
     MOVE_CUT,
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,

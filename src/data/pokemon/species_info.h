@@ -24454,11 +24454,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_MORAGAN] =
     {
         .baseHP        = 65,
-        .baseAttack    = 123,
-        .baseDefense   = 60,
+        .baseAttack    = 103,
+        .baseDefense   = 70,
         .baseSpeed     = 129,
         .baseSpAttack  = 58,
-        .baseSpDefense = 60,
+        .baseSpDefense = 70,
         .types = { TYPE_ICE,TYPE_GHOST },
         .catchRate = 75,
         .expYield = 124,
@@ -24476,11 +24476,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_SHIVERSNAP] =
     {
-        .baseHP        = 85,
-        .baseAttack    = 115,
-        .baseDefense   = 95,
+        .baseHP        = 95,
+        .baseAttack    = 120,
+        .baseDefense   = 105,
         .baseSpeed     = 88,
-        .baseSpAttack  = 60,
+        .baseSpAttack  = 40,
         .baseSpDefense = 67,
         .types = { TYPE_ICE,TYPE_POISON },
         .catchRate = 90,
@@ -24514,7 +24514,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_STRONG_JAW, ABILITY_RECKLESS},
+        .abilities = {ABILITY_BULLETPROOF, ABILITY_STRONG_JAW, ABILITY_RECKLESS},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
     },
