@@ -3948,6 +3948,10 @@ static const u8 sBrainDamageDescription[] = _(
     "A one-hit KO move that\n"
     "gives the foe brain damage.");
 
+static const u8 sBloodMoonDescription[] = _(
+    "Unleashes the blood moon.\n"
+    "Can't be used twice in a row.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4978,4 +4982,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
     [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
+    [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
 };

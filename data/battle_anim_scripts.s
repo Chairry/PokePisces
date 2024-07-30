@@ -1051,6 +1051,7 @@ gBattleAnims_Moves::
     .4byte Move_BRAIN_DAMAGE
     .4byte Move_BLOW_UP
     .4byte Move_CINDER_WALTZ
+    .4byte Move_BLOOD_MOON
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -23573,6 +23574,9 @@ Move_BLOW_UP::
 
 Move_CINDER_WALTZ::
 	goto Move_CINDER_TWIRL
+
+Move_BLOOD_MOON::
+	goto Move_MOONBLAST
 
 Move_RUINATION::
 	goto Move_LIGHT_OF_RUIN

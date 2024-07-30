@@ -3389,12 +3389,12 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_CHARGE: // charge
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastMoves[battler]].type == TYPE_ELECTRIC)
+            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_ELECTRIC)
                 gStatuses3[battler] &= ~STATUS3_CHARGED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_PUMPED_UP: // reservoir
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastMoves[battler]].type == TYPE_WATER)
+            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_WATER)
                 gStatuses4[battler] &= ~STATUS4_PUMPED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -11076,14 +11076,16 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_RETURN:
         basePower = 10 * (gBattleMons[battlerAtk].friendship) / 25;
         break;
-    case EFFECT_WATERFALL:
+    case EFFECT_STRENGTH:
         basePower = 16 * (gBattleMons[battlerAtk].friendship) / 51;
         break;
     case EFFECT_CUT:
-        basePower = (gBattleMons[battlerAtk].friendship) / 3;
+        basePower = 13 * (gBattleMons[battlerAtk].friendship) / 51;
         break;
     case EFFECT_ROCK_SMASH:
-    case EFFECT_STRENGTH:
+        basePower = 5 * (gBattleMons[battlerAtk].friendship) / 17;
+        break;
+    case EFFECT_WATERFALL:
     case EFFECT_ROCK_CLIMB:
     case EFFECT_SURF:
         basePower = 6 * (gBattleMons[battlerAtk].friendship) / 17;
@@ -12232,7 +12234,13 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     def = gBattleMons[battlerDef].defense;
     spDef = gBattleMons[battlerDef].spDefense;
 
-    if (gBattleMoves[move].effect == EFFECT_PSYSHOCK || IS_MOVE_PHYSICAL(move)) // uses defense stat instead of sp.def
+    if (gBattleMoves[move].effect == EFFECT_STRENGTH) // uses attack stat
+    {
+        defStat = gBattleMons[battlerDef].attack;
+        defStage = gBattleMons[battlerDef].statStages[STAT_ATK];
+        usesDefStat = FALSE;
+    }
+    else if (gBattleMoves[move].effect == EFFECT_PSYSHOCK || IS_MOVE_PHYSICAL(move)) // uses defense stat instead of sp.def
     {
         defStat = def;
         defStage = gBattleMons[battlerDef].statStages[STAT_DEF];

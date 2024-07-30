@@ -483,9 +483,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHeartCarveHit           @ EFFECT_HEART_CARVE_HIT
 	.4byte BattleScript_EffectDragonPoker             @ EFFECT_DRAGON_POKER
 	.4byte BattleScript_EffectFlinchHit               @ EFFECT_WATERFALL
-	.4byte BattleScript_EffectHit                     @ EFFECT_CUT
+	.4byte BattleScript_EffectDefenseDownHit          @ EFFECT_CUT
 	.4byte BattleScript_EffectDefenseDownHit          @ EFFECT_ROCK_SMASH
-	.4byte BattleScript_EffectAttackUpHit             @ EFFECT_STRENGTH
+	.4byte BattleScript_EffectHit                     @ EFFECT_STRENGTH
 	.4byte BattleScript_EffectConfuseHit              @ EFFECT_ROCK_CLIMB
 	.4byte BattleScript_EffectHit                     @ EFFECT_SURF
 	.4byte BattleScript_EffectSemiInvulnerable        @ EFFECT_DIVE
