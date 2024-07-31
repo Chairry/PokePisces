@@ -421,6 +421,9 @@
 #define ANIM_TAG_LIGHT_BALL                 (ANIM_SPRITES_START + 407)
 #define ANIM_TAG_PIN                        (ANIM_SPRITES_START + 408)
 #define ANIM_TAG_BEAM                       (ANIM_SPRITES_START + 409)
+#define ANIM_TAG_GREEN_MAYNIMO              (ANIM_SPRITES_START + 410)
+#define ANIM_TAG_BLUE_MAYNIMO               (ANIM_SPRITES_START + 411)
+#define ANIM_TAG_RED_MAYNIMO                (ANIM_SPRITES_START + 412)
 
 // battlers
 #define ANIM_ATTACKER         0

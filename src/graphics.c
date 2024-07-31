@@ -805,6 +805,15 @@ const u32 gBattleAnimSpritePal_Impact[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_Beam[] = INCBIN_U32("graphics/battle_anims/sprites/beam.4bpp.lz");
 const u32 gBattleAnimSpritePal_Beam[] = INCBIN_U32("graphics/battle_anims/sprites/beam.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_GreenMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/green_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_GreenMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/green_maynimo.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BlueMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/blue_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlueMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/blue_maynimo.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_RedMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/red_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_RedMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/red_maynimo.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Particles[] = INCBIN_U32("graphics/battle_anims/sprites/particles.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_Particles2[] = INCBIN_U32("graphics/battle_anims/sprites/particles2.4bpp.lz");
