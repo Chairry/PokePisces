@@ -5207,7 +5207,7 @@ static const struct LevelUpMove sGrovyleLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSceptileLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 1, MOVE_GREEN_GUISE),
+    LEVEL_UP_MOVE( 1, MOVE_GREEN_GUISE),
     LEVEL_UP_MOVE( 1, MOVE_LEAF_BLADE),
     LEVEL_UP_END
 };
@@ -5229,8 +5229,8 @@ static const struct LevelUpMove sTorchicLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sCombuskenLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 1, MOVE_HOT_STEP),
-    //LEVEL_UP_MOVE( 1, MOVE_WILDER_DANCE),
+    LEVEL_UP_MOVE( 1, MOVE_HOT_STEP),
+    LEVEL_UP_MOVE( 1, MOVE_WILDER_DANCE),
     LEVEL_UP_MOVE( 1, MOVE_BLAZING_TORQUE),
     LEVEL_UP_MOVE( 1, MOVE_ACROBATICS),
     LEVEL_UP_END
@@ -5262,7 +5262,7 @@ static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMudkipLevelUpLearnset[] = {
-    //LEVEL_UP_MOVE( 1, MOVE_RESERVOIR),
+    LEVEL_UP_MOVE( 1, MOVE_RESERVOIR),
     LEVEL_UP_MOVE( 1, MOVE_COOL_MIST),
     LEVEL_UP_MOVE( 1, MOVE_CHILLING_WATER),
     LEVEL_UP_MOVE( 1, MOVE_MUDDY_WATER),
