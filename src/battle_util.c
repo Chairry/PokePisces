@@ -13962,11 +13962,11 @@ u8 GetSplitBasedOnStats(u32 battler)
     u32 attack = gBattleMons[battler].attack;
     u32 spAttack = gBattleMons[battler].spAttack;
 
-    attack = attack * gStatStageRatios[gBattleMons[battler].statStages[STAT_ATK]][0];
-    attack = attack / gStatStageRatios[gBattleMons[battler].statStages[STAT_ATK]][1];
+    attack *= gStatStageRatios[gBattleMons[battler].statStages[STAT_ATK]][0];
+    attack /= gStatStageRatios[gBattleMons[battler].statStages[STAT_ATK]][1];
 
-    spAttack = spAttack * gStatStageRatios[gBattleMons[battler].statStages[STAT_SPATK]][0];
-    spAttack = spAttack / gStatStageRatios[gBattleMons[battler].statStages[STAT_SPATK]][1];
+    spAttack *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPATK]][0];
+    spAttack /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPATK]][1];
 
     if (spAttack >= attack)
         return SPLIT_SPECIAL;

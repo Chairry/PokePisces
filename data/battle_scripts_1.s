@@ -2536,11 +2536,11 @@ BattleScript_SpAttackAccUpTrySpDef::
 BattleScript_SpAttackAccUpEnd:
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectRemodel::
-	remodelcheck BattleScript_EffectDefenseUp2
+BattleScript_EffectRemodel:
+	remodelcheck BS_ATTACKER, BattleScript_EffectDefenseUp2
 	goto BattleScript_EffectSpecialDefenseUp2
 
-BattleScript_EffectReconstruct::
+BattleScript_EffectReconstruct:
 	attackcanceler
 	attackstring
 	ppreduce

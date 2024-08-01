@@ -537,6 +537,7 @@
 #define BG_URANIUM 81
 #define BG_THUNDER_2 82
 #define BG_INVERSE_ROOM 83
+#define BG_ATTRACT 84
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0

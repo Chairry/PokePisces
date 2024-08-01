@@ -11585,6 +11585,7 @@ extern const u32 gBattleAnimSpritePal_PinkHeart[];
 extern const u32 gBattleAnimBgImage_Attract[];
 extern const u32 gBattleAnimBgPalette_Attract[];
 extern const u32 gBattleAnimBgTilemap_Attract[];
+extern const u32 gBattleAnimBgTilemap_RealAttract[];
 extern const u32 gBattleAnimSpritePal_Angel[];
 extern const u32 gBattleAnimSpritePal_Devil[];
 extern const u32 gBattleAnimSpritePal_Swipe[];
