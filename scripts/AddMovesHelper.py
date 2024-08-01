@@ -8,26 +8,29 @@ class Move:
     name = ""
     condition = ""
     
-def parse_move_name(moveName):
+def parse_move_name(moveName, renameDict):
     parsedMoveName = "MOVE"
     splitName = moveName.split()
     for word in splitName:
         parsedMoveName += "_" + word.upper()
         
+    if parsedMoveName in renameDict:
+        parsedMoveName = renameDict[parsedMoveName]
+        
     return parsedMoveName
     
-def add_move_line(move, commentList):
+def add_move_line(move, commentList, renameDict):
     line = "    "
     if move.name in commentList:
         line += "//"
     if move.condition == "1/Evo":
-        line += "LEVEL_UP_MOVE(0, " + parse_move_name(move.name) + "),\n"
+        line += "LEVEL_UP_MOVE(0, " + parse_move_name(move.name, renameDict) + "),\n"
         line += "    "
         if move.name in commentList:
             line += "//"
-        line += "LEVEL_UP_MOVE(1, " + parse_move_name(move.name) + "),\n"
-    elif move.condition != "X":
-        line += "LEVEL_UP_MOVE(" + move.condition + ", " + parse_move_name(move.name) + "),\n"
+        line += "LEVEL_UP_MOVE(1, " + parse_move_name(move.name, renameDict) + "),\n"
+    elif move.condition != "X" and move.condition != "x":
+        line += "LEVEL_UP_MOVE(" + move.condition + ", " + parse_move_name(move.name, renameDict) + "),\n"
     else:
         line = ""
     
@@ -77,40 +80,40 @@ for name in columnNames:
     if name.startswith("Unnamed"):
         currentNames = [] #clear out currentNames after adding moves
         
+        
 # If encountered will be commented out since these are not implemented yet
-commentList = ["Giants Spear", "Cinder Drill", "Cinder Twirl", "Flowing Aria", "Cutie Cry", "Sidearm", "Searing Sands", "Psyche Crash", "Bull Rush", "Florescence", "Draco Hammer", "Anger Stomps", "North Wind", "Stellar Fists","Benthic Whip","Tick Tack","Power Drain","Black Buffet","Heart Steal","Finish Off","Lone Shark","Wicked Winds","Savage Wing","Dragon Poker","Plasma Cutter","Love Tap","Dance Mania","Hot Step","Vine Palm Strike","Beatbox","Flare Crush","Igna Strike","Red Eyes","Razing Sun","Bluster","Sonic Burst","Crash Land","Void","Spirit Away","Banshriek","Grip Nail","Blossom Snap","Green Guise","Lily of Life","Vigor Root","Raging Earth","Frost Shred","Frost Nova","Axel Heel","Snowfade","Dine & Dash","Tipsy Step","Real Tears","Poison Dart","Heart Carve","Gunk Funk","Scorp Fang","Graviton Arm","Odd Step","Solar Flare","Chroma Beam","Psy Swap","Power Jam","Smash Shell","Moon Beam","Shields Up","Haywire","Overtake","Heavy Swing","High Roll Hit","Sharpshoot","Torpedoes","Hullbreaker","Plunder","Serpent Surge","Furious Sea","Resevoir","Creepy Crawl","Pester Raid","Seize Chance","Brutalize","Boundary","Dark Tide","Misery Wail","Terrorize","Castle Crash","Draken Guard","Storm Chase","Party Trick","Myth Buster","Penalize","Kerfuffle","Leg Day","Evaporate","Jump & Pop","Glimmer","Hearthwarm","Ignition","Maneuver","Sharp Glide","Air Cannon","Soul Cutter","Final Shriek","Phantasm","Grass Cannon","Sun Bask","Dune Slicer","Wilder Dance","Glacial Shift","Cold Snap","Heat Sink","Verglastrom","Break Lance","Grand Slam","Bass Cannon","Exorcism","Beat Drop","Purification","Venom Drain","Caustic Finale","Venom Gale","Willpower","Mind Break","Gattling Pins","Earth Shatter","Mass Break","Pilgrimage","Heavy Cannon","Giant's Spear","Redline","Zapper","Purge Ray","Diffuse Wave","Sky Splitter","Vaporize","Railgun","Decimation","Deep Gaze","Enervator","Erode Field","Heavy Cell","Reconstruct","Remodel","Stalag Blast","Roadblock","Gem Blaster","Hunker Down","Silver Edge","Razor Beam","Aquascade","Water Wheel","Cool Mist"]
+commentList = []
+
+renameDict = {"MOVE_STAR_ASSAULT":"MOVE_METEOR_ASSAULT", "MOVE_POWER_FLIP":"MOVE_TOPSY_TURVY", "MOVE_SKYPIERCER":"MOVE_DRAGON_ASCENT", "MOVE_THUNDER_KICK":"MOVE_THUNDEROUS_KICK", "MOVE_DUST_DEVIL":"MOVE_SANDSEAR_STORM", "MOVE_THE_13_TOLLS":"MOVE_SILENCE", "MOVE_MIXTAPE":"MOVE_CLANGOROUS_SOUL", "MOVE_CLIFF_BLADES":"MOVE_PRECIPICE_BLADES", "MOVE_NATURES_FURY":"MOVE_NATURES_MADNESS", "MOVE_SPACE_FURY":"MOVE_HYPERSPACE_FURY", "MOVE_FERVID_DANCE":"MOVE_REVELATION_DANCE", "MOVE_MASS_DESTRUCT":"MOVE_MASS_DESTRUCTION", "MOVE_FREEZE_GLARE":"MOVE_FREEZING_GLARE", "MOVE_PHANTOM_THIEF":"MOVE_SPECTRAL_THIEF", "MOVE_DOUBLE_BASH":"MOVE_DOUBLE_IRON_BASH", "MOVE_SEA_JAWS":"MOVE_FISHIOUS_REND", "MOVE_RUINA_LIGHT":"MOVE_LIGHT_OF_RUIN", "MOVE_CORROSIVE_CHAIN":"MOVE_MALIGNANT_CHAIN", "MOVE_SEARING_SANDS":"MOVE_SCORCHING_SANDS", "MOVE_PSYCHE_CRASH":"MOVE_LUMINA_CRASH", "MOVE_HORSE_POWER":"MOVE_HIGH_HORSEPOWER", "MOVE_DRACO_CRY":"MOVE_DRAGON_CHEER", "MOVE_BANE_BUNKER":"MOVE_BANEFUL_BUNKER", "MOVE_DRACO_HAMMER":"MOVE_DRAGON_HAMMER", "MOVE_BURNING_ENVY":"MOVE_BURNING_JEALOUSY", "MOVE_PHOTON_FLARE":"MOVE_PHOTON_GEYSER", "MOVE_DOOM_WING":"MOVE_OBLIVION_WING", "MOVE_THUNDERPUNCH":"MOVE_THUNDER_PUNCH", "MOVE_METEOR_STRIKE":"MOVE_SUNSTEEL_STRIKE", "MOVE_DRAIN_KISS":"MOVE_DRAINING_KISS", "MOVE_ECLIPSE_RAY":"MOVE_MOONGEIST_BEAM", "MOVE_SPACE_HOLE":"MOVE_HYPERSPACE_HOLE", "MOVE_HYDRA_BEAM":"MOVE_FICKLE_BEAM", "MOVE_SHELLTER":"MOVE_SHELTER", "MOVE_JUMP_&_POP":"MOVE_JUMP_N_POP", "MOVE_DRACO_ENERGY":"MOVE_DRAGON_ENERGY", "MOVE_TIDAL_CRASH":"MOVE_WAVE_CRASH", "MOVE_PETAL_FLURRY":"MOVE_PETAL_BLIZZARD", "MOVE_RED_GUARD":"MOVE_BURNING_BULWARK", "MOVE_CUTIE_CRY":"MOVE_DISARMING_VOICE", "MOVE_LEAFNADO":"MOVE_LEAF_TORNADO", "MOVE_ANGER_STOMPS":"MOVE_STOMPING_TANTRUM", "MOVE_PSYCHOLARM":"MOVE_PSYCHIC_NOISE", "MOVE_DINE_&_DASH":"MOVE_DINE_N_DASH", "MOVE_LOCKJAW":"MOVE_JAW_LOCK", "MOVE_DARK_LARIAT":"MOVE_DARKEST_LARIAT", "MOVE_BULL_RUSH":"MOVE_HEADLONG_RUSH","MOVE_BARRIER_BASH":"MOVE_PSYSHIELD_BASH","MOVE_DAZZLE_GLEAM":"MOVE_DAZZLING_GLEAM", "MOVE_PHASE_FORCE":"MOVE_PHANTOM_FORCE", "MOVE_EXPAND_FORCE":"MOVE_EXPANDING_FORCE", "MOVE_SOUL_SHACKLE": "MOVE_SPIRIT_SHACKLE", "MOVE_NIGHT_PARADE":"MOVE_INFERNAL_PARADE", "MOVE_BREAK_SWIPE":"MOVE_BREAKING_SWIPE", "MOVE_DRAGONBREATH":"MOVE_DRAGON_BREATH", "MOVE_DOUBLE_WING":"MOVE_DUAL_WINGBEAT", "MOVE_HIT_&_RUN":"MOVE_HIT_N_RUN", "MOVE_NORTH_WIND":"MOVE_BLEAKWIND_STORM","MOVE_FLAME_LASH":"MOVE_FIRE_LASH","MOVE_FLORESCENCE":"MOVE_JUNGLE_HEALING","MOVE_PARACHARGE":"MOVE_PARABOLIC_CHARGE","MOVE_HIGH_VOLTAGE":"MOVE_RISING_VOLTAGE","MOVE_FLOWING_ARIA":"MOVE_SPARKLING_ARIA"}
 
 for name, moveSet in moveSetsDict.items():   
     name = name.replace("'", "").replace("-", "")
     with open("../src/data/pokemon/level_up_learnsets.h", "r+") as levelUpLearnsetsHeader:
                 data = levelUpLearnsetsHeader.readlines()
                 newData = []
-                matchFound = False
-    
+                deleteFollowingLines = False
+                
                 for line in data:
                     newLine = line.split()
                     if "LevelUpMove s"+name in line:
-                        matchFound = True
-                        newData.append(line)
-                    elif matchFound and "};" in line:
-                        matchFound = False
-                        newData.append(line)
-                    elif matchFound and "HIDDEN_POWER" in line:
+                        #print(currentLevelUpMoves[name])
                         for move in moveSet:
-                            if matchFound: #reuse matchFound bool to determine first line with hidden power
-                                matchFound = False
-                                line = add_move_line(move, commentList)
-                            else:
-                                line += add_move_line(move,commentList)    
+                            if ("\u2606" in move.name):
+                                move.name = move.name.replace("\u2606", "_") #I'm looking at you Bari☆Bari☆Beam☆
+                                move.name = move.name[:-1] #Remove final _ from the Bari Bari moves
 
+                            line += add_move_line(move,commentList,renameDict)    
+                        deleteFollowingLines = True
                         newData.append(line)
-                    else:
+                    elif "LEVEL_UP_END" in line:
+                        deleteFollowingLines = False #We found the end of the moves list; stop deleting lines
+                        newData.append(line)
+                    elif not deleteFollowingLines: #Delete the previous list of moves
                         newData.append(line)
                 #seek and truncate to overwrite file's content
                 levelUpLearnsetsHeader.seek(0)
                 levelUpLearnsetsHeader.write("".join(newData))
                 levelUpLearnsetsHeader.truncate()
-      
 
             
     
