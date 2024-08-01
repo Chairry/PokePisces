@@ -270,6 +270,9 @@ const u32 gBattleAnimSpritePal_SpiritShackleArrow[] = INCBIN_U32("graphics/battl
 const u32 gBattleAnimSpriteGfx_SteamEruption[] = INCBIN_U32("graphics/battle_anims/sprites/steam_eruption.4bpp.lz");
 const u32 gBattleAnimSpritePal_SteamEruption[] = INCBIN_U32("graphics/battle_anims/sprites/steam_eruption.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Steamdrop[] = INCBIN_U32("graphics/battle_anims/sprites/steamdrop.4bpp.lz");
+const u32 gBattleAnimSpritePal_Steamdrop[] = INCBIN_U32("graphics/battle_anims/sprites/steamdrop.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller.4bpp.lz");
 const u32 gBattleAnimSpritePal_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller.gbapal.lz");
 
@@ -805,6 +808,15 @@ const u32 gBattleAnimSpritePal_Impact[] = INCBIN_U32("graphics/battle_anims/spri
 const u32 gBattleAnimSpriteGfx_Beam[] = INCBIN_U32("graphics/battle_anims/sprites/beam.4bpp.lz");
 const u32 gBattleAnimSpritePal_Beam[] = INCBIN_U32("graphics/battle_anims/sprites/beam.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_GreenMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/green_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_GreenMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/green_maynimo.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_BlueMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/blue_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlueMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/blue_maynimo.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_RedMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/red_maynimo.4bpp.lz");
+const u32 gBattleAnimSpritePal_RedMaynimo[] = INCBIN_U32("graphics/battle_anims/sprites/red_maynimo.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Particles[] = INCBIN_U32("graphics/battle_anims/sprites/particles.4bpp.lz");
 
 const u32 gBattleAnimSpriteGfx_Particles2[] = INCBIN_U32("graphics/battle_anims/sprites/particles2.4bpp.lz");
@@ -1083,6 +1095,7 @@ const u32 gBattleAnimSpritePal_RedHeart[] = INCBIN_U32("graphics/battle_anims/sp
 const u32 gBattleAnimBgImage_Attract[] = INCBIN_U32("graphics/battle_anims/backgrounds/attract.4bpp.lz");
 const u32 gBattleAnimBgPalette_Attract[] = INCBIN_U32("graphics/battle_anims/backgrounds/attract.gbapal.lz");
 const u32 gBattleAnimBgTilemap_Attract[] = INCBIN_U32("graphics/battle_anims/backgrounds/attract.bin.lz");
+const u32 gBattleAnimBgTilemap_RealAttract[] = INCBIN_U32("graphics/battle_anims/backgrounds/realattract.bin.lz");
 
 const u32 gBattleAnimSpriteGfx_RedOrb[] = INCBIN_U32("graphics/battle_anims/sprites/red_orb.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedOrb[] = INCBIN_U32("graphics/battle_anims/sprites/red_orb.gbapal.lz");

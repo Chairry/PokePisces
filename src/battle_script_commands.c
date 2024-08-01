@@ -12104,21 +12104,20 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS(const u8 *jumpInstr);
 
-        u32 defense = gBattleMons[gBattlerAttacker].defense;
-        u32 spDefense = gBattleMons[gBattlerAttacker].spDefense;
+        u32 defense = gBattleMons[battler].defense;
+        u32 spDefense = gBattleMons[battler].spDefense;
 
-        defense = defense * gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_DEF]][0];
-        defense = defense / gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_DEF]][1];
+        defense *= gStatStageRatios[gBattleMons[battler].statStages[STAT_DEF]][0];
+        defense /= gStatStageRatios[gBattleMons[battler].statStages[STAT_DEF]][1];
 
-        spDefense = spDefense * gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF]][0];
-        spDefense = spDefense / gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF]][1];
+        spDefense *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPDEF]][0];
+        spDefense /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPDEF]][1];
 
         if (defense < spDefense || (defense == spDefense && (Random() % 2) == 0))
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-
-        break;
+        return;
     }
     case VARIOUS_JUMP_IF_STATUS4:
     {

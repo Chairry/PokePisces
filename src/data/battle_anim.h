@@ -1471,6 +1471,10 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_LightBall, 0x480, ANIM_TAG_LIGHT_BALL},
     {gBattleAnimSpriteGfx_Pin, 0x0080, ANIM_TAG_PIN},
     {gBattleAnimSpriteGfx_Beam, 0x0200, ANIM_TAG_BEAM},
+    {gBattleAnimSpriteGfx_GreenMaynimo, 0x0100, ANIM_TAG_GREEN_MAYNIMO},
+    {gBattleAnimSpriteGfx_BlueMaynimo, 0x0100, ANIM_TAG_BLUE_MAYNIMO},
+    {gBattleAnimSpriteGfx_RedMaynimo, 0x0100, ANIM_TAG_RED_MAYNIMO},
+    {gBattleAnimSpriteGfx_Steamdrop, 0xa00, ANIM_TAG_STEAMDROP},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1942,6 +1946,10 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_LightBall, ANIM_TAG_LIGHT_BALL},
     {gBattleAnimSpritePal_Pin, ANIM_TAG_PIN},
     {gBattleAnimSpritePal_Beam, ANIM_TAG_BEAM},
+    {gBattleAnimSpritePal_GreenMaynimo, ANIM_TAG_GREEN_MAYNIMO},
+    {gBattleAnimSpritePal_BlueMaynimo, ANIM_TAG_BLUE_MAYNIMO},
+    {gBattleAnimSpritePal_RedMaynimo, ANIM_TAG_RED_MAYNIMO},
+    {gBattleAnimSpritePal_Steamdrop, ANIM_TAG_STEAMDROP},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -2031,4 +2039,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_URANIUM]                   = {gBattleAnimBgImage_FocusBlast,              gBattleAnimBgPalette_LeafStorm,               gBattleAnimBgTilemap_FocusBlast},
     [BG_THUNDER_2]                 = {gBattleAnimBgImage_Thunder,                 gBattleAnimBgPalette_Thunder2,                gBattleAnimBgTilemap_Thunder},
     [BG_INVERSE_ROOM]              = {gBattleAnimBgImage_TrickRoom,               gBattleAnimBgPalette_InverseRoom,             gBattleAnimBgTilemap_TrickRoom},
+    [BG_ATTRACT]                   = {gBattleAnimBgImage_Attract,                 gBattleAnimBgPalette_Attract,                 gBattleAnimBgTilemap_RealAttract},
 };

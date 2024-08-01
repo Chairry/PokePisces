@@ -807,6 +807,17 @@ const struct SpriteTemplate gReversalOrbSpriteTemplate =
     .callback = AnimReversalOrb,
 };
 
+const struct SpriteTemplate gRemodelOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAY_ORB,
+    .paletteTag = ANIM_TAG_GRAY_ORB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimReversalOrb,
+};
+
 const union AffineAnimCmd gDeepInhaleAffineAnimCmds[] =
 {
     AFFINEANIMCMD_FRAME(16, 0, 0, 4),

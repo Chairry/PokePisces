@@ -2551,8 +2551,8 @@
 	various \battler, VARIOUS_SET_PUMP
 	.endm
 
-	.macro remodelcheck jumpInstr:req
-	various 0, VARIOUS_REMODEL_CHECK
+	.macro remodelcheck battler:req, jumpInstr:req
+	various \battler, VARIOUS_REMODEL_CHECK
 	.4byte \jumpInstr
 	.endm
 

@@ -346,6 +346,51 @@ const struct SpriteTemplate gWorrySeedSpriteTemplate =
     .callback = AnimMoveWorrySeed
 };
 
+static const union AnimCmd sAnim_MaynimoBabies[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd *const gAnims_MaynimoBabies[] =
+{
+    sAnim_MaynimoBabies,
+};
+
+const struct SpriteTemplate gGreenMaynimoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GREEN_MAYNIMO,
+    .paletteTag = ANIM_TAG_GREEN_MAYNIMO,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gAnims_MaynimoBabies,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveWorrySeed
+};
+
+const struct SpriteTemplate gBlueMaynimoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BLUE_MAYNIMO,
+    .paletteTag = ANIM_TAG_BLUE_MAYNIMO,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gAnims_MaynimoBabies,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveWorrySeed
+};
+
+const struct SpriteTemplate gRedMaynimoSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_MAYNIMO,
+    .paletteTag = ANIM_TAG_RED_MAYNIMO,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gAnims_MaynimoBabies,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveWorrySeed
+};
+
 const struct SpriteTemplate gSmallCloudTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_CLOUD,
