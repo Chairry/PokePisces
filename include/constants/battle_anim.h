@@ -424,6 +424,7 @@
 #define ANIM_TAG_GREEN_MAYNIMO              (ANIM_SPRITES_START + 410)
 #define ANIM_TAG_BLUE_MAYNIMO               (ANIM_SPRITES_START + 411)
 #define ANIM_TAG_RED_MAYNIMO                (ANIM_SPRITES_START + 412)
+#define ANIM_TAG_STEAMDROP                  (ANIM_SPRITES_START + 413)
 
 // battlers
 #define ANIM_ATTACKER         0

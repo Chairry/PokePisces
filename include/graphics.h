@@ -11843,6 +11843,8 @@ extern const u32 gBattleAnimSpriteGfx_SpiritShackleArrow[];
 extern const u32 gBattleAnimSpritePal_SpiritShackleArrow[];
 extern const u32 gBattleAnimSpriteGfx_SteamEruption[];
 extern const u32 gBattleAnimSpritePal_SteamEruption[];
+extern const u32 gBattleAnimSpriteGfx_Steamdrop[];
+extern const u32 gBattleAnimSpritePal_Steamdrop[];
 extern const u32 gBattleAnimSpriteGfx_Steamroller[];
 extern const u32 gBattleAnimSpritePal_Steamroller[];
 extern const u32 gBattleAnimSpriteGfx_StonePillar[];

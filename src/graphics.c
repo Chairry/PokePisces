@@ -270,6 +270,9 @@ const u32 gBattleAnimSpritePal_SpiritShackleArrow[] = INCBIN_U32("graphics/battl
 const u32 gBattleAnimSpriteGfx_SteamEruption[] = INCBIN_U32("graphics/battle_anims/sprites/steam_eruption.4bpp.lz");
 const u32 gBattleAnimSpritePal_SteamEruption[] = INCBIN_U32("graphics/battle_anims/sprites/steam_eruption.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_Steamdrop[] = INCBIN_U32("graphics/battle_anims/sprites/steamdrop.4bpp.lz");
+const u32 gBattleAnimSpritePal_Steamdrop[] = INCBIN_U32("graphics/battle_anims/sprites/steamdrop.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller.4bpp.lz");
 const u32 gBattleAnimSpritePal_Steamroller[] = INCBIN_U32("graphics/battle_anims/sprites/steamroller.gbapal.lz");
 

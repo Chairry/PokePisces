@@ -17790,35 +17790,35 @@ SetAquaCutterBG:
 	goto SetHighSpeedBgFade
 
 Move_HYDRO_STEAM:
-	loadspritegfx ANIM_TAG_BUBBLE
+	loadspritegfx ANIM_TAG_STEAMDROP
 	loadspritegfx ANIM_TAG_PINK_CLOUD
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x7, 0x043D
 	delay 0x20
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
 	panse SE_M_HYDRO_PUMP, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 0x2, 0x0
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
+	call SteamdropBreath
+	call SteamdropBreath
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x1, 0x0, 0x9, 0x1f
-	call BulbblebeamCreateBubbles
+	call SteamdropBreath
 	delay 0x2
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 21, 1
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
+	call SteamdropBreath
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x1, 0x9, 0x0, 0x1f
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
@@ -17830,6 +17830,10 @@ Move_HYDRO_STEAM:
 	delay 10
 	call PinkCloudSpreadEffect
 	end
+SteamdropBreath:
+	createsprite gSteamdropBreathTemplate, ANIM_TARGET, 2, 0x0, 0x5, 0x0, 0x5, 0x14
+	delay 0x1
+	return
 
 Move_ELECTRO_SHOT:
 	loadspritegfx ANIM_TAG_ORBS

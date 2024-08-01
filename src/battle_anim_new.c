@@ -1549,6 +1549,17 @@ const struct SpriteTemplate gSteamEruptionBreathTemplate =
     .callback = AnimDragonFireToTarget
 };
 
+const struct SpriteTemplate gSteamdropBreathTemplate =
+{
+    .tileTag = ANIM_TAG_STEAMDROP,
+    .paletteTag = ANIM_TAG_STEAMDROP,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gAnims_DragonBreathFire,
+    .images = NULL,
+    .affineAnims = gAffineAnims_DragonBreathFire,
+    .callback = AnimDragonFireToTarget
+};
+
 //hyperspace hole
 const struct SpriteTemplate gHyperspaceHoleImpactTemplate =
 {
