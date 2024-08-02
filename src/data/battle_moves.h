@@ -8324,13 +8324,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_ACID_SPRAY] =
     {
-        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT_2,
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT,
         .power = 40,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,

@@ -427,6 +427,8 @@
 #define ANIM_TAG_STEAMDROP                  (ANIM_SPRITES_START + 413)
 #define ANIM_TAG_BLOOD_MOON                 (ANIM_SPRITES_START + 414)
 #define ANIM_TAG_RED_EXPLOSION              (ANIM_SPRITES_START + 415)
+#define ANIM_TAG_CANDY_ORBS                 (ANIM_SPRITES_START + 416)
+#define ANIM_TAG_STAR                       (ANIM_SPRITES_START + 417)
 
 // battlers
 #define ANIM_ATTACKER         0

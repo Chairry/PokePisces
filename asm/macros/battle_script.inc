@@ -1315,10 +1315,6 @@
     .byte \battler
     .4byte \hpfailptr
     .endm
-    
-    .macro setticked
-    callnative BS_SetTicked
-    .endm
 
 	.macro metalburstdamagecalculator failInstr:req
 	callnative BS_CalcMetalBurstDmg
