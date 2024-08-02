@@ -1122,7 +1122,7 @@ static const u8 sAssistDescription[] = _(
 
 static const u8 sIngrainDescription[] = _(
     "Lays roots that heal HP and\n"
-    "gives Blooming. Can't switch.");
+    "give Blooming. Can't switch.");
 
 static const u8 sSuperpowerDescription[] = _(
     "Boosts strength sharply,\n"

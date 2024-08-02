@@ -1045,6 +1045,12 @@ const u32 gBattleAnimSpritePal_BloodMoon[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_RedExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/redexplosion.4bpp.lz");
 const u32 gBattleAnimSpritePal_RedExplosion[] = INCBIN_U32("graphics/battle_anims/sprites/redexplosion.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_CandyOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/candy_orbs.4bpp.lz");
+const u32 gBattleAnimSpritePal_CandyOrbs[] = INCBIN_U32("graphics/battle_anims/sprites/candy_orbs.gbapal.lz");
+
+const u32 gBattleAnimSpriteGfx_Star[] = INCBIN_U32("graphics/battle_anims/sprites/star.4bpp.lz");
+const u32 gBattleAnimSpritePal_Star[] = INCBIN_U32("graphics/battle_anims/sprites/star.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_GreenSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/green_sparkle.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/green_sparkle.gbapal.lz");
 

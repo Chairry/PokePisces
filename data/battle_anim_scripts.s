@@ -5429,25 +5429,27 @@ Move_LOW_SWEEP:
 Move_ACID_SPRAY:
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_TARGET
-	createsprite gAcidPoisonBubbleSpriteTemplate, ANIM_TARGET, 2, 20, 0, 40, 1, 0, -20, FALSE
+	createsprite gAcidPoisonBubbleSpriteTemplate, ANIM_TARGET, 2, 20, 0, 40, 1, 0, -20, TRUE
 	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
 	delay 33
 	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 10, 1
 	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(30, 0, 31)
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_DEF_PARTNER, 2, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_DEF_PARTNER, 2, 2, 0, 12, RGB(30, 0, 31)
 	playsewithpan SE_M_DIVE, SOUND_PAN_ATTACKER
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 10, 15, 55, FALSE
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -20, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 10, 15, 55, TRUE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -20, 15, 55, TRUE
 	delay 3
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 5, 15, 55, FALSE
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -10, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 5, 15, 55, TRUE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -10, 15, 55, TRUE
 	delay 3
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 30, 15, 55, FALSE
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -30, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 30, 15, 55, TRUE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -30, 15, 55, TRUE
 	delay 3
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 2, 15, 55, FALSE
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -5, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 2, 15, 55, TRUE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, -5, 15, 55, TRUE
 	delay 3
-	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 20, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -20, 20, 15, 55, TRUE
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	end
@@ -23457,10 +23459,190 @@ Move_REMODEL::
 	end
 
 Move_BARI_BARI_BEAM::
-	goto Move_HYPER_BEAM
+	loadspritegfx ANIM_TAG_CANDY_ORBS
+	loadspritegfx ANIM_TAG_STAR
+	loadspritegfx ANIM_TAG_TRUMP_CARD_PARTICLES
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 0, 16, RGB_BLACK
+	waitforvisualfinish
+	delay 10
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
+	waitforvisualfinish
+	delay 30
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
+	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB_PURPLE, 16, 0, 0
+	call BariBariBeamOrbs
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 160, -32
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -256, -40
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 128, -16
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 416, -38
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -128, -22
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -384, -31
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 11, RGB(25, 25, 25)
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	call BariBariBeamOrbs
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 160, -32
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -256, -40
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 128, -16
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 416, -38
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -128, -22
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -384, -31
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 160, -32
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -256, -40
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 128, -16
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, 416, -38
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -128, -22
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 16, 8, -384, -31
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	call BariBariBeamOrbs
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	call BariBariBeamOrbs
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 160, -32
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -256, -40
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 128, -16
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, 416, -38
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -128, -22
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, -16, -8, -384, -31
+	call BariBariBeamOrbs
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 11, 0, RGB(25, 25, 25)
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 4, 16, 0, RGB_BLACK
+	end
+BariBariBeamOrbs:
+	createsprite gBariBariBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	createsprite gBariBariBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	delay 1
+	return
 
 Move_BARI_BARI_BASH::
-	goto Move_BEHEMOTH_BASH
+	loadspritegfx ANIM_TAG_HORSESHOE_SIDE_FIST @punch
+	loadspritegfx ANIM_TAG_ECLIPSING_ORB @gray color
+	loadspritegfx ANIM_TAG_TRUMP_CARD_PARTICLES
+	loadspritegfx ANIM_TAG_CONFETTI
+	loadspritegfx ANIM_TAG_STAR
+	setalpha 12, 8
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0xC, 0x0
+	waitforvisualfinish
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_TARGET
+	createsprite gIceHammerPunchStompTemplate, ANIM_TARGET, 3, 0x0, 0xffe0, 0xf
+	delay 0x13
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createvisualtask AnimTask_SquishTarget, 0x2
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, 160, -32
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, -256, -40
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, 128, -16
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, 416, -38
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, -128, -22
+	createsprite gBariBariBeamStarSpriteTemplate, ANIM_TARGET, 3, 0, 8, -384, -31
+	delay 10
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -5, -4, 0
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 4, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 8, -3, 0, 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 12, -5, 4, 3
+	delay 2
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 10, 1, -4, 4
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 0, 13, 5, 6, 1
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 1, 12, -2, 1, 3
+	createsprite gTrumpCardParticleSpriteTempalte, ANIM_ATTACKER, 40, 0, 0, 2, 13, -2, 1, 2
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0xC, 0x0, 0x0
+	waitforvisualfinish
+	blendoff
+	end
+
 
 Move_GLIMMER::
 	goto Move_TAIL_GLOW
@@ -23469,7 +23651,26 @@ Move_WATER_WHEEL::
 	goto Move_FLAME_WHEEL
 
 Move_SUN_BASK::
-	goto Move_GROWTH
+	loadspritegfx ANIM_TAG_SUNLIGHT
+	monbg ANIM_ATK_PARTNER
+	setalpha 13, 3
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS), 1, 0, 6, RGB_WHITE
+	waitforvisualfinish
+	panse_adjustnone SE_M_PETAL_DANCE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	call SunnyDayLightRay
+	waitforvisualfinish
+	call GrowthEffect
+	waitforvisualfinish
+	call GrowthEffect
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS), 1, 6, 0, RGB_WHITE
+	waitforvisualfinish
+	clearmonbg ANIM_ATK_PARTNER
+	blendoff
+	end
 
 Move_HEARTHWARM::
 	goto Move_AQUA_RING

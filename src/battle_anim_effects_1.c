@@ -670,6 +670,17 @@ const struct SpriteTemplate gHyperBeamOrbSpriteTemplate =
     .callback = AnimHyperBeamOrb,
 };
 
+const struct SpriteTemplate gBariBariBeamOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CANDY_ORBS,
+    .paletteTag = ANIM_TAG_CANDY_ORBS,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gSolarBeamBigOrbAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHyperBeamOrb,
+};
+
 const union AnimCmd gLeechSeedAnimCmds1[] =
 {
     ANIMCMD_FRAME(0, 1),

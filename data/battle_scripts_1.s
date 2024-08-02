@@ -2417,36 +2417,46 @@ BattleScript_PowerDrainMustLower:
 	goto BattleScript_PowerDrainLower
 
 BattleScript_EffectHearthwarm:
+	jumpifnotbattletype BATTLE_TYPE_DOUBLE, BattleScript_HearthwarmSingleBattle
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstatus4 BS_ATTACKER, STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly2
-	attackanimation
-	waitanimation
 	copybyte gBattlerTarget, gBattlerAttacker
 	setbyte gBattleCommunication, 0
 	copybyte gBattlerAttacker, gBattlerTarget
-	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAlly1
+	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_SetHearthwarmAllySelfFailed
+	attackanimation
+	waitanimation
 	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
 	waitmessage B_WAIT_TIME_LONG
-BattleScript_SetHearthwarmAlly1:
+BattleScript_SetHearthwarmAlly:
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_MoveEnd
 	addbyte gBattleCommunication, 1
 	jumpifnoally BS_TARGET, BattleScript_MoveEnd
-	setallytonexttarget SetHearthWarmAlly1
-SetHearthWarmAlly1:
+	setallytonexttarget SetHearthWarmAlly
+SetHearthWarmAlly:
 	copybyte gBattlerAttacker, gBattlerTarget
 	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_MoveEnd
 	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
-BattleScript_SetHearthwarmAlly2:
+BattleScript_SetHearthwarmAllySelfFailed:
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_ButItFailed
 	addbyte gBattleCommunication, 1
 	jumpifnoally BS_TARGET, BattleScript_ButItFailed
-	setallytonexttarget SetHearthWarmAlly2
-SetHearthWarmAlly2:
+	setallytonexttarget BattleScript_SetHearthwarmAllySelfFailedTryAlly
+BattleScript_SetHearthwarmAllySelfFailedTryAlly:
 	copybyte gBattlerAttacker, gBattlerTarget
+	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNSURROUNDEDWITHVEILOFHEAT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_HearthwarmSingleBattle:
+	attackcanceler
+	attackstring
+	ppreduce
 	setuserstatus4 STATUS4_HEARTHWARM, BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -2588,29 +2598,13 @@ BattleScript_HeavyCellEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectErodeField::
+	setmoveeffect MOVE_EFFECT_DEF_SPDEF_DOWN | MOVE_EFFECT_CERTAIN
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_EffectErodeFieldTryDef
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPDEF, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
-BattleScript_EffectErodeFieldTryDef:
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackanimation
 	waitanimation
-	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_DEF | BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
-	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_DEF, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_EffectErodeFieldTrySpDef
-	printfromtable gStatDownStringIds
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_EffectErodeFieldTrySpDef:
-	playstatchangeanimation BS_TARGET, BIT_SPDEF, STAT_CHANGE_NEGATIVE
-	setstatchanger STAT_SPDEF, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_ErodeFieldEnd
-	printfromtable gStatDownStringIds
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_ErodeFieldEnd:
+	seteffectprimary
 	end
 
 BattleScript_EffectEnervator::
