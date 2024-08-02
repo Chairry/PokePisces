@@ -2325,7 +2325,6 @@ BattleScript_EffectFlorescence:
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0, BattleScript_EffectFlorescenceSkipAnim
 	attackanimation
 	waitanimation
 BattleScript_EffectFlorescenceSkipAnim:
@@ -2713,6 +2712,7 @@ BattleScript_EffectTickTack::
 	printfromtable gTickedStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_TickTackContinue::
+	jumpiffullhp BS_ATTACKER, BattleScript_AbsorbTryFainting
 	jumpifstatus3 BS_ATTACKER, STATUS3_HEAL_BLOCK, BattleScript_AbsorbHealBlock
 	setdrainedhp
 	manipulatedamage DMG_BIG_ROOT

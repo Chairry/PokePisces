@@ -19406,8 +19406,6 @@ Move_JUNGLE_RAGE::
 	loadspritegfx ANIM_TAG_IMPACT
 	createvisualtask AnimTask_BlendParticle, 0x5, ANIM_TAG_PAIN_SPLIT, 0x0, 0x9, 0x9, 0x1F
 	createvisualtask AnimTask_BlendParticle, 0x5, ANIM_TAG_FOCUS_ENERGY, 0x0, 0x8, 0x8, 0x1F
-	fadetobg BG_SNUGGLE_FOREVER
-	waitbgfadeout
 	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_ATTACKER, RGB_RED, 10, 0, 2
 	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, -28
 	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
@@ -19467,11 +19465,8 @@ Move_JUNGLE_RAGE::
 	createsprite gTwinkleTackleTwinkleSpriteTemplate, ANIM_TARGET, 13, 0x0, 0x0, ANIM_TARGET @detect star
 	waitforvisualfinish
 	blendoff
-	restorebg
-	waitbgfadeout
 	visible ANIM_TARGET
 	waitforvisualfinish
-	waitbgfadein
 	end
 
 Move_DECAY_BEAM::
@@ -23750,6 +23745,9 @@ Move_CINDER_WALTZ::
 Move_BLOOD_MOON::
 	loadspritegfx ANIM_TAG_BLOOD_MOON
 	loadspritegfx ANIM_TAG_BEAM
+	loadspritegfx ANIM_TAG_RED_EXPLOSION
+	fadetobg BG_BLACKHOLE_ECLIPSE
+	waitbgfadein
 	createsprite gVerticalDipSpriteTemplate, ANIM_ATTACKER, 2, 8, 1, ANIM_ATTACKER
 	delay 8
 	playsewithpan SE_M_BARRIER, SOUND_PAN_ATTACKER
@@ -23765,81 +23763,107 @@ BloodMoonOnOpponent:
 	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 10, 0, 5
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 140, 0xfff0, 165, 40, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	waitforvisualfinish
 	goto BloodMoonFinish
@@ -23847,78 +23871,103 @@ BloodMoonOnPlayer:
 	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 10, 0, 5
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 6, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -16, -15, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 16, -5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, -12, 18, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
+	createsprite gRedExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 5, 1, 0
 	delay 0
 	createsprite gBloodMoonOnslaughtSpriteTemplate, ANIM_TARGET, 2, 40, 0xfff0, 75, 80, 0x4
 	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 4, 0, 12, 1
@@ -23928,6 +23977,8 @@ BloodMoonFinish:
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0xC, 0x0, 0xffff
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	restorebg
+	waitbgfadein
 	blendoff
 	end
 

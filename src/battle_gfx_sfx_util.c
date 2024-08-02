@@ -25,6 +25,30 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
+#include "battle_anim.h"
+#include "battle_arena.h"
+#include "battle_pyramid.h"
+#include "battle_util.h"
+#include "battle_controllers.h"
+#include "battle_setup.h"
+#include "battle_z_move.h"
+#include "party_menu.h"
+#include "pokemon.h"
+#include "international_string_util.h"
+#include "item.h"
+#include "util.h"
+#include "battle_scripts.h"
+#include "random.h"
+#include "text.h"
+#include "safari_zone.h"
+#include "sound.h"
+#include "sprite.h"
+#include "string_util.h"
+#include "task.h"
+#include "test_runner.h"
+#include "trig.h"
+#include "window.h"
+#include "battle_message.h"
 
 extern const u8 gBattlePalaceNatureToMoveTarget[];
 extern const struct CompressedSpriteSheet gSpriteSheet_EnemyShadow;
@@ -438,7 +462,7 @@ void InitAndLaunchChosenStatusAnimation(u32 battler, bool32 isStatus2, u32 statu
             LaunchStatusAnimation(battler, B_ANIM_STATUS_PRZ);
         else if (status == STATUS1_PANIC)
             LaunchStatusAnimation(battler, B_ANIM_STATUS_PNC);
-        else if (status == STATUS1_BLOOMING)
+        else if (status == STATUS1_BLOOMING || status & STATUS1_BLOOMING_TURN(1) || status & STATUS1_BLOOMING_TURN(2) || status & STATUS1_BLOOMING_TURN(3))
             LaunchStatusAnimation(battler, B_ANIM_STATUS_BLOOMING);
         else if (status == STATUS1_EXPOSED)
             LaunchStatusAnimation(battler, B_ANIM_STATUS_EXPOSED);
