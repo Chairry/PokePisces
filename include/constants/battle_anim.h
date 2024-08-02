@@ -425,6 +425,8 @@
 #define ANIM_TAG_BLUE_MAYNIMO               (ANIM_SPRITES_START + 411)
 #define ANIM_TAG_RED_MAYNIMO                (ANIM_SPRITES_START + 412)
 #define ANIM_TAG_STEAMDROP                  (ANIM_SPRITES_START + 413)
+#define ANIM_TAG_BLOOD_MOON                 (ANIM_SPRITES_START + 414)
+#define ANIM_TAG_RED_EXPLOSION              (ANIM_SPRITES_START + 415)
 
 // battlers
 #define ANIM_ATTACKER         0

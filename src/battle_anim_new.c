@@ -6664,6 +6664,17 @@ const struct SpriteTemplate gPilgrimageOnslaughtSpriteTemplate =
     .callback = AnimAssistPawprint
 };
 
+const struct SpriteTemplate gBloodMoonOnslaughtSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BEAM,
+    .paletteTag = ANIM_TAG_BEAM,
+    .oam = &gOamData_AffineNormal_ObjBlend_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sArrowRaidOnslaughtAffineAnimTable,
+    .callback = AnimAssistPawprint
+};
+
 // malicious moonsault
 const struct SpriteTemplate gMaliciousMoonsaultRedFlySpriteTemplate =
 {
