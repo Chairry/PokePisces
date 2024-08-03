@@ -242,7 +242,8 @@ void DrawDialogueFrameWithNameplate(u8 windowId, bool8 copyToVram)
     CallWindowFunction(windowId, WindowFunc_DrawDialogueFrameWithPlate);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
     PutWindowTilemap(windowId);
-    if (copyToVram == TRUE) {
+    if (copyToVram == TRUE)
+    {
         CopyWindowToVram(windowId, COPYWIN_FULL);
     }
 }
@@ -392,14 +393,15 @@ static void WindowFunc_DrawDialogueFrameWithPlate(u8 bg, u8 L, u8 T, u8 w, u8 h,
     FillBgTilemapBufferRect(bg, BG_TILE_V_FLIP(DLG_WINDOW_BASE_TILE_NUM +  4), L + w,     T + h, 1,     1, DLG_WINDOW_PALETTE_NUM);
 }
 
-int GetDialogFramePlateWidth()
+int GetDialogFramePlateWidth(void)
 {
     return DLW_WIN_PLATE_SIZE * 8;
 }
-void FillDialogFramePlate()
+void FillDialogFramePlate(void)
 {
     int i;
-    for (i = 0; i < DLW_WIN_PLATE_SIZE; i++) {
+    for (i = 0; i < DLW_WIN_PLATE_SIZE; i++)
+    {
         CopyToWindowPixelBuffer(1, &gMessageBox_Gfx[8*5], TILE_SIZE_4BPP, i);
         CopyToWindowPixelBuffer(1, &gMessageBox_Gfx[8*12], TILE_SIZE_4BPP, i+DLW_WIN_PLATE_SIZE);
     }
