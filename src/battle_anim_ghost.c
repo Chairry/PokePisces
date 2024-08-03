@@ -32,6 +32,7 @@ static void AnimDestinyBondWhiteShadow_Step(struct Sprite *);
 static void AnimTask_DestinyBondWhiteShadow_Step(u8 taskId);
 static void AnimTask_CurseStretchingBlackBg_Step1(u8 taskId);
 static void AnimTask_CurseStretchingBlackBg_Step2(u8 taskId);
+static void AnimGrippingNail(struct Sprite *);
 static void AnimCurseNail(struct Sprite *);
 static void AnimCurseNail_Step1(struct Sprite *);
 static void AnimCurseNail_Step2(struct Sprite *);
@@ -91,6 +92,17 @@ const struct SpriteTemplate gShadowBallSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SHADOW_BALL,
     .paletteTag = ANIM_TAG_SHADOW_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_ShadowBall,
+    .callback = AnimShadowBall,
+};
+
+const struct SpriteTemplate gDuneSlicerSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DUNE_SLICER,
+    .paletteTag = ANIM_TAG_DUNE_SLICER,
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -200,6 +212,17 @@ const struct SpriteTemplate gCurseNailSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimCurseNail,
+};
+
+const struct SpriteTemplate gGrippingNailSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_NAIL,
+    .paletteTag = ANIM_TAG_NAIL,
+    .oam = &gOamData_AffineOff_ObjBlend_32x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimGrippingNail,
 };
 
 const struct SpriteTemplate gCurseGhostSpriteTemplate =
@@ -464,10 +487,18 @@ static void AnimTask_NightShadeClone_Step2(u8 taskId)
 void AnimShadowBall(struct Sprite *sprite)
 {
     s16 oldPosX = sprite->x;
-    s16 oldPosY = sprite->y;
+    s16 oldPosY;
+
+    if (gAnimMoveIndex == MOVE_DUNE_SLICER)
+        oldPosY = sprite->y + 20;
+    else
+        oldPosY = sprite->y;
 
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
-    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    if (gAnimMoveIndex == MOVE_DUNE_SLICER)
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET) + 20;
+    else
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
     sprite->data[0] = 0;
     sprite->data[1] = gBattleAnimArgs[0];
     sprite->data[2] = gBattleAnimArgs[1];
@@ -1146,6 +1177,30 @@ static void AnimCurseNail(struct Sprite *sprite)
 
     InitSpritePosToAnimAttacker(sprite, TRUE);
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
+    {
+        xDelta = 24;
+        xDelta2 = -2;
+        sprite->oam.matrixNum = ST_OAM_HFLIP;
+    }
+    else
+    {
+        xDelta = -24;
+        xDelta2 = 2;
+    }
+
+    sprite->x += xDelta;
+    sprite->data[1] = xDelta2;
+    sprite->data[0] = 60;
+    sprite->callback = AnimCurseNail_Step1;
+}
+
+static void AnimGrippingNail(struct Sprite *sprite)
+{
+    s16 xDelta;
+    s16 xDelta2;
+
+    InitSpritePosToAnimTarget(sprite, TRUE);
+    if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_PLAYER)
     {
         xDelta = 24;
         xDelta2 = -2;

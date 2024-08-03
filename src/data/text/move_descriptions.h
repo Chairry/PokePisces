@@ -2966,8 +2966,8 @@ static const u8 sGlacialLanceDescription[] = _(
     "cloaked icicle lance at foes.");
 
 static const u8 sAstralBarrageDescription[] = _(
-    "Strikes by sending a frightful\n"
-    "amount of ghosts at foes.");
+    "Strikes by sending\n"
+    "otherworldly beings at foes.");
 
 static const u8 sEerieSpellDescription[] = _(
     "Attacks with psychic power.\n"

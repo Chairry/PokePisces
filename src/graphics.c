@@ -1051,6 +1051,9 @@ const u32 gBattleAnimSpritePal_CandyOrbs[] = INCBIN_U32("graphics/battle_anims/s
 const u32 gBattleAnimSpriteGfx_Star[] = INCBIN_U32("graphics/battle_anims/sprites/star.4bpp.lz");
 const u32 gBattleAnimSpritePal_Star[] = INCBIN_U32("graphics/battle_anims/sprites/star.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_DuneSlicer[] = INCBIN_U32("graphics/battle_anims/sprites/dune_slicer.4bpp.lz");
+const u32 gBattleAnimSpritePal_DuneSlicer[] = INCBIN_U32("graphics/battle_anims/sprites/dune_slicer.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_GreenSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/green_sparkle.4bpp.lz");
 const u32 gBattleAnimSpritePal_GreenSparkle[] = INCBIN_U32("graphics/battle_anims/sprites/green_sparkle.gbapal.lz");
 

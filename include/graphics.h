@@ -11187,6 +11187,8 @@ extern const u32 gBattleAnimSpriteGfx_CandyOrbs[];
 extern const u32 gBattleAnimSpritePal_CandyOrbs[];
 extern const u32 gBattleAnimSpriteGfx_Star[];
 extern const u32 gBattleAnimSpritePal_Star[];
+extern const u32 gBattleAnimSpriteGfx_DuneSlicer[];
+extern const u32 gBattleAnimSpritePal_DuneSlicer[];
 extern const u32 gBattleAnimSpriteGfx_GreenMaynimo[];
 extern const u32 gBattleAnimSpritePal_GreenMaynimo[];
 extern const u32 gBattleAnimSpriteGfx_BlueMaynimo[];

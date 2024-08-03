@@ -429,6 +429,7 @@
 #define ANIM_TAG_RED_EXPLOSION              (ANIM_SPRITES_START + 415)
 #define ANIM_TAG_CANDY_ORBS                 (ANIM_SPRITES_START + 416)
 #define ANIM_TAG_STAR                       (ANIM_SPRITES_START + 417)
+#define ANIM_TAG_DUNE_SLICER                (ANIM_SPRITES_START + 418)
 
 // battlers
 #define ANIM_ATTACKER         0
