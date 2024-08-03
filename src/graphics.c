@@ -421,6 +421,9 @@ const u32 gBattleAnimSpritePal_SmallEmber[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimSpriteGfx_GraySmoke[] = INCBIN_U32("graphics/battle_anims/sprites/gray_smoke.4bpp.lz");
 const u32 gBattleAnimSpritePal_GraySmoke[] = INCBIN_U32("graphics/battle_anims/sprites/gray_smoke.gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BlackGraySmoke[] = INCBIN_U32("graphics/battle_anims/sprites/black_gray_smoke.4bpp.lz");
+const u32 gBattleAnimSpritePal_BlackGraySmoke[] = INCBIN_U32("graphics/battle_anims/sprites/black_gray_smoke.gbapal.lz");
+
 const u32 gBattleAnimSpritePal_Fire[] = INCBIN_U32("graphics/battle_anims/sprites/fire.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_Fire[] = INCBIN_U32("graphics/battle_anims/sprites/fire.4bpp.lz");
 
@@ -1480,6 +1483,9 @@ const u32 gBattleAnimBgPalette_AuraSphere[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimBgImage_BlackholeEclipse[] = INCBIN_U32("graphics/battle_anims/backgrounds/blackhole_eclipse.4bpp.lz");
 const u32 gBattleAnimBgPalette_BlackholeEclipse[] = INCBIN_U32("graphics/battle_anims/backgrounds/blackhole_eclipse.gbapal.lz");
 const u32 gBattleAnimBgTilemap_BlackholeEclipse[] = INCBIN_U32("graphics/battle_anims/backgrounds/blackhole_eclipse.bin.lz");
+
+const u32 gBattleAnimBgImage_Red[] = INCBIN_U32("graphics/battle_anims/backgrounds/red.4bpp.lz");
+const u32 gBattleAnimBgPalette_Red[] = INCBIN_U32("graphics/battle_anims/backgrounds/red.gbapal.lz");
 
 const u32 gBattleAnimBgImage_BloomDoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/bloom_doom.4bpp.lz");
 const u32 gBattleAnimBgPalette_BloomDoom[] = INCBIN_U32("graphics/battle_anims/backgrounds/bloom_doom.gbapal.lz");

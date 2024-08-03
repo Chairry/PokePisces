@@ -23647,7 +23647,6 @@ Move_BARI_BARI_BASH::
 	blendoff
 	end
 
-
 Move_GLIMMER::
 	goto Move_TAIL_GLOW
 
@@ -23915,23 +23914,214 @@ SpiritAwayHands:
 	return
 
 Move_PHANTASM::
-	goto Move_VIGOR_ROOT
+	fadetobg BG_GHOST
+	waitbgfadein
+	monbg ANIM_DEF_PARTNER
+	delay 1
+	createvisualtask AnimTask_DragonDanceWaver, 5
+	playsewithpan SE_M_TELEPORT, SOUND_PAN_ATTACKER
+	delay 8
+	createvisualtask AnimTask_NightmareClone, 2
+	createvisualtask AnimTask_NightmareClone3, 2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 40, 1
+	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	restorebg
+	waitbgfadein
+	end
 
 Move_PENALIZE::
-	goto Move_PUNISHMENT
+	loadspritegfx ANIM_TAG_NOISE_LINE
+	loadspritegfx ANIM_TAG_TRUMP_CARD
+	loadspritegfx ANIM_TAG_CUT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_DeepInhale, 2, ANIM_ATTACKER
+	delay 12
+	call RoarEffect
+	createvisualtask SoundTask_PlayCryHighPitch, 2, ANIM_ATTACKER, 3
+	waitforvisualfinish
+	createsprite gTrumpCardSpriteTemplate, ANIM_ATTACKER, 40, 40, 0, 1, 32
+	delay 15
+	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 1
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
+	end
 
 Move_SNAPBLOSSOM::
-	goto Move_SNAP_TRAP
+	loadspritegfx ANIM_TAG_SHARP_TEETH
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_FLOWER
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	playsewithpan SE_M_PETAL_DANCE, 0
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_SHARP_TEETH, 0, 0xA, 0xA, 0x0688
+	monbg ANIM_ATTACKER
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 12, RGB(13, 31, 12)
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 0, 24, 16, 0, 2, 2, 0, 0
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 66, 64, 24, 0, 3, 1, 1, 0
+	createsprite gAromatherapyBigFlowerSpriteTemplate, ANIM_ATTACKER, 0, 16, 24, 0, 2, 1, 0, 0
+	delay 20
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 66, 48, 12, 0, 4, 3, 1, 0
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 0, 100, 16, 0, 3, 2, 0, 0
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 0, 74, 24, 180, 3, 2, 0, 0
+	delay 10
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 66, 80, 30, 0, 4, 1, 1, 0
+	createsprite gAromatherapySmallFlowerSpriteTemplate, ANIM_ATTACKER, 0, 128, 12, 0, 3, 3, 0, 0
+	createsprite gAromatherapyBigFlowerSpriteTemplate, ANIM_ATTACKER, 0, 90, 16, 0, 2, 1, 0, 0
+	delay 50
+	playsewithpan SE_M_BITE, SOUND_PAN_TARGET
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, -32, -32, 1, 819, 819, 10
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 32, 32, 5, -819, -819, 10
+	delay 0
+	playsewithpan SE_M_BITE, SOUND_PAN_TARGET
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 32, -32, 7, -819, 819, 10
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, -32, 32, 3, 819, -819, 10
+	delay 10
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 10, 0, 10, 4
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x0
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x4
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x8
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0xc
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x10
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x14
+	delay 0x2
+	createsprite gSnapBlossomPetalSpinSpriteTemplate, ANIM_TARGET, 3, 0x0, 0x0, 0x38, 0x18
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_TARGET
+	waitforvisualfinish
+	call HealingEffect
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 12, 0, RGB(13, 31, 12)
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	delay 1
+	end
 
 Move_GRASS_CANNON::
-	goto Move_FLEUR_CANNON
+	loadspritegfx ANIM_TAG_LEAF
+	loadspritegfx ANIM_TAG_RAZOR_LEAF @leaf
+	loadspritegfx ANIM_TAG_IMPACT @hit
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	delay 1
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER, 10, 5
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -2, 10
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -1, -1, 15
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -4, -4, 7
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, 3, -3, 11
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -1, -6, 8
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, 2, -1, 12
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -4, 13
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, 4, -5, 7
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, 2, -6, 11
+	delay 2
+	createsprite gRazorLeafParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -5, 8
+	delay 1
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 0
+	playsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER
+	createsprite gRazorLeafCutterSpriteTemplate, ANIM_TARGET, 3, 0x14, 0xfff6, 0x14, 0x0, 0x16, 0xffec, 0x1
+	delay 1
+	loopsewithpan SE_M_POISON_POWDER, SOUND_PAN_ATTACKER, 10, 5
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, -4, -4, 7
+	delay 2
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, 3, -3, 11
+	delay 2
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, -1, -6, 8
+	delay 2
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, 2, -1, 12
+	delay 2
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, -3, -4, 13
+	delay 2
+	createsprite gGrassCannonParticleSpriteTemplate, ANIM_ATTACKER, 2, 4, -5, 7
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	end
 
 Move_BOUNDARY::
+	choosetwoturnanim BoundaryNormal, BoundarySpecial
+BoundaryNormal:
 	goto Move_NIGHT_SLASH
+BoundarySpecial:
+	goto Move_SAVAGE_WING
 
 Move_SAVAGE_WING::
-	goto Move_WING_ATTACK
-
+	loadspritegfx ANIM_TAG_BLACK_GRAY_SMOKE
+	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_SnatchOpposingMonMove, 2
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BATTLERS, 0, 0, 16, 0
+	fadetobg BG_RED
+	waitbgfadein
+	delay 10
+	monbg ANIM_DEF_PARTNER
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 40, 40, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -40, 40, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 0, 0, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 40, -40, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -40, -40, 1, 0
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BATTLERS, 0, 16, 0, 0
+	restorebg
+	waitbgfadein
+	clearmonbg ANIM_DEF_PARTNER
+	end
+	
 Move_PLASMA_CUTTER::
 	goto Move_AIR_CUTTER
 
@@ -28219,10 +28409,10 @@ Move_CRUSH_CLAW:
 	end
 
 Move_AROMATHERAPY:
-	playsewithpan SE_M_PETAL_DANCE, 0
 	loadspritegfx ANIM_TAG_FLOWER
 	loadspritegfx ANIM_TAG_THIN_RING
 	loadspritegfx ANIM_TAG_SPARKLE_2
+	playsewithpan SE_M_PETAL_DANCE, 0
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG, 0, 0, 7, RGB(13, 31, 12)
 	delay 1
 	monbg ANIM_ATTACKER
@@ -28241,7 +28431,7 @@ Move_AROMATHERAPY:
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
 	delay 1
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG, 0, 7, 0, RGB(13, 31, 12)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 0, 4, RGB(13, 31, 12)
 	delay 1
 	playsewithpan SE_M_STAT_INCREASE, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_StatusClearedEffect, 2, 1
@@ -28252,7 +28442,7 @@ Move_AROMATHERAPY:
 	createsprite gSparklingStarsSpriteTemplate, ANIM_ATTACKER, 16, 12, -5, 0, 0, 32, 60, 1
 	waitforvisualfinish
 	playsewithpan SE_SHINY, SOUND_PAN_ATTACKER
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 0, F_PAL_BG, 3, 10, 0, RGB(13, 31, 12)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 1, 4, 0, RGB(13, 31, 12)
 	createsprite gBlendThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 16, 0, 0, 0, 1
 	waitforvisualfinish
 	end

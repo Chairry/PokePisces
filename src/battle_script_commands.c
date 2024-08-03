@@ -9803,6 +9803,7 @@ static void Cmd_various(void)
         }
         else
         {
+            gBattleScripting.animTurn = 1;
             gBattlescriptCurrInstr = BattleScript_BigBoundary;
         }
  

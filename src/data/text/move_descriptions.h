@@ -3297,8 +3297,8 @@ static const u8 sPsychicNoiseDescription[] = _(
     "the foe from recovering HP.");
 
 static const u8 sUpperHandDescription[] = _(
-    "Flinches and boosts when foe\n"
-    "is readying a priority move.");
+    "Boosted and flinches against\n"
+    "priority moves. High priority.");
 
 static const u8 sMalignantChainDescription[] = _(
     "Corrosive chains wrap around\n"

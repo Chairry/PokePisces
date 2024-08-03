@@ -2423,6 +2423,17 @@ const struct SpriteTemplate gStrengthSapRedSmokeTemplate =
     .callback = AnimSpriteOnMonPos
 };
 
+const struct SpriteTemplate gBoundaryBlackBloodTemplate =
+{
+    .tileTag = ANIM_TAG_BLACK_GRAY_SMOKE,
+    .paletteTag = ANIM_TAG_BLACK_GRAY_SMOKE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gOctazookaAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
+};
+
 const struct SpriteTemplate gStrengthSapRedInwardTemplate =
 {
     .tileTag = ANIM_TAG_TEAL_ALERT,
@@ -5407,6 +5418,16 @@ const struct SpriteTemplate gBloomDoomPetalSpinSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimFireSpiralOutward
+};
+const struct SpriteTemplate gSnapBlossomPetalSpinSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FLOWER,
+    .paletteTag = ANIM_TAG_FLOWER,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gPetalDanceBigFlowerAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPetalSpiralOutward
 };
 const struct SpriteTemplate gBloomDoomGreenChargeSpriteTemplate =
 {

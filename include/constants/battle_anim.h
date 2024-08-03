@@ -430,6 +430,7 @@
 #define ANIM_TAG_CANDY_ORBS                 (ANIM_SPRITES_START + 416)
 #define ANIM_TAG_STAR                       (ANIM_SPRITES_START + 417)
 #define ANIM_TAG_DUNE_SLICER                (ANIM_SPRITES_START + 418)
+#define ANIM_TAG_BLACK_GRAY_SMOKE           (ANIM_SPRITES_START + 419)
 
 // battlers
 #define ANIM_ATTACKER         0
@@ -544,6 +545,7 @@
 #define BG_THUNDER_2 82
 #define BG_INVERSE_ROOM 83
 #define BG_ATTRACT 84
+#define BG_RED 85
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0

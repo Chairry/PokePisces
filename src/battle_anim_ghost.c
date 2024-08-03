@@ -643,6 +643,41 @@ void AnimTask_NightmareClone(u8 taskId)
     task->func = AnimTask_NightmareClone_Step;
 }
 
+void AnimTask_NightmareClone3(u8 taskId)
+{
+    struct Task *task;
+
+    task = &gTasks[taskId];
+    task->data[0] = CloneBattlerSpriteWithBlend(ANIM_TARGET);
+    if (task->data[0] < 0)
+    {
+        DestroyAnimVisualTask(taskId);
+        return;
+    }
+    task->data[1] = 0;
+    task->data[2] = 15;
+    task->data[3] = 2;
+    task->data[4] = 0;
+    SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL));
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(task->data[2], task->data[3]));
+    gSprites[task->data[0]].data[0] = 80;
+    if (GetBattlerSide(gBattleAnimTarget) == B_SIDE_PLAYER)
+    {
+        gSprites[task->data[0]].data[1] = 144;
+        gSprites[task->data[0]].data[2] = 112;
+    }
+    else
+    {
+        gSprites[task->data[0]].data[1] = -144;
+        gSprites[task->data[0]].data[2] = -112;
+    }
+    gSprites[task->data[0]].data[3] = 0;
+    gSprites[task->data[0]].data[4] = 0;
+    StoreSpriteCallbackInData6(&gSprites[task->data[0]], SpriteCallbackDummy);
+    gSprites[task->data[0]].callback = TranslateSpriteLinearFixedPoint;
+    task->func = AnimTask_NightmareClone_Step;
+}
+
 static void AnimTask_NightmareClone_Step(u8 taskId)
 {
     struct Task *task;
@@ -1093,7 +1128,7 @@ void AnimTask_CurseStretchingBlackBg(u8 taskId)
     SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_DARKEN));
     SetGpuReg(REG_OFFSET_BLDY, 16);
 
-    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER || IsContest())
+    if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER || IsContest())
         startX = 40;
     else
         startX = 200;
