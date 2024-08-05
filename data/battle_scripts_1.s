@@ -1987,29 +1987,19 @@ BattleScript_EffectBoundary:
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
     boundarydamagecalculation
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_MAGNITUDESTRENGTH
+	waitmessage B_WAIT_TIME_LONG
     goto BattleScript_HitFromCritCalc
 BattleScript_BigBoundary::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_BIGBOUNDARY
+	waitmessage B_WAIT_TIME_LONG
 	typecalc
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
 	setword gBattleMoveDamage, 444
 	adjustdamage
-	attackanimation
-	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	printstring STRINGID_BIGBOUNDARY
-	waitmessage 1
-	critmessage
-	waitmessage B_WAIT_TIME_LONG
-	resultmessage
-	waitmessage B_WAIT_TIME_LONG
-	seteffectwithchance
-	tryfaintmon BS_TARGET
-	moveendall
-	end
+	goto BattleScript_HitFromAtkAnimation
 
 BattleScript_EffectDefSpDefeUpHit::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER
@@ -3776,6 +3766,7 @@ BattleScript_EffectFickleBeam:
 	goto BattleScript_HitFromCritCalc
 BattleScript_FickleBeamDoubled::
 	printstring STRINGID_FICKLEBEAMDOUBLED
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc
 
 BattleScript_EffectShedTail:

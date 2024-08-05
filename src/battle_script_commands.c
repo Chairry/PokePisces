@@ -9792,14 +9792,17 @@ static void Cmd_various(void)
         if (boundary < 1)
         {
             gBattleStruct->boundaryBasePower = 30;
+            gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else if (boundary < 2)
         {
             gBattleStruct->boundaryBasePower = 60;
+            gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else if (boundary < 3)
         {
             gBattleStruct->boundaryBasePower = 90;
+            gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else
         {
@@ -9807,8 +9810,6 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = BattleScript_BigBoundary;
         }
  
-        gBattlescriptCurrInstr = cmd->nextInstr;
-
         return;
     }
     case VARIOUS_HIGH_ROLL_HIT:
