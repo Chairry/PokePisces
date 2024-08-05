@@ -1759,6 +1759,12 @@
 	.2byte \quantity
 	.endm
 
+	@ Sets the text of the name box in the next-shown message box.
+	.macro speakername text:req
+	.byte 0xe7
+	.4byte \text
+	.endm
+
 	.macro showdescription
 	.byte 0xe3
 	.endm
