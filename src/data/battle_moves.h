@@ -7559,7 +7559,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_STONE_EDGE] =
     {
         .effect = EFFECT_HIT,
-        .power = 100,
+        .power = 110,
         .type = TYPE_ROCK,
         .accuracy = 80,
         .pp = 10,
@@ -15254,23 +15254,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
-    },
-
-    [MOVE_PESTER_RAID] =
-    {
-        .effect = EFFECT_HIT,
-        .power = 70,
-        .type = TYPE_BUG,
-        .accuracy = 100,
-        .pp = 15,
-        .secondaryEffectChance = 100,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .split = SPLIT_PHYSICAL,
-        .zMoveEffect = Z_EFFECT_NONE,
-        .ignoresTargetDefenseEvasionStages = TRUE,
-        .ignoresProtect = TRUE,
-        .ignoresSubstitute = TRUE,
     },
 
     [MOVE_BENTHIC_WHIP] =

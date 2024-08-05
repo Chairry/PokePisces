@@ -4877,7 +4877,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SOLAR_FLARE - 1] = sSolarFlareDescription,
     [MOVE_ODD_STEP - 1] = sFoulPlayDescription,
     [MOVE_CREEPY_CRAWL - 1] = sCreepyCrawlDescription,
-    [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
     [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
     [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
     [MOVE_FINISH_OFF - 1] = sFinishOffDescription,

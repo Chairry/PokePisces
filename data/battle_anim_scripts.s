@@ -943,7 +943,6 @@ gBattleAnims_Moves::
 	.4byte Move_SOLAR_FLARE
 	.4byte Move_ODD_STEP
 	.4byte Move_CREEPY_CRAWL
-	.4byte Move_PESTER_RAID
 	.4byte Move_BENTHIC_WHIP
 	.4byte Move_BLACK_BUFFET
 	.4byte Move_FINISH_OFF
@@ -21699,24 +21698,6 @@ Move_CREEPY_CRAWL::
 	call UnsetPsychicBg
 	end
 
-Move_PESTER_RAID::
-	loadspritegfx ANIM_TAG_ASSURANCE_HAND
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 0, 3, RGB_BLACK
-	waitforvisualfinish
-	createvisualtask AnimTask_Splash, 2, ANIM_ATTACKER, 2
-	delay 8
-	createvisualtask AnimTask_SnatchOpposingMonMove, 0x2
-	delay 25
-	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
-	createsprite gQuashArmHitTemplate, ANIM_TARGET, 3, 0x0, 0xffe0, 5
-	delay 5
-	playsewithpan SE_M_MINIMIZE, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_SquishTarget, 0x2
-	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 1, 3, 0, RGB_BLACK
-	waitforvisualfinish
-	end
-
 Move_BENTHIC_WHIP::
 	loadspritegfx ANIM_TAG_SLAM_HIT
 	loadspritegfx ANIM_TAG_IMPACT
@@ -24091,35 +24072,177 @@ Move_GRASS_CANNON::
 Move_BOUNDARY::
 	choosetwoturnanim BoundaryNormal, BoundarySpecial
 BoundaryNormal:
-	goto Move_NIGHT_SLASH
+	goto Move_CUT
 BoundarySpecial:
-	goto Move_SAVAGE_WING
-
-Move_SAVAGE_WING::
 	loadspritegfx ANIM_TAG_BLACK_GRAY_SMOKE
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	loadspritegfx ANIM_TAG_CUT
+	loadspritegfx ANIM_TAG_RAIN_DROPS
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_POISON_BUBBLE, 0, 0, 16, 0
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_RAIN_DROPS, 0, 12, 12, 0x001F
 	playsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER
+	delay 10
 	createvisualtask AnimTask_SnatchOpposingMonMove, 2
+	delay 25
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
+	createsprite gCuttingSliceSpriteTemplate, ANIM_ATTACKER, 2, 40, -32, 0
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 10, 1
 	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
+	delay 60
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BATTLERS, 0, 0, 16, 0
 	fadetobg BG_RED
 	waitbgfadein
-	delay 10
 	monbg ANIM_DEF_PARTNER
-	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
-	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 40, 40, 1, 0
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 3, 0, 40, 1
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 0, 0, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 42, 27, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 32, 17, 1, 0
 	delay 0x2
-	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -40, 40, 1, 0
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 6, 5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -27, 44, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -17, 34, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -16, -15, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 39, -28, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 29, -18, 1, 0
+	playsewithpan SE_M_DIG, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 16, -5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -42, -42, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -32, -32, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -12, 18, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 0, 40, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -10, 30, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 0, 5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -8, -44, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 2, -34, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 5, 6, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -46, -28, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -36, -18, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -15, -16, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 46, 9, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 36, -1, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -5, 16, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 42, 0, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 32, -10, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 18, -12, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -43, -12, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -33, -2, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 5, 0, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 16, -46, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 6, -36, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
 	delay 0x2
 	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 0, 0, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 42, 27, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 32, 17, 1, 0
 	delay 0x2
-	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 40, -40, 1, 0
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 6, 5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -27, 44, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -17, 34, 1, 0
 	delay 0x2
-	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -40, -40, 1, 0
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -16, -15, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 39, -28, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 29, -18, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 16, -5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -42, -42, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -32, -32, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -12, 18, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 0, 40, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -10, 30, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 0, 5, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -8, -44, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 2, -34, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 5, 6, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -46, -28, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -36, -18, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -15, -16, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 46, 9, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 36, -1, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -5, 16, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 42, 0, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 32, -10, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 18, -12, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, -43, -12, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, -33, -2, 1, 0
+	delay 0x2
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 5, 0, 1, 0
+	createsprite gSludgeBombHitParticleSpriteTemplate, ANIM_TARGET, 2, 16, -46, 20
+	createsprite gBoundaryBlackBloodTemplate, ANIM_TARGET, 2, 6, -36, 1, 0
+	playsewithpan SE_SUPER_EFFECTIVE, SOUND_PAN_TARGET
+	stopsound
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BATTLERS, 0, 16, 0, 0
 	restorebg
 	waitbgfadein
+	delay 10
+	playsewithpan SE_M_RAIN_DANCE, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS), 2, 0, 4, RGB_BLACK
+	waitforvisualfinish
+	createvisualtask AnimTask_CreateRaindrops, 2, 0, 3, 120
+	createvisualtask AnimTask_CreateRaindrops, 2, 0, 3, 120
+	delay 120
+	delay 30
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_BG | F_PAL_BATTLERS), 2, 4, 0, RGB_BLACK
+	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
+	end
+
+Move_SAVAGE_WING::
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_PURPLE_DRAKE
+	loadspritegfx ANIM_TAG_EXPLOSION
+	fadetobg BG_SKY
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 0x5, 0x0, 0x1000, 0x0, 0xffff
+	waitbgfadein
+	monbg ANIM_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 2, 0, 0, 16, RGB_WHITE
+	delay 4
+	createvisualtask AnimTask_AttackerFadeToInvisible, 5, 0
+	waitforvisualfinish
+	createvisualtask SoundTask_PlaySE2WithPanning, 5, 238, SOUND_PAN_ATTACKER
+	createsprite gSavageWingDragonSpriteTemplate, ANIM_TARGET, 2
+	delay 14
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 18, 1
+	call DevastatingDrakeExplosion
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, 141, SOUND_PAN_TARGET
+	delay 20
+	createvisualtask AnimTask_AttackerFadeFromInvisible, 5, 1
+	delay 2
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, 2, 0, 15, 0, RGB_WHITE
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	call UnsetPsychicBg
+	waitforvisualfinish
 	end
 	
 Move_PLASMA_CUTTER::
