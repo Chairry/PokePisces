@@ -17,10 +17,12 @@ PacifidlogInteriors_EventScript_BattleSadFisher::
 	end
 
 PacifidlogInteriors_EventScript_GiveOldRod::
+	speakername PacifidlogInteriors_Text_NameSadFisher
 	msgbox PacifidlogInteriors_Text_GiveYouOneOfMyRods, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_ROD
 	setflag FLAG_RECEIVED_OLD_ROD
 	msgbox PacifidlogInteriors_Text_ThrowInFishingAdvice, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
@@ -30,6 +32,7 @@ PacifidlogInteriors_EventScript_NotGettingItchToFish::
 	end
 
 PacifidlogInteriors_EventScript_HowsFishing::
+	speakername PacifidlogInteriors_Text_NameSadFisher
 	message PacifidlogInteriors_Text_HowsYourFishing
 	waitmessage
 	multichoice 20, 8, MULTI_HOWS_FISHING, TRUE
@@ -39,18 +42,22 @@ PacifidlogInteriors_EventScript_HowsFishing::
 
 PacifidlogInteriors_EventScript_FishingExcellent::
 	msgbox PacifidlogInteriors_Text_GreatHaulInSomeBigOnes, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
 PacifidlogInteriors_EventScript_FishingNotSoGood::
 	msgbox PacifidlogInteriors_Text_FishingAdvice, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
 PacifidlogInteriors_EventScript_SaltySeas::
+	speakername PacifidlogInteriors_Text_NameSadFisher
 	msgbox PacifidlogInteriors_Text_HowsYourFishing, MSGBOX_AUTOCLOSE
 	specialvar VAR_RESULT, CheckAllSadsod
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogInteriors_EventScript_SaltyTear
+	speakername NULL
 	release
 	end
 
@@ -58,6 +65,7 @@ PacifidlogInteriors_EventScript_SaltyTear::
 	checkitem ITEM_SALTY_TEAR
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogInteriors_EventScript_GaveSaltyTear
 	msgbox PacifidlogInteriors_Text_SadsodMaster, MSGBOX_DEFAULT
+	speakername NULL
 	giveitem ITEM_SALTY_TEAR
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	release
@@ -65,6 +73,7 @@ PacifidlogInteriors_EventScript_SaltyTear::
 
 PacifidlogInteriors_EventScript_GaveSaltyTear::
 	msgbox PacifidlogInteriors_Text_AlreadyGaveIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -99,6 +108,9 @@ PacifidlogInteriors_EventScript_DarkskinWoman::
 PacifidlogInteriors_EventScript_OldWoman::
 	msgbox PacifidlogInteriors_Text_OldWoman, MSGBOX_NPC
 	end
+
+PacifidlogInteriors_Text_NameSadFisher:
+	.string "Sad Fisher$"
 
 PacifidlogInteriors_Text_GettingItchToFish:
 	.string "...How's life been for you, trainer?\n"
