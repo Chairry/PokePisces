@@ -9792,17 +9792,24 @@ static void Cmd_various(void)
         if (boundary < 1)
         {
             gBattleStruct->boundaryBasePower = 30;
+            boundary = 1;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else if (boundary < 2)
         {
             gBattleStruct->boundaryBasePower = 60;
+            boundary = 2;
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
         else if (boundary < 3)
         {
             gBattleStruct->boundaryBasePower = 90;
+            boundary = 3;
             gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else if ((boundary < 4) && (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses)))
+        {
+            gBattleMoveDamage = 0;
         }
         else
         {

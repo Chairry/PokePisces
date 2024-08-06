@@ -1988,7 +1988,7 @@ BattleScript_EffectBoundary:
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
     boundarydamagecalculation
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_MAGNITUDESTRENGTH
+	printstring STRINGID_HIGHROLLHITROLL
 	waitmessage B_WAIT_TIME_LONG
     goto BattleScript_HitFromCritCalc
 BattleScript_BigBoundary::

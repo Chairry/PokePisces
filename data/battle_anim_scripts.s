@@ -23202,6 +23202,7 @@ Move_STORM_CHASE::
 	waitbgfadeout
 	setarg 7, 0xFFFF
 	waitbgfadein
+	visible ANIM_ATTACKER
 	end
 
 Move_DRAKEN_GUARD::
@@ -24246,10 +24247,115 @@ Move_SAVAGE_WING::
 	end
 	
 Move_PLASMA_CUTTER::
-	goto Move_AIR_CUTTER
+	loadspritegfx ANIM_TAG_CUT @Cut
+	loadspritegfx ANIM_TAG_HYDRO_PUMP @Blue Colour
+	monbg ANIM_TARGET
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	createsprite gSacredSwordCutTemplate, ANIM_ATTACKER, 2, 0x28, 0xffe0, 0x0
+	delay 0x5
+	loadspritegfx ANIM_TAG_SPARK_2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 8, RGB_RED
+	call ElectricityEffect
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	waitforvisualfinish
+	end
 
 Move_PARTY_TRICK::
-	goto Move_TRICK
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_PINK_HEART @pink color
+	loadspritegfx ANIM_TAG_ORBS @circles
+	loadspritegfx ANIM_TAG_IMPACT @hit
+	loadspritegfx ANIM_TAG_CONFETTI @hit
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_FLATTER, SOUND_PAN_ATTACKER
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	waitforvisualfinish
+	delay 5
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_FLATTER, SOUND_PAN_ATTACKER
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	waitforvisualfinish
+	delay 5
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_FLATTER, SOUND_PAN_ATTACKER
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	call CreateFlatterConfetti
+	waitforvisualfinish
+	delay 5
+	createvisualtask AnimTask_PartyBall, 3
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 15, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 2, 0, 15, 1
+	delay 0x1
+	playsewithpan SE_M_SPIT_UP, SOUND_PAN_ATTACKER
+	createsprite gMindBlownBlueImpactTemplate, ANIM_TARGET, 3, 0x1, 0x0
+	createsprite gMindBlownPinkImpactTemplate, ANIM_TARGET, 3, 0x1, 0x0
+	call MindBlownBlueOrbs
+	delay 0x1
+	call MindBlownPinkOrbs
+	delay 0x1
+	call MindBlownBlueOrbs
+	delay 0x1
+	call MindBlownPinkOrbs
+	delay 0x1
+	call MindBlownBlueOrbs
+	delay 0x1
+	waitforvisualfinish
+	end
 
 Move_MYTH_BUSTER::
 	goto Move_HIGH_JUMP_KICK
@@ -35221,6 +35327,7 @@ General_DecimationHit:
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 32
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
 	call DecimationExplosion
+	call DecimationGeyser
 	playsewithpan SE_M_SACRED_FIRE, SOUND_PAN_ATTACKER
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffe0, 0x0, 0x18, 0x0, 0x0, 0x0
 	delay 1
@@ -35239,6 +35346,7 @@ General_DecimationHit:
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffec, 0xa, 0x18, 0x0, 0x0, 0x0
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
 	call DecimationExplosion
+	call DecimationGeyser
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffc0, 0x0, 0x18, 0x0, 0x0, 0x0
 	delay 1
@@ -35257,6 +35365,7 @@ General_DecimationHit:
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffd8, 0x14, 0x18, 0x0, 0x0, 0x0
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
 	call DecimationExplosion
+	call DecimationGeyser
 	playsewithpan SE_M_FLAME_WHEEL2, SOUND_PAN_ATTACKER
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffa0, 0x0, 0x18, 0x0, 0x0, 0x0
 	delay 1
@@ -35275,6 +35384,7 @@ General_DecimationHit:
 	createsprite gDecimationBlastBurnSpriteTemplate, ANIM_ATTACKER, 2, 0xffc4, 0x1e, 0x18, 0x0, 0x0, 0x0
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
 	call DecimationExplosion
+	call DecimationGeyser
 	delay 0x4
 	waitforvisualfinish
 	createvisualtask AnimTask_AllBattlersVisible, 0xA
@@ -35305,6 +35415,42 @@ DecimationExplosion:
 	delay 0x6
 	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_ATTACKER, 3, 0xffe0, 0xffe8, ANIM_TARGET, 0x1
 	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
+	return
+DecimationGeyser:
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0003, 0x0005, 0x1, 0x0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfff5, 0xfff1, 0x1, 0x0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0008, 0xfffb, 0x1, 0x0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfffa, 0x0012, 0x1, 0x0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0000, 0x0005, 0x1, 0x0
+	playsewithpan SE_M_SELF_DESTRUCT, SOUND_PAN_TARGET
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0003, 0xfff5, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfff5, 0xffe1, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0008, 0xffeb, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfffa, 0x0002, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0000, 0xfff5, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0003, 0xffe5, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfff5, 0xffd1, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0008, 0xffdb, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0xfffa, 0xfff2, ANIM_TARGET, 0x0
+	delay 0x0
+	createsprite gGenesisSupernovaExplosionSpriteTemplate, ANIM_TARGET, 4, 0x0000, 0xffe5, ANIM_TARGET, 0x0
+	delay 0x0
 	return
 
 General_FocusPunchSetUp:
