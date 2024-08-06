@@ -33,10 +33,91 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "NULL"
+    }
   ],
   "bg_events": [
 

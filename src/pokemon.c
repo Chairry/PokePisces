@@ -9098,9 +9098,9 @@ u8 GetCurrentLevelCap(void)
     else if (!FlagGet(FLAG_BADGE03_GET))
         return 28;
     else if (!FlagGet(FLAG_BADGE04_GET))
-        return 32;
+        return 33;
     else if (!FlagGet(FLAG_BADGE05_GET))
-        return 38;
+        return 39;
     else if (!FlagGet(FLAG_BADGE06_GET))
         return 44;
     else if (!FlagGet(FLAG_BADGE07_GET))
