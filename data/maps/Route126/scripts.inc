@@ -28,6 +28,7 @@ Route126_EventScript_StartInvasion::
 	setvar VAR_SPACE_CENTER_QUEST_STATE, 2
 	applymovement OBJ_EVENT_ID_PLAYER, Route126_Movement_WalkToRocket
 	waitmovement 0
+	speakername Route126_Text_NameLovelace
 	msgbox Route126_Text_TheyreInvading, MSGBOX_DEFAULT
 	setwildbattle SPECIES_UHEFOE, 18
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 2, 0, 0, 2
@@ -35,6 +36,7 @@ Route126_EventScript_StartInvasion::
 	delay 40
 	waitmoncry
 	msgbox Route126_Text_UhefoeAppears, MSGBOX_DEFAULT
+	speakername NULL
 	dowildbattle
 	goto Route126_EventScript_YouDidIt
 	release
@@ -47,7 +49,9 @@ Route126_Movement_WalkToRocket:
 	step_end
 
 Route126_EventScript_YouDidIt::
+	speakername Route126_Text_NameLovelace
 	msgbox Route126_Text_YouDidIt, MSGBOX_DEFAULT
+	speakername NULL
 	giveitem ITEM_GRAVITY_CORE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setvar VAR_SPACE_CENTER_QUEST_STATE, 50
@@ -205,8 +209,10 @@ Route126_EventScript_RayBattleStart::
 	end
 
 Route126_EventScript_RayLeaves::
+	speakername Route126_Text_NameRay
 	msgbox Route126_Text_RayLeaves, MSGBOX_DEFAULT
 	closemessage
+	speakername NULL
 	goto_if_set FLAG_TEMP_16, Route126_EventScript_RayLeavesNorth
 	goto_if_set FLAG_TEMP_17, Route126_EventScript_RayLeavesSouth
 	release
@@ -480,6 +486,9 @@ Route126_Text_GaveDetectBB:
 Route126_Text_MeteorsTest:
 	.string "meteors unset$"
 
+Route126_Text_NameRay:
+	.string "Ray$"
+
 Route126_Text_RayIntro:
 	.string "Woah, woah, woah, slow down\n"
 	.string "there, buster!\p"
@@ -520,6 +529,9 @@ Route126_Text_RayLeaves:
 
 Route126_Text_VarTest:
 	.string "space center var set 3$"
+
+Route126_Text_NameLovelace:
+	.string "Cpt. Lovelace$"
 
 Route126_Text_Lovelace:
 	.string "All systems nominal here.\n"

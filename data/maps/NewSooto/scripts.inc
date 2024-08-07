@@ -22,10 +22,12 @@ NewSooto_EventScript_TakePlayerToCave1::
 	applymovement LOCALID_DRAKE, NewSooto_Movement_DrakeNoticeLeft
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave1
 	waitmovement 0
+	speakername NewSooto_Text_NameDrake
 	msgbox NewSooto_Text_CheckOutTheCave, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave5
 	waitmovement 0
+	speakername NULL
 	warp MAP_CAVE_OF_ORIGIN, 14, 4
 	waitstate
 	release
@@ -61,10 +63,12 @@ NewSooto_EventScript_TakePlayerToCave2::
 	applymovement LOCALID_DRAKE, NewSooto_Movement_DrakeNoticeLeft
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave2
 	waitmovement 0
+	speakername NewSooto_Text_NameDrake
 	msgbox NewSooto_Text_CheckOutTheCave, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave5
 	waitmovement 0
+	speakername NULL
 	warp MAP_CAVE_OF_ORIGIN, 14, 4
 	waitstate
 	release
@@ -86,10 +90,12 @@ NewSooto_EventScript_TakePlayerToCave3::
 	applymovement LOCALID_DRAKE, NewSooto_Movement_DrakeNoticeRight
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave3
 	waitmovement 0
+	speakername NewSooto_Text_NameDrake
 	msgbox NewSooto_Text_CheckOutTheCave, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave5
 	waitmovement 0
+	speakername NULL
 	warp MAP_CAVE_OF_ORIGIN, 14, 4
 	waitstate
 	release
@@ -120,10 +126,12 @@ NewSooto_EventScript_TakePlayerToCave4::
 	applymovement LOCALID_DRAKE, NewSooto_Movement_DrakeNoticeRight
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave4
 	waitmovement 0
+	speakername NewSooto_Text_NameDrake
 	msgbox NewSooto_Text_CheckOutTheCave, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, NewSooto_Movement_PlayerWalkToCave5
 	waitmovement 0
+	speakername NULL
 	warp MAP_CAVE_OF_ORIGIN, 14, 4
 	waitstate
 	release
@@ -235,6 +243,9 @@ NewSooto_EventScript_GaveFloatStone::
 NewSooto_EventScript_OzoneRoadblockAhead::
     msgbox NewSooto_Text_OzoneRoadblockAhead, MSGBOX_NPC
 	end
+
+NewSooto_Text_NameDrake:
+	.string "Drake$"
 
 NewSooto_Text_OzoneRoadblockAhead:
 	.string "Looking to cross the bridge?\p"

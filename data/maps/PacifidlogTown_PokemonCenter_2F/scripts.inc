@@ -30,10 +30,12 @@ PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuy::
 	end
 
 PacifidlogTown_PokemonCenter_2F_EventScript_BallQuestGuyTruncated::
+	speakername PacifidlogTown_PokemonCenter_2F_Text_NamePhil
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_CaughtMonReminder, MSGBOX_DEFAULT
 	getcaughtmon SPECIES_BERM
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check2
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -41,6 +43,7 @@ PacifidlogTown_PokemonCenter_2F_EventScript_Check2::
 	getcaughtmon SPECIES_EBIBI
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_Check3
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -48,18 +51,23 @@ PacifidlogTown_PokemonCenter_2F_EventScript_Check3::
 	getcaughtmon SPECIES_KITIKITI
 	goto_if_eq VAR_RESULT, TRUE, PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PacifidlogTown_PokemonCenter_2F_EventScript_GiveNewBall::
+	speakername PacifidlogTown_PokemonCenter_2F_Text_NamePhil
 	addvar VAR_BALL_QUEST_STATE, 1
 	clearflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PacifidlogTown_PokemonCenter_2F_EventScript_NoMoreQuest::
+	speakername PacifidlogTown_PokemonCenter_2F_Text_NamePhil
 	msgbox PacifidlogTown_PokemonCenter_2F_Text_NoMoreQuest, MSGBOX_NPC
+	speakername NULL
 	release
 	end
 
@@ -81,16 +89,21 @@ PacifidlogTown_PokemonCenter_2F_Text_BallCounterTest:
 PacifidlogTown_PokemonCenter_2F_Text_BadgeCounterTest:
 	.string "gym badge plus 1$"
 
+PacifidlogTown_PokemonCenter_2F_Text_NamePhil:
+	.string "Phillipe$"
+
 PacifidlogTown_PokemonCenter_2F_Text_HaveYouCaughtThisMon:
 	.string "Salut! I am un artiste. You may\n"
 	.string "have heard of me, non? I run the\l"
 	.string "Musée de Lilycove, where I have\l"
 	.string "put all of my best pieces\l"
 	.string "on display.\p"
+	.string "Mon nom est Phillipe.\p"
 	.string "Mais hélas, I am in dire need\n"
 	.string "of inspiration. I would like some\l"
 	.string "Pokémon to draw, but I am a\l"
-	.string "horrible catcher.\p"
+	.string "born photographre, not un\l"
+	.string "Pokémon wrangler...\p"
 	.string "Ah! Perhaps vous may assist me!\p"
 	.string "I would like to lay an eye on\n"
 	.string "3 particular Pokémon.\p"

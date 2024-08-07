@@ -15,18 +15,22 @@ SootopolisCity_Gym_B1F_EventScript_JuanBattleStart::
 	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_JuanInterrupted
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Gym_B1F_Movement_PlayerInterrupts
 	waitmovement 0
+	speakername SootopolisCity_Gym_B1F_Text_NameJuan
 	msgbox SootopolisCity_Gym_B1F_Text_JuanNotices, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_JuanMoveIntoPlace
 	applymovement LOCALID_SEBASTIAN, SootopolisCity_Gym_B1F_Movement_SebastianMoveIntoPlace
 	waitmovement 0
+	speakername SootopolisCity_Gym_B1F_Text_NameSebastian
 	msgbox SootopolisCity_Gym_B1F_Text_ImSebastian, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_Talking
+	speakername SootopolisCity_Gym_B1F_Text_NameJuan
 	msgbox SootopolisCity_Gym_B1F_Text_BattleBegins, MSGBOX_DEFAULT
 	playse SE_APPLAUSE
 	delay 30
 	delay 30
 	delay 30
 	delay 30
+	speakername NULL
     trainerbattle_two_trainers TRAINER_P_JUAN, SootopolisCity_Gym_B1F_Text_JuanIntro, TRAINER_P_SEBASTIAN, SootopolisCity_Gym_B1F_Text_JuanDefeat, SootopolisCity_Gym_B1F_EventScript_JuanDefeated, NO_MUSIC
 	goto SootopolisCity_Gym_B1F_EventScript_JuanDefeated
 	goto_if_unset FLAG_RECEIVED_TM_WATER_PULSE, SootopolisCity_Gym_B1F_EventScript_GiveWaterPulse2
@@ -65,12 +69,16 @@ SootopolisCity_Gym_B1F_Movement_Talking:
 	step_end
 
 SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
+	speakername SootopolisCity_Gym_B1F_Text_NameJuan
 	msgbox SootopolisCity_Gym_B1F_Text_GivePlayerTheWinnings, MSGBOX_DEFAULT
 	applymovement LOCALID_SEBASTIAN, SootopolisCity_Gym_B1F_Movement_SebastianGiveItems
+	speakername SootopolisCity_Gym_B1F_Text_NameSebastian
 	msgbox SootopolisCity_Gym_B1F_Text_GivePlayerBadge, MSGBOX_DEFAULT
+	speakername NULL
 	message SootopolisCity_Gym_B1F_Text_ReceivedRainBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
+	speakername SootopolisCity_Gym_B1F_Text_NameSebastian
 	msgbox SootopolisCity_Gym_B1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
 	clearflag FLAG_PISCES_A
 	clearflag FLAG_PISCES_B
@@ -89,7 +97,9 @@ SootopolisCity_Gym_B1F_EventScript_JuanDefeated::
 	closemessage
 	delay 30
 	applymovement LOCALID_JUAN, SootopolisCity_Gym_B1F_Movement_Talking
+	speakername SootopolisCity_Gym_B1F_Text_NameJuan
 	msgbox SootopolisCity_Gym_B1F_Text_GetOuttaHere, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_NEW_SOOTO, 41, 16
 	release
 	end
@@ -196,6 +206,12 @@ SootopolisCity_Gym_B1F_EventScript_NotEnoughMoney::
 	hidemoneybox
 	release
 	end
+
+SootopolisCity_Gym_B1F_Text_NameJuan:
+	.string "Juan$"
+
+SootopolisCity_Gym_B1F_Text_NameSebastian:
+	.string "Sebastian$"
 
 SootopolisCity_Gym_B1F_Text_HowMayIServeYou:
 	.string "Greetings.\n"
