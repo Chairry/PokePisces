@@ -213,7 +213,7 @@ ZotpyreGym_Movement_PhoebeTalk:
 	step_end
 
 ZotpyreGym_EventScript_LeadersDefeated::
-	speakername speakername ZotpyreGym_Text_NameSpenser
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser3, MSGBOX_DEFAULT
 	speakername ZotpyreGym_Text_NamePhoebe
