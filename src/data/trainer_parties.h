@@ -1203,7 +1203,7 @@ static const struct TrainerMon sParty_PGuunther[] = {
     .lvl = 18,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(23, 23, 23, 23, 23, 23),
-    .species = SPECIES_BALBYRN,
+    .species = SPECIES_FIEFREET,
     }
 };
 
@@ -1376,7 +1376,7 @@ static const struct TrainerMon sParty_PNaomi[] = {
     .lvl = 19,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(25, 25, 25, 25, 25, 25),
-    .species = SPECIES_SQUISHIME,
+    .species = SPECIES_GUPSPAR,
     }
 };
 
@@ -1859,7 +1859,7 @@ static const struct TrainerMon sParty_PRita[] = {
     .lvl = 22,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
-    .species = SPECIES_DRAEKAROT,
+    .species = SPECIES_WELPROOT,
     .ability = ABILITY_CONTRARY,
     .moves = {MOVE_INGRAIN, MOVE_GROWTH, MOVE_RAZOR_LEAF, MOVE_WING_ATTACK},
     },
@@ -1916,7 +1916,7 @@ static const struct TrainerMon sParty_PBigHertz[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MERALCORE,
-    .ability = ABILITY_POWER_SPOT, //MISSING ABILITY: PERMAFROST
+    .ability = ABILITY_PERMAFROST,
     }
 };
 
@@ -1926,36 +1926,54 @@ static const struct TrainerMon sParty_PGotou[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_PRIMEAPE,
+    .ability = ABILITY_VITAL_SPIRIT,
+    .heldItem = ITEM_HONDEW_BERRY,
+    .moves = {MOVE_TEMPER_FLARE, MOVE_ROCK_TOMB, MOVE_REVENGE, MOVE_COVET},
     },
     {
     .lvl = 30,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_PSEUDRA,
+    .ability = ABILITY_STALL,
+    .heldItem = ITEM_RABUTA_BERRY,
+    .moves = {MOVE_VENOM_GALE, MOVE_DUAL_CHOP, MOVE_DOUBLE_KICK, MOVE_KNOCK_OFF},
     },
     {
     .lvl = 30,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_FOGGLEHIND,
+    .ability = ABILITY_EMPTY,
+    .heldItem = ITEM_QUALOT_BERRY,
+    .moves = {MOVE_CHATTER, MOVE_CONFUSE_RAY, MOVE_GLACIATE, MOVE_SANDSEAR_STORM},
     },
     {
     .lvl = 30,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_STRAWNGMAN,
+    .ability = ABILITY_ANGER_POINT,
+    .heldItem = ITEM_BLUK_BERRY,
+    .moves = {MOVE_NEEDLE_ARM, MOVE_REVENGE, MOVE_PAYBACK, MOVE_COUNTER},
     },
     {
     .lvl = 30,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_SHARPREY,
+    .ability = ABILITY_ROUGH_SKIN,
+    .heldItem = ITEM_KELPSY_BERRY,
+    .moves = {MOVE_WATER_PULSE, MOVE_DARK_PULSE, MOVE_AURORA_BEAM, MOVE_ICE_FANG},
     },
     {
     .lvl = 30,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_GOLDEROCK,
+    .ability = ABILITY_PURE_POWER,
+    .heldItem = ITEM_MAGOST_BERRY,
+    .moves = {MOVE_MEDITATE, MOVE_AVALANCHE, MOVE_MACH_PUNCH, MOVE_ACCELEROCK},
     }
 };
 
@@ -1979,7 +1997,7 @@ static const struct TrainerMon sParty_PCharon[] = {
     .lvl = 23,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
-    .species = SPECIES_SNURROWL,
+    .species = SPECIES_CORISP,
     },
     {
     .lvl = 23,
@@ -2433,7 +2451,7 @@ static const struct TrainerMon sParty_PRaeliana[] = {
     .lvl = 25,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
-    .species = SPECIES_SQUISHIME,
+    .species = SPECIES_TRIDALIER,
     },
     {
     .lvl = 26,
@@ -2488,7 +2506,7 @@ static const struct TrainerMon sParty_PMorgan[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MISMAGIUS,
     .ability = ABILITY_DREAD_VEIL,
-    .heldItem = ITEM_SITRUS_BERRY, //MISSING ITEM: BLUK BERRY
+    .heldItem = ITEM_BLUK_BERRY,
     .moves = {MOVE_EERIE_SPELL, MOVE_HEX, MOVE_FEAR_FACTOR, MOVE_CONFUSE_RAY},
     }
 };
@@ -2719,7 +2737,8 @@ static const struct TrainerMon sParty_PMisaki[] = {
     .lvl = 27,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
-    .species = SPECIES_MAERACHOLY, //SUPPOSED TO BE A MAERACHOLY WITH MELANCHOLIA; ABILITY IS NOT FULLY PROGRAMMED
+    .species = SPECIES_MAERACHOLY,
+    .ability = ABILITY_MELANCHOLIA,
     .heldItem = ITEM_CURSED_AMULET,
     .moves = {MOVE_GLACIATE, MOVE_THUNDER_WAVE, MOVE_WILL_O_WISP, MOVE_MISERY_WAIL},
     },
@@ -2729,7 +2748,7 @@ static const struct TrainerMon sParty_PMisaki[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_FROSLASS,
     .ability = ABILITY_CURSED_BODY,
-    .moves = {MOVE_HEX, MOVE_DRAINING_KISS, MOVE_ATTRACT, MOVE_HONE_CLAWS}, //MISSING MOVE: PHANTASM (REPLACE HONE CLAWS)
+    .moves = {MOVE_HEX, MOVE_DRAINING_KISS, MOVE_ATTRACT, MOVE_PHANTASM},
     }
 };
 
@@ -2767,7 +2786,7 @@ static const struct TrainerMon sParty_PPhoebe[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MISDREAVUS,
     .ability = ABILITY_MAGICIAN,
-    .moves = {MOVE_FOUL_PLAY, MOVE_MAGIC_POWDER, MOVE_HEX, MOVE_PARTING_SHOT},
+    .moves = {MOVE_FOUL_PLAY, MOVE_THUNDERBOLT, MOVE_HEX, MOVE_PARTING_SHOT},
     },
     {
     .lvl = 29,
@@ -2803,19 +2822,21 @@ static const struct TrainerMon sParty_PSpenser[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_ARMAGATTON,
     .ability = ABILITY_UNSEEN_FIST,
-    .heldItem = ITEM_SITRUS_BERRY, //MISSING ITEM: BLUK BERRY
+    .heldItem = ITEM_BLUK_BERRY,
     .moves = {MOVE_ENERVATOR, MOVE_REMODEL, MOVE_RECONSTRUCT, MOVE_DIFFUSE_WAVE},
     }
 };
 
-static const struct TrainerMon sParty_Herman[] = {
+static const struct TrainerMon sParty_PLayton[] = {
     {
-    .lvl = 33,
-    .species = SPECIES_WINGULL,
+    .lvl = 13,
+    .species = SPECIES_SNOTLOUD,
+    .heldItem = ITEM_ORAN_BERRY,
     },
     {
-    .lvl = 33,
-    .species = SPECIES_TENTACRUEL,
+    .lvl = 14,
+    .species = SPECIES_HARACE,
+    .heldItem = ITEM_ORAN_BERRY,
     }
 };
 

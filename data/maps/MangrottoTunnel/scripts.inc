@@ -544,6 +544,11 @@ MangrottoTunnel_EventScript_Jane::
     msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
     end
 
+MangrottoTunnel_EventScript_Layton::
+    trainerbattle_single TRAINER_P_LAYTON, MangrottoTunnel_Text_GugumbirIntro, MangrottoTunnel_Text_GugumbirDefeated
+    msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
 MangrottoTunnel_EventScript_Jo_And_Jo::
     trainerbattle_double TRAINER_P_JO_AND_JO, MangrottoTunnel_Text_GugumbirIntro, MangrottoTunnel_Text_GugumbirDefeated, MangrottoTunnel_Text_GugumbirNeedTwoMons
     msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE

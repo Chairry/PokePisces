@@ -2004,16 +2004,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PSpenser),
     },
 
-    [TRAINER_HERMAN] =
+    [TRAINER_P_LAYTON] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_M,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_M,
-        .trainerName = _("HERMAN"),
+        .trainerClass = TRAINER_CLASS_CAMPER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LAD,
+        .trainerPic = TRAINER_PIC_CAMPER,
+        .trainerName = _("Layton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Herman),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .party = TRAINER_PARTY(sParty_PLayton),
     },
 
     [TRAINER_SANTIAGO] =
