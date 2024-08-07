@@ -17,16 +17,12 @@ static const struct TrainerMon sParty_Sawyer1[] = {
 //Example Struct Above
 static const struct TrainerMon sParty_PMendel[] = {
     {
-    .lvl = 40,
-    .species = SPECIES_CHAFFAW,
+    .lvl = 50,
+    .species = SPECIES_LEDIAN,
     },
     {
-    .lvl = 40,
-    .species = SPECIES_SOLASU,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_YAGANGRAN,
+    .lvl = 50,
+    .species = SPECIES_MOSKOPO,
     }
 };
 

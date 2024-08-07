@@ -11786,22 +11786,22 @@
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_RATICATE"
+                "species": "SPECIES_FLUFFSIR"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_RATICATE"
+                "species": "SPECIES_KOMORODE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_RATICATE"
+                "species": "SPECIES_FLUFFSIR"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_RATICATE"
+                "species": "SPECIES_KOMORODE"
               },
               {
                 "min_level": 50,
@@ -11909,54 +11909,54 @@
             "encounter_rate": 0,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 44,
+                "max_level": 44,
+                "species": "SPECIES_MANKEY"
+              },
+              {
+                "min_level": 44,
+                "max_level": 44,
+                "species": "SPECIES_MANKEY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_GUPSPAR"
               }
             ]
           }
