@@ -100,6 +100,7 @@ PrecipikeInteriors_EventScript_TheEggDemon::
 PrecipikeInteriors_EventScript_SadFisherman::
 	lock
 	faceplayer
+	speakername PrecipikeInteriors_Text_NameSadFisher
 	goto_if_unset FLAG_RECEIVED_OLD_ROD, PrecipikeInteriors_EventScript_GoGetOldRod
 	goto_if_set FLAG_RECEIVED_GOOD_ROD, PrecipikeInteriors_EventScript_HowsFishing
 	msgbox PrecipikeInteriors_Text_GettingItchToFish, MSGBOX_YESNO
@@ -109,6 +110,7 @@ PrecipikeInteriors_EventScript_SadFisherman::
 
 PrecipikeInteriors_EventScript_GoGetOldRod::
 	msgbox PrecipikeInteriors_Text_GoGetOldRod, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -122,11 +124,13 @@ PrecipikeInteriors_EventScript_GiveOldRod::
 	giveitem ITEM_GOOD_ROD
 	setflag FLAG_RECEIVED_GOOD_ROD
 	msgbox PrecipikeInteriors_Text_ThrowInFishingAdvice, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
 PrecipikeInteriors_EventScript_NotGettingItchToFish::
 	msgbox PrecipikeInteriors_Text_ThatsTooBadThen, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
@@ -134,6 +138,7 @@ PrecipikeInteriors_EventScript_HowsFishing::
 	msgbox PrecipikeInteriors_Text_HowsYourFishing, MSGBOX_AUTOCLOSE
 	specialvar VAR_RESULT, CheckAllSadsod
 	goto_if_eq VAR_RESULT, TRUE, PrecipikeInteriors_EventScript_SaltyTear
+	speakername NULL
 	release
 	end
 
@@ -143,13 +148,18 @@ PrecipikeInteriors_EventScript_SaltyTear::
 	msgbox PrecipikeInteriors_Text_SadsodMaster, MSGBOX_DEFAULT
 	giveitem ITEM_SALTY_TEAR
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
 PrecipikeInteriors_EventScript_GaveSaltyTear::
 	msgbox PrecipikeInteriors_Text_AlreadyGaveIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
+
+PrecipikeInteriors_Text_NameSadFisher:
+	.string "Sad Fisher$"
 
 PrecipikeInteriors_Text_GettingItchToFish:
 	.string "want to fight me for goodrod$"

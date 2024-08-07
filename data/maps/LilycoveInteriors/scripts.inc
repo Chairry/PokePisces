@@ -4,15 +4,18 @@ LilycoveInteriors_MapScripts::
 LilycoveInteriors_EventScript_Briney::
 	lock
 	faceplayer
+	speakername LilycoveInteriors_Text_NameBriney
 	clearflag FLAG_BRINEY_MIDGAME_VISIT
 	msgbox LilycoveInteriors_Text_WantToVoyage, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LilycoveInteriors_EventScript_WarpToTidal
 	msgbox LilycoveInteriors_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 LilycoveInteriors_EventScript_WarpToTidal::
 	msgbox LilycoveInteriors_Text_BonVoyage, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
 	release
 	end
@@ -60,6 +63,9 @@ LilycoveInteriors_EventScript_TradeCompleted::
 	msgbox LilycoveInteriors_Text_ThanksForTrading, MSGBOX_DEFAULT
 	release
 	end
+
+LilycoveInteriors_Text_NameBriney:
+	.string "Cpt. Briney$"
 
 LilycoveInteriors_Text_IllTradeIfYouWant:
 	.string "I'll trade you my {STR_VAR_2} for\n"

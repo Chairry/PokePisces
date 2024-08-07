@@ -15,12 +15,14 @@ StevenHouse_EventScript_MeetSteven::
 	applymovement LOCALID_FOLLOWER, StevenHouse_Movement_StandAside
 	applymovement OBJ_EVENT_ID_PLAYER, StevenHouse_Movement_MeetPlayer
 	waitmovement 0
+	speakername StevenHouse_Text_NameSteven
 	msgbox StevenHouse_Text_StevenGreet, MSGBOX_DEFAULT
 	applymovement LOCALID_STEVEN, StevenHouse_Movement_StevenPonders
 	waitmovement 0
 	msgbox StevenHouse_Text_Pondering, MSGBOX_DEFAULT
 	applymovement LOCALID_STEVEN, StevenHouse_Movement_StevenLeaves
 	waitmovement 0
+	speakername NULL
 	setflag FLAG_HIDE_STEVEN_IN_HOUSE
 	setvar VAR_NEW_COO_STATE, 3
 	release
@@ -74,6 +76,9 @@ StevenHouse_EventScript_GildedMonk::
 StevenHouse_Text_MonkIntroduce:
 	.string "My pleasure to introduce you to\n"
 	.string "former Champion, Steven.$"
+
+StevenHouse_Text_NameSteven:
+	.string "Steven$"
 
 StevenHouse_Text_StevenGreet:
 	.string "I believe we've met once or twice.\n"

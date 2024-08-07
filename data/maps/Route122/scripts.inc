@@ -54,16 +54,20 @@ Route122_Movement_RayEncounterEast:
 	step_end
 
 Route122_EventScript_RayBattleStart::
+	speakername Route122_Text_NameRay
 	trainerbattle_single TRAINER_P_RAY_2, Route122_Text_RayIntro, Route122_Text_RayDefeat, Route122_EventScript_RayLeaves
+	speakername NULL
 	release
 	end
 
 Route122_EventScript_RayLeaves::
+	speakername Route122_Text_NameRay
 	msgbox Route122_Text_RayLeaves, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_RAY, Route122_Movement_RayLeaves
 	waitmovement 0
 	removeobject LOCALID_RAY
+	speakername NULL
 	setflag FLAG_TEMP_11
 	setvar VAR_RAY_STATE, 2
 	release
@@ -117,6 +121,39 @@ Route122_EventScript_ThankYou::
 	release
 	end
 
+Route122_EventScript_LostKin::
+	lock
+	goto_if_set FLAG_ZOTPYRE_PSYCHICS, Route122_EventScript_Teleporter
+	faceplayer
+	setflag FLAG_ZOTPYRE_PSYCHICS
+	msgbox Route122_Text_IReuniteWithMyKin, MSGBOX_DEFAULT
+	goto Route122_EventScript_Teleporter
+	release
+	end
+
+Route122_EventScript_Teleporter::
+	lock
+	faceplayer
+	msgbox Route122_Text_WouldYouLikeToWarp, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route122_EventScript_WarpToCenter
+	msgbox Route122_Text_MaybeAnotherTime, MSGBOX_AUTOCLOSE
+	release
+	end
+
+Route122_EventScript_WarpToCenter::
+	warp MAP_LILYCOVE_CITY_POKEMON_CENTER_2F, 12, 3
+	release
+	end
+
+Route122_Text_WouldYouLikeToWarp:
+	.string "wanna warp$"
+
+Route122_Text_MaybeAnotherTime:
+	.string "maybe nexttime$"
+
+Route122_Text_IReuniteWithMyKin:
+	.string "psychic connection activate$"
+
 Route122_Text_GreetingsChild:
 	.string "A pleasant welcome to\n"
 	.string "our village, stranger.\p"
@@ -154,6 +191,9 @@ Route122_Text_YouHelpedHerFindPeace:
 
 Route122_Text_ThankYou:
 	.string "thank you!$"
+
+Route122_Text_NameRay:
+	.string "Ray$"
 
 Route122_Text_RayIntro:
 	.string "Oh.\p"

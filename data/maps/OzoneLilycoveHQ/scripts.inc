@@ -106,35 +106,50 @@ OzoneLilycoveHQ_EventScript_BoardroomMeeting::
 	waitmovement 0
 	applymovement LOCALID_WORKER2, OzoneLilycoveHQ_Movement_Worker2Talking
 	msgbox OzoneLilycoveHQ_Text_Boardroom2, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattTalking
 	msgbox OzoneLilycoveHQ_Text_Matt1, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha1, MSGBOX_DEFAULT
+	speakername NULL
 	applymovement LOCALID_WORKER1, OzoneLilycoveHQ_Movement_Worker1Talking
 	msgbox OzoneLilycoveHQ_Text_Boardroom3, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattTalking
 	msgbox OzoneLilycoveHQ_Text_Matt2, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha2, MSGBOX_DEFAULT
+	speakername NULL
 	applymovement LOCALID_WORKER3, OzoneLilycoveHQ_Movement_Worker3Talking
 	msgbox OzoneLilycoveHQ_Text_Boardroom4, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, OzoneLilycoveHQ_Movement_PlayerEnters
 	waitmovement 0
 	applymovement LOCALID_WORKER2, OzoneLilycoveHQ_Movement_WorkerFlabbergasted
 	msgbox OzoneLilycoveHQ_Text_Boardroom5, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha3, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattAngry
 	msgbox OzoneLilycoveHQ_Text_Matt3, MSGBOX_DEFAULT
 	playse SE_M_SWEET_SCENT
+	speakername NULL
 	msgbox OzoneLilycoveHQ_Text_BoardSigh, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattTalking
 	msgbox OzoneLilycoveHQ_Text_Matt4, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha4, MSGBOX_DEFAULT
+	speakername NULL
+	msgbox OzoneLilycoveHQ_Text_YouNod, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattJumping
 	waitmovement 0
 	msgbox OzoneLilycoveHQ_Text_Matt5, MSGBOX_DEFAULT
+	speakername NULL
 	trainerbattle_two_trainers TRAINER_P_OZONE_MATT_1, OzoneLilycoveHQ_Text_MattDefeated, TRAINER_P_OZONE_TABITHA_1, OzoneLilycoveHQ_Text_TabithaDefeated, OzoneLilycoveHQ_EventScript_AdminsDefeated, NO_MUSIC
 	goto OzoneLilycoveHQ_EventScript_AdminsDefeated
 	release
@@ -142,19 +157,25 @@ OzoneLilycoveHQ_EventScript_BoardroomMeeting::
 
 OzoneLilycoveHQ_EventScript_AdminsDefeated::
 	delay 16
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha5, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattTalking
 	msgbox OzoneLilycoveHQ_Text_Matt6, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaDeclaration
 	waitmovement 0
 	msgbox OzoneLilycoveHQ_Text_Tabitha6, MSGBOX_DEFAULT
+	speakername OzoneLilycoveHQ_Text_NameMatt
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattUpset
 	msgbox OzoneLilycoveHQ_Text_Matt7, MSGBOX_DEFAULT
 	applymovement LOCALID_MATT, OzoneLilycoveHQ_Movement_MattLeaves
 	waitmovement 0
+	speakername OzoneLilycoveHQ_Text_NameTabitha
 	applymovement LOCALID_TABITHA, OzoneLilycoveHQ_Movement_TabithaTalking
 	msgbox OzoneLilycoveHQ_Text_Tabitha7, MSGBOX_AUTOCLOSE
+	speakername NULL
 	setvar VAR_OZONE_ADMINS_STATE, 3
 	setvar VAR_PISCES_STORY_PROGRESS, 3
 	warp MAP_THE_COLD_MINES, 56, 35
@@ -246,6 +267,12 @@ OzoneLilycoveHQ_Movement_MattLeaves:
 	walk_left
 	step_end
 
+OzoneLilycoveHQ_Text_NameMatt:
+	.string "Matt$"
+
+OzoneLilycoveHQ_Text_NameTabitha:
+	.string "Tabitha$"
+
 OzoneLilycoveHQ_Text_Boardroom1:
 	.string "(There appears to be some\n"
 	.string "kind of meeting going on…)$"
@@ -328,8 +355,10 @@ OzoneLilycoveHQ_Text_Tabitha4:
 	.string "Stranger, I personally believe the\n"
 	.string "best way to read a person\l"
 	.string "is through battle.\p"
-	.string "Will you entertain my request?\p("
-	.string "You nod.)$"
+	.string "Will you entertain my request?$"
+
+OzoneLilycoveHQ_Text_YouNod:	
+	.string "(You nod.)$"
 
 OzoneLilycoveHQ_Text_Matt5:
 	.string "Hey! Don't leave me outta this!$"

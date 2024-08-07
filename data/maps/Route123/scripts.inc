@@ -38,6 +38,7 @@ Route123_EventScript_BreadPos2::
 
 Route123_EventScript_BreadwinnerEncounter::
 	lock
+	speakername Route123_Text_NamePandou
 	applymovement OBJ_EVENT_ID_PLAYER, Route123_Movement_PlayerWalkUpStairs
 	applymovement LOCALID_BREAD, Route123_Movement_BreadEnc
 	waitmovement 0
@@ -45,6 +46,7 @@ Route123_EventScript_BreadwinnerEncounter::
 	applymovement LOCALID_BREAD, Route123_Movement_BreadBackUp
 	waitmovement 0
 	trainerbattle_single TRAINER_P_PANDOU_2, Route123_Text_BreadwinnerIntro, Route123_Text_BreadwinnerDefeat, Route123_EventScript_BreadRun
+	speakername NULL
 	release
 	end
 
@@ -71,11 +73,13 @@ Route123_Movement_BreadBackUp:
 
 Route123_EventScript_BreadRun::
 	setvar VAR_BREADWINNER_STATE, 2
+	speakername Route123_Text_NamePandou
 	msgbox Route123_Text_BreadwinnerRunAway, MSGBOX_DEFAULT
 	closemessage
 	playse SE_FLEE
 	applymovement LOCALID_BREAD, Route123_Movement_BreadEscape
 	waitmovement 0
+	speakername NULL
 	msgbox Route123_Text_ProtectTM, MSGBOX_DEFAULT
 	giveitem ITEM_TM_PROTECT
 	setflag FLAG_TEMP_11
@@ -559,6 +563,9 @@ Route123_Text_HothDefeated:
 
 Route123_Text_HothPostBattle:
 	.string "post$"
+
+Route123_Text_NamePandou:
+	.string "Pandou$"
 
 Route123_Text_BreadwinnerIntro:
 	.string "Many p-p-pardons!\p"

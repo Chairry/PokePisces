@@ -19,6 +19,7 @@ LilycoveCity_PokemonCenter_2F_EventScript_Nurse::
 LilycoveCity_PokemonCenter_2F_EventScript_BallQuestGuy::
 	lock
 	faceplayer
+	speakername LilycoveCity_PokemonCenter_2F_Text_NamePhillipe
 	goto_if_lt VAR_BALL_QUEST_STATE, 3, LilycoveCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest
 	goto_if_gt VAR_BALL_QUEST_STATE, 3, LilycoveCity_PokemonCenter_2F_EventScript_NoMoreQuest
 	goto_if_set FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR, LilycoveCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated
@@ -27,6 +28,7 @@ LilycoveCity_PokemonCenter_2F_EventScript_BallQuestGuy::
 	getcaughtmon SPECIES_LOTTABATS
 	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_2F_EventScript_Check2
 	msgbox LilycoveCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -35,6 +37,7 @@ LilycoveCity_PokemonCenter_2F_EventScript_BallQuestGuyTruncated::
 	getcaughtmon SPECIES_LOTTABATS
 	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_2F_EventScript_Check2
 	msgbox LilycoveCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -42,6 +45,7 @@ LilycoveCity_PokemonCenter_2F_EventScript_Check2::
 	getcaughtmon SPECIES_MATCHLIT
 	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_2F_EventScript_Check3
 	msgbox LilycoveCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -49,6 +53,7 @@ LilycoveCity_PokemonCenter_2F_EventScript_Check3::
 	getcaughtmon SPECIES_FLAGUE
 	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonCenter_2F_EventScript_GiveNewBall
 	msgbox LilycoveCity_PokemonCenter_2F_Text_GoCatchIt, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -56,16 +61,19 @@ LilycoveCity_PokemonCenter_2F_EventScript_GiveNewBall::
 	addvar VAR_BALL_QUEST_STATE, 1
 	clearflag FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR
 	msgbox LilycoveCity_PokemonCenter_2F_Text_YouveUnlockedNewBall, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 LilycoveCity_PokemonCenter_2F_EventScript_GoDoPreviousQuest::
 	msgbox LilycoveCity_PokemonCenter_2F_Text_GoDoPreviousQuest, MSGBOX_NPC
+	speakername NULL
 	release
 	end
 
 LilycoveCity_PokemonCenter_2F_EventScript_NoMoreQuest::
 	msgbox LilycoveCity_PokemonCenter_2F_Text_NoMoreQuest, MSGBOX_NPC
+	speakername NULL
 	release
 	end
 
@@ -85,9 +93,12 @@ LilycoveCity_PokemonCenter_2F_EventScript_WhereIsMySibling::
 	end
 
 LilycoveCity_PokemonCenter_2F_EventScript_WarpToShrine::
-	warp MAP_MT_PYRE_1F, 14, 21
+	warp MAP_ROUTE122, 30, 20
 	release
 	end
+
+LilycoveCity_PokemonCenter_2F_Text_NamePhillipe:
+	.string "Phillipe$"
 
 LilycoveCity_PokemonCenter_2F_Text_WouldYouLikeToWarp:
 	.string "wanna warp$"

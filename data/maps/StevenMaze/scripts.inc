@@ -64,17 +64,21 @@ StevenMaze_EventScript_PokeDoll::
 
 StevenMaze_EventScript_FinalSteven::
 	lock
+	speakername StevenMaze_Text_NameSteven
 	msgbox StevenMaze_Text_AllDone, MSGBOX_DEFAULT
 	setvar VAR_NEW_COO_STATE, 4
 	checkitem ITEM_POKE_DOLL
 	goto_if_eq VAR_RESULT, TRUE, StevenMaze_EventScript_GiveEeriko
 	goto StevenMaze_EventScript_TimeToLeave
+	speakername NULL
 	release
 	end
 
 StevenMaze_EventScript_TimeToLeave::
+	speakername StevenMaze_Text_NameSteven
 	setflag FLAG_DEFEATED_PANIC_EVENT
 	msgbox StevenMaze_Text_Leave, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_STEVEN_HOUSE, 8, 3
 	waitstate
 	release
@@ -82,6 +86,7 @@ StevenMaze_EventScript_TimeToLeave::
 
 StevenMaze_EventScript_GiveEeriko::
 	msgbox StevenMaze_Text_Eeriko, MSGBOX_DEFAULT
+	speakername NULL
 	removeitem ITEM_POKE_DOLL, 1
 	givemon SPECIES_EERIKO, 18
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, StevenMaze_EventScript_ReceiveEerikoParty
@@ -123,6 +128,9 @@ StevenMaze_EventScript_ReceivedEerikoFanfare::
 	waitfanfare
 	bufferspeciesname STR_VAR_1, SPECIES_EERIKO
 	return
+
+StevenMaze_Text_NameSteven:
+	.string "Steven$"
 
 StevenMaze_Text_Darkness:
 	.string "(Nothing but darkness…)$"

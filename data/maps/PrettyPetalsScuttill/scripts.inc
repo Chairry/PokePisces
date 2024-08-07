@@ -52,16 +52,22 @@ PrettyPetalsScuttill_EventScript_BloomingEvent::
 	waitmovement 0
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Rita1, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameNatalie
 	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Natalie1, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameNicole
 	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Nicole1, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameNatalie
 	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Natalie2, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameCourtney
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney2, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameNatalie
 	applymovement LOCALID_SISTER1, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Natalie3, MSGBOX_DEFAULT
+	speakername NULL
 	trainerbattle_two_trainers TRAINER_P_NATALIE, PrettyPetalsScuttill_Text_NatalieDefeat, TRAINER_P_NICOLE, PrettyPetalsScuttill_Text_NicoleDefeat, PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated, NO_MUSIC
 	goto PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated
 	release
@@ -131,13 +137,16 @@ PrettyPetalsScuttill_EventScript_NatalieNicoleDefeated::
 	lock
 	setvar VAR_TEMP_4, 1
 	cleartrainerflag TRAINER_P_RITA
+	speakername PrettyPetalsScuttill_Text_NameNicole
 	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Nicole2, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_FightRita::
 	lock
+	speakername PrettyPetalsScuttill_Text_NameRita
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	waitmovement 0
 	trainerbattle_single TRAINER_P_RITA, PrettyPetalsScuttill_Text_Rita2, PrettyPetalsScuttill_Text_RitaDefeat, PrettyPetalsScuttill_EventScript_BloomingEventDone
@@ -147,12 +156,16 @@ PrettyPetalsScuttill_EventScript_FightRita::
 PrettyPetalsScuttill_EventScript_BloomingEventDone::
 	lock
 	setvar VAR_TEMP_4, 2
+	speakername PrettyPetalsScuttill_Text_NameRita
 	applymovement LOCALID_SISTER2, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Rita3, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameNicole
 	applymovement LOCALID_SISTER3, PrettyPetalsScuttill_Movement_SisterTalk
 	msgbox PrettyPetalsScuttill_Text_Nicole3, MSGBOX_DEFAULT
+	speakername PrettyPetalsScuttill_Text_NameCourtney
 	applymovement LOCALID_COURTNEY, PrettyPetalsScuttill_Movement_CourtneyTalk
 	msgbox PrettyPetalsScuttill_Text_Courtney3, MSGBOX_DEFAULT
+	speakername NULL
 	setvar VAR_OZONE_ADMINS_STATE, 4
 	setflag FLAG_DEFEATED_OZONE_BRANCH
 	warp MAP_ROUTE120, 31, 83
@@ -162,6 +175,7 @@ PrettyPetalsScuttill_EventScript_BloomingEventDone::
 PrettyPetalsScuttill_EventScript_Natalie::
 	lock
 	faceplayer
+	speakername PrettyPetalsScuttill_Text_NameNatalie
 	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_NataliePreBloom
 	checkitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GaveTropKick
@@ -171,6 +185,7 @@ PrettyPetalsScuttill_EventScript_Natalie::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -180,6 +195,7 @@ PrettyPetalsScuttill_EventScript_CheckLowKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -189,6 +205,7 @@ PrettyPetalsScuttill_EventScript_CheckBlazeKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -198,6 +215,7 @@ PrettyPetalsScuttill_EventScript_CheckTripleKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -207,6 +225,7 @@ PrettyPetalsScuttill_EventScript_CheckJumpKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -216,6 +235,7 @@ PrettyPetalsScuttill_EventScript_CheckHighJumpKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -225,6 +245,7 @@ PrettyPetalsScuttill_EventScript_CheckRollingKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
@@ -234,27 +255,33 @@ PrettyPetalsScuttill_EventScript_CheckMegaKick::
 	msgbox PrettyPetalsScuttill_Text_YouHaveKickMove, MSGBOX_DEFAULT
 	giveitem ITEM_TM_TROP_KICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_NoKickingMoves::
 	msgbox PrettyPetalsScuttill_Text_NoKickMove, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_GaveTropKick::
 	msgbox PrettyPetalsScuttill_Text_PostTropKick, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_NataliePreBloom::
+	speakername PrettyPetalsScuttill_Text_NameNatalie
 	msgbox PrettyPetalsScuttill_Text_NatPreBloom, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_Nicole::
 	lock
 	faceplayer
+	speakername PrettyPetalsScuttill_Text_NameNicole
 	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_NicolePreBloom
 	checkitem ITEM_FAIRY_RING
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GaveFairyRing
@@ -264,27 +291,33 @@ PrettyPetalsScuttill_EventScript_Nicole::
 	msgbox PrettyPetalsScuttill_Text_YouHaveIngrain, MSGBOX_DEFAULT
 	giveitem ITEM_FAIRY_RING
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_NoIngrain::
 	msgbox PrettyPetalsScuttill_Text_NoIngrain, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_GaveFairyRing::
 	msgbox PrettyPetalsScuttill_Text_PostFairyRing, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_NicolePreBloom::
+	speakername PrettyPetalsScuttill_Text_NameNicole
 	msgbox PrettyPetalsScuttill_Text_NicPreBloom, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_Rita::
 	lock
 	faceplayer
+	speakername PrettyPetalsScuttill_Text_NameRita
 	goto_if_lt VAR_OZONE_ADMINS_STATE, 4, PrettyPetalsScuttill_EventScript_RitaPreBloom
 	checkitem ITEM_WEIRD_STICK
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GoCollectSticks
@@ -292,11 +325,13 @@ PrettyPetalsScuttill_EventScript_Rita::
 	giveitem ITEM_WEIRD_STICK
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PrettyPetalsScuttill_EventScript_RitaPreBloom::
 	msgbox PrettyPetalsScuttill_Text_RitaPreBloom, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -304,6 +339,7 @@ PrettyPetalsScuttill_EventScript_GoCollectSticks::
 	checkitem ITEM_WEIRD_STICK, 100
 	goto_if_eq VAR_RESULT, TRUE, PrettyPetalsScuttill_EventScript_GotTheSticks
 	msgbox PrettyPetalsScuttill_Text_Need100Sticks, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -311,6 +347,7 @@ PrettyPetalsScuttill_EventScript_GotTheSticks::
 	msgbox PrettyPetalsScuttill_Text_Wow100Sticks, MSGBOX_DEFAULT
 	giveitem ITEM_MAX_POTION
 	msgbox PrettyPetalsScuttill_Text_StickMaster, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -339,6 +376,18 @@ PrettyPetalsScuttill_Mart_BerryShop:
 	.2byte ITEM_NONE
 	release
 	end	
+
+PrettyPetalsScuttill_Text_NameCourtney:
+	.string "Courtney$"
+
+PrettyPetalsScuttill_Text_NameRita:
+	.string "Rita$"
+
+PrettyPetalsScuttill_Text_NameNatalie:
+	.string "Natalie$"
+
+PrettyPetalsScuttill_Text_NameNicole:
+	.string "Nicole$"
 
 PrettyPetalsScuttill_Text_WelcomeToPrettyPetals:
 	.string "Welcome to Pretty Petals!\n"

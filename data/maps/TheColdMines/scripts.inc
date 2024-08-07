@@ -2246,7 +2246,9 @@ TheColdMines_EventScript_NorthHardhatterPostOLBHQ::
 	end
 
 TheColdMines_EventScript_Tabitha::
+	speakername TheColdMines_Text_NameTabitha
 	msgbox TheColdMines_Text_WeWillTakeCareOfThis, MSGBOX_NPC
+	speakername NULL
 	end
 
 TheColdMines_EventScript_Felix::
@@ -2423,6 +2425,9 @@ TheColdMines_Text_LottaSnowToShovel:
 
 TheColdMines_Text_HurtFromShoveling:
 	.string "i be hurtin$"
+
+TheColdMines_Text_NameTabitha:
+	.string "Tabitha$"
 
 TheColdMines_Text_WeWillTakeCareOfThis:
 	.string "It will inevitably take my men a while\n"
