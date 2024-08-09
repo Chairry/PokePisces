@@ -225,7 +225,8 @@
     "MauvilleCity_PokemonCenter_2F",
     "SlateportCity_PokemonCenter_1F",
     "BattleFrontier_PokemonCenter_1F",
-    "Gym6Corridor"
+    "Gym6Corridor",
+    "SweltornTransitionHallway"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",
