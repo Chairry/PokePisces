@@ -2093,8 +2093,8 @@ static const u8 sElectrowebDescription[] = _(
     "electric net. Lowers Speed.");
 
 static const u8 sWildChargeDescription[] = _(
-    "An electrical tackle that\n"
-    "hurts the user. May paralyze.");
+    "A wild tackle that does\n"
+    "recoil and damages all foes.");
 
 static const u8 sDrillRunDescription[] = _(
     "Spins its body like a drill.\n"

@@ -7817,7 +7817,7 @@ bool32 CanBeExposed(u32 battler)
 
 bool32 CanBeConfused(u32 battler)
 {
-    if (GetBattlerAbility(battler) == ABILITY_OWN_TEMPO || gBattleMons[battler].status2 & STATUS2_CONFUSION || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN))
+    if (GetBattlerAbility(battler) == ABILITY_OWN_TEMPO || gBattleMons[battler].status2 & STATUS2_CONFUSION || gStatuses4[battler] & STATUS4_INFINITE_CONFUSION || IsBattlerTerrainAffected(battler, STATUS_FIELD_MISTY_TERRAIN) || gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SAFEGUARD)
         return FALSE;
     return TRUE;
 }
@@ -10688,6 +10688,8 @@ bool32 IsBattlerProtected(u32 battler, u32 move)
         return FALSE;
     else if (gBattleMoves[move].ignoresProtect)
         return FALSE;
+    else if (IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_BUG) && gProtectStructs[gBattlerTarget].protected)
+        return FALSE;
     else if (gBattleMoves[move].effect == EFFECT_FEINT)
         return FALSE;
     else if (gSpecialStatuses[battler].gemBoost == TRUE)
@@ -12604,9 +12606,12 @@ static inline uq4_12_t GetRechargeReduceModifier(u32 battlerDef)
     return UQ_4_12(1.0);
 }
 
-static inline uq4_12_t GetLuckyChantModifier(u32 battlerDef, uq4_12_t typeEffectivenessModifier)
+static inline uq4_12_t GetLuckyChantModifier(u32 abilityAtk, u32 battlerAtk, u32 battlerDef, uq4_12_t typeEffectivenessModifier)
 {
-    if ((gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_LUCKY_CHANT) && (typeEffectivenessModifier >= UQ_4_12(2.0)))
+    if ((gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_LUCKY_CHANT) 
+    && (typeEffectivenessModifier >= UQ_4_12(2.0))
+    && (abilityAtk != ABILITY_INFILTRATOR)
+    && !(IS_BATTLER_OF_TYPE(battlerAtk, TYPE_BUG)))
         return UQ_4_12(0.7);
     return UQ_4_12(1.0);
 }
@@ -12667,7 +12672,7 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
     bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IS_MOVE_PHYSICAL(move);
     bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
 
-    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[battlerAtk].confusionSelfDmg || gCurrentMove == MOVE_RAZING_SUN)
+    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || IS_BATTLER_OF_TYPE(battlerAtk, TYPE_BUG) || gProtectStructs[battlerAtk].confusionSelfDmg || gCurrentMove == MOVE_RAZING_SUN)
         return UQ_4_12(1.0);
     if (reflect || lightScreen || auroraVeil)
         return (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) ? UQ_4_12(0.667) : UQ_4_12(0.5);
@@ -12991,7 +12996,7 @@ static inline s32 DoMoveDamageCalcVars(u32 move, u32 battlerAtk, u32 battlerDef,
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));
     DAMAGE_APPLY_MODIFIER(GetRechargeReduceModifier(battlerDef));
-    DAMAGE_APPLY_MODIFIER(GetLuckyChantModifier(battlerDef, typeEffectivenessModifier));
+    DAMAGE_APPLY_MODIFIER(GetLuckyChantModifier(abilityAtk, battlerAtk, battlerDef, typeEffectivenessModifier));
     DAMAGE_APPLY_MODIFIER(GetTargetStatusDamageModifier(battlerDef));
     // TODO: Glaive Rush (Gen IX effect)
     if (randomFactor)

@@ -1434,6 +1434,9 @@ const u32 gBattleAnimBgImage_InAir[] = INCBIN_U32("graphics/battle_anims/backgro
 const u32 gBattleAnimBgPalette_InAir[] = INCBIN_U32("graphics/battle_anims/backgrounds/in_air.gbapal.lz");
 const u32 gBattleAnimBgTilemap_InAir[] = INCBIN_U32("graphics/battle_anims/backgrounds/in_air.bin.lz");
 
+const u32 gBattleAnimBgImage_PinkInAir[] = INCBIN_U32("graphics/battle_anims/backgrounds/pink_in_air.4bpp.lz");
+const u32 gBattleAnimBgPalette_PinkInAir[] = INCBIN_U32("graphics/battle_anims/backgrounds/pink_in_air.gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Protect[] = INCBIN_U32("graphics/battle_anims/sprites/protect.4bpp.lz");
 const u32 gBattleAnimSpritePal_Protect[] = INCBIN_U32("graphics/battle_anims/sprites/protect.gbapal.lz");
 

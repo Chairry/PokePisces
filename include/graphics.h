@@ -11891,6 +11891,8 @@ extern const u32 gBattleAnimBgImage_Guillotine[];
 extern const u32 gBattleAnimBgImage_Ice[];
 extern const u32 gBattleAnimBgImage_Cosmic[];
 extern const u32 gBattleAnimBgImage_InAir[];
+extern const u32 gBattleAnimBgImage_PinkInAir[];
+extern const u32 gBattleAnimBgPalette_PinkInAir[];
 extern const u32 gBattleAnimBgImage_Aurora[];
 extern const u32 gBattleAnimBgImage_Fissure[];
 extern const u32 gBattleAnimBgImage_TrickRoom[];

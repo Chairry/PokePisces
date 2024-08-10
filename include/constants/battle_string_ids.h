@@ -788,8 +788,9 @@
 #define STRINGID_HEALERRESTORATION                    786
 #define STRINGID_TOOBIGTOCARE                         787
 #define STRINGID_HIGHROLLHITROLL                      788
+#define	STRINGID_SPARKINGELECTRICITYHIT               789
 
-#define BATTLESTRINGS_COUNT                           789
+#define BATTLESTRINGS_COUNT                           790
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

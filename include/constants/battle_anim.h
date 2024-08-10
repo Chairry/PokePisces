@@ -546,6 +546,7 @@
 #define BG_INVERSE_ROOM 83
 #define BG_ATTRACT 84
 #define BG_RED 85
+#define BG_PINK_IN_AIR 86
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0

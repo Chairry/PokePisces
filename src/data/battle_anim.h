@@ -2053,4 +2053,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_INVERSE_ROOM]              = {gBattleAnimBgImage_TrickRoom,               gBattleAnimBgPalette_InverseRoom,             gBattleAnimBgTilemap_TrickRoom},
     [BG_ATTRACT]                   = {gBattleAnimBgImage_Attract,                 gBattleAnimBgPalette_Attract,                 gBattleAnimBgTilemap_RealAttract},
     [BG_RED]                       = {gBattleAnimBgImage_Red,                     gBattleAnimBgPalette_Red,                     gBattleAnimBgTilemap_BlackholeEclipse},
+    [BG_PINK_IN_AIR]               = {gBattleAnimBgImage_PinkInAir,               gBattleAnimBgPalette_PinkInAir,               gBattleAnimBgTilemap_InAir},
 };

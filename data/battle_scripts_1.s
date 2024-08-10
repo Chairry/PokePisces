@@ -631,6 +631,29 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
 	.4byte BattleScript_EffectPoisonGas               @ EFFECT_POISON_GAS
 	.4byte BattleScript_EffectHighRollHit             @ EFFECT_HIGH_ROLL_HIT
+	.4byte BattleScript_EffectSpindaSwing             @ EFFECT_SPINDA_SWING
+	.4byte BattleScript_EffectWildCharge              @ EFFECT_WILD_CHARGE
+
+BattleScript_EffectWildCharge::
+	setmoveeffect MOVE_EFFECT_WILD_CHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
+BattleScript_MoveEffectWildCharge::
+	tryfaintmon BS_TARGET
+	copybyte sBATTLER, sSAVED_BATTLER
+	printstring STRINGID_SPARKINGELECTRICITYHIT
+	waitmessage B_WAIT_TIME_LONG
+	savetarget
+	copybyte gBattlerTarget, sSAVED_BATTLER
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	tryfaintmon BS_TARGET
+	restoretarget
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectSpindaSwing::
+	setmoveeffect MOVE_EFFECT_CONFUSION
+	goto BattleScript_EffectHit
 
 BattleScript_EffectHighRollHit::
 	attackcanceler
@@ -1773,17 +1796,11 @@ BattleScript_TropKickAtkDefDownUserAtkUp::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectNeedleArm::
-	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
-	typecalc
-	damagetopercentagetargethp
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_EffectNeedleArmBlooming
-	goto BattleScript_HitFromAtkAnimation
+	goto BattleScript_EffectHit
 BattleScript_EffectNeedleArmBlooming::
 	argumenttomoveeffect
-	goto BattleScript_HitFromAtkAnimation
+	goto BattleScript_EffectHit
 
 BattleScript_EffectTrailBlaze::
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_EffectSpdAccUpHit
@@ -1928,9 +1945,7 @@ BattleScript_EffectIgnition::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpeedUpUserAlly:
-	jumpifspecieshasnolegs BS_ATTACKER, BattleScript_ButItFailed
 	jumpifnoally BS_ATTACKER, BattleScript_EffectSpeedUp2
-	jumpifallyhasnolegs BS_ATTACKER, BattleScript_EffectSpeedUp2
 	attackcanceler
 	attackstring
 	ppreduce

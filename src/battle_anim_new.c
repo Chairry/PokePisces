@@ -5835,6 +5835,16 @@ const struct SpriteTemplate gBlackHoleEclipseRedRingSpriteTemplate =
     .affineAnims = gThinRingExpandingAffineAnimTable,
     .callback = AnimSpriteOnMonPos
 };
+const struct SpriteTemplate gBeatBoxBlueRingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_THIN_RING,
+    .paletteTag = ANIM_TAG_WATER_ORB,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gThinRingExpandingAffineAnimTable,
+    .callback = AnimSpriteOnMonPos
+};
 const struct SpriteTemplate gBlackHoleEclipseBlueRingInwardsSpriteTemplate =
 {
     .tileTag = ANIM_TAG_THIN_RING,

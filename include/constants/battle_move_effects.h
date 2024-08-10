@@ -608,7 +608,9 @@
 #define EFFECT_OVERTAKE                     602
 #define EFFECT_POISON_GAS                   603
 #define EFFECT_HIGH_ROLL_HIT                604
+#define EFFECT_SPINDA_SWING                 605
+#define EFFECT_WILD_CHARGE                  606
 
-#define NUM_BATTLE_MOVE_EFFECTS             605
+#define NUM_BATTLE_MOVE_EFFECTS             607
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
