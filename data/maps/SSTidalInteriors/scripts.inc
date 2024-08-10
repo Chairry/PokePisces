@@ -125,12 +125,17 @@ SSTidalInteriors_EventScript_Drake::
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, SSTidalInteriors_EventScript_DrakeLeave
 	setflag FLAG_PISCES_A
 	msgbox SSTidalInteriors_Text_Drake, MSGBOX_DEFAULT
+	speakername SSTidalInteriors_Text_NameDrake
+	msgbox SSTidalInteriors_Text_DrakeCont, MSGBOX_DEFAULT
+	speakername NULL
 	call_if_set FLAG_PISCES_A, SSTidalInteriors_EventScript_CheckFlags1
 	release
 	end
 
 SSTidalInteriors_EventScript_DrakeLeave::
+	speakername SSTidalInteriors_Text_NameDrake
 	msgbox SSTidalInteriors_Text_DrakeLeave, MSGBOX_NPC
+	speakername NULL
 	release
 	end
 
@@ -286,12 +291,17 @@ SSTidalInteriors_Text_OhYourBagsFull:
 SSTidalInteriors_Text_ComeBackIfQuickStart:
 	.string "Quick Start protocol terminated.$"
 
+SSTidalInteriors_Text_NameDrake:
+	.string "Drake$"
+
 SSTidalInteriors_Text_Drake:
 	.string "Greetings.\p"
 	.string "I am Drake, a master of Dragons.\p"
 	.string "What brings you aboard the fine\n"
-	.string "Captain Briney's vessel today?\p"
-	.string "..."
+	.string "Captain Briney's vessel today?$"
+
+SSTidalInteriors_Text_DrakeCont:
+	.string "...\p"
 	.string "Off to see Prof. Birch, I see.\n"
 	.string "I know of the man. I had recently\l"
 	.string "picked his brain regarding the\l"

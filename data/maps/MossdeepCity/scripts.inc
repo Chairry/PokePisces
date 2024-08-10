@@ -670,17 +670,23 @@ MossdeepCity_Movement_PlayerBlockRight:
 MossdeepCity_EventScript_BrineyFastTravel::
 	lock
 	faceplayer
+	speakername MossdeepCity_Text_NameBriney
 	msgbox MossdeepCity_Text_WantToVoyage, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, MossdeepCity_EventScript_WarpToTidal
 	msgbox MossdeepCity_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 MossdeepCity_EventScript_WarpToTidal::
 	msgbox MossdeepCity_Text_BonVoyage, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
 	release
 	end
+
+MossdeepCity_Text_NameBriney:
+	.string "Cpt. Briney$"
 
 MossdeepCity_Text_WantToVoyage:
 	.string "wanna go to ss tidle$"

@@ -18,7 +18,9 @@ RivalRoom_EventScript_BrineyOpening::
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_HIDE_BIRCH_AFTER_STARTER
 	clearflag FLAG_HIDE_BIRCH_BEFORE_STARTER
+	speakername RivalRoom_Text_NameBriney
 	msgbox RivalRoom_Text_GoTalkToOthers, MSGBOX_DEFAULT
+	speakername NULL
 	closemessage
 	releaseall
 	end
@@ -32,13 +34,19 @@ RivalRoom_Movement_PlayerFaceBriney:
 	step_end
 
 RivalRoom_EventScript_GetOut::
+	speakername RivalRoom_Text_NameBriney
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 3, RivalRoom_EventScript_Docked
     msgbox RivalRoom_Text_BrineyText, MSGBOX_NPC
+	speakername NULL
 	end
 
 RivalRoom_EventScript_Docked::
 	msgbox RivalRoom_Text_Docked, MSGBOX_NPC
+	speakername NULL
 	end
+
+RivalRoom_Text_NameBriney:
+	.string "Cpt. Briney$"
 
 RivalRoom_Text_GoTalkToOthers:
 	.string "The Tidal's voyage should be\n"

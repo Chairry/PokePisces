@@ -3,6 +3,7 @@ SootopolisInteriors_MapScripts::
 
 SootopolisInteriors_EventScript_ShellBellMaker::
 	lock
+	speakername SootopolisInteriors_Text_NameLBelle
 	goto_if_set FLAG_RECEIVED_SOOTHE_BELL, SootopolisInteriors_EventScript_LunasterTale
 	goto_if_set FLAG_RECEIVED_SHELL_BELL, SootopolisInteriors_EventScript_HealBellQuest
 	msgbox SootopolisInteriors_Text_IMakeShellBells, MSGBOX_DEFAULT
@@ -16,16 +17,19 @@ SootopolisInteriors_EventScript_ShellBellMaker::
 	giveitem ITEM_SHELL_BELL
 	setflag FLAG_RECEIVED_SHELL_BELL
 	closemessage
+	speakername NULL
 	release
 	end
 
 SootopolisInteriors_EventScript_GetMoreShells::
 	msgbox SootopolisInteriors_Text_GetMoreShells, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
 SootopolisInteriors_EventScript_GoFindSalt::
 	msgbox SootopolisInteriors_Text_GoFindSalt, MSGBOX_DEFAULT
+	speakername NULL
 	release
 	end
 
@@ -35,17 +39,20 @@ SootopolisInteriors_EventScript_HealBellQuest::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, NewSooto_EventScript_Hint
 	setflag FLAG_RECEIVED_SOOTHE_BELL
 	msgbox SootopolisInteriors_Text_HaveSootheBell, MSGBOX_DEFAULT
+	speakername NULL
 	giveitem ITEM_SOOTHE_BELL
 	release
 	end
 
 NewSooto_EventScript_Hint::
 	msgbox SootopolisInteriors_Text_HealBellHint, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 SootopolisInteriors_EventScript_LunasterTale::
 	msgbox SootopolisInteriors_Text_BellStory, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -144,6 +151,9 @@ SootopolisInteriors_Text_GaveDB:
 	.string "Tales tell of the most powerful\n"
 	.string "of all Dragons, the great Rayquaza.\p"
 	.string "I'd love to see it someday.$"
+
+SootopolisInteriors_Text_NameLBelle:
+	.string "L'Belle$"
 
 SootopolisInteriors_Text_IMakeShellBells:
 	.string "Welcome to my home.\p"

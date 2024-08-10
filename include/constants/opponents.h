@@ -168,7 +168,7 @@
 #define TRAINER_P_YUINA                     164
 #define TRAINER_P_PHOEBE                    165 //LEADERS 3
 #define TRAINER_P_SPENSER                   166 //LEADERS 3
-#define TRAINER_HERMAN                      167
+#define TRAINER_P_LAYTON                    167 //MANGROTTO TUNNEL (ADDED LATER)
 #define TRAINER_SANTIAGO                    168
 #define TRAINER_GILBERT                     169
 #define TRAINER_FRANKLIN                    170

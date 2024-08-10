@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Snow",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -5490,6 +5490,16 @@
       "secondary_tileset": "gTileset_BossCave",
       "border_filepath": "data/layouts/CultipexCave/border.bin",
       "blockdata_filepath": "data/layouts/CultipexCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_SWELTORN_TRANSITION_HALLWAY",
+      "name": "SweltornTransitionHallway_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/SweltornTransitionHallway/border.bin",
+      "blockdata_filepath": "data/layouts/SweltornTransitionHallway/map.bin"
     }
   ]
 }

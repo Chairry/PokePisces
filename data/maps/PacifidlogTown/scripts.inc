@@ -24,6 +24,7 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchNotice
 	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerNotice
 	waitmovement 0
+	speakername PacifidlogTown_Text_NameBirch
 	msgbox PacifidlogTown_Text_GladToSeeYou, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PACIFBIRCH, PacifidlogTown_Movement_BirchWalk1
@@ -40,6 +41,7 @@ PacifidlogTown_EventScript_TakePlayerToLab::
 	applymovement OBJ_EVENT_ID_PLAYER, PacifidlogTown_Movement_PlayerWalk3
 	waitmovement 0
 	msgbox PacifidlogTown_Text_CouldUseYourHelp, MSGBOX_DEFAULT
+	speakername NULL
 	clearflag FLAG_PISCES_A
 	clearflag FLAG_PISCES_B
 	clearflag FLAG_PISCES_C
@@ -308,17 +310,26 @@ PacifidlogTown_EventScript_BoxLabel::
 PacifidlogTown_EventScript_BrineyFastTravel::
 	lock
 	faceplayer
+	speakername PacifidlogTown_Text_NameBriney
 	msgbox PacifidlogTown_Text_WantToVoyage, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PacifidlogTown_EventScript_WarpToTidal
 	msgbox PacifidlogTown_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 PacifidlogTown_EventScript_WarpToTidal::
 	msgbox PacifidlogTown_Text_BonVoyage, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
 	release
 	end
+
+PacifidlogTown_Text_NameBirch:
+	.string "Dad$"
+
+PacifidlogTown_Text_NameBriney:
+	.string "Cpt. Briney$"
 
 PacifidlogTown_Text_WantToVoyage:
 	.string "wanna go to ss tidle$"

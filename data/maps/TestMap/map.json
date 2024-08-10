@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_ROUTE",
+  "map_type": "MAP_TYPE_SNOW_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -91,6 +91,71 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TestMap_EventScript_ItemBurntBranch",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 23,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "TestMap_EventScript_SpeakerNameTest",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 58,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE",
+      "movement_range_x": 9,
+      "movement_range_y": 9,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 43,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE",
+      "movement_range_x": 9,
+      "movement_range_y": 9,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER",
+      "movement_range_x": 9,
+      "movement_range_y": 9,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 27,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_range_x": 9,
+      "movement_range_y": 9,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -100,6 +165,62 @@
       "elevation": 0,
       "dest_map": "MAP_TEST_MAP",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 56,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 24,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 40,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 55,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_TEST_MAP",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

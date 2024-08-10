@@ -91,8 +91,10 @@ BirchMaritimeLab_Movement_PlayerEnterLabForPokedex:
 
 BirchMaritimeLab_EventScript_PickYourStarter::
 	lock
+	speakername BirchMaritimeLab_Text_NameBirch
 	msgbox BirchMaritimeLab_Text_TakeStarter, MSGBOX_DEFAULT
 	closemessage
+	speakername NULL
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
@@ -115,11 +117,13 @@ BirchMaritimeLab_EventScript_GiveStarterEvent::
 	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
 	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
 	special DrawWholeMapView
+	speakername BirchMaritimeLab_Text_NameBirch
 	message BirchMaritimeLab_Text_ReceivedStarter
 	waitmessage
 	playfanfare MUS_SLOTS_JACKPOT
 	waitfanfare
 	msgbox BirchMaritimeLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	speakername NULL
 	goto_if_eq VAR_RESULT, YES, BirchMaritimeLab_EventScript_NicknameStarter
 	goto_if_eq VAR_RESULT, NO, BirchMaritimeLab_EventScript_GivePokedex
 	end
@@ -132,6 +136,7 @@ BirchMaritimeLab_EventScript_NicknameStarter::
 
 BirchMaritimeLab_EventScript_GivePokedex::
 	playbgm MUS_ENCOUNTER_MAY, FALSE
+	speakername BirchMaritimeLab_Text_NameBirch
 	msgbox BirchMaritimeLab_Text_HeardYouBeatRivalTakePokedex, MSGBOX_DEFAULT
 	call BirchMaritimeLab_EventScript_ReceivePokedex
 	msgbox BirchMaritimeLab_Text_ExplainPokedex, MSGBOX_DEFAULT
@@ -142,6 +147,7 @@ BirchMaritimeLab_EventScript_GivePokedex::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	speakername NULL
 	releaseall
 	end
 
@@ -164,7 +170,9 @@ BirchMaritimeLab_EventScript_GivePokeBalls::
 	return
 
 BirchMaritimeLab_EventScript_PokemonAwait::
-	msgbox BirchMaritimeLab_Text_AfterGettingStarter, MSGBOX_DEFAULT
+	speakername BirchMaritimeLab_Text_NameBirch
+	msgbox BirchMaritimeLab_Text_AfterGettingStarter, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -176,34 +184,56 @@ BirchMaritimeLab_EventScript_BeatenRangers::
 	setflag FLAG_HIDE_SKY_PILLAR_RANGERS
 	setvar VAR_BIRCH_LAB_STATE, 7
 	applymovement OBJ_EVENT_ID_PLAYER, BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar
+	speakername BirchMaritimeLab_Text_NameBirch
 	msgbox BirchMaritimeLab_Text_HaveEXPShare, MSGBOX_DEFAULT
 	giveitem ITEM_EXP_SHARE
 	setflag FLAG_RECEIVED_TM_POUNCE
 	setflag FLAG_RECEIVED_EXP_SHARE
 	setvar VAR_BALL_QUEST_STATE, 69
 	msgbox BirchMaritimeLab_Text_GoToSootopolis, MSGBOX_AUTOCLOSE
+	speakername NULL
 	releaseall
 	end
 
 BirchMaritimeLab_EventScript_BirchPostSkyPillar::
+	speakername BirchMaritimeLab_Text_NameBirch
 	msgbox BirchMaritimeLab_Text_BirchPostSkyPillar, MSGBOX_NPC
+	speakername NULL
 	end
 
 BirchMaritimeLab_EventScript_GrangerPostSkyPillar::
+	speakername BirchMaritimeLab_Text_NameGranger
 	msgbox BirchMaritimeLab_Text_GrangerPostSkyPillar, MSGBOX_NPC
+	speakername NULL
 	end
 
 BirchMaritimeLab_EventScript_JeanniePostSkyPillar::
+	speakername BirchMaritimeLab_Text_NameJeannie
 	msgbox BirchMaritimeLab_Text_JeanniePostSkyPillar, MSGBOX_NPC
+	speakername NULL
 	end
 
 BirchMaritimeLab_EventScript_RickyPostSkyPillar::
+	speakername BirchMaritimeLab_Text_NameRicky
 	msgbox BirchMaritimeLab_Text_RickyPostSkyPillar, MSGBOX_NPC
+	speakername NULL
 	end
 
 BirchMaritimeLab_Movement_PlayerReturnFromSkyPillar:
 	face_up
 	step_end
+
+BirchMaritimeLab_Text_NameBirch:
+	.string "Dad$"
+
+BirchMaritimeLab_Text_NameGranger:
+	.string "Granger$"
+
+BirchMaritimeLab_Text_NameJeannie:
+	.string "Jeannie$"
+
+BirchMaritimeLab_Text_NameRicky:
+	.string "Ricky$"
 
 BirchMaritimeLab_Text_TakeStarter:
 	.string "For a journey as long and,\n"

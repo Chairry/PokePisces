@@ -33,8 +33,10 @@ StevenCorridor_Movement_BackAway:
 StevenCorridor_EventScript_Steven::
 	lock
 	faceplayer
+	speakername StevenHouse_Text_NameSteven
 	goto_if_lt VAR_NEW_COO_STATE, 4, StevenCorridor_EventScript_StevenYesNo
 	goto_if_eq VAR_NEW_COO_STATE, 4, StevenCorridor_EventScript_Idle
+	speakername NULL
 	release
 	end
 
@@ -42,6 +44,7 @@ StevenCorridor_EventScript_StevenYesNo::
 	msgbox StevenCorridor_Text_AreYouReady, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, StevenCorridor_EventScript_StartPanicDojo
 	msgbox StevenCorridor_Text_ThenGoPrepare, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -59,6 +62,7 @@ StevenCorridor_EventScript_StartPanicDojo::
 	cleartrainerflag TRAINER_P_S_STEVEN_5
 	cleartrainerflag TRAINER_P_S_STEVEN_6
 	msgbox StevenCorridor_Text_LetsBegin, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_STEVEN_MAZE, 12, 26
 	waitstate
 	release
@@ -66,8 +70,12 @@ StevenCorridor_EventScript_StartPanicDojo::
 
 StevenCorridor_EventScript_Idle::
 	msgbox StevenCorridor_Text_Idle, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
+
+StevenCorridor_Text_NameSteven:
+	.string "Steven$"
 
 StevenCorridor_Text_TooDark:
 	.string "(It's very dark in this room.\n"

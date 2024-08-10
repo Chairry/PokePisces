@@ -16,7 +16,10 @@ CaveOfOrigin_EventScript_GoToRedWater::
 	addobject LOCALID_WALLACE
 	applymovement LOCALID_WALLACE, CaveOfOrigin_Movement_WallaceWalkToWater
 	waitmovement 0
+	msgbox CaveOfOrigin_Text_Otherworldly, MSGBOX_DEFAULT
+	speakername CaveOfOrigin_Text_NameWallace
 	msgbox CaveOfOrigin_Text_AboutTheLegends, MSGBOX_AUTOCLOSE
+	speakername NULL
 	applymovement LOCALID_WALLACE, CaveOfOrigin_Movement_WallaceWalkAway
 	waitmovement 0
 	setvar VAR_NEW_COO_STATE, 2
@@ -70,10 +73,15 @@ CaveOfOrigin_Movement_WallaceWalkAway:
 	set_invisible
 	step_end
 
-CaveOfOrigin_Text_AboutTheLegends:
+CaveOfOrigin_Text_NameWallace:
+	.string "Wallace$"
+
+CaveOfOrigin_Text_Otherworldly:
 	.string "Otherworldly, isn't it?\p"
 	.string "…Pleased to meet you!\n"
-	.string "I am the former Champion, Wallace.\p"
+	.string "I am the former Champion, Wallace.$"
+
+CaveOfOrigin_Text_AboutTheLegends:
 	.string "I imagine your curiosity in the divine\n"
 	.string "led you to this chamber, mm?\p"
 	.string "Many well-researched folks in Hoenn\n"

@@ -16,6 +16,15 @@ TestMap_EventScript_Egg::
 	release
 	end
 
+TestMap_EventScript_SpeakerNameTest::
+    lock
+    speakername TestMap_Text_NameJacob
+    msgbox TestMap_Text_MendelIntro, MSGBOX_DEFAULT
+    speakername NULL
+    msgbox TestMap_Text_MendelPostBattle, MSGBOX_AUTOCLOSE
+    release
+    end
+
 TestMap_EventScript_GymLeader::
 	lock
 	trainerbattle_two_trainers TRAINER_P_MENDEL, TestMap_Text_MendelIntro, TRAINER_GRUNT_AQUA_HIDEOUT_2, TestMap_Text_MendelDefeated, TestMap_EventScript_Mendel, NO_MUSIC
@@ -38,3 +47,6 @@ TestMap_Text_MendelDefeated:
 
 TestMap_Text_MendelPostBattle:
 	.string "post$"
+
+TestMap_Text_NameJacob:
+	.string "Jacob$"

@@ -171,16 +171,21 @@ ZotpyreGym_Movement_WalkRight:
 
 ZotpyreGym_EventScript_EncounterLeaders::
 	lock
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement OBJ_EVENT_ID_PLAYER, ZotpyreGym_Movement_WalkUp
 	waitmovement 0
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser1, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NamePhoebe
 	applymovement LOCALID_PHOEBE, ZotpyreGym_Movement_PhoebeTurn
 	msgbox ZotpyreGym_Text_Phoebe1, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser2, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NamePhoebe
 	applymovement LOCALID_PHOEBE, ZotpyreGym_Movement_PhoebeTalk
 	msgbox ZotpyreGym_Text_Phoebe2, MSGBOX_DEFAULT
+	speakername NULL
 	trainerbattle_two_trainers TRAINER_P_PHOEBE, ZotpyreGym_Text_PhoebeDefeat, TRAINER_P_SPENSER, ZotpyreGym_Text_SpenserDefeat, ZotpyreGym_EventScript_LeadersDefeated, NO_MUSIC
 	goto ZotpyreGym_EventScript_LeadersDefeated
 	release
@@ -208,8 +213,10 @@ ZotpyreGym_Movement_PhoebeTalk:
 	step_end
 
 ZotpyreGym_EventScript_LeadersDefeated::
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser3, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NamePhoebe
 	applymovement LOCALID_PHOEBE, ZotpyreGym_Movement_PhoebeTalk
 	msgbox ZotpyreGym_Text_Phoebe3, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
@@ -219,20 +226,32 @@ ZotpyreGym_EventScript_LeadersDefeated::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	giveitem ITEM_TM_FEAR_FACTOR
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser4, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NamePhoebe
 	applymovement LOCALID_PHOEBE, ZotpyreGym_Movement_PhoebeTalk
 	msgbox ZotpyreGym_Text_Phoebe4, MSGBOX_DEFAULT
+	speakername NULL
 	message ZotpyreGym_Text_ReceivedYoreBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
+	speakername ZotpyreGym_Text_NamePhoebe
 	applymovement LOCALID_PHOEBE, ZotpyreGym_Movement_PhoebeTalk
 	msgbox ZotpyreGym_Text_Phoebe5, MSGBOX_DEFAULT
+	speakername ZotpyreGym_Text_NameSpenser
 	applymovement LOCALID_SPENSER, ZotpyreGym_Movement_SpenserTalk
 	msgbox ZotpyreGym_Text_Spenser5, MSGBOX_DEFAULT
+	speakername NULL
 	warp MAP_ROUTE122, 42, 14
 	release
 	end
+
+ZotpyreGym_Text_NamePhoebe:
+	.string "Phoebe$"
+
+ZotpyreGym_Text_NameSpenser:
+	.string "Spenser$"
 
 ZotpyreGym_Text_Hint1:
 	.string "This lifeless haze…\n"

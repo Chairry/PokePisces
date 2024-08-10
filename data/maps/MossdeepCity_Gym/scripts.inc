@@ -14,21 +14,27 @@ MossdeepCity_Gym_EventScript_Narrator1::
 	lock
 	fadeoutbgm 1
 	setvar VAR_TEMP_5, 1
+	speakername MossdeepCity_Gym_Text_NameVoice
 	msgbox MossdeepCity_Gym_Text_Narrator_1, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 MossdeepCity_Gym_EventScript_Narrator2::
 	lock
 	setvar VAR_TEMP_5, 2
+	speakername MossdeepCity_Gym_Text_NameVoice
 	msgbox MossdeepCity_Gym_Text_Narrator_2, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
 MossdeepCity_Gym_EventScript_Narrator3::
 	lock
 	setvar VAR_TEMP_5, 3
+	speakername MossdeepCity_Gym_Text_NameVoice
 	msgbox MossdeepCity_Gym_Text_Narrator_3, MSGBOX_AUTOCLOSE
+	speakername NULL
 	release
 	end
 
@@ -102,11 +108,14 @@ MossdeepCity_Gym_EventScript_TateAndLiza::
 	end
 
 MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
+	speakername MossdeepCity_Gym_Text_NameLiza
 	msgbox MossdeepCity_Gym_Text_LizaPostBattle, MSGBOX_DEFAULT
 	msgbox MossdeepCity_Gym_Text_LizaBadge, MSGBOX_DEFAULT
+	speakername NULL
 	message MossdeepCity_Gym_Text_GotSereneBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
+	speakername MossdeepCity_Gym_Text_NameLiza
 	msgbox MossdeepCity_Gym_Text_LizaExplain, MSGBOX_DEFAULT
 	setflag FLAG_BADGE02_GET
 	setvar VAR_PISCES_STORY_PROGRESS, 2
@@ -114,6 +123,7 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	call MossdeepCity_Gym_EventScript_GiveCalmMind
 	closemessage
 	delay 30
+	speakername NULL
 	warp MAP_MOSSDEEP_CITY, 48, 24
 	waitstate
 	release
@@ -329,6 +339,12 @@ MossdeepCity_Gym_Text_GugumbirPostBattle:
 
 MossdeepCity_Gym_Text_GugumbirNeedTwoMons:
 	.string "need 2 dood$"
+
+MossdeepCity_Gym_Text_NameVoice:
+	.string "Voice$"
+
+MossdeepCity_Gym_Text_NameLiza:
+	.string "Liza$"
 
 MossdeepCity_Gym_Text_Narrator_1:
 	.string "(The atmosphere has become very quiet.\n"

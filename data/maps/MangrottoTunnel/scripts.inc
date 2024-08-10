@@ -433,8 +433,10 @@ MangrottoTunnel_Movement_BreadBackUp:
 
 MangrottoTunnel_EventScript_BreadRun::
 	setvar VAR_BREADWINNER_STATE, 1
+	speakername MangrottoTunnel_Text_NamePandou
 	msgbox MangrottoTunnel_Text_BreadwinnerRunAway, MSGBOX_DEFAULT
 	closemessage
+	speakername NULL
 	goto_if_set FLAG_TEMP_16, MangrottoTunnel_EventScript_BreadEscape1
 	goto_if_set FLAG_TEMP_17, MangrottoTunnel_EventScript_BreadEscape2
 	release
@@ -542,6 +544,11 @@ MangrottoTunnel_EventScript_Jane::
     msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
     end
 
+MangrottoTunnel_EventScript_Layton::
+    trainerbattle_single TRAINER_P_LAYTON, MangrottoTunnel_Text_GugumbirIntro, MangrottoTunnel_Text_GugumbirDefeated
+    msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
+    end
+
 MangrottoTunnel_EventScript_Jo_And_Jo::
     trainerbattle_double TRAINER_P_JO_AND_JO, MangrottoTunnel_Text_GugumbirIntro, MangrottoTunnel_Text_GugumbirDefeated, MangrottoTunnel_Text_GugumbirNeedTwoMons
     msgbox MangrottoTunnel_Text_GugumbirPostBattle, MSGBOX_AUTOCLOSE
@@ -615,6 +622,9 @@ MangrottoTunnel_Text_DroppedEgg:
 
 MangrottoTunnel_Text_PlayerReceivedEgg:
 	.string "{PLAYER} received an Egg!$"
+
+MangrottoTunnel_Text_NamePandou:
+	.string "Pandou$"
 
 MangrottoTunnel_Text_BreadwinnerIntro:
 	.string "Heavens to Betsy,\n"
