@@ -2974,16 +2974,16 @@ static const u8 sEerieSpellDescription[] = _(
     "Foe's last move has 3 PP cut.");
 
 static const u8 sDireClawDescription[] = _(
-    "High critical hit chance. May\n"
-    "paralyze, poison or drowse.");
+    "Uses ruinous claws. May\n"
+    "paralyze, poison or panic.");
 
 static const u8 sPsyshieldBashDescription[] = _(
     "Hits a foe with psychic\n"
     "energy, raising Defense.");
 
 static const u8 sPowerShiftDescription[] = _(
-    "The user swaps its Attack\n"
-    "and Defense stats.");
+    "The user swaps its Sp.\n"
+    "Atk and Sp. Def stats.");
 
 static const u8 sStoneAxeDescription[] = _(
     "High critical hit ratio. Sets\n"

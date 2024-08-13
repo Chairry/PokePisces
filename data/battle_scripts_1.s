@@ -633,6 +633,50 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHighRollHit             @ EFFECT_HIGH_ROLL_HIT
 	.4byte BattleScript_EffectSpindaSwing             @ EFFECT_SPINDA_SWING
 	.4byte BattleScript_EffectWildCharge              @ EFFECT_WILD_CHARGE
+	.4byte BattleScript_EffectStormChase              @ EFFECT_STORM_CHASE
+	.4byte BattleScript_EffectStormFury               @ EFFECT_STORM_FURY
+	.4byte BattleScript_EffectSubmission              @ EFFECT_SUBMISSION
+
+BattleScript_EffectSubmission::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	tryquash BattleScript_HitFromAtkAnimation
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_QUASHSUCCESS
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectStormChase::
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_EffectParalyzeHit
+	goto BattleScript_EffectHit
+
+BattleScript_EffectStormFury::
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_RAIN, BattleScript_StormFurySpread
+	goto BattleScript_EffectRampage
+BattleScript_StormFurySpread::
+	setmoveeffect MOVE_EFFECT_WILD_CHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_StormFurySpread2
+	ppreduce
+BattleScript_StormFurySpread2:
+	confuseifrepeatingattackends
+	goto BattleScript_HitFromCritCalc
 
 BattleScript_EffectWildCharge::
 	setmoveeffect MOVE_EFFECT_WILD_CHARGE | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
@@ -652,7 +696,7 @@ BattleScript_MoveEffectWildCharge::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpindaSwing::
-	setmoveeffect MOVE_EFFECT_CONFUSION
+	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
 	goto BattleScript_EffectHit
 
 BattleScript_EffectHighRollHit::
@@ -1945,7 +1989,9 @@ BattleScript_EffectIgnition::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSpeedUpUserAlly:
+	jumpifspecieshasnolegs BS_ATTACKER, BattleScript_FailedFromAtkCanceler
 	jumpifnoally BS_ATTACKER, BattleScript_EffectSpeedUp2
+	jumpifallyhasnolegs BS_ATTACKER, BattleScript_EffectSpeedUp2
 	attackcanceler
 	attackstring
 	ppreduce
@@ -2002,10 +2048,33 @@ BattleScript_EffectBoundary:
 	ppreduce
 	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
     boundarydamagecalculation
+BattleScript_Boundary30::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_HIGHROLLHITROLL
 	waitmessage B_WAIT_TIME_LONG
-    goto BattleScript_HitFromCritCalc
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	setword gBattleMoveDamage, 30
+	adjustdamage
+	goto BattleScript_HitFromAtkAnimation
+BattleScript_Boundary60::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_HIGHROLLHITROLL
+	waitmessage B_WAIT_TIME_LONG
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	setword gBattleMoveDamage, 60
+	adjustdamage
+	goto BattleScript_HitFromAtkAnimation
+BattleScript_Boundary90::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_HIGHROLLHITROLL
+	waitmessage B_WAIT_TIME_LONG
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	setword gBattleMoveDamage, 90
+	adjustdamage
+	goto BattleScript_HitFromAtkAnimation
 BattleScript_BigBoundary::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_BIGBOUNDARY

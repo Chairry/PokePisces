@@ -2077,7 +2077,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_LOW_KICK && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_SMACK_DOWN && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
-             || (gBattleMoves[move].effect == EFFECT_SPINDA_SWING && gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
+             || (gBattleMoves[move].effect == EFFECT_SPINDA_SWING && gBattleMons[battlerAtk].status2 & STATUS2_CONFUSION)
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_FLOWER_TRICK)
              || (gCurrentMove == MOVE_LEAF_BLADE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
@@ -4361,7 +4361,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
             case MOVE_EFFECT_DIRE_CLAW:
                 if (!gBattleMons[gEffectBattler].status1)
                 {
-                    static const u8 sDireClawEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_PARALYSIS, MOVE_EFFECT_SLEEP };
+                    static const u8 sDireClawEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_PARALYSIS, MOVE_EFFECT_PANIC };
                     gBattleScripting.moveEffect = RandomElement(RNG_DIRE_CLAW, sDireClawEffects);
                     SetMoveEffect(TRUE, 0);
                 }
@@ -6228,6 +6228,12 @@ static void Cmd_moveend(void)
                 switch (gBattleMoves[gCurrentMove].effect)
                 {
                 case EFFECT_RECOIL_25: // Take Down, 25% recoil
+                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
+                    effect = TRUE;
+                    break;
+                case EFFECT_SUBMISSION: // differentiated for reasons
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -9740,27 +9746,27 @@ static void Cmd_various(void)
         VARIOUS_ARGS();
         u32 boundary = Random() % 4;
 
-        if (boundary < 1)
+        if (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses))
         {
-            gBattleStruct->boundaryBasePower = 30;
+            gBattleMoveDamage = 0;
+        }
+        else if (boundary < 1)
+        {
+            gBattleStruct->boundaryBasePower = 1;
             boundary = 1;
-            gBattlescriptCurrInstr = cmd->nextInstr;
+            gBattlescriptCurrInstr = BattleScript_Boundary30;
         }
         else if (boundary < 2)
         {
-            gBattleStruct->boundaryBasePower = 60;
+            gBattleStruct->boundaryBasePower = 2;
             boundary = 2;
-            gBattlescriptCurrInstr = cmd->nextInstr;
+            gBattlescriptCurrInstr = BattleScript_Boundary60;
         }
         else if (boundary < 3)
         {
-            gBattleStruct->boundaryBasePower = 90;
+            gBattleStruct->boundaryBasePower = 3;
             boundary = 3;
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        }
-        else if ((boundary < 4) && (IsSpeciesOneOf(gBattleMons[gBattlerTarget].species, gMegaBosses)))
-        {
-            gBattleMoveDamage = 0;
+            gBattlescriptCurrInstr = BattleScript_Boundary90;
         }
         else
         {
@@ -11794,7 +11800,7 @@ static void Cmd_various(void)
     }
     case VARIOUS_JUMP_IF_SPECIES_HAS_NO_LEGS:
     {
-        VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
+        VARIOUS_ARGS(const u8 *jumpInstr);
         if (gBattleMons[battler].species == SPECIES_TIDPIT
         || gBattleMons[battler].species == SPECIES_SLIDLOW
         || gBattleMons[battler].species == SPECIES_PRONGY
@@ -11921,11 +11927,11 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-        break;
+        return;
     }
     case VARIOUS_JUMP_IF_ALLY_HAS_NO_LEGS:
     {
-        VARIOUS_ARGS(u16 species, const u8 *jumpInstr);
+        VARIOUS_ARGS(const u8 *jumpInstr);
         if (gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_TIDPIT
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_SLIDLOW
         || gBattleMons[BATTLE_PARTNER(battler)].species == SPECIES_PRONGY
@@ -12052,7 +12058,7 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = cmd->jumpInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-        break;
+        return;
     }
     case VARIOUS_PHOTON_GEYSER_CHECK:
     {
