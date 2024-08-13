@@ -239,9 +239,9 @@
     },
     {
       "x": 50,
-      "y": 30,
+      "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_map": "MAP_SWELTORN_PALACE",
       "dest_warp_id": "0"
     },
     {
@@ -262,29 +262,29 @@
       "x": 53,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_map": "MAP_SWELTORN_TRANSITION_HALLWAY",
       "dest_warp_id": "0"
     },
     {
       "x": 58,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_HALLWAY",
+      "dest_warp_id": "2"
     },
     {
       "x": 37,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_HALLWAY",
+      "dest_warp_id": "4"
     },
     {
       "x": 42,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_HALLWAY",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [

@@ -17,7 +17,62 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 30,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 31,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 35,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_SWELTORN_DESERT",
+      "dest_warp_id": "10"
+    }
   ],
   "coord_events": [
 

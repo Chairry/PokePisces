@@ -79,15 +79,15 @@
       "x": 38,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_PALACE_OUTSIDE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_PALACE",
+      "dest_warp_id": "6"
     },
     {
       "x": 30,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_PALACE_OUTSIDE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_PALACE",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

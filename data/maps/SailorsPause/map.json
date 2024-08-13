@@ -20,10 +20,82 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SADFISH",
+      "x": 27,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DELINQUENT",
+      "x": 44,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_BLONDE",
+      "x": 3,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
-
+    {
+      "x": 40,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 20,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 36,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 36,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
 

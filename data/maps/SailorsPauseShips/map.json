@@ -14,10 +14,293 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_JANITOR",
+      "x": 46,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
+      "movement_range_x": 7,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 22,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MLADY",
+      "x": 21,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 42,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT",
+      "x": 50,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_IN_BLACK_SUIT",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 36,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 7,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BURGLAR",
+      "x": 8,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_DOWN_RIGHT",
+      "movement_range_x": 5,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PLUMBER",
+      "x": 4,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
-
+    {
+      "x": 41,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 42,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 45,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 46,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 23,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 24,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 19,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 20,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 0,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 38,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 48,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 48,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "15"
+    },
+    {
+      "x": 51,
+      "y": 42,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 41,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 42,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 40,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 51,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 26,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 22,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 23,
+      "y": 49,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 9,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "23"
+    },
+    {
+      "x": 9,
+      "y": 46,
+      "elevation": 0,
+      "dest_map": "MAP_SAILORS_PAUSE_SHIPS",
+      "dest_warp_id": "22"
+    }
   ],
   "coord_events": [
 
