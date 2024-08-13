@@ -3512,6 +3512,10 @@ static const u8 sKerfuffleDescription[] = _(
     "Doubles power if the user is\n"
     "confused. May confuse user.");
 
+static const u8 sSpindaSwingDescription[] = _(
+    "Crits if foe is confused.\n"
+    "Confuses user and foe.");
+
 static const u8 sVerglastromDescription[] = _(
     "In hail, creates a storm that\n"
     "will trap and damage the foe.");
@@ -4865,7 +4869,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_VOID - 1] = sVoidDescription,
     [MOVE_BLUSTER - 1] = sFacadeDescription,
     [MOVE_KERFUFFLE - 1] = sKerfuffleDescription,
-    [MOVE_TIPSY_STEP - 1] = sKerfuffleDescription,
+    [MOVE_SPINDA_SWING - 1] = sSpindaSwingDescription,
     [MOVE_VERGLASTROM - 1] = sVerglastromDescription,
     [MOVE_EXORCISM - 1] = sExorcismDescription,
     [MOVE_LOVE_TAP - 1] = sLoveTapDescription,

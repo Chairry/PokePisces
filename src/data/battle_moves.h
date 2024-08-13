@@ -15076,7 +15076,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
     },
 
-    [MOVE_TIPSY_STEP] =
+    [MOVE_SPINDA_SWING] =
     {
         .effect = EFFECT_SPINDA_SWING,
         .power = 80,
@@ -15086,7 +15086,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
-        .split = SPLIT_SPECIAL,
+        .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .kickingMove = TRUE,
     },

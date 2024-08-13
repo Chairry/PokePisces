@@ -5723,6 +5723,18 @@ const struct SpriteTemplate gDevastatingDrakeStrikeSpriteTemplate =
     .affineAnims = sDevastatingDrakeStrikeAffineAnimTable,
     .callback = AnimFlyBallAttack
 };
+
+const struct SpriteTemplate gSharpGlideStrikeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_BIRD,
+    .paletteTag = ANIM_TAG_BIRD,
+    .oam = &gOamData_AffineNormal_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sDevastatingDrakeStrikeAffineAnimTable,
+    .callback = AnimFlyBallAttack
+};
+
 const struct SpriteTemplate gDevastatingDrakePurpleBlastSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FIRE_PLUME,

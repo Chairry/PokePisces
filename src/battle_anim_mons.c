@@ -785,6 +785,8 @@ void InitSpritePosToAnimTarget(struct Sprite *sprite, bool8 respectMonPicOffsets
         sprite->x = GetBattlerSpriteCoord2(gBattleAnimTarget, BATTLER_COORD_X);
         sprite->y = GetBattlerSpriteCoord2(gBattleAnimTarget, BATTLER_COORD_Y);
     }
+    if (gAnimMoveIndex == MOVE_JUMP_N_POP && IsDoubleBattle())
+        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);
     SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
     sprite->y += gBattleAnimArgs[1];
 }
@@ -1575,6 +1577,8 @@ void AnimThrowProjectile(struct Sprite *sprite)
     sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2) + gBattleAnimArgs[2];
     sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET) + gBattleAnimArgs[3];
     sprite->data[5] = gBattleAnimArgs[5];
+    if (gAnimMoveIndex == MOVE_JUMP_N_POP && IsDoubleBattle())
+        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->data[2], &sprite->data[4]);
     InitAnimArcTranslation(sprite);
     sprite->callback = AnimThrowProjectile_Step;
 }

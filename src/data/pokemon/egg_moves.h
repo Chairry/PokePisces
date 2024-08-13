@@ -4584,8 +4584,7 @@ const u16 gEggMoves[] = {
         MOVE_TEMPER_FLARE,
         MOVE_HAMMER_ARM,
         MOVE_SHADOW_PUNCH,
-        MOVE_OUTRAGE,
-        MOVE_THRASH),
+        MOVE_OUTRAGE),
 
     egg_moves(CRAWLAXY,
         MOVE_GRAVITY,
