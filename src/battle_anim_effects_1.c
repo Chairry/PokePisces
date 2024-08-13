@@ -33,6 +33,7 @@ static void AnimSporeParticle_Step(struct Sprite *);
 static void AnimPetalDanceBigFlower_Step(struct Sprite *);
 static void AnimPetalDanceSmallFlower_Step(struct Sprite *);
 static void AnimRazorLeafParticle(struct Sprite *);
+static void AnimRazorLeafParticleTarget(struct Sprite *);
 static void AnimRazorLeafParticle_Step1(struct Sprite *);
 static void AnimRazorLeafParticle_Step2(struct Sprite *);
 static void AnimLeechSeed(struct Sprite *);
@@ -835,6 +836,17 @@ const struct SpriteTemplate gRazorLeafParticleSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimRazorLeafParticle,
+};
+
+const struct SpriteTemplate gGrassCannonParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_LEAF,
+    .paletteTag = ANIM_TAG_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimRazorLeafParticleTarget,
 };
 
 const struct SpriteTemplate gGrassPledgeSpriteTemplate =
@@ -2408,6 +2420,17 @@ const struct SpriteTemplate gWavyMusicNotesSpriteTemplate =
     .images = NULL,
     .affineAnims = gMusicNotesAffineAnimTable,
     .callback = AnimWavyMusicNotes,
+};
+
+const struct SpriteTemplate gBeatboxDuckSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUSIC_NOTES,
+    .paletteTag = ANIM_TAG_MUSIC_NOTES,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gMusicNotesAnimTable,
+    .images = NULL,
+    .affineAnims = gMusicNotesAffineAnimTable,
+    .callback = AnimDizzyPunchDuck,
 };
 
 const u16 gParticlesColorBlendTable[][6] =
@@ -3993,6 +4016,16 @@ static void AnimRazorLeafParticle(struct Sprite *sprite)
 {
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->data[0] = gBattleAnimArgs[0];
+    sprite->data[1] = gBattleAnimArgs[1];
+    sprite->data[2] = gBattleAnimArgs[2];
+    sprite->callback = AnimRazorLeafParticle_Step1;
+}
+
+static void AnimRazorLeafParticleTarget(struct Sprite *sprite)
+{
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
     sprite->data[0] = gBattleAnimArgs[0];
     sprite->data[1] = gBattleAnimArgs[1];
     sprite->data[2] = gBattleAnimArgs[2];

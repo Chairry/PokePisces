@@ -2093,8 +2093,8 @@ static const u8 sElectrowebDescription[] = _(
     "electric net. Lowers Speed.");
 
 static const u8 sWildChargeDescription[] = _(
-    "An electrical tackle that\n"
-    "hurts the user. May paralyze.");
+    "A wild tackle that does\n"
+    "recoil and damages all foes.");
 
 static const u8 sDrillRunDescription[] = _(
     "Spins its body like a drill.\n"
@@ -2966,24 +2966,24 @@ static const u8 sGlacialLanceDescription[] = _(
     "cloaked icicle lance at foes.");
 
 static const u8 sAstralBarrageDescription[] = _(
-    "Strikes by sending a frightful\n"
-    "amount of ghosts at foes.");
+    "Strikes by sending\n"
+    "otherworldly beings at foes.");
 
 static const u8 sEerieSpellDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
 
 static const u8 sDireClawDescription[] = _(
-    "High critical hit chance. May\n"
-    "paralyze, poison or drowse.");
+    "Uses ruinous claws. May\n"
+    "paralyze, poison or panic.");
 
 static const u8 sPsyshieldBashDescription[] = _(
     "Hits a foe with psychic\n"
     "energy, raising Defense.");
 
 static const u8 sPowerShiftDescription[] = _(
-    "The user swaps its Attack\n"
-    "and Defense stats.");
+    "The user swaps its Sp.\n"
+    "Atk and Sp. Def stats.");
 
 static const u8 sStoneAxeDescription[] = _(
     "High critical hit ratio. Sets\n"
@@ -3297,8 +3297,8 @@ static const u8 sPsychicNoiseDescription[] = _(
     "the foe from recovering HP.");
 
 static const u8 sUpperHandDescription[] = _(
-    "Flinches and boosts when foe\n"
-    "is readying a priority move.");
+    "Boosted and flinches against\n"
+    "priority moves. High priority.");
 
 static const u8 sMalignantChainDescription[] = _(
     "Corrosive chains wrap around\n"
@@ -3511,6 +3511,10 @@ static const u8 sVoidDescription[] = _(
 static const u8 sKerfuffleDescription[] = _(
     "Doubles power if the user is\n"
     "confused. May confuse user.");
+
+static const u8 sSpindaSwingDescription[] = _(
+    "Crits if foe is confused.\n"
+    "Confuses user and foe.");
 
 static const u8 sVerglastromDescription[] = _(
     "In hail, creates a storm that\n"
@@ -4865,7 +4869,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_VOID - 1] = sVoidDescription,
     [MOVE_BLUSTER - 1] = sFacadeDescription,
     [MOVE_KERFUFFLE - 1] = sKerfuffleDescription,
-    [MOVE_TIPSY_STEP - 1] = sKerfuffleDescription,
+    [MOVE_SPINDA_SWING - 1] = sSpindaSwingDescription,
     [MOVE_VERGLASTROM - 1] = sVerglastromDescription,
     [MOVE_EXORCISM - 1] = sExorcismDescription,
     [MOVE_LOVE_TAP - 1] = sLoveTapDescription,
@@ -4877,7 +4881,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_SOLAR_FLARE - 1] = sSolarFlareDescription,
     [MOVE_ODD_STEP - 1] = sFoulPlayDescription,
     [MOVE_CREEPY_CRAWL - 1] = sCreepyCrawlDescription,
-    [MOVE_PESTER_RAID - 1] = sPesterRaidDescription,
     [MOVE_BENTHIC_WHIP - 1] = sBenthicWhipDescription,
     [MOVE_BLACK_BUFFET - 1] = sBlackBuffetDescription,
     [MOVE_FINISH_OFF - 1] = sFinishOffDescription,

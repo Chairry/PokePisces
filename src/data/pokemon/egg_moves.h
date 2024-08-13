@@ -4368,14 +4368,14 @@ const u16 gEggMoves[] = {
         MOVE_LUNGE,
         MOVE_ENDEAVOR,
         MOVE_DETECT,
-        MOVE_PESTER_RAID,
+        MOVE_SKITTER_SMACK,
         MOVE_FLAME_WHEEL),
 
     egg_moves(KOMORODE,
         MOVE_LUNGE,
         MOVE_ENDEAVOR,
         MOVE_DETECT,
-        MOVE_PESTER_RAID,
+        MOVE_SKITTER_SMACK,
         MOVE_FLAME_WHEEL,
         MOVE_CRUNCH),
 
@@ -4584,8 +4584,7 @@ const u16 gEggMoves[] = {
         MOVE_TEMPER_FLARE,
         MOVE_HAMMER_ARM,
         MOVE_SHADOW_PUNCH,
-        MOVE_OUTRAGE,
-        MOVE_THRASH),
+        MOVE_OUTRAGE),
 
     egg_moves(CRAWLAXY,
         MOVE_GRAVITY,
@@ -5509,7 +5508,8 @@ const u16 gEggMoves[] = {
         MOVE_TOXIC_SPIKES,
         MOVE_DESTINY_BOND,
         MOVE_RECOVER,
-        MOVE_AMNESIA),
+        MOVE_AMNESIA,
+        MOVE_CURSE),
 
     egg_moves(VAIKING,
         MOVE_STOCKPILE,

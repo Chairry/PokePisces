@@ -366,6 +366,16 @@ const struct SpriteTemplate gSkyAttackBirdSpriteTemplate =
     .callback = AnimSkyAttackBird,
 };
 
+const struct SpriteTemplate gSavageWingDragonSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PURPLE_DRAKE,
+    .paletteTag = ANIM_TAG_PURPLE_DRAKE,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSkyAttackBird,
+};
 
 void AnimEllipticalGust(struct Sprite *sprite)
 {
