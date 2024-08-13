@@ -8416,7 +8416,7 @@ static void AnimHappyHourCoinShower(struct Sprite *sprite)
 static void AnimMakingItRain(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[3] != 0)
-        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);   //coin shower on attacker
+        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);   //coin shower on target
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += 14;
