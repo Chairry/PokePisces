@@ -170,6 +170,17 @@ const struct SpriteTemplate gGoldRingSpriteTemplate =
     .callback = TranslateAnimSpriteToTargetMonLocation,
 };
 
+const struct SpriteTemplate gBassCannonRingSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GOLD_RING,
+    .paletteTag = ANIM_TAG_GOLD_RING,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimHyperVoiceRing,
+};
+
 static const union AnimCmd sAnim_BentSpoon_0[] =
 {
     ANIMCMD_FRAME(8, 60, .hFlip = TRUE),

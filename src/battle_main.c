@@ -4876,6 +4876,10 @@ s8 GetMovePriority(u32 battler, u16 move)
     {
         priority++;
     }
+    else if (gBattleMoves[move].effect == EFFECT_SUBMISSION && ((!(gProtectStructs[gBattlerTarget].obstructed)) && (!(IS_MOVE_STATUS(gBattleMons[gBattlerTarget].moves[gBattleStruct->chosenMovePositions[gBattlerTarget]])))))
+    {
+        priority++;
+    }
     else if ((gCurrentMove == MOVE_MAGICAL_LEAF || gCurrentMove == MOVE_WORRY_SEED || gCurrentMove == MOVE_COTTON_GUARD) && gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING)
     {
         priority++;

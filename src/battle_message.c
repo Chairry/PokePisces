@@ -906,7 +906,7 @@ static const u8 sText_SeedWrap[] = _("Life-stealing seeds wrapped\naround {B_DEF
 static const u8 sText_ReadyingSnap[] = _("{B_ATK_NAME_WITH_PREFIX} is getting\nready to snap!");
 static const u8 sText_FlorescenceStatusNormal[] = _("Florescence made the status\nreturn to normal!");
 static const u8 sText_PkmnsXInfatuatedY2[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\ninfatuated {B_DEF_NAME_WITH_PREFIX}!");
-static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ndeadly hit!");
+static const u8 sText_BigBoundary[] = _("{B_ATK_NAME_WITH_PREFIX} got a\ndeadly roll!");
 static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made everyone\ndance wildly!");
 static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
 static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
@@ -928,6 +928,7 @@ static const u8 sText_PkmnCutsHPWith[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B
 static const u8 sText_HealerRestoration[] = _("{B_ATK_PARTNER_NAME} was healed\nby {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig to be affected!");
 static const u8 sText_HighRollHitRoll[] = _("{B_ATK_NAME_WITH_PREFIX} rolled a {B_BUFF1}!");
+static const u8 sText_SparkingElectricity[] = _("The sparking electricity\nhit {B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1707,6 +1708,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HEALERRESTORATION - BATTLESTRINGS_TABLE_START] = sText_HealerRestoration,
     [STRINGID_TOOBIGTOCARE - BATTLESTRINGS_TABLE_START] = sText_TooBigToCare,
     [STRINGID_HIGHROLLHITROLL - BATTLESTRINGS_TABLE_START] = sText_HighRollHitRoll,
+    [STRINGID_SPARKINGELECTRICITYHIT - BATTLESTRINGS_TABLE_START] = sText_SparkingElectricity,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

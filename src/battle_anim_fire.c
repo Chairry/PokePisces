@@ -569,6 +569,9 @@ void AnimFireSpread(struct Sprite *sprite)
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[2] = gBattleAnimArgs[3];
 
+    if (gAnimMoveIndex == MOVE_JUMP_N_POP && IsDoubleBattle())
+        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);
+
     sprite->callback = TranslateSpriteLinearFixedPoint;
     StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
 }
@@ -820,6 +823,19 @@ void AnimFireCross(struct Sprite *sprite)
 void AnimFireSpiralOutward(struct Sprite *sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
+
+    sprite->data[1] = gBattleAnimArgs[2];
+    sprite->data[0] = gBattleAnimArgs[3];
+
+    sprite->invisible = TRUE;
+    sprite->callback = WaitAnimForDuration;
+
+    StoreSpriteCallbackInData6(sprite, AnimFireSpiralOutward_Step1);
+}
+
+void AnimPetalSpiralOutward(struct Sprite *sprite)
+{
+    InitSpritePosToAnimTarget(sprite, TRUE);
 
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[0] = gBattleAnimArgs[3];
