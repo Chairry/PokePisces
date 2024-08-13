@@ -3780,6 +3780,7 @@ BattleScript_EffectFickleBeam:
 	ficklebeamdamagecalculation
 	goto BattleScript_HitFromCritCalc
 BattleScript_FickleBeamDoubled::
+	pause B_WAIT_TIME_SHORTEST
 	printstring STRINGID_FICKLEBEAMDOUBLED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_HitFromCritCalc

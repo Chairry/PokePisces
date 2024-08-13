@@ -17187,25 +17187,23 @@ Move_MORTAL_SPIN:
 	loadspritegfx ANIM_TAG_RAPID_SPIN
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPal, 2, F_PAL_ATTACKER, 2, 0, 8, RGB(10, 2, 19)
 	createsprite gRapidSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 32, -32, 40, -2
 	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 0
 	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
-	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
-	createvisualtask AnimTask_MetallicShine, 5, 1, 1, RGB(24, 6, 23)
 	waitforvisualfinish
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 10, 1, 0
 	playsewithpan SE_M_DOUBLE_SLAP, SOUND_PAN_TARGET
+	createvisualtask AnimTask_BlendBattleAnimPal, 2, F_PAL_ATTACKER, 2, 8, 0, RGB(10, 2, 19)
 	waitforvisualfinish
 	delay 8
 	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 1
 	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
 	waitforvisualfinish
-	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, ANIM_ATTACKER, TRUE
-	clearmonbg ANIM_ATTACKER
-	blendoff
 	call PoisonBubblesEffect
 	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
 	end
 
 Move_FLOWER_TRICK:
@@ -25321,7 +25319,7 @@ Move_RAGING_BULL::
 	loadspritegfx ANIM_TAG_BREATH
 	loadspritegfx ANIM_TAG_BLUE_LIGHT_WALL
 	loadspritegfx ANIM_TAG_TORN_METAL
-	choosetwoturnanim RagingBullShatteredWall, RagingBullShatteredWall
+	choosetwoturnanim RagingBullNormal, RagingBullShatteredWall
 RagingBullNormal:
 	monbg ANIM_TARGET
 	setalpha 12, 8
