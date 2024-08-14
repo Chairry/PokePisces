@@ -1506,7 +1506,6 @@ UTurnContinue:
 UTurnLast:
 	blendoff
 	waitforvisualfinish
-	visible ANIM_ATTACKER
 	end
 UTurnVisible:
 	createsprite gLungeGreenBubbleTemplate, ANIM_TARGET, 2, 0xa, 0x0, 0x0, 0x0, 0x19, 0xffe0
@@ -17245,19 +17244,20 @@ IceSpreadEffect:
 	createsprite gIceSpreadSpriteTemplate, ANIM_TARGET, 1, 0, 10, 112, -128, 40
 	return
 
-Move_MORTAL_SPIN:
+Move_MORTAL_SPIN::
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_RAPID_SPIN
 	loadspritegfx ANIM_TAG_POISON_BUBBLE
 	monbg ANIM_ATTACKER
-	createvisualtask AnimTask_BlendBattleAnimPal, 2, F_PAL_ATTACKER, 2, 0, 8, RGB(10, 2, 19)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 1, 0, 13, RGB(10, 2, 19)
+	delay 16
 	createsprite gRapidSpinSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 32, -32, 40, -2
 	createvisualtask AnimTask_RapinSpinMonElevation, 2, 0, 2, 0
 	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
 	waitforvisualfinish
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, FALSE, 1, 10, 1, 0
-	createvisualtask AnimTask_BlendBattleAnimPal, 2, F_PAL_ATTACKER, 2, 8, 0, RGB(10, 2, 19)
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 1, 13, 0, RGB(10, 2, 19)
 	call PoisonBubblesEffect
 	waitforvisualfinish
 	delay 8
@@ -17265,6 +17265,7 @@ Move_MORTAL_SPIN:
 	loopsewithpan SE_M_RAZOR_WIND2, SOUND_PAN_ATTACKER, 8, 4
 	waitforvisualfinish
 	clearmonbg ANIM_ATTACKER
+	blendoff
 	end
 
 Move_FLOWER_TRICK:
@@ -18037,7 +18038,7 @@ FickleBeamIntense:
 	waitbgfadein
 	end
 
-Move_THUNDERCLAP:
+Move_THUNDERCLAP::
 	loadspritegfx ANIM_TAG_LIGHTNING
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
@@ -18053,6 +18054,8 @@ Move_THUNDERCLAP:
 	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, -16
 	delay 1
 	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, 0
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, 16
 	delay 10
 	createvisualtask AnimTask_ShakeTargetInPattern, 2, 30, 3, TRUE, 0
 	delay 2

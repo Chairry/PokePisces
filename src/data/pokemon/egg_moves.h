@@ -5373,7 +5373,6 @@ const u16 gEggMoves[] = {
         MOVE_LOW_KICK,
         MOVE_MEGA_KICK,
         MOVE_COLD_SNAP,
-        MOVE_HIGH_JUMP_KICK,
         MOVE_CHARM,
         MOVE_SWEET_KISS,
         MOVE_CAPTIVATE,
@@ -5417,7 +5416,6 @@ const u16 gEggMoves[] = {
         MOVE_TOXIC_SPIKES),
 
     egg_moves(EXCATATOR,
-        MOVE_MAGNITUDE,
         MOVE_ASSIST,
         MOVE_COPYCAT,
         MOVE_MUD_SPORT,
