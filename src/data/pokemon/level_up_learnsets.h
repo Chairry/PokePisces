@@ -5714,7 +5714,7 @@ static const struct LevelUpMove sSpindaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(28, MOVE_SECRET_POWER),
     LEVEL_UP_MOVE(32, MOVE_PSYCH_UP),
     LEVEL_UP_MOVE(36, MOVE_SPINDA_SWING),
-    LEVEL_UP_MOVE(40, MOVE_BATON_PASS),
+    LEVEL_UP_MOVE(40, MOVE_FIERY_DANCE),
     LEVEL_UP_MOVE(44, MOVE_THRASH),
     LEVEL_UP_MOVE(48, MOVE_SPOTLIGHT),
     LEVEL_UP_MOVE(52, MOVE_SUPERPOWER),
@@ -5734,7 +5734,7 @@ static const struct LevelUpMove sSpindaCaveLevelUpLearnset[] = {
     LEVEL_UP_MOVE(28, MOVE_SECRET_POWER),
     LEVEL_UP_MOVE(32, MOVE_PSYCH_UP),
     LEVEL_UP_MOVE(36, MOVE_SPINDA_SWING),
-    LEVEL_UP_MOVE(40, MOVE_BRUTAL_SWING),
+    LEVEL_UP_MOVE(40, MOVE_STEALTH_ROCK),
     LEVEL_UP_MOVE(44, MOVE_THRASH),
     LEVEL_UP_MOVE(48, MOVE_SPOTLIGHT),
     LEVEL_UP_MOVE(52, MOVE_SUPERPOWER),
@@ -5802,7 +5802,7 @@ static const struct LevelUpMove sSpindaMountainLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sSpindaPlains2LevelUpLearnset[] = {
+static const struct LevelUpMove sSpindaPlainsLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_COPYCAT),
     LEVEL_UP_MOVE( 4, MOVE_TEETER_DANCE),

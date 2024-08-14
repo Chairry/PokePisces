@@ -2005,7 +2005,8 @@ const u16 gEggMoves[] = {
     egg_moves(SPINDA,
         MOVE_SLACK_OFF,
         MOVE_QUICK_GUARD,
-        MOVE_WIDE_GUARD),
+        MOVE_WIDE_GUARD,
+        MOVE_BATON_PASS),
 
     egg_moves(TRAPINCH,
         MOVE_FOCUS_ENERGY,
