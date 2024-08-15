@@ -2256,7 +2256,7 @@ static const struct TrainerMon sParty_PHazakura[] = {
     .species = SPECIES_NANGGAL,
     .ability = ABILITY_UNBURDEN,
     .heldItem = ITEM_SNOWBALL,
-    .moves = {MOVE_ROOST, MOVE_AIR_SLASH, MOVE_DOUBLE_TEAM, MOVE_FEINT_ATTACK},
+    .moves = {MOVE_ROOST, MOVE_TOXIC, MOVE_DOUBLE_TEAM, MOVE_FEINT_ATTACK},
     }
 };
 
@@ -2392,6 +2392,7 @@ static const struct TrainerMon sParty_PNeko[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_BIYAKO,
+    .moves = {MOVE_HORN_ATTACK, MOVE_DETECT, MOVE_PINPOINT, MOVE_PURIFICATION},
     },
     {
     .lvl = 25,
@@ -2413,6 +2414,7 @@ static const struct TrainerMon sParty_PAyumu[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_FOGGLEHIND,
+    .moves = {MOVE_U_TURN, MOVE_CHATTER, MOVE_OMINOUS_WIND, MOVE_HAZE},
     }
 };
 
@@ -2437,12 +2439,15 @@ static const struct TrainerMon sParty_PAlodia[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_OROFLOW,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_VIPER_STRIKE, MOVE_U_TURN, MOVE_FLIP_TURN, MOVE_AQUA_JET},
     },
     {
     .lvl = 25,
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_MAKIBI,
+    .moves = {MOVE_ARCANE_POWER, MOVE_FLAME_BURST, MOVE_FLIP_TURN, MOVE_BUBBLE},
     }
 };
 
@@ -2568,6 +2573,7 @@ static const struct TrainerMon sParty_PReimu[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_SANCTISOW,
+    .moves = {MOVE_EXORCISM, MOVE_AIR_CUTTER, MOVE_HEAL_BELL, MOVE_NONE},
     },
     {
     .lvl = 25,
@@ -2589,6 +2595,7 @@ static const struct TrainerMon sParty_PMiko[] = {
     .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31),
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_VIVISU,
+    .moves = {MOVE_EXORCISM, MOVE_GLIMMER, MOVE_PURGING_FLAMES, MOVE_NONE},
     }
 };
 
@@ -2728,7 +2735,7 @@ static const struct TrainerMon sParty_PAzami[] = {
     .ev = TRAINER_PARTY_EVS(26, 26, 26, 26, 26, 26),
     .species = SPECIES_SHEDINJA,
     .heldItem = ITEM_FOCUS_SASH,
-    .moves = {MOVE_SHADOW_SNEAK, MOVE_BUG_SNACK, MOVE_WILL_O_WISP, MOVE_CONFUSE_RAY},
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_MUD_SLAP, MOVE_WILL_O_WISP, MOVE_CONFUSE_RAY},
     }
 };
 
