@@ -4894,8 +4894,8 @@
     {
       "id": "LAYOUT_MIDNEOR_FALLS_CAVE",
       "name": "MidneorFallsCave_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 57,
+      "height": 41,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFallsCave/border.bin",
