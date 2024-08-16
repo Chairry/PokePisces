@@ -894,7 +894,7 @@ static const u8 sText_AThingHappenedFr[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is
 static const u8 sText_SappedByTicked[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\ndrained by its ticks!");
 static const u8 sText_PkmnTicked[] = _("{B_DEF_NAME_WITH_PREFIX} was infected\nby ticks!");
 static const u8 sText_SpeedStatChangesGone[] = _("All speed stat changes\nwere eliminated!");
-static const u8 sText_UserStatChangesGone[] = _("Negative\nstat changes were eliminated!");
+static const u8 sText_UserStatChangesGone[] = _("Negative stat changes\nwere eliminated!");
 static const u8 sText_PkmnIsPreparingForDecimation[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nfor {B_CURRENT_MOVE}!");
 static const u8 sText_PkmnIsAlreadyExposed[] = _("{B_DEF_NAME_WITH_PREFIX} is already\nexposed.");
 static const u8 sText_HearthwarmHeal[] = _("Hearthwarm restored\n{B_ATK_NAME_WITH_PREFIX}'s HP!");
@@ -929,6 +929,7 @@ static const u8 sText_HealerRestoration[] = _("{B_ATK_PARTNER_NAME} was healed\n
 static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig to be affected!");
 static const u8 sText_HighRollHitRoll[] = _("{B_ATK_NAME_WITH_PREFIX} rolled a {B_BUFF1}!");
 static const u8 sText_SparkingElectricity[] = _("The sparking electricity\nhit {B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
+static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis distorting type matchups!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1709,6 +1710,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TOOBIGTOCARE - BATTLESTRINGS_TABLE_START] = sText_TooBigToCare,
     [STRINGID_HIGHROLLHITROLL - BATTLESTRINGS_TABLE_START] = sText_HighRollHitRoll,
     [STRINGID_SPARKINGELECTRICITYHIT - BATTLESTRINGS_TABLE_START] = sText_SparkingElectricity,
+    [STRINGID_EGGSROYALE - BATTLESTRINGS_TABLE_START] = sText_EggsRoyale,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

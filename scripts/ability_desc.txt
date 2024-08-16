@@ -34,7 +34,7 @@ Purple Haze, Boosts when using Haze.
 Rapid Fire, Stronger moves but more PP.
 Soul Locker, Draws in ghost moves.
 Spiralysis, Halves Speed of foe.
-Zen Incense, Not hit by Psychic attacks.
+Pink Mist, Not hit by Psychic attacks.
 Aqua Heart, Normal moves become Water.
 Brand Claws, Boost against burn. May burn.
 Disdain, KOs raise Special Attack.

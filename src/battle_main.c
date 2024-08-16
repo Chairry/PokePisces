@@ -4852,6 +4852,10 @@ s8 GetMovePriority(u32 battler, u16 move)
         gProtectStructs[battler].pranksterElevated = 1;
         priority++;
     }
+    else if (gCurrentMove == MOVE_ASTONISH && gBattleMons[gBattlerTarget].status1 & STATUS1_PANIC)
+    {
+        priority++;
+    }
     else if (ability == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battler].isFirstTurn || IsTwoTurnsMove(move)))
     {
         priority++;
@@ -4861,10 +4865,6 @@ s8 GetMovePriority(u32 battler, u16 move)
         priority++;
     }
     else if ((gBattleMons[battler].species == SPECIES_MOSKOPO) && (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_LONG_NOSE) && ((gBattleMoves[move].type == TYPE_BUG) || (gBattleMoves[move].type == TYPE_DARK)))
-    {
-        priority++;
-    }
-    else if (ability == ABILITY_QUICK_DRAW && IS_MOVE_SPECIAL(move) && gDisableStructs[battler].isFirstTurn)
     {
         priority++;
     }
@@ -4941,7 +4941,7 @@ u32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
 
     // Battler 1
     // Quick Draw
-    if (!ignoreChosenMoves && ability1 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler1]) && Random() % 100 < 30)
+    if (!ignoreChosenMoves && ability1 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler1]) && Random() % 100 < 50)
         gProtectStructs[battler1].quickDraw = TRUE;
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler1].quickDraw
@@ -4951,7 +4951,7 @@ u32 GetWhichBattlerFasterArgs(u32 battler1, u32 battler2, bool32 ignoreChosenMov
 
     // Battler 2
     // Quick Draw
-    if (!ignoreChosenMoves && ability2 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler2]) && Random() % 100 < 30)
+    if (!ignoreChosenMoves && ability2 == ABILITY_QUICK_DRAW && !IS_MOVE_STATUS(gChosenMoveByBattler[battler2]) && Random() % 100 < 50)
         gProtectStructs[battler2].quickDraw = TRUE;
     // Quick Claw and Custap Berry
     if (!gProtectStructs[battler2].quickDraw
