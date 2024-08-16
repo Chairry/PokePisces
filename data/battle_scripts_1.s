@@ -2993,6 +2993,49 @@ BattleScript_AllStatsDownSpDef::
 BattleScript_AllStatsDownRet::
 	return
 
+BattleScript_DurinBerryAllStatsDown::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ATK, MIN_STAT_STAGE, BattleScript_DurinBerryAllStatsDownAtk
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_DEF, MIN_STAT_STAGE, BattleScript_DurinBerryAllStatsDownAtk
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_DurinBerryAllStatsDownAtk
+	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_SPATK, MIN_STAT_STAGE, BattleScript_DurinBerryAllStatsDownAtk
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPDEF, MIN_STAT_STAGE, BattleScript_DurinBerryAllStatsDownRet
+BattleScript_DurinBerryAllStatsDownAtk::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_TARGET, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
+	playstatchangeanimation BS_TARGET, BIT_ATK, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_ATK, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DurinBerryAllStatsDownDef
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DurinBerryAllStatsDownDef::
+	playstatchangeanimation BS_TARGET, BIT_DEF, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_DEF, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DurinBerryAllStatsDownSpeed
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DurinBerryAllStatsDownSpeed::
+	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_SPEED, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DurinBerryAllStatsDownSpAtk
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DurinBerryAllStatsDownSpAtk::
+	playstatchangeanimation BS_TARGET, BIT_SPATK, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_SPATK, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DurinBerryAllStatsDownSpDef
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DurinBerryAllStatsDownSpDef::
+	playstatchangeanimation BS_TARGET, BIT_SPDEF, STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_SPDEF, 1, TRUE
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DurinBerryAllStatsDownRet
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_DurinBerryAllStatsDownRet::
+	return
+
 BattleScript_EffectGunkFunk::
 	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_AllStatsDownHitCertain
 	goto BattleScript_EffectAllStatsDownHit
@@ -13574,7 +13617,7 @@ BattleScript_BloomOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
 	call BattleScript_MoveEffectBlooming
-	end2
+	end3
 
 BattleScript_PanicOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
@@ -16402,33 +16445,6 @@ BattleScript_RedCardIngrain:
 	swapattackerwithtarget
 	return
 BattleScript_RedCardSuctionCups:
-	printstring STRINGID_PKMNANCHORSITSELFWITH
-	waitmessage B_WAIT_TIME_LONG
-	removeitem BS_SCRIPTING
-	swapattackerwithtarget
-	return
-
-BattleScript_DurinBerryActivates::
-	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
-	printstring STRINGID_REDCARDACTIVATE
-	waitmessage B_WAIT_TIME_LONG
-	swapattackerwithtarget
-	jumpifstatus3 BS_EFFECT_BATTLER, STATUS3_ROOTED, BattleScript_DurinBerryIngrain
-	jumpifability BS_EFFECT_BATTLER, ABILITY_SUCTION_CUPS, BattleScript_DurinBerrySuctionCups
-	jumpifability BS_EFFECT_BATTLER, ABILITY_STALWART, BattleScript_DurinBerryIngrain
-	removeitem BS_SCRIPTING
-	setbyte sSWITCH_CASE, B_SWITCH_RED_CARD
-	forcerandomswitch BattleScript_DurinBerryEnd
-	@ changes the current battle script. the rest happens in BattleScript_RoarSuccessSwitch_Ret, if switch is successful
-BattleScript_DurinBerryEnd::
-	return
-BattleScript_DurinBerryIngrain:
-	printstring STRINGID_PKMNANCHOREDITSELF
-	waitmessage B_WAIT_TIME_LONG
-	removeitem BS_SCRIPTING
-	swapattackerwithtarget
-	return
-BattleScript_DurinBerrySuctionCups:
 	printstring STRINGID_PKMNANCHORSITSELFWITH
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
