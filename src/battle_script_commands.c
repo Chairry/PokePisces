@@ -1302,6 +1302,18 @@ bool32 ProteanTryChangeType(u32 battler, u32 ability, u32 move, u32 moveType)
     return FALSE;
 }
 
+bool32 ShouldTeraShellDistortTypeMatchups(u32 move, u32 battlerDef)
+{
+    if (!(gBattleStruct->distortedTypeMatchups & gBitTable[battlerDef])
+     && GetBattlerAbility(battlerDef) == ABILITY_EGGS_ROYALE
+     && !IS_MOVE_STATUS(move)
+     && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+     && gBattleMons[battlerDef].hp == gBattleMons[battlerDef].maxHP)
+        return TRUE;
+
+    return FALSE;
+}
+
 static void Cmd_attackcanceler(void)
 {
     CMD_ARGS();
@@ -2046,6 +2058,14 @@ static void Cmd_ppreduce(void)
 
     gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
     gBattlescriptCurrInstr = cmd->nextInstr;
+
+    if (ShouldTeraShellDistortTypeMatchups(gCurrentMove, gBattlerTarget))
+    {
+        gBattleStruct->distortedTypeMatchups |= gBitTable[gBattlerTarget];
+        gBattlerAbility = gBattlerTarget;
+        BattleScriptPushCursor();
+        gBattlescriptCurrInstr = BattleScript_TeraShellDistortingTypeMatchups;
+    }
 }
 
 // The chance is 1/N for each stage.
@@ -2180,7 +2200,7 @@ static void Cmd_damagecalc(void)
 
     if (atkHoldEffect == HOLD_EFFECT_TRADING_CARD)
     {
-        if (gCurrentMove == MOVE_NEEDLE_ARM)
+        if (gCurrentMove == MOVE_NEEDLE_ARM || (gCurrentMove == MOVE_ASTONISH && gBattleMons[gBattlerTarget].status1 & STATUS1_PANIC))
         {
             gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerAttacker].attack - gBattleMons[gBattlerTarget].attack) + (gBattleMons[gBattlerTarget].maxHP / 5);
         }
@@ -2197,7 +2217,7 @@ static void Cmd_damagecalc(void)
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerTarget].maxHP / 5);
     }
-    else if (gCurrentMove == MOVE_NEEDLE_ARM)
+    else if (gCurrentMove == MOVE_NEEDLE_ARM || (gCurrentMove == MOVE_ASTONISH && gBattleMons[gBattlerTarget].status1 & STATUS1_PANIC))
     {
         gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, moveType, movePower, gIsCriticalHit, TRUE, TRUE) + (gBattleMons[gBattlerTarget].maxHP / 5);
     }
@@ -7045,6 +7065,7 @@ static void Cmd_moveend(void)
             gBattleStruct->hitSwitchTargetFailed = FALSE;
             gBattleStruct->isAtkCancelerForCalledMove = FALSE;
             gBattleStruct->enduredDamage = 0;
+            gBattleStruct->distortedTypeMatchups = 0;
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_COUNT:
@@ -9941,7 +9962,11 @@ static void Cmd_various(void)
         }
         else
         {
-            gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+            if (GetBattlerAbility(battler) == ABILITY_GRASS_PELT)
+                gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+            else
+                gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+
             if (gBattleMoveDamage == 0)
                 gBattleMoveDamage = 1;
             gBattleMoveDamage *= -1;
@@ -10457,7 +10482,7 @@ static void Cmd_various(void)
             case ABILITY_WATCHER:           case ABILITY_REVERSI:
             case ABILITY_STARS_GRACE:       case ABILITY_TRANSFUSION:
             case ABILITY_SUGAR_COAT:        case ABILITY_TIME_TURN:
-            case ABILITY_WHITE_SMOKE:       case ABILITY_ZEN_INCENSE:
+            case ABILITY_WHITE_SMOKE:       case ABILITY_PINK_MIST:
             case ABILITY_IGNORANT_BLISS:    case ABILITY_MELANCHOLIA:
             case ABILITY_MILKY_WAY:         case ABILITY_CINDER_WALTZ:
             case ABILITY_RESET:             case ABILITY_PURPLE_HAZE:

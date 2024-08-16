@@ -52,6 +52,7 @@ bool32 ProteanTryChangeType(u32 battler, u32 ability, u32 move, u32 moveType);
 bool32 DoSwitchInAbilitiesItems(u32 battlerId);
 u8 GetFirstFaintedPartyIndex(u8 battlerId);
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler);
+bool32 ShouldTeraShellDistortTypeMatchups(u32 move, u32 battlerDef);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 extern const u8 gBattlePalaceNatureToMoveGroupLikelihood[NUM_NATURES][4];

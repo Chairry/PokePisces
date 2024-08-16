@@ -2799,7 +2799,6 @@ BattleScript_EffectTerrorize::
 	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_NotAffected
 	jumpifability BS_TARGET, ABILITY_UNAWARE, BattleScript_AbilityProtectsDoesntAffect
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_AbilityProtectsDoesntAffect
-	jumpifability BS_TARGET, ABILITY_ZEN_INCENSE, BattleScript_AbilityProtectsDoesntAffect
 	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_AbilityProtectsDoesntAffect
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
@@ -6846,7 +6845,6 @@ BattleScript_EffectWorrySeed:
 	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_EffectWorrySeedPanicFailed
 	jumpifability BS_TARGET, ABILITY_UNAWARE, BattleScript_EffectWorrySeedPanicFailed
 	jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_EffectWorrySeedPanicFailed
-	jumpifability BS_TARGET, ABILITY_ZEN_INCENSE, BattleScript_EffectWorrySeedPanicFailed
 	jumpifability BS_TARGET, ABILITY_IGNORANT_BLISS, BattleScript_EffectWorrySeedPanicFailed
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_EffectWorrySeedPanicFailed
 	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_EffectWorrySeedPanicFailed
@@ -14790,6 +14788,13 @@ BattleScript_ProteanActivates::
 	pause B_WAIT_TIME_SHORTEST
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNCHANGEDTYPE
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_TeraShellDistortingTypeMatchups::
+	pause B_WAIT_TIME_SHORTEST
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_EGGSROYALE
 	waitmessage B_WAIT_TIME_LONG
 	return
 

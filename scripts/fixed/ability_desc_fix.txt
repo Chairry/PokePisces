@@ -35,7 +35,7 @@ Defines
 #define ABILITY_RAPID_FIRE 334
 #define ABILITY_SOUL_LOCKER 335
 #define ABILITY_SPIRALYSIS 336
-#define ABILITY_ZEN_INCENSE 337
+#define ABILITY_PINK_MIST 337
 #define ABILITY_AQUA_HEART 338
 #define ABILITY_BRAND_CLAWS 339
 #define ABILITY_DISDAIN 340
@@ -102,7 +102,7 @@ Names
 [ABILITY_RAPID_FIRE] = _("Rapid Fire"),
 [ABILITY_SOUL_LOCKER] = _("Soul Locker"),
 [ABILITY_SPIRALYSIS] = _("Spiralysis"),
-[ABILITY_ZEN_INCENSE] = _("Zen Incense"),
+[ABILITY_PINK_MIST] = _("Pink Mist"),
 [ABILITY_AQUA_HEART] = _("Aqua Heart"),
 [ABILITY_BRAND_CLAWS] = _("Brand Claws"),
 [ABILITY_DISDAIN] = _("Disdain"),
@@ -169,7 +169,7 @@ static const u8 sPurpleHazeDescription[] = _("Boosts when using Haze.");
 static const u8 sRapidFireDescription[] = _("Stronger moves but more PP.");
 static const u8 sSoulLockerDescription[] = _("Draws in ghost moves.");
 static const u8 sSpiralysisDescription[] = _("Halves Speed of foe.");
-static const u8 sZenIncenseDescription[] = _("Not hit by Psychic attacks.");
+static const u8 sPinkMistDescription[] = _("Not hit by Psychic attacks.");
 static const u8 sAquaHeartDescription[] = _("Normal moves become Water.");
 static const u8 sBrandClawsDescription[] = _("Boost against burn. May burn.");
 static const u8 sDisdainDescription[] = _("KOs raise Special Attack.");
@@ -236,7 +236,7 @@ DefToDesc
 [ABILITY_RAPID_FIRE] = sRapidFireDescription,
 [ABILITY_SOUL_LOCKER] = sSoulLockerDescription,
 [ABILITY_SPIRALYSIS] = sSpiralysisDescription,
-[ABILITY_ZEN_INCENSE] = sZenIncenseDescription,
+[ABILITY_PINK_MIST] = sPinkMistDescription,
 [ABILITY_AQUA_HEART] = sAquaHeartDescription,
 [ABILITY_BRAND_CLAWS] = sBrandClawsDescription,
 [ABILITY_DISDAIN] = sDisdainDescription,

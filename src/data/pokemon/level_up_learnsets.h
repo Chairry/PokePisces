@@ -5714,7 +5714,7 @@ static const struct LevelUpMove sSpindaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(28, MOVE_SECRET_POWER),
     LEVEL_UP_MOVE(32, MOVE_PSYCH_UP),
     LEVEL_UP_MOVE(36, MOVE_SPINDA_SWING),
-    LEVEL_UP_MOVE(40, MOVE_FIERY_DANCE),
+    LEVEL_UP_MOVE(40, MOVE_FIRE_SPIN),
     LEVEL_UP_MOVE(44, MOVE_THRASH),
     LEVEL_UP_MOVE(48, MOVE_SPOTLIGHT),
     LEVEL_UP_MOVE(52, MOVE_SUPERPOWER),
@@ -22894,7 +22894,7 @@ static const struct LevelUpMove sYolkweenLevelUpLearnset[] = {
 
 static const struct LevelUpMove sWallyLevelUpLearnset[] = {
     LEVEL_UP_MOVE(1, MOVE_PSYCHIC),
-    LEVEL_UP_MOVE(1, MOVE_SHADOW_BALL),
+    LEVEL_UP_MOVE(1, MOVE_ZAP_CANNON),
     LEVEL_UP_MOVE(1, MOVE_DARK_PULSE),
     LEVEL_UP_MOVE(1, MOVE_FOCUS_BLAST),
     LEVEL_UP_END
