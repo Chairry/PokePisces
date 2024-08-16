@@ -4894,8 +4894,8 @@
     {
       "id": "LAYOUT_MIDNEOR_FALLS_CAVE",
       "name": "MidneorFallsCave_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 57,
+      "height": 41,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MidneorFallsCave/border.bin",
@@ -5500,6 +5500,16 @@
       "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/SweltornTransitionHallway/border.bin",
       "blockdata_filepath": "data/layouts/SweltornTransitionHallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_NAVIGULF_UNDERWATER",
+      "name": "NavigulfUnderwater_Layout",
+      "width": 100,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/NavigulfUnderwater/border.bin",
+      "blockdata_filepath": "data/layouts/NavigulfUnderwater/map.bin"
     }
   ]
 }

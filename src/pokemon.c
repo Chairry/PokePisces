@@ -9101,12 +9101,14 @@ u8 GetCurrentLevelCap(void)
         return 33;
     else if (!FlagGet(FLAG_BADGE05_GET))
         return 39;
-    else if (!FlagGet(FLAG_BADGE06_GET))
-        return 44;
+    else if (!FlagGet(FLAG_DEFEATED_MR_BONDING))
+        return 47;
+    else if (!FlagGet(FLAG_BADGE06_GET)) 
+        return 48;
     else if (!FlagGet(FLAG_BADGE07_GET))
-        return 49;
-    else if (!FlagGet(FLAG_BADGE08_GET))
         return 54;
+    else if (!FlagGet(FLAG_BADGE08_GET))
+        return 62;
     else if (!FlagGet(FLAG_IS_CHAMPION))
         return 75;
     else

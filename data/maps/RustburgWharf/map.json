@@ -276,6 +276,19 @@
       "trainer_sight_or_berry_tree_id": "2",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NEWSPAPER",
+      "x": 32,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -296,6 +309,13 @@
     {
       "x": 23,
       "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_RUSTBURG_WHARF",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_RUSTBURG_WHARF",
       "dest_warp_id": "0"

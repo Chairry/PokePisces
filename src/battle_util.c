@@ -8164,6 +8164,29 @@ static u8 DamagedBelueBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 en
     return 0;
 }
 
+static u8 DamagedDurinBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
+{
+    u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
+    u32 opposingBattler = GetBattlerAtPosition(opposingPosition);
+    gBattlerTarget = opposingBattler;
+    if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
+    {
+        gEffectBattler = battler;
+
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_DurinBerryAllStatsDownRet);
+        }
+        else
+        {
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_DurinBerryAllStatsDown;
+        }
+        return ITEM_EFFECT_OTHER;
+    }
+    return 0;
+}
+
 static u8 DamagedPinapBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end2)
 {
     u32 opposingPosition = BATTLE_OPPOSITE(GetBattlerPosition(battler));
@@ -8601,6 +8624,9 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
     case HOLD_EFFECT_BELUE_BERRY:
         effect = DamagedBelueBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
+    case HOLD_EFFECT_DURIN_BERRY:
+        effect = DamagedDurinBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+        break;
     case HOLD_EFFECT_RAZZ_BERRY:
         effect = DamagedRazzBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
@@ -8936,6 +8962,9 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_BELUE_BERRY:
                 effect = DamagedBelueBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
+            case HOLD_EFFECT_DURIN_BERRY:
+                effect = DamagedDurinBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
             case HOLD_EFFECT_RAZZ_BERRY:
                 effect = DamagedRazzBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
@@ -9154,6 +9183,15 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 gBattleScripting.battler = battler;
                 BattleScriptPushCursorAndCallback(BattleScript_AirBaloonMsgIn);
                 RecordItemEffectBattle(battler, HOLD_EFFECT_AIR_BALLOON);
+                break;
+            case HOLD_EFFECT_BLOOM_ORB:
+                if (CanStartBlooming(battler))
+                {
+                    effect = ITEM_STATUS_CHANGE;;
+                    gBattleMons[battler].status1 = STATUS1_BLOOMING_TURN(2);
+                    BattleScriptPushCursorAndCallback(BattleScript_BloomOrb);
+                    RecordItemEffectBattle(battler, HOLD_EFFECT_BLOOM_ORB);
+                }
                 break;
             case HOLD_EFFECT_GEMSTONE:
                 if (gBattleMons[battler].species == SPECIES_HARACE)
@@ -9484,6 +9522,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_BELUE_BERRY:
                 if (!moveTurn)
                     effect = DamagedBelueBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
+                break;
+            case HOLD_EFFECT_DURIN_BERRY:
+                if (!moveTurn)
+                    effect = DamagedDurinBerryEffect(battler, gLastUsedItem, STAT_ATK, FALSE);
                 break;
             case HOLD_EFFECT_RAZZ_BERRY:
                 if (!moveTurn)
@@ -10275,15 +10317,6 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 effect = ITEM_STATUS_CHANGE;
                 gBattleMons[battler].status1 = STATUS1_POISON;
                 BattleScriptExecute(BattleScript_PoisonOrb);
-                RecordItemEffectBattle(battler, battlerHoldEffect);
-            }
-            break;
-        case HOLD_EFFECT_BLOOM_ORB:
-            if (CanStartBlooming(battler))
-            {
-                effect = ITEM_STATUS_CHANGE;
-                gBattleMons[battler].status1 = STATUS1_BLOOMING_TURN(3);
-                BattleScriptExecute(BattleScript_BloomOrb);
                 RecordItemEffectBattle(battler, battlerHoldEffect);
             }
             break;
