@@ -25467,7 +25467,33 @@ Move_BLAZING_TORQUE::
 	goto Move_BLAZE_KICK
 
 Move_ORDER_UP::
-	goto Move_FISHIOUS_REND
+	loadspritegfx ANIM_TAG_DUCK
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_ITEM_BAG
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	createvisualtask AnimTask_RockMonBackAndForth, 5, ANIM_ATTACKER, 2, 1
+	createsprite gPresentSpriteTemplate, ANIM_TARGET, 2, 0, -5, 10, 2, -1
+	loopsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER, 12, 4
+	delay 14
+	playsewithpan SE_M_BUBBLE2, SOUND_PAN_ATTACKER
+	delay 14
+	playsewithpan SE_M_BUBBLE2, 0
+	delay 20
+	playsewithpan SE_M_BUBBLE2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, ANIM_TARGET, 1
+	playsewithpan SE_M_COMET_PUNCH, SOUND_PAN_TARGET
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, 160, -32
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, -256, -40
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, 128, -16
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, 416, -38
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, -128, -22
+	createsprite gDizzyPunchDuckSpriteTemplate, ANIM_TARGET, 3, 0, 0, -384, -31
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
 
 Move_SALT_CURE::
 	goto Move_RAGE_POWDER

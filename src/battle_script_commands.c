@@ -15653,23 +15653,18 @@ static void Cmd_magnitudedamagecalculation(void)
 static void Cmd_ficklebeamdamagecalculation(void)
 {
     CMD_ARGS();
-
-    for (gBattlerTarget = 0; gBattlerTarget < gBattlersCount; gBattlerTarget++)
-    {
-        if (gBattlerTarget == gBattlerAttacker)
-            continue;
-        if (!(gAbsentBattlerFlags & gBitTable[gBattlerTarget])) // A valid target was found.
-            break;
-    }
+    gBattleStruct->fickleBeamBoosted = FALSE;
 
     if (RandomPercentage(RNG_FICKLE_BEAM, 30))
     {
-        gBattleStruct->ficklebeamBasePower = 160;
-        gBattlescriptCurrInstr = BattleScript_FickleBeamDoubled;
+        gBattleStruct->fickleBeamBoosted = TRUE;
+        if (gCurrentMove == MOVE_DRAGON_CLAW)
+            gBattlescriptCurrInstr = BattleScript_DragonClawBoosted;
+        else
+            gBattlescriptCurrInstr = BattleScript_FickleBeamDoubled;
     }
     else
     {
-        gBattleStruct->ficklebeamBasePower = 80;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }

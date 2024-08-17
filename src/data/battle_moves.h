@@ -5797,7 +5797,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_DRAGON_CLAW] =
     {
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_DRAGON_CLAW,
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -6938,11 +6938,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .power = 90,
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_PARALYZE_HIT,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,

@@ -1369,8 +1369,8 @@ static const u8 sHowlDescription[] = _(
     "and boosts Attack.");
 
 static const u8 sDragonClawDescription[] = _(
-    "Slashes the foe with sharp\n"
-    "claws.");
+    "Slashes the foe with\n"
+    "claws. May do more damage.");
 
 static const u8 sFrenzyPlantDescription[] = _(
     "Powerful, but leaves the\n"
@@ -1650,7 +1650,7 @@ static const u8 sBugBuzzDescription[] = _(
 
 static const u8 sDragonPulseDescription[] = _(
     "Generates a shock wave to\n"
-    "damage the foe.");
+    "damage the foe. May paralyze.");
 
 static const u8 sDragonRushDescription[] = _(
     "Tackles the foe with menace.\n"
@@ -3090,8 +3090,8 @@ static const u8 sLuminaCrashDescription[] = _(
     "harshly lowers Sp. Def.");
 
 static const u8 sOrderUpDescription[] = _(
-    "Boosts a user's stats\n"
-    "depending on Tatsugiri.");
+    "A sushi order that may\n"
+    "raise the user's Attack.");
 
 static const u8 sJetPunchDescription[] = _(
     "A punch is thrown at blinding\n"

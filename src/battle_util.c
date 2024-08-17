@@ -11459,7 +11459,12 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
         basePower = (basePower > 160) ? 160 : basePower;
         break;
     case EFFECT_FICKLE_BEAM:
-        basePower = gBattleStruct->ficklebeamBasePower;
+        if (gBattleStruct->fickleBeamBoosted)
+            basePower *= 2;
+        break;
+    case EFFECT_DRAGON_CLAW:
+        if (gBattleStruct->fickleBeamBoosted)
+            basePower = 100;
         break;
     }
 

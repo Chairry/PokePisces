@@ -930,6 +930,7 @@ static const u8 sText_TooBigToCare[] = _("{B_DEF_NAME_WITH_PREFIX} is too\nbig t
 static const u8 sText_HighRollHitRoll[] = _("{B_ATK_NAME_WITH_PREFIX} rolled a {B_BUFF1}!");
 static const u8 sText_SparkingElectricity[] = _("The sparking electricity\nhit {B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
 static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis distorting type matchups!");
+static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ncrushing blow!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1711,6 +1712,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_HIGHROLLHITROLL - BATTLESTRINGS_TABLE_START] = sText_HighRollHitRoll,
     [STRINGID_SPARKINGELECTRICITYHIT - BATTLESTRINGS_TABLE_START] = sText_SparkingElectricity,
     [STRINGID_EGGSROYALE - BATTLESTRINGS_TABLE_START] = sText_EggsRoyale,
+    [STRINGID_DRAGONCLAWBOOSTED - BATTLESTRINGS_TABLE_START] = sText_DragonClawBoosted,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

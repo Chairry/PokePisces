@@ -613,7 +613,8 @@
 #define EFFECT_STORM_CHASE                  607
 #define EFFECT_STORM_FURY                   608
 #define EFFECT_SUBMISSION                   609
+#define EFFECT_DRAGON_CLAW                  610
 
-#define NUM_BATTLE_MOVE_EFFECTS             610
+#define NUM_BATTLE_MOVE_EFFECTS             611
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

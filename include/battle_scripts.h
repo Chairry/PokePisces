@@ -21,6 +21,7 @@ extern const u8 BattleScript_StatDown[];
 extern const u8 BattleScript_AlreadyAtFullHp[];
 extern const u8 BattleScript_PresentHealTarget[];
 extern const u8 BattleScript_FickleBeamDoubled[];
+extern const u8 BattleScript_DragonClawBoosted[];
 extern const u8 BattleScript_BigBoundary[];
 extern const u8 BattleScript_Boundary30[];
 extern const u8 BattleScript_Boundary60[];

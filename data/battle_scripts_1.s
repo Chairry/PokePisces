@@ -636,6 +636,36 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStormChase              @ EFFECT_STORM_CHASE
 	.4byte BattleScript_EffectStormFury               @ EFFECT_STORM_FURY
 	.4byte BattleScript_EffectSubmission              @ EFFECT_SUBMISSION
+	.4byte BattleScript_EffectDragonClaw              @ EFFECT_DRAGON_CLAW
+
+BattleScript_EffectDragonClaw:
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	ficklebeamdamagecalculation
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonClawBoosted::
+	pause B_WAIT_TIME_SHORTEST
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_DRAGONCLAWBOOSTED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSubmission::
 	attackcanceler
@@ -3883,7 +3913,6 @@ BattleScript_EffectDragonCheerEnd:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam:
-	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
 	attackcanceler
 	attackstring
 	ppreduce
