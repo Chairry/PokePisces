@@ -13838,7 +13838,7 @@ BattleScript_EmergencyExitNoPopUp::
 	waitstate
 	switchineffects BS_TARGET
 BattleScript_EmergencyExitRet:
-	return
+	end2
 
 BattleScript_EmergencyExitWild::
 	pause 5
@@ -13849,7 +13849,7 @@ BattleScript_EmergencyExitWildNoPopUp::
 	waitanimation
 	setoutcomeonteleport BS_TARGET
 	finishaction
-	return
+	end2
 
 BattleScript_TraceActivates::
 	pause B_WAIT_TIME_SHORT

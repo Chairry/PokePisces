@@ -6944,36 +6944,6 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
-        case MOVEEND_EMERGENCY_EXIT: // Special case, because moves hitting multiple opponents stop after switching out
-            for (i = 0; i < gBattlersCount; i++)
-            {
-                if (gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
-                {
-                    gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_EMERGENCY_EXIT;
-                    gSpecialStatuses[i].emergencyExited = TRUE;
-                    gBattlerTarget = gBattlerAbility = i;
-                    BattleScriptPushCursor();
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER || GetBattlerSide(i) == B_SIDE_PLAYER)
-                    {
-                    #if B_ABILITY_POP_UP == TRUE
-                        gBattlescriptCurrInstr = BattleScript_EmergencyExit;
-                    #else
-                        gBattlescriptCurrInstr = BattleScript_EmergencyExitNoPopUp;
-                    #endif
-                    }
-                    else
-                    {
-                    #if B_ABILITY_POP_UP == TRUE
-                        gBattlescriptCurrInstr = BattleScript_EmergencyExitWild;
-                    #else
-                        gBattlescriptCurrInstr = BattleScript_EmergencyExitWildNoPopUp;
-                    #endif
-                    }
-                    return;
-                }
-            }
-            gBattleScripting.moveendState++;
-            break;
         case MOVEEND_SYMBIOSIS:
             for (i = 0; i < gBattlersCount; i++)
             {

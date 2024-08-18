@@ -2925,6 +2925,7 @@ enum
     ENDTURN_FAIRY_LOCK,
     ENDTURN_PUMPED_UP,
     ENDTURN_ACID_ARMORED,
+    ENDTURN_EMERGENCY_EXIT,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3634,6 +3635,27 @@ u8 DoBattlerEndTurnEffects(void)
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = -1;
                     BattleScriptExecute(BattleScript_BloomingHpGainEnd);
+                    effect++;
+                }
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_EMERGENCY_EXIT:
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
+                {
+                    gBattleResources->flags->flags[i] &= ~RESOURCE_FLAG_EMERGENCY_EXIT;
+                    gSpecialStatuses[i].emergencyExited = TRUE;
+                    gBattlerTarget = gBattlerAbility = i;
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER || GetBattlerSide(i) == B_SIDE_PLAYER)
+                    {
+                        BattleScriptExecute(BattleScript_EmergencyExit);
+                    }
+                    else
+                    {
+                        BattleScriptExecute(BattleScript_EmergencyExitWild);
+                    }
                     effect++;
                 }
             }
@@ -8453,6 +8475,11 @@ static u8 ItemHealHp(u32 battler, u32 itemId, bool32 end2, bool32 percentHeal)
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_ItemHealHP_RemoveItemRet;
         }
+
+        if (gBattleResources->flags->flags[battler] & RESOURCE_FLAG_EMERGENCY_EXIT
+         && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 2)
+            gBattleResources->flags->flags[battler] &= ~RESOURCE_FLAG_EMERGENCY_EXIT;
+
         return ITEM_HP_CHANGE;
     }
     return 0;

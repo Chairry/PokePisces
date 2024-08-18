@@ -160,6 +160,7 @@ static void AnimRockPolishSparkle(struct Sprite *);
 static void AnimPoisonJabProjectile(struct Sprite *);
 static void AnimNightSlash(struct Sprite *);
 static void AnimPluck(struct Sprite *);
+static void AnimAcrobaticsSlashes(struct Sprite *);
 
 const union AnimCmd gPowderParticlesAnimCmds[] =
 {
@@ -6676,39 +6677,71 @@ static void AnimHornHit_Step(struct Sprite *sprite)
         DestroyAnimSprite(sprite);
 }
 
-void AnimTask_DoubleTeam(u8 taskId)
-{
-    u16 i;
-    int obj;
-    u16 r3;
-    u16 r4;
-    struct Task *task = &gTasks[taskId];
-    task->data[0] = GetAnimBattlerSpriteId(ANIM_ATTACKER);
-    task->data[1] = AllocSpritePalette(ANIM_TAG_BENT_SPOON);
-    r3 = OBJ_PLTT_ID(task->data[1]);
-    r4 = OBJ_PLTT_ID2(gSprites[task->data[0]].oam.paletteNum);
-    for (i = 1; i < 16; i++)
-        gPlttBufferUnfaded[r3 + i] = gPlttBufferUnfaded[r4 + i];
+// Double Team and Ally Switch.
+#define tBattlerSpriteId    data[0]
+#define tSpoonPal           data[1]
+#define tBlendSpritesCount  data[3]
+#define tBattlerId          data[4]
+#define tIsAllySwitch       data[5]
 
-    BlendPalette(r3, 16, 11, RGB_BLACK);
-    task->data[3] = 0;
-    i = 0;
-    while (i < 2 && (obj = CloneBattlerSpriteWithBlend(0)) >= 0)
+#define sCounter            data[0]
+#define sSinIndex           data[1]
+#define sTaskId             data[2]
+#define sCounter2           data[3]
+#define sSinAmplitude       data[4]
+#define sSinIndexMod        data[5]
+#define sBattlerFlank       data[6]
+
+void PrepareDoubleTeamAnim(u32 taskId, u32 animBattler, bool32 forAllySwitch)
+{
+    s32 i, spriteId;
+    u16 palOffsetBattler, palOffsetSpoon;
+    struct Task *task = &gTasks[taskId];
+
+    task->tBattlerSpriteId = GetAnimBattlerSpriteId(animBattler);
+    task->tSpoonPal = AllocSpritePalette(ANIM_TAG_BENT_SPOON);
+    task->tBattlerId = GetAnimBattlerId(animBattler);
+    task->tIsAllySwitch = forAllySwitch;
+    palOffsetSpoon = OBJ_PLTT_ID(task->tSpoonPal);
+    palOffsetBattler = OBJ_PLTT_ID2(gSprites[task->tBattlerSpriteId].oam.paletteNum);
+    for (i = 1; i < 16; i++)
+        gPlttBufferUnfaded[palOffsetSpoon + i] = gPlttBufferUnfaded[palOffsetBattler + i];
+
+    BlendPalette(palOffsetSpoon, 16, 11, RGB_BLACK);
+    task->tBlendSpritesCount = 0;
+    for (i = 0; i < ((forAllySwitch == TRUE) ? 1 : 2); i++)
     {
-        gSprites[obj].oam.paletteNum = task->data[1];
-        gSprites[obj].data[0] = 0;
-        gSprites[obj].data[1] = i << 7;
-        gSprites[obj].data[2] = taskId;
-        gSprites[obj].callback = AnimDoubleTeam;
-        task->data[3]++;
-        i++;
+        spriteId = CloneBattlerSpriteWithBlend(animBattler);
+        if (spriteId < 0)
+            break;
+        gSprites[spriteId].oam.paletteNum = task->tSpoonPal;
+        gSprites[spriteId].sCounter = 0;
+        gSprites[spriteId].sSinIndex = i << 7;
+        gSprites[spriteId].sTaskId = taskId;
+        // Which direction
+        if (gBattleAnimAttacker & BIT_FLANK)
+            gSprites[spriteId].sBattlerFlank = (animBattler != ANIM_ATTACKER);
+        else
+            gSprites[spriteId].sBattlerFlank = (animBattler == ANIM_ATTACKER);
+
+        // correct direction on opponent side
+        if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
+            gSprites[spriteId].sBattlerFlank ^= 1;
+
+        gSprites[spriteId].callback = AnimDoubleTeam;
+        task->tBlendSpritesCount++;
     }
 
     task->func = AnimTask_DoubleTeam_Step;
-    if (GetBattlerSpriteBGPriorityRank(gBattleAnimAttacker) == 1)
+    if (GetBattlerSpriteBGPriorityRank(task->tBattlerId) == 1)
         ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_BG1_ON);
     else
         ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_BG2_ON);
+}
+
+void AnimTask_DoubleTeam(u8 taskId)
+{
+    PrepareDoubleTeamAnim(taskId, ANIM_ATTACKER, FALSE);
 }
 
 static void AnimTask_DoubleTeam_Step(u8 taskId)
@@ -6746,6 +6779,24 @@ static void AnimDoubleTeam(struct Sprite *sprite)
         sprite->data[1] = (sprite->data[1] + sprite->data[5]) & 0xFF;
         sprite->x2 = Sin(sprite->data[1], sprite->data[4]);
     }
+}
+
+void AnimTask_AllySwitchAttacker(u8 taskId)
+{
+    PrepareDoubleTeamAnim(taskId, ANIM_ATTACKER, TRUE);
+    gSprites[gBattlerSpriteIds[gBattlerAttacker]].invisible = TRUE;
+    gSprites[gBattlerSpriteIds[BATTLE_PARTNER(gBattlerAttacker)]].invisible = TRUE;
+    // Edge case: Partner's sprite is invisible(i.e. after using Dig).
+    if (gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(gBattlerAttacker)].invisible)
+    {
+        gBattleSpritesDataPtr->battlerData[BATTLE_PARTNER(gBattlerAttacker)].invisible = FALSE;
+        gBattleSpritesDataPtr->battlerData[gBattlerAttacker].invisible = TRUE;
+    }
+}
+
+void AnimTask_AllySwitchPartner(u8 taskId)
+{
+    PrepareDoubleTeamAnim(taskId, ANIM_ATK_PARTNER, TRUE);
 }
 
 static void AnimSuperFang(struct Sprite *sprite)
@@ -7239,6 +7290,39 @@ const struct SpriteTemplate gSteelBeamSmallOrbSpriteTemplate =
     .callback = AnimSolarBeamSmallOrb,
 };
 
+const struct SpriteTemplate gAcrobaticsSlashesSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_STREAK,
+    .paletteTag = ANIM_TAG_WHITE_STREAK,
+    .oam = &gOamData_AffineDouble_ObjBlend_32x8,
+    .anims = gRockPolishStreak_AnimCmds,
+    .images = NULL,
+    .affineAnims = gRockPolishStreak_AffineAnimCmds,
+    .callback = AnimAcrobaticsSlashes,
+};
+
+const struct SpriteTemplate gPsyshockOrbSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_RED_ORB_2,
+    .paletteTag = ANIM_TAG_POISON_JAB,
+    .oam = &gOamData_AffineOff_ObjNormal_8x8,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimPoisonJabProjectile,
+};
+
+const struct SpriteTemplate gPsyshockSmokeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_GRAY_SMOKE,
+    .paletteTag = ANIM_TAG_WISP_FIRE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gOctazookaAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimSpriteOnMonPos,
+};
+
 void AnimTask_CreateSmallSteelBeamOrbs(u8 taskId)
 {
     if (--gTasks[taskId].data[0] == -1)
@@ -7254,4 +7338,13 @@ void AnimTask_CreateSmallSteelBeamOrbs(u8 taskId)
 
     if (gTasks[taskId].data[1] == 15)
         DestroyAnimVisualTask(taskId);
+}
+
+static void AnimAcrobaticsSlashes(struct Sprite *sprite)
+{
+    int affineAnimNum = Random2() % ARRAY_COUNT(gRockPolishStreak_AffineAnimCmds);
+    InitSpritePosToAnimTarget(sprite, TRUE);
+    StartSpriteAffineAnim(sprite, affineAnimNum);
+    StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
+    sprite->callback = RunStoredCallbackWhenAnimEnds;
 }
