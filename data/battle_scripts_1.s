@@ -636,6 +636,74 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStormChase              @ EFFECT_STORM_CHASE
 	.4byte BattleScript_EffectStormFury               @ EFFECT_STORM_FURY
 	.4byte BattleScript_EffectSubmission              @ EFFECT_SUBMISSION
+	.4byte BattleScript_EffectDragonClaw              @ EFFECT_DRAGON_CLAW
+	.4byte BattleScript_EffectCheeseSteal             @ EFFECT_CHEESE_STEAL
+	.4byte BattleScript_EffectLeafTornado             @ EFFECT_LEAF_TORNADO
+
+BattleScript_EffectLeafTornado::
+	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_LeafTornadoRemoveScreenHazards
+	goto BattleScript_EffectAccuracyDownHit
+BattleScript_LeafTornadoRemoveScreenHazards:
+	call BattleScript_EffectHit_Ret
+	rapidspinfree
+	removelightscreenreflect
+	setmoveeffect MOVE_EFFECT_ACC_MINUS_1
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	moveendall
+	end
+
+BattleScript_EffectCheeseSteal::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_EffectCheeseStealSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_EffectCheeseStealSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_CHEESE_STEAL
+	call BattleScriptFirstChargingTurn
+	setsemiinvulnerablebit
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+BattleScript_EffectCheeseStealSecondTurn::
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	argumenttomoveeffect
+	clearsemiinvulnerablebit
+	trygaincheese BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_FOUNDARANDOMCHEESE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectDragonClaw:
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	ficklebeamdamagecalculation
+	goto BattleScript_HitFromCritCalc
+BattleScript_DragonClawBoosted::
+	pause B_WAIT_TIME_SHORTEST
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+	printstring STRINGID_DRAGONCLAWBOOSTED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSubmission::
 	attackcanceler
@@ -3883,7 +3951,6 @@ BattleScript_EffectDragonCheerEnd:
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectFickleBeam:
-	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
 	attackcanceler
 	attackstring
 	ppreduce
@@ -13809,7 +13876,7 @@ BattleScript_EmergencyExitNoPopUp::
 	waitstate
 	switchineffects BS_TARGET
 BattleScript_EmergencyExitRet:
-	return
+	end2
 
 BattleScript_EmergencyExitWild::
 	pause 5
@@ -13820,7 +13887,7 @@ BattleScript_EmergencyExitWildNoPopUp::
 	waitanimation
 	setoutcomeonteleport BS_TARGET
 	finishaction
-	return
+	end2
 
 BattleScript_TraceActivates::
 	pause B_WAIT_TIME_SHORT

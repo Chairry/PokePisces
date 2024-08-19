@@ -119,13 +119,13 @@ static const u8 sDreamBallDesc[] = _(
 
 static const u8 sSafariBallDesc[] = _(
     "A special Ball that\n"
-    "only works well\n"
-    "on rarer Pokémon.");
+    "works better on\n"
+    "rarer Pokémon.");
 
 static const u8 sSportBallDesc[] = _(
-    "A special Ball used\n"
-    "in the Bug-Catching\n"
-    "Contest.");
+    "A Ball that works\n"
+    "better when playing\n"
+    "water/mud sports.");
 
 static const u8 sParkBallDesc[] = _(
     "A rare Ball with\n"
@@ -133,8 +133,9 @@ static const u8 sParkBallDesc[] = _(
     "than a Ultra Ball.");
 
 static const u8 sBeastBallDesc[] = _(
-    "A Ball designed to\n"
-    "catch Ultra Beasts.");
+    "A special Ball that\n"
+    "works better on\n"
+    "beasts.");
 
 static const u8 sCherishBallDesc[] = _(
     "A rare Ball with\n"

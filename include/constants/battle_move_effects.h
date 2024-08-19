@@ -613,7 +613,10 @@
 #define EFFECT_STORM_CHASE                  607
 #define EFFECT_STORM_FURY                   608
 #define EFFECT_SUBMISSION                   609
+#define EFFECT_DRAGON_CLAW                  610
+#define EFFECT_CHEESE_STEAL                 611
+#define EFFECT_LEAF_TORNADO                 612
 
-#define NUM_BATTLE_MOVE_EFFECTS             610
+#define NUM_BATTLE_MOVE_EFFECTS             613
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

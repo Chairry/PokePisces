@@ -286,6 +286,7 @@
 #define VARIOUS_STAGGER_DAMAGE                       193
 #define VARIOUS_HIGH_ROLL_HIT                        194
 #define VARIOUS_ARBITER_DAMAGE                       195
+#define VARIOUS_TRY_GAIN_CHEESE                      196
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
@@ -360,10 +361,9 @@
 #define MOVEEND_CHANGED_ITEMS                     30
 #define MOVEEND_PICKPOCKET                        31
 #define MOVEEND_DANCER                            32
-#define MOVEEND_EMERGENCY_EXIT                    33
-#define MOVEEND_SYMBIOSIS                         34
-#define MOVEEND_CLEAR_BITS                        35
-#define MOVEEND_COUNT                             36
+#define MOVEEND_SYMBIOSIS                         33
+#define MOVEEND_CLEAR_BITS                        34
+#define MOVEEND_COUNT                             35
 
 // switch cases
 #define B_SWITCH_NORMAL     0

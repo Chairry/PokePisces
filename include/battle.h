@@ -648,7 +648,7 @@ struct BattleStruct
     u8 debugBattler;
     u8 magnitudeBasePower;
     u8 dragonpokerBasePower;
-    u8 ficklebeamBasePower;
+    u8 fickleBeamBoosted:1;
     u8 boundaryBasePower;
     u8 rollingBasePower;
     u8 presentBasePower;
