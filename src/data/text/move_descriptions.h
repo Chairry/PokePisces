@@ -3956,6 +3956,10 @@ static const u8 sBloodMoonDescription[] = _(
     "Unleashes the blood moon.\n"
     "Can't be used twice in a row.");
 
+static const u8 sCheeseStealDescription[] = _(
+    "Leaves the first turn, comes\n"
+    "back the next with cheese.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4986,4 +4990,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
     [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
     [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
+    [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
 };

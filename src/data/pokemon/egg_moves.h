@@ -4377,8 +4377,7 @@ const u16 gEggMoves[] = {
         MOVE_ENDEAVOR,
         MOVE_DETECT,
         MOVE_SKITTER_SMACK,
-        MOVE_FLAME_WHEEL,
-        MOVE_CRUNCH),
+        MOVE_FLAME_WHEEL),
 
     egg_moves(PRIMEAPE,
         MOVE_SPITE,

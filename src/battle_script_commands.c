@@ -12603,6 +12603,7 @@ static void Cmd_various(void)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
         }
         gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
     }
     case VARIOUS_TRY_NORMALISE_SPEED:
     {
@@ -12621,6 +12622,7 @@ static void Cmd_various(void)
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
         }
+        return;
     }
     case VARIOUS_TRY_HEAL_ALL_HEALTH:
     {
@@ -12637,6 +12639,7 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr = failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
     }
     case VARIOUS_STAGGER_DAMAGE:
     {    
@@ -12655,6 +12658,7 @@ static void Cmd_various(void)
             gBattleMoveDamage = 1;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
     }
     case VARIOUS_ARBITER_DAMAGE:
     {    
@@ -12678,6 +12682,7 @@ static void Cmd_various(void)
             gBattleMoveDamage = 1;
 
         gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
     }
     case VARIOUS_SET_PUMP:
     {
@@ -12687,6 +12692,29 @@ static void Cmd_various(void)
         gStatuses4[battler] |= STATUS4_PUMPED_UP;
         gBattlescriptCurrInstr++;
         gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
+    case VARIOUS_TRY_GAIN_CHEESE:
+    {
+        VARIOUS_ARGS(const u8 *failInstr);
+
+        if (gBattleMons[gBattlerTarget].item == ITEM_NONE)
+        {
+            if ((Random() % 10) == 0)
+                gBattleMons[gBattlerTarget].item = ITEM_FROTHY_CHEESE;
+            else
+                gBattleMons[gBattlerTarget].item = ITEM_CHEESE;
+
+            BtlController_EmitSetMonData(gBattlerTarget, BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gBattlerTarget].item), &gBattleMons[gBattlerTarget].item);
+            MarkBattlerForControllerExec(gBattlerTarget);
+
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        return;
     }
     case VARIOUS_TRY_TRAINER_SLIDE_MSG_Z_MOVE:
     {
@@ -15039,6 +15067,7 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
      || gBattleMoves[move].effect == EFFECT_BIDE
      || gBattleMoves[move].effect == EFFECT_FLY
+     || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
      || gBattleMoves[move].effect == EFFECT_GEOMANCY
      || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
@@ -15063,10 +15092,14 @@ static u8 AttacksThisTurn(u8 battler, u16 move) // Note: returns 1 if it's a cha
     if (gBattleMoves[move].effect == EFFECT_SKULL_BASH
      || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
      || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
-     || gBattleMoves[move].effect == EFFECT_AIR_CANNON
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
      || gBattleMoves[move].effect == EFFECT_BIDE
-     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN)
+     || gBattleMoves[move].effect == EFFECT_FLY
+     || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
+     || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+     || gBattleMoves[move].effect == EFFECT_GEOMANCY
+     || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
+     || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
     {
         if ((gHitMarker & HITMARKER_CHARGING))
             return 1;
@@ -16062,6 +16095,7 @@ static void Cmd_setsemiinvulnerablebit(void)
         break;
     case MOVE_PHANTOM_FORCE:
     case MOVE_SHADOW_FORCE:
+    case MOVE_CHEESE_STEAL:
         gStatuses3[gBattlerAttacker] |= STATUS3_PHANTOM_FORCE;
         break;
     }
@@ -16738,8 +16772,17 @@ static void Cmd_assistattackselect(void)
                 u16 move = GetMonData(&party[monId], MON_DATA_MOVE1 + moveId);
 
                 if (gBattleMoves[move].copycatBanned
+                 || gBattleMoves[move].effect == EFFECT_SKULL_BASH
+                 || gBattleMoves[move].effect == EFFECT_TWO_TURNS_ATTACK
+                 || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
                  || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
-                 || gBattleMoves[move].effect == EFFECT_SKY_DROP)
+                 || gBattleMoves[move].effect == EFFECT_BIDE
+                 || gBattleMoves[move].effect == EFFECT_FLY
+                 || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
+                 || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+                 || gBattleMoves[move].effect == EFFECT_GEOMANCY
+                 || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
+                 || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
                     continue;
 
                 validMoves[chooseableMovesNo++] = move;
@@ -17364,328 +17407,276 @@ static void Cmd_handleballthrow(void)
         else
             catchRate = gSpeciesInfo[gBattleMons[gBattlerTarget].species].catchRate;
 
-        if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_ULTRA_BEAST)
+        switch (gLastUsedItem)
         {
-            if (gLastUsedItem == ITEM_BEAST_BALL)
+        case ITEM_ULTRA_BALL:
+            ballMultiplier = 200;
+            break;
+        case ITEM_PARK_BALL:
+            ballMultiplier = 250;
+            break;
+        case ITEM_CHERISH_BALL:
+            ballMultiplier = 300;
+            break;
+        case ITEM_PREMIER_BALL:
+            ballMultiplier = 250;
+            break;
+        case ITEM_SPORT_BALL:
+            if (gFieldStatuses & STATUS_FIELD_MUDSPORT || gFieldStatuses & STATUS_FIELD_WATERSPORT)
+            ballMultiplier = 600;
+            break;
+        case ITEM_GREAT_BALL:
+            ballMultiplier = 150;
+            break;
+        case ITEM_NET_BALL:
+            i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 0);
+            if (i > 36)
+                ballAddition = -20;
+            else if (i > 24)
+                ballAddition = 0;
+            else if (i > 12)
+                ballAddition = 20;
+            else
+                ballAddition = 30;
+            break;
+        case ITEM_COOL_BALL:
+            if (gBattleMons[gBattlerTarget].species == SPECIES_EBIBI
+            || gBattleMons[gBattlerTarget].species == SPECIES_MAKIBI
+            || gBattleMons[gBattlerTarget].species == SPECIES_EBIROSASHI
+            || gBattleMons[gBattlerTarget].species == SPECIES_SNOTLOUD
+            || gBattleMons[gBattlerTarget].species == SPECIES_SICKBEAT
+            || gBattleMons[gBattlerTarget].species == SPECIES_LEVLADE
+            || gBattleMons[gBattlerTarget].species == SPECIES_SHOCKORE
+            || gBattleMons[gBattlerTarget].species == SPECIES_PLASMANTIS
+            || gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY
+            || gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY
+            || gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN
+            || gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
+            || gBattleMons[gBattlerTarget].species == SPECIES_FUZKY
+            || gBattleMons[gBattlerTarget].species == SPECIES_COOLMUTTE
+            || gBattleMons[gBattlerTarget].species == SPECIES_SNORUNT
+            || gBattleMons[gBattlerTarget].species == SPECIES_GLALIE
+            || gBattleMons[gBattlerTarget].species == SPECIES_FROSLASS
+            || gBattleMons[gBattlerTarget].species == SPECIES_LAWPARD
+            || gBattleMons[gBattlerTarget].species == SPECIES_NINCADA
+            || gBattleMons[gBattlerTarget].species == SPECIES_NINJASK
+            || gBattleMons[gBattlerTarget].species == SPECIES_SHEDINJA
+            || gBattleMons[gBattlerTarget].species == SPECIES_BIVAGUE
+            || gBattleMons[gBattlerTarget].species == SPECIES_LUSCKAW
+            || gBattleMons[gBattlerTarget].species == SPECIES_SHELLYLOUH
+            || gBattleMons[gBattlerTarget].species == SPECIES_BLINGUIN
+            || gBattleMons[gBattlerTarget].species == SPECIES_AXELFIN
+            || gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL
+            || gBattleMons[gBattlerTarget].species == SPECIES_OROFLOW
+            || gBattleMons[gBattlerTarget].species == SPECIES_ORROCAST
+            || gBattleMons[gBattlerTarget].species == SPECIES_ORROWHELM)
                 ballMultiplier = 500;
             else
                 ballMultiplier = 10;
-        }
-        else
-        {
-            switch (gLastUsedItem)
-            {
-            case ITEM_ULTRA_BALL:
-                ballMultiplier = 200;
-                break;
-            case ITEM_PARK_BALL:
-                ballMultiplier = 250;
-                break;
-            case ITEM_CHERISH_BALL:
+        case ITEM_NEST_BALL:
+            if (!IsBattlerGrounded(gBattlerTarget))
+                ballMultiplier = 350;
+        case ITEM_REPEAT_BALL:
+        if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), FLAG_GET_CAUGHT))
+            #if B_REPEAT_BALL_MODIFIER >= GEN_7
+                ballMultiplier = 350;
+            #else
                 ballMultiplier = 300;
-                break;
-            case ITEM_PREMIER_BALL:
-                ballMultiplier = 250;
-                break;
-        #if B_SPORT_BALL_MODIFIER <= GEN_7
-            case ITEM_SPORT_BALL:
+            #endif
+        break;
+        case ITEM_TIMER_BALL:
+        #if B_TIMER_BALL_MODIFIER >= GEN_5
+            ballMultiplier = (gBattleResults.battleTurnCounter * 30) + 100;
+        #else
+            ballMultiplier = (gBattleResults.battleTurnCounter * 10) + 100;
         #endif
-            case ITEM_GREAT_BALL:
-                ballMultiplier = 150;
-                break;
-            case ITEM_NET_BALL:
-                i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 0);
-                if (i > 36)
-                    ballAddition = -20;
-                else if (i > 24)
-                    ballAddition = 0;
-                else if (i > 12)
-                    ballAddition = 20;
-                else
-                    ballAddition = 30;
-                break;
-            case ITEM_COOL_BALL:
-                {
-                    if (gBattleMons[gBattlerTarget].species == SPECIES_EBIBI
-                    || gBattleMons[gBattlerTarget].species == SPECIES_MAKIBI
-                    || gBattleMons[gBattlerTarget].species == SPECIES_EBIROSASHI
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SNOTLOUD
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SICKBEAT
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LEVLADE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHOCKORE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_PLASMANTIS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_FUZKY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_COOLMUTTE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SNORUNT
-                    || gBattleMons[gBattlerTarget].species == SPECIES_GLALIE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_FROSLASS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LAWPARD
-                    || gBattleMons[gBattlerTarget].species == SPECIES_NINCADA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_NINJASK
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHEDINJA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BIVAGUE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LUSCKAW
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHELLYLOUH
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BLINGUIN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_AXELFIN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL
-                    || gBattleMons[gBattlerTarget].species == SPECIES_OROFLOW
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ORROCAST
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ORROWHELM)
-                    {    
-                        ballMultiplier = 500;
-                    }
-                    else
-                    {
-                        ballMultiplier = 10;
-                    }
-                }
-            case ITEM_NEST_BALL:
-                if (!IsBattlerGrounded(gBattlerTarget))
-                    ballMultiplier = 350;
-            case ITEM_REPEAT_BALL:
-            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), FLAG_GET_CAUGHT))
-                #if B_REPEAT_BALL_MODIFIER >= GEN_7
-                    ballMultiplier = 350;
-                #else
-                    ballMultiplier = 300;
-                #endif
+            if (ballMultiplier > 400)
+                ballMultiplier = 400;
             break;
-            case ITEM_TIMER_BALL:
-            #if B_TIMER_BALL_MODIFIER >= GEN_5
-                ballMultiplier = (gBattleResults.battleTurnCounter * 30) + 100;
+        case ITEM_DUSK_BALL:
+            RtcCalcLocalTime();
+            if ((gLocalTime.hours >= 20 && gLocalTime.hours <= 3) || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+            #if B_DUSK_BALL_MODIFIER >= GEN_7
+                ballMultiplier = 300;
             #else
-                ballMultiplier = (gBattleResults.battleTurnCounter * 10) + 100;
+                ballMultiplier = 350;
             #endif
-                if (ballMultiplier > 400)
-                    ballMultiplier = 400;
-                break;
-            case ITEM_DUSK_BALL:
-                RtcCalcLocalTime();
-                if ((gLocalTime.hours >= 20 && gLocalTime.hours <= 3) || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
-                #if B_DUSK_BALL_MODIFIER >= GEN_7
-                    ballMultiplier = 300;
-                #else
-                    ballMultiplier = 350;
-                #endif
-                break;
-            case ITEM_QUICK_BALL:
-                if (gBattleResults.battleTurnCounter == 0)
-                #if B_QUICK_BALL_MODIFIER >= GEN_5
-                    ballMultiplier = 500;
-                #else
-                    ballMultiplier = 400;
-                #endif
-                break;
-            case ITEM_LEVEL_BALL:
-                if (gBattleMons[gBattlerAttacker].level >= 4 * gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 800;
-                else if (gBattleMons[gBattlerAttacker].level > 2 * gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 400;
-                else if (gBattleMons[gBattlerAttacker].level > gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 200;
-                break;
-            case ITEM_LURE_BALL:
-                if (gIsFishingEncounter)
-                #if B_LURE_BALL_MODIFIER >= GEN_7
-                    ballMultiplier = 500;
-                #else
-                    ballMultiplier = 300;
-                #endif
-                break;
-            case ITEM_SAFARI_BALL:
-                {
-                    if (gBattleMons[gBattlerTarget].species == SPECIES_SHAYON
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LUOSHAN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHUNYONG
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHUNYONG_GOLDEN_OFFENSE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_EBIROSASHI
-                    || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DUDUNSPARS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DUDUNSPARS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DUDUNSPARS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CATTOWYRM
-                    || gBattleMons[gBattlerTarget].species == SPECIES_KAPRIKOLA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_HAIBUN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BURBUN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_INGBUN
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ARCANINE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LUSCKAW
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ABARBINASH
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BEHEKO
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SQUISHIME
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LEVIALAGO
-                    || gBattleMons[gBattlerTarget].species == SPECIES_NEOROACH
-                    || gBattleMons[gBattlerTarget].species == SPECIES_RAPSCALEON
-                    || gBattleMons[gBattlerTarget].species == SPECIES_AGOMAGO
-                    || gBattleMons[gBattlerTarget].species == SPECIES_MORFTREE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_EPOCHOTL
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DETERIOTL
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SUMMERASU
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ORROWHELM
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CARDIOVOR
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BLAZIZAHAK
-                    || gBattleMons[gBattlerTarget].species == SPECIES_TRITONAUT
-                    || gBattleMons[gBattlerTarget].species == SPECIES_ABSOLARIA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_WEROBERRA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CULTIPEX
-                    || gBattleMons[gBattlerTarget].species == SPECIES_MAERACHOLY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LEUKUNEHO
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DUNSPARCE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_COOLMUTTE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_KOWAKO
-                    || gBattleMons[gBattlerTarget].species == SPECIES_NINJASK
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHEDINJA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_HOAXPOCUS
-                    || gBattleMons[gBattlerTarget].species == SPECIES_PUTREGON
-                    || gBattleMons[gBattlerTarget].species == SPECIES_KINGAMBIT
-                    || gBattleMons[gBattlerTarget].species == SPECIES_PURGATIVAL
-                    || gBattleMons[gBattlerTarget].species == SPECIES_BOLTEROCK
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHELLYLOUH
-                    || gBattleMons[gBattlerTarget].species == SPECIES_KARODORAUG
-                    || gBattleMons[gBattlerTarget].species == SPECIES_CORDELICT
-                    || gBattleMons[gBattlerTarget].species == SPECIES_DAKKAPOD
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SQUEESHY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_PASSAWARY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_TARDRITCH
-                    || gBattleMons[gBattlerTarget].species == SPECIES_TURRYTURRY
-                    || gBattleMons[gBattlerTarget].species == SPECIES_VAIKING
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHISHIMA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_SHISHIMA_PUNISHER
-                    || gBattleMons[gBattlerTarget].species == SPECIES_OLFLOOKIE
-                    || gBattleMons[gBattlerTarget].species == SPECIES_JUSTRICHA
-                    || gBattleMons[gBattlerTarget].species == SPECIES_LYORESA)
-                    {    
-                        ballMultiplier = 400;
-                    }
-                    else
-                    {
-                        ballMultiplier = 10;
-                    }
-                }
-                break;
-            case ITEM_MOON_BALL:
-                if (gBattleMons[gBattlerTarget].species == SPECIES_SNELFREND
-                || gBattleMons[gBattlerTarget].species == SPECIES_SYCOPLOD
-                || gBattleMons[gBattlerTarget].species == SPECIES_SYCOSTROM
-                || gBattleMons[gBattlerTarget].species == SPECIES_KYUDI
-                || gBattleMons[gBattlerTarget].species == SPECIES_KOMBAKYU
-                || gBattleMons[gBattlerTarget].species == SPECIES_MAERACHOLY
-                || gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY
-                || gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY
-                || gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN
-                || gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE
-                || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_ORANGE
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_YELLOW
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_GREEN
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_BLUE
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_INDIGO
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_VIOLET
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_RED
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_ORANGE
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_YELLOW
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_GREEN
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_BLUE
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_INDIGO
-                || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_VIOLET
-                || gBattleMons[gBattlerTarget].species == SPECIES_LEDYBA
-                || gBattleMons[gBattlerTarget].species == SPECIES_LEDIAN
-                || gBattleMons[gBattlerTarget].species == SPECIES_COMBUN
-                || gBattleMons[gBattlerTarget].species == SPECIES_GRIMER
-                || gBattleMons[gBattlerTarget].species == SPECIES_MUK
-                || gBattleMons[gBattlerTarget].species == SPECIES_NYARLY
-                || gBattleMons[gBattlerTarget].species == SPECIES_SUDCUB
-                || gBattleMons[gBattlerTarget].species == SPECIES_TARDRITCH
-                || gBattleMons[gBattlerTarget].species == SPECIES_LYORESA
-                || gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE
-                || gBattleMons[gBattlerTarget].species == SPECIES_SOLROCK
-                || gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL
-                || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA
-                || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA_SOLAR
-                || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA_LUNAR
-                || gBattleMons[gBattlerTarget].species == SPECIES_VIVISU
-                || gBattleMons[gBattlerTarget].species == SPECIES_SOLASU
-                || gBattleMons[gBattlerTarget].species == SPECIES_SUMMERASU)
-                    ballMultiplier = 400;
-                break;
-            case ITEM_FRIEND_BALL:
-                for (i = 0; i < EVOS_PER_MON; i++)
-                {
-                    if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP
-                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP_MOVE_TYPE
-                    || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_MED_FRIENDSHIP)
-                        ballMultiplier = 400;
-                }
-            case ITEM_LOVE_BALL:
-                if (gBattleMons[gBattlerTarget].status1 & STATUS2_INFATUATION)
-                    ballMultiplier = 400;
-                break;
-            case ITEM_HEAL_BALL:
-                i = gBattleMons[gBattlerAttacker].hp;
-                if (i < 180)
-                    ballAddition = -20;
-                else if (i < 360)
-                    ballAddition = 0;
-                else if (i < 540)
-                    ballAddition = 20;
-                else
-                    ballAddition = 30;
-            case ITEM_FAST_BALL:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].baseSpeed >= 100)
-                    ballMultiplier = 400;
-                break;
-            case ITEM_HEAVY_BALL:
-                i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
-            #if B_HEAVY_BALL_MODIFIER >= GEN_7
-                if (i < 1000)
-                    ballAddition = -20;
-                else if (i < 2000)
-                    ballAddition = 0;
-                else if (i < 3000)
-                    ballAddition = 20;
-                else
-                    ballAddition = 30;
-            #elif B_HEAVY_BALL_MODIFIER >= GEN_4
-                if (i < 2048)
-                    ballAddition = -20;
-                else if (i < 3072)
-                    ballAddition = 20;
-                else if (i < 4096)
-                    ballAddition = 30;
-                else
-                    ballAddition = 40;
+            break;
+        case ITEM_QUICK_BALL:
+            if (gBattleResults.battleTurnCounter == 0)
+            #if B_QUICK_BALL_MODIFIER >= GEN_5
+                ballMultiplier = 500;
             #else
-                if (i < 1024)
-                    ballAddition = -20;
-                else if (i < 2048)
-                    ballAddition = 0;
-                else if (i < 3072)
-                    ballAddition = 20;
-                else if (i < 4096)
-                    ballAddition = 30;
-                else
-                    ballAddition = 40;
+                ballMultiplier = 400;
             #endif
-                break;
-            case ITEM_DREAM_BALL:
-            #if B_DREAM_BALL_MODIFIER >= GEN_8
-                if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP_ANY || GetBattlerAbility(gBattlerTarget) == ABILITY_COMATOSE)
-                    ballMultiplier = 400;
+            break;
+        case ITEM_LEVEL_BALL:
+            if (gBattleMons[gBattlerAttacker].level >= 4 * gBattleMons[gBattlerTarget].level)
+                ballMultiplier = 800;
+            else if (gBattleMons[gBattlerAttacker].level > 2 * gBattleMons[gBattlerTarget].level)
+                ballMultiplier = 400;
+            else if (gBattleMons[gBattlerAttacker].level > gBattleMons[gBattlerTarget].level)
+                ballMultiplier = 200;
+            break;
+        case ITEM_LURE_BALL:
+            if (gIsFishingEncounter)
+            #if B_LURE_BALL_MODIFIER >= GEN_7
+                ballMultiplier = 500;
             #else
+                ballMultiplier = 300;
+            #endif
+            break;
+        case ITEM_SAFARI_BALL:
+            if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_COMMON)
                 ballMultiplier = 100;
-            #endif
-                break;
-            case ITEM_BEAST_BALL:
-                ballMultiplier = 10;
-                break;
+            else if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_UNCOMMON)
+                ballMultiplier = 200;
+            else if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_RARE)
+                ballMultiplier = 300;
+            else if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_SCARCE)
+                ballMultiplier = 400;
+            else if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_MYSTICAL)
+                ballMultiplier = 500;
+            else if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].flags & SPECIES_FLAG_LEGENDARY)
+                ballMultiplier = 600;
+            break;
+        case ITEM_MOON_BALL:
+            if (gBattleMons[gBattlerTarget].species == SPECIES_SNELFREND
+            || gBattleMons[gBattlerTarget].species == SPECIES_SYCOPLOD
+            || gBattleMons[gBattlerTarget].species == SPECIES_SYCOSTROM
+            || gBattleMons[gBattlerTarget].species == SPECIES_KYUDI
+            || gBattleMons[gBattlerTarget].species == SPECIES_KOMBAKYU
+            || gBattleMons[gBattlerTarget].species == SPECIES_MAERACHOLY
+            || gBattleMons[gBattlerTarget].species == SPECIES_STOMAWAY
+            || gBattleMons[gBattlerTarget].species == SPECIES_CRAWLAXY
+            || gBattleMons[gBattlerTarget].species == SPECIES_CRYPLIN
+            || gBattleMons[gBattlerTarget].species == SPECIES_UHEFOE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MYSTOMANIA
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_ORANGE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_YELLOW
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_GREEN
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_BLUE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_INDIGO
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_METEOR_VIOLET
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_RED
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_ORANGE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_YELLOW
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_GREEN
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_BLUE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_INDIGO
+            || gBattleMons[gBattlerTarget].species == SPECIES_MINIOR_CORE_VIOLET
+            || gBattleMons[gBattlerTarget].species == SPECIES_LEDYBA
+            || gBattleMons[gBattlerTarget].species == SPECIES_LEDIAN
+            || gBattleMons[gBattlerTarget].species == SPECIES_COMBUN
+            || gBattleMons[gBattlerTarget].species == SPECIES_GRIMER
+            || gBattleMons[gBattlerTarget].species == SPECIES_MUK
+            || gBattleMons[gBattlerTarget].species == SPECIES_NYARLY
+            || gBattleMons[gBattlerTarget].species == SPECIES_SUDCUB
+            || gBattleMons[gBattlerTarget].species == SPECIES_TARDRITCH
+            || gBattleMons[gBattlerTarget].species == SPECIES_LYORESA
+            || gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE
+            || gBattleMons[gBattlerTarget].species == SPECIES_SOLROCK
+            || gBattleMons[gBattlerTarget].species == SPECIES_AETHEREAL
+            || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA
+            || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA_SOLAR
+            || gBattleMons[gBattlerTarget].species == SPECIES_GAOTERRA_LUNAR
+            || gBattleMons[gBattlerTarget].species == SPECIES_VIVISU
+            || gBattleMons[gBattlerTarget].species == SPECIES_SOLASU
+            || gBattleMons[gBattlerTarget].species == SPECIES_SUMMERASU)
+                ballMultiplier = 400;
+            break;
+        case ITEM_FRIEND_BALL:
+            for (i = 0; i < EVOS_PER_MON; i++)
+            {
+                if (gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP
+                || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_FRIENDSHIP_MOVE_TYPE
+                || gEvolutionTable[gBattleMons[gBattlerTarget].species][i].method == EVO_MED_FRIENDSHIP)
+                ballMultiplier = 400;
             }
+        case ITEM_LOVE_BALL:
+            if (gBattleMons[gBattlerTarget].status1 & STATUS2_INFATUATION)
+                ballMultiplier = 400;
+            break;
+        case ITEM_HEAL_BALL:
+            i = gBattleMons[gBattlerAttacker].hp;
+            if (i < 180)
+                ballAddition = -20;
+            else if (i < 360)
+                ballAddition = 0;
+            else if (i < 540)
+                ballAddition = 20;
+            else
+                ballAddition = 30;
+        case ITEM_FAST_BALL:
+            if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].baseSpeed >= 100)
+                ballMultiplier = 400;
+            break;
+        case ITEM_HEAVY_BALL:
+            i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
+        #if B_HEAVY_BALL_MODIFIER >= GEN_7
+            if (i < 1000)
+                ballAddition = -20;
+            else if (i < 2000)
+                ballAddition = 0;
+            else if (i < 3000)
+                ballAddition = 20;
+            else
+                ballAddition = 30;
+        #elif B_HEAVY_BALL_MODIFIER >= GEN_4
+            if (i < 2048)
+                ballAddition = -20;
+            else if (i < 3072)
+                ballAddition = 20;
+            else if (i < 4096)
+                ballAddition = 30;
+            else
+                ballAddition = 40;
+        #else
+            if (i < 1024)
+                ballAddition = -20;
+            else if (i < 2048)
+                ballAddition = 0;
+            else if (i < 3072)
+                ballAddition = 20;
+            else if (i < 4096)
+                ballAddition = 30;
+            else
+                ballAddition = 40;
+        #endif
+            break;
+        case ITEM_DREAM_BALL:
+        #if B_DREAM_BALL_MODIFIER >= GEN_8
+            if (gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP_ANY || GetBattlerAbility(gBattlerTarget) == ABILITY_COMATOSE)
+                ballMultiplier = 400;
+        #else
+            ballMultiplier = 100;
+        #endif
+            break;
+        case ITEM_BEAST_BALL:
+            if (gBattleMons[gBattlerTarget].species == SPECIES_KOMORODE
+            || gBattleMons[gBattlerTarget].species == SPECIES_MANKEY
+            || gBattleMons[gBattlerTarget].species == SPECIES_PRIMEAPE
+            || gBattleMons[gBattlerTarget].species == SPECIES_ANNIHILAPE
+            || gBattleMons[gBattlerTarget].species == SPECIES_WEROBERRA
+            || gBattleMons[gBattlerTarget].species == SPECIES_LEPUCYTE
+            || gBattleMons[gBattlerTarget].species == SPECIES_LEUKUNEHO
+            || gBattleMons[gBattlerTarget].species == SPECIES_FUZKY
+            || gBattleMons[gBattlerTarget].species == SPECIES_COOLMUTTE
+            || gBattleMons[gBattlerTarget].species == SPECIES_CHAFFAW
+            || gBattleMons[gBattlerTarget].species == SPECIES_FERROR
+            || gBattleMons[gBattlerTarget].species == SPECIES_VOREON
+            || gBattleMons[gBattlerTarget].species == SPECIES_CAPYBARA
+            || gBattleMons[gBattlerTarget].species == SPECIES_ABARBINASH
+            || gBattleMons[gBattlerTarget].species == SPECIES_BISHOUCHA_WARMONGER
+            || gBattleMons[gBattlerTarget].species == SPECIES_BIYAKO
+            || gBattleMons[gBattlerTarget].species == SPECIES_BEHEKO
+            || gBattleMons[gBattlerTarget].species == SPECIES_MUSTYBANE
+            || gBattleMons[gBattlerTarget].species == SPECIES_CHUNGRIM
+            || gBattleMons[gBattlerTarget].species == SPECIES_EXCATATOR)
+            ballMultiplier = 110;
+            break;
         }
 
         // catchRate is unsigned, which means that it may potentially overflow if sum is applied directly.
@@ -18537,6 +18528,8 @@ static const u16 sParentalBondBannedEffects[] =
     EFFECT_AIR_CANNON,
     EFFECT_FUTURE_SIGHT,
     EFFECT_DRAGON_RUIN,
+    EFFECT_FLY,
+    EFFECT_CHEESE_STEAL,
 };
 
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)

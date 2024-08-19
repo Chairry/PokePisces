@@ -1051,6 +1051,7 @@ gBattleAnims_Moves::
     .4byte Move_BLOW_UP
     .4byte Move_CINDER_WALTZ
     .4byte Move_BLOOD_MOON
+    .4byte Move_CHEESE_STEAL
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -25627,6 +25628,9 @@ Move_CHILLY_AIR::
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG | F_PAL_ATK_SIDE, 4, 4, 0, RGB_BLACK
 	waitbgfadein
 	end
+
+Move_CHEESE_STEAL::
+	goto Move_FLY
 
 Move_TERA_BLAST::
 Move_GLAIVE_RUSH::

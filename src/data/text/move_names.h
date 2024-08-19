@@ -1025,6 +1025,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BLOW_UP] = _("Blow Up"),
     [MOVE_CINDER_WALTZ] = _("Cinder Waltz"),
     [MOVE_BLOOD_MOON] = _("Blood Moon"),
+    [MOVE_CHEESE_STEAL] = _("Cheese Steal"),
 };
 #else
 // 12 letters
@@ -2053,6 +2054,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_BLOW_UP] = _("Blow Up"),
     [MOVE_CINDER_WALTZ] = _("Cinder Waltz"),
     [MOVE_BLOOD_MOON] = _("Blood Moon"),
+    [MOVE_CHEESE_STEAL] = _("Cheese Steal"),
 };
 #endif
 

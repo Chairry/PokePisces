@@ -9058,7 +9058,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_LEAF_TORNADO] =
     {
-        .effect = EFFECT_ACCURACY_DOWN_HIT,
+        .effect = EFFECT_LEAF_TORNADO,
         .power = 65,
         .type = TYPE_GRASS,
         .accuracy = 90,
@@ -16970,6 +16970,28 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_CHEESE_STEAL] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_4
+            .power = 0,
+        #else
+            .power = 0,
+        #endif
+        .effect = EFFECT_CHEESE_STEAL,
+        .type = TYPE_FAIRY,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .gravityBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
     },
 
     // Z-Moves

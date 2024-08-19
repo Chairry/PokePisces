@@ -4822,6 +4822,8 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_SOLAR_BEAM
      || gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE
      || gBattleMoves[move].effect == EFFECT_BIDE
+     || gBattleMoves[move].effect == EFFECT_FLY
+     || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
      || gBattleMoves[move].effect == EFFECT_GEOMANCY
      || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN

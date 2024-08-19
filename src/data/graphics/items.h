@@ -2254,5 +2254,5 @@ const u32 gItemIconPalette_PokerCard[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_CrypticPlate[] = INCBIN_U32("graphics/items/icons/cryptic_plate.4bpp.lz");
 const u32 gItemIconPalette_CrypticPlate[] = INCBIN_U32("graphics/items/icon_palettes/cryptic_plate.gbapal.lz");
 
-const u32 gItemIcon_Chupacabra[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_Chupacabra[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_Chupacabra[] = INCBIN_U32("graphics/items/icons/chupacabra.4bpp.lz");
+const u32 gItemIconPalette_Chupacabra[] = INCBIN_U32("graphics/items/icon_palettes/chupacabra.gbapal.lz");

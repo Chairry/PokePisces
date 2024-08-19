@@ -286,6 +286,7 @@
 #define VARIOUS_STAGGER_DAMAGE                       193
 #define VARIOUS_HIGH_ROLL_HIT                        194
 #define VARIOUS_ARBITER_DAMAGE                       195
+#define VARIOUS_TRY_GAIN_CHEESE                      196
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

@@ -931,6 +931,7 @@ static const u8 sText_HighRollHitRoll[] = _("{B_ATK_NAME_WITH_PREFIX} rolled a {
 static const u8 sText_SparkingElectricity[] = _("The sparking electricity\nhit {B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
 static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis distorting type matchups!");
 static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ncrushing blow!");
+static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a\nrandom cheese!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1713,6 +1714,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SPARKINGELECTRICITYHIT - BATTLESTRINGS_TABLE_START] = sText_SparkingElectricity,
     [STRINGID_EGGSROYALE - BATTLESTRINGS_TABLE_START] = sText_EggsRoyale,
     [STRINGID_DRAGONCLAWBOOSTED - BATTLESTRINGS_TABLE_START] = sText_DragonClawBoosted,
+    [STRINGID_FOUNDARANDOMCHEESE - BATTLESTRINGS_TABLE_START] = sText_FoundARandomCheese,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1976,6 +1978,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_ELECTRO_SHOCK] = STRINGID_ELECTROSHOCKCHARGING,
     [B_MSG_TURN1_DRAGON_RUIN]   = STRINGID_DRAGONRUINCHARGING,
     [B_MSG_TURN1_AIR_CANNON]    = STRINGID_PRESSURIZINGAIR,
+    [B_MSG_TURN1_CHEESE_STEAL]  = STRINGID_PKMNFLEDFROMBATTLE,
 };
 
 // Index copied from move's index in sTrappingMoves
