@@ -2005,7 +2005,8 @@ const u16 gEggMoves[] = {
     egg_moves(SPINDA,
         MOVE_SLACK_OFF,
         MOVE_QUICK_GUARD,
-        MOVE_WIDE_GUARD),
+        MOVE_WIDE_GUARD,
+        MOVE_BATON_PASS),
 
     egg_moves(TRAPINCH,
         MOVE_FOCUS_ENERGY,
@@ -4376,8 +4377,7 @@ const u16 gEggMoves[] = {
         MOVE_ENDEAVOR,
         MOVE_DETECT,
         MOVE_SKITTER_SMACK,
-        MOVE_FLAME_WHEEL,
-        MOVE_CRUNCH),
+        MOVE_FLAME_WHEEL),
 
     egg_moves(PRIMEAPE,
         MOVE_SPITE,
@@ -5373,7 +5373,6 @@ const u16 gEggMoves[] = {
         MOVE_LOW_KICK,
         MOVE_MEGA_KICK,
         MOVE_COLD_SNAP,
-        MOVE_HIGH_JUMP_KICK,
         MOVE_CHARM,
         MOVE_SWEET_KISS,
         MOVE_CAPTIVATE,
@@ -5417,7 +5416,6 @@ const u16 gEggMoves[] = {
         MOVE_TOXIC_SPIKES),
 
     egg_moves(EXCATATOR,
-        MOVE_MAGNITUDE,
         MOVE_ASSIST,
         MOVE_COPYCAT,
         MOVE_MUD_SPORT,

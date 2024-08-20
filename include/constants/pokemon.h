@@ -439,6 +439,11 @@
 #define SPECIES_FLAG_ALL_PERFECT_IVS    (1 << 8)
 #define SPECIES_FLAG_CANNOT_BE_TRADED   (1 << 9)
 #define SPECIES_FLAG_ULTRA_BURST        (1 << 10)
+#define SPECIES_FLAG_COMMON             (1 << 11)
+#define SPECIES_FLAG_UNCOMMON           (1 << 12)
+#define SPECIES_FLAG_RARE               (1 << 13)
+#define SPECIES_FLAG_SCARCE             (1 << 14)
+#define SPECIES_FLAG_MYSTICAL           (1 << 15)
 
 #define LEGENDARY_PERFECT_IV_COUNT 3
 

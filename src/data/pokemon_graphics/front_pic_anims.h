@@ -14603,7 +14603,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_DESERT] = sAnims_Spinda,
     [SPECIES_SPINDA_FOREST] = sAnims_Spinda,
     [SPECIES_SPINDA_MOUNTAIN] = sAnims_Spinda,
-    [SPECIES_SPINDA_PLAINS2] = sAnims_Spinda,
+    [SPECIES_SPINDA_PLAINS] = sAnims_Spinda,
     [SPECIES_KODOUGH_BLUNT] = sAnims_Kodough,
     [SPECIES_CASTFORM_SANDY] = sAnims_Castform,
 #endif

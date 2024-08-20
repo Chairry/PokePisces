@@ -4356,11 +4356,11 @@ const struct SpriteTemplate gSpriteTemplate_SpiritBreakExplode = {
 };
 
 // chloroblast
-static const union AffineAnimCmd sSpriteAffineAnim_HydroCannonBall[] = {
+const union AffineAnimCmd sSpriteAffineAnim_HydroCannonBall[] = {
 	AFFINEANIMCMD_FRAME(16, 16, 0, 16), //Double in size
 	AFFINEANIMCMD_END
 };
-static const union AffineAnimCmd* const sSpriteAffineAnimTable_HydroCannonBall[] = {
+const union AffineAnimCmd* const sSpriteAffineAnimTable_HydroCannonBall[] = {
 	sSpriteAffineAnim_HydroCannonBall,
 };
 const struct SpriteTemplate gSpriteTemplate_ChloroblastShot = {
@@ -7466,7 +7466,7 @@ static void InitSpritePosToGivenTarget(struct Sprite *sprite, u8 target)
     sprite->y2 = gBattleAnimArgs[1];
 }
 
-static void InitSpritePosToAnimTargetsCentre(struct Sprite *sprite, bool8 respectMonPicOffsets)
+void InitSpritePosToAnimTargetsCentre(struct Sprite *sprite, bool32 respectMonPicOffsets)
 {
     if (!respectMonPicOffsets)
     {

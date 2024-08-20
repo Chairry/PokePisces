@@ -648,7 +648,7 @@ struct BattleStruct
     u8 debugBattler;
     u8 magnitudeBasePower;
     u8 dragonpokerBasePower;
-    u8 ficklebeamBasePower;
+    u8 fickleBeamBoosted:1;
     u8 boundaryBasePower;
     u8 rollingBasePower;
     u8 presentBasePower;
@@ -721,6 +721,8 @@ struct BattleStruct
     u16 shunyongChosenMove;
     u8 shunyongTarget;
     u8 shunyongGoldPlainsHpUses:2; // 75%, 50%, 25% flags
+    u8 distortedTypeMatchups;
+    u8 aiCalcInProgress:1;
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

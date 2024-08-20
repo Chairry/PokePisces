@@ -6440,8 +6440,8 @@ const u8 gRetroroachPokedexText[] = _(
 const u8 gNeoroachPokedexText[] = _(
     "The highly adaptable and foreign\n"
     "Retroroach has settled and changed into\n"
-    "this new form. It can now cause even\n"
-    "more trouble for the local power plant.");
+    "this new form. It leaves chaos in its\n"
+    "wake.");
 
 const u8 gSpitfaxPokedexText[] = _(
     "A strange Pokémon that is rarely seen.\n"

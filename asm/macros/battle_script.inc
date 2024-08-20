@@ -2553,6 +2553,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro trygaincheese failInstr:req
+	various BS_ATTACKER, VARIOUS_TRY_GAIN_CHEESE
+	.4byte \failInstr
+	.endm
+
 	.macro jumpifstatus4condition battler:req, flags:req, jumpIfTrue:req, jumpInstr:req
 	various 0, VARIOUS_JUMP_IF_STATUS4
 	.byte \battler
