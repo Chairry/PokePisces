@@ -3654,3 +3654,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SweltornTransitionHallway/scripts.inc"
 
 	.include "data/maps/NavigulfUnderwater/scripts.inc"
+
+	.include "data/maps/SailorsPauseUnderwater/scripts.inc"
+
+	.include "data/maps/StraeSeapathUnderwater/scripts.inc"

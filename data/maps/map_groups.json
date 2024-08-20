@@ -242,7 +242,9 @@
   "gMapGroup_PiscesLeg8Minor": [
     "DewfordTown_PokemonCenter_1F",
     "Gym7Corridor",
-    "NavigulfUnderwater"
+    "NavigulfUnderwater",
+    "SailorsPauseUnderwater",
+    "StraeSeapathUnderwater"
   ],
   "gMapGroup_PiscesLeg9Major": [
     "DetermaniteBeach",

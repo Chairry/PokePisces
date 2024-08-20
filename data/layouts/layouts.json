@@ -5510,6 +5510,26 @@
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/NavigulfUnderwater/border.bin",
       "blockdata_filepath": "data/layouts/NavigulfUnderwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAILORS_PAUSE_UNDERWATER",
+      "name": "SailorsPauseUnderwater_Layout",
+      "width": 30,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/SailorsPauseUnderwater/border.bin",
+      "blockdata_filepath": "data/layouts/SailorsPauseUnderwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_STRAE_SEAPATH_UNDERWATER",
+      "name": "StraeSeapathUnderwater_Layout",
+      "width": 36,
+      "height": 96,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/StraeSeapathUnderwater/border.bin",
+      "blockdata_filepath": "data/layouts/StraeSeapathUnderwater/map.bin"
     }
   ]
 }

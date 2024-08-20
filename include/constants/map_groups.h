@@ -191,6 +191,8 @@
 #define MAP_DEWFORD_TOWN_POKEMON_CENTER_1F (0 | (15 << 8))
 #define MAP_GYM7CORRIDOR                   (1 | (15 << 8))
 #define MAP_NAVIGULF_UNDERWATER            (2 | (15 << 8))
+#define MAP_SAILORS_PAUSE_UNDERWATER       (3 | (15 << 8))
+#define MAP_STRAE_SEAPATH_UNDERWATER       (4 | (15 << 8))
 
 // gMapGroup_PiscesLeg9Major
 #define MAP_DETERMANITE_BEACH    (0 | (16 << 8))
