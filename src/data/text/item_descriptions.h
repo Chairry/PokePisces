@@ -771,8 +771,8 @@ static const u8 sPearlDesc[] = _(
 
 static const u8 sBigPearlDesc[] = _(
     "A lovely large pearl\n"
-    "that would sell at a\n"
-    "high price.");
+    "that evolves an odd\n"
+    "shell Pokémon.");
 
 static const u8 sPearlStringDesc[] = _(
     "Very large pearls\n"
@@ -1135,8 +1135,8 @@ static const u8 sWaterStoneDesc[] = _(
     "evolve.");
 
 static const u8 sThunderStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
+    "Makes a certain\n"
+    "ball of energy\n"
     "evolve.");
 
 static const u8 sLeafStoneDesc[] = _(
@@ -1145,8 +1145,8 @@ static const u8 sLeafStoneDesc[] = _(
     "evolve.");
 
 static const u8 sIceStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
+    "Makes a certain\n"
+    "avian snowball\n"
     "evolve.");
 
 static const u8 sSunStoneDesc[] = _(
@@ -1155,24 +1155,24 @@ static const u8 sSunStoneDesc[] = _(
     "evolve.");
 
 static const u8 sMoonStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
+    "Makes a certain\n"
+    "cutie patootie\n"
     "evolve.");
 
 static const u8 sShinyStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
+    "Makes a nearly\n"
+    "legendary feline\n"
     "evolve.");
 
 static const u8 sDuskStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
-    "evolve.");
+    "Makes a spirit gain\n"
+    "witch-like powers\n"
+    "and evolve.");
 
 static const u8 sDawnStoneDesc[] = _(
-    "Makes certain\n"
-    "species of Pokémon\n"
-    "evolve.");
+    "Makes an odd\n"
+    "triangle evolve and\n"
+    "become a spirit.");
 
 static const u8 sSweetAppleDesc[] = _(
     "A very sweet apple\n"
