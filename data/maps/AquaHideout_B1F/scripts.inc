@@ -102,7 +102,7 @@ AquaHideout_B1F_EventScript_Grunt5::
 	end
 
 AquaHideout_B1F_EventScript_Grunt7::
-	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_7, AquaHideout_B1F_Text_Grunt7Intro, AquaHideout_B1F_Text_Grunt7Defeat
+	trainerbattle_single TRAINER_P_KOIZUMI, AquaHideout_B1F_Text_Grunt7Intro, AquaHideout_B1F_Text_Grunt7Defeat
 	msgbox AquaHideout_B1F_Text_Grunt7PostBattle, MSGBOX_AUTOCLOSE
 	end
 

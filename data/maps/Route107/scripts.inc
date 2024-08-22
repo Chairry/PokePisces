@@ -28,22 +28,22 @@ Route107_EventScript_TonyRematch::
 	end
 
 Route107_EventScript_Denise::
-	trainerbattle_single TRAINER_DENISE, Route107_Text_DeniseIntro, Route107_Text_DeniseDefeated
+	trainerbattle_single TRAINER_P_SHAGGY, Route107_Text_DeniseIntro, Route107_Text_DeniseDefeated
 	msgbox Route107_Text_DenisePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route107_EventScript_Beth::
-	trainerbattle_single TRAINER_BETH, Route107_Text_BethIntro, Route107_Text_BethDefeated
+	trainerbattle_single TRAINER_P_HOWLEE, Route107_Text_BethIntro, Route107_Text_BethDefeated
 	msgbox Route107_Text_BethPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route107_EventScript_Lisa::
-	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_LisaIntro, Route107_Text_LisaDefeated, Route107_Text_LisaNotEnoughPokemon
+	trainerbattle_double TRAINER_P_COURTNEY_2, Route107_Text_LisaIntro, Route107_Text_LisaDefeated, Route107_Text_LisaNotEnoughPokemon
 	msgbox Route107_Text_LisaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route107_EventScript_Ray::
-	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_RayIntro, Route107_Text_RayDefeated, Route107_Text_RayNotEnoughPokemon
+	trainerbattle_double TRAINER_P_COURTNEY_2, Route107_Text_RayIntro, Route107_Text_RayDefeated, Route107_Text_RayNotEnoughPokemon
 	msgbox Route107_Text_RayPostBattle, MSGBOX_AUTOCLOSE
 	end
 

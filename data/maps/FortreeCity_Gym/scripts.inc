@@ -69,27 +69,27 @@ FortreeCity_Gym_EventScript_WinonaRematch::
 	end
 
 FortreeCity_Gym_EventScript_Jared::
-	trainerbattle_single TRAINER_JARED, FortreeCity_Gym_Text_JaredIntro, FortreeCity_Gym_Text_JaredDefeat
+	trainerbattle_single TRAINER_P_JOSE, FortreeCity_Gym_Text_JaredIntro, FortreeCity_Gym_Text_JaredDefeat
 	msgbox FortreeCity_Gym_Text_JaredPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Edwardo::
-	trainerbattle_single TRAINER_EDWARDO, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
+	trainerbattle_single TRAINER_P_LYNN, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
 	msgbox FortreeCity_Gym_Text_EdwardoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Flint::
-	trainerbattle_single TRAINER_FLINT, FortreeCity_Gym_Text_FlintIntro, FortreeCity_Gym_Text_FlintDefeat
+	trainerbattle_single TRAINER_P_PANDOU_5, FortreeCity_Gym_Text_FlintIntro, FortreeCity_Gym_Text_FlintDefeat
 	msgbox FortreeCity_Gym_Text_FlintPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Ashley::
-	trainerbattle_single TRAINER_ASHLEY, FortreeCity_Gym_Text_AshleyIntro, FortreeCity_Gym_Text_AshleyDefeat
+	trainerbattle_single TRAINER_P_PETER, FortreeCity_Gym_Text_AshleyIntro, FortreeCity_Gym_Text_AshleyDefeat
 	msgbox FortreeCity_Gym_Text_AshleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Humberto::
-	trainerbattle_single TRAINER_HUMBERTO, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
+	trainerbattle_single TRAINER_P_DARIA, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
 	msgbox FortreeCity_Gym_Text_HumbertoPostBattle, MSGBOX_AUTOCLOSE
 	end
 

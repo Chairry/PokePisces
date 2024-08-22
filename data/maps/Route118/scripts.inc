@@ -199,17 +199,17 @@ Route118_EventScript_RematchRose::
 	end
 
 Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_BARNY, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
+	trainerbattle_single TRAINER_P_CRUZ, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
 	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Wade::
-	trainerbattle_single TRAINER_WADE, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
+	trainerbattle_single TRAINER_P_MONA, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
 	msgbox Route118_Text_WadePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Dalton::
-	trainerbattle_single TRAINER_DALTON_1, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
+	trainerbattle_single TRAINER_P_GUNNESS, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchDalton
 	msgbox Route118_Text_DaltonPostBattle, MSGBOX_DEFAULT
@@ -220,22 +220,22 @@ Route118_EventScript_RegisterDalton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_DaltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DALTON_1
+	register_matchcall TRAINER_P_GUNNESS
 	release
 	end
 
 Route118_EventScript_RematchDalton::
-	trainerbattle_rematch TRAINER_DALTON_1, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
+	trainerbattle_rematch TRAINER_P_GUNNESS, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
 	msgbox Route118_Text_DaltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Perry::
-	trainerbattle_single TRAINER_PERRY, Route118_Text_PerryIntro, Route118_Text_PerryDefeat
+	trainerbattle_single TRAINER_P_KIERA, Route118_Text_PerryIntro, Route118_Text_PerryDefeat
 	msgbox Route118_Text_PerryPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_CHESTER, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
+	trainerbattle_single TRAINER_P_MAOMAO, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 

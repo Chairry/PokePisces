@@ -95,12 +95,12 @@ JaggedPass_EventScript_GuardDefeated::
 	end
 
 JaggedPass_EventScript_Eric::
-	trainerbattle_single TRAINER_ERIC, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat
+	trainerbattle_single TRAINER_P_MELULU, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat
 	msgbox JaggedPass_Text_EricPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 JaggedPass_EventScript_Diana::
-	trainerbattle_single TRAINER_DIANA_1, JaggedPass_Text_DianaIntro, JaggedPass_Text_DianaDefeat, JaggedPass_EventScript_RegisterDiana
+	trainerbattle_single TRAINER_P_GREY, JaggedPass_Text_DianaIntro, JaggedPass_Text_DianaDefeat, JaggedPass_EventScript_RegisterDiana
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, JaggedPass_EventScript_DianaRematch
 	msgbox JaggedPass_Text_DianaPostBattle, MSGBOX_DEFAULT
@@ -110,17 +110,17 @@ JaggedPass_EventScript_Diana::
 JaggedPass_EventScript_RegisterDiana::
 	special PlayerFaceTrainerAfterBattle
 	msgbox JaggedPass_Text_DianaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DIANA_1
+	register_matchcall TRAINER_P_GREY
 	release
 	end
 
 JaggedPass_EventScript_DianaRematch::
-	trainerbattle_rematch TRAINER_DIANA_1, JaggedPass_Text_DianaRematchIntro, JaggedPass_Text_DianaRematchDefeat
+	trainerbattle_rematch TRAINER_P_GREY, JaggedPass_Text_DianaRematchIntro, JaggedPass_Text_DianaRematchDefeat
 	msgbox JaggedPass_Text_DianaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 JaggedPass_EventScript_Ethan::
-	trainerbattle_single TRAINER_ETHAN_1, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat, JaggedPass_EventScript_RegisterEthan
+	trainerbattle_single TRAINER_P_NINA, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat, JaggedPass_EventScript_RegisterEthan
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, JaggedPass_EventScript_EthanRematch
 	msgbox JaggedPass_Text_EthanPostBattle, MSGBOX_DEFAULT
@@ -130,22 +130,22 @@ JaggedPass_EventScript_Ethan::
 JaggedPass_EventScript_RegisterEthan::
 	special PlayerFaceTrainerAfterBattle
 	msgbox JaggedPass_Text_EthanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ETHAN_1
+	register_matchcall TRAINER_P_NINA
 	release
 	end
 
 JaggedPass_EventScript_EthanRematch::
-	trainerbattle_rematch TRAINER_ETHAN_1, JaggedPass_Text_EthanRematchIntro, JaggedPass_Text_EthanRematchDefeat
+	trainerbattle_rematch TRAINER_P_NINA, JaggedPass_Text_EthanRematchIntro, JaggedPass_Text_EthanRematchDefeat
 	msgbox JaggedPass_Text_EthanPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 JaggedPass_EventScript_Julio::
-	trainerbattle_single TRAINER_JULIO, JaggedPass_Text_JulioIntro, JaggedPass_Text_JulioDefeat
+	trainerbattle_single TRAINER_P_GUMBALL, JaggedPass_Text_JulioIntro, JaggedPass_Text_JulioDefeat
 	msgbox JaggedPass_Text_JulioPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 JaggedPass_EventScript_Autumn::
-	trainerbattle_single TRAINER_AUTUMN, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat
+	trainerbattle_single TRAINER_P_CLO_AND_PHIL, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat
 	msgbox JaggedPass_Text_AutumnPostBattle, MSGBOX_AUTOCLOSE
 	end
 

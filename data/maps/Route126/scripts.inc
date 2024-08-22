@@ -115,7 +115,7 @@ Route126_EventScript_Dean::
 	end
 
 Route126_EventScript_Nikki::
-	trainerbattle_single TRAINER_NIKKI, Route126_Text_NikkiIntro, Route126_Text_NikkiDefeat
+	trainerbattle_single TRAINER_P_ETNA, Route126_Text_NikkiIntro, Route126_Text_NikkiDefeat
 	msgbox Route126_Text_NikkiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -125,22 +125,22 @@ Route126_EventScript_Brenda::
 	end
 
 Route126_EventScript_Leonardo::
-	trainerbattle_single TRAINER_LEONARDO, Route126_Text_LeonardoIntro, Route126_Text_LeonardoDefeat
+	trainerbattle_single TRAINER_P_TAY, Route126_Text_LeonardoIntro, Route126_Text_LeonardoDefeat
 	msgbox Route126_Text_LeonardoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route126_EventScript_Isobel::
-	trainerbattle_single TRAINER_ISOBEL, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
+	trainerbattle_single TRAINER_P_RIN, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
 	msgbox Route126_Text_IsobelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route126_EventScript_Sienna::
-	trainerbattle_single TRAINER_SIENNA, Route126_Text_SiennaIntro, Route126_Text_SiennaDefeat
+	trainerbattle_single TRAINER_P_PRINCE, Route126_Text_SiennaIntro, Route126_Text_SiennaDefeat
 	msgbox Route126_Text_SiennaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route126_EventScript_Pablo::
-	trainerbattle_single TRAINER_PABLO_1, Route126_Text_PabloIntro, Route126_Text_PabloDefeat, Route126_EventScript_RegisterPablo
+	trainerbattle_single TRAINER_P_BIXBY, Route126_Text_PabloIntro, Route126_Text_PabloDefeat, Route126_EventScript_RegisterPablo
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route126_EventScript_RematchPablo
 	msgbox Route126_Text_PabloPostBattle, MSGBOX_DEFAULT
@@ -151,12 +151,12 @@ Route126_EventScript_RegisterPablo::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route126_Text_PabloRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_PABLO_1
+	register_matchcall TRAINER_P_BIXBY
 	release
 	end
 
 Route126_EventScript_RematchPablo::
-	trainerbattle_rematch TRAINER_PABLO_1, Route126_Text_PabloRematchIntro, Route126_Text_PabloRematchDefeat
+	trainerbattle_rematch TRAINER_P_BIXBY, Route126_Text_PabloRematchIntro, Route126_Text_PabloRematchDefeat
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
 	end
 

@@ -80,22 +80,22 @@ Route114_EventScript_LanettesHouseSign::
 	end
 
 Route114_EventScript_Lenny::
-	trainerbattle_single TRAINER_LENNY, Route114_Text_LennyIntro, Route114_Text_LennyDefeat
+	trainerbattle_single TRAINER_P_TOPAZ_1, Route114_Text_LennyIntro, Route114_Text_LennyDefeat
 	msgbox Route114_Text_LennyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Lucas::
-	trainerbattle_single TRAINER_LUCAS_1, Route114_Text_LucasIntro, Route114_Text_LucasDefeat
+	trainerbattle_single TRAINER_P_TOPAZ_2, Route114_Text_LucasIntro, Route114_Text_LucasDefeat
 	msgbox Route114_Text_LucasPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Shane::
-	trainerbattle_single TRAINER_SHANE, Route114_Text_ShaneIntro, Route114_Text_ShaneDefeat
+	trainerbattle_single TRAINER_P_SUMMER, Route114_Text_ShaneIntro, Route114_Text_ShaneDefeat
 	msgbox Route114_Text_ShanePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Nancy::
-	trainerbattle_single TRAINER_NANCY, Route114_Text_NancyIntro, Route114_Text_NancyDefeat
+	trainerbattle_single TRAINER_P_MILDRED, Route114_Text_NancyIntro, Route114_Text_NancyDefeat
 	msgbox Route114_Text_NancyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -121,7 +121,7 @@ Route114_EventScript_RematchSteve::
 	end
 
 Route114_EventScript_Bernie::
-	trainerbattle_single TRAINER_BERNIE_1, Route114_Text_BernieIntro, Route114_Text_BernieDefeat, Route114_EventScript_RegisterBernie
+	trainerbattle_single TRAINER_P_DENALI, Route114_Text_BernieIntro, Route114_Text_BernieDefeat, Route114_EventScript_RegisterBernie
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route114_EventScript_RematchBernie
 	msgbox Route114_Text_BerniePostBattle, MSGBOX_DEFAULT
@@ -132,32 +132,32 @@ Route114_EventScript_RegisterBernie::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route114_Text_BernieRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BERNIE_1
+	register_matchcall TRAINER_P_DENALI
 	release
 	end
 
 Route114_EventScript_RematchBernie::
-	trainerbattle_rematch TRAINER_BERNIE_1, Route114_Text_BernieRematchIntro, Route114_Text_BernieRematchDefeat
+	trainerbattle_rematch TRAINER_P_DENALI, Route114_Text_BernieRematchIntro, Route114_Text_BernieRematchDefeat
 	msgbox Route114_Text_BerniePostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Claude::
-	trainerbattle_single TRAINER_CLAUDE, Route114_Text_ClaudeIntro, Route114_Text_ClaudeDefeat
+	trainerbattle_single TRAINER_P_GEIRU, Route114_Text_ClaudeIntro, Route114_Text_ClaudeDefeat
 	msgbox Route114_Text_ClaudePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Nolan::
-	trainerbattle_single TRAINER_NOLAN, Route114_Text_NolanIntro, Route114_Text_NolanDefeat
+	trainerbattle_single TRAINER_P_RHODE, Route114_Text_NolanIntro, Route114_Text_NolanDefeat
 	msgbox Route114_Text_NolanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Tyra::
-	trainerbattle_double TRAINER_TYRA_AND_IVY, Route114_Text_TyraIntro, Route114_Text_TyraDefeat, Route114_Text_TyraNotEnoughMons
+	trainerbattle_double TRAINER_P_LANNETTE, Route114_Text_TyraIntro, Route114_Text_TyraDefeat, Route114_Text_TyraNotEnoughMons
 	msgbox Route114_Text_TyraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Ivy::
-	trainerbattle_double TRAINER_TYRA_AND_IVY, Route114_Text_IvyIntro, Route114_Text_IvyDefeat, Route114_Text_IvyNotEnoughMons
+	trainerbattle_double TRAINER_P_LANNETTE, Route114_Text_IvyIntro, Route114_Text_IvyDefeat, Route114_Text_IvyNotEnoughMons
 	msgbox Route114_Text_IvyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -207,7 +207,7 @@ Route103_EventScript_Daisy::
 	end
 
 Route103_EventScript_Amy::
-	trainerbattle_double TRAINER_AMY_AND_LIV_1, Route103_Text_AmyIntro, Route103_Text_AmyDefeated, Route103_Text_AmyNotEnoughPokemon, Route102_EventScript_AmyRegisterMatchCallAfterBattle
+	trainerbattle_double TRAINER_P_NAFI, Route103_Text_AmyIntro, Route103_Text_AmyDefeated, Route103_Text_AmyNotEnoughPokemon, Route102_EventScript_AmyRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route102_EventScript_AmyRematch
 	msgbox Route103_Text_AmyPostBattle, MSGBOX_AUTOCLOSE
@@ -215,17 +215,17 @@ Route103_EventScript_Amy::
 
 Route102_EventScript_AmyRegisterMatchCallAfterBattle::
 	msgbox Route103_Text_AmyLivRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AMY_AND_LIV_1
+	register_matchcall TRAINER_P_NAFI
 	release
 	end
 
 Route102_EventScript_AmyRematch::
-	trainerbattle_rematch_double TRAINER_AMY_AND_LIV_1, Route103_Text_AmyRematchIntro, Route103_Text_AmyRematchDefeated, Route103_Text_AmyRematchNotEnoughPokemon
+	trainerbattle_rematch_double TRAINER_P_NAFI, Route103_Text_AmyRematchIntro, Route103_Text_AmyRematchDefeated, Route103_Text_AmyRematchNotEnoughPokemon
 	msgbox Route103_Text_AmyRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route103_EventScript_Liv::
-	trainerbattle_double TRAINER_AMY_AND_LIV_1, Route103_Text_LivIntro, Route103_Text_LivDefeated, Route103_Text_LivNotEnoughPokemon, Route102_EventScript_LivRegisterMatchCallAfterBattle
+	trainerbattle_double TRAINER_P_NAFI, Route103_Text_LivIntro, Route103_Text_LivDefeated, Route103_Text_LivNotEnoughPokemon, Route102_EventScript_LivRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route102_EventScript_LivRematch
 	msgbox Route103_Text_LivPostBattle, MSGBOX_AUTOCLOSE
@@ -233,22 +233,22 @@ Route103_EventScript_Liv::
 
 Route102_EventScript_LivRegisterMatchCallAfterBattle::
 	msgbox Route103_Text_AmyLivRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AMY_AND_LIV_1
+	register_matchcall TRAINER_P_NAFI
 	release
 	end
 
 Route102_EventScript_LivRematch::
-	trainerbattle_rematch_double TRAINER_AMY_AND_LIV_1, Route103_Text_LivRematchIntro, Route103_Text_LivRematchDefeated, Route103_Text_LivRematchNotEnoughPokemon
+	trainerbattle_rematch_double TRAINER_P_NAFI, Route103_Text_LivRematchIntro, Route103_Text_LivRematchDefeated, Route103_Text_LivRematchNotEnoughPokemon
 	msgbox Route103_Text_LivRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route103_EventScript_Andrew::
-	trainerbattle_single TRAINER_ANDREW, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
+	trainerbattle_single TRAINER_P_PANDOU_4, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
 	msgbox Route103_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route103_EventScript_Miguel::
-	trainerbattle_single TRAINER_MIGUEL_1, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_P_HEDORAH, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_MiguelRematch
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
@@ -259,17 +259,17 @@ Route102_EventScript_MiguelRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route103_Text_MiguelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MIGUEL_1
+	register_matchcall TRAINER_P_HEDORAH
 	release
 	end
 
 Route103_EventScript_MiguelRematch::
-	trainerbattle_rematch TRAINER_MIGUEL_1, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
+	trainerbattle_rematch TRAINER_P_HEDORAH, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
 	msgbox Route103_Text_MiguelRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route103_EventScript_Marcos::
-	trainerbattle_single TRAINER_MARCOS, Route103_Text_MarcosIntro, Route103_Text_MarcosDefeated
+	trainerbattle_single TRAINER_P_JIMMYOS, Route103_Text_MarcosIntro, Route103_Text_MarcosDefeated
 	msgbox Route103_Text_MarcosPostBattle, MSGBOX_AUTOCLOSE
 	end
 

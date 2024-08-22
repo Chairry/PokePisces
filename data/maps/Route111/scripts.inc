@@ -53,7 +53,7 @@ Route111_OnTransition:
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
 	call Route111_EventScript_CheckSetSandstorm
 	call GabbyAndTy_EventScript_UpdateLocation
-	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
+	goto_if_not_defeated TRAINER_P_KATRINA, Route111_EventScript_SetWinstratesNotDefeated
 	end
 
 Route111_EventScript_SetFallingPlayerGfx::
@@ -87,9 +87,9 @@ Route111_EventScript_SetWinstratesNotDefeated::
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VICKY_WINSTRATE
-	cleartrainerflag TRAINER_VICTOR
-	cleartrainerflag TRAINER_VICTORIA
-	cleartrainerflag TRAINER_VIVI
+	cleartrainerflag TRAINER_P_BONNIE
+	cleartrainerflag TRAINER_P_DOROTHY
+	cleartrainerflag TRAINER_P_PENN
 	end
 
 Route111_EventScript_SetLayoutNoMirageTower::
@@ -276,7 +276,7 @@ Route111_EventScript_Victor::
 
 Route111_EventScript_BattleWinstrates::
 	msgbox Route111_Text_VictorIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VICTOR, Route111_Text_VictorDefeat
+	trainerbattle_no_intro TRAINER_P_BONNIE, Route111_Text_VictorDefeat
 	applymovement LOCALID_VICTOR, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -294,7 +294,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_VictoriaIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VICTORIA, Route111_Text_VictoriaDefeat
+	trainerbattle_no_intro TRAINER_P_DOROTHY, Route111_Text_VictoriaDefeat
 	applymovement LOCALID_VICTORIA, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -312,7 +312,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_ViviIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VIVI, Route111_Text_ViviDefeat
+	trainerbattle_no_intro TRAINER_P_PENN, Route111_Text_ViviDefeat
 	applymovement LOCALID_VIVI, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -330,7 +330,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_VickyIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VICKY, Route111_Text_VickyDefeat
+	trainerbattle_no_intro TRAINER_P_KATRINA, Route111_Text_VickyDefeat
 	msgbox Route111_Text_VickyPostBattle, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_VICKY, Common_Movement_WalkInPlaceFasterUp
@@ -437,22 +437,22 @@ Route111_EventScript_RockSmashTipFatMan::
 	end
 
 Route111_EventScript_Drew::
-	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
+	trainerbattle_single TRAINER_P_SMOKEY, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Heidi::
-	trainerbattle_single TRAINER_HEIDI, Route111_Text_HeidiIntro, Route111_Text_HeidiDefeat
+	trainerbattle_single TRAINER_P_AUGUST, Route111_Text_HeidiIntro, Route111_Text_HeidiDefeat
 	msgbox Route111_Text_HeidiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Beau::
-	trainerbattle_single TRAINER_BEAU, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
+	trainerbattle_single TRAINER_P_DESS_AND_EMBER, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
 	msgbox Route111_Text_BeauPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Becky::
-	trainerbattle_single TRAINER_BECKY, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
+	trainerbattle_single TRAINER_P_GWUNNETTE, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
 	msgbox Route111_Text_BeckyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -478,17 +478,17 @@ Route111_EventScript_RematchDusty::
 	end
 
 Route111_EventScript_Travis::
-	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
+	trainerbattle_single TRAINER_P_GABBY_AND_TY_1, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
 	msgbox Route111_Text_TravisPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Irene::
-	trainerbattle_single TRAINER_IRENE, Route111_Text_IreneIntro, Route111_Text_IreneDefeat
+	trainerbattle_single TRAINER_P_YVETTE, Route111_Text_IreneIntro, Route111_Text_IreneDefeat
 	msgbox Route111_Text_IrenePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Daisuke::
-	trainerbattle_single TRAINER_DAISUKE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
+	trainerbattle_single TRAINER_P_FLAITINE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
 	msgbox Route111_Text_DaisukePostBattle, MSGBOX_AUTOCLOSE
 	end
 

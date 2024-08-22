@@ -28,27 +28,27 @@ SSTidalRooms_EventScript_Bed::
 	end
 
 SSTidalRooms_EventScript_Colton::
-	trainerbattle_single TRAINER_COLTON, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
+	trainerbattle_single TRAINER_P_MONICA, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
 	msgbox SSTidalRooms_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Micah::
-	trainerbattle_single TRAINER_MICAH, SSTidalRooms_Text_MicahIntro, SSTidalRooms_Text_MicahDefeat
+	trainerbattle_single TRAINER_P_EMMY, SSTidalRooms_Text_MicahIntro, SSTidalRooms_Text_MicahDefeat
 	msgbox SSTidalRooms_Text_MicahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Thomas::
-	trainerbattle_single TRAINER_THOMAS, SSTidalRooms_Text_ThomasIntro, SSTidalRooms_Text_ThomasDefeat
+	trainerbattle_single TRAINER_P_DAYTON, SSTidalRooms_Text_ThomasIntro, SSTidalRooms_Text_ThomasDefeat
 	msgbox SSTidalRooms_Text_ThomasPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Jed::
-	trainerbattle_double TRAINER_LEA_AND_JED, SSTidalRooms_Text_JedIntro, SSTidalRooms_Text_JedDefeat, SSTidalRooms_Text_JedNotEnoughMons
+	trainerbattle_double TRAINER_P_BADUMKA, SSTidalRooms_Text_JedIntro, SSTidalRooms_Text_JedDefeat, SSTidalRooms_Text_JedNotEnoughMons
 	msgbox SSTidalRooms_Text_JedPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Lea::
-	trainerbattle_double TRAINER_LEA_AND_JED, SSTidalRooms_Text_LeaIntro, SSTidalRooms_Text_LeaDefeat, SSTidalRooms_Text_LeaNotEnoughMons
+	trainerbattle_double TRAINER_P_BADUMKA, SSTidalRooms_Text_LeaIntro, SSTidalRooms_Text_LeaDefeat, SSTidalRooms_Text_LeaNotEnoughMons
 	msgbox SSTidalRooms_Text_LeaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

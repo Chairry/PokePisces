@@ -103,9 +103,9 @@ BattlePyramid_WarpToTop::
 	waitstate
 	end
 
-@ TRAINER_PHILLIP is used as a placeholder
+@ TRAINER_P_YUKARI is used as a placeholder
 BattlePyramid_TrainerBattle::
-	trainerbattle TRAINER_BATTLE_PYRAMID, TRAINER_PHILLIP, 0, BattleFacility_TrainerBattle_PlaceholderText, BattleFacility_TrainerBattle_PlaceholderText
+	trainerbattle TRAINER_BATTLE_PYRAMID, TRAINER_P_YUKARI, 0, BattleFacility_TrainerBattle_PlaceholderText, BattleFacility_TrainerBattle_PlaceholderText
 	pyramid_showhint
 	waitmessage
 	waitbuttonpress

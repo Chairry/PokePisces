@@ -847,20 +847,20 @@ Route104_Movement_BrineyExitBoat:
 	step_end
 
 Route104_EventScript_Ivan::
-	trainerbattle_single TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
+	trainerbattle_single TRAINER_P_ANTON, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
 	msgbox Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_EventScript_Billy::
-	trainerbattle_single TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
+	trainerbattle_single TRAINER_P_KIRST, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
 	msgbox Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_EventScript_Haley::
-	trainerbattle_single TRAINER_HALEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
+	trainerbattle_single TRAINER_P_DANTE, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchHaley
-	setvar VAR_0x8004, TRAINER_HALEY_1
+	setvar VAR_0x8004, TRAINER_P_DANTE
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterHaley
 	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
@@ -876,7 +876,7 @@ Route104_EventScript_TryRegisterHaleyAfterBattle::
 
 Route104_EventScript_RegisterHaleyAfterBattle::
 	msgbox Route104_Text_HaleyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_HALEY_1
+	register_matchcall TRAINER_P_DANTE
 	release
 	end
 
@@ -888,12 +888,12 @@ Route104_EventScript_TryRegisterHaley::
 
 Route104_EventScript_RegisterHaley::
 	msgbox Route104_Text_HaleyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_HALEY_1
+	register_matchcall TRAINER_P_DANTE
 	release
 	end
 
 Route104_EventScript_RematchHaley::
-	trainerbattle_rematch TRAINER_HALEY_1, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
+	trainerbattle_rematch TRAINER_P_DANTE, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
 	msgbox Route104_Text_HaleyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -980,21 +980,21 @@ Route104_EventScript_RematchCindy::
 	end
 
 Route104_EventScript_Gina::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
+	trainerbattle_double TRAINER_P_ENRIQUE, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Mia::
-	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
+	trainerbattle_double TRAINER_P_ENRIQUE, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Darian::
-	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
+	trainerbattle_single TRAINER_P_WALLACE, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 

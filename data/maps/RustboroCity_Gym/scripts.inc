@@ -39,17 +39,17 @@ RustboroCity_Gym_EventScript_RoxanneRematch::
 	end
 
 RustboroCity_Gym_EventScript_Josh::
-	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
+	trainerbattle_single TRAINER_P_ROY, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
 	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 RustboroCity_Gym_EventScript_Tommy::
-	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
+	trainerbattle_single TRAINER_P_MAIA, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
 	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 RustboroCity_Gym_EventScript_Marc::
-	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
+	trainerbattle_single TRAINER_P_JIMMY, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
 	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
 	end
 

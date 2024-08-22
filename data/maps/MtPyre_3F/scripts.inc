@@ -2,12 +2,12 @@ MtPyre_3F_MapScripts::
 	.byte 0
 
 MtPyre_3F_EventScript_William::
-	trainerbattle_single TRAINER_WILLIAM, MtPyre_3F_Text_WilliamIntro, MtPyre_3F_Text_WilliamDefeat
+	trainerbattle_single TRAINER_P_CALLUM, MtPyre_3F_Text_WilliamIntro, MtPyre_3F_Text_WilliamDefeat
 	msgbox MtPyre_3F_Text_WilliamPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtPyre_3F_EventScript_Kayla::
-	trainerbattle_single TRAINER_KAYLA, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat
+	trainerbattle_single TRAINER_P_SORA, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat
 	msgbox MtPyre_3F_Text_KaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

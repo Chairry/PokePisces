@@ -285,7 +285,7 @@ Route110_TrickHousePuzzle7_EventScript_RedButton::
 	end
 
 Route110_TrickHousePuzzle7_EventScript_Joshua::
-	trainerbattle_single TRAINER_JOSHUA, Route110_TrickHousePuzzle7_Text_JoshuaIntro, Route110_TrickHousePuzzle7_Text_JoshuaDefeat
+	trainerbattle_single TRAINER_P_KUSUO, Route110_TrickHousePuzzle7_Text_JoshuaIntro, Route110_TrickHousePuzzle7_Text_JoshuaDefeat
 	msgbox Route110_TrickHousePuzzle7_Text_JoshuaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -295,7 +295,7 @@ Route110_TrickHousePuzzle7_EventScript_Patricia::
 	end
 
 Route110_TrickHousePuzzle7_EventScript_Alexis::
-	trainerbattle_single TRAINER_ALEXIS, Route110_TrickHousePuzzle7_Text_AlexisIntro, Route110_TrickHousePuzzle7_Text_AlexisDefeat
+	trainerbattle_single TRAINER_P_HAMM, Route110_TrickHousePuzzle7_Text_AlexisIntro, Route110_TrickHousePuzzle7_Text_AlexisDefeat
 	msgbox Route110_TrickHousePuzzle7_Text_AlexisPostBattle, MSGBOX_AUTOCLOSE
 	end
 

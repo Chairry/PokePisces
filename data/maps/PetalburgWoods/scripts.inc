@@ -273,15 +273,15 @@ PetalburgWoods_EventScript_Sign2::
 	end
 
 PetalburgWoods_EventScript_Lyle::
-	trainerbattle_single TRAINER_LYLE, PetalburgWoods_Text_GoBugPokemonTeam, PetalburgWoods_Text_ICouldntWin
+	trainerbattle_single TRAINER_P_MEIYU, PetalburgWoods_Text_GoBugPokemonTeam, PetalburgWoods_Text_ICouldntWin
 	msgbox PetalburgWoods_Text_ImOutOfPokeBalls, MSGBOX_AUTOCLOSE
 	end
 
 PetalburgWoods_EventScript_James::
-	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
+	trainerbattle_single TRAINER_P_GRISELDA, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_JAMES_1
+	setvar VAR_0x8004, TRAINER_P_GRISELDA
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_TryRegisterJames2
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
@@ -297,7 +297,7 @@ PetalburgWoods_EventScript_TryRegisterJames::
 
 PetalburgWoods_EventScript_RegisterJames::
 	msgbox PetalburgWoods_Text_IWantRematch1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JAMES_1
+	register_matchcall TRAINER_P_GRISELDA
 	release
 	end
 
@@ -309,12 +309,12 @@ PetalburgWoods_EventScript_TryRegisterJames2::
 
 PetalburgWoods_EventScript_RegisterJames2::
 	msgbox PetalburgWoods_Text_IWantRematch2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JAMES_1
+	register_matchcall TRAINER_P_GRISELDA
 	release
 	end
 
 PetalburgWoods_EventScript_JamesRematch::
-	trainerbattle_rematch TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
+	trainerbattle_rematch TRAINER_P_GRISELDA, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 

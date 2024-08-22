@@ -41,12 +41,12 @@ Route105_EventScript_Dominik::
 	end
 
 Route105_EventScript_Beverly::
-	trainerbattle_single TRAINER_BEVERLY, Route105_Text_BeverlyIntro, Route105_Text_BeverlyDefeated
+	trainerbattle_single TRAINER_P_VELMA, Route105_Text_BeverlyIntro, Route105_Text_BeverlyDefeated
 	msgbox Route105_Text_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route105_EventScript_Imani::
-	trainerbattle_single TRAINER_IMANI, Route105_Text_ImaniIntro, Route105_Text_ImaniDefeated
+	trainerbattle_single TRAINER_P_FRED, Route105_Text_ImaniIntro, Route105_Text_ImaniDefeated
 	msgbox Route105_Text_ImaniPostBattle, MSGBOX_AUTOCLOSE
 	end
 

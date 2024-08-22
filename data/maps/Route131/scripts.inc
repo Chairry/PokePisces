@@ -26,32 +26,32 @@ Route131_EventScript_Herman::
 	end
 
 Route131_EventScript_Susie::
-	trainerbattle_single TRAINER_SUSIE, Route131_Text_SusieIntro, Route131_Text_SusieDefeat
+	trainerbattle_single TRAINER_P_YASUKE, Route131_Text_SusieIntro, Route131_Text_SusieDefeat
 	msgbox Route131_Text_SusiePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Kara::
-	trainerbattle_single TRAINER_KARA, Route131_Text_KaraIntro, Route131_Text_KaraDefeat
+	trainerbattle_single TRAINER_P_GATHERER, Route131_Text_KaraIntro, Route131_Text_KaraDefeat
 	msgbox Route131_Text_KaraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Reli::
-	trainerbattle_double TRAINER_RELI_AND_IAN, Route131_Text_ReliIntro, Route131_Text_ReliDefeat, Route131_Text_ReliNotEnoughMons
+	trainerbattle_double TRAINER_P_RAY_5, Route131_Text_ReliIntro, Route131_Text_ReliDefeat, Route131_Text_ReliNotEnoughMons
 	msgbox Route131_Text_ReliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Ian::
-	trainerbattle_double TRAINER_RELI_AND_IAN, Route131_Text_IanIntro, Route131_Text_IanDefeat, Route131_Text_IanNotEnoughMons
+	trainerbattle_double TRAINER_P_RAY_5, Route131_Text_IanIntro, Route131_Text_IanDefeat, Route131_Text_IanNotEnoughMons
 	msgbox Route131_Text_IanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Talia::
-	trainerbattle_single TRAINER_TALIA, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
+	trainerbattle_single TRAINER_P_TEX, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
 	msgbox Route131_Text_TaliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Kevin::
-	trainerbattle_single TRAINER_KEVIN, Route131_Text_KevinIntro, Route131_Text_KevinDefeat
+	trainerbattle_single TRAINER_P_FINN, Route131_Text_KevinIntro, Route131_Text_KevinDefeat
 	msgbox Route131_Text_KevinPostBattle, MSGBOX_AUTOCLOSE
 	end
 

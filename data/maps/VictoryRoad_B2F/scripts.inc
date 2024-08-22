@@ -27,7 +27,7 @@ VictoryRoad_B2F_EventScript_Felix::
 	end
 
 VictoryRoad_B2F_EventScript_Dianne::
-	trainerbattle_single TRAINER_DIANNE, VictoryRoad_B2F_Text_DianneIntro, VictoryRoad_B2F_Text_DianneDefeat
+	trainerbattle_single TRAINER_P_JOSHU, VictoryRoad_B2F_Text_DianneIntro, VictoryRoad_B2F_Text_DianneDefeat
 	msgbox VictoryRoad_B2F_Text_DiannePostBattle, MSGBOX_AUTOCLOSE
 	end
 
