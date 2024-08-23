@@ -793,8 +793,9 @@
 #define STRINGID_DRAGONCLAWBOOSTED                    791
 #define STRINGID_FOUNDARANDOMCHEESE                   792
 #define STRINGID_PKMNBURNINGUP                        793
+#define STRINGID_INFERNALREIGNENTERS                  794
 
-#define BATTLESTRINGS_COUNT                           794
+#define BATTLESTRINGS_COUNT                           795
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
