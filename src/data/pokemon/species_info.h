@@ -103,7 +103,7 @@
         .friendship = STANDARD_FRIENDSHIP, \
         .growthRate = GROWTH_FAST, \
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE}, \
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
+        .abilities = {ABILITY_VERTIGO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
         .bodyColor = color, \
         .noFlip = TRUE, \
     }
@@ -25834,7 +25834,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_DARK_AURA, ABILITY_DARK_AURA, ABILITY_DARK_AURA},
+        .abilities = {ABILITY_MIND_GAMES, ABILITY_NONE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },

@@ -4988,7 +4988,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_NOTHING - 1] = sSplashDescription,
     [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
-    [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
+    [MOVE_CINDER_WALTZ - 1] = sSplashDescription,
     [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
+    [MOVE_STUMBLE - 1] = sSplashDescription,
 };
