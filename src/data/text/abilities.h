@@ -749,6 +749,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_DOMINEER] = _("Domineer"),
     [ABILITY_VERTIGO] = _("Vertigo"),
     [ABILITY_MIND_GAMES] = _("Mind Games"),
+    [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1130,6 +1131,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_DOMINEER] = _("Domineer"),
     [ABILITY_VERTIGO] = _("Vertigo"),
     [ABILITY_MIND_GAMES] = _("Mind Games"),
+    [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
 };
 #endif
 
@@ -1512,4 +1514,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_DOMINEER] = sDomineerDescription,
     [ABILITY_VERTIGO] = sVertigoDescription,
     [ABILITY_MIND_GAMES] = sPsychicSurgeDescription,
+    [ABILITY_INFERNAL_REIGN] = sNoneDescription,
 };

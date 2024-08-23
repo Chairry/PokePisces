@@ -152,6 +152,7 @@ extern const u8 BattleScript_MonWokeUpInUproar[];
 extern const u8 BattleScript_PoisonTurnDmg[];
 extern const u8 BattleScript_BurnTurnDmg[];
 extern const u8 BattleScript_FrostbiteTurnDmg[];
+extern const u8 BattleScript_InfernalReignTurnDmg[];
 extern const u8 BattleScript_MoveUsedIsFrozen[];
 extern const u8 BattleScript_MoveUsedUnfroze[];
 extern const u8 BattleScript_MoveUsedUnfrostbite[];

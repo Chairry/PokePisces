@@ -3273,8 +3273,8 @@ static const u8 sChillyAirDescription[] = _(
     "cut Evasion and Speed.");
 
 static const u8 sFickleBeamDescription[] = _(
-    "The user shoots a beam.\n"
-    "May do double damage.");
+    "Shoots a beam of light.\n"
+    "Sometimes twice as strong.");
 
 static const u8 sBurningBulwarkDescription[] = _(
     "Protects user and burns\n"
@@ -4992,4 +4992,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
     [MOVE_STUMBLE - 1] = sSplashDescription,
+    [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
 };
