@@ -13426,6 +13426,12 @@ BattleScript_FrostbiteTurnDmg::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_DoStatusTurnDmg
 
+BattleScript_InfernalReignTurnDmg::
+	printstring STRINGID_PKMNBURNINGUP
+	waitmessage B_WAIT_TIME_LONG
+	status2animation BS_ATTACKER, TRAP_ANIM_FIRE_SPIN
+	goto BattleScript_DoTurnDmg
+
 BattleScript_MoveUsedIsFrozen::
 	printstring STRINGID_PKMNISFROZEN
 	waitmessage B_WAIT_TIME_LONG

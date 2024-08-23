@@ -932,6 +932,8 @@ static const u8 sText_SparkingElectricity[] = _("The sparking electricity\nhit {
 static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis distorting type matchups!");
 static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ncrushing blow!");
 static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a\nrandom cheese!");
+static const u8 sText_PkmnBurningUp[] = _("{B_ATK_NAME_WITH_PREFIX} is burning up\nwithin the Infernal Reign!");
+static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the aura of a king!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1715,6 +1717,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_EGGSROYALE - BATTLESTRINGS_TABLE_START] = sText_EggsRoyale,
     [STRINGID_DRAGONCLAWBOOSTED - BATTLESTRINGS_TABLE_START] = sText_DragonClawBoosted,
     [STRINGID_FOUNDARANDOMCHEESE - BATTLESTRINGS_TABLE_START] = sText_FoundARandomCheese,
+    [STRINGID_PKMNBURNINGUP - BATTLESTRINGS_TABLE_START] = sText_PkmnBurningUp,
+    [STRINGID_INFERNALREIGNENTERS - BATTLESTRINGS_TABLE_START] = sText_InfernalReignEnters,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1806,6 +1810,7 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
     [B_MSG_SWITCHIN_WATER_VEIL] = STRINGID_WATERVEILENTERS,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
+    [B_MSG_SWITCHIN_INFERNAL_REIGN] = STRINGID_INFERNALREIGNENTERS,
 };
 
 const u16 gMissStringIds[] =

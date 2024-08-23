@@ -4992,4 +4992,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
     [MOVE_STUMBLE - 1] = sSplashDescription,
+    [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
 };
