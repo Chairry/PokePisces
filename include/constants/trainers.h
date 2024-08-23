@@ -168,6 +168,10 @@
 #define TRAINER_PIC_HUNTER               148
 #define TRAINER_PIC_BREADWINNER          149
 #define TRAINER_PIC_SHADOWSTEVEN         150
+#define TRAINER_PIC_TOPAZ_ACOLYTE        151
+#define TRAINER_PIC_MARCHONESS           152
+#define TRAINER_PIC_BREADWINNER_FINAL    153
+#define TRAINER_PIC_ANGELA               154
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -485,7 +489,9 @@
 #define TRAINER_CLASS_CHEERLEADERS   0x7c
 #define TRAINER_CLASS_HUNTER         0x7d
 #define TRAINER_CLASS_BREADWINNER    0x7e
-#define TRAINER_CLASS_COUNT          0x7F // UPDATE THIS WHENEVER YOU PUT IN THE OTHER CLASSES !!
+#define TRAINER_CLASS_TOPAZ_ACOLYTE  0x7F
+#define TRAINER_CLASS_MARCHONESS     0x80
+#define TRAINER_CLASS_COUNT          0x81 // UPDATE THIS WHENEVER YOU PUT IN THE OTHER CLASSES !!
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

@@ -602,6 +602,22 @@ static const union AnimCmd *const sAnims_ShadowSteven[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_TopazAcolyte[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Marchoness[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_BreadwinnerFinal[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Angela[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -755,4 +771,8 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_HUNTER] = sAnims_Hunter,
     [TRAINER_PIC_BREADWINNER] = sAnims_Breadwinner,
     [TRAINER_PIC_SHADOWSTEVEN] = sAnims_ShadowSteven,
+    [TRAINER_PIC_TOPAZ_ACOLYTE] = sAnims_TopazAcolyte,
+    [TRAINER_PIC_MARCHONESS] = sAnims_Marchoness,
+    [TRAINER_PIC_BREADWINNER_FINAL] = sAnims_BreadwinnerFinal,
+    [TRAINER_PIC_ANGELA] = sAnims_Angela,
 };

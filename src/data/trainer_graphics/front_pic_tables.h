@@ -151,6 +151,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_HUNTER] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_BREADWINNER] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_SHADOWSTEVEN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_TOPAZ_ACOLYTE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MARCHONESS] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_BREADWINNER_FINAL] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_ANGELA] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -308,6 +312,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(HUNTER, gTrainerFrontPic_Hunter, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(BREADWINNER, gTrainerFrontPic_Breadwinner, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(SHADOWSTEVEN, gTrainerFrontPic_ShadowSteven, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(TOPAZ_ACOLYTE, gTrainerFrontPic_TopazAcolyte, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(MARCHONESS, gTrainerFrontPic_Marchoness, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(BREADWINNER_FINAL, gTrainerFrontPic_BreadwinnerFinal, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(ANGELA, gTrainerFrontPic_Angela, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -465,4 +473,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(HUNTER, gTrainerPalette_Hunter),
     TRAINER_PAL(BREADWINNER, gTrainerPalette_Breadwinner),
     TRAINER_PAL(SHADOWSTEVEN, gTrainerPalette_ShadowSteven),
+    TRAINER_PAL(TOPAZ_ACOLYTE, gTrainerPalette_TopazAcolyte),
+    TRAINER_PAL(MARCHONESS, gTrainerPalette_Marchoness),
+    TRAINER_PAL(BREADWINNER_FINAL, gTrainerPalette_BreadwinnerFinal),
+    TRAINER_PAL(ANGELA, gTrainerPalette_Angela),
 };
