@@ -3273,8 +3273,8 @@ static const u8 sChillyAirDescription[] = _(
     "cut Evasion and Speed.");
 
 static const u8 sFickleBeamDescription[] = _(
-    "The user shoots a beam.\n"
-    "May do double damage.");
+    "Shoots a beam of light.\n"
+    "Sometimes twice as strong.");
 
 static const u8 sBurningBulwarkDescription[] = _(
     "Protects user and burns\n"

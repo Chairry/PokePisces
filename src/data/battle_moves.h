@@ -14448,6 +14448,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .metronomeBanned = TRUE,
+        .danceMove = TRUE,
     },
 
     [MOVE_CINDER_DRILL] =
@@ -16956,6 +16957,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .danceMove = TRUE,
     },
 
     [MOVE_BLOOD_MOON] =
