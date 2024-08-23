@@ -1052,6 +1052,7 @@ gBattleAnims_Moves::
     .4byte Move_CINDER_WALTZ
     .4byte Move_BLOOD_MOON
     .4byte Move_CHEESE_STEAL
+    .4byte Move_STUMBLE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -1162,6 +1163,7 @@ gBattleAnims_General::
 	.4byte Move_EXTREME_EVOBOOST            @ B_ANIM_A_THING
 	.4byte General_DecimationHit            @ B_ANIM_DECIMATION_HIT
 	.4byte Move_HEARTHWARM                  @ B_ANIM_HEARTHWARM_HEAL
+	.4byte Move_GRAVITY                     @ B_ANIM_GRAVITY 
 
 	.align 2
 gBattleAnims_Special::
@@ -25630,6 +25632,9 @@ Move_CHILLY_AIR::
 	end
 
 Move_CHEESE_STEAL::
+	goto Move_FLY
+
+Move_STUMBLE::
 	goto Move_FLY
 
 Move_TERA_BLAST::

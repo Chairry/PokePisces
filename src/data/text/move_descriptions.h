@@ -205,8 +205,8 @@ static const u8 sSupersonicDescription[] = _(
     "that may confuse the foe.");
 
 static const u8 sSonicBoomDescription[] = _(
-    "Deals 20 HP damage. If at\n"
-    "least LV. 50 then deals 150.");
+    "Inflicts 20 HP damage. When\n"
+    "level 50 deals 120 HP instead.");
 
 static const u8 sDisableDescription[] = _(
     "Psychically disables one of\n"
@@ -345,8 +345,8 @@ static const u8 sStringShotDescription[] = _(
     "to reduce its Speed.");
 
 static const u8 sDragonRageDescription[] = _(
-    "Launches shock waves that\n"
-    "always inflict 40 HP damage.");
+    "Inflicts 40 HP damage. When \n"
+    "level 50 deals 120 HP instead.");
 
 static const u8 sFireSpinDescription[] = _(
     "Traps the foe in a ring of\n"
@@ -4988,7 +4988,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_NOTHING - 1] = sSplashDescription,
     [MOVE_BRAIN_DAMAGE - 1] = sBrainDamageDescription,
     [MOVE_BLOW_UP - 1] = sSelfDestructDescription,
-    [MOVE_CINDER_WALTZ - 1] = sSelfDestructDescription,
+    [MOVE_CINDER_WALTZ - 1] = sSplashDescription,
     [MOVE_BLOOD_MOON - 1] = sBloodMoonDescription,
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
+    [MOVE_STUMBLE - 1] = sSplashDescription,
 };

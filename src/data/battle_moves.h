@@ -16994,6 +16994,21 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .instructBanned = TRUE,
     },
 
+    [MOVE_STUMBLE] =
+    {
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

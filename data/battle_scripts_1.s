@@ -7447,6 +7447,25 @@ BattleScript_GravityLoopEnd:
 	jumpifnexttargetvalid BattleScript_GravityLoop
 	end
 
+BattleScript_MindGamesGravityActivated::
+	call BattleScript_AbilityPopUp
+	playanimation 0, B_ANIM_GRAVITY
+	printstring STRINGID_GRAVITYINTENSIFIED
+	waitmessage B_WAIT_TIME_LONG
+	selectfirstvalidtarget
+BattleScript_mindGamesGravityLoop:
+	movevaluescleanup
+	jumpifstatus3 BS_TARGET, STATUS3_ON_AIR | STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS, BattleScript_GravityLoopDrop
+	goto BattleScript_mindGamesGravityLoopEnd
+BattleScript_mindGamesGravityLoopDrop:
+	bringdownairbornebattler BS_TARGET
+	printstring STRINGID_GRAVITYGROUNDING
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_mindGamesGravityLoopEnd:
+	moveendto MOVEEND_NEXT_TARGET
+	jumpifnexttargetvalid BattleScript_GravityLoop
+	end3
+
 BattleScript_EffectRoost:
 	attackcanceler
 	attackstring

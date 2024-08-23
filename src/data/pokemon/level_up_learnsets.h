@@ -20823,6 +20823,7 @@ static const struct LevelUpMove sTorstevicLevelUpLearnset[] = {
     LEVEL_UP_MOVE(46, MOVE_METEOR_BEAM),
     LEVEL_UP_MOVE(49, MOVE_SHELL_SMASH),
     LEVEL_UP_MOVE(52, MOVE_SKULL_BASH),
+    LEVEL_UP_MOVE(55, MOVE_BOLT_BEAK),
     LEVEL_UP_END
 };
 
