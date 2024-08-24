@@ -13429,7 +13429,7 @@ BattleScript_FrostbiteTurnDmg::
 BattleScript_InfernalReignTurnDmg::
 	printstring STRINGID_PKMNBURNINGUP
 	waitmessage B_WAIT_TIME_LONG
-	status2animation BS_ATTACKER, TRAP_ANIM_FIRE_SPIN
+	playanimation BS_ATTACKER, B_ANIM_INFERNAL_REIGN
 	goto BattleScript_DoTurnDmg
 
 BattleScript_MoveUsedIsFrozen::

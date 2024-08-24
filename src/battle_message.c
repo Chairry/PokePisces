@@ -933,7 +933,7 @@ static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis 
 static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ncrushing blow!");
 static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a\nrandom cheese!");
 static const u8 sText_PkmnBurningUp[] = _("{B_ATK_NAME_WITH_PREFIX} is burning up\nwithin the Infernal Reign!");
-static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the aura of a king!");
+static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the\naura of a king!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
