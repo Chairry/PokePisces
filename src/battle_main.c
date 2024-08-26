@@ -4761,7 +4761,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed /= 2;
     else if (holdEffect == HOLD_EFFECT_IRON_BALL)
         speed /= 2;
-    else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF)
+    else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF && ability != ABILITY_ONE_WAY_TRIP)
         speed = (speed * 150) / 100;
     else if (holdEffect == HOLD_EFFECT_VIBRANT_SCALE && gBattleMons[battler].species == SPECIES_BIVAGUE)
         speed *= 2;

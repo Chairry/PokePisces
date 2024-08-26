@@ -103,7 +103,7 @@
         .friendship = STANDARD_FRIENDSHIP, \
         .growthRate = GROWTH_FAST, \
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE}, \
-        .abilities = {ABILITY_OWN_TEMPO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
+        .abilities = {ABILITY_VERTIGO, ABILITY_TANGLED_FEET, ABILITY_CONTRARY}, \
         .bodyColor = color, \
         .noFlip = TRUE, \
     }
@@ -1019,22 +1019,22 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_CHARIZARD] =
     {
-        .baseHP        = 78,
-        .baseAttack    = 84,
-        .baseDefense   = 78,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 109,
-        .baseSpDefense = 85,
+        .baseHP        = 95,
+        .baseAttack    = 105,
+        .baseDefense   = 95,
+        .baseSpeed     = 130,
+        .baseSpAttack  = 140,
+        .baseSpDefense = 105,
         .types = { TYPE_FIRE, TYPE_FLYING },
-        .catchRate = 45,
-        .expYield = 240,
-        .evYield_SpAttack  = 3,
+        .catchRate = 1,
+        .expYield = 419,
+        .evYield_SpAttack = 3,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_DRAGON},
-        .abilities = {ABILITY_BLAZE, ABILITY_NONE, ABILITY_SOLAR_POWER},
+        .abilities = {ABILITY_INFERNAL_REIGN, ABILITY_NONE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -25827,14 +25827,14 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpDefense = 145,
         .types = { TYPE_PSYCHIC, TYPE_DARK },
         .catchRate = 1,
-        .expYield = 216,
+        .expYield = 419,
         .evYield_SpAttack = 3,
         .genderRatio = MON_MALE,
         .eggCycles = 0,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_DARK_AURA, ABILITY_DARK_AURA, ABILITY_DARK_AURA},
+        .abilities = {ABILITY_MIND_GAMES, ABILITY_NONE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },

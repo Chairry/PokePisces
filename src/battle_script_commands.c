@@ -1757,9 +1757,6 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     u8 defParam = GetBattlerHoldEffectParam(battlerDef);
     u8 atkAlly = BATTLE_PARTNER(battlerAtk);
     u16 atkAllyAbility = GetBattlerAbility(atkAlly);
-    u16 defBaseSpeciesId;
-
-    defBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerDef].species);
 
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
@@ -1793,6 +1790,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         moveAcc = 50;
     if ((gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING) && gCurrentMove == MOVE_GRASS_WHISTLE)
         moveAcc = moveAcc + 15;
+    if (gBattleMons[battlerAtk].species == SPECIES_CHARIZARD && gCurrentMove == MOVE_FIRE_SPIN)
+        moveAcc = 0;
 
     calc = gAccuracyStageRatios[buff].dividend * moveAcc;
     calc /= gAccuracyStageRatios[buff].divisor;
@@ -1870,7 +1869,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         calc = (calc * 90) / 100;
         break;
     case HOLD_EFFECT_DRIP_SHOES: 
-        if (defBaseSpeciesId == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
+        if (gBattleMons[battlerDef].species == SPECIES_PANTNEY && (gBattleWeather & B_WEATHER_RAIN))
             calc = (calc * 80) / 100;
         break;
     }
@@ -2104,7 +2103,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gCurrentMove == MOVE_BRANCH_POKE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
              || (abilityAtk == ABILITY_MERCILESS && gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
              || (abilityAtk == ABILITY_DRIZZLE && gBattleMoves[move].effect == EFFECT_SERPENT_SURGE && (gBattleWeather & B_WEATHER_RAIN))
-             || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[battlerAtk] & SIDE_STATUS_TAILWIND)
+             || (gBattleMoves[move].effect == EFFECT_MANEUVER && gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_TAILWIND)
              || (abilityAtk == ABILITY_BRAND_CLAWS && gBattleMons[battlerDef].status1 & STATUS1_BURN)
              || (abilityAtk == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battlerAtk].isFirstTurn || IsTwoTurnsMove(move)))
              || (abilityAtk == ABILITY_PRODIGY && IsMoveMakingContact(move, battlerAtk) )
@@ -10405,7 +10404,7 @@ static void Cmd_various(void)
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
             case ABILITY_SHATTERED:         case ABILITY_TITANIC:
-            case ABILITY_ENDLESS:
+            case ABILITY_ENDLESS:           case ABILITY_INFERNAL_REIGN:
             case ABILITY_RISING:            case ABILITY_FALLING:
             case ABILITY_GOLDEN_MEAN:       case ABILITY_PRODIGY:
             case ABILITY_PUNISHER:          case ABILITY_ARBITER:
@@ -10417,6 +10416,7 @@ static void Cmd_various(void)
             case ABILITY_MILKY_WAY:         case ABILITY_CINDER_WALTZ:
             case ABILITY_RESET:             case ABILITY_PURPLE_HAZE:
             case ABILITY_MAGMA_ARMOR:       case ABILITY_LOVESICK:
+            case ABILITY_VERTIGO:           case ABILITY_MIND_GAMES:
                 break;
             default:
                 gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
