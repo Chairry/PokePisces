@@ -912,7 +912,7 @@ static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut it
 static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
 static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
 static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressurizing air!");
-static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV.\n{B_BUFF2} and can evolve!{WAIT_SE}\p");
+static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV. {B_BUFF2}\nand can evolve!{WAIT_SE}\p");
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
 static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
 static const u8 sText_CuredBlooming[] = _("The user cured\nitself of Blooming!");
@@ -933,7 +933,7 @@ static const u8 sText_EggsRoyale[] = _("{B_DEF_NAME_WITH_PREFIX} royal aura\nis 
 static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a\ncrushing blow!");
 static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a\nrandom cheese!");
 static const u8 sText_PkmnBurningUp[] = _("{B_ATK_NAME_WITH_PREFIX} is burning up\nwithin the Infernal Reign!");
-static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the aura of a king!");
+static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the\naura of a king!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {

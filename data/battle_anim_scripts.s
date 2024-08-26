@@ -1164,7 +1164,8 @@ gBattleAnims_General::
 	.4byte Move_EXTREME_EVOBOOST            @ B_ANIM_A_THING
 	.4byte General_DecimationHit            @ B_ANIM_DECIMATION_HIT
 	.4byte Move_HEARTHWARM                  @ B_ANIM_HEARTHWARM_HEAL
-	.4byte Move_GRAVITY                     @ B_ANIM_GRAVITY 
+	.4byte Move_GRAVITY                     @ B_ANIM_GRAVITY
+	.4byte Move_FIRE_SPIN                   @ B_ANIM_INFERNAL_REIGN
 
 	.align 2
 gBattleAnims_Special::

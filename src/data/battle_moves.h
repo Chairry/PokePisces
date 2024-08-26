@@ -1604,9 +1604,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_TOXIC] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .accuracy = 90,
+            .accuracy = 80,
         #else
-            .accuracy = 85,
+            .accuracy = 80,
         #endif
         .effect = EFFECT_TOXIC,
         .power = 0,
