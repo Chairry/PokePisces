@@ -123,7 +123,7 @@
 #else
 #define ABILITY_NAME_LENGTH 12
 #endif
-#define TRAINER_NAME_LENGTH 10
+#define TRAINER_NAME_LENGTH 16
 
 #define MAX_STAMP_CARD_STAMPS 7
 
