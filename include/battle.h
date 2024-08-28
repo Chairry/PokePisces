@@ -112,6 +112,8 @@ struct DisableStruct
     u8 powerSplit:1;
     u8 powerSwap:1;
     u8 speedSwap:1;
+    u8 chargeTimer:4;
+    u8 pumpTimer:4;
 };
 
 struct ProtectStruct

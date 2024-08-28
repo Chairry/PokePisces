@@ -3412,12 +3412,12 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_CHARGE: // charge
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_ELECTRIC)
+            if (gDisableStructs[battler].chargeTimer > 0 && --gDisableStructs[battler].chargeTimer == 0)
                 gStatuses3[battler] &= ~STATUS3_CHARGED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_PUMPED_UP: // reservoir
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_WATER)
+            if (gDisableStructs[battler].pumpTimer > 0 && --gDisableStructs[battler].pumpTimer == 0)
                 gStatuses4[battler] &= ~STATUS4_PUMPED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -7170,7 +7170,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_BRAND_CLAWS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeBurned(gBattlerTarget) && IsMoveMakingContact(move, gBattlerAttacker) && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 10) == 0)
+            && RandomPercentage(RNG_POISON_POINT, 15))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7194,7 +7194,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_FROST_JAW:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeFrozen(gBattlerTarget) && gBattleMoves[move].bitingMove && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 5) == 0)
+                && (Random() % 10) == 0)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -11815,7 +11815,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case ABILITY_STRONG_JAW:
         if (gBattleMoves[move].bitingMove)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_FROST_JAW:
         if (gBattleMoves[move].bitingMove)

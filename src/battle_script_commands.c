@@ -6995,6 +6995,10 @@ static void Cmd_moveend(void)
             gBattleStruct->isAtkCancelerForCalledMove = FALSE;
             gBattleStruct->enduredDamage = 0;
             gBattleStruct->distortedTypeMatchups = 0;
+            if (moveType == TYPE_ELECTRIC)
+                gStatuses3[gBattlerAttacker] &= ~(STATUS3_CHARGED_UP);
+            if (moveType == TYPE_WATER)
+                gStatuses4[gBattlerAttacker] &= ~(STATUS4_PUMPED_UP);
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_COUNT:
@@ -12690,6 +12694,7 @@ static void Cmd_various(void)
 
         u8 battler = GetBattlerForBattleScript(cmd->battler);
         gStatuses4[battler] |= STATUS4_PUMPED_UP;
+        gDisableStructs[battler].pumpTimer = 0;
         gBattlescriptCurrInstr++;
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
@@ -16182,6 +16187,7 @@ static void Cmd_setcharge(void)
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
     gStatuses3[battler] |= STATUS3_CHARGED_UP;
+    gDisableStructs[battler].chargeTimer = 0;
     gBattlescriptCurrInstr++;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
