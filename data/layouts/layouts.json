@@ -4645,7 +4645,7 @@
       "id": "LAYOUT_LAVARIDGE_INT",
       "name": "LavaridgeInt_Layout",
       "width": 40,
-      "height": 40,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_LavaridgeNew",
       "border_filepath": "data/layouts/LavaridgeInt/border.bin",
