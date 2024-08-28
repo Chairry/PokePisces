@@ -20,21 +20,21 @@
     {
       "x": 19,
       "y": 37,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_INT",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 37,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_INT",
       "dest_warp_id": "0"
     },
     {
       "x": 21,
       "y": 37,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_INT",
       "dest_warp_id": "0"
     },
