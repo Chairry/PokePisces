@@ -3968,7 +3968,7 @@ static const struct TrainerMon sParty_PBichael[] = {
     },
 };
 
-static const struct TrainerMon sParty_PKrisrey2[] = {
+static const struct TrainerMon sParty_PFlowers[] = {
     {
     .species = SPECIES_TRIDALIER,
     .ability = ABILITY_SKILL_LINK,

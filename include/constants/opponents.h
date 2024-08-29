@@ -652,8 +652,8 @@
 #define TRAINER_P_TOPAZ_10                      648
 #define TRAINER_P_KUMQOT                      649
 #define TRAINER_P_DORIAN                    650
-#define TRAINER_P_TOPAZ_11                       651
-#define TRAINER_P_TOPAZ_12                       652
+#define TRAINER_P_LYTXI                       651
+#define TRAINER_P_SHERIMOYA                       652
 #define TRAINER_P_PANDOU_6                       653
 #define TRAINER_P_PANDOU_5                       654
 #define TRAINER_P_PETER                      655

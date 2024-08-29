@@ -243,3 +243,6 @@ const u16 gMetatileAttributes_OldStoneBuildings[] = INCBIN_U16("data/tilesets/se
 
 const u16 gMetatiles_BossCave[] = INCBIN_U16("data/tilesets/secondary/boss_cave/metatiles.bin");
 const u16 gMetatileAttributes_BossCave[] = INCBIN_U16("data/tilesets/secondary/boss_cave/metatile_attributes.bin");
+
+const u16 gMetatiles_LavaridgeNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_new/metatiles.bin");
+const u16 gMetatileAttributes_LavaridgeNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_new/metatile_attributes.bin");

@@ -957,3 +957,14 @@ const struct Tileset gTileset_BossCave =
     .metatileAttributes = gMetatileAttributes_BossCave,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LavaridgeNew =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LavaridgeNew,
+    .palettes = gTilesetPalettes_LavaridgeNew,
+    .metatiles = gMetatiles_LavaridgeNew,
+    .metatileAttributes = gMetatileAttributes_LavaridgeNew,
+    .callback = NULL,
+};
