@@ -867,6 +867,38 @@ BattleScript_DefenderExplodedExtraHitDamp::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_DefenderExplodedExtraRestoreBattlers
 
+BattleScript_AttackerUsedAnExtraMove::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_ABILITYLETITUSEMOVE
+	waitmessage B_WAIT_TIME_SHORT
+BattleScript_EffectExtraHit::
+BattleScript_ExtraHitFromAtkCanceler::
+	attackcanceler
+BattleScript_ExtraHitFromAccCheck::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript_ExtraHitFromAtkString::
+BattleScript_ExtraHitFromCritCalc::
+	critcalc
+	damagecalc
+	adjustdamage
+BattleScript_ExtraHitFromAtkAnimation::
+	playmoveanimation BS_ATTACKER, MOVE_NONE
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	tryfaintmon BS_TARGET
+BattleScript_ExtraExtraMoveEnd::
+	moveendall
+	end
+
 BattleScript_EffectOvertake::
 	goto BattleScript_EffectHit
 

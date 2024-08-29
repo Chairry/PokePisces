@@ -368,6 +368,7 @@ static const u8 sShunyongDescription[] = _("Shunyong");
 static const u8 sRegeneratorDescription[] = _("Restores a little HP when\nwithdrawn from battle.");
 static const u8 sDomineerDescription[] = _("Psychic-type moves can hit\nDark-types, and lower Attack.");
 static const u8 sVertigoDescription[] = _("If hit while confused, uses\na move that drops Evasion.");
+static const u8 sStormBrewDescription[] = _("If user or ally uses an Elec-\ntype move uses Thunder Shock.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -750,6 +751,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_VERTIGO] = _("Vertigo"),
     [ABILITY_MIND_GAMES] = _("Mind Games"),
     [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
+    [ABILITY_STORM_BREW] = _("Storm Brew"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1132,6 +1134,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_VERTIGO] = _("Vertigo"),
     [ABILITY_MIND_GAMES] = _("Mind Games"),
     [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
+    [ABILITY_STORM_BREW] = _("Storm Brew"),
 };
 #endif
 
@@ -1515,4 +1518,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_VERTIGO] = sVertigoDescription,
     [ABILITY_MIND_GAMES] = sPsychicSurgeDescription,
     [ABILITY_INFERNAL_REIGN] = sNoneDescription,
+    [ABILITY_STORM_BREW] = sStormBrewDescription,
 };

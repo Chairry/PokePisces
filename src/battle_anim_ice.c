@@ -598,7 +598,7 @@ const struct SpriteTemplate gAvalancheSpriteTemplate =
     .anims = gAvalancheAnimCmd,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AvalancheAnim_Step,
+    .callback = AnimFallingRock,
 };
 
 const struct SpriteTemplate gChatterSingNotesTemplate =

@@ -10408,7 +10408,7 @@ static void Cmd_various(void)
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
             case ABILITY_SHATTERED:         case ABILITY_TITANIC:
-            case ABILITY_ENDLESS:           case ABILITY_INFERNAL_REIGN:
+            case ABILITY_ENDLESS:           case ABILITY_STORM_BREW:
             case ABILITY_RISING:            case ABILITY_FALLING:
             case ABILITY_GOLDEN_MEAN:       case ABILITY_PRODIGY:
             case ABILITY_PUNISHER:          case ABILITY_ARBITER:
@@ -10549,10 +10549,12 @@ static void Cmd_various(void)
         {
             if (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 4))
             {
+                gBattleScripting.animTurn = 1;
                 gBattlescriptCurrInstr = cmd->jumpInstr;
             }
             else
             {
+                gBattleScripting.animTurn = 0;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
         }

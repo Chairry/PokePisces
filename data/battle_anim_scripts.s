@@ -2955,16 +2955,16 @@ Move_AVALANCHE::
 	loadspritegfx ANIM_TAG_ICE_CHUNK
 	monbg ANIM_DEF_PARTNER
 	createsprite gShakeMonOrTerrainSpriteTemplate, 2, 4, 7, 1, 11, 1
-	createsprite gAvalancheSpriteTemplate, 130, 4, -5, 1, -5, 1
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -5, 1, -5, 1
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	delay 2
-	createsprite gAvalancheSpriteTemplate, 130, 4, 5, 0, 6, 1
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 5, 0, 6, 1
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	delay 2
-	createsprite gAvalancheSpriteTemplate, 130, 4, 19, 1, 10, 1
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, 19, 1, 10, 1
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	delay 2
-	createsprite gAvalancheSpriteTemplate 130, 4, -17, 2, -20, 1
+	createsprite gAvalancheSpriteTemplate, ANIM_TARGET, 2, -23, 2, -10, 1
 	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 5, 50, 1
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_DEF_PARTNER, 0, 5, 50, 1
@@ -20155,6 +20155,8 @@ DecayBeamOrbs:
 	return
 
 Move_CANNONADE::
+	choosetwoturnanim CannonadeNormal, Move_EXPLOSION
+CannonadeNormal:
 	loadspritegfx ANIM_TAG_IMPACT_2
 	loadspritegfx ANIM_TAG_LEER
 	loadspritegfx ANIM_TAG_FIRE
