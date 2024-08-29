@@ -138,7 +138,7 @@ static const u16 sSkillSwapBannedAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -193,7 +193,7 @@ static const u16 sRolePlayBannedAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sRolePlayBannedAttackerAbilities[] =
@@ -240,7 +240,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -286,7 +286,7 @@ static const u16 sWorrySeedBannedAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sGastroAcidBannedAbilities[] =
@@ -333,7 +333,7 @@ static const u16 sGastroAcidBannedAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sEntrainmentBannedAttackerAbilities[] =
@@ -381,7 +381,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
@@ -425,7 +425,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
         ABILITY_LOVESICK,
         ABILITY_VERTIGO,
         ABILITY_MIND_GAMES,
-        ABILITY_INFERNAL_REIGN,
+        ABILITY_STORM_BREW,
 };
 
 static u8 CalcBeatUpPower(void)
@@ -3412,12 +3412,12 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_CHARGE: // charge
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_ELECTRIC)
+            if (gDisableStructs[battler].chargeTimer > 0 && --gDisableStructs[battler].chargeTimer == 0)
                 gStatuses3[battler] &= ~STATUS3_CHARGED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_PUMPED_UP: // reservoir
-            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)) && gBattleMoves[gLastLandedMoves[battler]].type == TYPE_WATER)
+            if (gDisableStructs[battler].pumpTimer > 0 && --gDisableStructs[battler].pumpTimer == 0)
                 gStatuses4[battler] &= ~STATUS4_PUMPED_UP;
             gBattleStruct->turnEffectsTracker++;
             break;
@@ -4395,6 +4395,16 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
 
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
             }
+            else if (gCurrentMove == MOVE_AQUASCADE && (gBattleWeather & B_WEATHER_RAIN))
+            {
+                gMultiHitCounter = 2;
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+            }
+            else if ((gBattleMoves[gCurrentMove].effect == EFFECT_CANNONADE) && (gBattleMons[gBattlerAttacker].hp > (gBattleMons[gBattlerAttacker].maxHP / 4)))
+            {
+                gMultiHitCounter = 2;
+                PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+            }
             else if (gBattleMoves[gCurrentMove].strikeCount > 1)
             {
                 if (gBattleMoves[gCurrentMove].effect == EFFECT_POPULATION_BOMB && GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_LOADED_DICE)
@@ -4410,16 +4420,6 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                     u32 count = 0;
                     count += gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] - DEFAULT_STAT_STAGE;
                     gMultiHitCounter = count + gBattleMoves[gCurrentMove].strikeCount;
-                    PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
-                }
-                else if (gCurrentMove == MOVE_AQUASCADE && (!(gBattleWeather & B_WEATHER_RAIN)))
-                {
-                    gMultiHitCounter = 1;
-                    PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
-                }
-                else if ((gBattleMoves[gCurrentMove].effect == EFFECT_CANNONADE) && (gBattleMons[gBattlerAttacker].hp <= (gBattleMons[gBattlerAttacker].maxHP / 4)))
-                {
-                    gMultiHitCounter = 1;
                     PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
                 }
                 else
@@ -6754,7 +6754,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 u16 extraMove = MOVE_SWEET_SCENT;     //The Extra Move to be used
                 u8 movePower = 0;                 //The Move power, leave at 0 if you want it to be the same as the normal move
                 u8 moveEffectPercentChance  = 0;  //The percent chance of the move effect happening
-                u8 extraMoveSecondaryEffect = 0;  //Leave at 0 to remove it's secondary effect
+                u8 extraMoveSecondaryEffect = MOVE_EFFECT_EVS_MINUS_1;  //Leave at 0 to remove it's secondary effect
                 gTempMove = gCurrentMove;
                 gCurrentMove = extraMove;
                 gMultiHitCounter = 0;
@@ -7101,6 +7101,46 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_STORM_BREW:
+            if ((!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMoves[move].type == TYPE_ELECTRIC
+            && gBattleMons[gBattlerAttacker].hp != 0
+            && IsBattlerAlive(gBattlerTarget) 
+            && TARGET_TURN_DAMAGED
+            && gBattlerTarget != gBattlerAttacker
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && !gProtectStructs[gBattlerAttacker].extraMoveUsed
+            && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP_ANY)
+            && !(gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE))
+            || (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMoves[move].type == TYPE_ELECTRIC
+            && gBattleMons[BATTLE_PARTNER(gBattlerAttacker)].hp != 0
+            && IsBattlerAlive(gBattlerTarget) 
+            && TARGET_TURN_DAMAGED
+            && gBattlerTarget != BATTLE_PARTNER(gBattlerAttacker)
+            && !gProtectStructs[BATTLE_PARTNER(gBattlerAttacker)].confusionSelfDmg
+            && !gProtectStructs[gBattlerAttacker].extraMoveUsed
+            && !(gBattleMons[BATTLE_PARTNER(gBattlerAttacker)].status1 & STATUS1_SLEEP_ANY)
+            && !(gBattleMons[BATTLE_PARTNER(gBattlerAttacker)].status1 & STATUS1_FREEZE)))
+            {
+                u16 extraMove = MOVE_THUNDER_SHOCK;  //The Extra Move to be used
+                u8 movePower = 0;                  //The Move power, leave at 0 if you want it to be the same as the normal move
+                u8 moveEffectPercentChance  = 10;  //The percent chance of the move effect happening
+                u8 extraMoveSecondaryEffect = MOVE_EFFECT_PARALYSIS;  //Leave at 0 to remove it's secondary effect
+                gTempMove = gCurrentMove;
+                gCurrentMove = extraMove;
+                gMultiHitCounter = 0;
+                gProtectStructs[battler].extraMoveUsed = TRUE;
+
+                //Move Effect
+                VarSet(VAR_EXTRA_MOVE_DAMAGE,      movePower);
+                VarSet(VAR_TEMP_MOVEEFFECT_CHANCE, moveEffectPercentChance);
+                VarSet(VAR_TEMP_MOVEEFFECT,        extraMoveSecondaryEffect);
+
+                gBattlescriptCurrInstr = BattleScript_AttackerUsedAnExtraMove;
+                effect++;
+            }
+            break;
         case ABILITY_RISKTAKER:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
             && gBattleMons[gBattlerTarget].hp != 0 
@@ -7170,7 +7210,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_BRAND_CLAWS:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeBurned(gBattlerTarget) && IsMoveMakingContact(move, gBattlerAttacker) && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 10) == 0)
+            && RandomPercentage(RNG_POISON_POINT, 15))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_BURN;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7194,7 +7234,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_FROST_JAW:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeFrozen(gBattlerTarget) && gBattleMoves[move].bitingMove && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 5) == 0)
+                && (Random() % 10) == 0)
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7249,7 +7289,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         switch (GetBattlerAbility(battler))
         {
         case ABILITY_DANCER:
-            if (IsBattlerAlive(battler) && (gBattleMoves[gCurrentMove].danceMove) && !gSpecialStatuses[battler].dancerUsedMove && gBattlerAttacker != battler)
+            if (IsBattlerAlive(battler) 
+            && (gBattleMoves[gCurrentMove].danceMove) 
+            && !gSpecialStatuses[battler].dancerUsedMove 
+            && gBattlerAttacker != battler)
             {
                 // Set bit and save Dancer mon's original target
                 gSpecialStatuses[battler].dancerUsedMove = TRUE;
@@ -11815,7 +11858,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         break;
     case ABILITY_STRONG_JAW:
         if (gBattleMoves[move].bitingMove)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_FROST_JAW:
         if (gBattleMoves[move].bitingMove)
@@ -14563,8 +14606,10 @@ u32 GetBattlerMoveTargetType(u32 battler, u32 move)
 
     if (gBattleMoves[move].effect == EFFECT_EXPANDING_FORCE && IsBattlerTerrainAffected(battler, STATUS_FIELD_PSYCHIC_TERRAIN))
         return MOVE_TARGET_BOTH;
-    if (gCurrentMove == MOVE_LEAF_STORM && (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING))
+    else if (gCurrentMove == MOVE_LEAF_STORM && (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING))
         return MOVE_TARGET_BOTH;
+    else if ((gBattleMoves[gCurrentMove].effect == EFFECT_CANNONADE) && (gBattleMons[gBattlerAttacker].hp <= (gBattleMons[gBattlerAttacker].maxHP / 4)))
+        return MOVE_TARGET_FOES_AND_ALLY;
     else
         return gBattleMoves[move].target;
 }

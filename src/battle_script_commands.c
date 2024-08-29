@@ -6995,6 +6995,10 @@ static void Cmd_moveend(void)
             gBattleStruct->isAtkCancelerForCalledMove = FALSE;
             gBattleStruct->enduredDamage = 0;
             gBattleStruct->distortedTypeMatchups = 0;
+            if (moveType == TYPE_ELECTRIC)
+                gStatuses3[gBattlerAttacker] &= ~(STATUS3_CHARGED_UP);
+            if (moveType == TYPE_WATER)
+                gStatuses4[gBattlerAttacker] &= ~(STATUS4_PUMPED_UP);
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_COUNT:
@@ -10404,7 +10408,7 @@ static void Cmd_various(void)
             case ABILITY_SHIELDS_DOWN:      case ABILITY_DISGUISE:
             case ABILITY_RKS_SYSTEM:        case ABILITY_TRACE:            
             case ABILITY_SHATTERED:         case ABILITY_TITANIC:
-            case ABILITY_ENDLESS:           case ABILITY_INFERNAL_REIGN:
+            case ABILITY_ENDLESS:           case ABILITY_STORM_BREW:
             case ABILITY_RISING:            case ABILITY_FALLING:
             case ABILITY_GOLDEN_MEAN:       case ABILITY_PRODIGY:
             case ABILITY_PUNISHER:          case ABILITY_ARBITER:
@@ -10545,10 +10549,12 @@ static void Cmd_various(void)
         {
             if (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 4))
             {
+                gBattleScripting.animTurn = 1;
                 gBattlescriptCurrInstr = cmd->jumpInstr;
             }
             else
             {
+                gBattleScripting.animTurn = 0;
                 gBattlescriptCurrInstr = cmd->nextInstr;
             }
         }
@@ -12690,6 +12696,7 @@ static void Cmd_various(void)
 
         u8 battler = GetBattlerForBattleScript(cmd->battler);
         gStatuses4[battler] |= STATUS4_PUMPED_UP;
+        gDisableStructs[battler].pumpTimer = 0;
         gBattlescriptCurrInstr++;
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
@@ -16182,6 +16189,7 @@ static void Cmd_setcharge(void)
 
     u8 battler = GetBattlerForBattleScript(cmd->battler);
     gStatuses3[battler] |= STATUS3_CHARGED_UP;
+    gDisableStructs[battler].chargeTimer = 0;
     gBattlescriptCurrInstr++;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
