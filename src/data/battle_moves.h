@@ -16801,6 +16801,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .highCritRatio = TRUE,
+        .ballisticMove = TRUE,
         .pulseMove = TRUE,
     },
 
