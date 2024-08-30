@@ -248,7 +248,7 @@ Route103_EventScript_Andrew::
 	end
 
 Route103_EventScript_Miguel::
-	trainerbattle_single TRAINER_P_HEDORAH, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_P_HEDON, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_MiguelRematch
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
@@ -259,12 +259,12 @@ Route102_EventScript_MiguelRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route103_Text_MiguelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_P_HEDORAH
+	register_matchcall TRAINER_P_HEDON
 	release
 	end
 
 Route103_EventScript_MiguelRematch::
-	trainerbattle_rematch TRAINER_P_HEDORAH, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
+	trainerbattle_rematch TRAINER_P_HEDON, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
 	msgbox Route103_Text_MiguelRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 

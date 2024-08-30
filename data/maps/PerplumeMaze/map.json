@@ -48,7 +48,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "PerplumeMaze_EventScript_Kris",
       "flag": "0"
     },
     {
@@ -61,7 +61,7 @@
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "PerplumeMaze_EventScript_Susie",
       "flag": "0"
     },
     {
@@ -74,7 +74,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "PerplumeMaze_EventScript_Ralsei",
       "flag": "0"
     },
     {

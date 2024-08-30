@@ -248,7 +248,7 @@
 #define TRAINER_P_AKI_AND_MITSU                      244
 #define TRAINER_P_DAISY                    245
 #define TRAINER_P_GWUNIVERE                       246
-#define TRAINER_P_SORA                       247
+#define TRAINER_P_YISAN                       247
 #define TRAINER_P_HAMM                      248
 #define TRAINER_P_FRANK                     249
 #define TRAINER_P_WEINER                     250
@@ -259,7 +259,7 @@
 #define TRAINER_P_EMMY                       255
 #define TRAINER_P_DAYTON                      256
 #define TRAINER_P_LIBRA                    257
-#define TRAINER_P_BATES                    258
+#define TRAINER_P_BAZE                    258
 #define TRAINER_P_CHINZAO                    259
 #define TRAINER_P_MARIMAR                    260
 #define TRAINER_DO_NOT_TOUCHIE                      261
@@ -290,11 +290,11 @@
 #define TRAINER_P_REDACTED                286
 #define TRAINER_P_DIMITRI              287
 #define TRAINER_P_CLIFF_AND_ISSA              288
-#define TRAINER_P_RODAN              289
-#define TRAINER_P_MOTHRA              290
+#define TRAINER_P_GERODE              289
+#define TRAINER_P_MEZRA              290
 #define TRAINER_P_LANE              291
 #define TRAINER_P_BONNIE                      292
-#define TRAINER_P_HEDORAH                    293
+#define TRAINER_P_HEDON                    293
 #define TRAINER_P_MONICA                      294
 #define TRAINER_P_GHIDORAH                    295
 #define TRAINER_P_GOJIRA                    296

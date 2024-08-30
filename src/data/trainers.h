@@ -2964,16 +2964,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PGwunivere),
     },
 
-    [TRAINER_P_SORA] =
+    [TRAINER_P_YISAN] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_BIRD_KEEPER,
-        .trainerName = _("Sora"),
+        .trainerName = _("Yisan"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PSora),
+        .party = TRAINER_PARTY(sParty_PYisan),
     },
 
     [TRAINER_P_HAMM] =
@@ -3096,12 +3096,12 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PLibra),
     },
 
-    [TRAINER_P_BATES] =
+    [TRAINER_P_BAZE] =
     {
         .trainerClass = TRAINER_CLASS_MASTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_RICH,
         .trainerPic = TRAINER_PIC_EXPERT_M,
-        .trainerName = _("Bates"),
+        .trainerName = _("Baze"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -3468,28 +3468,28 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PCliffAndIssa),
     },
 
-    [TRAINER_P_RODAN] =
+    [TRAINER_P_GERODE] =
     {
         .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LAD,
         .trainerPic = TRAINER_PIC_DRAGON_TAMER,
-        .trainerName = _("Rodan"),
+        .trainerName = _("Gerode"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PRodan),
+        .party = TRAINER_PARTY(sParty_PGerode),
     },
 
-    [TRAINER_P_MOTHRA] =
+    [TRAINER_P_MEZRA] =
     {
         .trainerClass = TRAINER_CLASS_DRAGON_CALLER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_RICH,
         .trainerPic = TRAINER_PIC_DRAGON_CALLER,
-        .trainerName = _("Mothra"),
+        .trainerName = _("Mezra"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PMothra),
+        .party = TRAINER_PARTY(sParty_PMezra),
     },
 
     [TRAINER_P_LANE] =
@@ -3516,16 +3516,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PBonnie),
     },
 
-    [TRAINER_P_HEDORAH] =
+    [TRAINER_P_HEDON] =
     {
         .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LAD,
         .trainerPic = TRAINER_PIC_DRAGON_TAMER,
-        .trainerName = _("Hedorah"),
+        .trainerName = _("Hedon"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PHedorah),
+        .party = TRAINER_PARTY(sParty_PHedon),
     },
 
     [TRAINER_P_MONICA] =

@@ -22,145 +22,156 @@ Route113_EventScript_CheckSetAshWeather::
 Route113_EventScript_DontSetAshWeather::
 	return
 
-Route113_EventScript_Gentleman::
-	msgbox Route113_Text_AshCanBeFashionedIntoGlass, MSGBOX_NPC
-	end
+Route113_EventScript_Ashe::
+    trainerbattle_single TRAINER_P_ASHE, Route113_Text_AsheIntro, Route113_Text_AsheDefeated
+    msgbox Route113_Text_AshePostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_NinjaBoy::
-	msgbox Route113_Text_FunWalkingThroughAsh, MSGBOX_NPC
-	end
+Route113_EventScript_Sara::
+    trainerbattle_single TRAINER_P_SARA, Route113_Text_SaraIntro, Route113_Text_SaraDefeated
+    msgbox Route113_Text_SaraPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_RouteSign111::
-	msgbox Route113_Text_RouteSign111, MSGBOX_SIGN
-	end
+Route113_EventScript_Togedemaru::
+    trainerbattle_single TRAINER_P_TOGEDEMARU, Route113_Text_TogedemaruIntro, Route113_Text_TogedemaruDefeated
+    msgbox Route113_Text_TogedemaruPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_RouteSignFallarbor::
-	msgbox Route113_Text_RouteSignFallarbor, MSGBOX_SIGN
-	end
+Route113_EventScript_Jucika::
+    trainerbattle_single TRAINER_P_JUCIKA, Route113_Text_JucikaIntro, Route113_Text_JucikaDefeated
+    msgbox Route113_Text_JucikaPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_GlassWorkshopSign::
-	msgbox Route113_Text_GlassWorkshopSign, MSGBOX_SIGN
-	end
+Route113_EventScript_Naruto::
+    trainerbattle_single TRAINER_P_NARUTO, Route113_Text_NarutoIntro, Route113_Text_NarutoDefeated
+    msgbox Route113_Text_NarutoPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_TrainerTipsRegisterKeyItems::
-	msgbox Route113_Text_TrainerTipsRegisterKeyItems, MSGBOX_SIGN
-	end
+Route113_EventScript_Kushina::
+    trainerbattle_single TRAINER_P_KUSHINA, Route113_Text_KushinaIntro, Route113_Text_KushinaDefeated
+    msgbox Route113_Text_KushinaPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_Jaylen::
-	trainerbattle_single TRAINER_P_HAYLEY, Route113_Text_JaylenIntro, Route113_Text_JaylenDefeat
-	msgbox Route113_Text_JaylenPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_EventScript_Callum::
+    trainerbattle_single TRAINER_P_CALLUM, Route113_Text_CallumIntro, Route113_Text_CallumDefeated
+    msgbox Route113_Text_CallumPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_Dillon::
-	trainerbattle_single TRAINER_P_ENA_AND_MINA, Route113_Text_DillonIntro, Route113_Text_DillonDefeat
-	msgbox Route113_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_EventScript_Kusuo::
+    trainerbattle_single TRAINER_P_KUSUO, Route113_Text_KusuoIntro, Route113_Text_KusuoDefeated
+    msgbox Route113_Text_KusuoPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_Madeline::
-	trainerbattle_single TRAINER_P_EYRE, Route113_Text_MadelineIntro, Route113_Text_MadelineDefeat, Route113_EventScript_RegisterMadeline
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchMadeline
-	msgbox Route113_Text_MadelinePostBattle, MSGBOX_DEFAULT
-	release
-	end
+Route113_EventScript_Mirai::
+    trainerbattle_single TRAINER_P_MIRAI, Route113_Text_MiraiIntro, Route113_Text_MiraiDefeated
+    msgbox Route113_Text_MiraiPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_RegisterMadeline::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route113_Text_MadelineRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_P_EYRE
-	release
-	end
+Route113_EventScript_Kurenai::
+    trainerbattle_single TRAINER_P_KURENAI, Route113_Text_KurenaiIntro, Route113_Text_KurenaiDefeated
+    msgbox Route113_Text_KurenaiPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_RematchMadeline::
-	trainerbattle_rematch TRAINER_P_EYRE, Route113_Text_MadelineRematchIntro, Route113_Text_MadelineRematchDefeat
-	msgbox Route113_Text_MadelinePostRematch, MSGBOX_AUTOCLOSE
-	end
+Route113_EventScript_Sakurai::
+    trainerbattle_single TRAINER_P_SAKURAI, Route113_Text_SakuraiIntro, Route113_Text_SakuraiDefeated
+    msgbox Route113_Text_SakuraiPostBattle, MSGBOX_AUTOCLOSE
+    end
 
-Route113_EventScript_Lao::
-	trainerbattle_single TRAINER_P_NUNYA, Route113_Text_LaoIntro, Route113_Text_LaoDefeat, Route113_EventScript_RegisterLao
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchLao
-	msgbox Route113_Text_LaoPostBattle, MSGBOX_DEFAULT
-	release
-	end
+Route113_Text_AsheIntro:
+	.string "intro$"
 
-Route113_EventScript_RegisterLao::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route113_Text_LaoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_P_NUNYA
-	release
-	end
+Route113_Text_AsheDefeated:
+	.string "defeat$"
 
-Route113_EventScript_RematchLao::
-	trainerbattle_rematch TRAINER_P_NUNYA, Route113_Text_LaoRematchIntro, Route113_Text_LaoRematchDefeat
-	msgbox Route113_Text_LaoPostRematch, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_AshePostBattle:
+	.string "post$"
 
-Route113_EventScript_Lung::
-	trainerbattle_single TRAINER_P_JACK, Route113_Text_LungIntro, Route113_Text_LungDefeat
-	msgbox Route113_Text_LungPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_SaraIntro:
+	.string "intro$"
 
-Route113_EventScript_Tori::
-	trainerbattle_double TRAINER_P_SHELLY_1, Route113_Text_ToriIntro, Route113_Text_ToriDefeat, Route113_Text_ToriNotEnoughMons
-	msgbox Route113_Text_ToriPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_SaraDefeated:
+	.string "defeat$"
 
-Route113_EventScript_Tia::
-	trainerbattle_double TRAINER_P_SHELLY_1, Route113_Text_TiaIntro, Route113_Text_TiaDefeat, Route113_Text_TiaNotEnoughMons
-	msgbox Route113_Text_TiaPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_SaraPostBattle:
+	.string "post$"
 
-Route113_EventScript_Sophie::
-	trainerbattle_single TRAINER_SOPHIE, Route113_Text_SophieIntro, Route113_Text_SophieDefeat
-	msgbox Route113_Text_SophiePostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_TogedemaruIntro:
+	.string "intro$"
 
-Route113_EventScript_Coby::
-	trainerbattle_single TRAINER_COBY, Route113_Text_CobyIntro, Route113_Text_CobyDefeat
-	msgbox Route113_Text_CobyPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_TogedemaruDefeated:
+	.string "defeat$"
 
-Route113_EventScript_Lawrence::
-	trainerbattle_single TRAINER_LAWRENCE, Route113_Text_LawrenceIntro, Route113_Text_LawrenceDefeat
-	msgbox Route113_Text_LawrencePostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_TogedemaruPostBattle:
+	.string "post$"
 
-Route113_EventScript_Wyatt::
-	trainerbattle_single TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat
-	msgbox Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE
-	end
+Route113_Text_JucikaIntro:
+	.string "intro$"
 
-Route113_Text_AshCanBeFashionedIntoGlass:
-	.string "Wahahaha! Today's technology is a\n"
-	.string "wondrous thing!\p"
-	.string "Take this volcanic ash here.\n"
-	.string "It can be fashioned into glass.$"
+Route113_Text_JucikaDefeated:
+	.string "defeat$"
 
-Route113_Text_FunWalkingThroughAsh:
-	.string "It's fun walking through the volcano's\n"
-	.string "ashes on the ground and grass.\p"
-	.string "You can see where you walked--it's\n"
-	.string "really neat!$"
+Route113_Text_JucikaPostBattle:
+	.string "post$"
 
-Route113_Text_RouteSign111:
-	.string "ROUTE 113\n"
-	.string "{RIGHT_ARROW} ROUTE 111$"
+Route113_Text_NarutoIntro:
+	.string "intro$"
 
-Route113_Text_RouteSignFallarbor:
-	.string "ROUTE 113\n"
-	.string "{LEFT_ARROW} FALLARBOR TOWN$"
+Route113_Text_NarutoDefeated:
+	.string "defeat$"
 
-Route113_Text_TrainerTipsRegisterKeyItems:
-	.string "TRAINER TIPS\p"
-	.string "You may register one of the KEY ITEMS\n"
-	.string "in your BAG as SELECT.\p"
-	.string "Simply press SELECT to use\n"
-	.string "the registered item conveniently.$"
+Route113_Text_NarutoPostBattle:
+	.string "post$"
 
-Route113_Text_GlassWorkshopSign:
-	.string "GLASS WORKSHOP\n"
-	.string "“Turning Volcanic Ash into Glass Items”$"
+Route113_Text_KushinaIntro:
+	.string "intro$"
 
+Route113_Text_KushinaDefeated:
+	.string "defeat$"
+
+Route113_Text_KushinaPostBattle:
+	.string "post$"
+
+Route113_Text_CallumIntro:
+	.string "intro$"
+
+Route113_Text_CallumDefeated:
+	.string "defeat$"
+
+Route113_Text_CallumPostBattle:
+	.string "post$"
+
+Route113_Text_KusuoIntro:
+	.string "intro$"
+
+Route113_Text_KusuoDefeated:
+	.string "defeat$"
+
+Route113_Text_KusuoPostBattle:
+	.string "post$"
+
+Route113_Text_MiraiIntro:
+	.string "intro$"
+
+Route113_Text_MiraiDefeated:
+	.string "defeat$"
+
+Route113_Text_MiraiPostBattle:
+	.string "post$"
+
+Route113_Text_KurenaiIntro:
+	.string "intro$"
+
+Route113_Text_KurenaiDefeated:
+	.string "defeat$"
+
+Route113_Text_KurenaiPostBattle:
+	.string "post$"
+
+Route113_Text_SakuraiIntro:
+	.string "intro$"
+
+Route113_Text_SakuraiDefeated:
+	.string "defeat$"
+
+Route113_Text_SakuraiPostBattle:
+	.string "post$"
