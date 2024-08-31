@@ -9554,7 +9554,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                     else if (gDisableStructs[battler].heartGiftTimer == 1)
                     {
                         gDisableStructs[battler].heartGiftTimer = 2;
-                        gBattleMoveDamage = gBattleMons[battler].maxHP / 4;
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 2;
                         if (gBattleMoveDamage == 0)
                             gBattleMoveDamage = 1;
                         BattleScriptExecute(BattleScript_HeartGift);
