@@ -25425,7 +25425,48 @@ Move_SHARP_GLIDE::
 	end
 
 Move_CRASH_LAND::
-	goto Move_HEAT_CRASH
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_WHITE_SHADOW
+	loadspritegfx ANIM_TAG_ROCK_SHADOW
+	loadspritegfx ANIM_TAG_MUD_SAND
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_TARGET
+	createsprite gCrashLandBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
+	delay 0x2
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xc, 0x4, 0xfff0, 0x22
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0x10, 0x4, 0xfff6, 0x22
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x1, 0xe, 0x4, 0xffee, 0x22
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x1, 0xc, 0x4, 0xfff0, 0x22
+	unloadspritegfx ANIM_TAG_SPARKLE_4
+	unloadspritegfx ANIM_TAG_VERTICAL_HEX
+	fadetobgfromset BG_IMPACT_OPPONENT, BG_IMPACT_PLAYER, BG_IMPACT_CONTESTS
+	waitbgfadein
+	createvisualtask AnimTask_PulverizingPancakeWhiteShadow, 0x5, 0x33, 0x33 	@first arg is duration, last arg is move speed
+	delay 25
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, 0x4, 0x2, 0x0, 0xb, 0x0000		@ target darkens
+	delay 15
+	createsprite gCrashLandBallLandSpriteTemplate, ANIM_TARGET, 3, 0, 0, 15, 1, 0, 0
+	delay 15
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	call FissureDirtPlumeFar
+	call FissureDirtPlumeClose
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
+	delay 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	call FissureDirtPlumeFar
+	call FissureDirtPlumeClose
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
+	delay 1
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	call FissureDirtPlumeFar
+	call FissureDirtPlumeClose
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, 0x4, 0x2, 0xb, 0x0, 0x0000
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	call UnsetPsychicBg
+	waitforvisualfinish
+	end
 
 Move_AIR_CANNON::
 	goto Move_FLASH_CANNON

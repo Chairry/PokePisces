@@ -3673,8 +3673,8 @@ static const u8 sErodeFieldDescription[] = _(
     "all Pokémon on the field.");
 
 static const u8 sHeavyCellDescription[] = _(
-    "Raises the user's Defense,\n"
-    "Special Defense and Speed.");
+    "Raises user's defenses and\n"
+    "Speed. Can't be used in a row.");
 
 static const u8 sReconstructDescription[] = _(
     "Recovers all HP but takes\n"
@@ -3809,8 +3809,8 @@ static const u8 sSharpGlideDescription[] = _(
     "Power doubles in Tailwind.");
 
 static const u8 sCrashLandDescription[] = _(
-    "Does Flying and Ground-type\n"
-    "damage. Also hurts the user.");
+    "Hits flying foes and hurts\n"
+    "user. Flying/Ground-type.");
 
 static const u8 sAirCannonDescription[] = _(
     "Absorbs air in one turn, then\n"

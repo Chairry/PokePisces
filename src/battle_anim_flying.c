@@ -146,6 +146,17 @@ const struct SpriteTemplate gFlyBallUpSpriteTemplate =
     .callback = AnimFlyBallUp,
 };
 
+const struct SpriteTemplate gCrashLandBallUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCK_SHADOW,
+    .paletteTag = ANIM_TAG_ROCK_SHADOW,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_FlyBallUp,
+    .callback = AnimFlyBallUp,
+};
+
 const struct SpriteTemplate gFlyBallAttackSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROUND_SHADOW,
@@ -292,6 +303,17 @@ const struct SpriteTemplate gBounceBallLandSpriteTemplate =
     .images = NULL,
     .affineAnims = gAffineAnims_BounceBallLand,
     .callback = AnimBounceBallLand,
+};
+
+const struct SpriteTemplate gCrashLandBallLandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCK_SHADOW,
+    .paletteTag = ANIM_TAG_ROCK_SHADOW,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_BounceBallLand,
+    .callback = AnimWeatherBallDown,
 };
 
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =

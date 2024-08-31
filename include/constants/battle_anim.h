@@ -431,6 +431,7 @@
 #define ANIM_TAG_STAR                       (ANIM_SPRITES_START + 417)
 #define ANIM_TAG_DUNE_SLICER                (ANIM_SPRITES_START + 418)
 #define ANIM_TAG_BLACK_GRAY_SMOKE           (ANIM_SPRITES_START + 419)
+#define ANIM_TAG_ROCK_SHADOW                (ANIM_SPRITES_START + 420)
 
 // battlers
 #define ANIM_ATTACKER         0

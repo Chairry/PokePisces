@@ -11083,6 +11083,8 @@ extern const u32 gBattleAnimSpriteGfx_SmallEmber[];
 extern const u32 gBattleAnimSpriteGfx_GraySmoke[];
 extern const u32 gBattleAnimSpriteGfx_BlackGraySmoke[];
 extern const u32 gBattleAnimSpritePal_BlackGraySmoke[];
+extern const u32 gBattleAnimSpriteGfx_RockShadow[];
+extern const u32 gBattleAnimSpritePal_RockShadow[];
 extern const u32 gBattleAnimSpriteGfx_BlueStar[];
 extern const u32 gBattleAnimSpriteGfx_BubbleBurst[];
 extern const u32 gBattleAnimSpriteGfx_Fire[];
