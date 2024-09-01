@@ -2094,7 +2094,7 @@ static const u8 sElectrowebDescription[] = _(
 
 static const u8 sWildChargeDescription[] = _(
     "A wild tackle that does\n"
-    "recoil and damages all foes.");
+    "recoil and spreads.");
 
 static const u8 sDrillRunDescription[] = _(
     "Spins its body like a drill.\n"

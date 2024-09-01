@@ -4734,14 +4734,14 @@ Move_DARK_VOID::
 	loopsewithpan SE_M_CONFUSE_RAY, SOUND_PAN_ATTACKER, 5, 2
 	delay 0x30
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0xfd00, 0x15, 0, 0x70 @Last is speed
-	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0xfd00, 0x15, 0, 0x70 @Last is speed
+	createsprite gSlideMonToOffsetPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0xfd00, 0x15, 0, 0x70 @Last is speed
 	delay 0x40
 	invisible ANIM_TARGET
 	invisible ANIM_DEF_PARTNER
 	createsprite gDarkVoidPurpleStarsTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 0, 0x20, 0x3c
 	waitforvisualfinish
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0, 16
+	createsprite gSlideMonToOriginalPosPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0, 16
 	delay 0x20
 	call UnsetPsychicBg
 	visible ANIM_TARGET
@@ -16297,8 +16297,9 @@ Move_SPRINGTIDE_STORM::
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_RED_HEART
 	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
-	createvisualtaskontargets AnimTask_ShakeMon2, 2, 0, ANIM_TARGET, 0, 4, 0x58, 1
-	createvisualtask AnimTask_BlendColorCycle, 0x2, F_PAL_TARGET, 0x2, 0x6, 0x0, 0xB, 0x7ADF
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 88, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 88, 1
+	createvisualtask AnimTask_BlendColorCycle, 0x2, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x2, 0x6, 0x0, 0xB, 0x7ADF
 	call HurricaneGustCentered
 	call SpringtideStormHeartSwirl
 	call HurricaneGustCentered
@@ -16868,8 +16869,9 @@ Move_BLEAKWIND_STORM::
 	loadspritegfx ANIM_TAG_GUST
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS
 	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
-	createvisualtaskontargets AnimTask_ShakeMon2, 2, 0, ANIM_TARGET, 0, 4, 0x58, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x4, 0x0, 0xB, 0x7FFF
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 88, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 88, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x4, 0x0, 0xB, 0x7FFF
 	call HurricaneGustCentered
 	call BleakwindStormIceSwirl
 	call HurricaneGustCentered
@@ -16884,7 +16886,7 @@ Move_BLEAKWIND_STORM::
 	call BleakwindStormIceSwirl
 	waitforvisualfinish
 	stopsound
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x1, 0xB, 0x0, 0x7FFF
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x1, 0xB, 0x0, 0x7FFF
 	waitforvisualfinish
 	end
 BleakwindStormIceSwirl:
@@ -16911,8 +16913,9 @@ Move_WILDBOLT_STORM::
 	createvisualtask AnimTask_StartSlidingBg, 0x5, 0xff00, 0x0, 0x1, 0xffff
 	waitbgfadein
 	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
-	createvisualtaskontargets AnimTask_ShakeMon2, 2, 0, ANIM_TARGET, 0, 4, 0x58, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 0x4, 0x0, 0xB, 0x07FE
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 88, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 88, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x4, 0x0, 0xB, 0x07FE
 	call HurricaneGustCentered
 	call WildboltStormSparkSwirl
 	call HurricaneGustCentered
@@ -16927,7 +16930,7 @@ Move_WILDBOLT_STORM::
 	call WildboltStormSparkSwirl
 	waitforvisualfinish
 	stopsound
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x1, 0xB, 0x0, 0x07FE
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x1, 0xB, 0x0, 0x07FE
 	call UnsetPsychicBg
 	waitforvisualfinish
 	end
@@ -16953,8 +16956,9 @@ Move_SANDSEAR_STORM::
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	createvisualtask AnimTask_BlendParticle, 0x5, ANIM_TAG_GUST, 0x0, 0xA, 0xA, 0x190B
 	playsewithpan SE_M_GUST, SOUND_PAN_TARGET
-	createvisualtaskontargets AnimTask_ShakeMon2, 2, 0, ANIM_TARGET, 0, 4, 0x58, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x4, 0x0, 0xB, 0x1F
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 88, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 88, 1
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x4, 0x0, 0xB, 0x1F
 	call HurricaneGustCentered
 	call SandsearStormFireSpin
 	call HurricaneGustCentered
@@ -16969,7 +16973,7 @@ Move_SANDSEAR_STORM::
 	call SandsearStormFireSpin
 	waitforvisualfinish
 	stopsound
-	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_TARGET, 0x1, 0xB, 0x0, 0x1F
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, (F_PAL_TARGET | F_PAL_DEF_PARTNER), 0x1, 0xB, 0x0, 0x1F
 	waitforvisualfinish
 	end
 
@@ -25680,30 +25684,58 @@ Move_SAND_BURIAL::
 	playsewithpan SE_M_SANDSTORM, 0
 	createvisualtask AnimTask_LoadSandstormBackground, 5, FALSE
 	delay 16
-	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 0
-	delay 10
-	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 0
-	delay 10
-	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 0
-	delay 10
-	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 0
 	loopsewithpan SE_M_SAND_ATTACK, SOUND_PAN_ATTACKER, 5, 2
+	jumpifdoublebattle SandBurialDoubles
 	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0xfd00, 0x15, 0, 0x70 @Last is speed
-	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0xfd00, 0x15, 0, 0x70 @Last is speed
-	delay 10
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 0
+	delay 3
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 0
-	delay 10
+	delay 3
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 0
-	delay 10
+	delay 3
 	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 0
+	call SandBurialSand
+	call SandBurialSand
+	call SandBurialSand
+	invisible ANIM_TARGET
+	waitforvisualfinish
+	stopsound
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
+	delay 0x20
+	visible ANIM_TARGET
+	end
+SandBurialDoubles:
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0xfd00, 0x15, 0, 0x70 @Last is speed
+	createsprite gSlideMonToOffsetPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0xfd00, 0x15, 0, 0x70 @Last is speed
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 10, 2304, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 90, 2048, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 50, 2560, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 20, 2304, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 70, 1984, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 0, 2816, 96, 0
+	delay 3
+	createsprite gFlyingSandCrescentSpriteTemplate, ANIM_ATTACKER, 40, 60, 2560, 96, 0
+	checkmovetargetcount SandBurialSingleTargetDoubles
 	call SandBurialSand
 	call SandBurialSand
 	call SandBurialSand
 	invisible ANIM_TARGET
 	invisible ANIM_DEF_PARTNER
 	waitforvisualfinish
+	stopsound
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
-	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0, 16
+	createsprite gSlideMonToOriginalPosPartnerSpriteTemplate, ANIM_ATTACKER, 2, ANIM_DEF_PARTNER, 0, 16
 	delay 0x20
 	visible ANIM_TARGET
 	visible ANIM_DEF_PARTNER
@@ -25720,6 +25752,32 @@ SandBurialSand:
 	createspriteontargets gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 6, 0x0, 0x1c, 0x200, 0x19, 0x10, 0x2e, ANIM_TARGET
 	delay 1
 	createspriteontargets gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 6, 0x0, 0x21, 0x1d0, 0x1e, 0xf, 0xffce, ANIM_TARGET
+	playsewithpan SE_M_SAND_TOMB, SOUND_PAN_TARGET
+	return
+SandBurialSingleTargetDoubles:
+	call SandBurialSandSingleTargetDoubles
+	call SandBurialSandSingleTargetDoubles
+	call SandBurialSandSingleTargetDoubles
+	invisible ANIM_TARGET
+	waitforvisualfinish
+	stopsound
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_TARGET, 0, 16
+	delay 0x20
+	visible ANIM_TARGET
+	end
+SandBurialSandSingleTargetDoubles:
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x1c, 0x210, 0x1e, 0xd, 0x32, ANIM_TARGET
+	delay 1
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x20, 0x1e0, 0x14, 0x10, 0xffd2, ANIM_TARGET
+	delay 1
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x21, 0x240, 0x14, 0x8, 0x2a, ANIM_TARGET
+	delay 1
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x1f, 0x190, 0x19, 0xb, 0xffd6, ANIM_TARGET
+	delay 1
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x1c, 0x200, 0x19, 0x10, 0x2e, ANIM_TARGET
+	delay 1
+	createsprite gSwirlingDirtSpriteTemplate, ANIM_TARGET, 2, 0, 0x21, 0x1d0, 0x1e, 0xf, 0xffce, ANIM_TARGET
+	delay 1
 	playsewithpan SE_M_SAND_TOMB, SOUND_PAN_TARGET
 	return
 
