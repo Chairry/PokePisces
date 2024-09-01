@@ -1570,6 +1570,7 @@ BattleScript_EffectConstrict::
 	attackstring
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_EffectConstrict2
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE | MOVE_EFFECT_CERTAIN
+	seteffectprimary
 	ppreduce
 	confuseifrepeatingattackends
 	goto BattleScript_HitFromCritCalc

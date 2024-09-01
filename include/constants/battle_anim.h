@@ -432,6 +432,8 @@
 #define ANIM_TAG_DUNE_SLICER                (ANIM_SPRITES_START + 418)
 #define ANIM_TAG_BLACK_GRAY_SMOKE           (ANIM_SPRITES_START + 419)
 #define ANIM_TAG_ROCK_SHADOW                (ANIM_SPRITES_START + 420)
+#define ANIM_TAG_WATER_BLADE                (ANIM_SPRITES_START + 421)
+#define ANIM_TAG_WIND_BALL                  (ANIM_SPRITES_START + 422)
 
 // battlers
 #define ANIM_ATTACKER         0

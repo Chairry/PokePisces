@@ -36718,6 +36718,9 @@ static const u16 sSpryteTeachableLearnset[] = {
 };
 
 static const u16 sGumonaTeachableLearnset[] = {
+    MOVE_LEECH_LIFE,
+    MOVE_GIGA_DRAIN,
+    MOVE_VENOM_DRAIN,
     MOVE_SPEED_SWAP,
     MOVE_REST,
     MOVE_WILL_O_WISP,
@@ -36828,6 +36831,9 @@ static const u16 sGumonaTeachableLearnset[] = {
 };
 
 static const u16 sNanggalTeachableLearnset[] = {
+    MOVE_LEECH_LIFE,
+    MOVE_GIGA_DRAIN,
+    MOVE_VENOM_DRAIN,
     MOVE_SPEED_SWAP,
     MOVE_REST,
     MOVE_WILL_O_WISP,

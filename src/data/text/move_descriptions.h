@@ -3960,6 +3960,10 @@ static const u8 sCheeseStealDescription[] = _(
     "Leaves the first turn, comes\n"
     "back the next with cheese.");
 
+static const u8 sDrainPunchDescription[] = _(
+    "A punch that steals half\n"
+    "the damage inflicted.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4377,7 +4381,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
     [MOVE_DRAGON_RUSH - 1] = sStormChaseDescription,
     [MOVE_POWER_GEM - 1] = sPowerGemDescription,
-    [MOVE_DRAIN_PUNCH - 1] = sMegaDrainDescription,
+    [MOVE_DRAIN_PUNCH - 1] = sDrainPunchDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
     [MOVE_FOCUS_BLAST - 1] = sFocusBlastDescription,
     [MOVE_ENERGY_BALL - 1] = sEnergyBallDescription,

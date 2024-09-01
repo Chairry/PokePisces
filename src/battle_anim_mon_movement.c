@@ -482,16 +482,20 @@ static void ReverseVerticalDipDirection(struct Sprite *sprite)
 
 // Linearly slides a mon's bg picture back to its original sprite position.
 // The sprite parameter is a dummy sprite used for facilitating the movement with its callback.
-// arg 0: 1 = target or 0 = attacker
+// arg 0: target
 // arg 1: direction (0 = horizontal and vertical, 1 = horizontal only, 2 = vertical only)
 // arg 2: duration
 static void SlideMonToOriginalPos(struct Sprite *sprite)
 {
     u32 monSpriteId;
-    if (!gBattleAnimArgs[0])
-        monSpriteId = gBattlerSpriteIds[gBattleAnimAttacker];
-    else
-        monSpriteId = gBattlerSpriteIds[gBattleAnimTarget];
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        monSpriteId = gBattlerSpriteIds[ANIM_ATTACKER];
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        monSpriteId = gBattlerSpriteIds[ANIM_TARGET];
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        monSpriteId = gBattlerSpriteIds[ANIM_ATK_PARTNER];
+    else if (gBattleAnimArgs[0] == ANIM_DEF_PARTNER)
+        monSpriteId = gBattlerSpriteIds[ANIM_DEF_PARTNER];
 
     sprite->data[0] = gBattleAnimArgs[2];
     sprite->data[1] = gSprites[monSpriteId].x + gSprites[monSpriteId].x2;
@@ -547,7 +551,7 @@ static void SlideMonToOriginalPos_Step(struct Sprite *sprite)
 // Linearly translates a mon to a target offset. The horizontal offset
 // is mirrored for the opponent's pokemon, and the vertical offset
 // is only mirrored if arg 3 is set to 1.
-// arg 0: 0 = attacker, 1 = target
+// arg 0: target
 // arg 1: target x pixel offset
 // arg 2: target y pixel offset
 // arg 3: mirror vertical translation for opposite battle side
@@ -556,10 +560,15 @@ static void SlideMonToOffset(struct Sprite *sprite)
 {
     u8 battler;
     u8 monSpriteId;
-    if (!gBattleAnimArgs[0])
-        battler = gBattleAnimAttacker;
-    else
-        battler = gBattleAnimTarget;
+
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = ANIM_ATTACKER;
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        battler = ANIM_TARGET;
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        battler = ANIM_ATK_PARTNER;
+    else if (gBattleAnimArgs[0] == ANIM_DEF_PARTNER)
+        battler = ANIM_DEF_PARTNER;
 
     monSpriteId = gBattlerSpriteIds[battler];
     if (GetBattlerSide(battler) != B_SIDE_PLAYER)

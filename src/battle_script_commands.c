@@ -6971,7 +6971,8 @@ static void Cmd_moveend(void)
 
         #if B_RAMPAGE_CANCELLING >= GEN_5
             if ((gBattleMoves[gCurrentMove].effect == EFFECT_RAMPAGE // If we're rampaging
-                || gBattleMoves[gCurrentMove].effect == EFFECT_PETAL_DANCE)
+                || gBattleMoves[gCurrentMove].effect == EFFECT_PETAL_DANCE
+                || gBattleMoves[gCurrentMove].effect == EFFECT_CONSTRICT)
                 && (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)         // And it is unusable
                 && (gBattleMons[gBattlerAttacker].status2 & STATUS2_LOCK_CONFUSE) != STATUS2_LOCK_CONFUSE_TURN(1))  // And won't end this turn
                     CancelMultiTurnMoves(gBattlerAttacker); // Cancel it
