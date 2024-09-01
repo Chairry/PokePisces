@@ -5259,27 +5259,32 @@ static const struct TrainerMon sParty_PCelia[] = {
 
 static const struct TrainerMon sParty_PRedacted[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_SPINDA,
-    .moves = {MOVE_HYPNOSIS, MOVE_PSYBEAM, MOVE_DIZZY_PUNCH, MOVE_TEETER_DANCE}
+    .species = SPECIES_CORISP,
+    .ability = ABILITY_MAGMA_ARMOR,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 38,
+    .moves = {MOVE_SMOKESCREEN, MOVE_SELF_DESTRUCT, MOVE_LAVA_PLUME, MOVE_HEARTHWARM},
     },
     {
-    .lvl = 32,
-    .species = SPECIES_SLAKING,
-    .moves = {MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FEINT_ATTACK}
+    .species = SPECIES_MUSTYBANE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 38,
+    .moves = {MOVE_MUD_SLAP, MOVE_OBSTRUCT, MOVE_DIRE_CLAW, MOVE_DIG},
     }
 };
 
 static const struct TrainerMon sParty_PDimitri[] = {
     {
-    .lvl = 15,
-    .species = SPECIES_ZIGZAGOON,
-    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
+    .species = SPECIES_SUDCUB,
+    .heldItem = ITEM_NEVER_MELT_ICE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 36,
+    .moves = {MOVE_AURORA_BEAM, MOVE_PURIFY, MOVE_BIDE, MOVE_BUBBLE},
     },
     {
-    .lvl = 17,
-    .species = SPECIES_MAKUHITA,
-    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
+    .species = SPECIES_HAPPEA,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 37,
     }
 };
 

@@ -2727,7 +2727,7 @@ BattleScript_EffectReconstruct:
 	attackcanceler
 	attackstring
 	ppreduce
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	setglaiverush2
 	attackanimation
 	waitanimation
@@ -5279,7 +5279,7 @@ BattleScript_PurifyWorks:
 	updatestatusicon BS_TARGET
 	printstring STRINGID_ATTACKERCUREDTARGETSTATUS
 	waitmessage B_WAIT_TIME_LONG
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	goto BattleScript_RestoreHp
 
 BattleScript_EffectStrengthSap:

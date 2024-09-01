@@ -25429,6 +25429,7 @@ Move_CRASH_LAND::
 	loadspritegfx ANIM_TAG_WHITE_SHADOW
 	loadspritegfx ANIM_TAG_ROCK_SHADOW
 	loadspritegfx ANIM_TAG_MUD_SAND
+	loadspritegfx ANIM_TAG_ROCKS
 	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_TARGET
 	createsprite gCrashLandBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0x0, 0x0, 0xd, 0x150
 	delay 0x2
@@ -25446,20 +25447,34 @@ Move_CRASH_LAND::
 	delay 15
 	createsprite gCrashLandBallLandSpriteTemplate, ANIM_TARGET, 3, 0, 0, 15, 1, 0, 0
 	delay 15
-	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
-	call FissureDirtPlumeFar
-	call FissureDirtPlumeClose
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
-	delay 1
-	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
-	call FissureDirtPlumeFar
-	call FissureDirtPlumeClose
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
-	delay 1
-	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
-	call FissureDirtPlumeFar
-	call FissureDirtPlumeClose
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 3, 7, 1
+	playsewithpan SE_M_EARTHQUAKE, SOUND_PAN_TARGET
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
+	call CrashLandParticles1
+	call CrashLandParticles2
+	call CrashLandParticles3
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, 0x4, 0x2, 0xb, 0x0, 0x0000
 	clearmonbg ANIM_DEF_PARTNER
@@ -25467,9 +25482,69 @@ Move_CRASH_LAND::
 	call UnsetPsychicBg
 	waitforvisualfinish
 	end
+CrashLandParticles1:
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -48, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -16, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -52, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -32, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -24, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -38, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -20, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -36, -16, 24
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 20, 24, 14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 5, 0, -20, 24, 14, 1
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 5, 20, -24, 14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, -5, 0, -20, -24, 14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, -5, 30, 18, 8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 30, -18, 8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -30, 18, 8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -30, -18, 8, 2
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 6, 0, 7, 1
+	delay 2
+	return
+CrashLandParticles2:
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -48, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -16, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -52, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -32, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -24, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -38, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -20, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -36, -16, 24
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -20, -24, -14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, -5, 0, 20, -24, -14, 1
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, -5, -20, 24, -14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 5, 0, 20, 24, -14, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 5, -30, -18, -8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -30, 18, -8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 30, -18, -8, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 30, 18, -8, 2
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 6, 0, 7, 1
+	delay 2
+	return
+CrashLandParticles3:
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -48, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -16, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -52, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -32, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 12, -24, -16, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 0, 16, -38, -10, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 14, -20, -18, 24
+	createsprite gDirtPlumeSpriteTemplate, ANIM_TARGET, 2, 1, 1, 12, -36, -16, 24
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 40, 48, 28, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 10, 0, -40, 48, 28, 1
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 10, 40, -48, 28, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, -10, 0, -40, -48, 28, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, -10, 60, 36, 16, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 60, -36, 16, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -60, 36, 16, 2
+	createsprite gRockFragmentSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, -60, -36, 16, 2
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 6, 0, 7, 1
+	delay 2
+	return
 
 Move_AIR_CANNON::
-	goto Move_FLASH_CANNON
+	goto Move_AEROBLAST
 
 Move_BANSHRIEK::
 	loadspritegfx ANIM_TAG_THIN_RING

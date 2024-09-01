@@ -12636,16 +12636,18 @@ static void Cmd_various(void)
 
         const u8 *failInstr = cmd->failInstr;
 
-        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP;
+        if (cmd->battler == BS_ATTACKER)
+            gBattlerTarget = gBattlerAttacker;
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
 
-        if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+        if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
             gBattlescriptCurrInstr = failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-        return;
+        break;
     }
     case VARIOUS_STAGGER_DAMAGE:
     {    
