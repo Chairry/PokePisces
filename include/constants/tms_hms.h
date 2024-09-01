@@ -91,7 +91,6 @@
     F(AQUA_TAIL) \
     F(FOUL_PLAY) \
     F(MOONBLAST) \
-    F(MIND_BREAK) \
     F(ROADBLOCK) \
     F(RAZOR_WIND) \
     F(DUAL_WINGBEAT) \
@@ -101,7 +100,8 @@
     F(FIRE_BLAST) \
     F(RAGING_FURY) \
     F(GUNK_SHOT) \
-    F(IRON_TAIL)
+    F(IRON_TAIL) \
+    F(MIND_BREAK) 
 
 #define FOREACH_HM(F) \
     F(CUT) \
