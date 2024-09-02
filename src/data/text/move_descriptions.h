@@ -3478,11 +3478,11 @@ static const u8 sFinalShriekDescription[] = _(
 
 static const u8 sManeuverDescription[] = _(
     "Switches the user out.\n"
-    "Critical hits in tailwind.");
+    "Critical-hits in tailwind.");
 
 static const u8 sScorpFangDescription[] = _(
-    "Poisons, grounds foes, and\n"
-    "hits Poison and Steel neutrally .");
+    "Poisons and grounds foes.\n"
+    "Hits Poison/Steel neutrally.");
 
 static const u8 sCausticFinaleDescription[] = _(
     "A jab so powerful it damages\n"

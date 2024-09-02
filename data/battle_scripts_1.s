@@ -4612,13 +4612,9 @@ BattleScript_FirstChargingTurnMeteorBeam::
 	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
 	printfromtable gFirstTurnOfTwoStringIds
 	waitmessage B_WAIT_TIME_LONG
-	jumpifmove MOVE_AXEL_HEEL, BattleScript_AxelHeelStatRaise
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	seteffectsecondary
 	return
-
-BattleScript_AxelHeelStatRaise::
-
 
 BattleScript_EffectSkyDrop:
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SkyDropTurn2

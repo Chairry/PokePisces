@@ -405,6 +405,17 @@ const struct SpriteTemplate gCoinThrowSpriteTemplate =
     .callback = AnimCoinThrow,
 };
 
+const struct SpriteTemplate gCoinSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_COIN,
+    .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gFallingCoinAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 const struct SpriteTemplate gFallingCoinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_COIN,

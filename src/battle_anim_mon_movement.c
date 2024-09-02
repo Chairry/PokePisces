@@ -616,14 +616,10 @@ static void SlideMonToOffset(struct Sprite *sprite)
     u8 battler;
     u8 monSpriteId;
 
-    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
-        battler = ANIM_ATTACKER;
-    else if (gBattleAnimArgs[0] == ANIM_TARGET)
-        battler = ANIM_TARGET;
-    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
-        battler = ANIM_ATK_PARTNER;
-    else if (gBattleAnimArgs[0] == ANIM_DEF_PARTNER)
-        battler = ANIM_DEF_PARTNER;
+    if (!gBattleAnimArgs[0])
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
 
     monSpriteId = gBattlerSpriteIds[battler];
     if (GetBattlerSide(battler) != B_SIDE_PLAYER)
