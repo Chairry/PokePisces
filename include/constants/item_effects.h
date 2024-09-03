@@ -13,8 +13,6 @@
 #define ITEM1_X_SPATK           STAT_SPATK
 #define ITEM1_X_SPDEF           STAT_SPDEF
 #define ITEM1_X_ACCURACY        STAT_ACC
-#define ITEM1_LAVA_COOKIE       STAT_LAVA_COOKIE
-#define ITEM1_ICE_POP           STAT_ICE_POP
 
 // field 3 masks
 #define ITEM3_CONFUSION         0x1
@@ -55,7 +53,7 @@
 #define ITEM10_GUARD_SPEC       0x4 // Works the same way as the move Mist.
 
 // fields 6 and onwards (except field 10) are item-specific arguments
-#define ITEM_EFFECT_ARG_START 11
+#define ITEM_EFFECT_ARG_START 6
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
 #define ITEM6_HEAL_HP_FULL    ((u8) -1)
