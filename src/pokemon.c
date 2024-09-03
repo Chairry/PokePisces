@@ -7003,12 +7003,6 @@ u8 *UseStatIncreaseItem(u16 itemId)
         case ITEM1_X_ACCURACY:
             BufferStatRoseMessage(STAT_ACC);
             break;
-        case ITEM1_LAVA_COOKIE:
-            BufferStatRoseMessage(STAT_DEF);
-            break;
-        case ITEM1_ICE_POP:
-            BufferStatRoseMessage(STAT_SPDEF);
-            break;
     }
 
     if (itemEffect[10] & ITEM10_GUARD_SPEC)
@@ -9438,13 +9432,12 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
 }
 
 static const u16 sMaxEvByLevel[][2] = {
-    {11, 70}, // before level 11, can only get 70 EVs total
-    {21, 140},
-    {31, 210},
-    {41, 280},
-    {51, 350},
-    {61, 420},
-    {71, MAX_TOTAL_EVS},
+    {11, 85}, // before level 11, can only get 70 EVs total
+    {21, 170},
+    {31, 255},
+    {41, 340},
+    {51, 425},
+    {61, MAX_TOTAL_EVS},
 };
 
 u32 GetMaxTotalEVs(u32 level)

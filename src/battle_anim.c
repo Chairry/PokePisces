@@ -533,7 +533,7 @@ static void Cmd_createsprite(void)
 
 static void CreateSpriteOnTargets(const struct SpriteTemplate *template, u8 argVar, u8 battlerArgIndex, u8 argsCount, bool32 overwriteAnimTgt)
 {
-    u32 i;
+    u32 i, battler;
     u8 targets[MAX_BATTLERS_COUNT];
     int ntargets;
     s16 subpriority;
@@ -550,14 +550,15 @@ static void CreateSpriteOnTargets(const struct SpriteTemplate *template, u8 argV
     if (ntargets == 0)
         return;
 
-    for (i = 0; i < ntargets; i++) {
-
+    for (i = 0; i < ntargets; i++)
+    {
+        battler = GetAnimBattlerId(targets[i]);
         if (overwriteAnimTgt)
             gBattleAnimArgs[battlerArgIndex] = targets[i];
 
         if (CreateSpriteAndAnimate(template,
-            GetBattlerSpriteCoord(targets[i], BATTLER_COORD_X_2),
-            GetBattlerSpriteCoord(targets[i], BATTLER_COORD_Y_PIC_OFFSET),
+            GetBattlerSpriteCoord(battler, BATTLER_COORD_X_2),
+            GetBattlerSpriteCoord(battler, BATTLER_COORD_Y_PIC_OFFSET),
             subpriority) != MAX_SPRITES) // Don't increment the task count if the sprite couldn't be created(i.e. there are too many created sprites atm).
         {
             gAnimVisualTaskCount++;

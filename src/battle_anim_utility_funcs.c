@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle_anim.h"
+#include "battle_util.h"
 #include "contest.h"
 #include "gpu_regs.h"
 #include "graphics.h"
@@ -1128,6 +1129,15 @@ static void AnimTask_WaitAndRestoreVisibility(u8 taskId)
 void AnimTask_IsDoubleBattle(u8 taskId)
 {
     gBattleAnimArgs[7] = (IsDoubleBattle() && !IsContest());
+    DestroyAnimVisualTask(taskId);
+}
+
+void AnimTask_CheckMoveTargetCount (u8 taskId)
+{
+    if (IsBattlerAlive(gBattleAnimTarget) && IsBattlerAlive(BATTLE_PARTNER(gBattleAnimTarget)))        
+        gBattleAnimArgs[ARG_RET_ID] = FALSE;
+    else
+        gBattleAnimArgs[ARG_RET_ID] = TRUE;
     DestroyAnimVisualTask(taskId);
 }
 

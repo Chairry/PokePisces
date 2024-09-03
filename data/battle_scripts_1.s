@@ -1570,6 +1570,7 @@ BattleScript_EffectConstrict::
 	attackstring
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_EffectConstrict2
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE | MOVE_EFFECT_CERTAIN
+	seteffectprimary
 	ppreduce
 	confuseifrepeatingattackends
 	goto BattleScript_HitFromCritCalc
@@ -2727,7 +2728,7 @@ BattleScript_EffectReconstruct:
 	attackcanceler
 	attackstring
 	ppreduce
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	setglaiverush2
 	attackanimation
 	waitanimation
@@ -2750,20 +2751,22 @@ BattleScript_HeavyCellDoMoveAnim::
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF | BIT_SPEED, 0
+	playstatchangeanimation BS_ATTACKER, BIT_SPEED, 0
 	setstatchanger STAT_DEF, 1, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellTrySpecialDefense
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellTrySpecialDefense
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HeavyCellTrySpecialDefense::
-	setstatchanger STAT_SPDEF, 1, FALSE
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPDEF, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellTrySpeed
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellTrySpeed
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HeavyCellTrySpeed::
-	setstatchanger STAT_SPEED, 1, FALSE
+	setstatchanger STAT_SPEED, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellEnd
 	printfromtable gStatUpStringIds
@@ -4609,13 +4612,9 @@ BattleScript_FirstChargingTurnMeteorBeam::
 	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
 	printfromtable gFirstTurnOfTwoStringIds
 	waitmessage B_WAIT_TIME_LONG
-	jumpifmove MOVE_AXEL_HEEL, BattleScript_AxelHeelStatRaise
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	seteffectsecondary
 	return
-
-BattleScript_AxelHeelStatRaise::
-
 
 BattleScript_EffectSkyDrop:
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SkyDropTurn2
@@ -4995,6 +4994,8 @@ BattleScript_EffectBaddyBad:
 BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -5277,7 +5278,7 @@ BattleScript_PurifyWorks:
 	updatestatusicon BS_TARGET
 	printstring STRINGID_ATTACKERCUREDTARGETSTATUS
 	waitmessage B_WAIT_TIME_LONG
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	goto BattleScript_RestoreHp
 
 BattleScript_EffectStrengthSap:
