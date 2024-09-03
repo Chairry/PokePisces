@@ -24,7 +24,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Latty",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Edward",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Figliosi",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Anon",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Alice",
       "flag": "0"
     },
     {
@@ -89,7 +89,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Ernest",
       "flag": "0"
     },
     {
@@ -102,7 +102,7 @@
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Robin",
       "flag": "0"
     },
     {
@@ -115,7 +115,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Polly",
       "flag": "0"
     },
     {
@@ -128,7 +128,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Charity",
       "flag": "0"
     },
     {
@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Olly",
       "flag": "0"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Sin",
       "flag": "0"
     },
     {
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Maintenance_EventScript_Yancy",
       "flag": "0"
     }
   ],

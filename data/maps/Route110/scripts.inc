@@ -202,7 +202,7 @@ Route110_EventScript_Dale::
 	end
 
 Route110_EventScript_Jacob::
-	trainerbattle_single TRAINER_P_BEAN, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
+	trainerbattle_single TRAINER_P_KAIRA, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
 	msgbox Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE
 	end
 
