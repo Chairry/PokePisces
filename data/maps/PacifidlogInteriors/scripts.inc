@@ -86,7 +86,9 @@ PacifidlogInteriors_EventScript_Angler::
 	end
 
 PacifidlogInteriors_EventScript_Fisher::
-	msgbox PacifidlogInteriors_Text_Fisher, MSGBOX_NPC
+	lock
+	msgbox PacifidlogInteriors_Text_Fisher, MSGBOX_AUTOCLOSE
+	release
 	end
 
 PacifidlogInteriors_EventScript_Sailor::

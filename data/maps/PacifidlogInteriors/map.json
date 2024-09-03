@@ -2,7 +2,7 @@
   "id": "MAP_PACIFIDLOG_INTERIORS",
   "name": "PacifidlogInteriors",
   "layout": "LAYOUT_PACIFIDLOG_INTERIORS",
-  "music": "MUS_GSC_PEWTER",
+  "music": "MUS_PACIFIDLOG",
   "region_map_section": "MAPSEC_PACIFIDLOG_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
