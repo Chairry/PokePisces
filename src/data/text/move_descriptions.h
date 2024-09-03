@@ -2094,7 +2094,7 @@ static const u8 sElectrowebDescription[] = _(
 
 static const u8 sWildChargeDescription[] = _(
     "A wild tackle that does\n"
-    "recoil and damages all foes.");
+    "recoil and spreads.");
 
 static const u8 sDrillRunDescription[] = _(
     "Spins its body like a drill.\n"
@@ -3478,11 +3478,11 @@ static const u8 sFinalShriekDescription[] = _(
 
 static const u8 sManeuverDescription[] = _(
     "Switches the user out.\n"
-    "Critical hits in tailwind.");
+    "Critical-hits in tailwind.");
 
 static const u8 sScorpFangDescription[] = _(
-    "Poisons, grounds foes, and\n"
-    "hits Poison and Steel neutrally .");
+    "Poisons and grounds foes.\n"
+    "Hits Poison/Steel neutrally.");
 
 static const u8 sCausticFinaleDescription[] = _(
     "A jab so powerful it damages\n"
@@ -3673,8 +3673,8 @@ static const u8 sErodeFieldDescription[] = _(
     "all Pokémon on the field.");
 
 static const u8 sHeavyCellDescription[] = _(
-    "Raises the user's Defense,\n"
-    "Special Defense and Speed.");
+    "Raises user's defenses and\n"
+    "Speed. Can't be used in a row.");
 
 static const u8 sReconstructDescription[] = _(
     "Recovers all HP but takes\n"
@@ -3809,8 +3809,8 @@ static const u8 sSharpGlideDescription[] = _(
     "Power doubles in Tailwind.");
 
 static const u8 sCrashLandDescription[] = _(
-    "Does Flying and Ground-type\n"
-    "damage. Also hurts the user.");
+    "Hits flying foes and hurts\n"
+    "user. Flying/Ground-type.");
 
 static const u8 sAirCannonDescription[] = _(
     "Absorbs air in one turn, then\n"
@@ -3830,7 +3830,7 @@ static const u8 sSandBurialDescription[] = _(
 
 static const u8 sRagingEarthDescription[] = _(
     "Calls upon the unwavering\n"
-    "earth, giving Speed.");
+    "earth, raising Speed.");
 
 static const u8 sWilderDanceDescription[] = _(
     "The user dances wildly\n"
@@ -3942,7 +3942,7 @@ static const u8 sPlunderDescription[] = _(
 
 static const u8 sFuriousSeaDescription[] = _(
     "Calls upon the terrifying\n"
-    "tides, giving Speed.");
+    "tides, raising Speed.");
 
 static const u8 sReservoirDescription[] = _(
     "Restores HP, cures status,\n"
@@ -3959,6 +3959,10 @@ static const u8 sBloodMoonDescription[] = _(
 static const u8 sCheeseStealDescription[] = _(
     "Leaves the first turn, comes\n"
     "back the next with cheese.");
+
+static const u8 sDrainPunchDescription[] = _(
+    "A punch that steals half\n"
+    "the damage inflicted.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -4377,7 +4381,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAGON_PULSE - 1] = sDragonPulseDescription,
     [MOVE_DRAGON_RUSH - 1] = sStormChaseDescription,
     [MOVE_POWER_GEM - 1] = sPowerGemDescription,
-    [MOVE_DRAIN_PUNCH - 1] = sMegaDrainDescription,
+    [MOVE_DRAIN_PUNCH - 1] = sDrainPunchDescription,
     [MOVE_VACUUM_WAVE - 1] = sVacuumWaveDescription,
     [MOVE_FOCUS_BLAST - 1] = sFocusBlastDescription,
     [MOVE_ENERGY_BALL - 1] = sEnergyBallDescription,

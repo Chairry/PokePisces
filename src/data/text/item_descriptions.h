@@ -3390,51 +3390,51 @@ static const u8 sTM89Desc[] = _(
     "Sp. Atk.");
 
 static const u8 sTM90Desc[] = _(
-    "The higher the foe's\n"
-    "Sp. Atk the more power.");
-
-static const u8 sTM91Desc[] = _(
     "The higher the foe's Speed\n"
     "the more damage caused.");
 
-static const u8 sTM92Desc[] = _(
+static const u8 sTM91Desc[] = _(
     "Slashes the target with\n"
     "wind and hits twice in a\n"
     "row.");
 
-static const u8 sTM93Desc[] = _(
+static const u8 sTM92Desc[] = _(
     "User slams the target with\n"
     "wings and hits twice in a\n"
     "row.");
 
-static const u8 sTM94Desc[] = _(
+static const u8 sTM93Desc[] = _(
     "A powerful quake, but has\n"
     "no effect on flying foes.");
 
-static const u8 sTM95Desc[] = _(
+static const u8 sTM94Desc[] = _(
     "Hits with brutal, cold\n"
     "winds. May frostbite the\n"
     "foe.");
 
-static const u8 sTM96Desc[] = _(
+static const u8 sTM95Desc[] = _(
     "Powerful and sure to cause\n"
     "paralysis, but inaccurate.");
 
-static const u8 sTM97Desc[] = _(
+static const u8 sTM96Desc[] = _(
     "Incinerates everything it\n"
     "strikes. May cause a burn.");
 
-static const u8 sTM98Desc[] = _(
+static const u8 sTM97Desc[] = _(
     "A rampage of 2 to 3 turns\n"
     "that confuses the user.");
 
-static const u8 sTM99Desc[] = _(
+static const u8 sTM98Desc[] = _(
     "Shoots filthy garbage at\n"
     "the foe. May also poison.");
 
-static const u8 sTM100Desc[] = _(
+static const u8 sTM99Desc[] = _(
     "Attacks with a rock-hard\n"
     "tail. May lower Defense.");
+
+static const u8 sTM100Desc[] = _(
+    "The higher the foe's\n"
+    "Sp. Atk the more power.");
 
 static const u8 sHM01Desc[] = _(
     "Attacks the foe\n"

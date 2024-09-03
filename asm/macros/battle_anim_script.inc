@@ -332,3 +332,8 @@
 	createvisualtask AnimTask_IsDoubleBattle, 0
 	jumprettrue \ptr
 	.endm
+
+	.macro checkmovetargetcount ptr:req
+	createvisualtask AnimTask_CheckMoveTargetCount, 0
+	jumprettrue \ptr
+	.endm

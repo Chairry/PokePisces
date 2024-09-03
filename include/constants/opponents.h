@@ -285,7 +285,7 @@
 #define TRAINER_P_CASS                     281
 #define TRAINER_P_SANDY                     282
 #define TRAINER_P_JAN                     283
-#define TRAINER_P_CATT                     284
+#define TRAINER_P_CATHY                     284
 #define TRAINER_P_CELIA                     285
 #define TRAINER_P_REDACTED                286
 #define TRAINER_P_DIMITRI              287
@@ -295,7 +295,7 @@
 #define TRAINER_P_LANE              291
 #define TRAINER_P_BONNIE                      292
 #define TRAINER_P_HEDON                    293
-#define TRAINER_P_MONICA                      294
+#define TRAINER_P_HEDORAH                      294
 #define TRAINER_P_GHIDORAH                    295
 #define TRAINER_P_GOJIRA                    296
 #define TRAINER_P_GAMERA                    297
@@ -619,7 +619,7 @@
 #define TRAINER_RICK                        615
 #define TRAINER_P_MEIYU                        616
 #define TRAINER_P_CENTAURI                        617
-#define TRAINER_P_CATT_2                        618
+#define TRAINER_P_CATT                        618
 #define TRAINER_P_TAII                        619
 #define TRAINER_P_ERKIN_AND_KAYA                        620
 #define TRAINER_P_GRISELDA                     621

@@ -15,8 +15,10 @@ static void ReverseHorizontalLungeDirection(struct Sprite *sprite);
 static void DoVerticalDip(struct Sprite *sprite);
 static void ReverseVerticalDipDirection(struct Sprite *sprite);
 static void SlideMonToOriginalPos(struct Sprite *sprite);
+static void SlideMonToOriginalPosPartner(struct Sprite *sprite);
 static void SlideMonToOriginalPos_Step(struct Sprite *sprite);
 static void SlideMonToOffset(struct Sprite *sprite);
+static void SlideMonToOffsetPartner(struct Sprite *sprite);
 static void SlideMonToOffsetAndBack(struct Sprite *sprite);
 static void SlideMonToOffsetAndBack_End(struct Sprite *sprite);
 static void AnimTask_WindUpLunge_Step1(u8 taskId);
@@ -63,6 +65,17 @@ const struct SpriteTemplate gSlideMonToOriginalPosSpriteTemplate =
     .callback = SlideMonToOriginalPos,
 };
 
+const struct SpriteTemplate gSlideMonToOriginalPosPartnerSpriteTemplate =
+{
+    .tileTag = 0,
+    .paletteTag = 0,
+    .oam = &gDummyOamData,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SlideMonToOriginalPosPartner,
+};
+
 const struct SpriteTemplate gSlideMonToOffsetSpriteTemplate =
 {
     .tileTag = 0,
@@ -72,6 +85,17 @@ const struct SpriteTemplate gSlideMonToOffsetSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SlideMonToOffset,
+};
+
+const struct SpriteTemplate gSlideMonToOffsetPartnerSpriteTemplate =
+{
+    .tileTag = 0,
+    .paletteTag = 0,
+    .oam = &gDummyOamData,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SlideMonToOffsetPartner,
 };
 
 const struct SpriteTemplate gSlideMonToOffsetAndBackSpriteTemplate =
@@ -544,10 +568,45 @@ static void SlideMonToOriginalPos_Step(struct Sprite *sprite)
     }
 }
 
+// Linearly slides a mon's bg picture back to its original sprite position.
+// The sprite parameter is a dummy sprite used for facilitating the movement with its callback.
+// arg 0: 1 = target partner or 0 = attacker parter
+// arg 1: direction (0 = horizontal and vertical, 1 = horizontal only, 2 = vertical only)
+// arg 2: duration
+static void SlideMonToOriginalPosPartner(struct Sprite *sprite)
+{
+    u32 monSpriteId;
+    if (!gBattleAnimArgs[0])
+        monSpriteId = gBattlerSpriteIds[BATTLE_PARTNER(gBattleAnimAttacker)];
+    else
+        monSpriteId = gBattlerSpriteIds[BATTLE_PARTNER(gBattleAnimTarget)];
+
+    sprite->data[0] = gBattleAnimArgs[2];
+    sprite->data[1] = gSprites[monSpriteId].x + gSprites[monSpriteId].x2;
+    sprite->data[2] = gSprites[monSpriteId].x;
+    sprite->data[3] = gSprites[monSpriteId].y + gSprites[monSpriteId].y2;
+    sprite->data[4] = gSprites[monSpriteId].y;
+    InitSpriteDataForLinearTranslation(sprite);
+    sprite->data[3] = 0;
+    sprite->data[4] = 0;
+    sprite->data[5] = gSprites[monSpriteId].x2;
+    sprite->data[6] = gSprites[monSpriteId].y2;
+    sprite->invisible = TRUE;
+
+    if (gBattleAnimArgs[1] == 1)
+        sprite->data[2] = 0;
+    else if (gBattleAnimArgs[1] == 2)
+        sprite->data[1] = 0;
+
+    sprite->data[7] = gBattleAnimArgs[1];
+    sprite->data[7] |= monSpriteId << 8;
+    sprite->callback = SlideMonToOriginalPos_Step;
+}
+
 // Linearly translates a mon to a target offset. The horizontal offset
 // is mirrored for the opponent's pokemon, and the vertical offset
 // is only mirrored if arg 3 is set to 1.
-// arg 0: 0 = attacker, 1 = target
+// arg 0: target
 // arg 1: target x pixel offset
 // arg 2: target y pixel offset
 // arg 3: mirror vertical translation for opposite battle side
@@ -556,10 +615,52 @@ static void SlideMonToOffset(struct Sprite *sprite)
 {
     u8 battler;
     u8 monSpriteId;
+
     if (!gBattleAnimArgs[0])
         battler = gBattleAnimAttacker;
     else
         battler = gBattleAnimTarget;
+
+    monSpriteId = gBattlerSpriteIds[battler];
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+    {
+        gBattleAnimArgs[1] = -gBattleAnimArgs[1];
+        if (gBattleAnimArgs[3] == 1)
+        {
+            gBattleAnimArgs[2] = -gBattleAnimArgs[2];
+        }
+    }
+
+    sprite->data[0] = gBattleAnimArgs[4];
+    sprite->data[1] = gSprites[monSpriteId].x;
+    sprite->data[2] = gSprites[monSpriteId].x + gBattleAnimArgs[1];
+    sprite->data[3] = gSprites[monSpriteId].y;
+    sprite->data[4] = gSprites[monSpriteId].y + gBattleAnimArgs[2];
+    InitSpriteDataForLinearTranslation(sprite);
+    sprite->data[3] = 0;
+    sprite->data[4] = 0;
+    sprite->data[5] = monSpriteId;
+    sprite->invisible = TRUE;
+    StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+    sprite->callback = TranslateSpriteLinearByIdFixedPoint;
+}
+
+// Linearly translates a mon to a target offset. The horizontal offset
+// is mirrored for the opponent's Pokémon, and the vertical offset
+// is only mirrored if arg 3 is set to 1.
+// arg 0: 0 = attacker partner, 1 = target partner
+// arg 1: target x pixel offset
+// arg 2: target y pixel offset
+// arg 3: mirror vertical translation for opposite battle side
+// arg 4: duration
+static void SlideMonToOffsetPartner(struct Sprite *sprite)
+{
+    u8 battler;
+    u8 monSpriteId;
+    if (!gBattleAnimArgs[0])
+        battler = BATTLE_PARTNER(gBattleAnimAttacker);
+    else
+        battler = BATTLE_PARTNER(gBattleAnimTarget);
 
     monSpriteId = gBattlerSpriteIds[battler];
     if (GetBattlerSide(battler) != B_SIDE_PLAYER)

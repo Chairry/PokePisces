@@ -795,9 +795,9 @@
         .baseHP        = 90,                           \
         .baseAttack    = 120,                           \
         .baseDefense   = 105,                           \
-        .baseSpeed     = 90,                          \
+        .baseSpeed     = 75,                          \
         .baseSpAttack  = 50,                            \
-        .baseSpDefense = 95,                            \
+        .baseSpDefense = 90,                            \
         .types = { TYPE_GRASS, TYPE_GHOST},              \
         .catchRate = 45,                                 \
         .expYield = 275,                                \
@@ -18289,10 +18289,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 78,
         .baseAttack    = 102,
-        .baseDefense   = 75,
+        .baseDefense   = 65,
         .baseSpeed     = 123,
         .baseSpAttack  = 102,
-        .baseSpDefense = 70,
+        .baseSpDefense = 50,
         .types = { TYPE_ELECTRIC, TYPE_DARK},
         .catchRate = 45,
         .expYield = 275,
@@ -25754,9 +25754,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
     {
         .baseHP        = 100,
         .baseAttack    = 70,
-        .baseDefense   = 90,
+        .baseDefense   = 80,
         .baseSpeed     = 50,
-        .baseSpAttack  = 120,
+        .baseSpAttack  = 90,
         .baseSpDefense = 80,
         .types = { TYPE_NORMAL, TYPE_NORMAL },
         .catchRate = 60,

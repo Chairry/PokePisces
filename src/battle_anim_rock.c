@@ -457,11 +457,14 @@ void AnimRockFragment(struct Sprite *sprite)
 // Swirls particle in vortex. Used for moves like Fire Spin or Sand Tomb
 void AnimParticleInVortex(struct Sprite *sprite)
 {
-    if (gBattleAnimArgs[6] == ANIM_ATTACKER)
-        InitSpritePosToAnimAttacker(sprite, FALSE);
+    if (IsDoubleBattle() 
+    && (gAnimMoveIndex == MOVE_BLEAKWIND_STORM 
+    || gAnimMoveIndex == MOVE_SANDSEAR_STORM
+    || gAnimMoveIndex == MOVE_SPRINGTIDE_STORM
+    || gAnimMoveIndex == MOVE_WILDBOLT_STORM))
+        InitSpritePosToAnimTargetsCentre(sprite, FALSE);
     else
         InitSpritePosToAnimTarget(sprite, FALSE);
-
     sprite->data[0] = gBattleAnimArgs[3];
     sprite->data[1] = gBattleAnimArgs[2];
     sprite->data[2] = gBattleAnimArgs[4];

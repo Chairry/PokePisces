@@ -500,6 +500,17 @@ const struct SpriteTemplate gAuraSphereBlast =
 	.callback = AnimSuperpowerFireball,
 };
 
+const struct SpriteTemplate gWindBallBlast =
+{
+	.tileTag = ANIM_TAG_WIND_BALL,
+	.paletteTag = ANIM_TAG_WIND_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+	.anims = gDummySpriteAnimTable,
+	.images = NULL,
+	.affineAnims = gDummySpriteAffineAnimTable,
+	.callback = AnimSuperpowerFireball,
+};
+
 const union AffineAnimCmd gForcePalmAffineAnimCmd_1[] =
 {
     AFFINEANIMCMD_FRAME(0x0, 0x0, 0, 8),
