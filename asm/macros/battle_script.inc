@@ -2531,8 +2531,8 @@
 	various 0, VARIOUS_TRY_NORMALISE_SPEED
 	.endm
 
-	.macro tryhealallhealth failInstr:req
-	various 0, VARIOUS_TRY_HEAL_ALL_HEALTH
+	.macro tryhealallhealth battler:req, failInstr:req
+	various \battler, VARIOUS_TRY_HEAL_ALL_HEALTH
 	.4byte \failInstr
 	.endm
 

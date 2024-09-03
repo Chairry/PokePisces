@@ -535,10 +535,14 @@ void AnimDirtPlumeParticle(struct Sprite *sprite)
     s8 battler;
     s16 xOffset;
 
-    if (gBattleAnimArgs[0] == 0)
-        battler = gBattleAnimAttacker;
-    else
-        battler = gBattleAnimTarget;
+    if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+        battler = ANIM_ATTACKER;
+    else if (gBattleAnimArgs[0] == ANIM_TARGET)
+        battler = ANIM_TARGET;
+    else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+        battler = ANIM_ATK_PARTNER;
+    else if (gBattleAnimArgs[0] == ANIM_DEF_PARTNER)
+        battler = ANIM_DEF_PARTNER;
 
     xOffset = 24;
     if (gBattleAnimArgs[1] == 1)

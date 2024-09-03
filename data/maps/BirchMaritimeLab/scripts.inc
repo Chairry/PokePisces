@@ -15,8 +15,8 @@ BirchMaritimeLab_OnLoad:
 	end
 
 BirchMaritimeLab_EventScript_ReplaceTable::
-	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, TRUE
-	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, TRUE
+	setmetatile 9, 2, METATILE_BirchLab_BirchTable1, FALSE
+	setmetatile 10, 2, METATILE_BirchLab_BirchTable2, FALSE
 	setmetatile 9, 3, METATILE_BirchLab_BirchTable3, TRUE
 	setmetatile 10, 3, METATILE_BirchLab_BirchTable4, TRUE
 	special DrawWholeMapView

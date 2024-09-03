@@ -3408,16 +3408,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PJan),
     },
 
-    [TRAINER_P_CATT] =
+    [TRAINER_P_CATHY] =
     {
         .trainerClass = TRAINER_CLASS_UPSTART,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_UPSTART,
-        .trainerName = _("Catt"),
+        .trainerName = _("Cathy"),
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PCatt1),
+        .party = TRAINER_PARTY(sParty_PCathy),
     },
 
     [TRAINER_P_CELIA] =
@@ -3528,16 +3528,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PHedon),
     },
 
-    [TRAINER_P_MONICA] =
+    [TRAINER_P_HEDORAH] =
     {
         .trainerClass = TRAINER_CLASS_DELINQUENT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_EVIL,
         .trainerPic = TRAINER_PIC_DELINQUENT,
-        .trainerName = _("Monica"),
+        .trainerName = _("Hedorah"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PMonica),
+        .party = TRAINER_PARTY(sParty_PHedorah),
     },
 
     [TRAINER_P_GHIDORAH] =
@@ -4212,7 +4212,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PLulu),
     },
 
-    [TRAINER_P_BEAN] =
+    [TRAINER_P_KAIRA] =
     {
         .trainerClass = TRAINER_CLASS_EXPERT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
@@ -4221,7 +4221,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PBean),
+        .party = TRAINER_PARTY(sParty_PKaira),
     },
 
     [TRAINER_P_WOODY] =
@@ -7416,7 +7416,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PCentauri),
     },
 
-    [TRAINER_P_CATT_2] =
+    [TRAINER_P_CATT] =
     {
         .trainerClass = TRAINER_CLASS_UPSTART,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -7425,7 +7425,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PCatt2),
+        .party = TRAINER_PARTY(sParty_PCat),
     },
 
     [TRAINER_P_TAII] =
