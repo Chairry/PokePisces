@@ -16373,7 +16373,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_AIR_CANNON] =
     {
         .effect = EFFECT_AIR_CANNON,
-        .power = 120,
+        .power = 110,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 10,

@@ -4994,6 +4994,8 @@ BattleScript_EffectBaddyBad:
 BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
 	printfromtable gReflectLightScreenSafeguardStringIds

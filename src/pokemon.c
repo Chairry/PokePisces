@@ -7003,12 +7003,6 @@ u8 *UseStatIncreaseItem(u16 itemId)
         case ITEM1_X_ACCURACY:
             BufferStatRoseMessage(STAT_ACC);
             break;
-        case ITEM1_LAVA_COOKIE:
-            BufferStatRoseMessage(STAT_DEF);
-            break;
-        case ITEM1_ICE_POP:
-            BufferStatRoseMessage(STAT_SPDEF);
-            break;
     }
 
     if (itemEffect[10] & ITEM10_GUARD_SPEC)
