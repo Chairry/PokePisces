@@ -240,7 +240,7 @@ BirchMaritimeLab_Text_TakeStarter:
 	.string "hopefully, fruitful as it seems\l"
 	.string "this one will be... I'd love\l"
 	.string "to give you one of these\l"
-	.string "three Starter POKéMON, as a\l"
+	.string "three Starter Pokémon, as a\l"
 	.string "close traveling companion.\p"
 	.string "Just like old times, huh?\p"
 	.string "With the move to Pacifidlog,\n"
@@ -263,9 +263,9 @@ BirchMaritimeLab_Text_WhyNotGiveNicknameToMon:
 
 BirchMaritimeLab_Text_HeardYouBeatRivalTakePokedex:
 	.string "Very good then!\n"
-	.string "Along with your Starter POKéMON,\l"
+	.string "Along with your Starter Pokémon,\l"
 	.string "I'd be remiss if I didn't also\l"
-	.string "give you a brand new POKéDEX as well!$"
+	.string "give you a brand new Pokédex as well!$"
 
 BirchMaritimeLab_Text_ExplainPokedex:
 	.string "This model is much the same\n"
