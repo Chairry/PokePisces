@@ -434,6 +434,11 @@ Route125_EventScript_Nelly::
     msgbox Route125_Text_NellyPostBattle, MSGBOX_AUTOCLOSE
     end
 
+Route125_EventScript_Joan::
+    trainerbattle_single TRAINER_P_JOAN, Route125_Text_JoanIntro, Route125_Text_JoanDefeated
+    msgbox Route125_Text_JoanPostBattle, MSGBOX_AUTOCLOSE
+    end
+
 Route125_Text_VanIntro:
 	.string "intro$"
 
@@ -516,6 +521,15 @@ Route125_Text_NellyDefeated:
 	.string "defeat$"
 
 Route125_Text_NellyPostBattle:
+	.string "post$"
+
+Route125_Text_JoanIntro:
+	.string "intro$"
+
+Route125_Text_JoanDefeated:
+	.string "defeat$"
+
+Route125_Text_JoanPostBattle:
 	.string "post$"
 
 Route125_Text_ShellRiddle1:
