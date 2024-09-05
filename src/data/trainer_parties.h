@@ -9603,7 +9603,7 @@ static const struct TrainerMon sParty_PUnseld[] = {
 static const struct TrainerMon sParty_PImmy[] = {
     {
     .lvl = 8,
-    .species = SPECIES_FROSLASS,
+    .species = SPECIES_RATTATA,
     }
 };
 

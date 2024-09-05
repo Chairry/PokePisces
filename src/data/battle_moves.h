@@ -2390,7 +2390,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
@@ -4135,7 +4135,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 20,
-        .secondaryEffectChance = 20,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .split = SPLIT_SPECIAL,
@@ -10274,6 +10274,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_INFESTATION] =
@@ -11471,8 +11472,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BADDY_BAD] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_8
-            .power = 80,
-            .accuracy = 95,
+            .power = 90,
+            .accuracy = 100,
         #else
             .power = 90,
             .accuracy = 100,
@@ -12215,6 +12216,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
     },
 
@@ -13922,6 +13924,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
     },
 
     [MOVE_FICKLE_BEAM] =
@@ -15393,14 +15397,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_MIND_BREAK] =
     {
-        .effect = EFFECT_FOUL_PLAY,
-        .power = 95,
+        .effect = EFFECT_MIND_BREAK,
+        .power = 140,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
     },
@@ -16500,7 +16504,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_AXEL_HEEL] =
     {
-        .effect = EFFECT_METEOR_BEAM,
+        .effect = EFFECT_AXEL_HEEL,
         .power = 100,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -16514,6 +16518,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
         .kickingMove = TRUE,
+        .slicingMove = TRUE,
     },
 
     [MOVE_SNOWFADE] =
