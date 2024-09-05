@@ -737,6 +737,8 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
+    if (MetatileBehavior_IsChimneyGrass(tileBehavior))
+        return BATTLE_TERRAIN_CHIMNEY_ROUTE;
 
     switch (gMapHeader.mapType)
     {

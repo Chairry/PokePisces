@@ -245,6 +245,118 @@ NewMauville_Inside_EventScript_DefeatedVoltorb3::
 	goto Common_EventScript_RemoveStaticPokemon
 	end
 
+NewMauville_Inside_EventScript_Bob::
+    trainerbattle_single TRAINER_P_BOB, NewMauville_Inside_Text_BobIntro, NewMauville_Inside_Text_BobDefeated
+    msgbox NewMauville_Inside_Text_BobPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Sam::
+    trainerbattle_single TRAINER_P_SAM, NewMauville_Inside_Text_SamIntro, NewMauville_Inside_Text_SamDefeated
+    msgbox NewMauville_Inside_Text_SamPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Vegetable::
+    trainerbattle_single TRAINER_P_VEGETABLE, NewMauville_Inside_Text_VegetableIntro, NewMauville_Inside_Text_VegetableDefeated
+    msgbox NewMauville_Inside_Text_VegetablePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Alexa::
+    trainerbattle_single TRAINER_P_ALEXA, NewMauville_Inside_Text_AlexaIntro, NewMauville_Inside_Text_AlexaDefeated
+    msgbox NewMauville_Inside_Text_AlexaPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Bixby::
+    trainerbattle_single TRAINER_P_BIXBY, NewMauville_Inside_Text_BixbyIntro, NewMauville_Inside_Text_BixbyDefeated
+    msgbox NewMauville_Inside_Text_BixbyPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Ruby::
+    trainerbattle_single TRAINER_P_RUBY, NewMauville_Inside_Text_RubyIntro, NewMauville_Inside_Text_RubyDefeated
+    msgbox NewMauville_Inside_Text_RubyPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Pascal::
+    trainerbattle_single TRAINER_P_PASCAL, NewMauville_Inside_Text_PascalIntro, NewMauville_Inside_Text_PascalDefeated
+    msgbox NewMauville_Inside_Text_PascalPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_EventScript_Bonzi::
+    trainerbattle_single TRAINER_P_BONZI, NewMauville_Inside_Text_BonziIntro, NewMauville_Inside_Text_BonziDefeated
+    msgbox NewMauville_Inside_Text_BonziPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+NewMauville_Inside_Text_BobIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_BobDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_BobPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_SamIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_SamDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_SamPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_VegetableIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_VegetableDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_VegetablePostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_AlexaIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_AlexaDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_AlexaPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_BixbyIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_BixbyDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_BixbyPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_RubyIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_RubyDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_RubyPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_PascalIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_PascalDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_PascalPostBattle:
+	.string "post$"
+
+NewMauville_Inside_Text_BonziIntro:
+	.string "intro$"
+
+NewMauville_Inside_Text_BonziDefeated:
+	.string "defeat$"
+
+NewMauville_Inside_Text_BonziPostBattle:
+	.string "post$"
+
 NewMauville_Inside_Text_GeneratorRadiatingHeat:
 	.string "The generator is radiating heat that\n"
 	.string "can be felt even at a distance.\p"

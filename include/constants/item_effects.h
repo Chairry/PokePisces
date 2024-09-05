@@ -53,7 +53,7 @@
 #define ITEM10_GUARD_SPEC       0x4 // Works the same way as the move Mist.
 
 // fields 6 and onwards (except field 10) are item-specific arguments
-#define ITEM_EFFECT_ARG_START 11
+#define ITEM_EFFECT_ARG_START 6
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
 #define ITEM6_HEAL_HP_FULL    ((u8) -1)

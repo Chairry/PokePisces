@@ -73,6 +73,8 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_RayquazaSpotlight         @ FLDEFF_RAYQUAZA_SPOTLIGHT
 	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
+	.4byte gFieldEffectScript_ChimneyGrass              @ FLDEFF_CHIMNEY_GRASS
+	.4byte gFieldEffectScript_JumpChimneyGrass          @ FLDEFF_JUMP_CHIMNEY_GRASS
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -343,4 +345,12 @@ gFieldEffectScript_DestroyDeoxysRock::
 
 gFieldEffectScript_MoveDeoxysRock::
 	field_eff_callnative FldEff_MoveDeoxysRock
+	field_eff_end
+
+gFieldEffectScript_ChimneyGrass::
+	field_eff_loadfadedpal_callnative gSpritePalette_ChimneyGrass, FldEff_ChimneyGrass
+	field_eff_end
+
+gFieldEffectScript_JumpChimneyGrass::
+	field_eff_loadfadedpal_callnative gSpritePalette_ChimneyGrass, FldEff_JumpChimneyGrass
 	field_eff_end

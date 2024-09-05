@@ -4212,7 +4212,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PLulu),
     },
 
-    [TRAINER_P_BEAN] =
+    [TRAINER_P_KAIRA] =
     {
         .trainerClass = TRAINER_CLASS_EXPERT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
@@ -4221,7 +4221,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PBean),
+        .party = TRAINER_PARTY(sParty_PKaira),
     },
 
     [TRAINER_P_WOODY] =

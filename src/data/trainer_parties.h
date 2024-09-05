@@ -6182,7 +6182,7 @@ static const struct TrainerMon sParty_PLulu[] = {
     }
 };
 
-static const struct TrainerMon sParty_PBean[] = {
+static const struct TrainerMon sParty_PKaira[] = {
     {
     .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
     .lvl = 6,

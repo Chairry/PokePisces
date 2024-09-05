@@ -352,7 +352,7 @@
 #define TRAINER_P_JUNIOR                    348
 #define TRAINER_P_HICHAELSON                    349
 #define TRAINER_P_LULU                      350
-#define TRAINER_P_BEAN                       351
+#define TRAINER_P_KAIRA                       351
 #define TRAINER_P_WOODY                     352
 #define TRAINER_P_ANA                  353
 #define TRAINER_P_YOKO                  354
