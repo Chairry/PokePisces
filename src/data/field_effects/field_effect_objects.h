@@ -101,6 +101,41 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrass = {
     .callback = UpdateTallGrassFieldEffect,
 };
 
+const struct SpritePalette gSpritePalette_ChimneyGrass = {gFieldEffectPal_ChimneyGrass, FLDEFF_PAL_TAG_CHIMNEY_GRASS};
+
+static const struct SpriteFrameImage sPicTable_ChimneyGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_ChimneyGrass, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_ChimneyGrass, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_ChimneyGrass, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_ChimneyGrass, 2, 2, 3),
+    overworld_frame(gFieldEffectObjectPic_ChimneyGrass, 2, 2, 4),
+};
+
+static const union AnimCmd sAnim_ChimneyGrass[] =
+{
+    ANIMCMD_FRAME(1, 10),
+    ANIMCMD_FRAME(2, 10),
+    ANIMCMD_FRAME(3, 10),
+    ANIMCMD_FRAME(4, 10),
+    ANIMCMD_FRAME(0, 10),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_ChimneyGrass[] =
+{
+    sAnim_ChimneyGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_ChimneyGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_CHIMNEY_GRASS,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_ChimneyGrass,
+    .images = sPicTable_ChimneyGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateChimneyGrassFieldEffect,
+};
+
 static const struct SpriteFrameImage sPicTable_Ripple[] = {
     overworld_frame(gFieldEffectObjectPic_Ripple, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_Ripple, 2, 2, 1),
@@ -331,6 +366,37 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_JumpTallGrass = {
     .oam = &gObjectEventBaseOam_16x8,
     .anims = sAnimTable_JumpTallGrass,
     .images = sPicTable_JumpTallGrass,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateJumpImpactEffect,
+};
+
+static const struct SpriteFrameImage sPicTable_JumpChimneyGrass[] = {
+    overworld_frame(gFieldEffectObjectPic_JumpChimneyGrass, 2, 1, 0),
+    overworld_frame(gFieldEffectObjectPic_JumpChimneyGrass, 2, 1, 1),
+    overworld_frame(gFieldEffectObjectPic_JumpChimneyGrass, 2, 1, 2),
+    overworld_frame(gFieldEffectObjectPic_JumpChimneyGrass, 2, 1, 3),
+};
+
+static const union AnimCmd sAnim_JumpChimneyGrass[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_JumpChimneyGrass[] =
+{
+    sAnim_JumpChimneyGrass,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_JumpChimneyGrass = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_CHIMNEY_GRASS,
+    .oam = &gObjectEventBaseOam_16x8,
+    .anims = sAnimTable_JumpChimneyGrass,
+    .images = sPicTable_JumpChimneyGrass,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateJumpImpactEffect,
 };
