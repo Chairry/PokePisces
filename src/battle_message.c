@@ -935,6 +935,8 @@ static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a
 static const u8 sText_PkmnBurningUp[] = _("{B_ATK_NAME_WITH_PREFIX} is burning up\nwithin the Infernal Reign!");
 static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the\naura of a king!");
 static const u8 sText_PkmnIsSpinning[] = _("{B_ATK_NAME_WITH_PREFIX} is\nspinning rapidly!");
+static const u8 sText_SloppyToppy[] = _("{B_ATK_NAME_WITH_PREFIX} kissed {B_DEF_NAME_WITH_PREFIX}\nin a show of true compassion!");
+static const u8 sText_NoSex[] = _("With {B_ATK_NAME_WITH_PREFIX}'s ally gone there\nis no more love for it to spread...");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1721,6 +1723,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNBURNINGUP - BATTLESTRINGS_TABLE_START] = sText_PkmnBurningUp,
     [STRINGID_INFERNALREIGNENTERS - BATTLESTRINGS_TABLE_START] = sText_InfernalReignEnters,
     [STRINGID_PKMNISSPINNING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsSpinning,
+    [STRINGID_SLOPPYTOPPY - BATTLESTRINGS_TABLE_START] = sText_SloppyToppy,
+    [STRINGID_NOSEX - BATTLESTRINGS_TABLE_START] = sText_NoSex,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

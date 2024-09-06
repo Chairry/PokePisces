@@ -3967,6 +3967,8 @@ void SetAtkCancellerForCalledMove(void)
 u8 AtkCanceller_UnableToUseMove(u32 moveType)
 {
     u8 effect = 0;
+    u32 count = 0;
+    u32 i;
     do
     {
         switch (gBattleStruct->atkCancellerTracker)
@@ -4417,10 +4419,28 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
                 }
                 else if ((gBattleMoves[gCurrentMove].effect == EFFECT_FROST_SHRED) && (gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] > DEFAULT_STAT_STAGE))
                 {
-                    u32 count = 0;
                     count += gBattleMons[gBattlerAttacker].statStages[STAT_SPEED] - DEFAULT_STAT_STAGE;
                     gMultiHitCounter = count + gBattleMoves[gCurrentMove].strikeCount;
                     PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+                }
+                else if (gBattleMoves[gCurrentMove].effect == EFFECT_HAYWIRE)
+                {
+                    for (i = 0; i < NUM_BATTLE_STATS; i++)
+                    {
+                        if (gBattleMons[gBattlerAttacker].statStages[i] > DEFAULT_STAT_STAGE)
+                        {
+                            count += gBattleMons[gBattlerAttacker].statStages[i] - DEFAULT_STAT_STAGE;
+                            gMultiHitCounter = count + gBattleMoves[gCurrentMove].strikeCount;
+                            if (gMultiHitCounter > 10)
+                                gMultiHitCounter = 10;
+                            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+                        }
+                        else
+                        {
+                            gMultiHitCounter = gBattleMoves[gCurrentMove].strikeCount;
+                            PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 3, 0)
+                        }
+                    }
                 }
                 else
                 {
@@ -13619,6 +13639,8 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (gBattleMoves[move].effect == EFFECT_TWO_TYPED_MOVE)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, gBattleMoves[move].argument, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+        if (gBattleMoves[move].effect == EFFECT_FLYING_PRESS)
+            modifier = CalcTypeEffectivenessMultiplierInternal(move, TYPE_FLYING, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (gBattleMoves[move].effect == EFFECT_WICKED_WINDS)
             modifier = CalcTypeEffectivenessMultiplierInternal(move, TYPE_FLYING, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (gBattleMoves[move].effect == EFFECT_CRASH_LAND)

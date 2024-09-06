@@ -1028,6 +1028,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CHEESE_STEAL] = _("Cheese Steal"),
     [MOVE_STUMBLE] = _("Stumble"),
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
+    [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
 };
 #else
 // 12 letters
@@ -2059,6 +2060,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CHEESE_STEAL] = _("Cheese Steal"),
     [MOVE_STUMBLE] = _("Stumble"),
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
+    [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
 };
 #endif
 

@@ -2965,7 +2965,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_NIGHTMARE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .accuracy = 100,
+            .accuracy = 60,
         #else
             .accuracy = 0,
         #endif
@@ -9453,19 +9453,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FLYING_PRESS] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_7
-            .power = 100,
+            .power = 150,
         #else
             .power = 80,
         #endif
-        .effect = EFFECT_TWO_TYPED_MOVE,
+        .effect = EFFECT_FLYING_PRESS,
         .type = TYPE_FIGHTING,
         .accuracy = 95,
-        .pp = 10,
+        .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
-        .argument = TYPE_FLYING,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .gravityBanned = TRUE,
@@ -16722,8 +16721,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_HAYWIRE] =
     {
-        .effect = EFFECT_HIT,
-        .power = 70,
+        .effect = EFFECT_HAYWIRE,
+        .power = 20,
         .type = TYPE_STEEL,
         .accuracy = 90,
         .pp = 10,
@@ -16732,7 +16731,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        .makesContact = TRUE,
+        .strikeCount = 2,
     },
 
     [MOVE_OVERTAKE] =
@@ -17035,6 +17034,24 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .windMove = TRUE,
         .highCritRatio = TRUE,
+        .metronomeBanned = TRUE,
+    },
+
+    [MOVE_TRUE_LOVES_KISS] =
+    {
+        .effect = EFFECT_TRUE_LOVES_KISS,
+        .power = 0,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_ALLY,
+        .priority = 6,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_RESET_STATS,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     // Z-Moves

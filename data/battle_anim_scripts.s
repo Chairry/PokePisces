@@ -1054,6 +1054,7 @@ gBattleAnims_Moves::
     .4byte Move_CHEESE_STEAL
     .4byte Move_STUMBLE
     .4byte Move_CRIMSON_STORM
+    .4byte Move_TRUE_LOVES_KISS
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -26352,6 +26353,9 @@ Move_STUMBLE::
 
 Move_CRIMSON_STORM::
 	goto Move_HEAT_WAVE
+
+Move_TRUE_LOVES_KISS::
+	goto Move_LOVELY_KISS
 
 Move_TERA_BLAST::
 Move_GLAIVE_RUSH::

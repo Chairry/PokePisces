@@ -4997,4 +4997,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
     [MOVE_STUMBLE - 1] = sSplashDescription,
     [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
+    [MOVE_TRUE_LOVES_KISS - 1] = sSplashDescription,
 };
