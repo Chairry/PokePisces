@@ -794,8 +794,11 @@
 #define STRINGID_FOUNDARANDOMCHEESE                   792
 #define STRINGID_PKMNBURNINGUP                        793
 #define STRINGID_INFERNALREIGNENTERS                  794
+#define STRINGID_PKMNISSPINNING                       795
+#define STRINGID_SLOPPYTOPPY                          796
+#define STRINGID_NOSEX                                797
 
-#define BATTLESTRINGS_COUNT                           795
+#define BATTLESTRINGS_COUNT                           798
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -862,6 +865,7 @@
 #define B_MSG_TURN1_DRAGON_RUIN    14
 #define B_MSG_TURN1_AIR_CANNON     15
 #define B_MSG_TURN1_CHEESE_STEAL   16
+#define B_MSG_TURN1_AXEL_HEEL      17
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0

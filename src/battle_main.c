@@ -4827,6 +4827,7 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_FLY
      || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+     || gBattleMoves[move].effect == EFFECT_AXEL_HEEL
      || gBattleMoves[move].effect == EFFECT_GEOMANCY
      || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
      || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
@@ -5893,7 +5894,7 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
 
     attackerAbility = GetBattlerAbility(battlerAtk);
     GET_MOVE_TYPE(move, moveType);
-    if ((gFieldStatuses & STATUS_FIELD_ION_DELUGE && moveType == TYPE_NORMAL)
+    if ((gFieldStatuses & STATUS_FIELD_ION_DELUGE)
         || gStatuses4[battlerAtk] & STATUS4_ELECTRIFIED)
     {
         gBattleStruct->dynamicMoveType = TYPE_ELECTRIC | F_DYNAMIC_TYPE_2;

@@ -4126,9 +4126,9 @@ static const u8 sPanicOrbDesc[] = _(
     "panic in battle.");
 
 static const u8 sSolarSwordDesc[] = _(
-    "Raises Solrock's\n"
-    "crit rate and power\n"
-    "in Sun.");
+    "In sun, Solrock\n"
+    "always crits and\n"
+    "they're boosted.");
 
 static const u8 sMoonMirrorDesc[] = _(
     "A held item that\n"
