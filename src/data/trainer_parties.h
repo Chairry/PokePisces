@@ -9563,7 +9563,7 @@ static const struct TrainerMon sParty_PGonzeros[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz1[] = {
+static const struct TrainerMon sParty_PRaoTwunne[] = {
     {
     .lvl = 18,
     .species = SPECIES_GEODUDE,
@@ -9574,7 +9574,7 @@ static const struct TrainerMon sParty_PTopaz1[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz2[] = {
+static const struct TrainerMon sParty_PJamiroquai[] = {
     {
     .lvl = 18,
     .species = SPECIES_GEODUDE,
@@ -9654,7 +9654,7 @@ static const struct TrainerMon sParty_PMax[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz3[] = {
+static const struct TrainerMon sParty_PArtemis[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
     .lvl = 24,
@@ -9677,7 +9677,7 @@ static const struct TrainerMon sParty_PTopaz3[] = {
     }
 };
 
-static const struct TrainerMon sParty_PFinalMonk[] = {
+static const struct TrainerMon sParty_PSeiman[] = {
     {
     .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
     .lvl = 27,
@@ -9768,7 +9768,7 @@ static const struct TrainerMon sParty_PBadumka[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz4[] = {
+static const struct TrainerMon sParty_PAnatina[] = {
     {
     .lvl = 25,
     .species = SPECIES_VOLBEAT,
@@ -9779,7 +9779,7 @@ static const struct TrainerMon sParty_PTopaz4[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz5[] = {
+static const struct TrainerMon sParty_PTaipus[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
     .lvl = 30,
@@ -9792,7 +9792,7 @@ static const struct TrainerMon sParty_PTopaz5[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz6[] = {
+static const struct TrainerMon sParty_PMarcelus[] = {
     {
     .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
     .lvl = 33,
@@ -9805,7 +9805,7 @@ static const struct TrainerMon sParty_PTopaz6[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz7[] = {
+static const struct TrainerMon sParty_PDevia[] = {
     {
     .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
     .lvl = 36,
@@ -9818,7 +9818,7 @@ static const struct TrainerMon sParty_PTopaz7[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz8[] = {
+static const struct TrainerMon sParty_PParponix[] = {
     {
     .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
     .lvl = 39,
@@ -9831,14 +9831,14 @@ static const struct TrainerMon sParty_PTopaz8[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz9[] = {
+static const struct TrainerMon sParty_PLanaya[] = {
     {
     .lvl = 13,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-static const struct TrainerMon sParty_PTopaz10[] = {
+static const struct TrainerMon sParty_POphelia[] = {
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
     .lvl = 23,
@@ -9871,7 +9871,7 @@ static const struct TrainerMon sParty_PDorian[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz11[] = {
+static const struct TrainerMon sParty_PRaoTwunne1[] = {
     {
     .lvl = 25,
     .species = SPECIES_KOFFING,
@@ -9884,7 +9884,7 @@ static const struct TrainerMon sParty_PTopaz11[] = {
     }
 };
 
-static const struct TrainerMon sParty_PTopaz12[] = {
+static const struct TrainerMon sParty_PRaoTwunne2[] = {
     {
     .lvl = 28,
     .species = SPECIES_KOFFING,

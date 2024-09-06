@@ -80,12 +80,12 @@ Route114_EventScript_LanettesHouseSign::
 	end
 
 Route114_EventScript_Lenny::
-	trainerbattle_single TRAINER_P_TOPAZ_1, Route114_Text_LennyIntro, Route114_Text_LennyDefeat
+	trainerbattle_single TRAINER_P_RAO_TWUNNE, Route114_Text_LennyIntro, Route114_Text_LennyDefeat
 	msgbox Route114_Text_LennyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Lucas::
-	trainerbattle_single TRAINER_P_TOPAZ_2, Route114_Text_LucasIntro, Route114_Text_LucasDefeat
+	trainerbattle_single TRAINER_P_JAMIROQUAI, Route114_Text_LucasIntro, Route114_Text_LucasDefeat
 	msgbox Route114_Text_LucasPostBattle, MSGBOX_AUTOCLOSE
 	end
 
