@@ -644,6 +644,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHaywire                 @ EFFECT_HAYWIRE
 	.4byte BattleScript_EffectHit                     @ EFFECT_FLYING_PRESS
 	.4byte BattleScript_EffectTrueLovesKiss           @ EFFECT_TRUE_LOVES_KISS
+	.4byte BattleScript_EffectFlinchHit               @ EFFECT_SABRE_BREAK
 
 BattleScript_EffectTrueLovesKiss::
 	attackcanceler

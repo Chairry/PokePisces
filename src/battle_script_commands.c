@@ -2097,6 +2097,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_SMACK_DOWN && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_SPINDA_SWING && gBattleMons[battlerAtk].status2 & STATUS2_CONFUSION)
+             || (gBattleMoves[move].effect == EFFECT_SABRE_BREAK && (gBattleMons[battlerDef].status1 & STATUS1_FROSTBITE || gBattleMons[battlerDef].status1 & STATUS1_FREEZE))
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_FLOWER_TRICK)
              || (gCurrentMove == MOVE_LEAF_BLADE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
@@ -6266,6 +6267,7 @@ static void Cmd_moveend(void)
                 {
                 case EFFECT_RECOIL_25: // Take Down, 25% recoil
                 case EFFECT_SUBMISSION: // differentiated for reasons
+                case EFFECT_FLYING_PRESS: // Flying Press, Fighting/Flying-type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -6280,7 +6282,6 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_50: // Head Smash, 50 % recoil
-                case EFFECT_FLYING_PRESS: // Flying Press, Fighting/Flying-type move
                 case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
                 case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground-type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);

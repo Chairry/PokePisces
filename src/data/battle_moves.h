@@ -9453,14 +9453,14 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_FLYING_PRESS] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_7
-            .power = 150,
+            .power = 140,
         #else
             .power = 80,
         #endif
         .effect = EFFECT_FLYING_PRESS,
         .type = TYPE_FIGHTING,
-        .accuracy = 95,
-        .pp = 5,
+        .accuracy = 100,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14284,7 +14284,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
-        .bitingMove = TRUE,
     },
 
     [MOVE_WEATHER_FORCE] =
@@ -16033,10 +16032,10 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SNAPBLOSSOM] =
     {
         .effect = EFFECT_SNAPBLOSSOM,
-        .power = 95,
+        .power = 85,
         .type = TYPE_GRASS,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -17052,6 +17051,23 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .metronomeBanned = TRUE,
         .copycatBanned = TRUE,
         .mimicBanned = TRUE,
+    },
+
+    [MOVE_SABRE_BREAK] =
+    {
+        .effect = EFFECT_SABRE_BREAK,
+        .power = 75,
+        .type = TYPE_ICE,
+        .accuracy = 95,
+        .pp = 15,
+        .secondaryEffectChance = 20,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .sheerForceBoost = TRUE,
+        .bitingMove = TRUE,
     },
 
     // Z-Moves

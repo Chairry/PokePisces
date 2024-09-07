@@ -3964,6 +3964,10 @@ static const u8 sDrainPunchDescription[] = _(
     "A punch that steals half\n"
     "the damage inflicted.");
 
+static const u8 sSabreBreakDescription[] = _(
+    "Crits against frostbitten or\n"
+    "frozen targets. May flinch.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4998,4 +5002,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_STUMBLE - 1] = sSplashDescription,
     [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
     [MOVE_TRUE_LOVES_KISS - 1] = sSplashDescription,
+    [MOVE_SABRE_BREAK - 1] = sSabreBreakDescription,
 };
