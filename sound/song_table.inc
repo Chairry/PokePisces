@@ -615,6 +615,11 @@ gSongTable::
 	song mus_vs_wild2, 0, 0
 	song mus_vs_ray, 0, 0
 	song mus_pacifidlog, 0, 0
+	song mus_buried_relic, 0, 0
+	song mus_ranger_net, 0, 0
+	song mus_ranger_cave, 0, 0
+	song mus_dash_blue_cup, 0, 0
+	song mus_vs_zinnia, 0, 0
 
 	.align 2
 dummy_song_header:

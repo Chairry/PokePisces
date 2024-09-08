@@ -1274,3 +1274,18 @@ $(MID_SUBDIR)/mus_vs_ray.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_pacifidlog.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G194 -V100
+
+$(MID_SUBDIR)/mus_buried_relic.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_ranger_net.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
+
+$(MID_SUBDIR)/mus_ranger_cave.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
+
+$(MID_SUBDIR)/mus_dash_blue_cup.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V90
+
+$(MID_SUBDIR)/mus_vs_zinnia.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V075

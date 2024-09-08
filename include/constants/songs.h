@@ -547,8 +547,13 @@
 #define MUS_VS_WILD2                611
 #define MUS_VS_RAY                  612
 #define MUS_PACIFIDLOG              613
+#define MUS_BURIED_RELIC            614
+#define MUS_RANGER_NET              615
+#define MUS_RANGER_CAVE             616
+#define MUS_DASH_BLUE_CUP           617
+#define MUS_VS_ZINNIA               618
 
-#define END_MUS                     MUS_PACIFIDLOG
+#define END_MUS                     MUS_VS_ZINNIA
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

@@ -4030,6 +4030,11 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_VS_WILD2) \
     X(MUS_VS_RAY) \
     X(MUS_PACIFIDLOG) \
+    X(MUS_BURIED_RELIC) \
+    X(MUS_RANGER_NET) \
+    X(MUS_RANGER_CAVE) \
+    X(MUS_DASH_BLUE_CUP) \
+    X(MUS_VS_ZINNIA) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \
