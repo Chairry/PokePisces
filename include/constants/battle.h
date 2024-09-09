@@ -439,8 +439,9 @@
 #define MOVE_EFFECT_CINDER_WALTZ        107
 #define MOVE_EFFECT_SPATK_SPDEF_UP      108
 #define MOVE_EFFECT_WILD_CHARGE         109
+#define MOVE_EFFECT_CONSTRICT           110
 
-#define NUM_MOVE_EFFECTS                110
+#define NUM_MOVE_EFFECTS                111
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

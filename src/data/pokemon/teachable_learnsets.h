@@ -38915,6 +38915,7 @@ static const u16 sLottabatsTeachableLearnset[] = {
 };
 
 static const u16 sPomelonianTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_BEAT_UP,
     MOVE_REST,
     MOVE_PROTECT,
@@ -38990,6 +38991,7 @@ static const u16 sPomelonianTeachableLearnset[] = {
 };
 
 static const u16 sGourdougTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_BEAT_UP,
     MOVE_REST,
     MOVE_PROTECT,
@@ -44368,6 +44370,7 @@ static const u16 sKarodoraugTeachableLearnset[] = {
 };
 
 static const u16 sCoforcheeTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_HORN_LEECH,
     MOVE_GRAND_SLAM,
     MOVE_REST,

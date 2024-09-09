@@ -6245,9 +6245,9 @@ const u8 gMoraganPokedexText[] = _(
 
 const u8 gShiversnapPokedexText[] = _(
     "Shiversnap are fierce predators. Only a\n"
-    "single bite from a Shiversnap can cause\n"
-    "someone’s blood to freeze and stop them\n"
-    "cold.");
+    "single bite from a Shiversnap is needed\n"
+    "to cause someone’s blood to freeze and\n"
+    "stop them cold.");
 
 const u8 gExcatatorPokedexText[] = _(
     "In construction zones, these Pokémon are\n"

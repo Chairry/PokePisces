@@ -214,7 +214,7 @@ static const u8 sDisableDescription[] = _(
 
 static const u8 sAcidDescription[] = _(
     "Sprays a hide-melting acid.\n"
-    "May lower Defense.");
+    "Always sharply lowers Def.");
 
 static const u8 sEmberDescription[] = _(
     "A weak fire attack that may\n"
@@ -281,8 +281,8 @@ static const u8 sDrillPeckDescription[] = _(
     "the beak acting as a drill.");
 
 static const u8 sSubmissionDescription[] = _(
-    "A reckless body slam that\n"
-    "also hurts the user.");
+    "Suppresses attacking foes\n"
+    "to move last. Hurts the user.");
 
 static const u8 sLowKickDescription[] = _(
     "A kick that inflicts more\n"
@@ -1958,7 +1958,7 @@ static const u8 sLowSweepDescription[] = _(
 
 static const u8 sAcidSprayDescription[] = _(
     "Sprays a hide-melting acid.\n"
-    "Sharply reduces Sp. Def.");
+    "Reduces Special Defense.");
 
 static const u8 sFoulPlayDescription[] = _(
     "The higher the foe's Attack\n"
@@ -3585,8 +3585,8 @@ static const u8 sCoolMistDescription[] = _(
     "water. May cause frostbite.");
 
 static const u8 sMindBreakDescription[] = _(
-    "The higher the foe's Sp. Atk\n"
-    "the more damage caused.");
+    "Works on panicked or confused\n"
+    "foes and uses their Sp. Atk.");
 
 static const u8 sRoadblockDescription[] = _(
     "Fails if the target didn't\n"
@@ -4997,4 +4997,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CHEESE_STEAL - 1] = sCheeseStealDescription,
     [MOVE_STUMBLE - 1] = sSplashDescription,
     [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
+    [MOVE_TRUE_LOVES_KISS - 1] = sSplashDescription,
 };

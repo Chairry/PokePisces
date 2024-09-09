@@ -616,7 +616,12 @@
 #define EFFECT_DRAGON_CLAW                  610
 #define EFFECT_CHEESE_STEAL                 611
 #define EFFECT_LEAF_TORNADO                 612
+#define EFFECT_AXEL_HEEL                    613
+#define EFFECT_MIND_BREAK                   614
+#define EFFECT_HAYWIRE                      615
+#define EFFECT_FLYING_PRESS                 616
+#define EFFECT_TRUE_LOVES_KISS              617
 
-#define NUM_BATTLE_MOVE_EFFECTS             613
+#define NUM_BATTLE_MOVE_EFFECTS             618
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
