@@ -552,8 +552,15 @@
 #define MUS_RANGER_CAVE             616
 #define MUS_DASH_BLUE_CUP           617
 #define MUS_VS_ZINNIA               618
+#define MUS_RANGER_BASE             619
+#define MUS_RANGER_FALL_CITY        620
+#define MUS_REALGAM_TOWER           621
+#define MUS_SAPPHIRE_FIELD          622
+#define MUS_RUBY_FIELD              623
+#define MUS_RANGER_LYRA_FOREST      624
+#define MUS_MT_FREEZE               625
 
-#define END_MUS                     MUS_VS_ZINNIA
+#define END_MUS                     MUS_MT_FREEZE
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

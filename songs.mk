@@ -1289,3 +1289,24 @@ $(MID_SUBDIR)/mus_dash_blue_cup.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_vs_zinnia.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V075
+
+$(MID_SUBDIR)/mus_ranger_base.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_ranger_fall_city.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_realgam_tower.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_sapphire_field.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_ruby_field.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V110
+
+$(MID_SUBDIR)/mus_ranger_lyra_forest.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_mt_freeze.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
