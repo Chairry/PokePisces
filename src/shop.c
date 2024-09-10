@@ -1319,14 +1319,14 @@ static void BuyMenuInitWindows(void)
         if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
             BuyMenuPrint(WIN_MULTI, gText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, gText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         else
-            PrintMoneyLocal(WIN_MULTI, 2*8, price, 65, COLORID_BLACK, FALSE);
+            PrintMoneyLocal(WIN_MULTI, 2*8, price, 65 + 8, COLORID_BLACK, FALSE);
 
         ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
-        BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+        BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61 + 8), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
     }
     else
     {
-        PrintMoneyLocal(WIN_MULTI, 2*8, price, 65, COLORID_BLACK, FALSE);
+        PrintMoneyLocal(WIN_MULTI, 2*8, price, 65 + 8, COLORID_BLACK, FALSE);
     }
     CopyWindowToVram(WIN_MULTI, COPYWIN_FULL);
     FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
@@ -1423,16 +1423,16 @@ static void UpdateItemData(void)
     if (GridMenu_SelectedIndex(sShopData->gridItems) >= sMartInfo.itemCount)
         return;
 
-    FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 0, 84, 16);
-    FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 34, 1*8, 84, 40);
+    FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 0, 92, 16);
+    FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 32, 1*8, 92, 40);
     if (sMartInfo.itemList[GridMenu_SelectedIndex(sShopData->gridItems)] == ITEM_NONE)
     {
         FillWindowPixelRect(WIN_MULTI, PIXEL_FILL(0), 0, 0, 84, 16);
         BuyMenuPrint(WIN_MULTI, COMPOUND_STRING("Return to Field"), 0, 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
-        BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 61), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+        BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 61 + 8), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
 
         if (sMartInfo.martType == MART_TYPE_NORMAL)
-            BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 61), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+            BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 61 + 8), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
 
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
         BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_QuitShopping, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
@@ -1458,14 +1458,14 @@ static void UpdateItemData(void)
             if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
                 BuyMenuPrint(WIN_MULTI, gText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, gText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             else
-                PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65, COLORID_BLACK, FALSE);
+                PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65 + 8, COLORID_BLACK, FALSE);
 
             ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
-            BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
+            BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 61 + 8), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
         else
         {
-            PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65, COLORID_BLACK, FALSE);
+            PrintMoneyLocal(WIN_MULTI, 2*8, BuyMenuGetItemPrice(i), 65 + 8, COLORID_BLACK, FALSE);
         }
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
         BuyMenuPrint(WIN_ITEM_DESCRIPTION, desc, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
@@ -1486,7 +1486,7 @@ static void UpdateCursorPosition(void)
 
 static void Task_WaitMessage(u8 taskId)
 {
-    if (--gTasks[taskId].data[0] == 0)
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         UpdateItemData();
         gTasks[taskId].func = Task_BuyMenu;
@@ -1515,7 +1515,6 @@ static void Task_BuyMenuTryBuyingItem(u8 taskId)
         if (ItemId_GetImportance(sShopData->currentItemId) && (CheckBagHasItem(sShopData->currentItemId, 1) || CheckPCHasItem(sShopData->currentItemId, 1)))
         {
             PlaySE(SE_BOO);
-            gTasks[taskId].data[0] = 70;
             BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, Task_WaitMessage);
             return;
         }
@@ -1524,7 +1523,6 @@ static void Task_BuyMenuTryBuyingItem(u8 taskId)
     if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
     {
         PlaySE(SE_BOO);
-        gTasks[taskId].data[0] = 70;
         BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, Task_WaitMessage);
     }
     else
@@ -1707,16 +1705,12 @@ static void BuyMenuSubtractMoney(u8 taskId)
         gTasks[taskId].func = Task_ReturnToItemListAfterDecorationPurchase;
 }
 
-// This is hacky but this'd do it
 static void Task_ReturnToItemListWaitMsg(u8 taskId)
 {
-    if (gTasks[taskId].data[0] == 0)
+    if (!RunTextPrintersRetIsActive(WIN_ITEM_DESCRIPTION) && JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
-            BuyMenuReturnToItemList(taskId);
+        BuyMenuReturnToItemList(taskId);
     }
-    else
-        gTasks[taskId].data[0]--;
 }
 
 static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
@@ -1725,9 +1719,6 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
 
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
-        if (gTasks[taskId].data[0] != 20)
-            PlaySE(SE_SELECT);
-
         if ((ItemId_GetPocket(sShopData->currentItemId) == POCKET_POKE_BALLS) && tItemCount > 9 && AddBagItem(ITEM_PREMIER_BALL, tItemCount / 10) == TRUE)
         {
             if (tItemCount > 19)
@@ -1741,7 +1732,6 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
                 BuyMenuPrint(WIN_ITEM_DESCRIPTION, gText_ThrowInSomePremierBalls, 0, 4, TEXT_SKIP_DRAW, COLORID_BLACK, TRUE);
             }
         }
-        gTasks[taskId].data[0] = 20;
         gTasks[taskId].func = Task_ReturnToItemListWaitMsg;
     }
 }
