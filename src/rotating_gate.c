@@ -202,17 +202,8 @@ static const struct RotatingGatePuzzle sRotatingGate_FortreePuzzleConfig[] =
 // Trickhouse
 static const struct RotatingGatePuzzle sRotatingGate_TrickHousePuzzleConfig[] =
 {
-    {14,  5, GATE_SHAPE_T1, GATE_ORIENTATION_90},
-    {10,  6, GATE_SHAPE_L2, GATE_ORIENTATION_180},
-    { 6,  6, GATE_SHAPE_L4, GATE_ORIENTATION_90},
-    {14,  8, GATE_SHAPE_T1, GATE_ORIENTATION_90},
-    { 3, 10, GATE_SHAPE_L3, GATE_ORIENTATION_270},
-    { 9, 14, GATE_SHAPE_L1, GATE_ORIENTATION_90},
-    { 3, 15, GATE_SHAPE_T3, GATE_ORIENTATION_0},
-    { 2, 17, GATE_SHAPE_L2, GATE_ORIENTATION_180},
-    {12, 18, GATE_SHAPE_T3, GATE_ORIENTATION_270},
-    { 5, 18, GATE_SHAPE_L4, GATE_ORIENTATION_90},
-    {10, 19, GATE_SHAPE_L3, GATE_ORIENTATION_180},
+    { 6,  8, GATE_SHAPE_UNUSED_T3, GATE_ORIENTATION_90},
+    { 3, 13, GATE_SHAPE_L1, GATE_ORIENTATION_0},
 };
 
 #define MAX_GATES max(ARRAY_COUNT(sRotatingGate_FortreePuzzleConfig), \
@@ -630,8 +621,8 @@ static s32 GetCurrentMapRotatingGatePuzzleType(void)
         return PUZZLE_FORTREE_CITY_GYM;
     }
 
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE110_TRICK_HOUSE_PUZZLE6) &&
-        gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE110_TRICK_HOUSE_PUZZLE6))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FORTREE_GYM_NEW) &&
+        gSaveBlock1Ptr->location.mapNum == MAP_NUM(FORTREE_GYM_NEW))
     {
         return PUZZLE_ROUTE110_TRICK_HOUSE_PUZZLE6;
     }
