@@ -1252,6 +1252,19 @@ SECTIONS {
         sound/songs/midi/mus_vs_wild2.o(.rodata);
         sound/songs/midi/mus_vs_ray.o(.rodata);
         sound/songs/midi/mus_pacifidlog.o(.rodata);
+        sound/songs/midi/mus_buried_relic.o(.rodata);
+        sound/songs/midi/mus_ranger_net.o(.rodata);
+        sound/songs/midi/mus_ranger_cave.o(.rodata);
+        sound/songs/midi/mus_dash_blue_cup.o(.rodata);
+        sound/songs/midi/mus_vs_zinnia.o(.rodata);
+        sound/songs/midi/mus_ranger_base.o(.rodata);
+        sound/songs/midi/mus_ranger_fall_city.o(.rodata);
+        sound/songs/midi/mus_realgam_tower.o(.rodata);
+        sound/songs/midi/mus_sapphire_field.o(.rodata);
+        sound/songs/midi/mus_ruby_field.o(.rodata);
+        sound/songs/midi/mus_ranger_lyra_forest.o(.rodata);
+        sound/songs/midi/mus_mt_freeze.o(.rodata);
+
     } =0
 
     lib_rodata :
