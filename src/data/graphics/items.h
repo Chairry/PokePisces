@@ -2149,8 +2149,8 @@ const u32 gItemIconPalette_SolarSword[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_MoonMirror[] = INCBIN_U32("graphics/items/icons/moon_mirror.4bpp.lz");
 const u32 gItemIconPalette_MoonMirror[] = INCBIN_U32("graphics/items/icon_palettes/moon_mirror.gbapal.lz");
 
-const u32 gItemIcon_FriendRibbon[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_FriendRibbon[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_FriendRibbon[] = INCBIN_U32("graphics/items/icons/friend_ribbon.4bpp.lz");
+const u32 gItemIconPalette_FriendRibbon[] = INCBIN_U32("graphics/items/icon_palettes/friend_ribbon.gbapal.lz");
 
 const u32 gItemIcon_RoomExtender[] = INCBIN_U32("graphics/items/icons/room_extender.4bpp.lz");
 const u32 gItemIconPalette_RoomExtender[] = INCBIN_U32("graphics/items/icon_palettes/room_extender.gbapal.lz");
@@ -2224,8 +2224,8 @@ const u32 gItemIconPalette_Extrapolator[] = INCBIN_U32("graphics/items/icon_pale
 const u32 gItemIcon_Relaxant[] = INCBIN_U32("graphics/items/icons/relaxant.4bpp.lz");
 const u32 gItemIconPalette_Relaxant[] = INCBIN_U32("graphics/items/icon_palettes/relaxant.gbapal.lz");
 
-const u32 gItemIcon_ShellyBrew[] = INCBIN_U32("graphics/items/icons/a_thing.4bpp.lz");
-const u32 gItemIconPalette_ShellyBrew[] = INCBIN_U32("graphics/items/icon_palettes/a_thing.gbapal.lz");
+const u32 gItemIcon_ShellyBrew[] = INCBIN_U32("graphics/items/icons/shelly_brew.4bpp.lz");
+const u32 gItemIconPalette_ShellyBrew[] = INCBIN_U32("graphics/items/icon_palettes/shelly_brew.gbapal.lz");
 
 const u32 gItemIcon_SurpriseGift[] = INCBIN_U32("graphics/items/icons/heart_gift.4bpp.lz");
 const u32 gItemIconPalette_SurpriseGift[] = INCBIN_U32("graphics/items/icon_palettes/heart_gift.gbapal.lz");

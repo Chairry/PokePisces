@@ -4437,7 +4437,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Snow",
+      "secondary_tileset": "gTileset_Chimney",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin"
     },
@@ -5530,6 +5530,16 @@
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/StraeSeapathUnderwater/border.bin",
       "blockdata_filepath": "data/layouts/StraeSeapathUnderwater/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_GYM_NEW",
+      "name": "FortreeGymNew_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FortreeGymNew",
+      "border_filepath": "data/layouts/FortreeGymNew/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeGymNew/map.bin"
     }
   ]
 }

@@ -246,3 +246,6 @@ const u16 gMetatileAttributes_BossCave[] = INCBIN_U16("data/tilesets/secondary/b
 
 const u16 gMetatiles_LavaridgeNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_new/metatiles.bin");
 const u16 gMetatileAttributes_LavaridgeNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_new/metatile_attributes.bin");
+
+const u16 gMetatiles_FortreeGymNew[] = INCBIN_U16("data/tilesets/secondary/fortree_gym_new/metatiles.bin");
+const u16 gMetatileAttributes_FortreeGymNew[] = INCBIN_U16("data/tilesets/secondary/fortree_gym_new/metatile_attributes.bin");

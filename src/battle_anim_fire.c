@@ -80,6 +80,17 @@ const struct SpriteTemplate gFireSpreadSpriteTemplate =
     .callback = AnimFireSpread,
 };
 
+const struct SpriteTemplate gWaterSpreadSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_BLADE,
+    .paletteTag = ANIM_TAG_WATER_BLADE,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_FireSpiralSpread,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpread,
+};
+
 static const union AnimCmd sAnim_LargeFlame[] =
 {
     ANIMCMD_FRAME(0, 3),
@@ -347,6 +358,17 @@ const struct SpriteTemplate gFireSpiralOutwardSpriteTemplate =
 {
     .tileTag = ANIM_TAG_SMALL_EMBER,
     .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_BasicFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFireSpiralOutward,
+};
+
+const struct SpriteTemplate gWaterSpiralOutwardSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WATER_BLADE,
+    .paletteTag = ANIM_TAG_WATER_BLADE,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gAnims_BasicFire,
     .images = NULL,

@@ -911,7 +911,7 @@ static const u8 sText_StartedADanceMania[] = _("{B_ATK_NAME_WITH_PREFIX} made ev
 static const u8 sText_PkmnCutHPMaxedSpAtk[] = _("{B_ATK_NAME_WITH_PREFIX} cut its own HP\nand maximized SP. ATTACK!");
 static const u8 sText_PkmnBecameMinimized[] = _("{B_ATK_NAME_WITH_PREFIX} became minimized!");
 static const u8 sText_TargetBecameMinimized[] = _("{B_DEF_NAME_WITH_PREFIX} became minimized!");
-static const u8 sText_PressurizingAir[] = _("{B_DEF_NAME_WITH_PREFIX} is\npressurizing air!");
+static const u8 sText_PressurizingAir[] = _("{B_ATK_NAME_WITH_PREFIX} is\npressurizing air!");
 static const u8 sText_PkmnCanEvolve[] = _("{B_BUFF1} grew to LV. {B_BUFF2}\nand can evolve!{WAIT_SE}\p");
 static const u8 sText_CantHealInOffensiveForm[] = _("{B_DEF_NAME_WITH_PREFIX}'s party can't\nheal against this form!");
 static const u8 sText_GoldPlains[] = _("All screens were cleared\nand battlers refereshed!");
@@ -934,6 +934,9 @@ static const u8 sText_DragonClawBoosted[] = _("{B_ATK_NAME_WITH_PREFIX} landed a
 static const u8 sText_FoundARandomCheese[] = _("{B_ATK_NAME_WITH_PREFIX} found a\nrandom cheese!");
 static const u8 sText_PkmnBurningUp[] = _("{B_ATK_NAME_WITH_PREFIX} is burning up\nwithin the Infernal Reign!");
 static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} radiates the\naura of a king!");
+static const u8 sText_PkmnIsSpinning[] = _("{B_ATK_NAME_WITH_PREFIX} is\nspinning rapidly!");
+static const u8 sText_SloppyToppy[] = _("{B_ATK_NAME_WITH_PREFIX} kissed {B_DEF_NAME_WITH_PREFIX}\nin a show of true compassion!");
+static const u8 sText_NoSex[] = _("With {B_ATK_NAME_WITH_PREFIX}'s ally gone there\nis no more love for it to spread...");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1719,6 +1722,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_FOUNDARANDOMCHEESE - BATTLESTRINGS_TABLE_START] = sText_FoundARandomCheese,
     [STRINGID_PKMNBURNINGUP - BATTLESTRINGS_TABLE_START] = sText_PkmnBurningUp,
     [STRINGID_INFERNALREIGNENTERS - BATTLESTRINGS_TABLE_START] = sText_InfernalReignEnters,
+    [STRINGID_PKMNISSPINNING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsSpinning,
+    [STRINGID_SLOPPYTOPPY - BATTLESTRINGS_TABLE_START] = sText_SloppyToppy,
+    [STRINGID_NOSEX - BATTLESTRINGS_TABLE_START] = sText_NoSex,
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -1984,6 +1990,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_DRAGON_RUIN]   = STRINGID_DRAGONRUINCHARGING,
     [B_MSG_TURN1_AIR_CANNON]    = STRINGID_PRESSURIZINGAIR,
     [B_MSG_TURN1_CHEESE_STEAL]  = STRINGID_PKMNFLEDFROMBATTLE,
+    [B_MSG_TURN1_AXEL_HEEL]     = STRINGID_PKMNISSPINNING,
 };
 
 // Index copied from move's index in sTrappingMoves

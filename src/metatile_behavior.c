@@ -33,6 +33,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_NO_SURFACING]                    = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
     [MB_STAIRS_OUTSIDE_ABANDONED_SHIP]   = TILE_FLAG_UNUSED,
     [MB_SHOAL_CAVE_ENTRANCE]             = TILE_FLAG_UNUSED,
+    [MB_CHIMNEY_GRASS]                   = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_ICE]                             = TILE_FLAG_UNUSED,
     [MB_SAND]                            = TILE_FLAG_UNUSED,
     [MB_SEAWEED]                         = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
@@ -179,7 +180,7 @@ bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsPokeGrass(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_LONG_GRASS)
+    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_LONG_GRASS || metatileBehavior == MB_CHIMNEY_GRASS)
         return TRUE;
     else
         return FALSE;
@@ -734,6 +735,14 @@ bool8 MetatileBehavior_IsPuddle(u8 metatileBehavior)
 bool8 MetatileBehavior_IsTallGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsChimneyGrass(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_CHIMNEY_GRASS)
         return TRUE;
     else
         return FALSE;

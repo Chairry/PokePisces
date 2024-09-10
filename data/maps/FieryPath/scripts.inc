@@ -28,7 +28,7 @@ FieryPath_EventScript_Jan::
     end
 
 FieryPath_EventScript_Catt::
-    trainerbattle_single TRAINER_P_CATT, FieryPath_Text_CattIntro, FieryPath_Text_CattDefeated
+    trainerbattle_single TRAINER_P_CATHY, FieryPath_Text_CattIntro, FieryPath_Text_CattDefeated
     msgbox FieryPath_Text_CattPostBattle, MSGBOX_AUTOCLOSE
     end
 

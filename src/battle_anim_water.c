@@ -190,6 +190,17 @@ const struct SpriteTemplate gHydroPumpOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
+const struct SpriteTemplate gAirCannonSickleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_AIR_WAVE,
+    .paletteTag = ANIM_TAG_AIR_WAVE,
+    .oam = &gOamData_AffineOff_ObjBlend_32x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimToTargetInSinWave,
+};
+
 const struct SpriteTemplate gDragonOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_DRAGON_ORB,

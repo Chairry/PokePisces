@@ -142,6 +142,17 @@ const struct SpriteTemplate gLinearStingerSpriteTemplate =
     .callback = AnimTranslateStinger,
 };
 
+const struct SpriteTemplate gLinearIceSpearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICICLE_SPEAR,
+    .paletteTag = ANIM_TAG_ICICLE_SPEAR,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimTranslateStinger,
+};
+
 const struct SpriteTemplate gLinearPinSpriteTemplate =
 {
     .tileTag = ANIM_TAG_PIN,

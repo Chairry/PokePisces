@@ -639,6 +639,57 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonClaw              @ EFFECT_DRAGON_CLAW
 	.4byte BattleScript_EffectCheeseSteal             @ EFFECT_CHEESE_STEAL
 	.4byte BattleScript_EffectLeafTornado             @ EFFECT_LEAF_TORNADO
+	.4byte BattleScript_EffectAxelHeel                @ EFFECT_AXEL_HEEL
+	.4byte BattleScript_EffectMindBreak               @ EFFECT_MIND_BREAK
+	.4byte BattleScript_EffectHaywire                 @ EFFECT_HAYWIRE
+	.4byte BattleScript_EffectHit                     @ EFFECT_FLYING_PRESS
+	.4byte BattleScript_EffectTrueLovesKiss           @ EFFECT_TRUE_LOVES_KISS
+
+BattleScript_EffectTrueLovesKiss::
+	attackcanceler
+	attackstring
+	jumpifnoally BS_ATTACKER, BattleScript_ItsJoever
+	attackanimation
+	waitanimation
+	printstring STRINGID_SLOPPYTOPPY
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_ItsJoever:
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NOSEX
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+	
+BattleScript_EffectHaywire::
+	shellsidearmcheck
+	goto BattleScript_EffectHit
+
+BattleScript_EffectMindBreak::
+	jumpifstatus BS_TARGET, STATUS1_PANIC, BattleScript_EffectHit
+	jumpifstatus2 BS_TARGET, STATUS2_CONFUSION, BattleScript_EffectHit
+	goto BattleScript_ButItFailed
+
+BattleScript_EffectAxelHeel::
+	@ DecideTurn
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_AXEL_HEEL
+	attackcanceler
+	printstring STRINGID_EMPTYSTRING3
+	ppreduce
+	attackanimation
+	waitanimation
+	orword gHitMarker, HITMARKER_CHARGING
+	setmoveeffect MOVE_EFFECT_CHARGING | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
+	printfromtable gFirstTurnOfTwoStringIds
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_ATK_SPEED_PLUS | MOVE_EFFECT_AFFECTS_USER
+	seteffectsecondary
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+	goto BattleScript_TwoTurnMovesSecondTurn
 
 BattleScript_EffectLeafTornado::
 	jumpifstatus BS_ATTACKER, STATUS1_BLOOMING, BattleScript_LeafTornadoRemoveScreenHazards
@@ -710,7 +761,10 @@ BattleScript_EffectSubmission::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	tryquash BattleScript_HitFromAtkAnimation
+	tryquash BattleScript_HitFromCritCalc
+	critcalc
+	damagecalc
+	adjustdamage
 	attackanimation
 	waitanimation
 	effectivenesssound
@@ -1569,12 +1623,10 @@ BattleScript_EffectConstrict::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_EffectConstrict2
-	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE | MOVE_EFFECT_CERTAIN
+	setmoveeffect MOVE_EFFECT_CONSTRICT
+	seteffectprimary
 	ppreduce
-	confuseifrepeatingattackends
-	goto BattleScript_HitFromCritCalc
 BattleScript_EffectConstrict2:
-	setmoveeffect MOVE_EFFECT_FLINCH
 	confuseifrepeatingattackends
 	goto BattleScript_HitFromCritCalc
 
@@ -2727,7 +2779,7 @@ BattleScript_EffectReconstruct:
 	attackcanceler
 	attackstring
 	ppreduce
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	setglaiverush2
 	attackanimation
 	waitanimation
@@ -2750,20 +2802,22 @@ BattleScript_HeavyCellDoMoveAnim::
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF | BIT_SPEED, 0
+	playstatchangeanimation BS_ATTACKER, BIT_SPEED, 0
 	setstatchanger STAT_DEF, 1, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellTrySpecialDefense
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellTrySpecialDefense
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HeavyCellTrySpecialDefense::
-	setstatchanger STAT_SPDEF, 1, FALSE
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_SPDEF, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellTrySpeed
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellTrySpeed
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HeavyCellTrySpeed::
-	setstatchanger STAT_SPEED, 1, FALSE
+	setstatchanger STAT_SPEED, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_HeavyCellEnd
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_HeavyCellEnd
 	printfromtable gStatUpStringIds
@@ -4609,13 +4663,9 @@ BattleScript_FirstChargingTurnMeteorBeam::
 	copybyte cMULTISTRING_CHOOSER, sTWOTURN_STRINGID
 	printfromtable gFirstTurnOfTwoStringIds
 	waitmessage B_WAIT_TIME_LONG
-	jumpifmove MOVE_AXEL_HEEL, BattleScript_AxelHeelStatRaise
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	seteffectsecondary
 	return
-
-BattleScript_AxelHeelStatRaise::
-
 
 BattleScript_EffectSkyDrop:
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_SkyDropTurn2
@@ -4995,6 +5045,8 @@ BattleScript_EffectBaddyBad:
 BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -5277,7 +5329,7 @@ BattleScript_PurifyWorks:
 	updatestatusicon BS_TARGET
 	printstring STRINGID_ATTACKERCUREDTARGETSTATUS
 	waitmessage B_WAIT_TIME_LONG
-	tryhealallhealth BattleScript_AlreadyAtFullHp
+	tryhealallhealth BS_ATTACKER, BattleScript_AlreadyAtFullHp
 	goto BattleScript_RestoreHp
 
 BattleScript_EffectStrengthSap:
@@ -9386,6 +9438,7 @@ BattleScript_EffectMeanLook::
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	jumpifsafeguard BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_ButItFailed
+	jumpifability BS_TARGET, ABILITY_TITANIC, BattleScript_ButItFailed
 	jumpifsubstituteblocks BattleScript_ButItFailed
 .if B_GHOSTS_ESCAPE >= GEN_6
 	jumpiftype BS_TARGET, TYPE_GHOST, BattleScript_ButItFailed

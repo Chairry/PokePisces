@@ -968,3 +968,14 @@ const struct Tileset gTileset_LavaridgeNew =
     .metatileAttributes = gMetatileAttributes_LavaridgeNew,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FortreeGymNew =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FortreeGymNew,
+    .palettes = gTilesetPalettes_FortreeGymNew,
+    .metatiles = gMetatiles_FortreeGymNew,
+    .metatileAttributes = gMetatileAttributes_FortreeGymNew,
+    .callback = NULL,
+};

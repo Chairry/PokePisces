@@ -109,6 +109,7 @@
 #define MAP_FORTREE_CITY     (4 | (8 << 8))
 #define MAP_FORTREE_CITY_GYM (5 | (8 << 8))
 #define MAP_CULTIPEX_CAVE    (6 | (8 << 8))
+#define MAP_FORTREE_GYM_NEW  (7 | (8 << 8))
 
 // gMapGroup_PiscesLeg5Minor
 #define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F (0 | (9 << 8))

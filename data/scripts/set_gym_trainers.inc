@@ -37,7 +37,7 @@ LavaridgeTown_Gym_SetGymTrainers::
 	settrainerflag TRAINER_P_PANDOU_3
 	settrainerflag TRAINER_P_SUSIE
 	settrainerflag TRAINER_P_FUJI
-	settrainerflag TRAINER_P_TOPAZ_10
+	settrainerflag TRAINER_P_OPHELIA
 	settrainerflag TRAINER_P_DORIAN
 	settrainerflag TRAINER_P_RALSEI
 	settrainerflag TRAINER_P_KRIS

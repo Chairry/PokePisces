@@ -134,7 +134,7 @@ static const u8 sDefeatistDescription[] = _("Halves the user's Atk/Sp.\nAtk when
 static const u8 sCursedBodyDescription[] = _("May disable a move that has\ndealt damage to the Pokémon.");
 static const u8 sHealerDescription[] = _("May cure the status\nconditions of the allies.");
 static const u8 sFriendGuardDescription[] = _("Reduces damage dealt to\nallies.");
-static const u8 sWeakArmorDescription[] = _("Physical moves lower Defense\nand sharply raise Speed.");
+static const u8 sWeakArmorDescription[] = _("Physical moves lower Def\nand sharply raise Speed.");
 static const u8 sHeavyMetalDescription[] = _("Doubles the Pokémon's\nweight.");
 static const u8 sLightMetalDescription[] = _("Halves the Pokémon's weight.");
 static const u8 sMultiscaleDescription[] = _("Reduces damage the Pokémon\ntakes when its HP is full.");
@@ -368,7 +368,7 @@ static const u8 sShunyongDescription[] = _("Shunyong");
 static const u8 sRegeneratorDescription[] = _("Restores a little HP when\nwithdrawn from battle.");
 static const u8 sDomineerDescription[] = _("Psychic-type moves can hit\nDark-types, and lower Attack.");
 static const u8 sVertigoDescription[] = _("If hit while confused, uses\na move that drops Evasion.");
-static const u8 sStormBrewDescription[] = _("If user or ally uses an Elec-\ntype move uses Thunder Shock.");
+static const u8 sStormBrewDescription[] = _("Uses Thunder Shock when an\nElectric-type move is used.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =

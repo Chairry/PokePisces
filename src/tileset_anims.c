@@ -75,6 +75,7 @@ static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
 static void QueueAnimTiles_Chimney_TallSmoke(u16);
+static void QueueAnimTiles_Chimney_ThickSmoke(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/1.4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/flower/0.4bpp");
@@ -181,6 +182,26 @@ const u16 *const gTilesetAnims_Chimney_TallSmoke[] = {
     gTilesetAnims_Chimney_TallSmoke_Frame5,
     gTilesetAnims_Chimney_TallSmoke_Frame6,
     gTilesetAnims_Chimney_TallSmoke_Frame7,
+};
+
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame0[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_1.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame1[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_2.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame2[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_3.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame3[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_4.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame4[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_5.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame5[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_6.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame6[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_7.4bpp");
+const u16 gTilesetAnims_Chimney_ThickSmoke_Frame7[] = INCBIN_U16("data/tilesets/secondary/chimney/anim/thick_smoke/thicksmoke_anim_8.4bpp");
+
+const u16 *const gTilesetAnims_Chimney_ThickSmoke[] = {
+    gTilesetAnims_Chimney_ThickSmoke_Frame0,
+    gTilesetAnims_Chimney_ThickSmoke_Frame1,
+    gTilesetAnims_Chimney_ThickSmoke_Frame2,
+    gTilesetAnims_Chimney_ThickSmoke_Frame3,
+    gTilesetAnims_Chimney_ThickSmoke_Frame4,
+    gTilesetAnims_Chimney_ThickSmoke_Frame5,
+    gTilesetAnims_Chimney_ThickSmoke_Frame6,
+    gTilesetAnims_Chimney_ThickSmoke_Frame7,
 };
 
 const u16 gTilesetAnims_Pacifidlog_LogBridges_Frame0[] = INCBIN_U16("data/tilesets/secondary/pacifidlog/anim/log_bridges/0.4bpp");
@@ -701,6 +722,12 @@ static void QueueAnimTiles_Chimney_TallSmoke(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_Chimney_TallSmoke[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(682)), 0x80);
 }
 
+static void QueueAnimTiles_Chimney_ThickSmoke(u16 timer)
+{
+    u16 i = timer % 8;
+    AppendTilesetAnimToBuffer(gTilesetAnims_Chimney_ThickSmoke[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(698)), 0x80);
+}
+
 void InitTilesetAnim_Petalburg(void)
 {
     sSecondaryTilesetAnimCounter = 0;
@@ -936,6 +963,8 @@ static void TilesetAnim_Chimney(u16 timer)
 {
     if (timer % 16 == 0)
         QueueAnimTiles_Chimney_TallSmoke(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Chimney_ThickSmoke(timer / 16);
 }
 
 static void TilesetAnim_EverGrande(u16 timer)

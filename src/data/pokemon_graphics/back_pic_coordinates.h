@@ -1110,7 +1110,7 @@ const struct MonCoords gMonBackPicCoords[NUM_SPECIES + 1] =
     [SPECIES_AETHEREAL]                    = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  5 },
     [SPECIES_MOTHRAMITY]                   = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  4 },
     [SPECIES_GLAREYALE]                    = { .size = MON_COORDS_SIZE(56, 64), .y_offset =  1 },
-    [SPECIES_LEVIALAGO]                    = { .size = MON_COORDS_SIZE(64, 32), .y_offset =  6 },
+    [SPECIES_LEVIALAGO]                    = { .size = MON_COORDS_SIZE(64, 48), .y_offset =  7 },
     [SPECIES_RETROROACH]                   = { .size = MON_COORDS_SIZE(48, 40), .y_offset = 13 },
     [SPECIES_NEOROACH]                     = { .size = MON_COORDS_SIZE(64, 48), .y_offset = 12 },
     [SPECIES_SPITFAX]                      = { .size = MON_COORDS_SIZE(64, 40), .y_offset =  7 },

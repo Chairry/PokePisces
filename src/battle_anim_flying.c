@@ -146,6 +146,17 @@ const struct SpriteTemplate gFlyBallUpSpriteTemplate =
     .callback = AnimFlyBallUp,
 };
 
+const struct SpriteTemplate gCrashLandBallUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCK_SHADOW,
+    .paletteTag = ANIM_TAG_ROCK_SHADOW,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_FlyBallUp,
+    .callback = AnimFlyBallUp,
+};
+
 const struct SpriteTemplate gFlyBallAttackSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROUND_SHADOW,
@@ -294,6 +305,17 @@ const struct SpriteTemplate gBounceBallLandSpriteTemplate =
     .callback = AnimBounceBallLand,
 };
 
+const struct SpriteTemplate gCrashLandBallLandSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCK_SHADOW,
+    .paletteTag = ANIM_TAG_ROCK_SHADOW,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_BounceBallLand,
+    .callback = AnimWeatherBallDown,
+};
+
 static const union AffineAnimCmd sAffineAnim_DiveBall[] =
 {
     AFFINEANIMCMD_FRAME(0x10, 0x100, 0, 0),
@@ -392,7 +414,10 @@ const struct SpriteTemplate gSavageWingDragonSpriteTemplate =
 // same as AnimEllipticalGust but centered on targets
 static void AnimEllipticalGustCentered(struct Sprite *sprite)
 {
-    InitSpritePosToAnimTargetsCentre(sprite, FALSE);
+    if (IsDoubleBattle())
+        InitSpritePosToAnimTargetsCentre(sprite, FALSE);
+    else
+        InitSpritePosToAnimTarget(sprite, FALSE);
     sprite->y += 20;
     sprite->data[1] = 191;
     sprite->callback = AnimEllipticalGust_Step;

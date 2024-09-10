@@ -2108,6 +2108,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (abilityAtk == ABILITY_AMBUSHER && IS_MOVE_PHYSICAL(move) && (gDisableStructs[battlerAtk].isFirstTurn || IsTwoTurnsMove(move)))
              || (abilityAtk == ABILITY_PRODIGY && IsMoveMakingContact(move, battlerAtk) )
              || gBattleMons[battlerDef].status1 & STATUS1_SLEEP
+             || (holdEffectAtk == HOLD_EFFECT_SOLAR_SWORD && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && gBattleMons[battlerAtk].species == SPECIES_SOLROCK)
              )
     {
         critChance = -2;
@@ -2118,7 +2119,6 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
                     + 1 * ((gBattleMons[battlerAtk].status2 & STATUS2_DRAGON_CHEER) != 0)
                     + (gBattleMoves[gCurrentMove].highCritRatio)
                     + (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
-                    + (holdEffectAtk == HOLD_EFFECT_SOLAR_SWORD && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN))
                     + 2 * (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_CHANSEY)
                     + 2 * BENEFITS_FROM_LEEK(battlerAtk, holdEffectAtk)
                 #if B_AFFECTION_MECHANICS == TRUE
@@ -4094,7 +4094,10 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 {
                     gBattleMons[gEffectBattler].status2 |= STATUS2_MULTIPLETURNS;
                     gLockedMoves[gEffectBattler] = gCurrentMove;
-                    gBattleMons[gEffectBattler].status2 |= STATUS2_LOCK_CONFUSE_TURN(RandomUniform(RNG_RAMPAGE_TURNS, 2, 3));
+                    if (gCurrentMove == MOVE_CONSTRICT)
+                        gBattleMons[gEffectBattler].status2 |= STATUS2_LOCK_CONFUSE_TURN(RandomUniform(RNG_RAMPAGE_TURNS, 2, 5));
+                    else
+                        gBattleMons[gEffectBattler].status2 |= STATUS2_LOCK_CONFUSE_TURN(RandomUniform(RNG_RAMPAGE_TURNS, 2, 3));
                 }
                 break;
             case MOVE_EFFECT_SP_ATK_TWO_DOWN: // Overheat
@@ -4426,6 +4429,21 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     {
                         gBattlescriptCurrInstr++;
                     }
+                }
+                break;
+            case MOVE_EFFECT_CONSTRICT:
+                {
+                    u8 randomFlinchChance = RandomPercentage(RNG_TRIPLE_ARROWS_FLINCH, CalcSecondaryEffectChance(gBattlerAttacker, 40));
+
+                    if (randomFlinchChance && battlerAbility != ABILITY_INNER_FOCUS 
+                        && battlerAbility != ABILITY_PROPELLER_TAIL && GetBattlerTurnOrderNum(gEffectBattler) > gCurrentTurnActionNumber)
+                        gBattleMons[gEffectBattler].status2 |= sStatusFlagsForMoveEffects[MOVE_EFFECT_FLINCH];
+
+                    gBattleMons[gEffectBattler].status2 |= STATUS2_ESCAPE_PREVENTION;
+                    gDisableStructs[gEffectBattler].battlerPreventingEscape = gBattlerAttacker;
+
+                    gBattlescriptCurrInstr++;
+                break;
                 }
                 break;
             case MOVE_EFFECT_GRAV_APPLE:
@@ -6247,11 +6265,6 @@ static void Cmd_moveend(void)
                 switch (gBattleMoves[gCurrentMove].effect)
                 {
                 case EFFECT_RECOIL_25: // Take Down, 25% recoil
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
-                    effect = TRUE;
-                    break;
                 case EFFECT_SUBMISSION: // differentiated for reasons
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
                     BattleScriptPushCursor();
@@ -6259,12 +6272,17 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_33: // Double Edge, 33 % recoil
+                case EFFECT_WOOD_HAMMER: // Wood Hammer, gains switch out effect if user has Blooming
+                case EFFECT_WILD_CHARGE: // Volt Tackle - can paralyze, flame burst effect
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_50: // Head Smash, 50 % recoil
+                case EFFECT_FLYING_PRESS: // Flying Press, Fighting/Flying-type move
+                case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
+                case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground-type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -6280,30 +6298,6 @@ static void Cmd_moveend(void)
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
-                    effect = TRUE;
-                    break;
-                case EFFECT_WILD_CHARGE: // Volt Tackle - can paralyze, flame burst effect
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilWithStatus;
-                    effect = TRUE;
-                    break;
-                case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
-                    effect = TRUE;
-                    break;
-                case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground type move
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
-                    effect = TRUE;
-                    break;
-                case EFFECT_WOOD_HAMMER: // Wood Hammer, gains switch out effect if user has Blooming
-                    gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 3);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                     effect = TRUE;
                     break;
                 }
@@ -6971,7 +6965,8 @@ static void Cmd_moveend(void)
 
         #if B_RAMPAGE_CANCELLING >= GEN_5
             if ((gBattleMoves[gCurrentMove].effect == EFFECT_RAMPAGE // If we're rampaging
-                || gBattleMoves[gCurrentMove].effect == EFFECT_PETAL_DANCE)
+                || gBattleMoves[gCurrentMove].effect == EFFECT_PETAL_DANCE
+                || gBattleMoves[gCurrentMove].effect == EFFECT_CONSTRICT)
                 && (gMoveResultFlags & MOVE_RESULT_NO_EFFECT)         // And it is unusable
                 && (gBattleMons[gBattlerAttacker].status2 & STATUS2_LOCK_CONFUSE) != STATUS2_LOCK_CONFUSE_TURN(1))  // And won't end this turn
                     CancelMultiTurnMoves(gBattlerAttacker); // Cancel it
@@ -12636,16 +12631,18 @@ static void Cmd_various(void)
 
         const u8 *failInstr = cmd->failInstr;
 
-        gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP;
+        if (cmd->battler == BS_ATTACKER)
+            gBattlerTarget = gBattlerAttacker;
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
         gBattleMoveDamage *= -1;
 
-        if (gBattleMons[gBattlerAttacker].hp == gBattleMons[gBattlerAttacker].maxHP)
+        if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
             gBattlescriptCurrInstr = failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
-        return;
+        break;
     }
     case VARIOUS_STAGGER_DAMAGE:
     {    
@@ -13588,7 +13585,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
-        else if (battlerHoldEffect == HOLD_EFFECT_MOON_MIRROR && !affectsUser && !mirrorArmored && gBattlerAttacker != gBattlerTarget && battler == gBattlerTarget && (gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE))
+        else if (battlerHoldEffect == HOLD_EFFECT_MOON_MIRROR && !affectsUser && !mirrorArmored && gBattlerAttacker != gBattlerTarget && battler == gBattlerTarget && (gBattleMons[battler].species == SPECIES_LUNATONE))
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
             {
@@ -15076,6 +15073,7 @@ static bool8 IsTwoTurnsMove(u16 move)
      || gBattleMoves[move].effect == EFFECT_FLY
      || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+     || gBattleMoves[move].effect == EFFECT_AXEL_HEEL
      || gBattleMoves[move].effect == EFFECT_GEOMANCY
      || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
      || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
@@ -15104,6 +15102,7 @@ static u8 AttacksThisTurn(u8 battler, u16 move) // Note: returns 1 if it's a cha
      || gBattleMoves[move].effect == EFFECT_FLY
      || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
      || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+     || gBattleMoves[move].effect == EFFECT_AXEL_HEEL
      || gBattleMoves[move].effect == EFFECT_GEOMANCY
      || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
      || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
@@ -16788,6 +16787,7 @@ static void Cmd_assistattackselect(void)
                  || gBattleMoves[move].effect == EFFECT_FLY
                  || gBattleMoves[move].effect == EFFECT_CHEESE_STEAL
                  || gBattleMoves[move].effect == EFFECT_METEOR_BEAM
+                 || gBattleMoves[move].effect == EFFECT_AXEL_HEEL
                  || gBattleMoves[move].effect == EFFECT_GEOMANCY
                  || gBattleMoves[move].effect == EFFECT_DRAGON_RUIN
                  || gBattleMoves[move].effect == EFFECT_AIR_CANNON)
@@ -18521,6 +18521,7 @@ static const u16 sParentalBondBannedEffects[] =
     EFFECT_FLING,
     EFFECT_GEOMANCY,
     EFFECT_METEOR_BEAM,
+    EFFECT_AXEL_HEEL,
     EFFECT_MULTI_HIT,
     EFFECT_BARB_BARRAGE,
     EFFECT_BLACK_BUFFET,

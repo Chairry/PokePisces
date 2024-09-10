@@ -36718,6 +36718,9 @@ static const u16 sSpryteTeachableLearnset[] = {
 };
 
 static const u16 sGumonaTeachableLearnset[] = {
+    MOVE_LEECH_LIFE,
+    MOVE_GIGA_DRAIN,
+    MOVE_VENOM_DRAIN,
     MOVE_SPEED_SWAP,
     MOVE_REST,
     MOVE_WILL_O_WISP,
@@ -36828,6 +36831,9 @@ static const u16 sGumonaTeachableLearnset[] = {
 };
 
 static const u16 sNanggalTeachableLearnset[] = {
+    MOVE_LEECH_LIFE,
+    MOVE_GIGA_DRAIN,
+    MOVE_VENOM_DRAIN,
     MOVE_SPEED_SWAP,
     MOVE_REST,
     MOVE_WILL_O_WISP,
@@ -38909,6 +38915,7 @@ static const u16 sLottabatsTeachableLearnset[] = {
 };
 
 static const u16 sPomelonianTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_BEAT_UP,
     MOVE_REST,
     MOVE_PROTECT,
@@ -38984,6 +38991,7 @@ static const u16 sPomelonianTeachableLearnset[] = {
 };
 
 static const u16 sGourdougTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_BEAT_UP,
     MOVE_REST,
     MOVE_PROTECT,
@@ -44362,6 +44370,7 @@ static const u16 sKarodoraugTeachableLearnset[] = {
 };
 
 static const u16 sCoforcheeTeachableLearnset[] = {
+    MOVE_ROTOTILLER,
     MOVE_HORN_LEECH,
     MOVE_GRAND_SLAM,
     MOVE_REST,
@@ -53224,11 +53233,6 @@ static const u16 sUnberrableTeachableLearnset[] = {
     MOVE_HYPER_BEAM,
     MOVE_WORK_UP,
     MOVE_SUBSTITUTE,
-    MOVE_MIND_BREAK,
-    MOVE_HEARTHWARM,
-    MOVE_SUN_BASK,
-    MOVE_GRASS_CANNON,
-    MOVE_HIT_N_RUN,
     MOVE_REST,
     MOVE_SPOOK,
     MOVE_PROTECT,
@@ -53242,7 +53246,6 @@ static const u16 sUnberrableTeachableLearnset[] = {
     MOVE_THIEF,
     MOVE_SWIFT,
     MOVE_KNOCK_OFF,
-    MOVE_TROP_KICK,
     MOVE_RETALIATE,
     MOVE_BRICK_BREAK,
     MOVE_ROCK_SLIDE,
@@ -53250,23 +53253,18 @@ static const u16 sUnberrableTeachableLearnset[] = {
     MOVE_SEED_BOMB,
     MOVE_BODY_SLAM,
     MOVE_ENERGY_BALL,
-    MOVE_EARTH_POWER,
     MOVE_HYPER_VOICE,
     MOVE_FOUL_PLAY,
-    MOVE_MIND_BREAK,
+    MOVE_SLUDGE_BOMB,
     MOVE_GUNK_SHOT,
     MOVE_HEARTHWARM,
-    MOVE_WISH,
     MOVE_SLACK_OFF,
-    MOVE_AROMATHERAPY,
     MOVE_HEAL_BELL,
     MOVE_SUNNY_DAY,
     MOVE_SOLAR_BEAM,
     MOVE_SUN_BASK,
-    MOVE_GROWTH,
     MOVE_GRASSY_TERRAIN,
     MOVE_GRASSY_GLIDE,
-    MOVE_GRASS_CANNON,
     MOVE_TERRAIN_SNAP,
     MOVE_DEMOLISHER,
     MOVE_U_TURN,
@@ -53281,7 +53279,6 @@ static const u16 sUnberrableTeachableLearnset[] = {
     MOVE_TAUNT,
     MOVE_TORMENT,
     MOVE_SWEET_KISS,
-    MOVE_LEECH_SEED,
     MOVE_BLOCK,
     MOVE_ENCORE,
     MOVE_ENTRAINMENT,
@@ -53292,6 +53289,8 @@ static const u16 sUnberrableTeachableLearnset[] = {
     MOVE_CUT,
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,
+    MOVE_FAIRY_LOCK,
+    MOVE_FACADE,
     MOVE_UNAVAILABLE,
 };
 
@@ -53472,6 +53471,7 @@ static const u16 sVaikingTeachableLearnset[] = {
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,
     MOVE_FLY,
+    MOVE_FACADE,
     MOVE_UNAVAILABLE,
 };
 #endif
