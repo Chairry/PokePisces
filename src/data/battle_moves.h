@@ -561,7 +561,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_OHKO,
         .power = 1,
         .type = TYPE_NORMAL,
-        .accuracy = 30,
+        .accuracy = 40,
         .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -1386,7 +1386,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PETAL_DANCE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .power = 120,
+            .power = 110,
             .pp = 10,
         #elif B_UPDATED_MOVE_DATA == GEN_4
             .power = 90,
@@ -6142,7 +6142,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
-        .pp = 40,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
@@ -14566,7 +14566,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BERRY_BAD_JOKE] =
     {
         .effect = EFFECT_BERRY_BAD_JOKE,
-        .power = 90,
+        .power = 1,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 10,
@@ -15081,7 +15081,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SPINDA_SWING] =
     {
         .effect = EFFECT_SPINDA_SWING,
-        .power = 80,
+        .power = 100,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 10,
@@ -15090,7 +15090,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
-        .kickingMove = TRUE,
     },
 
     [MOVE_VERGLASTROM] =
@@ -15271,6 +15270,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_BLACK_BUFFET] =
@@ -15982,6 +15984,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
         .snatchAffected = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_SPIRIT_AWAY] =
@@ -16146,6 +16151,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_PLASMA_CUTTER] =
@@ -16236,6 +16244,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .strikeCount = 2,
         .kickingMove = TRUE,
         .sheerForceBoost = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_VINE_PALM_STRIKE] =
@@ -16416,6 +16427,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_NONE,
         .snatchAffected = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_SAND_BURIAL] =
@@ -16642,6 +16656,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .punchingMove = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_PSY_SWAP] =
@@ -16907,6 +16924,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_NONE,
         .snatchAffected = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .mimicBanned = TRUE,
     },
 
     [MOVE_NOTHING] =

@@ -5870,6 +5870,10 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         else if (gBattleMons[battlerAtk].type3 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type3 | F_DYNAMIC_TYPE_2;
     }
+    else if (gCurrentMove == MOVE_RAGING_BULL && gBattleMons[battlerAtk].type2 != TYPE_MYSTERY)
+    {
+        gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type2 | F_DYNAMIC_TYPE_2;
+    }
     else if (gBattleMoves[move].effect == EFFECT_NATURAL_GIFT)
     {
         if (ItemId_GetPocket(gBattleMons[battlerAtk].item) == POCKET_BERRIES)

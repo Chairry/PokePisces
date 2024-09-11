@@ -22092,8 +22092,6 @@ static const struct LevelUpMove sRetroroachLevelUpLearnset[] = {
 static const struct LevelUpMove sNeoroachLevelUpLearnset[] = {
     LEVEL_UP_MOVE(0, MOVE_VAPORIZE),
     LEVEL_UP_MOVE(1, MOVE_VAPORIZE),
-    LEVEL_UP_MOVE(0, MOVE_POWER_JAM),
-    LEVEL_UP_MOVE(1, MOVE_POWER_JAM),
     LEVEL_UP_MOVE(1, MOVE_BUG_SNACK),
     LEVEL_UP_MOVE(1, MOVE_THUNDER_WAVE),
     LEVEL_UP_MOVE(1, MOVE_ENDURE),
@@ -22113,6 +22111,7 @@ static const struct LevelUpMove sNeoroachLevelUpLearnset[] = {
     LEVEL_UP_MOVE(56, MOVE_STEEL_BEAM),
     LEVEL_UP_MOVE(60, MOVE_METAL_BURST),
     LEVEL_UP_MOVE(64, MOVE_ELECTRO_SHOT),
+    LEVEL_UP_MOVE(68, MOVE_POWER_JAM),
     LEVEL_UP_END
 };
 

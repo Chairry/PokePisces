@@ -999,9 +999,9 @@ BattleScript_BerryBadJokeContinue:
 	attackstring
 	ppreduce
 	jumpifnotberry BS_TARGET, BattleScript_BerryBadJokeNoBerry
-	critcalc
-	damagecalc
-	adjustdamage
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	damagetopercentagetargethp
 	attackanimation
 	waitanimation
 	effectivenesssound
@@ -1029,7 +1029,23 @@ BattleScript_BerryBadJokeContinue:
 	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
 	goto BattleScript_MoveEnd
 BattleScript_BerryBadJokeNoBerry:
-	call BattleScript_EffectHit_Ret
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	damagetopercentagetargethp
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	moveendall
@@ -3050,7 +3066,7 @@ BattleScript_EffectLoveTap::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectVerglastrom::
-	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectTrap
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_HAIL, BattleScript_EffectTrap
 	goto BattleScript_EffectHit
 
 BattleScript_EffectKerfuffle::
@@ -3080,6 +3096,8 @@ BattleScript_EffectVoid::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	printstring STRINGID_PKMNMOVEWASDISABLED
 	waitmessage B_WAIT_TIME_LONG
@@ -5027,6 +5045,8 @@ BattleScript_EffectSappySeed:
 	jumpifsafeguard BattleScript_EffectHit
 	jumpifstatus3 BS_TARGET, STATUS3_LEECHSEED, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_MoveEnd
 	setseeded
@@ -5037,6 +5057,8 @@ BattleScript_EffectSappySeed:
 BattleScript_EffectBaddyBad:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_REFLECT, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setreflect
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -5047,7 +5069,7 @@ BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
 	typecalc
-	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -6053,6 +6075,7 @@ BattleScript_EffectBestow:
 	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
 	attackstring
 	ppreduce
+	jumpifnoally BS_ATTACKER, BattleScript_ButItFailed
 	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BestowAttackSpAttackUpDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_Bestowing
 BattleScript_Bestowing:
@@ -6348,7 +6371,7 @@ BattleScript_EffectClearSmog:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectToxicThread:
-	setstatchanger STAT_SPEED, 2, TRUE
+	setstatchanger STAT_SPEED, 1, TRUE
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_FailedFromAtkString
 	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_ToxicThreadWorks

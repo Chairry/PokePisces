@@ -61,7 +61,6 @@ static void SpriteCB_CentredElectricity(struct Sprite *sprite);
 static void AnimSkyDropBallUp(struct Sprite *sprite);
 static void SpriteCB_SearingShotRock(struct Sprite *sprite);
 static void AnimHappyHourCoinShower(struct Sprite *sprite);
-static void AnimMakingItRain(struct Sprite *sprite);
 static void SpriteCB_Geyser(struct Sprite *sprite);
 static void SpriteCB_GeyserTarget(struct Sprite *sprite);
 static void SpriteCB_TwinkleOnBattler(struct Sprite *sprite);
@@ -1764,28 +1763,6 @@ const struct SpriteTemplate gHappyHourCoinShowerTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimHappyHourCoinShower
-};
-
-const struct SpriteTemplate gMakingItRainTemplate =
-{
-    .tileTag = ANIM_TAG_COIN,
-    .paletteTag = ANIM_TAG_COIN,
-    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
-    .anims = gCoinAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimMakingItRain,
-};
-
-const struct SpriteTemplate gFallingMudSpriteTemplate =
-{
-    .tileTag = ANIM_TAG_MUDSLIDE,
-    .paletteTag = ANIM_TAG_MUDSLIDE,
-    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
-    .anims = gCoinAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimMakingItRain,
 };
 
 //electric terrain
@@ -6893,6 +6870,16 @@ const struct SpriteTemplate gSplinteredShardsRisingSpearSpriteTemplate =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimAssistPawprint
 };
+const struct SpriteTemplate gFreezyFrostRisingSpearSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ICICLE_SPEAR,
+    .paletteTag = ANIM_TAG_ICICLE_SPEAR,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_GeyserTarget
+};
 static const union AffineAnimCmd sSplinteredShardsOpponentSteepAffineAnims[] = {
     AFFINEANIMCMD_FRAME(0, 0, 0xca, 1),
     AFFINEANIMCMD_END
@@ -8397,26 +8384,6 @@ static void AnimHappyHourCoinShower(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[3] != 0)
         SetAverageBattlerPositions(gBattleAnimAttacker, 0, &sprite->x, &sprite->y);   //coin shower on attacker
-
-    sprite->x += gBattleAnimArgs[0];
-    sprite->y += 14;
-    StartSpriteAnim(sprite, gBattleAnimArgs[1]);
-    AnimateSprite(sprite);
-    sprite->data[0] = 0;
-    sprite->data[1] = 0;
-    sprite->data[2] = 4;
-    sprite->data[3] = 16;
-    sprite->data[4] = -70;
-    sprite->data[5] = gBattleAnimArgs[2];
-    StoreSpriteCallbackInData6(sprite, AnimFallingRock_Step);
-    sprite->callback = TranslateSpriteInEllipse;
-    sprite->callback(sprite);
-}
-
-static void AnimMakingItRain(struct Sprite *sprite)
-{
-    if (gBattleAnimArgs[3] != 0)
-        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);   //coin shower on target
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += 14;
