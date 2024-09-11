@@ -2634,7 +2634,7 @@ static const struct TrainerMon sParty_PRay2[] = {
     .species = SPECIES_RETROROACH,
     .ability = ABILITY_TRANSISTOR,
     .heldItem = ITEM_SALAC_BERRY,
-    .moves = {MOVE_RECONSTRUCT, MOVE_SIGNAL_BEAM, MOVE_CHARGE_BEAM, MOVE_DIFFUSE_WAVE},
+    .moves = {MOVE_CRITICAL_REPAIR, MOVE_SIGNAL_BEAM, MOVE_CHARGE_BEAM, MOVE_DIFFUSE_WAVE},
     }
 };
 
@@ -2830,7 +2830,7 @@ static const struct TrainerMon sParty_PSpenser[] = {
     .species = SPECIES_ARMAGATTON,
     .ability = ABILITY_UNSEEN_FIST,
     .heldItem = ITEM_BLUK_BERRY,
-    .moves = {MOVE_ENERVATOR, MOVE_REMODEL, MOVE_RECONSTRUCT, MOVE_DIFFUSE_WAVE},
+    .moves = {MOVE_ENERVATOR, MOVE_REMODEL, MOVE_CRITICAL_REPAIR, MOVE_DIFFUSE_WAVE},
     }
 };
 

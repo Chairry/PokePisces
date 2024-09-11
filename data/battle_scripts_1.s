@@ -464,7 +464,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBitterMalice            @ EFFECT_BITTER_MALICE
 	.4byte BattleScript_EffectHeartStamp              @ EFFECT_HEART_STAMP
 	.4byte BattleScript_EffectMeditate                @ EFFECT_MEDITATE
-	.4byte BattleScript_EffectMeteorMash              @ EFFECT_METEOR_MASH
 	.4byte BattleScript_EffectFlipTurn                @ EFFECT_FLIP_TURN
 	.4byte BattleScript_EffectAccuracyDownHit         @ EFFECT_MUDDY_WATER
 	.4byte BattleScript_EffectDragonRuin              @ EFFECT_DRAGON_RUIN
@@ -536,7 +535,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectEnervator               @ EFFECT_ENERVATOR
 	.4byte BattleScript_EffectErodeField              @ EFFECT_ERODE_FIELD
 	.4byte BattleScript_EffectHeavyCell               @ EFFECT_HEAVY_CELL
-	.4byte BattleScript_EffectReconstruct             @ EFFECT_RECONSTRUCT
+	.4byte BattleScript_EffectCriticalRepair             @ EFFECT_CRITICAL_REPAIR
 	.4byte BattleScript_EffectRemodel                 @ EFFECT_REMODEL
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
@@ -628,7 +627,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMindBlown               @ EFFECT_STALAG_BLAST
 	.4byte BattleScript_EffectMoonBeam                @ EFFECT_MOON_BEAM
 	.4byte BattleScript_EffectHunkerDown              @ EFFECT_HUNKER_DOWN
-	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
 	.4byte BattleScript_EffectPoisonGas               @ EFFECT_POISON_GAS
 	.4byte BattleScript_EffectHighRollHit             @ EFFECT_HIGH_ROLL_HIT
 	.4byte BattleScript_EffectSpindaSwing             @ EFFECT_SPINDA_SWING
@@ -2792,7 +2790,7 @@ BattleScript_EffectRemodel:
 	remodelcheck BS_ATTACKER, BattleScript_EffectDefenseUp2
 	goto BattleScript_EffectSpecialDefenseUp2
 
-BattleScript_EffectReconstruct:
+BattleScript_EffectCriticalRepair:
 	attackcanceler
 	attackstring
 	ppreduce
@@ -3607,14 +3605,6 @@ BattleScript_FirstChargingTurnDragonRuin::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER
 	seteffectsecondary
 	return
-
-BattleScript_EffectMeteorMash:
-	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_GRAVITY, BattleScript_MeteorMashGuaranteedAttackRaise
-	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	goto BattleScript_EffectHit
-BattleScript_MeteorMashGuaranteedAttackRaise:
-	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	goto BattleScript_EffectHit
 
 BattleScript_EffectMeditate::
 	attackcanceler

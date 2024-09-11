@@ -975,7 +975,7 @@ gBattleAnims_Moves::
 	.4byte Move_ENERVATOR
 	.4byte Move_ERODE_FIELD
 	.4byte Move_HEAVY_CELL
-	.4byte Move_RECONSTRUCT
+	.4byte Move_CRITICAL_REPAIR
 	.4byte Move_REMODEL
 	.4byte Move_BARI_BARI_BEAM
 	.4byte Move_BARI_BARI_BASH
@@ -24236,7 +24236,7 @@ Move_HEAVY_CELL::
 	waitforvisualfinish
 	end
 
-Move_RECONSTRUCT::
+Move_CRITICAL_REPAIR::
 	loadspritegfx ANIM_TAG_BLUE_ORB
 	loadspritegfx ANIM_TAG_ORBS
 	loadspritegfx ANIM_TAG_BLUE_STAR

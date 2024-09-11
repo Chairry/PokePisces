@@ -4000,7 +4000,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_IRON_TAIL] =
     {
-        .effect = EFFECT_DEFENSE_DOWN_HIT,
+        .effect = EFFECT_DEFENSE_UP_HIT,
         .power = 120,
         .type = TYPE_STEEL,
         .accuracy = 80,
@@ -4954,7 +4954,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_REFRESH,
         .power = 0,
         .type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -5321,7 +5321,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 100,
             .accuracy = 85,
         #endif
-        .effect = EFFECT_METEOR_MASH,
+        .effect = EFFECT_ATTACK_UP_HIT,
         .type = TYPE_STEEL,
         .pp = 10,
         .secondaryEffectChance = 20,
@@ -5448,7 +5448,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_ODOR_SLEUTH,
         .power = 0,
         .type = TYPE_NORMAL,
-        .pp = 40,
+        .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -13247,6 +13247,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .argument = ARG_TRY_REMOVE_TERRAIN_HIT, // Remove the active field terrain if there is one.
+        .kickingMove = TRUE,
     },
 
     [MOVE_GLAIVE_RUSH] =
@@ -14126,6 +14127,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .pulseMove = TRUE,
     },
 
     [MOVE_STORM_FURY] =
@@ -15762,7 +15764,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .snatchAffected = TRUE,
     },
 
-    [MOVE_RECONSTRUCT] =
+    [MOVE_CRITICAL_REPAIR] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_9
             .pp = 5,
@@ -15771,7 +15773,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         #else
             .pp = 5,
         #endif
-        .effect = EFFECT_RECONSTRUCT,
+        .effect = EFFECT_CRITICAL_REPAIR,
         .power = 0,
         .type = TYPE_RELIC,
         .accuracy = 0,
@@ -16612,9 +16614,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     {
         .effect = EFFECT_SURPRISE_EGG,
         .power = 0,
-        .type = TYPE_NORMAL,
+        .type = TYPE_DARK,
         .accuracy = 0,
-        .pp = 5,
+        .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_DEPENDS,
         .priority = 0,
@@ -16752,7 +16754,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_OVERTAKE] =
     {
-        .effect = EFFECT_OVERTAKE,
+        .effect = EFFECT_PLACEHOLDER,
         .power = 80,
         .type = TYPE_STEEL,
         .accuracy = 100,
