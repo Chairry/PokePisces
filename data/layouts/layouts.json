@@ -5540,6 +5540,26 @@
       "secondary_tileset": "gTileset_FortreeGymNew",
       "border_filepath": "data/layouts/FortreeGymNew/border.bin",
       "blockdata_filepath": "data/layouts/FortreeGymNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_TRANSITION_AREA",
+      "name": "FortreeTransitionArea_Layout",
+      "width": 36,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/FortreeTransitionArea/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeTransitionArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_GYM_BATTLE_LOCATION",
+      "name": "FortreeGymBattleLocation_Layout",
+      "width": 16,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FortreeGymNew",
+      "border_filepath": "data/layouts/FortreeGymBattleLocation/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeGymBattleLocation/map.bin"
     }
   ]
 }
