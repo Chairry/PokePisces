@@ -169,7 +169,8 @@
     "FortreeCity_PokemonCenter_1F",
     "ScuttillSecretTreeHouse",
     "Gym4Corridor",
-    "FortreeTransitionArea"
+    "FortreeTransitionArea",
+    "FortreeGymBattleLocation"
   ],
   "gMapGroup_PiscesLeg6Major": [
     "OzoneInstitute",

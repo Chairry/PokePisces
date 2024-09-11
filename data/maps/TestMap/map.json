@@ -2,7 +2,7 @@
   "id": "MAP_TEST_MAP",
   "name": "TestMap",
   "layout": "LAYOUT_TEST_MAP",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RANGER_FALL_CITY",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

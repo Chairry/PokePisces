@@ -118,6 +118,7 @@
 #define MAP_SCUTTILL_SECRET_TREE_HOUSE        (3 | (9 << 8))
 #define MAP_GYM4CORRIDOR                      (4 | (9 << 8))
 #define MAP_FORTREE_TRANSITION_AREA           (5 | (9 << 8))
+#define MAP_FORTREE_GYM_BATTLE_LOCATION       (6 | (9 << 8))
 
 // gMapGroup_PiscesLeg6Major
 #define MAP_OZONE_INSTITUTE        (0 | (10 << 8))
