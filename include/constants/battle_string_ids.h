@@ -1108,7 +1108,9 @@
 #define B_MSG_WRAPPED_THUNDER_CAGE 9
 #define B_MSG_CONSTRICTED          10
 #define B_MSG_SEED_WRAP            11
-#define NUM_TRAPPING_MOVES         12
+#define B_MSG_WRAPPED_VINE_WHIP    12
+#define B_MSG_WRAPPED_VERGLASTROM  13
+#define NUM_TRAPPING_MOVES         14
 
 // z effects
 #define B_MSG_Z_RESET_STATS   0

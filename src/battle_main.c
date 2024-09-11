@@ -4898,7 +4898,7 @@ s8 GetMovePriority(u32 battler, u16 move)
         switch (gBattleMoves[move].effect)
         {
         case EFFECT_RESTORE_HP:
-        case EFFECT_RECONSTRUCT:
+        case EFFECT_CRITICAL_REPAIR:
         case EFFECT_REST:
         case EFFECT_MORNING_SUN:
         case EFFECT_MOONLIGHT:
@@ -5869,6 +5869,10 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type2 | F_DYNAMIC_TYPE_2;
         else if (gBattleMons[battlerAtk].type3 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type3 | F_DYNAMIC_TYPE_2;
+    }
+    else if (gCurrentMove == MOVE_RAGING_BULL && gBattleMons[battlerAtk].type2 != TYPE_MYSTERY)
+    {
+        gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type2 | F_DYNAMIC_TYPE_2;
     }
     else if (gBattleMoves[move].effect == EFFECT_NATURAL_GIFT)
     {

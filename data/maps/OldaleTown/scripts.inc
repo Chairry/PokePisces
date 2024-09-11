@@ -140,7 +140,7 @@ OldaleTown_EventScript_ExplainPokemonMart::
     giveitem ITEM_EXTRAPOLATOR
     giveitem ITEM_RELAXANT
     giveitem ITEM_SHELLY_BREW
-    giveitem ITEM_SURPRISE_GIFT
+    giveitem ITEM_HEART_GIFT
     giveitem ITEM_BUDDY_CARD 
     giveitem ITEM_UNO_CARD 
     giveitem ITEM_MAGIC_CARD 

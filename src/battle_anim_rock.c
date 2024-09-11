@@ -59,6 +59,39 @@ const struct SpriteTemplate gFallingRockSpriteTemplate =
     .callback = AnimFallingRock,
 };
 
+const struct SpriteTemplate gFallingSeedSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SEED,
+    .paletteTag = ANIM_TAG_SEED,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
+const struct SpriteTemplate gFallingMudSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MUDSLIDE,
+    .paletteTag = ANIM_TAG_MUDSLIDE,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
+const struct SpriteTemplate gMakingItRainTemplate =
+{
+    .tileTag = ANIM_TAG_COIN,
+    .paletteTag = ANIM_TAG_COIN,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gCoinAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimFallingRock,
+};
+
 const struct SpriteTemplate gRockFragmentSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROCKS,
