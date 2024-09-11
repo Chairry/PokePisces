@@ -3660,3 +3660,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/StraeSeapathUnderwater/scripts.inc"
 
 	.include "data/maps/FortreeGymNew/scripts.inc"
+
+	.include "data/maps/FortreeTransitionArea/scripts.inc"
