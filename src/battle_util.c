@@ -1802,7 +1802,7 @@ bool32 IsHealBlockPreventingMove(u32 battler, u32 move)
     case EFFECT_COLD_MEND:
     case EFFECT_MOONLIGHT:
     case EFFECT_RESTORE_HP:
-    case EFFECT_RECONSTRUCT:
+    case EFFECT_CRITICAL_REPAIR:
     case EFFECT_REST:
     case EFFECT_ROOST:
     case EFFECT_HEALING_WISH:
@@ -7256,8 +7256,20 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_FROST_JAW:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanBeFrozen(gBattlerTarget) && gBattleMoves[move].bitingMove && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 10) == 0)
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) 
+            && gBattleMons[gBattlerTarget].hp != 0 
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+            && !((IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_ICE) 
+            || IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SUN) 
+            || gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD 
+            || gBattleMons[gBattlerTarget].ability == ABILITY_MAGMA_ARMOR
+            || gBattleMons[gBattlerTarget].ability == ABILITY_COMATOSE 
+            || IsAbilityStatusProtected(gBattlerTarget) 
+            || IsBattlerTerrainAffected(gBattlerTarget, STATUS_FIELD_MISTY_TERRAIN) 
+            || (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[gBattlerTarget].species == SPECIES_SEEDOT || gBattleMons[gBattlerTarget].species == SPECIES_NUZLEAF || gBattleMons[gBattlerTarget].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_TAILWIND))))
+            && gBattleMoves[move].bitingMove
+            && TARGET_TURN_DAMAGED
+            && (gBattleMons[gBattlerTarget].status1 & STATUS1_PSN_ANY || gBattleMons[gBattlerTarget].status1 & STATUS1_FROSTBITE || gBattleMons[gBattlerTarget].status1 & STATUS1_PARALYSIS))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7301,6 +7313,22 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_STRONG_JAW:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
+            && TARGET_TURN_DAMAGED
+            && CompareStat(gBattlerTarget, STAT_DEF, MIN_STAT_STAGE, CMP_GREATER_THAN)
+            && gBattleMoves[move].bitingMove)
+            {
+                gBattleScripting.moveEffect = MOVE_EFFECT_DEF_MINUS_1;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
+                gHitMarker |= HITMARKER_IGNORE_SAFEGUARD;
+                effect++;
+            }
+            break;
+
         case ABILITY_GULP_MISSILE:
             if (((gCurrentMove == MOVE_SURF && TARGET_TURN_DAMAGED) || gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER) && TryBattleFormChange(gBattlerAttacker, FORM_CHANGE_BATTLE_HP_PERCENT))
             {
@@ -7741,9 +7769,6 @@ u32 GetBattlerAbility(u32 battler)
         return ABILITY_NONE;
 
     if (IsMyceliumMightOnField())
-        return ABILITY_NONE;
-
-    if (gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
         return ABILITY_NONE;
 
     if ((((gBattleMons[gBattlerAttacker].ability == ABILITY_MOLD_BREAKER || gBattleMons[gBattlerAttacker].ability == ABILITY_IGNORANT_BLISS || gBattleMons[gBattlerTarget].ability == ABILITY_IGNORANT_BLISS || gBattleMons[gBattlerAttacker].ability == ABILITY_TERAVOLT || gBattleMons[gBattlerAttacker].ability == ABILITY_TURBOBLAZE) && !(gStatuses3[gBattlerAttacker] & STATUS3_GASTRO_ACID)) || gBattleMoves[gCurrentMove].ignoresTargetAbility || (((gCurrentMove == MOVE_SPORE) || (gCurrentMove == MOVE_SEED_FLARE)) && (gBattleMons[gBattlerAttacker].status1 & STATUS1_BLOOMING))) && sAbilitiesAffectedByMoldBreaker[gBattleMons[battler].ability] && gBattlerByTurnOrder[gCurrentTurnActionNumber] == gBattlerAttacker && gActionsByTurnOrder[gBattlerByTurnOrder[gBattlerAttacker]] == B_ACTION_USE_MOVE && gCurrentTurnActionNumber < gBattlersCount)
@@ -11896,10 +11921,6 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMoves[move].bitingMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_FROST_JAW:
-        if (gBattleMoves[move].bitingMove)
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
-        break;
     case ABILITY_MEGA_LAUNCHER:
         if (gBattleMoves[move].pulseMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -12478,6 +12499,10 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if ((atkBaseSpeciesId == SPECIES_PAWNIARD || atkBaseSpeciesId == SPECIES_BISHARP || atkBaseSpeciesId == SPECIES_KINGAMBIT) && (gBattleMoves[move].slicingMove))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
         break;
+    case HOLD_EFFECT_RAZOR_FANG:
+        if ((atkBaseSpeciesId == SPECIES_GLIGAR || atkBaseSpeciesId == SPECIES_GLISCOR) && (gBattleMoves[move].bitingMove))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.1));
+        break;
     }
 
     // The offensive stats of a Player's Pok?mon are boosted by x1.1 (+10%) if they have the 1st badge and 7th badges.
@@ -12798,7 +12823,11 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
 
 static inline uq4_12_t GetSameTypeAttackBonusModifier(u32 battlerAtk, u32 moveType, u32 move, u32 abilityAtk)
 {
-    if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
+    if ((IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move != MOVE_STRUGGLE || move != MOVE_NONE) && gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+        return UQ_4_12(1.0);
+    else if ((!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE) && gFieldStatuses & STATUS_FIELD_WONDER_ROOM)
+        return UQ_4_12(1.5);
+    else if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
         return UQ_4_12(1.0);
     return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
 }
@@ -14758,7 +14787,10 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 
 u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance)
 {
-    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE || GetBattlerAbility(battler) == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA))
+    if (gCurrentMove == MOVE_METEOR_MASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
+        secondaryEffectChance *= 5;
+
+    if (GetBattlerAbility(battler) == ABILITY_SERENE_GRACE || GetBattlerAbility(battler) == ABILITY_RISKTAKER || IsAbilityOnSide(battler, ABILITY_SERENE_AURA) || (GetBattlerAbility(battler) == ABILITY_FROST_JAW && gBattleMoves[gCurrentMove].bitingMove))
         secondaryEffectChance *= 2;
 
     if (GetBattlerAbility(battler) == ABILITY_SHUNYONG && (gBattleMons[battler].hp <= (gBattleMons[battler].maxHP / 2)))

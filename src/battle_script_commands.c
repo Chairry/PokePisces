@@ -318,7 +318,7 @@ static const s32 sExperienceScalingFactors[] =
 
 static const u16 sTrappingMoves[NUM_TRAPPING_MOVES] =
 {
-    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, MOVE_SNAP_TRAP, MOVE_THUNDER_CAGE, MOVE_CONSTRICT, MOVE_LEECH_SEED,
+    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, MOVE_SNAP_TRAP, MOVE_THUNDER_CAGE, MOVE_CONSTRICT, MOVE_LEECH_SEED, MOVE_VINE_WHIP, MOVE_VERGLASTROM,
 };
 
 static const u16 sBadgeFlags[8] = {
@@ -2097,6 +2097,7 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
              || (gBattleMoves[move].effect == EFFECT_SMACK_DOWN && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_HEAT_CRASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gBattleMoves[move].effect == EFFECT_SPINDA_SWING && gBattleMons[battlerAtk].status2 & STATUS2_CONFUSION)
+             || (gBattleMoves[move].effect == EFFECT_SABRE_BREAK && (gBattleMons[battlerDef].status1 & STATUS1_FROSTBITE || gBattleMons[battlerDef].status1 & STATUS1_FREEZE))
              || (gCurrentMove == MOVE_BODY_SLAM && gFieldStatuses & STATUS_FIELD_GRAVITY)
              || (gCurrentMove == MOVE_FLOWER_TRICK)
              || (gCurrentMove == MOVE_LEAF_BLADE && gBattleMons[battlerAtk].status1 & STATUS1_BLOOMING)
@@ -3573,7 +3574,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                 #if B_UPROAR_TURNS >= GEN_5
                     gBattleMons[gEffectBattler].status2 |= STATUS2_UPROAR_TURN(3);
                 #else
-                    gBattleMons[gEffectBattler].status2 |= STATUS2_UPROAR_TURN((Random() & 3) + 2);
+                    gBattleMons[gEffectBattler].status2 |= STATUS2_UPROAR_TURN((Random() & 1) + 2);
                 #endif
 
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -6266,6 +6267,7 @@ static void Cmd_moveend(void)
                 {
                 case EFFECT_RECOIL_25: // Take Down, 25% recoil
                 case EFFECT_SUBMISSION: // differentiated for reasons
+                case EFFECT_FLYING_PRESS: // Flying Press, Fighting/Flying-type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 4);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
@@ -6280,7 +6282,6 @@ static void Cmd_moveend(void)
                     effect = TRUE;
                     break;
                 case EFFECT_RECOIL_50: // Head Smash, 50 % recoil
-                case EFFECT_FLYING_PRESS: // Flying Press, Fighting/Flying-type move
                 case EFFECT_RECOIL_50_HAZARD: // Caustic Finale - sets toxic spikes
                 case EFFECT_CRASH_LAND: // Crash Land, is a Flying/Ground-type move
                     gBattleMoveDamage = max(1, gBattleScripting.savedDmg / 2);
@@ -14273,8 +14274,8 @@ static void Cmd_tryKO(void)
             || GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0))
                 odds *= 2;
 
-            if (gCurrentMove == MOVE_HORN_DRILL && GetBattlerAbility(gBattlerAttacker) == ABILITY_POWER_SPIKE && (gBattleMons[gBattlerAttacker].hp = (gBattleMons[gBattlerAttacker].maxHP / 2)))
-                odds *= 2;
+            if (gCurrentMove == MOVE_HORN_DRILL && GetBattlerAbility(gBattlerAttacker) == ABILITY_POWER_SPIKE && (gBattleMons[gBattlerAttacker].hp <= gBattleMons[gBattlerAttacker].maxHP / 2))
+                odds *= 1.75;
 
             if (RandomPercentage(RNG_ACCURACY, odds) && gBattleMons[gBattlerAttacker].level >= gBattleMons[gBattlerTarget].level)
                 lands = TRUE;
@@ -14333,13 +14334,17 @@ static void Cmd_damagetopercentagetargethp(void)
     {
         gBattleMoveDamage = 0;
     }
-    else if (gCurrentMove == MOVE_TICK_TACK)
+    else if (gCurrentMove == MOVE_BERRY_BAD_JOKE)
     {
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 2;  
     }
     else if (gCurrentMove == MOVE_POISON_POWDER)
     {
         gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 4;  
+    }
+    else if (gCurrentMove == MOVE_TICK_TACK)
+    {
+        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;  
     }
     else
     {

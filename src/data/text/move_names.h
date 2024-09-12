@@ -949,7 +949,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_ENERVATOR] = _("Enervator"),
     [MOVE_ERODE_FIELD] = _("Erode Field"),
     [MOVE_HEAVY_CELL] = _("Heavy Cell"),
-    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_CRITICAL_REPAIR] = _("Critical Repair"),
     [MOVE_REMODEL] = _("Remodel"),
     [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
@@ -1029,6 +1029,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_STUMBLE] = _("Stumble"),
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
     [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
+    [MOVE_SABRE_BREAK] = _("Sabre Break"),
 };
 #else
 // 12 letters
@@ -1981,7 +1982,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_ENERVATOR] = _("Enervator"),
     [MOVE_ERODE_FIELD] = _("Erode Field"),
     [MOVE_HEAVY_CELL] = _("Heavy Cell"),
-    [MOVE_RECONSTRUCT] = _("Reconstruct"),
+    [MOVE_CRITICAL_REPAIR] = _("Critical Repair"),
     [MOVE_REMODEL] = _("Remodel"),
     [MOVE_BARI_BARI_BEAM] = _("BariÄBariÄBeam"),
     [MOVE_BARI_BARI_BASH] = _("BariÄBariÄBash"),
@@ -2061,6 +2062,7 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_STUMBLE] = _("Stumble"),
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
     [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
+    [MOVE_SABRE_BREAK] = _("Sabre Break"),
 };
 #endif
 

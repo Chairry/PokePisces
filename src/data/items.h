@@ -10442,7 +10442,7 @@ const struct Item gItems[] =
         .flingPower = 30,
     },
 
-    [ITEM_SURPRISE_GIFT] =
+    [ITEM_HEART_GIFT] =
     {
         .name = _("Heart Gift"),
         .price = 666,
