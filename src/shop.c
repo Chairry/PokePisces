@@ -487,7 +487,7 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
     },
     [WIN_ITEM_DESCRIPTION] = {
         .bg = 0,
-        .tilemapLeft = 11,
+        .tilemapLeft = 12,
         .tilemapTop = 13,
         .width = 14,
         .height = 6,

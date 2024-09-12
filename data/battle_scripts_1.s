@@ -535,7 +535,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectEnervator               @ EFFECT_ENERVATOR
 	.4byte BattleScript_EffectErodeField              @ EFFECT_ERODE_FIELD
 	.4byte BattleScript_EffectHeavyCell               @ EFFECT_HEAVY_CELL
-	.4byte BattleScript_EffectCriticalRepair             @ EFFECT_CRITICAL_REPAIR
+	.4byte BattleScript_EffectCriticalRepair          @ EFFECT_CRITICAL_REPAIR
 	.4byte BattleScript_EffectRemodel                 @ EFFECT_REMODEL
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
