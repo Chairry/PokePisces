@@ -131,6 +131,7 @@
 #define MAP_LAVARIDGE_INT          (7 | (10 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_1F  (8 | (10 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_B1F (9 | (10 << 8))
+#define MAP_LAVARIDGE_GYM_NEW      (10 | (10 << 8))
 
 // gMapGroup_PiscesLeg6Minor
 #define MAP_FORTREE_CITY_POKEMON_CENTER_2F   (0 | (11 << 8))
