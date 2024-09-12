@@ -1,3 +1,6 @@
+.set LOCALID_WINONA, 7
+.set LOCALID_GYMGUARD, 6
+
 FortreeGymNew_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FortreeGymNew_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, FortreeGymNew_OnWarp
@@ -88,6 +91,37 @@ FortreeGymNew_EventScript_CantStopNow::
 
 FortreeGymNew_Movement_CantStopChallenge:
 	walk_left
+	step_end
+
+FortreeGymNew_EventScript_JumpToArena::
+	lock
+	faceplayer
+	speakername FortreeGymNew_Text_NameWinona
+	msgbox FortreeGymNew_Text_SurprisedToSeeYou, MSGBOX_DEFAULT
+	applymovement LOCALID_WINONA, FortreeGymNew_Movement_FaceUp
+	msgbox FortreeGymNew_Text_TakeALeapOfFaith, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_WINONA, FortreeGymNew_Movement_JumpOff
+	waitmovement 0
+	closemessage
+	speakername NULL
+	applymovement OBJ_EVENT_ID_PLAYER, FortreeGymNew_Movement_MoveAway
+	waitmovement 0
+	delay 16
+	applymovement OBJ_EVENT_ID_PLAYER, FortreeGymNew_Movement_JumpOff
+	waitmovement 0
+	warp MAP_FORTREE_GYM_BATTLE_LOCATION, 7, 6
+	waitstate
+	release
+	end
+
+FortreeGymNew_Movement_FaceUp:
+	face_up
+	step_end
+
+FortreeGymNew_Movement_JumpOff:
+	jump_2_up
+	set_invisible
 	step_end
 
 FortreeGymNew_EventScript_Everest::
@@ -187,3 +221,12 @@ FortreeGymNew_Text_YouAlreadyDidThis:
 
 FortreeGymNew_Text_CantStopNow:
 	.string "(No going back now.)$"
+
+FortreeGymNew_Text_SurprisedToSeeYou:
+	.string "wowee good job$"
+
+FortreeGymNew_Text_TakeALeapOfFaith:
+	.string "leap of faith bro$"
+
+FortreeGymNew_Text_NameWinona:
+	.string "Winona$"
