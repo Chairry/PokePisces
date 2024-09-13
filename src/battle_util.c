@@ -12485,7 +12485,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         break;
     case HOLD_EFFECT_CLEANSE_TAG:
         if ((CountBattlerStatDecreases(battlerDef, TRUE)) > 0)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12((1.0) + ((CountBattlerStatDecreases(battlerDef, TRUE)) * (0.25))));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12((1.0) + ((CountBattlerStatDecreases(battlerDef, TRUE)) * (0.15))));
         break;
     case HOLD_EFFECT_CHOICE_BAND:
         if (IS_MOVE_PHYSICAL(move) && atkAbility != ABILITY_ONE_WAY_TRIP)
@@ -13147,7 +13147,7 @@ static inline uq4_12_t GetAttackerItemsModifier(u32 battlerAtk, uq4_12_t typeEff
     case HOLD_EFFECT_SOLAR_SWORD:
         if (gIsCriticalHit && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && gBattleMons[battlerAtk].species == SPECIES_SOLROCK)
             return UQ_4_12(1.2);
-            break;
+        break;
     case HOLD_EFFECT_LIFE_ORB:
         return UQ_4_12(1.3);
         break;

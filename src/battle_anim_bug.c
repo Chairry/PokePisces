@@ -11,7 +11,6 @@ static void AnimTranslateWebThread_Step(struct Sprite *);
 static void AnimStringWrap(struct Sprite *);
 static void AnimSpiderWeb_Step(struct Sprite *);
 static void AnimSpiderWeb_End(struct Sprite *);
-static void AnimTranslateStinger(struct Sprite *);
 static void AnimTailGlowOrb(struct Sprite *);
 
 static const union AffineAnimCmd sAffineAnim_MegahornHorn_0[] =
@@ -405,7 +404,7 @@ static void AnimSpiderWeb_End(struct Sprite *sprite)
 // arg 3: target y pixel offset
 // arg 4: duration
 // arg 5: target between double battle opponents (boolean)
-static void AnimTranslateStinger(struct Sprite *sprite)
+void AnimTranslateStinger(struct Sprite *sprite)
 {
     s16 lVarX, lVarY;
     u16 rot;
