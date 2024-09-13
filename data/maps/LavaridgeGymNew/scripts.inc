@@ -669,7 +669,7 @@ LavaridgeGymNew_Text_DurinTest:
 LavaridgeGymNew_Text_WeInsist:
 	.string "Bottoms up.\p"
 	.string "(You sense that saying\n"
-	.string ""no" here is futile.)$"
+	.string "'no' here is futile.)$"
 
 LavaridgeGymNew_Text_Eat0Resist:
 	.string "(It is absolutely profane.\n"
