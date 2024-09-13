@@ -650,28 +650,75 @@ LavaridgeGymNew_Text_NameFlannery:
 	.string "Flannery$"
 
 LavaridgeGymNew_Text_GojiraWelcome:
-	.string "Gojira 1$"
+	.string "The pleasure is ours, challenger.\n"
+	.string "Respectfully, if your wish is an\l"
+	.string "audience with the Moore family,\l"
+	.string "we will need to seriously\l"
+	.string "pick your brain.\p"
+	.string "Come, pull up a seat.$"
 
 LavaridgeGymNew_Text_DurinTest:
-	.string "Gojira 2$"
+	.string "I'm sure you are in the know\n"
+	.string "of Lavaridge's pride and joy,\l"
+	.string "mmm? The Durin Berry.\l"
+	.string "A delicacy, really. In fact...\p"
+	.string "Hedorah?\n"
+	.string "Please get a berry for\l"
+	.string "this challenger.$"
 
 LavaridgeGymNew_Text_WeInsist:
-	.string "$"
+	.string "Bottoms up.\p"
+	.string "(You sense that saying\n"
+	.string ""no" here is futile.)$"
 
 LavaridgeGymNew_Text_Eat0Resist:
-	.string "$"
+	.string "(It is absolutely profane.\n"
+	.string "A cancer on the mouth.\l"
+	.string "You instantly get food poisoning\l"
+	.string "SO bad, the effects ripple\l"
+	.string "through your party members.)$"
 
 LavaridgeGymNew_Text_Eat1Resist:
-	.string "$"
+	.string "(It is no better the second time.\n"
+	.string "You resist the urge to vomit to\l"
+	.string "save face. The putrid fruit\l"
+	.string "descends punctuatingly into\l"
+	.string "your stomach.)$"
 
 LavaridgeGymNew_Text_Eat2Resist:
-	.string "$"
+	.string "(Breathing deeply and steadily,\n"
+	.string "you down the Durin.\l"
+	.string "You regulate the bile attempting\l"
+	.string "to breach and rid your body\l"
+	.string "of the hideous produce.\l"
+	.string "...Wasn't AS bad as before.)$"
 
 LavaridgeGymNew_Text_EatMaxResist:
-	.string "$"
+	.string "(You hastily get all of the\n"
+	.string "berry consumed and swallowed\l"
+	.string "before your tongue realizes\l"
+	.string "what is on it.\l"
+	.string "This berry, for once,\l"
+	.string "did not make you sick.)$"
+
+LavaridgeGymNew_Text_AfterEat:
+	.string "I will front you some respect;\n"
+	.string "that fruit is hazardous\l"
+	.string "to outsiders.\p"
+	.string "Muscle through it.$"
+
+LavaridgeGymNew_Text_AfterEatResisted:
+	.string "A Durin regular!\n"
+	.string "Don't get challengers like\l"
+	.string "that every day. Impressive.$"
 
 LavaridgeGymNew_Text_DurinPride:
-	.string "$"
+	.string "Durin Berries are the perfect\n"
+	.string "emblem of our town. We find\l"
+	.string "solace in things the rest\l"
+	.string "of the world would deem\l"
+	.string "disgusting, or worth refusing.\p"
+	.string "That's weakling behavior!$"
 
 LavaridgeGymNew_Text_WhatDoForLiving:
 	.string "What do 4 livin$"
