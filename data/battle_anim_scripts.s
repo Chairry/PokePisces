@@ -13992,7 +13992,7 @@ Move_GLITZY_GLOW::
 	unloadspritegfx ANIM_TAG_SMALL_EMBER @flame wheel particle
 	unloadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
 	waitforvisualfinish
-	goto gBattleAnimMove_LightScreen
+	goto Move_LIGHT_SCREEN
 	
 Move_BADDY_BAD::
 	loadspritegfx ANIM_TAG_STRAIGHT_BEAM
@@ -14022,7 +14022,7 @@ Move_BADDY_BAD::
 	delay 1
 	unloadspritegfx ANIM_TAG_STRAIGHT_BEAM
 	waitforvisualfinish
-	goto gBattleAnimMove_Reflect
+	goto Move_REFLECT
 
 Move_SAPPY_SEED::
 	loadspritegfx ANIM_TAG_SPROUT
