@@ -2117,3 +2117,13 @@
     callnative ScriptSetShunyongBattle
     dowildbattle
     .endm
+
+    @ Poisons a set number of mons in the player's party based on VAR_DURIN_RESISTANCE
+    .macro poisonplayerparty
+    special PoisonPlayerParty
+    .endm
+
+    @ Poisons 4 mons in the player's party
+    .macro burnplayerparty
+    special BurnPlayerParty
+    .endm

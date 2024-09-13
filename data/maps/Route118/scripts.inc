@@ -99,7 +99,7 @@ Route118_EventScript_StevenTrigger::
 	call_if_eq VAR_0x8008, 0, Route118_EventScript_StevenExit0
 	call_if_eq VAR_0x8008, 1, Route118_EventScript_StevenExit1
 	call_if_eq VAR_0x8008, 2, Route118_EventScript_StevenExit2
-	setvar VAR_ROUTE118_STATE, 1
+	setvar VAR_DURIN_RESISTANCE, 1
 	removeobject LOCALID_STEVEN
 	releaseall
 	end
