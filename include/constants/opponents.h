@@ -258,7 +258,7 @@
 #define TRAINER_P_AUDREY_II                    254
 #define TRAINER_P_EMMY                       255
 #define TRAINER_P_DAYTON                      256
-#define TRAINER_P_LIBRA                    257
+#define TRAINER_P_ANTO                    257
 #define TRAINER_P_BAZE                    258
 #define TRAINER_P_CHINZAO                    259
 #define TRAINER_P_MARIMAR                    260
@@ -400,7 +400,7 @@
 #define TRAINER_P_BRODY                   396
 #define TRAINER_P_DELA                       397
 #define TRAINER_P_KIERA                       398
-#define TRAINER_P_ANTO                        399
+#define TRAINER_P_LIBRA                        399
 #define TRAINER_P_MARY                        400
 #define TRAINER_P_JOSE                       401
 #define TRAINER_P_DARIA                    402

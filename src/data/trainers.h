@@ -3084,16 +3084,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PDayton),
     },
 
-    [TRAINER_P_LIBRA] =
+    [TRAINER_P_ANTO] =
     {
         .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LASSIE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
-        .trainerName = _("Libra"),
+        .trainerName = _("Anto"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PLibra),
+        .party = TRAINER_PARTY(sParty_PAnto),
     },
 
     [TRAINER_P_BAZE] =
@@ -4788,16 +4788,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PKiera),
     },
 
-    [TRAINER_P_ANTO] =
+    [TRAINER_P_LIBRA] =
     {
         .trainerClass = TRAINER_CLASS_ESPER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_PSYCHIC_F,
-        .trainerName = _("Anto"),
+        .trainerName = _("Libra"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_PAnto),
+        .party = TRAINER_PARTY(sParty_PLibra),
     },
 
     [TRAINER_P_MARY] =

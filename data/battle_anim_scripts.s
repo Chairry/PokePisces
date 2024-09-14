@@ -14017,7 +14017,7 @@ Move_BADDY_BAD::
 	restorebg
 	waitbgfadein
 	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+	clearmonbg ANIM_ATTACKER
 	blendoff
 	delay 1
 	unloadspritegfx ANIM_TAG_STRAIGHT_BEAM
@@ -14516,6 +14516,9 @@ Move_CLANGOROUS_SOUL::
 	createsprite gClangorousSoulRedFistTemplate, ANIM_ATTACKER, 2, 0xfff0, 0, 0, 0, 10, ANIM_ATTACKER, ANIM_RIGHT_FIST, 1
 	createsprite gClangorousSoulRedFistTemplate, ANIM_ATTACKER, 2, 0x10, 0, 0, 0, 10, ANIM_ATTACKER, ANIM_LEFT_FIST, 1
 	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	unloadspritegfx ANIM_TAG_VERTICAL_HEX
+	unloadspritegfx ANIM_TAG_HORSESHOE_SIDE_FIST
 	waitforvisualfinish
 	loadspritegfx ANIM_TAG_THIN_RING @ring
 	playsewithpan SE_SHINY, SOUND_PAN_ATTACKER
@@ -17479,10 +17482,21 @@ Move_BURNING_BULWARK::
 	monbg ANIM_ATK_PARTNER
 	splitbgprio ANIM_ATTACKER
 	waitplaysewithpan SE_M_REFLECT, SOUND_PAN_ATTACKER 16
-	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PROTECT, 0, 13, 13, 0x015B   @Gray
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_PROTECT, 0, 13, 13, 0x015B
 	createsprite gProtectSpriteTemplate, ANIM_ATTACKER, 2, 24, 0, 90
-	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_TARGET
-	call FireSpreadEffectAttacker
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 0
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 4
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 8
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 12
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 16
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 20
+	delay 2
+	createsprite gFireSpiralOutwardSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, 56, 24
 	createvisualtask AnimTask_BlendMonInAndOut, 3, ANIM_ATTACKER, RGB_RED, 10, 0, 2
 	waitforvisualfinish
 	clearmonbg ANIM_ATK_PARTNER
