@@ -2577,9 +2577,9 @@ static const u8 sRazorClawDesc[] = _(
     "critical-hit ratio.");
 
 static const u8 sRazorFangDesc[] = _(
-    "Makes biting moves\n"
-    "drop defense. For\n"
-    "Gligar's line.");
+    "Buffs the Gligar's\n"
+    "line's biting\n"
+    "moves.");
 
 static const u8 sEvioliteDesc[] = _(
     "Raises the Def and\n"

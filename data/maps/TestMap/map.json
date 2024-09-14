@@ -2,7 +2,7 @@
   "id": "MAP_TEST_MAP",
   "name": "TestMap",
   "layout": "LAYOUT_TEST_MAP",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RANGER_FALL_CITY",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TestMap_EventScript_SpeakerNameTest",
+      "script": "TestMap_EventScript_PoisonPartyTest",
       "flag": "0"
     },
     {

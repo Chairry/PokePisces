@@ -7645,6 +7645,7 @@ static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent *objEvent, u32 *
 
     static const u32 jumpLandingFlags[] = {
         GROUND_EFFECT_FLAG_LAND_IN_TALL_GRASS,
+        GROUND_EFFECT_FLAG_LAND_IN_CHIMNEY_GRASS,
         GROUND_EFFECT_FLAG_LAND_IN_LONG_GRASS,
         GROUND_EFFECT_FLAG_LAND_IN_SHALLOW_WATER,
         GROUND_EFFECT_FLAG_LAND_IN_DEEP_WATER,

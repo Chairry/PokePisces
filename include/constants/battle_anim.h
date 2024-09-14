@@ -652,6 +652,7 @@
 #define TRAP_ANIM_THUNDER_CAGE 8
 #define TRAP_ANIM_CONSTRICT 9
 #define TRAP_ANIM_LEECH_SEED 10
+#define TRAP_ANIM_VERGLASTROM 11
 
 // Weather defines for battle animation scripts.
 #define ANIM_WEATHER_NONE 0

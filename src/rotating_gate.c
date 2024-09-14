@@ -202,8 +202,15 @@ static const struct RotatingGatePuzzle sRotatingGate_FortreePuzzleConfig[] =
 // Trickhouse
 static const struct RotatingGatePuzzle sRotatingGate_TrickHousePuzzleConfig[] =
 {
-    { 6,  8, GATE_SHAPE_UNUSED_T3, GATE_ORIENTATION_90},
-    { 3, 13, GATE_SHAPE_L1, GATE_ORIENTATION_0},
+    {24, 14, GATE_SHAPE_T2, GATE_ORIENTATION_90},
+    {26, 16, GATE_SHAPE_T1, GATE_ORIENTATION_180},
+    {27, 17, GATE_SHAPE_T3, GATE_ORIENTATION_270},
+    {20, 22, GATE_SHAPE_L4, GATE_ORIENTATION_0},
+    {17, 21, GATE_SHAPE_L3, GATE_ORIENTATION_90},
+    {15, 23, GATE_SHAPE_T1, GATE_ORIENTATION_90},
+    {34, 24, GATE_SHAPE_T3, GATE_ORIENTATION_0},
+    {37, 24, GATE_SHAPE_T4, GATE_ORIENTATION_0},
+    {37, 21, GATE_SHAPE_L3, GATE_ORIENTATION_0},
 };
 
 #define MAX_GATES max(ARRAY_COUNT(sRotatingGate_FortreePuzzleConfig), \

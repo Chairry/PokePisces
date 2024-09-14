@@ -117,6 +117,8 @@
 #define MAP_FORTREE_CITY_POKEMON_CENTER_1F    (2 | (9 << 8))
 #define MAP_SCUTTILL_SECRET_TREE_HOUSE        (3 | (9 << 8))
 #define MAP_GYM4CORRIDOR                      (4 | (9 << 8))
+#define MAP_FORTREE_TRANSITION_AREA           (5 | (9 << 8))
+#define MAP_FORTREE_GYM_BATTLE_LOCATION       (6 | (9 << 8))
 
 // gMapGroup_PiscesLeg6Major
 #define MAP_OZONE_INSTITUTE        (0 | (10 << 8))
@@ -129,6 +131,7 @@
 #define MAP_LAVARIDGE_INT          (7 | (10 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_1F  (8 | (10 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_B1F (9 | (10 << 8))
+#define MAP_LAVARIDGE_GYM_NEW      (10 | (10 << 8))
 
 // gMapGroup_PiscesLeg6Minor
 #define MAP_FORTREE_CITY_POKEMON_CENTER_2F   (0 | (11 << 8))

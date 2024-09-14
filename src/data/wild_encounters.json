@@ -11781,7 +11781,7 @@
           "map": "MAP_TEST_MAP",
           "base_label": "gTestMap0",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 0,
             "mons": [
               {
                 "min_level": 50,

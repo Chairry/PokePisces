@@ -464,7 +464,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBitterMalice            @ EFFECT_BITTER_MALICE
 	.4byte BattleScript_EffectHeartStamp              @ EFFECT_HEART_STAMP
 	.4byte BattleScript_EffectMeditate                @ EFFECT_MEDITATE
-	.4byte BattleScript_EffectMeteorMash              @ EFFECT_METEOR_MASH
 	.4byte BattleScript_EffectFlipTurn                @ EFFECT_FLIP_TURN
 	.4byte BattleScript_EffectAccuracyDownHit         @ EFFECT_MUDDY_WATER
 	.4byte BattleScript_EffectDragonRuin              @ EFFECT_DRAGON_RUIN
@@ -536,7 +535,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectEnervator               @ EFFECT_ENERVATOR
 	.4byte BattleScript_EffectErodeField              @ EFFECT_ERODE_FIELD
 	.4byte BattleScript_EffectHeavyCell               @ EFFECT_HEAVY_CELL
-	.4byte BattleScript_EffectReconstruct             @ EFFECT_RECONSTRUCT
+	.4byte BattleScript_EffectCriticalRepair             @ EFFECT_CRITICAL_REPAIR
 	.4byte BattleScript_EffectRemodel                 @ EFFECT_REMODEL
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
@@ -628,7 +627,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectMindBlown               @ EFFECT_STALAG_BLAST
 	.4byte BattleScript_EffectMoonBeam                @ EFFECT_MOON_BEAM
 	.4byte BattleScript_EffectHunkerDown              @ EFFECT_HUNKER_DOWN
-	.4byte BattleScript_EffectOvertake                @ EFFECT_OVERTAKE
 	.4byte BattleScript_EffectPoisonGas               @ EFFECT_POISON_GAS
 	.4byte BattleScript_EffectHighRollHit             @ EFFECT_HIGH_ROLL_HIT
 	.4byte BattleScript_EffectSpindaSwing             @ EFFECT_SPINDA_SWING
@@ -644,6 +642,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHaywire                 @ EFFECT_HAYWIRE
 	.4byte BattleScript_EffectHit                     @ EFFECT_FLYING_PRESS
 	.4byte BattleScript_EffectTrueLovesKiss           @ EFFECT_TRUE_LOVES_KISS
+	.4byte BattleScript_EffectFlinchHit               @ EFFECT_SABRE_BREAK
 
 BattleScript_EffectTrueLovesKiss::
 	attackcanceler
@@ -998,9 +997,9 @@ BattleScript_BerryBadJokeContinue:
 	attackstring
 	ppreduce
 	jumpifnotberry BS_TARGET, BattleScript_BerryBadJokeNoBerry
-	critcalc
-	damagecalc
-	adjustdamage
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	damagetopercentagetargethp
 	attackanimation
 	waitanimation
 	effectivenesssound
@@ -1028,7 +1027,23 @@ BattleScript_BerryBadJokeContinue:
 	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
 	goto BattleScript_MoveEnd
 BattleScript_BerryBadJokeNoBerry:
-	call BattleScript_EffectHit_Ret
+	typecalc
+	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	damagetopercentagetargethp
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
 	tryfaintmon BS_TARGET
 	moveendall
@@ -2775,7 +2790,7 @@ BattleScript_EffectRemodel:
 	remodelcheck BS_ATTACKER, BattleScript_EffectDefenseUp2
 	goto BattleScript_EffectSpecialDefenseUp2
 
-BattleScript_EffectReconstruct:
+BattleScript_EffectCriticalRepair:
 	attackcanceler
 	attackstring
 	ppreduce
@@ -3049,7 +3064,7 @@ BattleScript_EffectLoveTap::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectVerglastrom::
-	jumpifweatheraffected BS_ATTACKER, B_WEATHER_SANDSTORM, BattleScript_EffectTrap
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_HAIL, BattleScript_EffectTrap
 	goto BattleScript_EffectHit
 
 BattleScript_EffectKerfuffle::
@@ -3079,6 +3094,8 @@ BattleScript_EffectVoid::
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	seteffectwithchance
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	printstring STRINGID_PKMNMOVEWASDISABLED
 	waitmessage B_WAIT_TIME_LONG
@@ -3588,14 +3605,6 @@ BattleScript_FirstChargingTurnDragonRuin::
 	setmoveeffect MOVE_EFFECT_DEF_SPDEF_UP | MOVE_EFFECT_AFFECTS_USER
 	seteffectsecondary
 	return
-
-BattleScript_EffectMeteorMash:
-	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_GRAVITY, BattleScript_MeteorMashGuaranteedAttackRaise
-	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	goto BattleScript_EffectHit
-BattleScript_MeteorMashGuaranteedAttackRaise:
-	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	goto BattleScript_EffectHit
 
 BattleScript_EffectMeditate::
 	attackcanceler
@@ -5026,6 +5035,8 @@ BattleScript_EffectSappySeed:
 	jumpifsafeguard BattleScript_EffectHit
 	jumpifstatus3 BS_TARGET, STATUS3_LEECHSEED, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_MoveEnd
 	setseeded
@@ -5036,6 +5047,8 @@ BattleScript_EffectSappySeed:
 BattleScript_EffectBaddyBad:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_REFLECT, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
+	typecalc
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setreflect
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -5046,7 +5059,7 @@ BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
 	typecalc
-	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_DOESNT_AFFECT_FOE, BattleScript_MoveEnd
+	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
 	printfromtable gReflectLightScreenSafeguardStringIds
@@ -6052,6 +6065,7 @@ BattleScript_EffectBestow:
 	accuracycheck BattleScript_PrintMoveMissed, NO_ACC_CALC_CHECK_LOCK_ON
 	attackstring
 	ppreduce
+	jumpifnoally BS_ATTACKER, BattleScript_ButItFailed
 	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BestowAttackSpAttackUpDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_Bestowing
 BattleScript_Bestowing:
@@ -6347,7 +6361,7 @@ BattleScript_EffectClearSmog:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectToxicThread:
-	setstatchanger STAT_SPEED, 2, TRUE
+	setstatchanger STAT_SPEED, 1, TRUE
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_FailedFromAtkString
 	jumpifstat BS_TARGET, CMP_NOT_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_ToxicThreadWorks
