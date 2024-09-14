@@ -4474,3 +4474,166 @@ void SetCaughtMon(void)
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_SET_SEEN);
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(VarGet(VAR_TEMP_1)), FLAG_SET_CAUGHT);
 }
+
+bool8 PoisonPlayerParty(void)
+{
+    u8 j, i;
+    u8 count;
+    u8 indices[PARTY_SIZE];
+    u32 status;
+    u32 sStatusFlags;
+    u16 species;
+    u16 ability;
+    bool8 statusChosen;
+    struct Pokemon *mon;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        indices[i] = i;
+    for (j = 0; j < 10; j++)
+    {
+        u8 temp, id;
+
+        i = Random() % PARTY_SIZE;
+        id = Random() % PARTY_SIZE;
+        SWAP(indices[i], indices[id], temp);
+    }
+
+    if (VarGet(VAR_DURIN_RESISTANCE) == 0)
+        count = 3;
+    else if (VarGet(VAR_DURIN_RESISTANCE) == 1)
+        count = 2;
+    else
+        count = 1;
+
+    status = 0;
+    do
+    {
+        statusChosen = FALSE;
+
+        sStatusFlags = STATUS1_TOXIC_POISON;
+
+        if (status != sStatusFlags)
+        {
+            status = sStatusFlags;
+            j = 0;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                mon = &gPlayerParty[indices[i]];
+                if (GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_NONE
+                    && GetMonData(mon, MON_DATA_HP) != 0)
+                {
+                    j++;
+                    species = GetMonData(mon, MON_DATA_SPECIES);
+                    if (!(gSpeciesInfo[species].types[0] == TYPE_POISON || gSpeciesInfo[species].types[1] == TYPE_POISON) && !(gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_STEEL))
+                    {
+                        statusChosen = TRUE;
+                        break;
+                    }
+                }
+                if (j == count)
+                    break;
+            }
+            if (j == 0)
+                return FALSE;
+        }
+    } while (!statusChosen);
+
+    j = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        mon = &gPlayerParty[indices[i]];
+        if (GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_NONE
+            && GetMonData(mon, MON_DATA_HP) != 0)
+        {
+            j++;
+            species = GetMonData(mon, MON_DATA_SPECIES);
+            ability = gSpeciesInfo[species].abilities[GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM)];
+
+            if (!(gSpeciesInfo[species].types[0] == TYPE_POISON || gSpeciesInfo[species].types[1] == TYPE_POISON) && !(gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_STEEL))
+                SetMonData(mon, MON_DATA_STATUS, &sStatusFlags);
+        }
+        if (j == count)
+            break;
+    }
+
+    return TRUE;
+}
+
+bool8 BurnPlayerParty(void)
+{
+    u8 j, i;
+    u8 count;
+    u8 indices[PARTY_SIZE];
+    u32 status;
+    u32 sStatusFlags;
+    u16 species;
+    u16 ability;
+    bool8 statusChosen;
+    struct Pokemon *mon;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        indices[i] = i;
+    for (j = 0; j < 10; j++)
+    {
+        u8 temp, id;
+
+        i = Random() % PARTY_SIZE;
+        id = Random() % PARTY_SIZE;
+        SWAP(indices[i], indices[id], temp);
+    }
+
+    count = 4;
+
+    status = 0;
+    do
+    {
+        statusChosen = FALSE;
+
+        sStatusFlags = STATUS1_BURN;
+
+        if (status != sStatusFlags)
+        {
+            status = sStatusFlags;
+            j = 0;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                mon = &gPlayerParty[indices[i]];
+                if (GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_NONE
+                    && GetMonData(mon, MON_DATA_HP) != 0)
+                {
+                    j++;
+                    species = GetMonData(mon, MON_DATA_SPECIES);
+                    if (!(gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE))
+                    {
+                        statusChosen = TRUE;
+                        break;
+                    }
+                }
+                if (j == count)
+                    break;
+            }
+            if (j == 0)
+                return FALSE;
+        }
+    } while (!statusChosen);
+
+    j = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        mon = &gPlayerParty[indices[i]];
+        if (GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_NONE
+            && GetMonData(mon, MON_DATA_HP) != 0)
+        {
+            j++;
+            species = GetMonData(mon, MON_DATA_SPECIES);
+            ability = gSpeciesInfo[species].abilities[GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM)];
+
+            if (!(gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE))
+                SetMonData(mon, MON_DATA_STATUS, &sStatusFlags);
+        }
+        if (j == count)
+            break;
+    }
+
+    return TRUE;
+}

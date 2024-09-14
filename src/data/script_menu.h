@@ -802,6 +802,58 @@ static const struct MenuAction MultichoiceList_LifePhilosophy[] = {
     {sText_Tragedy},
 };
 
+static const u8 sText_LavaGymQ1A1[] = _("Study Pokémon");
+static const u8 sText_LavaGymQ1A2[] = _("Taste test soup");
+static const u8 sText_LavaGymQ1A3[] = _("Cop");
+static const struct MenuAction MultichoiceList_LavaGymQuestion1[] = {
+    {sText_LavaGymQ1A1},
+    {sText_LavaGymQ1A2},
+    {sText_LavaGymQ1A3},
+};
+
+static const u8 sText_LavaGymQ2A1[] = _("None");
+static const u8 sText_LavaGymQ2A2[] = _("All");
+static const u8 sText_LavaGymQ2A3[] = _("Name your price!");
+static const struct MenuAction MultichoiceList_LavaGymQuestion2[] = {
+    {sText_LavaGymQ2A1},
+    {sText_LavaGymQ2A2},
+    {sText_LavaGymQ2A3},
+};
+
+static const u8 sText_LavaGymQ3A1[] = _("Haven't");
+static const u8 sText_LavaGymQ3A2[] = _("Several");
+static const u8 sText_LavaGymQ3A3[] = _("Only a woman");
+static const struct MenuAction MultichoiceList_LavaGymQuestion3[] = {
+    {sText_LavaGymQ3A1},
+    {sText_LavaGymQ3A2},
+    {sText_LavaGymQ3A3},
+};
+
+static const u8 sText_LavaGymQ4A1[] = _("A little");
+static const u8 sText_LavaGymQ4A2[] = _("A lottle");
+static const u8 sText_LavaGymQ4A3[] = _("(Have coughing fit)");
+static const struct MenuAction MultichoiceList_LavaGymQuestion4[] = {
+    {sText_LavaGymQ4A1},
+    {sText_LavaGymQ4A2},
+    {sText_LavaGymQ4A3},
+};
+
+static const u8 sText_LavaGymQ5A1[] = _("Fight Him");
+static const u8 sText_LavaGymQ5A2[] = _("Fight Him");
+static const u8 sText_LavaGymQ5A3[] = _("Fight Him");
+static const struct MenuAction MultichoiceList_LavaGymQuestion5[] = {
+    {sText_LavaGymQ5A1},
+    {sText_LavaGymQ5A2},
+    {sText_LavaGymQ5A3},
+};
+
+static const u8 sText_EatDurin[] = _("Eat...");
+static const u8 sText_DontEatDurin[] = _("Don't Eat!!");
+static const struct MenuAction MultichoiceList_EatOrDontEat[] = {
+    {sText_EatDurin},
+    {sText_DontEatDurin},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -933,6 +985,12 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE] = MULTICHOICE(MultichoiceList_SlateportTentTwoLeagues),
     [MULTI_SLATEPORT_ANY_LEAGUE]         = MULTICHOICE(MultichoiceList_SlateportTentAnyLeague),
     [MULTI_LIFE_PHILOSOPHY]         = MULTICHOICE(MultichoiceList_LifePhilosophy),
+    [MULTI_LAVAGYM_QUESTION_1]         = MULTICHOICE(MultichoiceList_LavaGymQuestion1),
+    [MULTI_LAVAGYM_QUESTION_2]         = MULTICHOICE(MultichoiceList_LavaGymQuestion2),
+    [MULTI_LAVAGYM_QUESTION_3]         = MULTICHOICE(MultichoiceList_LavaGymQuestion3),
+    [MULTI_LAVAGYM_QUESTION_4]         = MULTICHOICE(MultichoiceList_LavaGymQuestion4),
+    [MULTI_LAVAGYM_QUESTION_5]         = MULTICHOICE(MultichoiceList_LavaGymQuestion5),
+    [MULTI_EAT_OR_DONT_EAT]         = MULTICHOICE(MultichoiceList_EatOrDontEat),
 };
 
 const u8 *const gStdStrings[] =

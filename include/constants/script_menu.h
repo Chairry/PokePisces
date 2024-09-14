@@ -126,6 +126,12 @@
 #define MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE  114
 #define MULTI_SLATEPORT_ANY_LEAGUE          115
 #define MULTI_LIFE_PHILOSOPHY               116
+#define MULTI_LAVAGYM_QUESTION_1            117
+#define MULTI_LAVAGYM_QUESTION_2            118
+#define MULTI_LAVAGYM_QUESTION_3            119
+#define MULTI_LAVAGYM_QUESTION_4            120
+#define MULTI_LAVAGYM_QUESTION_5            121
+#define MULTI_EAT_OR_DONT_EAT               122
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

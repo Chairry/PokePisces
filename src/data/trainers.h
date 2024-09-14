@@ -8020,7 +8020,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
-        .trainerPic = TRAINER_PIC_LEADER_WINONA,
+        .trainerPic = TRAINER_PIC_ARENA_TYCOON_GRETA,
         .trainerName = _("Aarune"),
         .items = {},
         .doubleBattle = FALSE,

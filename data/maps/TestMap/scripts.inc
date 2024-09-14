@@ -1,6 +1,15 @@
 TestMap_MapScripts::
 	.byte 0
 
+TestMap_EventScript_PoisonPartyTest::
+	lock
+	faceplayer
+	msgbox TestMap_Text_MendelIntro, MSGBOX_DEFAULT
+	burnplayerparty
+	msgbox TestMap_Text_MendelPostBattle, MSGBOX_AUTOCLOSE
+	release
+	end
+
 TestMap_EventScript_Mendel::
     trainerbattle_single TRAINER_P_MENDEL, TestMap_Text_MendelIntro, TestMap_Text_MendelDefeated
     msgbox TestMap_Text_MendelPostBattle, MSGBOX_AUTOCLOSE
