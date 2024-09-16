@@ -14500,7 +14500,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .metronomeBanned = TRUE,
-        .sheerForceBoost = TRUE,
     },
 
     [MOVE_JUNGLE_RAGE] =

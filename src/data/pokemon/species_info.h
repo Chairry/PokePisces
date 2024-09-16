@@ -895,7 +895,7 @@
         .friendship = 1, \
         .growthRate = GROWTH_SLOW, \
         .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS}, \
-        .abilities = {ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_NONE}, \
+        .abilities = {ABILITY_BROKEN, ABILITY_BROKEN, ABILITY_BROKEN, ABILITY_NONE}, \
         .bodyColor = BODY_COLOR_BROWN, \
         .noFlip = FALSE, \
     }
@@ -13263,7 +13263,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .types = { TYPE_DARK, TYPE_GHOST},
         .catchRate = 75,
         .expYield = 61,
-        .evYield_Attack = 1,
+        .evYield_Speed = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 25,
         .friendship = STANDARD_FRIENDSHIP,
@@ -18302,7 +18302,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_MOXIE, ABILITY_SHEER_FORCE, ABILITY_DISDAIN},
+        .abilities = {ABILITY_MOXIE, ABILITY_MOTOR_DRIVE, ABILITY_BERSERK},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },
@@ -20564,7 +20564,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_MONSTER},
-        .abilities = {ABILITY_TORRENT, ABILITY_FILTER, ABILITY_SKILL_LINK},
+        .abilities = {ABILITY_TORRENT, ABILITY_FILTER, ABILITY_POWER_SPIKE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
     },

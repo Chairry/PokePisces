@@ -535,7 +535,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectEnervator               @ EFFECT_ENERVATOR
 	.4byte BattleScript_EffectErodeField              @ EFFECT_ERODE_FIELD
 	.4byte BattleScript_EffectHeavyCell               @ EFFECT_HEAVY_CELL
-	.4byte BattleScript_EffectCriticalRepair             @ EFFECT_CRITICAL_REPAIR
+	.4byte BattleScript_EffectCriticalRepair          @ EFFECT_CRITICAL_REPAIR
 	.4byte BattleScript_EffectRemodel                 @ EFFECT_REMODEL
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BEAM
 	.4byte BattleScript_EffectHit                     @ EFFECT_BARI_BARI_BASH
@@ -13362,14 +13362,20 @@ BattleScript_CudChewActivates::
 	setbyte sBERRY_OVERRIDE, 0
 	end3
 
+BattleScript_ApplyDisguiseFormChangeHPLoss::
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+	return
+
 BattleScript_TargetFormChangeNoPopup:
 	printstring STRINGID_EMPTYSTRING3
-	waitmessage 1
-	handleformchange BS_TARGET, 0
-	handleformchange BS_TARGET, 1
+	handleformchange BS_SCRIPTING, 0
+	handleformchange BS_SCRIPTING, 1
 	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
 	waitanimation
-	handleformchange BS_TARGET, 2
+	handleformchange BS_SCRIPTING, 2
+	jumpifability BS_TARGET, ABILITY_DISGUISE, BattleScript_ApplyDisguiseFormChangeHPLoss
+	jumpifability BS_TARGET, ABILITY_BROKEN, BattleScript_ApplyDisguiseFormChangeHPLoss
 	return
 
 BattleScript_TargetFormChange::

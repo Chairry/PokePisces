@@ -5202,39 +5202,44 @@ const u8 gEnamorusPokedexText[] = _(
     "budding of fresh life across the land.");
 
 const u8 gTidpitPokedexText[] = _(
-    "Young Tidpit hop around in the safety of\n"
-    "their den. Their mighty jaws can crush even\n"
-    "the toughest armor.");
+    "Young Tidpit hop around in the safety of their\n"
+    "den, located in old and sturdy tree trunks.\n"
+    "Their powerful jaws can crush even the tough\n"
+    "shells of their favorite snack, Snelfrend.");
 
 const u8 gSlidlowPokedexText[] = _(
-    "Slidlow strangles its prey with its\n"
-    "thick, serpentine vines. Slidlow's bite\n"
-    "force has strengthened and it can also\n"
-    "spit poison at its targets.");
+    "Slidlow strangle their prey with their thick,\n"
+    "elastic, twisting vines. Their bite force is\n"
+    "estimated to be 1500 PSI, crushing even the\n"
+    "thickest sheet metal.");
 
 const u8 gCardiovorPokedexText[] = _(
-    "Cardiovor hunts by sitting still, closing\n"
-    "its bud, and exuding an aroma that lures\n"
-    "in prey. When ready, its bud opens, and it\n"
-    "traps the prey in vines, thorns, and fangs.");
+    "Cardiovor remain motionless, bud closed, exuding\n"
+    "a sweet aroma that lures in prey. If approached,\n"
+    "they trap their prey with a myriad of vines,\n"
+    "thorns, and fangs. They share their meal with\n"
+    "many smaller heads, nourishing future Tidpit.");
 
 const u8 gFiefreetPokedexText[] = _(
-    "It never blinks. Many superstitions\n"
-    "surround Fiefreet, some say it communes\n"
-    "with the underworld, while others say\n"
-    "they are wicked souls reborn as Pokémon.");
+    "They stand still, never blinking. Many\n"
+    "superstitions surround Fiefreet. Some say they\n"
+    "commune with the underworld, while others say\n"
+    "they are wicked souls reborn as Pokémon. As far\n"
+    "as we know, these could very well be true.");
 
 const u8 gBalbyrnPokedexText[] = _(
-    "Formerly believed to be demons from\n"
-    "hell, they were signs of ill omens.\n"
-    "Their black-colored flames contributed\n"
-    "to this superstition.");
+    "Balbyrn were formerly believed to be demons from\n"
+    "hell and omens of doom. They produce black\n"
+    "flames to assail foes, contributing to these\n"
+    "superstitions. Thus, they were hunted for their\n"
+    "horns as components for alchemy and curatives.");
 
 const u8 gBlazizahakPokedexText[] = _(
-    "Blazizahak's domineering presence\n"
-    "commands fear and pressure from those\n"
-    "around it. It leads fights with wings\n"
-    "blazing with black flames.");
+    "Their domineering presence instill fear and\n"
+    "pressure in those around them. Leading fights\n"
+    "covered in black flames they command Balbyrn\n"
+    "and Fiefreet battalions. The sheer destruction\n"
+    "of their raids has led to them being hunted down.");
 
 const u8 gProngyPokedexText[] = _(
     "Prongy sticks out its tongue to smell\n"

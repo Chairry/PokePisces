@@ -3177,6 +3177,16 @@ static void PrintInfoScreenText(const u8 *str, u8 left, u8 top)
     AddTextPrinterParameterized4(0, FONT_NORMAL, left, top, 0, 0, color, TEXT_SKIP_DRAW, str);
 }
 
+static void PrintInfoScreenTextSmall(const u8 *str, u8 left, u8 top)
+{
+    u8 color[3];
+    color[0] = TEXT_COLOR_TRANSPARENT;
+    color[1] = TEXT_DYNAMIC_COLOR_6;
+    color[2] = TEXT_COLOR_LIGHT_GRAY;
+
+    AddTextPrinterParameterized4(0, FONT_SMALL, left, top, 0, 0, color, TEXT_SKIP_DRAW, str);
+}
+
 #define tScrolling       data[0]
 #define tMonSpriteDone   data[1]
 #define tBgLoaded        data[2]
@@ -4145,7 +4155,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
         description = gPokedexEntries[num].description;
     else
         description = sExpandedPlaceholder_PokedexDescription;
-    PrintInfoScreenText(description, GetStringCenterAlignXOffset(FONT_NORMAL, description, DISPLAY_WIDTH), 95);
+    PrintInfoScreenTextSmall(description, GetStringCenterAlignXOffset(FONT_SMALL, description, DISPLAY_WIDTH), 95);
 }
 
 static void PrintMonHeight(u16 height, u8 left, u8 top)

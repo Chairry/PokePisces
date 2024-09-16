@@ -2248,7 +2248,7 @@ const struct SpriteTemplate gSpiritShackleArrowTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimSonicBoomProjectile
+    .callback = AnimTranslateStinger
 };
 
 //darkest lariat
