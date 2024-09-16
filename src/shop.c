@@ -487,7 +487,7 @@ static const struct WindowTemplate sShopBuyMenuWindowTemplates[] =
     },
     [WIN_ITEM_DESCRIPTION] = {
         .bg = 0,
-        .tilemapLeft = 11,
+        .tilemapLeft = 12,
         .tilemapTop = 13,
         .width = 14,
         .height = 6,
@@ -1311,7 +1311,7 @@ static void BuyMenuInitWindows(void)
         if (ItemId_GetPocket(item) == POCKET_TM_HM)
         {
             const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
-            FormatTextByWidth(gStringVar2, 80, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
+            FormatTextByWidth(gStringVar2, 90, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
             desc = gStringVar2;
             BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
         }
@@ -1450,7 +1450,7 @@ static void UpdateItemData(void)
             if (ItemId_GetPocket(item) == POCKET_TM_HM && item != ITEM_NONE)
             {
                 const u8 *move = gMoveNames[ItemIdToBattleMoveId(item)];
-                FormatTextByWidth(gStringVar2, 80, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
+                FormatTextByWidth(gStringVar2, 90, FONT_SMALL, ItemId_GetDescription(sMartInfo.itemList[0]), 0);
                 desc = gStringVar2;
                 BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             }

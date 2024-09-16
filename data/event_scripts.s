@@ -705,8 +705,7 @@ Common_EventScript_TannerShop0Progress::
 
 	.align 2
 Common_Mart_TannerShop0:
-	.2byte ITEM_SODA_POP
-	.2byte ITEM_POKE_BALL
+	.2byte ITEM_TM_THIEF
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_NONE
 	release
