@@ -3321,6 +3321,7 @@ void SwitchInClearSetData(u32 battler)
     // Reset damage to prevent things like red card activating if the switched-in mon is holding it
     gSpecialStatuses[battler].physicalDmg = 0;
     gSpecialStatuses[battler].specialDmg = 0;
+    gBattleStruct->enduredDamage &= ~(1u << battler);
 
     gBattleStruct->overwrittenAbilities[battler] = ABILITY_NONE;
 

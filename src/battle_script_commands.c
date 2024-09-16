@@ -2258,6 +2258,7 @@ static void Cmd_adjustdamage(void)
     if (DoesDisguiseBlockMove(gBattlerTarget, gCurrentMove) || DoesShatteredBlockMove(gBattlerTarget, gCurrentMove))
     {
         gBattleStruct->enduredDamage |= 1u << gBattlerTarget;
+        gBattleMoveDamage = 0;
         goto END;
     }
     if (gBattleMons[gBattlerTarget].hp > gBattleMoveDamage)
@@ -2273,16 +2274,16 @@ static void Cmd_adjustdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
     }
-    if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && rand < 10)
-    {
-        RecordItemEffectBattle(gBattlerTarget, holdEffect);
-        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
-    }
     #if B_STURDY >= GEN_5
     else if (GetBattlerAbility(gBattlerTarget) == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
     {
         RecordAbilityBattle(gBattlerTarget, abilityDef);
         gSpecialStatuses[gBattlerTarget].sturdied = TRUE;
+    }
+    else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF && rand < 10)
+    {
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+        gSpecialStatuses[gBattlerTarget].focusBanded = TRUE;
     }
     else if (GetBattlerAbility(gBattlerTarget) == ABILITY_AFTERMATH && (gBattleMons[gBattlerTarget].hp >= 1))
     {
@@ -2318,7 +2319,7 @@ static void Cmd_adjustdamage(void)
 
     // Handle reducing the dmg to 1 hp.
     gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
-    gBattleStruct->enduredDamage |= gBitTable[gBattlerTarget];
+    gBattleStruct->enduredDamage |= 1u << gBattlerTarget;
 
     if (gProtectStructs[gBattlerTarget].endured)
     {
@@ -2345,7 +2346,7 @@ END:
     gBattlescriptCurrInstr = cmd->nextInstr;
 
     if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMoveDamage >= 1)
-        gSpecialStatuses[gBattlerAttacker].damagedMons |= gBitTable[gBattlerTarget];
+        gSpecialStatuses[gBattlerAttacker].damagedMons |= (1 << (gBattlerTarget));
 
     // Check gems and damage reducing berries.
     if (gSpecialStatuses[gBattlerTarget].berryReduced
@@ -2576,20 +2577,24 @@ static void Cmd_datahpupdate(void)
         {
             u32 side = GetBattlerSide(battler);
             gBattleScripting.battler = battler;
+            if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] == SPECIES_NONE)
+                gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] = gBattleMons[battler].species;
             gBattleMons[battler].species = SPECIES_POTTRICIA_SHATTERED;
             gBattleMoveDamage = gBattleMons[battler].maxHP;
             BattleScriptPush(cmd->nextInstr);
-            gBattlescriptCurrInstr = BattleScript_TargetFormChange;
+            gBattlescriptCurrInstr = BattleScript_TargetFormChangeDisguise;
             return;
         }
         else if (DoesDisguiseBlockMove(battler, gCurrentMove))
         {
             u32 side = GetBattlerSide(battler);
             gBattleScripting.battler = battler;
+            if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] == SPECIES_NONE)
+                gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] = gBattleMons[battler].species;
             gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
             gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
             BattleScriptPush(cmd->nextInstr);
-            gBattlescriptCurrInstr = BattleScript_TargetFormChange;
+            gBattlescriptCurrInstr = BattleScript_TargetFormChangeDisguise;
             return;
         }
         else
@@ -17198,7 +17203,7 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
         return TRUE;
 }
 
-bool32 DoesShatteredBlockMove(u32 battler, u32 move)
+bool32 DoesDisguiseBlockMove(u32 battler, u32 move)
 {
     if (!(gBattleMons[battler].species == SPECIES_MIMIKYU)
         || gBattleMons[battler].status2 & STATUS2_TRANSFORMED
@@ -17209,8 +17214,7 @@ bool32 DoesShatteredBlockMove(u32 battler, u32 move)
     else
         return TRUE;
 }
-
-bool32 DoesDisguiseBlockMove(u32 battler, u32 move)
+bool32 DoesShatteredBlockMove(u32 battler, u32 move)
 {
     if (!(gBattleMons[battler].species == SPECIES_POTTRICIA)
         || gBattleMons[battler].status2 & STATUS2_TRANSFORMED
