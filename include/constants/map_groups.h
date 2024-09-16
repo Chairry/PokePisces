@@ -180,6 +180,8 @@
 #define MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F (16 | (13 << 8))
 #define MAP_GYM6CORRIDOR                      (17 | (13 << 8))
 #define MAP_SWELTORN_TRANSITION_HALLWAY       (18 | (13 << 8))
+#define MAP_TRICK_HOUSE_POT_ROOM              (19 | (13 << 8))
+#define MAP_TRICK_HOUSE_UPSIDE_DOWN_ROOM      (20 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))

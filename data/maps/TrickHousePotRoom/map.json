@@ -1,0 +1,48 @@
+{
+  "id": "MAP_TRICK_HOUSE_POT_ROOM",
+  "name": "TrickHousePotRoom",
+  "layout": "LAYOUT_TRICK_HOUSE_POT_ROOM",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_POT_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_HATCHLOAM_FIELD",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "TrickHousePotRoom_EventScript_Pottricia"
+    }
+  ]
+}

@@ -5580,6 +5580,26 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LavaridgeHouses/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeHouses/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_POT_ROOM",
+      "name": "TrickHousePotRoom_Layout",
+      "width": 9,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHousePotRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHousePotRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_UPSIDE_DOWN_ROOM",
+      "name": "TrickHouseUpsideDownRoom_Layout",
+      "width": 7,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHouseUpsideDownRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseUpsideDownRoom/map.bin"
     }
   ]
 }

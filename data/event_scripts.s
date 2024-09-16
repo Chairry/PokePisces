@@ -3668,3 +3668,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LavaridgeGymNew/scripts.inc"
 
 	.include "data/maps/LavaridgeHouses/scripts.inc"
+
+	.include "data/maps/TrickHousePotRoom/scripts.inc"
+
+	.include "data/maps/TrickHouseUpsideDownRoom/scripts.inc"
