@@ -1050,7 +1050,7 @@ static void ItemStorage_PrintDescription(s32 id)
         description = ItemStorage_GetMessage(MSG_GO_BACK_TO_PREV);
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, description, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(windowId, FONT_SMALL, description, 0, 1, 0, NULL);
 }
 
 static void ItemStorage_AddScrollIndicator(void)

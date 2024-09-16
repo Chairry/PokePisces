@@ -6678,10 +6678,10 @@ static const struct TrainerMon sParty_POlly[] = {
 static const struct TrainerMon sParty_PPolly[] = {
     {
     .species = SPECIES_TRITONAUT,
-    .ability = ABILITY_SKILL_LINK,
+    .ability = ABILITY_POWER_SPIKE,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 46,
-    .moves = {MOVE_ICICLE_SPEAR, MOVE_SPIKE_CANNON, MOVE_NOBLE_ROAR, MOVE_PROTECT}
+    .moves = {MOVE_ICICLE_SPEAR, MOVE_PINPOINT, MOVE_NOBLE_ROAR, MOVE_PROTECT}
     }
 };
 
@@ -7568,40 +7568,63 @@ static const struct TrainerMon sParty_PMaomao[] = {
 
 static const struct TrainerMon sParty_PBarnaby[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 32,
-    .species = SPECIES_NATU,
+    .species = SPECIES_OROFLOW,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 47,
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 32,
-    .species = SPECIES_SWABLU,
+    .species = SPECIES_ORROCAST,
+    .friendship = 255,
+    .heldItem = ITEM_BINDING_BAND,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 50,
+    .moves = {MOVE_WHIRLPOOL, MOVE_GLARE, MOVE_AQUA_TAIL, MOVE_DRAGON_PULSE},
     }
 };
 
 static const struct TrainerMon sParty_PValerie[] = {
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 35,
-    .species = SPECIES_NATU,
+    .species = SPECIES_LUNASTER,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_TAUNT, MOVE_FLAMETHROWER, MOVE_NASTY_PLOT, MOVE_NIGHT_DAZE},
     },
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 35,
-    .species = SPECIES_ALTARIA,
+    .species = SPECIES_EGGNEGGMA,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_TORMENT, MOVE_HUNKER_DOWN, MOVE_NIGHT_DAZE, MOVE_WYVERN_WAVE},
+    },
+    {
+    .species = SPECIES_NANGGAL,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_TAUNT, MOVE_TORMENT, MOVE_CRUNCH, MOVE_ACROBATICS},
     }
 };
 
 static const struct TrainerMon sParty_PQueequeg[] = {
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 38,
-    .species = SPECIES_NATU,
+    .species = SPECIES_PAPYPUS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
     },
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 38,
-    .species = SPECIES_ALTARIA,
+    .species = SPECIES_TUNAP,
+    .ability = ABILITY_PUNK_ROCK,
+    .heldItem = ITEM_CHOICE_SPECS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_MAERACHOLY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_TRITONAUT,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
     }
 };
 

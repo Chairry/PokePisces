@@ -583,7 +583,7 @@ static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
         str = gText_TMCaseWillBePutAway;
     }
     FillWindowPixelBuffer(1, 0);
-    AddTextPrinterParameterized_ColorByIndex(1, 2, str, 2, 3, 1, 0, 0, 0);
+    AddTextPrinterParameterized_ColorByIndex(1, FONT_SMALL, str, 2, 3, 1, 0, 0, 0);
 
     // update icons
     TintPartyMonIcons(itemId);
