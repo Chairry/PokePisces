@@ -1134,6 +1134,89 @@ static const union AnimCmd *const sAnimTable_Fishing[] = {
     [ANIM_HOOKED_POKEMON_EAST] = sAnim_HookedPokemonEast,
 };
 
+static const union AnimCmd sAnim_FaceSouthFlippedY[] =
+{
+    ANIMCMD_FRAME(0, 16, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceNorthFlippedY[] =
+{
+    ANIMCMD_FRAME(1, 16, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceWestFlippedY[] =
+{
+    ANIMCMD_FRAME(2, 16, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceEastFlippedY[] =
+{
+    ANIMCMD_FRAME(2, 16, .hFlip = TRUE, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoSouthFlippedY[] =
+{
+    ANIMCMD_FRAME(5, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(1, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(6, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(1, 8, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoNorthFlippedY[] =
+{
+    ANIMCMD_FRAME(3, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(0, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(4, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(0, 8, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoWestFlippedY[] =
+{
+    ANIMCMD_FRAME(7, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(8, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoEastFlippedY[] =
+{
+    ANIMCMD_FRAME(7, 8, .hFlip = TRUE, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE, .vFlip = TRUE),
+    ANIMCMD_FRAME(8, 8, .hFlip = TRUE, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_FlippedY[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouthFlippedY,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorthFlippedY,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWestFlippedY,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEastFlippedY,
+    [ANIM_STD_GO_SOUTH] = sAnim_GoSouthFlippedY,
+    [ANIM_STD_GO_NORTH] = sAnim_GoNorthFlippedY,
+    [ANIM_STD_GO_WEST] = sAnim_GoWestFlippedY,
+    [ANIM_STD_GO_EAST] = sAnim_GoEastFlippedY,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+};
+
 static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {
     sAffineAnim_KyogreGroudon_GoSouthStart, // Used by Kyogre/Groudon when awakened
     sAffineAnim_KyogreGroudon_GoSouth,      // Used by Kyogre/Groudon when awakened

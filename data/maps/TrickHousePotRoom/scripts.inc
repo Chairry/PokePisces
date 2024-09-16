@@ -19,7 +19,7 @@ TrickHousePotRoom_EventScript_PottriciaBattle::
 TrickHousePotRoom_EventScript_PottriciaDefeat::
 	msgbox TrickHousePotRoom_Text_AHardEarnedVictory, MSGBOX_DEFAULT
 	delay 16
-	setmetatile 4, 1, METATILE_TrickHouseNew_TrickHouseDoor, FALSE
+	setmetatile 4, 1, METATILE_TrickHouseNew_TickHouseDoor, FALSE
 	setmetatile 4, 2, METATILE_TrickHouseNew_PottriciaDownLeft, FALSE
 	setmetatile 5, 2, METATILE_TrickHouseNew_PottriciaDownMiddle, FALSE
 	setmetatile 6, 2, METATILE_TrickHouseNew_PottriciaDownRight, FALSE

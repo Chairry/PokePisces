@@ -833,6 +833,12 @@
 #define METATILE_TrainerHill_Door_Elevator_Roof   0x383
 #define METATILE_TrainerHill_GreenFloorTile       0x307
 
+// gTileset_TrickHouseNew
+#define METATILE_TrickHouseNew_PottriciaDownLeft    0x215
+#define METATILE_TrickHouseNew_PottriciaDownMiddle  0x216
+#define METATILE_TrickHouseNew_PottriciaDownRight   0x217
+#define METATILE_TrickHouseNew_TickHouseDoor        0x20E
+
 // gTileset_TrickHousePuzzle
 #define METATILE_TrickHousePuzzle_Arrow_RedOnBlack_Down       0x263
 #define METATILE_TrickHousePuzzle_Arrow_RedOnBlack_Left       0x261
