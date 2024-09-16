@@ -155,6 +155,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_MARCHONESS] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_BREADWINNER_FINAL] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_ANGELA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_BREADWINNER_UPSIDE_DOWN] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -316,6 +317,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(MARCHONESS, gTrainerFrontPic_Marchoness, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(BREADWINNER_FINAL, gTrainerFrontPic_BreadwinnerFinal, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(ANGELA, gTrainerFrontPic_Angela, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(BREADWINNER_UPSIDE_DOWN, gTrainerFrontPic_BreadwinnerUpsideDown, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -477,4 +479,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(MARCHONESS, gTrainerPalette_Marchoness),
     TRAINER_PAL(BREADWINNER_FINAL, gTrainerPalette_BreadwinnerFinal),
     TRAINER_PAL(ANGELA, gTrainerPalette_Angela),
+    TRAINER_PAL(BREADWINNER_UPSIDE_DOWN, gTrainerPalette_BreadwinnerUpsideDown),
 };

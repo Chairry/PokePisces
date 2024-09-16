@@ -172,6 +172,7 @@
 #define TRAINER_PIC_MARCHONESS           152
 #define TRAINER_PIC_BREADWINNER_FINAL    153
 #define TRAINER_PIC_ANGELA               154
+#define TRAINER_PIC_BREADWINNER_UPSIDE_DOWN  155
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

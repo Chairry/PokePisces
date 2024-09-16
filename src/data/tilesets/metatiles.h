@@ -252,3 +252,6 @@ const u16 gMetatileAttributes_FortreeGymNew[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_LavaridgeGymNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_gym_new/metatiles.bin");
 const u16 gMetatileAttributes_LavaridgeGymNew[] = INCBIN_U16("data/tilesets/secondary/lavaridge_gym_new/metatile_attributes.bin");
+
+const u16 gMetatiles_TrickHouseNew[] = INCBIN_U16("data/tilesets/secondary/trick_house_new/metatiles.bin");
+const u16 gMetatileAttributes_TrickHouseNew[] = INCBIN_U16("data/tilesets/secondary/trick_house_new/metatile_attributes.bin");

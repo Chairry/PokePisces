@@ -1332,6 +1332,14 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     sprite->sObjEventId = objectEventId;
     objectEvent->spriteId = spriteId;
     objectEvent->inanimate = graphicsInfo->inanimate;
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+     && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+     && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_BRENDAN
+     && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_MAY)
+    {
+        sprite->anims = sAnimTable_FlippedY;
+        sprite->y += 8;
+    }
     if (!objectEvent->inanimate)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(objectEvent->facingDirection));
 
@@ -1635,6 +1643,14 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
         sprite->images = graphicsInfo->images;
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+         && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_BRENDAN
+         && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_MAY)
+        {
+            sprite->anims = sAnimTable_FlippedY;
+            sprite->y += 8;
+        }
         if (objectEvent->movementType == MOVEMENT_TYPE_PLAYER)
         {
             SetPlayerAvatarObjectEventIdAndObjectId(objectEventId, i);

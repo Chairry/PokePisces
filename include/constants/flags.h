@@ -662,7 +662,7 @@
 #define FLAG_PISCES_E  0x26B // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
 #define FLAG_PISCES_F  0x26C // Unused Flag in Vanilla. Used as one of six "generic" flags that are to be reset whenever doing their part for a major script.
 #define FLAG_PACIFIDLOG_ROADBLOCK  0x26D // Unused Flag in Vanilla.
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_POTTRICIA_DEFEATED  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag

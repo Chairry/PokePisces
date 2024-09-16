@@ -4036,7 +4036,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_BREADWINNER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LAD,
-        .trainerPic = TRAINER_PIC_BREADWINNER,
+        .trainerPic = TRAINER_PIC_BREADWINNER_UPSIDE_DOWN,
         .trainerName = _("Pandou"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7840,7 +7840,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_BREADWINNER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_LAD,
-        .trainerPic = TRAINER_PIC_BREADWINNER,
+        .trainerPic = TRAINER_PIC_BREADWINNER_FINAL,
         .trainerName = _("Pandou"),
         .items = {},
         .doubleBattle = FALSE,
