@@ -1333,7 +1333,9 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     objectEvent->spriteId = spriteId;
     objectEvent->inanimate = graphicsInfo->inanimate;
     if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
-     && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM))
+     && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+     && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_BRENDAN
+     && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_MAY)
     {
         sprite->anims = sAnimTable_FlippedY;
         sprite->y += 8;
@@ -1642,7 +1644,9 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->y += 16 + sprite->centerToCornerVecY;
         sprite->images = graphicsInfo->images;
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
-         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM))
+         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRICK_HOUSE_UPSIDE_DOWN_ROOM)
+         && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_BRENDAN
+         && graphicsInfo->paletteTag != OBJ_EVENT_PAL_TAG_MAY)
         {
             sprite->anims = sAnimTable_FlippedY;
             sprite->y += 8;
