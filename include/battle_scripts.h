@@ -491,6 +491,7 @@ extern const u8 BattleScript_AttackerFormChange[];
 extern const u8 BattleScript_DefenderFormChange[];
 extern const u8 BattleScript_AttackerFormChangeEnd3[];
 extern const u8 BattleScript_TargetFormChange[];
+extern const u8 BattleScript_TargetFormChangeDisguise[];
 extern const u8 BattleScript_AnticipationActivates[];
 extern const u8 BattleScript_SlowStartEnds[];
 extern const u8 BattleScript_SilenceActivatesArcane[];
