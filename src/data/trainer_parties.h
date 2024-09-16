@@ -7630,92 +7630,184 @@ static const struct TrainerMon sParty_PQueequeg[] = {
 
 static const struct TrainerMon sParty_PJess[] = {
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_ALTARIA,
+    .species = SPECIES_CHAFFAW,
+    .ability = ABILITY_MOCKING,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_ATTRACT, MOVE_PLAY_ROUGH, MOVE_CRUNCH, MOVE_FLAMETHROWER},
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_XATU,
+    .species = SPECIES_PROMISCBUS,
+    .ability = ABILITY_HEARTSTRINGS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_HEART_STEAL, MOVE_DRAINING_KISS, MOVE_ATTRACT, MOVE_LOVELY_KISS},
+    },
+    {
+    .species = SPECIES_LUSCKAW,
+    .ability = ABILITY_POTENCY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_ATTRACT, MOVE_VERGLASTROM, MOVE_WYVERN_WAVE, MOVE_COOL_MIST},
     }
 };
 
 static const struct TrainerMon sParty_PAmi[] = {
     {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 33,
-    .species = SPECIES_NATU,
+    .species = SPECIES_COCKABOO,
+    .ability = ABILITY_INTIMIDATE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
     },
     {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 33,
-    .species = SPECIES_SWELLOW,
+    .species = SPECIES_COCKABOO,
+    .ability = ABILITY_EVIL_EYE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_NOSFERAPTR,
+    .ability = ABILITY_DISTURB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    },
+    {
+    .species = SPECIES_CHAFFAW,
+    .ability = ABILITY_MOCKING,
+    .heldItem = ITEM_CLEANSE_TAG,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
     }
 };
 
 static const struct TrainerMon sParty_PMarcy[] = {
     {
-    .lvl = 34,
-    .species = SPECIES_TROPIUS,
+    .species = SPECIES_LOAFOOF,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 50,
+    .moves = {MOVE_SPOOK, MOVE_ENERGY_BALL, MOVE_SHADOW_BALL, MOVE_CONFUSE_RAY},
+    },
+    {
+    .species = SPECIES_SPIRITOAST,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 50,
+    .moves = {MOVE_SPOOK, MOVE_RAGING_FURY, MOVE_SOUL_CUTTER, MOVE_CONFUSE_RAY},
     }
 };
 
 static const struct TrainerMon sParty_PSponge[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_NINJASK,
+    .species = SPECIES_SHIVERSNAP,
+    .ability = ABILITY_ICE_SCALES,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_KOMORODE,
+    .ability = ABILITY_MERCILESS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_KOREMAI,
+    .ability = ABILITY_MERCILESS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
+    },
+    {
+    .species = SPECIES_ABARBINASH,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
     }
 };
 
 static const struct TrainerMon sParty_PWalton[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_NINJASK,
+    .species = SPECIES_DUDUNSPARS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
     },
     {
-    .lvl = 25,
-    .species = SPECIES_KOFFING,
+    .species = SPECIES_VAIKING,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    },
+    {
+    .species = SPECIES_AXELFIN,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
     }
 };
 
 static const struct TrainerMon sParty_PJoshu[] = {
     {
-    .lvl = 43,
-    .species = SPECIES_CLAYDOL,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_SUDCUB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 50,
+    .moves = {MOVE_TAUNT, MOVE_TORMENT, MOVE_PURIFY, MOVE_BIDE},
     },
     {
-    .lvl = 43,
-    .species = SPECIES_LANTURN,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_SADSOD,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_TAUNT, MOVE_TORMENT, MOVE_MEMENTO, MOVE_FLAIL},
     }
 };
 
 static const struct TrainerMon sParty_PJanelle[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_MARILL,
+    .species = SPECIES_JARAMERA,
+    .ability = ABILITY_TOXIC_DEBRIS,
+    .heldItem = ITEM_PROTECTIVE_PADS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_MORTAL_SPIN, MOVE_VENOSHOCK, MOVE_VENOM_DRENCH, MOVE_STICKY_WEB},
+    },
+    {
+    .species = SPECIES_TOXICROAK,
+    .ability = ABILITY_POISON_TOUCH,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_POISON_DART, MOVE_DRAIN_PUNCH, MOVE_DIRE_CLAW, MOVE_KNOCK_OFF},
+    },
+    {
+    .species = SPECIES_JARAMERA,
+    .ability = ABILITY_MIASMA,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_BANEFUL_BUNKER, MOVE_VENOSHOCK, MOVE_VENOM_DRENCH, MOVE_FIRE_LASH},
     }
 };
 
 static const struct TrainerMon sParty_PNunya[] = {
     {
-    .lvl = 17,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT}
+    .species = SPECIES_MUSTYBANE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 48,
     },
     {
-    .lvl = 17,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT}
+    .species = SPECIES_JARAMERA,
+    .ability = ABILITY_TOXIC_DEBRIS,
+    .heldItem = ITEM_PROTECTIVE_PADS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_MORTAL_SPIN, MOVE_VENOSHOCK, MOVE_VENOM_DRENCH, MOVE_STICKY_WEB},
     },
     {
-    .lvl = 17,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
+    .species = SPECIES_TOXICROAK,
+    .ability = ABILITY_POISON_TOUCH,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_POISON_DART, MOVE_DRAIN_PUNCH, MOVE_DIRE_CLAW, MOVE_KNOCK_OFF},
+    },
+    {
+    .species = SPECIES_JARAMERA,
+    .ability = ABILITY_MIASMA,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    .moves = {MOVE_BANEFUL_BUNKER, MOVE_VENOSHOCK, MOVE_VENOM_DRENCH, MOVE_FIRE_LASH},
     }
 };
 

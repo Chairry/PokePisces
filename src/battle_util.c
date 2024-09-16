@@ -101,7 +101,7 @@ static const u16 sSkillSwapBannedAbilities[] =
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_RKS_SYSTEM,
         ABILITY_BATTLE_BOND,
         ABILITY_DORMANT,
@@ -158,7 +158,7 @@ static const u16 sRolePlayBannedAbilities[] =
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_RKS_SYSTEM,
         ABILITY_BATTLE_BOND,
         ABILITY_DORMANT,
@@ -205,7 +205,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_RKS_SYSTEM,
         ABILITY_BATTLE_BOND,
         ABILITY_DORMANT,
@@ -251,7 +251,7 @@ static const u16 sWorrySeedBannedAbilities[] =
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_RKS_SYSTEM,
         ABILITY_BATTLE_BOND,
         ABILITY_DORMANT,
@@ -296,7 +296,7 @@ static const u16 sGastroAcidBannedAbilities[] =
         ABILITY_BATTLE_BOND,
         ABILITY_COMATOSE,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_GULP_MISSILE,
         ABILITY_ICE_FACE,
         ABILITY_MULTITYPE,
@@ -347,7 +347,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
         ABILITY_POWER_OF_ALCHEMY,
         ABILITY_RECEIVER,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_DORMANT,
         ABILITY_NEUTRALIZING_GAS,
         ABILITY_ICE_FACE,
@@ -393,7 +393,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
         ABILITY_COMATOSE,
         ABILITY_SHIELDS_DOWN,
         ABILITY_DISGUISE,
-        ABILITY_SHATTERED,
+        ABILITY_BROKEN,
         ABILITY_RKS_SYSTEM,
         ABILITY_BATTLE_BOND,
         ABILITY_ICE_FACE,
@@ -1161,7 +1161,7 @@ static const u8 sAbilitiesAffectedByMoldBreaker[] =
         [ABILITY_SWEET_VEIL] = 1,
         [ABILITY_DAZZLING] = 1,
         [ABILITY_DISGUISE] = 1,
-        [ABILITY_SHATTERED] = 1,
+        [ABILITY_BROKEN] = 1,
         [ABILITY_FLUFFY] = 1,
         [ABILITY_QUEENLY_MAJESTY] = 1,
         [ABILITY_WATER_BUBBLE] = 1,
@@ -1186,7 +1186,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
         [ABILITY_BATTLE_BOND] = 1,
         [ABILITY_COMATOSE] = 1,
         [ABILITY_DISGUISE] = 1,
-        [ABILITY_SHATTERED] = 1,
+        [ABILITY_BROKEN] = 1,
         [ABILITY_FLOWER_GIFT] = 1,
         [ABILITY_FORECAST] = 1,
         [ABILITY_GULP_MISSILE] = 1,
@@ -6474,7 +6474,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_BATTLE_BOND:
                 case ABILITY_COMATOSE:
                 case ABILITY_DISGUISE:
-                case ABILITY_SHATTERED:
+                case ABILITY_BROKEN:
                 case ABILITY_MULTITYPE:
                 case ABILITY_DORMANT:
                 case ABILITY_RKS_SYSTEM:
@@ -6510,7 +6510,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 case ABILITY_BATTLE_BOND:
                 case ABILITY_COMATOSE:
                 case ABILITY_DISGUISE:
-                case ABILITY_SHATTERED:
+                case ABILITY_BROKEN:
                 case ABILITY_MULTITYPE:
                 case ABILITY_DORMANT:
                 case ABILITY_RKS_SYSTEM:
@@ -6539,7 +6539,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 switch (gBattleMons[gBattlerAttacker].ability)
                 {
                 case ABILITY_DISGUISE:
-                case ABILITY_SHATTERED:
+                case ABILITY_BROKEN:
                 case ABILITY_FLOWER_GIFT:
                 case ABILITY_GULP_MISSILE:
                 case ABILITY_GOLDEN_MEAN:
@@ -7723,7 +7723,7 @@ bool32 IsNeutralizingGasBannedAbility(u32 ability)
     case ABILITY_SHIELDS_DOWN:
     case ABILITY_COMATOSE:
     case ABILITY_DISGUISE:
-    case ABILITY_SHATTERED:
+    case ABILITY_BROKEN:
     case ABILITY_GULP_MISSILE:
     case ABILITY_ICE_FACE:
     case ABILITY_AS_ONE_ICE_RIDER:

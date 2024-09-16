@@ -895,7 +895,7 @@
         .friendship = 1, \
         .growthRate = GROWTH_SLOW, \
         .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS}, \
-        .abilities = {ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_SHATTERED, ABILITY_NONE}, \
+        .abilities = {ABILITY_BROKEN, ABILITY_BROKEN, ABILITY_BROKEN, ABILITY_NONE}, \
         .bodyColor = BODY_COLOR_BROWN, \
         .noFlip = FALSE, \
     }
