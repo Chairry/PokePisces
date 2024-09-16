@@ -139,6 +139,7 @@
 #define MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F (2 | (11 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (3 | (11 << 8))
 #define MAP_GYM5CORRIDOR                     (4 | (11 << 8))
+#define MAP_LAVARIDGE_HOUSES                 (5 | (11 << 8))
 
 // gMapGroup_PiscesLeg7Major
 #define MAP_SWELTORN_TRANSITION_CAVE  (0 | (12 << 8))

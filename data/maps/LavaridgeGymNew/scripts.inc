@@ -36,10 +36,11 @@ LavaridgeGymNew_EventScript_Interrogation::
 	msgbox LavaridgeGymNew_Text_WeInsist, MSGBOX_DEFAULT
 	switch VAR_DURIN_RESISTANCE
 	case 0, LavaridgeGymNew_EventScript_Eat0Resist
-	case 1, LavaridgeGymNew_EventScript_Eat1Resist
-	case 2, LavaridgeGymNew_EventScript_Eat2Resist
-	case 3, LavaridgeGymNew_EventScript_EatMaxResist
+	case 1, LavaridgeGymNew_EventScript_Eat0Resist
+	case 2, LavaridgeGymNew_EventScript_Eat1Resist
+	case 3, LavaridgeGymNew_EventScript_Eat2Resist
 	case 4, LavaridgeGymNew_EventScript_EatMaxResist
+	case 5, LavaridgeGymNew_EventScript_EatMaxResist
 	closemessage
 	release
 	end
@@ -661,7 +662,7 @@ LavaridgeGymNew_Text_DurinTest:
 	.string "I'm sure you are in the know\n"
 	.string "of Lavaridge's pride and joy,\l"
 	.string "mmm? The Durin Berry.\l"
-	.string "A delicacy, really. In fact...\p"
+	.string "A delicacy, really. In fact…\p"
 	.string "Hedorah?\n"
 	.string "Please get a berry for\l"
 	.string "this challenger.$"
@@ -669,7 +670,7 @@ LavaridgeGymNew_Text_DurinTest:
 LavaridgeGymNew_Text_WeInsist:
 	.string "Bottoms up.\p"
 	.string "(You sense that saying\n"
-	.string "'no' here is futile.)$"
+	.string "“no” here is futile.)$"
 
 LavaridgeGymNew_Text_Eat0Resist:
 	.string "(It is absolutely profane.\n"

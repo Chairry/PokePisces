@@ -5570,6 +5570,16 @@
       "secondary_tileset": "gTileset_LavaridgeGymNew",
       "border_filepath": "data/layouts/LavaridgeGymNew/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeGymNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_HOUSES",
+      "name": "LavaridgeHouses_Layout",
+      "width": 35,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeHouses/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeHouses/map.bin"
     }
   ]
 }
