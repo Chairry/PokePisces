@@ -145,45 +145,45 @@
       "x": 19,
       "y": 36,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_DURIN_RESISTANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LavaridgeInt_EventScript_SouthTriggerLeft"
     },
     {
       "type": "trigger",
       "x": 20,
       "y": 36,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_DURIN_RESISTANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LavaridgeInt_EventScript_AngryLadySouth"
     },
     {
       "type": "trigger",
       "x": 21,
       "y": 36,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_DURIN_RESISTANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LavaridgeInt_EventScript_SouthTriggerRight"
     },
     {
       "type": "trigger",
       "x": 7,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_DURIN_RESISTANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LavaridgeInt_EventScript_NorthTrigger"
     },
     {
       "type": "trigger",
       "x": 8,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var": "VAR_DURIN_RESISTANCE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "LavaridgeInt_EventScript_AngryLadyNorth"
     }
   ],
   "bg_events": [
