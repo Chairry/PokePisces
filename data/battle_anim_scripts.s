@@ -17502,16 +17502,6 @@ Move_BURNING_BULWARK::
 	clearmonbg ANIM_ATK_PARTNER
 	end
 
-FireSpreadEffectAttacker:
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 192, 176, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -192, 240, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 192, -160, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -192, -112, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 160, 48, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -224, -32, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 112, -128, 40
-	return
-
 Move_ALLURING_VOICE::
 	loadspritegfx ANIM_TAG_THIN_RING
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d

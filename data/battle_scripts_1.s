@@ -1204,7 +1204,7 @@ BattleScript_EffectReservoir:
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_Reservoir_TryCureStatus:
-	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_ReservoirCureStatus
+	jumpifstatus BS_ATTACKER, STATUS1_ANY_NEGATIVE, BattleScript_ReservoirCureStatus
 	printstring STRINGID_PKMNPUMPINGPOWER
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -2573,7 +2573,7 @@ BattleScript_EffectFlorescenceSkipAnim:
 	setbyte gBattleCommunication, 0
 BattleScript_FlorescenceTryCureStatus:
 	jumpifstatus BS_TARGET, STATUS1_BLOOMING, BattleScript_FlorescenceTryRestoreAlly
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_FlorescenceCureStatus
+	jumpifstatus BS_TARGET, STATUS1_ANY_NEGATIVE, BattleScript_FlorescenceCureStatus
 	goto Florescence_GiveBlooming
 BattleScript_FlorescenceCureStatus:
 	curestatus BS_TARGET
@@ -5035,7 +5035,6 @@ BattleScript_EffectSappySeed:
 	jumpifsafeguard BattleScript_EffectHit
 	jumpifstatus3 BS_TARGET, STATUS3_LEECHSEED, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
-	typecalc
 	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	jumpifhasnohp BS_TARGET, BattleScript_MoveEnd
@@ -5047,7 +5046,6 @@ BattleScript_EffectSappySeed:
 BattleScript_EffectBaddyBad:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_REFLECT, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
-	typecalc
 	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setreflect
@@ -5058,7 +5056,6 @@ BattleScript_EffectBaddyBad:
 BattleScript_EffectGlitzyGlow:
 	jumpifsideaffecting BS_ATTACKER, SIDE_STATUS_LIGHTSCREEN, BattleScript_EffectHit
 	call BattleScript_EffectHit_Ret
-	typecalc
 	jumpifhalfword CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_NO_EFFECT, BattleScript_MoveEnd
 	tryfaintmon BS_TARGET
 	setlightscreen
@@ -5187,7 +5184,7 @@ JungleHealing_RestoreTargetHealth:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_JungleHealing_TryCureStatus:
 	jumpifmove MOVE_LIFE_DEW, BattleScript_JungleHealingTryRestoreAlly  @ life dew only heals
-	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_JungleHealingCureStatus
+	jumpifstatus BS_TARGET, STATUS1_ANY_NEGATIVE, BattleScript_JungleHealingCureStatus
 	goto BattleScript_JungleHealingTryRestoreAlly
 BattleScript_JungleHealingCureStatus:
 	curestatus BS_TARGET
@@ -6147,7 +6144,7 @@ BattleScript_EffectPsychoShift:
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_EffectPsychoShiftCanWork
+	jumpifstatus BS_ATTACKER, STATUS1_ANY_NEGATIVE, BattleScript_EffectPsychoShiftCanWork
 	goto BattleScript_ButItFailed
 BattleScript_EffectPsychoShiftCanWork:
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed

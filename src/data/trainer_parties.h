@@ -7924,9 +7924,14 @@ static const struct TrainerMon sParty_PSolaire[] = {
 
 static const struct TrainerMon sParty_PLuna[] = {
     {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 13,
-    .species = SPECIES_MEDITITE,
+    .species = SPECIES_LUNATONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
+    },
+    {
+    .species = SPECIES_AETHEREAL,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 49,
     }
 };
 
