@@ -182,6 +182,9 @@
 #define MAP_SWELTORN_TRANSITION_HALLWAY       (18 | (13 << 8))
 #define MAP_TRICK_HOUSE_POT_ROOM              (19 | (13 << 8))
 #define MAP_TRICK_HOUSE_UPSIDE_DOWN_ROOM      (20 | (13 << 8))
+#define MAP_TRICK_HOUSE_MAIN_PORTION          (21 | (13 << 8))
+#define MAP_TRICK_HOUSE_DARK_ROOM             (22 | (13 << 8))
+#define MAP_TRICK_HOUSE_LEVER_ROOMS           (23 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))

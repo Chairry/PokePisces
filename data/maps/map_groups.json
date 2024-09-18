@@ -233,7 +233,10 @@
     "Gym6Corridor",
     "SweltornTransitionHallway",
     "TrickHousePotRoom",
-    "TrickHouseUpsideDownRoom"
+    "TrickHouseUpsideDownRoom",
+    "TrickHouseMainPortion",
+    "TrickHouseDarkRoom",
+    "TrickHouseLeverRooms"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",

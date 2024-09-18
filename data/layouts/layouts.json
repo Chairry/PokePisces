@@ -5600,6 +5600,36 @@
       "secondary_tileset": "gTileset_TrickHouseNew",
       "border_filepath": "data/layouts/TrickHouseUpsideDownRoom/border.bin",
       "blockdata_filepath": "data/layouts/TrickHouseUpsideDownRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_MAIN_PORTION",
+      "name": "TrickHouseMainPortion_Layout",
+      "width": 41,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHouseMainPortion/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseMainPortion/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_DARK_ROOM",
+      "name": "TrickHouseDarkRoom_Layout",
+      "width": 14,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHouseDarkRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseDarkRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_LEVER_ROOMS",
+      "name": "TrickHouseLeverRooms_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHouseLeverRooms/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseLeverRooms/map.bin"
     }
   ]
 }
