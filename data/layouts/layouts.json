@@ -5624,8 +5624,8 @@
     {
       "id": "LAYOUT_TRICK_HOUSE_LEVER_ROOMS",
       "name": "TrickHouseLeverRooms_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 50,
+      "height": 32,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_TrickHouseNew",
       "border_filepath": "data/layouts/TrickHouseLeverRooms/border.bin",
