@@ -13,9 +13,9 @@ TrickHouseLeverRooms_EventScript_ScrollA::
 
 TrickHouseLeverRooms_EventScript_ActivateLever1::
 	lock
-	goto_if_set FLAG_TEMP_17, TrickHouseLeverRooms_EventScript_TurnOnLever1
+	goto_if_set FLAG_TEMP_18, TrickHouseLeverRooms_EventScript_TurnOnLever1
 	playse SE_CLICK
-	setflag FLAG_TEMP_17
+	setflag FLAG_TEMP_18
 	setmetatile 29, 25, METATILE_TrickHouseNew_LeverOff, TRUE
 	setmetatile 44, 4, METATILE_TrickHouseNew_ShutterOpen, TRUE
 	special DrawWholeMapView
@@ -24,7 +24,7 @@ TrickHouseLeverRooms_EventScript_ActivateLever1::
 
 TrickHouseLeverRooms_EventScript_TurnOnLever1::
 	playse SE_CLICK
-	clearflag FLAG_TEMP_17
+	clearflag FLAG_TEMP_18
 	setmetatile 29, 25, METATILE_TrickHouseNew_LeverOn, TRUE
 	setmetatile 44, 4, METATILE_TrickHouseNew_ShutterClosed, FALSE
 	special DrawWholeMapView
@@ -190,6 +190,62 @@ TrickHouseLeverRooms_Movement_AboutToFall:
 	walk_in_place_fast_up
 	walk_in_place_fast_up
 	step_end
+
+TrickHouseLeverRooms_EventScript_FaeredReveal::
+	lockall
+	delay 16
+	applymovement VAR_LAST_TALKED, TrickHouseLeverRooms_Movement_FaeredReveal
+	delay 32
+	setwildbattle SPECIES_FAERED, 30
+	playmoncry SPECIES_FAERED, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	dowildbattle
+	removeobject VAR_LAST_TALKED
+	releaseall
+	end
+
+TrickHouseLeverRooms_Movement_FaeredReveal:
+	faered_reveal
+	step_end
+
+TrickHouseLeverRooms_EventScript_AdamAndSteve::
+    trainerbattle_double TRAINER_P_ADAM_AND_STEVE, TrickHouseLeverRooms_Text_AdamAndSteveIntro, TrickHouseLeverRooms_Text_AdamAndSteveDefeated, TrickHouseLeverRooms_Text_AdamAndSteveNeedTwoMons
+    msgbox TrickHouseLeverRooms_Text_AdamAndStevePostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TrickHouseLeverRooms_EventScript_David::
+    trainerbattle_single TRAINER_P_DAVID, TrickHouseLeverRooms_Text_DavidIntro, TrickHouseLeverRooms_Text_DavidDefeated
+    msgbox TrickHouseLeverRooms_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
+    end
+
+TrickHouseLeverRooms_EventScript_PathBlocker::
+	msgbox TrickHouseLeverRooms_Text_PathBlocker, MSGBOX_NPC
+    end
+
+TrickHouseLeverRooms_Text_PathBlocker:
+	.string "haha i be blockin u$$"	
+
+TrickHouseLeverRooms_Text_AdamAndSteveIntro:
+	.string "intro$"
+
+TrickHouseLeverRooms_Text_AdamAndSteveDefeated:
+	.string "defeat$"
+
+TrickHouseLeverRooms_Text_AdamAndStevePostBattle:
+	.string "post$"
+
+TrickHouseLeverRooms_Text_AdamAndSteveNeedTwoMons:
+	.string "need 2 dood$"
+
+TrickHouseLeverRooms_Text_DavidIntro:
+	.string "intro$"
+
+TrickHouseLeverRooms_Text_DavidDefeated:
+	.string "defeat$"
+
+TrickHouseLeverRooms_Text_DavidPostBattle:
+	.string "post$"
 
 TrickHouseLeverRooms_Text_YouFoundOil:
 	.string "found oil$"
