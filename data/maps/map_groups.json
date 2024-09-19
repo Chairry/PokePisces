@@ -236,7 +236,9 @@
     "TrickHouseUpsideDownRoom",
     "TrickHouseMainPortion",
     "TrickHouseDarkRoom",
-    "TrickHouseLeverRooms"
+    "TrickHouseLeverRooms",
+    "TrickHouseBallRoom",
+    "TrickHouseEntrance"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",

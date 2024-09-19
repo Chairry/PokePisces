@@ -185,6 +185,8 @@
 #define MAP_TRICK_HOUSE_MAIN_PORTION          (21 | (13 << 8))
 #define MAP_TRICK_HOUSE_DARK_ROOM             (22 | (13 << 8))
 #define MAP_TRICK_HOUSE_LEVER_ROOMS           (23 | (13 << 8))
+#define MAP_TRICK_HOUSE_BALL_ROOM             (24 | (13 << 8))
+#define MAP_TRICK_HOUSE_ENTRANCE              (25 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))

@@ -13,6 +13,7 @@ TrickHouseDarkRoom_OnLoad:
 TrickHouseDarkRoom_EventScript_ScrollC::
 	lock
 	msgbox TrickHouseDarkRoom_Text_ScrollC, MSGBOX_AUTOCLOSE
+	setflag FLAG_TEMP_9
 	release
 	end
 
@@ -26,10 +27,9 @@ TrickHouseDarkRoom_EventScript_SetFlashLevel::
 	return
 
 TrickHouseDarkRoom_EventScript_DemoTrigger::
-	lock
-	goto_if_gt VAR_TEMP_6, 0, TrickHouseDarkRoom_EventScript_DemoJumpscare
-	addvar VAR_TEMP_6, 1
-	release
+	lockall
+	goto_if_set FLAG_TEMP_9, TrickHouseDarkRoom_EventScript_DemoJumpscare
+	releaseall
 	end
 
 TrickHouseDarkRoom_EventScript_DemoJumpscare::

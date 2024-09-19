@@ -5630,6 +5630,26 @@
       "secondary_tileset": "gTileset_TrickHouseNew",
       "border_filepath": "data/layouts/TrickHouseLeverRooms/border.bin",
       "blockdata_filepath": "data/layouts/TrickHouseLeverRooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_BALL_ROOM",
+      "name": "TrickHouseBallRoom_Layout",
+      "width": 7,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_TrickHouseNew",
+      "border_filepath": "data/layouts/TrickHouseBallRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseBallRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRICK_HOUSE_ENTRANCE",
+      "name": "TrickHouseEntrance_Layout",
+      "width": 12,
+      "height": 8,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/TrickHouseEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/TrickHouseEntrance/map.bin"
     }
   ]
 }

@@ -3677,3 +3677,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/TrickHouseDarkRoom/scripts.inc"
 
 	.include "data/maps/TrickHouseLeverRooms/scripts.inc"
+
+	.include "data/maps/TrickHouseBallRoom/scripts.inc"
+
+	.include "data/maps/TrickHouseEntrance/scripts.inc"

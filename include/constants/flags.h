@@ -665,7 +665,7 @@
 #define FLAG_POTTRICIA_DEFEATED  0x26E // Unused Flag
 #define FLAG_DEFEATED_ANTON  0x26F // Unused Flag
 #define FLAG_SOLVED_TRICK_HOUSE_CODE  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
+#define FLAG_SOLVED_5_FAERED_PUZZLE  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
 #define FLAG_UNUSED_0x274  0x274 // Unused Flag
