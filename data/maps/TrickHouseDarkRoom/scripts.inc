@@ -10,13 +10,19 @@ TrickHouseDarkRoom_OnLoad:
 	call_if_set FLAG_DEFEATED_ANTON, TrickHouseDarkRoom_EventScript_ExplodePart7
 	end
 
+TrickHouseDarkRoom_EventScript_ScrollC::
+	lock
+	msgbox TrickHouseDarkRoom_Text_ScrollC, MSGBOX_AUTOCLOSE
+	release
+	end
+
 TrickHouseDarkRoom_EventScript_RemoveDemolitionist::
 	removeobject LOCALID_JUMPSCARER
 	setflag FLAG_TEMP_5
 	return
 
 TrickHouseDarkRoom_EventScript_SetFlashLevel::
-	setflashlevel 2
+	setflashlevel 1
 	return
 
 TrickHouseDarkRoom_EventScript_DemoTrigger::
@@ -207,3 +213,10 @@ TrickHouseDarkRoom_Text_AntonDefeated:
 
 TrickHouseDarkRoom_Text_AntonBlowUp:
 	.string "gotta blast$"
+
+TrickHouseDarkRoom_Text_ScrollC:
+	.string "(It's a scroll with odd\n"
+	.string "handwriting on it...)\p"
+	.string "Seeking a number? A hint you get!\n"
+	.string "This is the only ODD one in the set!\p"
+	.string "- Trick Master is fabulous.$"

@@ -5,6 +5,72 @@
 TrickHouseLeverRooms_MapScripts::
 	.byte 0
 
+TrickHouseLeverRooms_EventScript_ScrollA::
+	lock
+	msgbox TrickHouseLeverRooms_Text_ScrollA, MSGBOX_AUTOCLOSE
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_ActivateLever1::
+	lock
+	goto_if_set FLAG_TEMP_17, TrickHouseLeverRooms_EventScript_TurnOnLever1
+	playse SE_CLICK
+	setflag FLAG_TEMP_17
+	setmetatile 29, 25, METATILE_TrickHouseNew_LeverOff, TRUE
+	setmetatile 44, 4, METATILE_TrickHouseNew_ShutterOpen, TRUE
+	special DrawWholeMapView
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_TurnOnLever1::
+	playse SE_CLICK
+	clearflag FLAG_TEMP_17
+	setmetatile 29, 25, METATILE_TrickHouseNew_LeverOn, TRUE
+	setmetatile 44, 4, METATILE_TrickHouseNew_ShutterClosed, FALSE
+	special DrawWholeMapView
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_ActivateLever2::
+	lock
+	goto_if_set FLAG_TEMP_16, TrickHouseLeverRooms_EventScript_TurnOffLever2
+	playse SE_CLICK
+	setflag FLAG_TEMP_16
+	setmetatile 46, 9, METATILE_TrickHouseNew_LeverOn, TRUE
+	setmetatile 44, 10, METATILE_TrickHouseNew_ShutterClosed, FALSE
+	special DrawWholeMapView
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_TurnOffLever2::
+	playse SE_CLICK
+	clearflag FLAG_TEMP_16
+	setmetatile 46, 9, METATILE_TrickHouseNew_LeverOff, TRUE
+	setmetatile 44, 10, METATILE_TrickHouseNew_ShutterOpen, TRUE
+	special DrawWholeMapView
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_ActivateLever3::
+	lock
+	goto_if_set FLAG_TEMP_17, TrickHouseLeverRooms_EventScript_TurnOffLever3
+	playse SE_CLICK
+	setflag FLAG_TEMP_17
+	setmetatile 32, 4, METATILE_TrickHouseNew_LeverOn, TRUE
+	setmetatile 44, 7, METATILE_TrickHouseNew_ShutterClosed, FALSE
+	special DrawWholeMapView
+	release
+	end
+
+TrickHouseLeverRooms_EventScript_TurnOffLever3::
+	playse SE_CLICK
+	clearflag FLAG_TEMP_17
+	setmetatile 32, 4, METATILE_TrickHouseNew_LeverOff, TRUE
+	setmetatile 44, 7, METATILE_TrickHouseNew_ShutterOpen, TRUE
+	special DrawWholeMapView
+	release
+	end
+
 TrickHouseLeverRooms_EventScript_Oil::
 	lock
 	removeobject LOCALID_OIL
@@ -142,3 +208,20 @@ TrickHouseLeverRooms_Text_YouCanFeelSafeNow:
 
 TrickHouseLeverRooms_Text_LeverJammed:
 	.string "lever is jammed$"
+
+TrickHouseLeverRooms_Text_ScrollA:
+	.string "(It's a scroll with odd\n"
+	.string "handwriting on it...)\p"
+	.string "Looking for a number clue\n"
+	.string "for the door puzzle?\l"
+	.string "At this hour? Mmm.\p"
+	.string "Well, I guess I will\n"
+	.string "throw you a bone.\p"
+	.string "To get this room's number...\p"
+	.string "How many humans are in this room?\n"
+	.string "How many levers are in this room?\l"
+	.string "How many plants are in this room?\p"
+	.string "Add the first two numbers together,\n"
+	.string "then subtract that with the third.\l"
+	.string "The result is this room's digit.\p"
+	.string "- Trick Master is cool.$"
