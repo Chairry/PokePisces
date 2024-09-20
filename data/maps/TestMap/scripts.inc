@@ -1,5 +1,14 @@
 TestMap_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TestMapOnTransition
 	.byte 0
+
+TestMapOnTransition:
+	goto TestMapEventScript_SetMauvilleOldManGfx
+	end
+
+TestMapEventScript_SetMauvilleOldManGfx::
+	special SetMauvilleOldManObjEventGfx
+	end
 
 TestMap_EventScript_PoisonPartyTest::
 	lock
@@ -46,6 +55,15 @@ TestMap_EventScript_ItemBurntBranch::
 
 TestMap_EventScript_ItemCursedAmulet::
 	finditem ITEM_CURSED_AMULET
+	end
+
+TestMap_EventScript_OldGuysTest::
+	lock
+	faceplayer
+	special SetMauvilleOldMan
+	msgbox TestMap_Text_MendelDefeated, MSGBOX_AUTOCLOSE
+	addvar VAR_OLD_GUYS_STATE, 1
+	release
 	end
 
 TestMap_Text_MendelIntro:

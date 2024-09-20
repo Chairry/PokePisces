@@ -146,8 +146,8 @@
 //2 = Comedy
 //3 = Tragedy
 #define VAR_DURIN_RESISTANCE                               0x4071
-#define VAR_ROUTE119_STATE                               0x4072
-#define VAR_ROUTE120_STATE                               0x4073 // Unused Var
+#define VAR_OLD_GUYS_STATE                               0x4072
+#define VAR_BARD_COLOR                               0x4073 // Unused Var
 #define VAR_ROUTE121_STATE                               0x4074
 #define VAR_ROUTE122_STATE                               0x4075 // Unused Var
 #define VAR_ROUTE123_STATE                               0x4076 // Unused Var

@@ -16,7 +16,7 @@ TrickHouseMainPortion_EventScript_OpenMountainHole::
 	return
 
 TrickHouseMainPortion_EventScript_OpenFinalDoor::
-	setmetatile 38, 1, METATILE_TrickHouseNew_TickHouseDoor, TRUE
+	setmetatile 38, 1, METATILE_TrickHouseNew_TickHouseDoor, FALSE
 	special DrawWholeMapView
 	return
 
