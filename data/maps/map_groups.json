@@ -179,10 +179,10 @@
     "CrimneyClimb",
     "JaggroPass",
     "FallarborNew",
+    "WhisperCliff",
+    "MidneorFallsCave",
     "FieryPath",
     "LavaridgeInt",
-    "LavaridgeTown_Gym_1F",
-    "LavaridgeTown_Gym_B1F",
     "LavaridgeGymNew"
   ],
   "gMapGroup_PiscesLeg6Minor": [
@@ -190,11 +190,12 @@
     "FortreeCity_Mart",
     "FallarborTown_PokemonCenter_1F",
     "LavaridgeTown_PokemonCenter_1F",
+    "LavaridgeHouses",
     "Gym5Corridor",
-    "LavaridgeHouses"
+    "LavaridgeTown_Gym_1F",
+    "LavaridgeTown_Gym_B1F"
   ],
   "gMapGroup_PiscesLeg7Major": [
-    "SweltornTransitionCave",
     "SweltornDesert",
     "SweltornPalace",
     "SweltornPalaceOutside",
@@ -204,10 +205,10 @@
     "HatchloamField",
     "CyclingRoad",
     "SeaMauville",
-    "Maintenance",
-    "NewMauville_Entrance",
-    "NewMauville_Inside",
     "MauvilleCity_GameCorner",
+    "NewMauville_Entrance",
+    "Maintenance",
+    "NewMauville_Inside",
     "MaintenanceBondingArena",
     "VerdanturfNew",
     "MauvilleCity_Gym"
@@ -216,29 +217,19 @@
     "LavaridgeTown_PokemonCenter_2F",
     "NewMauvilleCenter1",
     "NewMauvilleCenter2",
-    "Route110_TrickHouseEntrance",
-    "Route110_TrickHouseEnd",
-    "Route110_TrickHouseCorridor",
-    "Route110_TrickHousePuzzle1",
-    "Route110_TrickHousePuzzle2",
-    "Route110_TrickHousePuzzle3",
-    "Route110_TrickHousePuzzle4",
-    "Route110_TrickHousePuzzle5",
-    "Route110_TrickHousePuzzle6",
-    "Route110_TrickHousePuzzle7",
-    "Route110_TrickHousePuzzle8",
     "MauvilleCity_PokemonCenter_2F",
     "SlateportCity_PokemonCenter_1F",
     "BattleFrontier_PokemonCenter_1F",
-    "Gym6Corridor",
+    "SweltornTransitionCave",
     "SweltornTransitionHallway",
-    "TrickHousePotRoom",
-    "TrickHouseUpsideDownRoom",
+    "TrickHouseEntrance",
     "TrickHouseMainPortion",
-    "TrickHouseDarkRoom",
     "TrickHouseLeverRooms",
+    "TrickHouseDarkRoom",
+    "TrickHouseUpsideDownRoom",
     "TrickHouseBallRoom",
-    "TrickHouseEntrance"
+    "TrickHousePotRoom",
+    "Gym6Corridor"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",
@@ -266,9 +257,7 @@
     "RustburgWharf",
     "UnduraTunnels",
     "UnduraTunnelsDeep",
-    "WhisperCliff",
     "MidneorFalls",
-    "MidneorFallsCave",
     "RustboroNew",
     "RustboroCity_Gym"
   ],
@@ -795,7 +784,18 @@
   ],
   "gMapGroup_IndoorRoute110": [
     "Route110_SeasideCyclingRoadNorthEntrance",
-    "Route110_SeasideCyclingRoadSouthEntrance"
+    "Route110_SeasideCyclingRoadSouthEntrance",
+    "Route110_TrickHouseEntrance",
+    "Route110_TrickHouseEnd",
+    "Route110_TrickHouseCorridor",
+    "Route110_TrickHousePuzzle1",
+    "Route110_TrickHousePuzzle2",
+    "Route110_TrickHousePuzzle3",
+    "Route110_TrickHousePuzzle4",
+    "Route110_TrickHousePuzzle5",
+    "Route110_TrickHousePuzzle6",
+    "Route110_TrickHousePuzzle7",
+    "Route110_TrickHousePuzzle8"
   ],
   "gMapGroup_IndoorRoute113": [
     "Route113_GlassWorkshop"
