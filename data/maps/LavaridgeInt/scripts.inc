@@ -149,7 +149,7 @@ LavaridgeInt_EventScript_DurinCollector::
 	lock
 	faceplayer
 	goto_if_set FLAG_TEMP_11, LavaridgeInt_EventScript_DurinCollectorPostEat
-	goto_if_ge VAR_DURIN_RESISTANCE, 4, LavaridgeInt_EventScript_DurinCollectorPostEat
+	goto_if_ge VAR_DURIN_RESISTANCE, 5, LavaridgeInt_EventScript_DurinCollectorPostEat
 	msgbox LavaridgeInt_Text_EverTryADurinBefore, MSGBOX_DEFAULT
 	multichoice 19, 4, MULTI_EAT_OR_DONT_EAT, FALSE
 	copyvar VAR_TEMP_1, VAR_RESULT
@@ -180,7 +180,7 @@ LavaridgeInt_EventScript_DurinFlyHarvester::
 	lock
 	faceplayer
 	goto_if_set FLAG_TEMP_12, LavaridgeInt_EventScript_DurinFlyHarvesterPostEat
-	goto_if_ge VAR_DURIN_RESISTANCE, 4, LavaridgeInt_EventScript_DurinFlyHarvesterPostEat
+	goto_if_ge VAR_DURIN_RESISTANCE, 5, LavaridgeInt_EventScript_DurinFlyHarvesterPostEat
 	msgbox LavaridgeInt_Text_CantReachThatDurin, MSGBOX_DEFAULT
 	checkpartymove MOVE_FLY
 	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeInt_EventScript_CantFly

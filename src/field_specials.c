@@ -4498,9 +4498,9 @@ bool8 PoisonPlayerParty(void)
         SWAP(indices[i], indices[id], temp);
     }
 
-    if (VarGet(VAR_DURIN_RESISTANCE) == 0)
+    if (VarGet(VAR_DURIN_RESISTANCE) == 1)
         count = 3;
-    else if (VarGet(VAR_DURIN_RESISTANCE) == 1)
+    else if (VarGet(VAR_DURIN_RESISTANCE) == 2)
         count = 2;
     else
         count = 1;
