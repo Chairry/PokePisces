@@ -196,7 +196,7 @@ TrickHouseLeverRooms_EventScript_FaeredReveal::
 	delay 16
 	applymovement VAR_LAST_TALKED, TrickHouseLeverRooms_Movement_FaeredReveal
 	delay 32
-	setwildbattle SPECIES_FAERED, 30
+	setwildbattle SPECIES_FAERED, 42
 	playmoncry SPECIES_FAERED, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
