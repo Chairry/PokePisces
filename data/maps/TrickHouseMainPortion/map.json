@@ -59,15 +59,15 @@
       "x": 3,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_TRICK_HOUSE_ENTRANCE",
+      "dest_warp_id": "2"
     },
     {
       "x": 4,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_TRICK_HOUSE_ENTRANCE",
+      "dest_warp_id": "2"
     },
     {
       "x": 18,

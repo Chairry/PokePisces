@@ -60,9 +60,8 @@ TestMap_EventScript_ItemCursedAmulet::
 TestMap_EventScript_OldGuysTest::
 	lock
 	faceplayer
-	special SetMauvilleOldMan
+	setvar VAR_BARD_COLOR, MAUVILLE_MAN_GIDDY
 	msgbox TestMap_Text_MendelDefeated, MSGBOX_AUTOCLOSE
-	addvar VAR_OLD_GUYS_STATE, 1
 	release
 	end
 
