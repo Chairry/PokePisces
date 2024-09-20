@@ -5650,6 +5650,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/TrickHouseEntrance/border.bin",
       "blockdata_filepath": "data/layouts/TrickHouseEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAUVILLE_FLOOR2ROOMS",
+      "name": "NewMauvilleFloor2Rooms_Layout",
+      "width": 8,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/NewMauvilleFloor2Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/NewMauvilleFloor2Rooms/map.bin"
     }
   ]
 }
