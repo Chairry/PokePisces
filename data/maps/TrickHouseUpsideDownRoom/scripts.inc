@@ -11,8 +11,16 @@ TrickHouseUpsideDownRoom_EventScript_ScrollB::
 
 TrickHouseUpsideDownRoom_EventScript_BreadLeftEncounter::
 	lock
+	goto_if_defeated TRAINER_P_PANDOU_4, TrickHouseUpsideDownRoom_EventScript_RemovePandou
 	applymovement OBJ_EVENT_ID_PLAYER, TrickHouseUpsideDownRoom_Movement_PlayerLeftMerge
 	goto TrickHouseUpsideDownRoom_EventScript_BreadEncounter
+	release
+	end
+
+TrickHouseUpsideDownRoom_EventScript_RemovePandou::
+	removeobject LOCALID_PANDOU
+	setflag FLAG_TEMP_11
+	setvar VAR_TEMP_7, 1
 	release
 	end
 
@@ -23,6 +31,7 @@ TrickHouseUpsideDownRoom_Movement_PlayerLeftMerge:
 
 TrickHouseUpsideDownRoom_EventScript_BreadRightEncounter::
 	lock
+	goto_if_defeated TRAINER_P_PANDOU_4, TrickHouseUpsideDownRoom_EventScript_RemovePandou
 	applymovement OBJ_EVENT_ID_PLAYER, TrickHouseUpsideDownRoom_Movement_PlayerRightMerge
 	goto TrickHouseUpsideDownRoom_EventScript_BreadEncounter
 	release
@@ -36,6 +45,7 @@ TrickHouseUpsideDownRoom_Movement_PlayerRightMerge:
 TrickHouseUpsideDownRoom_EventScript_BreadEncounter::
 	lock
 	setvar VAR_TEMP_7, 1
+	goto_if_defeated TRAINER_P_PANDOU_4, TrickHouseUpsideDownRoom_EventScript_RemovePandou
 	speakername TrickHouseUpsideDownRoom_Text_NamePandou
 	applymovement LOCALID_PANDOU, TrickHouseUpsideDownRoom_Movement_BumpIntoPlayer
 	waitmovement 0
