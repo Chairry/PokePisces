@@ -79,7 +79,7 @@ NewMauvilleFloor1_EventScript_PowerlessManEvent::
 	closemessage
 	applymovement LOCALID_P_MAN, NewMauvilleFloor1_Movement_PManGoToElevator
 	waitmovement 0
-	playse SE_WARP_OUT
+	playse SE_EXIT
 	removeobject LOCALID_P_MAN
 	setflag FLAG_TEMP_11
 	setvar VAR_OLD_GUYS_STATE, 1
@@ -112,12 +112,10 @@ NewMauvilleFloor1_Movement_PlayerJoinUp:
 NewMauvilleFloor1_Movement_PManJoinUp:
 	walk_right
 	walk_down
-	walk_down
 	step_end
 
 NewMauvilleFloor1_Movement_PManGoToElevator:
 	walk_left
-	walk_up
 	walk_up
 	step_end
 

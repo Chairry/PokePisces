@@ -3683,3 +3683,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/TrickHouseEntrance/scripts.inc"
 
 	.include "data/maps/NewMauvilleFloor2Rooms/scripts.inc"
+
+	.include "data/maps/NewMauvilleRydelCycles/scripts.inc"

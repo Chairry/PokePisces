@@ -228,6 +228,34 @@
       "elevation": 0,
       "dest_map": "MAP_CYCLING_ROAD",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 50,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 6,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE110_SEASIDE_CYCLING_ROAD_SOUTH_ENTRANCE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

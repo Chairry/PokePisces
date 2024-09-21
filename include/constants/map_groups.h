@@ -179,6 +179,7 @@
 #define MAP_TRICK_HOUSE_POT_ROOM              (14 | (13 << 8))
 #define MAP_GYM6CORRIDOR                      (15 | (13 << 8))
 #define MAP_NEW_MAUVILLE_FLOOR2ROOMS          (16 | (13 << 8))
+#define MAP_NEW_MAUVILLE_RYDEL_CYCLES         (17 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))

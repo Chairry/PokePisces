@@ -184,8 +184,8 @@
       "x": 32,
       "y": 52,
       "elevation": 0,
-      "dest_map": "MAP_NEW_MAUVILLE_FLOOR1",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_RYDEL_CYCLES",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

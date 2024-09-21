@@ -24,7 +24,7 @@ NewMauvilleFloor2Rooms_EventScript_KizunaMission::
 	goto_if_eq VAR_FACING, DIR_WEST, NewMauvilleFloor2Rooms_EventScript_WalkAroundPlayer
 	applymovement LOCALID_P_MAN, NewMauvilleFloor2Rooms_Movement_LeaveRoom
 	waitmovement 0
-	playse SE_WARP_OUT
+	playse SE_EXIT
 	removeobject LOCALID_P_MAN
 	setflag FLAG_TEMP_11
 	release
@@ -33,7 +33,7 @@ NewMauvilleFloor2Rooms_EventScript_KizunaMission::
 NewMauvilleFloor2Rooms_EventScript_WalkAroundPlayer::
 	applymovement LOCALID_P_MAN, NewMauvilleFloor2Rooms_Movement_LeaveRoom2
 	waitmovement 0
-	playse SE_WARP_OUT
+	playse SE_EXIT
 	removeobject LOCALID_P_MAN
 	setflag FLAG_TEMP_11
 	release
