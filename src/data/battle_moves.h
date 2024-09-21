@@ -15134,6 +15134,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .makesContact = TRUE,
     },
 
     [MOVE_COLD_SNAP] =

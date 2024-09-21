@@ -10417,7 +10417,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_LOST_MANTLE:
-                if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && (Random() % 2) == 0)
+                if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && (Random() % 3) == 0)
                 {
                     effect = ITEM_STATS_CHANGE;
                     BattleScriptPushCursor();
@@ -13180,7 +13180,7 @@ static inline uq4_12_t GetDefenderItemsModifier(u32 move, u32 moveType, u32 batt
         {
             if (updateFlags)
                 gSpecialStatuses[battlerDef].berryReduced = TRUE;
-            return (abilityDef == ABILITY_RIPEN) ? UQ_4_12(0.37) : UQ_4_12(0.75);
+            return (abilityDef == ABILITY_RIPEN) ? UQ_4_12(0.5625) : UQ_4_12(0.75);
         }
         break;
     case HOLD_EFFECT_ENIGMA_BERRY:
