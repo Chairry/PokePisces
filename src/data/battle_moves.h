@@ -14659,6 +14659,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
         .ignoresTargetAbility = TRUE,
+        .piercingMove = TRUE,
     },
 
     [MOVE_CHROMA_BEAM] =

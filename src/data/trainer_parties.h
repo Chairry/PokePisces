@@ -8020,7 +8020,7 @@ static const struct TrainerMon sParty_PAlaska[] = {
     .ability = ABILITY_SPEED_BOOST,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 49,
-    }
+    },
     {
     .species = SPECIES_SHIVERSNAP,
     .ability = ABILITY_FROST_JAW,
@@ -8224,7 +8224,7 @@ static const struct TrainerMon sParty_PShaggy[] = {
     {
     .species = SPECIES_VOREON,
     .ability = ABILITY_GLUTTONY,
-    .helditem = ITEM_YELLOW_SODA,
+    .heldItem = ITEM_YELLOW_SODA,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 50,
     },
@@ -8521,37 +8521,69 @@ static const struct TrainerMon sParty_PSaiAndMisha[] = {
 
 static const struct TrainerMon sParty_PJoshuone[] = {
     {
-    .lvl = 34,
-    .species = SPECIES_LANTURN,
+    .species = SPECIES_BEHEKO,
+    .ability = ABILITY_GUTS,
+    .heldItem = ITEM_FROST_ORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 53,
+    .moves = {MOVE_NOBLE_ROAR, MOVE_FACADE, MOVE_REVERSAL, MOVE_MEGAHORN},
     },
     {
-    .lvl = 34,
-    .species = SPECIES_PELIPPER,
+    .species = SPECIES_SWORDUC,
+    .ability = ABILITY_INTREPID_SWORD,
+    .heldItem = ITEM_RED_CARD,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 53,
+    .moves = {MOVE_HEAVY_SWING, MOVE_BEAK_BLAST, MOVE_NO_RETREAT, MOVE_DETECT},
     }
 };
 
 static const struct TrainerMon sParty_PAstolfo[] = {
     {
-    .lvl = 33,
-    .species = SPECIES_LUVDISC,
+    .species = SPECIES_GOSMARK,
+    .ability = ABILITY_SNIPER,
+    .heldItem = ITEM_EJECT_PACK,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 53,
+    .moves = {MOVE_SHARPSHOOT, MOVE_NONE, MOVE_NONE, MOVE_NONE},
     },
     {
-    .lvl = 33,
-    .species = SPECIES_LUVDISC,
+    .species = SPECIES_SYCOPLOD,
+    .ability = ABILITY_FRIENDLY_AURA,
+    .heldItem = ITEM_LEFTOVERS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 58,
+    .moves = {MOVE_HYPNOSIS, MOVE_LIFE_DEW, MOVE_WILLPOWER, MOVE_PROTECT},
     }
 };
 
 static const struct TrainerMon sParty_PJiggles[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_SEAKING,
+    .species = SPECIES_LUNASTER,
+    .ability = ABILITY_ILLUMINATE,
+    .heldItem = ITEM_AIR_BALLOON,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 53,
+    .moves = {MOVE_INFERNO, MOVE_FOUL_PLAY, MOVE_PARTY_TRICK, MOVE_CONFIDE},
+    },
+    {
+    .species = SPECIES_LUMELMO,
+    .ability = ABILITY_ILLUMINATE,
+    .heldItem = ITEM_AIR_BALLOON,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 53,
+    .moves = {MOVE_FIRE_BLAST, MOVE_DAZZLING_GLEAM, MOVE_ENERGY_BALL, MOVE_HEARTHWARM},
     }
 };
 
 static const struct TrainerMon sParty_PDahlia[] = {
     {
-    .lvl = 38,
-    .species = SPECIES_WAILMER,
+    .species = SPECIES_TORSTEVIC,
+    .ability = ABILITY_SPEED_BOOST,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 55,
+    .moves = {MOVE_STORED_POWER, MOVE_MAGNET_RISE, MOVE_ZAP_CANNON, MOVE_PROTECT},
     }
 };
 
