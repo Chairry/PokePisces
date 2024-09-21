@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "TestMap_EventScript_ItemCursedAmulet",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_103_GUARD_SPEC"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "TestMap_EventScript_PoisonPartyTest",
+      "script": "TestMap_EventScript_OldGuysTest",
       "flag": "0"
     },
     {
@@ -163,7 +163,7 @@
       "x": 16,
       "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_FORTREE_GYM_NEW",
+      "dest_map": "MAP_TEST_MAP",
       "dest_warp_id": "0"
     },
     {

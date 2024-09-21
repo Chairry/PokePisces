@@ -162,5 +162,6 @@
 	create_movement_action figure_8, MOVEMENT_ACTION_FIGURE_8
 	create_movement_action fly_up, MOVEMENT_ACTION_FLY_UP
 	create_movement_action fly_down, MOVEMENT_ACTION_FLY_DOWN
+	create_movement_action faered_reveal, MOVEMENT_ACTION_FAERED_REVEAL
 
 	create_movement_action step_end, MOVEMENT_ACTION_STEP_END

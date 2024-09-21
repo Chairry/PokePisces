@@ -33,15 +33,15 @@
       "x": 3,
       "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_TRICK_HOUSE_UPSIDE_DOWN_ROOM",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "11"
     },
     {
       "x": 3,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_TRICK_HOUSE_UPSIDE_DOWN_ROOM",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "11"
     }
   ],
   "coord_events": [
@@ -74,6 +74,13 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TrickHouseUpsideDownRoom_EventScript_ScrollB"
+    }
   ]
 }

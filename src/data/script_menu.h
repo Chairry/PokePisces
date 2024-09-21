@@ -854,6 +854,27 @@ static const struct MenuAction MultichoiceList_EatOrDontEat[] = {
     {sText_DontEatDurin},
 };
 
+static const u8 sText_Trick1[] = _("1");
+static const u8 sText_Trick2[] = _("2");
+static const u8 sText_Trick3[] = _("3");
+static const u8 sText_Trick4[] = _("4");
+static const u8 sText_Trick5[] = _("5");
+static const u8 sText_Trick6[] = _("6");
+static const u8 sText_Trick7[] = _("7");
+static const u8 sText_Trick8[] = _("8");
+static const u8 sText_Trick9[] = _("9");
+static const struct MenuAction MultichoiceList_TrickHouseFinalDoor[] = {
+    {sText_Trick1},
+    {sText_Trick2},
+    {sText_Trick3},
+    {sText_Trick4},
+    {sText_Trick5},
+    {sText_Trick6},
+    {sText_Trick7},
+    {sText_Trick8},
+    {sText_Trick9},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -984,13 +1005,14 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     // new
     [MULTI_SLATEPORT_MAJOR_MINOR_LEAGUE] = MULTICHOICE(MultichoiceList_SlateportTentTwoLeagues),
     [MULTI_SLATEPORT_ANY_LEAGUE]         = MULTICHOICE(MultichoiceList_SlateportTentAnyLeague),
-    [MULTI_LIFE_PHILOSOPHY]         = MULTICHOICE(MultichoiceList_LifePhilosophy),
-    [MULTI_LAVAGYM_QUESTION_1]         = MULTICHOICE(MultichoiceList_LavaGymQuestion1),
-    [MULTI_LAVAGYM_QUESTION_2]         = MULTICHOICE(MultichoiceList_LavaGymQuestion2),
-    [MULTI_LAVAGYM_QUESTION_3]         = MULTICHOICE(MultichoiceList_LavaGymQuestion3),
-    [MULTI_LAVAGYM_QUESTION_4]         = MULTICHOICE(MultichoiceList_LavaGymQuestion4),
-    [MULTI_LAVAGYM_QUESTION_5]         = MULTICHOICE(MultichoiceList_LavaGymQuestion5),
-    [MULTI_EAT_OR_DONT_EAT]         = MULTICHOICE(MultichoiceList_EatOrDontEat),
+    [MULTI_LIFE_PHILOSOPHY]              = MULTICHOICE(MultichoiceList_LifePhilosophy),
+    [MULTI_LAVAGYM_QUESTION_1]           = MULTICHOICE(MultichoiceList_LavaGymQuestion1),
+    [MULTI_LAVAGYM_QUESTION_2]           = MULTICHOICE(MultichoiceList_LavaGymQuestion2),
+    [MULTI_LAVAGYM_QUESTION_3]           = MULTICHOICE(MultichoiceList_LavaGymQuestion3),
+    [MULTI_LAVAGYM_QUESTION_4]           = MULTICHOICE(MultichoiceList_LavaGymQuestion4),
+    [MULTI_LAVAGYM_QUESTION_5]           = MULTICHOICE(MultichoiceList_LavaGymQuestion5),
+    [MULTI_EAT_OR_DONT_EAT]              = MULTICHOICE(MultichoiceList_EatOrDontEat),
+    [MULTI_TRICK_HOUSE_FINAL_DOOR]       = MULTICHOICE(MultichoiceList_TrickHouseFinalDoor),
 };
 
 const u8 *const gStdStrings[] =

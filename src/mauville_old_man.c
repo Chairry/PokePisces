@@ -22,6 +22,7 @@
 #include "trader.h"
 #include "m4a.h"
 #include "constants/mauville_old_man.h"
+#include "constants/vars.h"
 
 static void InitGiddyTaleList(void);
 static void StartBardSong(bool8 useTemporaryLyrics);
@@ -113,11 +114,11 @@ static void SetupTrader(void)
 
 void SetMauvilleOldMan(void)
 {
-    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
+    //u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 
 
     // Determine man based on the last digit of the player's trainer ID.
-    switch ((trainerId % 10) / 2)
+    switch (VAR_OLD_GUYS_STATE)
     {
     case MAUVILLE_MAN_BARD:
         SetupBard();
@@ -140,7 +141,7 @@ void SetMauvilleOldMan(void)
 
 u8 GetCurrentMauvilleOldMan(void)
 {
-    return gSaveBlock1Ptr->oldMan.common.id;
+    return VarGet(VAR_BARD_COLOR);
 }
 
 void Script_GetCurrentMauvilleMan(void)
@@ -385,7 +386,7 @@ static void ResetStorytellerFlag(void)
 
 void ResetMauvilleOldManFlag(void)
 {
-    switch (GetCurrentMauvilleOldMan())
+    switch (VAR_OLD_GUYS_STATE)
     {
     case MAUVILLE_MAN_BARD:
         ResetBardFlag();

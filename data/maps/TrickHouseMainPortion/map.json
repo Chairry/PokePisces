@@ -1,0 +1,192 @@
+{
+  "id": "MAP_TRICK_HOUSE_MAIN_PORTION",
+  "name": "TrickHouseMainPortion",
+  "layout": "LAYOUT_TRICK_HOUSE_MAIN_PORTION",
+  "music": "MUS_TRICK_HOUSE",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DARKSKIN_WOMAN",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "TrickHouseMainPortion_EventScript_Cotton",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HAWKER",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "TrickHouseMainPortion_EventScript_BillyBob",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+      "x": 3,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "TrickHouseMainPortion_EventScript_Geiru",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_ENTRANCE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_ENTRANCE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 27,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 27,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 27,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 27,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 19,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_LEVER_ROOMS",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 21,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_UPSIDE_DOWN_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_LEVER_ROOMS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_BALL_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_DARK_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_TRICK_HOUSE_POT_ROOM",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TrickHouseMainPortion_EventScript_ScrollE"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TrickHouseMainPortion_EventScript_FinalDoor"
+    }
+  ]
+}

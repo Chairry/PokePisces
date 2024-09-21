@@ -21,14 +21,14 @@
       "x": 4,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_TRICK_HOUSE_POT_ROOM",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_TRICK_HOUSE_MAIN_PORTION",
+      "dest_warp_id": "15"
     },
     {
       "x": 4,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_HATCHLOAM_FIELD",
+      "dest_map": "MAP_TRICK_HOUSE_ENTRANCE",
       "dest_warp_id": "0"
     }
   ],

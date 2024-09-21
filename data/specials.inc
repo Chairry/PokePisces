@@ -551,3 +551,4 @@ gSpecials::
 	def_special SetCaughtMon
 	def_special PoisonPlayerParty
 	def_special BurnPlayerParty
+	def_special SetMauvilleOldMan
