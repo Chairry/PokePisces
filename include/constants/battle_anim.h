@@ -434,6 +434,9 @@
 #define ANIM_TAG_ROCK_SHADOW                (ANIM_SPRITES_START + 420)
 #define ANIM_TAG_WATER_BLADE                (ANIM_SPRITES_START + 421)
 #define ANIM_TAG_WIND_BALL                  (ANIM_SPRITES_START + 422)
+#define ANIM_TAG_SYRUP_BLOB_RED             (ANIM_SPRITES_START + 423)
+#define ANIM_TAG_SYRUP_SHELL_RED            (ANIM_SPRITES_START + 424)
+#define ANIM_TAG_SYRUP_SPLAT_RED            (ANIM_SPRITES_START + 425)
 
 // battlers
 #define ANIM_ATTACKER         0

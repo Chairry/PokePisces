@@ -4992,4 +4992,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_CRIMSON_STORM - 1] = sSplashDescription,
     [MOVE_TRUE_LOVES_KISS - 1] = sSplashDescription,
     [MOVE_SABRE_BREAK - 1] = sSabreBreakDescription,
+    [MOVE_MIND_GAP - 1] = gNotDoneYetDescription,
+    [MOVE_SUPERCELL_SLAM - 1] = gNotDoneYetDescription,
+    [MOVE_SWEET_WHISPERS - 1] = gNotDoneYetDescription,
+    [MOVE_SYRUP_BOMB - 1] = gNotDoneYetDescription,
 };

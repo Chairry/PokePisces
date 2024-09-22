@@ -620,7 +620,8 @@
 #define EFFECT_FLYING_PRESS                 614
 #define EFFECT_TRUE_LOVES_KISS              615
 #define EFFECT_SABRE_BREAK                  616
+#define EFFECT_SYRUP_BOMB                   617
 
-#define NUM_BATTLE_MOVE_EFFECTS             617
+#define NUM_BATTLE_MOVE_EFFECTS             618
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

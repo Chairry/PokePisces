@@ -1030,6 +1030,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
     [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
     [MOVE_SABRE_BREAK] = _("Sabre Break"),
+    [MOVE_MIND_GAP] = _("Mind Gap"),
+    [MOVE_SUPERCELL_SLAM] = _("Supercell Slam"),
+    [MOVE_SWEET_WHISPERS] = _("Sweet Whispers"),
+    [MOVE_SYRUP_BOMB] = _("Syrup Bomb"),
 };
 #else
 // 12 letters
@@ -2063,6 +2067,10 @@ const u8 gMoveNames[MOVES_COUNT][MOVE_NAME_LENGTH + 1] =
     [MOVE_CRIMSON_STORM] = _("Crimson Storm"),
     [MOVE_TRUE_LOVES_KISS] = _("True Love's Kiss"),
     [MOVE_SABRE_BREAK] = _("Sabre Break"),
+    [MOVE_MIND_GAP] = _("Mind Gap"),
+    [MOVE_SUPERCELL_SLAM] = _("Supercell Slam"),
+    [MOVE_SWEET_WHISPERS] = _("Sweet Whispers"),
+    [MOVE_SYRUP_BOMB] = _("Syrup Bomb"),
 };
 #endif
 

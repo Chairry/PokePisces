@@ -4430,6 +4430,18 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_SpikesActivates;
                 }
                 break;
+            case MOVE_EFFECT_SYRUP_BOMB:
+                if (!(gStatuses4[gEffectBattler] & STATUS4_SYRUP_BOMB))
+                {
+                    struct Pokemon *party = GetBattlerParty(gBattlerAttacker);
+
+                    gStatuses4[gEffectBattler] |= STATUS4_SYRUP_BOMB;
+                    gDisableStructs[gEffectBattler].syrupBombTimer = 3;
+                    gBattleStruct->stickySyrupdBy[gEffectBattler] = gBattlerAttacker;
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_SyrupBombActivates;
+                }
+                break;
             case MOVE_EFFECT_TRIPLE_ARROWS:
                 {
                     u8 randomLowerDefenseChance = RandomPercentage(RNG_TRIPLE_ARROWS_DEFENSE_DOWN, CalcSecondaryEffectChance(gBattlerAttacker, 50));
@@ -12358,45 +12370,26 @@ static void Cmd_various(void)
     case VARIOUS_CURE_CERTAIN_STATUSES:
     {
         VARIOUS_ARGS();
-        // Check infatuation
-        if (gBattleMons[battler].status2 & STATUS2_INFATUATION)
+
+        if (gBattleMons[battler].status2 & STATUS2_INFATUATION 
+        || gDisableStructs[battler].tauntTimer != 0
+        || gDisableStructs[battler].encoreTimer != 0
+        || gDisableStructs[battler].encoreTimer != 0
+        || gBattleMons[battler].status2 & STATUS2_TORMENT
+        || gStatuses3[battler] & STATUS3_HEAL_BLOCK
+        || gDisableStructs[battler].disableTimer != 0
+        || gBattleMons[battler].status2 & STATUS2_CONFUSION)
         {
             gBattleMons[battler].status2 &= ~(STATUS2_INFATUATION);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION;  // STRINGID_TARGETGOTOVERINFATUATION
-            StringCopy(gBattleTextBuff1, gStatusConditionString_LoveJpn);
-        }
-        // Check taunt
-        if (gDisableStructs[battler].tauntTimer != 0)
-        {
             gDisableStructs[battler].tauntTimer = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TAUNT;
-            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
-        }
-        // Check encore
-        if (gDisableStructs[battler].encoreTimer != 0)
-        {
             gDisableStructs[battler].encoredMove = 0;
             gDisableStructs[battler].encoreTimer = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_ENCORE;   // STRINGID_PKMNENCOREENDED
-        }
-        // Check torment
-        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
-        {
-            gBattleMons[battler].status2 &= ~(STATUS2_TORMENT);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TORMENT;
-        }
-        // Check heal block
-        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
-        {
-            gStatuses3[battler] &= ~(STATUS3_HEAL_BLOCK);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_HEALBLOCK;
-        }
-        // Check disable
-        if (gDisableStructs[battler].disableTimer != 0)
-        {
+            gBattleMons[battler].status2 &= ~STATUS2_TORMENT;
+            gStatuses3[battler] &= ~STATUS3_HEAL_BLOCK;
             gDisableStructs[battler].disableTimer = 0;
             gDisableStructs[battler].disabledMove = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_DISABLE;
+            gBattleMons[battler].status2 &= ~(STATUS2_CONFUSION);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION; // STRINGID_TARGETGOTOVERINFATUATION
         }
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
@@ -12647,21 +12640,19 @@ static void Cmd_various(void)
     case VARIOUS_TRY_HEAL_ALL_HEALTH:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-
-        const u8 *failInstr = cmd->failInstr;
-
-        if (cmd->battler == BS_ATTACKER)
-            gBattlerTarget = gBattlerAttacker;
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
-        gBattleMoveDamage *= -1;
-
-        if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
-            gBattlescriptCurrInstr = failInstr;
+        if (BATTLER_MAX_HP(battler))
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
         else
+        {
+            gBattleMoveDamage = gBattleMons[battler].maxHP;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+            gBattleMoveDamage *= -1;
             gBattlescriptCurrInstr = cmd->nextInstr;
-        break;
+        }
+        return;
     }
     case VARIOUS_STAGGER_DAMAGE:
     {    

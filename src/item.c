@@ -1051,7 +1051,7 @@ static u8 ReformatItemDescription(u16 item, u8 *dest)
 {
     u8 count = 0;
     u8 numLines = 1;
-    u8 maxChars = 40;
+    u8 maxChars = 35;
     u8 *desc = (u8 *)gItems[item].description;
 
     while (*desc != EOS)
@@ -1123,12 +1123,12 @@ void DrawHeaderBox(void)
     DrawStdFrameWithCustomTileAndPalette(sHeaderBoxWindowId, FALSE, 0x214, 14);
 
     if (ReformatItemDescription(item, dst) == 1)
-        textY = 4;
+        textY = 0;
     else
         textY = 0;
 
     ShowItemIconSprite(item, TRUE, handleFlash);
-    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_SMALL, dst, ITEM_ICON_X + 2, textY, 0, NULL);
+    AddTextPrinterParameterized(sHeaderBoxWindowId, FONT_SMALL_NO_BG, dst, ITEM_ICON_X + 2, textY, 0, NULL);
 }
 
 void HideHeaderBox(void)

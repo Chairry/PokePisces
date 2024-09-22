@@ -2948,6 +2948,7 @@ enum
     ENDTURN_ACID_ARMORED,
     ENDTURN_EMERGENCY_EXIT,
     ENDTURN_INFERNAL_REIGN,
+    ENDTURN_SYRUP_BOMB,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -3599,6 +3600,19 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = 1;
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SALT_CURE);
                 BattleScriptExecute(BattleScript_SaltCureExtraDamage);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_SYRUP_BOMB:
+            if ((gStatuses4[battler] & STATUS4_SYRUP_BOMB) && (IsBattlerAlive(battler)))
+            {
+                if (gDisableStructs[battler].syrupBombTimer > 0 && --gDisableStructs[battler].syrupBombTimer == 0)
+                    gStatuses4[battler] &= ~STATUS4_SYRUP_BOMB;
+                gBattlerTarget = battler;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SYRUP_BOMB);
+                gBattlescriptCurrInstr = BattleScript_SyrupBombEndTurn;
+                BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -8722,54 +8736,28 @@ static bool32 GetMentalHerbEffect(u32 battler)
 {
     bool32 ret = FALSE;
 
-    // Check infatuation
-    if (gBattleMons[battler].status2 & STATUS2_INFATUATION)
+    if (gBattleMons[battler].status2 & STATUS2_INFATUATION 
+    || gDisableStructs[battler].tauntTimer != 0
+    || gDisableStructs[battler].encoreTimer != 0
+    || gDisableStructs[battler].encoreTimer != 0
+    || gBattleMons[battler].status2 & STATUS2_TORMENT
+    || gStatuses3[battler] & STATUS3_HEAL_BLOCK
+    || gDisableStructs[battler].disableTimer != 0
+    || gBattleMons[battler].status2 & STATUS2_CONFUSION)
     {
         gBattleMons[battler].status2 &= ~STATUS2_INFATUATION;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION; // STRINGID_TARGETGOTOVERINFATUATION
-        StringCopy(gBattleTextBuff1, gStatusConditionString_LoveJpn);
-        ret = TRUE;
-    }
-#if B_MENTAL_HERB >= GEN_5
-    // Check taunt
-    if (gDisableStructs[battler].tauntTimer != 0)
-    {
         gDisableStructs[battler].tauntTimer = 0;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TAUNT;
-        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
-        ret = TRUE;
-    }
-    // Check encore
-    if (gDisableStructs[battler].encoreTimer != 0)
-    {
         gDisableStructs[battler].encoredMove = 0;
         gDisableStructs[battler].encoreTimer = 0;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_ENCORE; // STRINGID_PKMNENCOREENDED
-        ret = TRUE;
-    }
-    // Check torment
-    if (gBattleMons[battler].status2 & STATUS2_TORMENT)
-    {
         gBattleMons[battler].status2 &= ~STATUS2_TORMENT;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TORMENT;
-        ret = TRUE;
-    }
-    // Check heal block
-    if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
-    {
         gStatuses3[battler] &= ~STATUS3_HEAL_BLOCK;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_HEALBLOCK;
-        ret = TRUE;
-    }
-    // Check disable
-    if (gDisableStructs[battler].disableTimer != 0)
-    {
         gDisableStructs[battler].disableTimer = 0;
         gDisableStructs[battler].disabledMove = 0;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_DISABLE;
+        gBattleMons[battler].status2 &= ~(STATUS2_CONFUSION);
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION; // STRINGID_TARGETGOTOVERINFATUATION
         ret = TRUE;
     }
-#endif
+
     return ret;
 }
 
@@ -10350,7 +10338,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_CURSED_AMULET:
-                if (TARGET_TURN_DAMAGED && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 5) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam
+                if (TARGET_TURN_DAMAGED && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 10) <= 2) // Hardcoding the chance here since cant get it working right through holdEffectParam
                 {
                     gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                     gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -10417,7 +10405,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 }
                 break;
             case HOLD_EFFECT_LOST_MANTLE:
-                if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && (Random() % 3) == 0)
+                if (IsBattlerAlive(battler) && TARGET_TURN_DAMAGED && (Random() % 2) == 0)
                 {
                     effect = ITEM_STATS_CHANGE;
                     BattleScriptPushCursor();

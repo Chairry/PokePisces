@@ -16,6 +16,7 @@ static void AnimSuckerPunch(struct Sprite *sprite);
 static void AnimGunkShotParticlesStep(struct Sprite *sprite);
 static void AnimGunkShotParticles(struct Sprite *sprite);
 static void AnimGunkShotImpact(struct Sprite *sprite);
+static void AnimAnimSyrupBomb(struct Sprite *);
 
 static const union AnimCmd sAnim_ToxicBubble[] =
 {
@@ -340,6 +341,55 @@ const struct SpriteTemplate gRadioacidImpactSpriteTemplate =
     .callback = AnimGunkShotImpact,
 };
 
+static const union AnimCmd sAnim_SyrupCoat[] =
+{
+    ANIMCMD_FRAME(128, 10),
+    ANIMCMD_FRAME(64, 5),
+    ANIMCMD_FRAME(0, 45),
+    ANIMCMD_FRAME(64, 15),
+    ANIMCMD_FRAME(128, 15),
+    ANIMCMD_FRAME(192, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnims_SyrupCoat[] =
+{
+    sAnim_SyrupCoat,
+};
+
+const struct SpriteTemplate gSyrupRedProjectileSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SYRUP_BLOB_RED,
+    .paletteTag = ANIM_TAG_SYRUP_BLOB_RED,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gAnims_PoisonProjectile,
+    .images = NULL,
+    .affineAnims = gAffineAnims_PoisonProjectile,
+    .callback = AnimSludgeProjectile,
+};
+
+const struct SpriteTemplate gSyrupBombRedHitParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SYRUP_SPLAT_RED,
+    .paletteTag = ANIM_TAG_SYRUP_BLOB_RED,
+    .oam = &gOamData_AffineNormal_ObjNormal_16x16,
+    .anims = gAnims_PoisonProjectile,
+    .images = NULL,
+    .affineAnims = sAffineAnims_SludgeBombHit,
+    .callback = AnimSludgeBombHitParticle,
+};
+
+const struct SpriteTemplate gSyrupBombRedShellSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_SYRUP_SHELL_RED,
+    .paletteTag = ANIM_TAG_SYRUP_BLOB_RED,
+    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .anims = sAnims_SyrupCoat,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimAnimSyrupBomb,
+};
+
 static void AnimGunkShotImpact(struct Sprite *sprite)
 {
     StartSpriteAffineAnim(sprite, gBattleAnimArgs[3]);
@@ -568,4 +618,27 @@ static void AnimBubbleEffect_Step(struct Sprite *sprite)
 
     if (sprite->affineAnimEnded)
         DestroyAnimSprite(sprite);
+}
+
+static void AnimSyrupBomb_Step(struct Sprite *sprite)
+{
+    if (sprite->data[1] > sprite->data[0] - 10)
+        sprite->invisible = sprite->data[1] & 1;
+
+    if (sprite->data[1] == sprite->data[0])
+        DestroyAnimSprite(sprite);
+
+    sprite->data[1]++;
+}
+
+static void AnimAnimSyrupBomb(struct Sprite *sprite)
+{
+    if (gBattleAnimArgs[0] == ANIM_TARGET)
+    {
+        sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+        sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 2;
+    }
+
+    sprite->data[0] = gBattleAnimArgs[1];
+    sprite->callback = AnimSyrupBomb_Step;
 }
