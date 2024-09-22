@@ -734,6 +734,7 @@ static const u8 sText_NoOneWillBeAbleToRun[] = _("No one will be able to run awa
 static const u8 sText_DestinyKnotActivates[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} shares the pain\nbecause of {B_LAST_ITEM}!");
 static const u8 sText_CloakedInAFreezingLight[] = _("{B_ATK_NAME_WITH_PREFIX} became cloaked\nin a freezing light!");
 static const u8 sText_StatWasNotLowered[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwas not lowered!");
+static const u8 sText_DefensesWereNotLowered[] = _("{B_DEF_NAME_WITH_PREFIX}'s defenses\nwere not lowered!");
 static const u8 sText_AuraFlaredToLife[] = _("{B_DEF_NAME_WITH_PREFIX}'s aura flared to life!");
 static const u8 sText_AirLockActivates[] = _("The effects of weather\ndisappeared.");
 static const u8 sText_PressureActivates[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is exerting its\npressure!");
@@ -767,7 +768,7 @@ static const u8 sText_StickyBarbTransfer[] = _("The {B_LAST_ITEM} attached itsel
 static const u8 sText_PkmnBurnHealed[] = _("{B_DEF_NAME_WITH_PREFIX}'s\nburn was healed.");
 static const u8 sText_RedCardActivate[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} held up its {B_LAST_ITEM}\nagainst {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_EjectButtonActivate[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is switched\nout with the {B_LAST_ITEM}!");
-static const u8 sText_AttackerGotOverInfatuation[] =_("{B_ATK_NAME_WITH_PREFIX} got over\nits infatuation!");
+static const u8 sText_AttackerGotOverInfatuation[] =_("{B_ATK_NAME_WITH_PREFIX} was cured\nby Mental Herb!");
 static const u8 sText_TormentedNoMore[] = _("{B_ATK_NAME_WITH_PREFIX} is\ntormented no more!");
 static const u8 sText_HealBlockedNoMore[] = _("{B_ATK_NAME_WITH_PREFIX} is cured of\nits heal block!");
 static const u8 sText_AttackerBecameFullyCharged[] = _("{B_ATK_NAME_WITH_PREFIX} became fully charged\ndue to its bond with its trainer!\p");
@@ -937,6 +938,7 @@ static const u8 sText_InfernalReignEnters[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 static const u8 sText_PkmnIsSpinning[] = _("{B_ATK_NAME_WITH_PREFIX} is\nspinning rapidly!");
 static const u8 sText_SloppyToppy[] = _("{B_ATK_NAME_WITH_PREFIX} kissed {B_DEF_NAME_WITH_PREFIX}\nin a show of true compassion!");
 static const u8 sText_NoSex[] = _("With {B_ATK_NAME_WITH_PREFIX}'s ally gone there\nis no more love for it to spread...");
+static const u8 sText_TargetCoveredInStickyCandySyrup[] = _("{B_DEF_NAME_WITH_PREFIX} got covered\nin sticky syrup!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1725,6 +1727,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNISSPINNING - BATTLESTRINGS_TABLE_START] = sText_PkmnIsSpinning,
     [STRINGID_SLOPPYTOPPY - BATTLESTRINGS_TABLE_START] = sText_SloppyToppy,
     [STRINGID_NOSEX - BATTLESTRINGS_TABLE_START] = sText_NoSex,
+    [STRINGID_DEFENSESWERENOTLOWERED - BATTLESTRINGS_TABLE_START] = sText_DefensesWereNotLowered,
+    [STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP - BATTLESTRINGS_TABLE_START] = sText_TargetCoveredInStickyCandySyrup,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

@@ -752,6 +752,11 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MIND_GAMES] = _("Mind Games"),
     [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
     [ABILITY_STORM_BREW] = _("Storm Brew"),
+    [ABILITY_BATTLE_FURY] = _("Battle Fury"),
+    [ABILITY_SHATTERFROST] = _("Shatterfrost"),
+    [ABILITY_BAD_OMEN] = _("Bad Omen"),
+    [ABILITY_BRAWLER] = _("Brawler"),
+    [ABILITY_PROVOKED] = _("Provoked"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1135,6 +1140,11 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MIND_GAMES] = _("Mind Games"),
     [ABILITY_INFERNAL_REIGN] = _("Infernal Reign"),
     [ABILITY_STORM_BREW] = _("Storm Brew"),
+    [ABILITY_BATTLE_FURY] = _("Battle Fury"),
+    [ABILITY_SHATTERFROST] = _("Shatterfrost"),
+    [ABILITY_BAD_OMEN] = _("Bad Omen"),
+    [ABILITY_BRAWLER] = _("Brawler"),
+    [ABILITY_PROVOKED] = _("Provoked"),
 };
 #endif
 
@@ -1519,4 +1529,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MIND_GAMES] = sPsychicSurgeDescription,
     [ABILITY_INFERNAL_REIGN] = sNoneDescription,
     [ABILITY_STORM_BREW] = sStormBrewDescription,
+    [ABILITY_BATTLE_FURY] = sNoneDescription,
+    [ABILITY_SHATTERFROST] = sNoneDescription,
+    [ABILITY_BAD_OMEN] = sNoneDescription,
+    [ABILITY_BRAWLER] = sNoneDescription,
+    [ABILITY_PROVOKED] = sNoneDescription,
 };

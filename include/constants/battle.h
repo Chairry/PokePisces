@@ -127,7 +127,7 @@
 #define STATUS1_SLEEP_ANY        (STATUS1_SLEEP | STATUS1_REST)
 #define STATUS1_PSN_ANY          (STATUS1_POISON | STATUS1_TOXIC_POISON)
 #define STATUS1_ANY              (STATUS1_SLEEP_ANY | STATUS1_BURN | STATUS1_FREEZE | STATUS1_PARALYSIS | STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER | STATUS1_FROSTBITE | STATUS1_PANIC | STATUS1_BLOOMING | STATUS1_EXPOSED)
-#define STATUS1_ANY_NEGATIVE     (STATUS1_ANY & ~(STATUS1_BLOOMING))
+#define STATUS1_ANY_NEGATIVE     (STATUS1_ANY & ~(STATUS1_BLOOMING | STATUS1_BLOOMING_TURN(1) | STATUS1_BLOOMING_TURN(2) | STATUS1_BLOOMING_TURN(3)))
 
 // Volatile status ailments
 // These are removed after exiting the battle or switching out
@@ -211,6 +211,7 @@
 #define STATUS4_PUMPED_UP               (1 << 15)
 #define STATUS4_ACID_ARMORED            (1 << 16)
 #define STATUS4_POWER_SHIFT             (1 << 17)
+#define STATUS4_SYRUP_BOMB              (1 << 18)
 
 #define HITMARKER_WAKE_UP_CLEAR         (1 << 4) // Cleared when waking up. Never set or checked.
 #define HITMARKER_SKIP_DMG_TRACK        (1 << 5)
@@ -440,8 +441,9 @@
 #define MOVE_EFFECT_SPATK_SPDEF_UP      108
 #define MOVE_EFFECT_WILD_CHARGE         109
 #define MOVE_EFFECT_CONSTRICT           110
+#define MOVE_EFFECT_SYRUP_BOMB          111
 
-#define NUM_MOVE_EFFECTS                111
+#define NUM_MOVE_EFFECTS                112
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

@@ -4584,7 +4584,8 @@ const u16 gEggMoves[] = {
         MOVE_TEMPER_FLARE,
         MOVE_HAMMER_ARM,
         MOVE_SHADOW_PUNCH,
-        MOVE_OUTRAGE),
+        MOVE_OUTRAGE,
+        MOVE_SUPERCELL_SLAM),
 
     egg_moves(CRAWLAXY,
         MOVE_GRAVITY,
@@ -5595,7 +5596,9 @@ const u16 gEggMoves[] = {
         MOVE_MIRACLE_EYE,
         MOVE_PSYCHO_SHIFT,
         MOVE_HEART_SWAP,
-        MOVE_BRAIN_DAMAGE),
+        MOVE_BRAIN_DAMAGE,
+        MOVE_IMPRISON,
+        MOVE_MIND_GAP),
 
     egg_moves(LUNATONE,
         MOVE_FUTURE_SIGHT,
