@@ -666,6 +666,51 @@
       "var": "VAR_TEMP_4",
       "var_value": "4",
       "script": "MangrottoTunnel_EventScript_EggEncounter5FinalRight"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "1",
+      "script": "MangrottoTunnel_EventScript_EggEncounter2West"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 30,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 30,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1East"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MangrottoTunnel_EventScript_EggEncounter1North"
     }
   ],
   "bg_events": [
