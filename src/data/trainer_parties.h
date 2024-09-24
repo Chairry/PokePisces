@@ -10325,32 +10325,62 @@ static const struct TrainerMon sParty_PIchi[] = {
 
 static const struct TrainerMon sParty_PInuAndPersia[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 26,
-    .species = SPECIES_GLOOM,
+    .species = SPECIES_GOURDOUG,
+    .ability = ABILITY_GUARD_DOG,
+    .heldItem = ITEM_BLOOM_ORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 63,
+    .moves = {MOVE_SEED_BOMB, MOVE_CHILLY_AIR, MOVE_GRASS_WHISTLE, MOVE_AVALANCHE},
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 26,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_LUSCKAW,
+    .ability = ABILITY_TOXIC_BOOST,
+    .heldItem = ITEM_POISON_ORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 63,
+    .moves = {MOVE_BLIZZARD, MOVE_VENOM_GALE, MOVE_PROTECT, MOVE_WYVERN_WAVE},
+    },
+    {
+    .species = SPECIES_WAARGH,
+    .ability = ABILITY_SEAFARER,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 64,
+    .moves = {MOVE_PLUNDER, MOVE_SNARL, MOVE_SUCKER_PUNCH, MOVE_OBSTRUCT},
+    },
+    {
+    .species = SPECIES_NYARLY,
+    .ability = ABILITY_DARK_AURA,
+    .heldItem = ITEM_OBJECT_D_ARC,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 64,
+    .moves = {MOVE_DARK_TIDE, MOVE_ALLURING_VOICE, MOVE_WRING_OUT, MOVE_MIND_BREAK},
+    },
+    {
+    .species = SPECIES_SKELLYWARG,
+    .ability = ABILITY_CURSED_BODY,
+    .heldItem = ITEM_CLEAR_AMULET,
+    .isShiny = TRUE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 64,
+    .moves = {MOVE_SPIRIT_BREAK, MOVE_SPECTRAL_THIEF, MOVE_REVERSAL, MOVE_ICE_FANG},
+    },
+    {
+    .species = SPECIES_BEHEKO,
+    .ability = ABILITY_GUTS,
+    .heldItem = ITEM_FROST_ORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 64,
+    .moves = {MOVE_FACADE, MOVE_MEGAHORN, MOVE_BREAK_LANCE, MOVE_HORN_LEECH},
     }
 };
 
 static const struct TrainerMon sParty_PNatasha[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_LOTAD,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_LOMBRE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_NUZLEAF,
+    .species = SPECIES_OOHBAABA,
+    .ability = ABILITY_WHITE_SMOKE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .lvl = 68,
     }
 };
 

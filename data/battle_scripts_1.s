@@ -11806,7 +11806,6 @@ BattleScript_PursuitSwitchDmgSetMultihit::
 	setmultihit 2
 BattleScript_PursuitSwitchDmgLoop::
 	jumpifpursuit BattleScript_HandlePursuit
-	
 BattleScript_DoSwitchOut::
 	decrementmultihit BattleScript_PursuitSwitchDmgLoop
 	switchoutabilities BS_ATTACKER
@@ -11834,13 +11833,15 @@ BattleScript_HandlePursuit::
 	swapattackerwithtarget
 	trysetdestinybondtohappen
 	call BattleScript_PursuitDmgOnSwitchOut
-	jumpifmove MOVE_PURSUIT BattleScript_CancelSwitch
+	jumpifmove MOVE_IMPRISON BattleScript_CancelSwitch
 	swapattackerwithtarget
 	call BattleScript_DoSwitchOut
 
 BattleScript_CancelSwitch::
 	swapattackerwithtarget
-	goto BattleScript_PrintFailedToRunString
+	printfromtable STRINGID_TARGETCANTESCAPENOW
+	waitmessage B_WAIT_TIME_LONG
+	end2
 
 BattleScript_PursuitDmgOnSwitchOut::
 	pause B_WAIT_TIME_SHORT

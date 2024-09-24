@@ -4936,17 +4936,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_IMPRISON] =
     {
-        .effect = EFFECT_IMPRISON,
-        .power = 0,
+        .effect = EFFECT_PURSUIT,
+        .power = 20,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_USER,
-        .priority = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 1,
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPDEF_UP_2,
-        .snatchAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
+        .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_5, // && B_UPDATED_MOVE_FLAGS > GEN_2
     },
 
     [MOVE_REFRESH] =
