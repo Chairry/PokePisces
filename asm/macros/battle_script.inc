@@ -977,7 +977,7 @@
 	.byte 0xb9
 	.endm
 
-	.macro jumpifnopursuitswitchdmg jumpInstr:req
+	.macro jumpifpursuit jumpInstr:req
 	.byte 0xba
 	.4byte \jumpInstr
 	.endm
