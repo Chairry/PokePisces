@@ -636,6 +636,8 @@ extern const u8 BattleScript_UltraBurst[];
 extern const u8 BattleScript_SelectingNotAllowedCurrentMove[];
 extern const u8 BattleScript_SelectingNotAllowedCurrentMoveInPalace[];
 extern const u8 BattleScript_SaltCureExtraDamage[];
+extern const u8 BattleScript_SyrupBombEndTurn[];
+extern const u8 BattleScript_SyrupBombActivates[];
 extern const u8 BattleScript_SpecialDefenseUp[];
 extern const u8 BattleScript_RemoveTerrainStuff[];
 extern const u8 BattleScript_HardboiledActivates[];

@@ -114,6 +114,7 @@ struct DisableStruct
     u8 speedSwap:1;
     u8 chargeTimer:4;
     u8 pumpTimer:4;
+    u8 syrupBombTimer;
 };
 
 struct ProtectStruct
@@ -718,6 +719,7 @@ struct BattleStruct
     u8 faintedMonCount[NUM_BATTLE_SIDES];
     u8 supremeOverlordCounter[MAX_BATTLERS_COUNT];
     u8 timesGotHit[NUM_BATTLE_SIDES][PARTY_SIZE];
+    u8 stickySyrupdBy[MAX_BATTLERS_COUNT];
     u8 enduredDamage;
     /* shunyong battle */
     u16 shunyongChosenMove;

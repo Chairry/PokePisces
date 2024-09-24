@@ -812,26 +812,26 @@
         .noFlip = FALSE,                                \
     }
 
-#define DUDUNSPARS_SPECIES_INFO                                                 \
-    {                                                                           \
-        .baseHP        = 135,                                                   \
-        .baseAttack    = 110,                                                   \
-        .baseDefense   = 80,                                                    \
-        .baseSpeed     = 55,                                                    \
-        .baseSpAttack  = 85,                                                    \
-        .baseSpDefense = 75,                                                    \
-        .types = { TYPE_NORMAL, TYPE_NORMAL },                                  \
-        .catchRate = 45,                                                        \
-        .expYield = 218,                                                        \
-        .evYield_HP = 2,                                                        \
-        .genderRatio = PERCENT_FEMALE(50),                                      \
-        .eggCycles = 20,                                                        \
-        .friendship = STANDARD_FRIENDSHIP,                                      \
-        .growthRate = GROWTH_MEDIUM_FAST,                                       \
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},                       \
-        .abilities = {ABILITY_SERENE_GRACE, ABILITY_UNAWARE, ABILITY_OBLIVIOUS}, \
-        .bodyColor = BODY_COLOR_YELLOW,                                         \
-        .noFlip = FALSE,                                                        \
+#define DUDUNSPARS_SPECIES_INFO                                                     \
+    {                                                                               \
+        .baseHP        = 135,                                                       \
+        .baseAttack    = 110,                                                       \
+        .baseDefense   = 80,                                                        \
+        .baseSpeed     = 55,                                                        \
+        .baseSpAttack  = 85,                                                        \
+        .baseSpDefense = 75,                                                        \
+        .types = { TYPE_NORMAL, TYPE_NORMAL },                                      \
+        .catchRate = 45,                                                            \
+        .expYield = 218,                                                            \
+        .evYield_HP = 2,                                                            \
+        .genderRatio = PERCENT_FEMALE(50),                                          \
+        .eggCycles = 20,                                                            \
+        .friendship = STANDARD_FRIENDSHIP,                                          \
+        .growthRate = GROWTH_MEDIUM_FAST,                                           \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},                           \
+        .abilities = {ABILITY_SERENE_GRACE, ABILITY_MOLD_BREAKER, ABILITY_RATTLED}, \
+        .bodyColor = BODY_COLOR_YELLOW,                                             \
+        .noFlip = FALSE,                                                            \
     }
 
 #define SHISHIMA_SPECIES_INFO \
@@ -24477,11 +24477,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SHIVERSNAP] =
     {
         .baseHP        = 95,
-        .baseAttack    = 120,
-        .baseDefense   = 95,
+        .baseAttack    = 130,
+        .baseDefense   = 80,
         .baseSpeed     = 108,
         .baseSpAttack  = 40,
-        .baseSpDefense = 85,
+        .baseSpDefense = 80,
         .types = { TYPE_ICE,TYPE_POISON },
         .catchRate = 90,
         .expYield = 128,
@@ -25238,11 +25238,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_SPITFAX] =
     {
         .baseHP        = 70,
-        .baseAttack    = 80,
-        .baseDefense   = 80,
-        .baseSpeed     = 75,
-        .baseSpAttack  = 75,
-        .baseSpDefense = 80,
+        .baseAttack    = 70,
+        .baseDefense   = 70,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 85,
+        .baseSpDefense = 70,
         .types = { TYPE_DRAGON,TYPE_DRAGON },
         .catchRate = 45,
         .expYield = 115,

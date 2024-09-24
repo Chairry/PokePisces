@@ -1056,6 +1056,10 @@ gBattleAnims_Moves::
     .4byte Move_CRIMSON_STORM
     .4byte Move_TRUE_LOVES_KISS
     .4byte Move_SABRE_BREAK
+    .4byte MOVE_MIND_GAP
+    .4byte MOVE_SUPERCELL_SLAM
+    .4byte MOVE_SWEET_WHISPERS
+    .4byte MOVE_SYRUP_BOMB
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -8775,7 +8779,7 @@ PhantomForceBg:
 Move_TRICK_OR_TREAT::
 	loadspritegfx ANIM_TAG_EYE_SPARKLE
 	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
-	fadetobg BG_NIGHTMARE
+	fadetobg BG_GHOST
 	waitbgfadein
 	delay 10
 	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
@@ -12890,7 +12894,7 @@ StompingTantrumImpact:
 Move_SHADOW_BONE::
 	loadspritegfx ANIM_TAG_BONE
 	loadspritegfx ANIM_TAG_IMPACT
-	fadetobg BG_NIGHTMARE
+	fadetobg BG_GHOST
 	waitbgfadein
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
@@ -15725,7 +15729,7 @@ Move_POLTERGEIST::
 	loadspritegfx ANIM_TAG_QUICK_GUARD_HAND @Black Colour
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_POLTERGEIST
-	fadetobg BG_NIGHTMARE
+	fadetobg BG_GHOST
 	waitbgfadein
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 2, 0, 0, 16, RGB_BLACK
 	waitforvisualfinish
@@ -17502,16 +17506,6 @@ Move_BURNING_BULWARK::
 	clearmonbg ANIM_ATK_PARTNER
 	end
 
-FireSpreadEffectAttacker:
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 192, 176, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -192, 240, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 192, -160, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -192, -112, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 160, 48, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, -224, -32, 40
-	createsprite gFireSpreadSpriteTemplate, ANIM_ATTACKER, 1, 0, 10, 112, -128, 40
-	return
-
 Move_ALLURING_VOICE::
 	loadspritegfx ANIM_TAG_THIN_RING
 	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d
@@ -17917,7 +17911,7 @@ Move_LAST_RESPECTS::
 	loadspritegfx ANIM_TAG_SWEAT_BEAD @blue color
 	loadspritegfx ANIM_TAG_GHOSTLY_SPIRIT
 	loadspritegfx ANIM_TAG_IMPACT
-	fadetobg BG_NIGHTMARE
+	fadetobg BG_GHOST
 	waitbgfadein
 	delay 10
 	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_ATTACKER
@@ -26494,6 +26488,53 @@ Move_TRUE_LOVES_KISS::
 Move_SABRE_BREAK::
 	goto Move_ICE_FANG
 
+Move_MIND_GAP::
+	goto Move_IMPRISON
+
+Move_SUPERCELL_SLAM::
+	goto Move_MYTH_BUSTER
+
+Move_SWEET_WHISPERS::
+	goto Move_GROWL
+
+Move_SYRUP_BOMB::
+	loadspritegfx ANIM_TAG_SYRUP_BLOB_RED
+	loadspritegfx ANIM_TAG_SYRUP_SPLAT_RED
+	loadspritegfx ANIM_TAG_SYRUP_SHELL_RED
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	call SyrupBombProjectileRed
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 3, 0, 15, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 1, 2, 0, 12, RGB(20, 3, 3)
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, 42, 27, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, -27, 44, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, 39, -28, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, -42, -42, 20
+	playsewithpan SE_M_DIG, SOUND_PAN_TARGET
+	delay 5
+	createsprite gSyrupBombRedShellSpriteTemplate, ANIM_TARGET, 1, ANIM_TARGET, 100
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, 0, 40, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, -8, -44, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, -46, -28, 20
+	createsprite gSyrupBombRedHitParticleSpriteTemplate, ANIM_TARGET, 2, 46, 9, 20
+	playsewithpan SE_M_DIG, SOUND_PAN_TARGET
+	delay 5
+	waitsound
+	waitforvisualfinish
+	end
+SyrupBombProjectileRed:
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gSyrupRedProjectileSpriteTemplate, ANIM_TARGET, 2, 20, 0, 40, 0
+	delay 3
+	return
+
 Move_TERA_BLAST::
 Move_GLAIVE_RUSH::
 Move_REVIVAL_BLESSING::
@@ -29940,12 +29981,12 @@ Move_IMPRISON:
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_ImprisonOrbs, 5
 	delay 8
-	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_ATTACKER, 8, 5
+	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 8, 5
 	waitforvisualfinish
 	delay 4
-	createsprite gRedXSpriteTemplate, ANIM_ATTACKER, 5, ANIM_ATTACKER, 40
+	createsprite gRedXSpriteTemplate, ANIM_TARGET, 5, ANIM_TARGET, 40
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 1, 10
-	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_TARGET
 	clearmonbg ANIM_DEF_PARTNER
 	call UnsetPsychicBg
 	end
@@ -32149,7 +32190,7 @@ Move_BONE_RUSH:
 	loadspritegfx ANIM_TAG_IMPACT
 	monbg ANIM_DEF_PARTNER
 	setalpha 12, 8
-	fadetobg BG_NIGHTMARE
+	fadetobg BG_GHOST
 	waitbgfadein
 	playsewithpan SE_M_BONEMERANG, SOUND_PAN_TARGET
 	createsprite gSpinningBoneSpriteTemplate, ANIM_ATTACKER, 2, -42, -25, 0, 0, 15

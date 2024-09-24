@@ -544,7 +544,7 @@ static void Cmd_presentdamagecalculation(void);
 static void Cmd_setsafeguard(void);
 static void Cmd_magnitudedamagecalculation(void);
 static void Cmd_ficklebeamdamagecalculation(void);
-static void Cmd_jumpifnopursuitswitchdmg(void);
+static void Cmd_jumpifpursuit(void);
 static void Cmd_setsunny(void);
 static void Cmd_halvehp(void);
 static void Cmd_copyfoestats(void);
@@ -805,7 +805,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_presentdamagecalculation,                //0xB7
     Cmd_setsafeguard,                            //0xB8
     Cmd_magnitudedamagecalculation,              //0xB9
-    Cmd_jumpifnopursuitswitchdmg,                //0xBA
+    Cmd_jumpifpursuit,                           //0xBA
     Cmd_setsunny,                                //0xBB
     Cmd_halvehp,                                 //0xBC
     Cmd_copyfoestats,                            //0xBD
@@ -1999,8 +1999,8 @@ static void Cmd_ppreduce(void)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
                     ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
-                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
+                    ppToDeduct += GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -2008,15 +2008,15 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                    ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                     ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         default:
             if (gBattlerAttacker != gBattlerTarget)
-                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                 ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             break;
         }
@@ -4428,6 +4428,18 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SPIKESSCATTERED;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_SpikesActivates;
+                }
+                break;
+            case MOVE_EFFECT_SYRUP_BOMB:
+                if (!(gStatuses4[gEffectBattler] & STATUS4_SYRUP_BOMB))
+                {
+                    struct Pokemon *party = GetBattlerParty(gBattlerAttacker);
+
+                    gStatuses4[gEffectBattler] |= STATUS4_SYRUP_BOMB;
+                    gDisableStructs[gEffectBattler].syrupBombTimer = 3;
+                    gBattleStruct->stickySyrupdBy[gEffectBattler] = gBattlerAttacker;
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_SyrupBombActivates;
                 }
                 break;
             case MOVE_EFFECT_TRIPLE_ARROWS:
@@ -7973,7 +7985,7 @@ static void Cmd_returntoball(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     BtlController_EmitReturnMonToBall(battler, BUFFER_A, TRUE);
     MarkBattlerForControllerExec(battler);
-
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -12358,45 +12370,26 @@ static void Cmd_various(void)
     case VARIOUS_CURE_CERTAIN_STATUSES:
     {
         VARIOUS_ARGS();
-        // Check infatuation
-        if (gBattleMons[battler].status2 & STATUS2_INFATUATION)
+
+        if (gBattleMons[battler].status2 & STATUS2_INFATUATION 
+        || gDisableStructs[battler].tauntTimer != 0
+        || gDisableStructs[battler].encoreTimer != 0
+        || gDisableStructs[battler].encoreTimer != 0
+        || gBattleMons[battler].status2 & STATUS2_TORMENT
+        || gStatuses3[battler] & STATUS3_HEAL_BLOCK
+        || gDisableStructs[battler].disableTimer != 0
+        || gBattleMons[battler].status2 & STATUS2_CONFUSION)
         {
             gBattleMons[battler].status2 &= ~(STATUS2_INFATUATION);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION;  // STRINGID_TARGETGOTOVERINFATUATION
-            StringCopy(gBattleTextBuff1, gStatusConditionString_LoveJpn);
-        }
-        // Check taunt
-        if (gDisableStructs[battler].tauntTimer != 0)
-        {
             gDisableStructs[battler].tauntTimer = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TAUNT;
-            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
-        }
-        // Check encore
-        if (gDisableStructs[battler].encoreTimer != 0)
-        {
             gDisableStructs[battler].encoredMove = 0;
             gDisableStructs[battler].encoreTimer = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_ENCORE;   // STRINGID_PKMNENCOREENDED
-        }
-        // Check torment
-        if (gBattleMons[battler].status2 & STATUS2_TORMENT)
-        {
-            gBattleMons[battler].status2 &= ~(STATUS2_TORMENT);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_TORMENT;
-        }
-        // Check heal block
-        if (gStatuses3[battler] & STATUS3_HEAL_BLOCK)
-        {
-            gStatuses3[battler] &= ~(STATUS3_HEAL_BLOCK);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_HEALBLOCK;
-        }
-        // Check disable
-        if (gDisableStructs[battler].disableTimer != 0)
-        {
+            gBattleMons[battler].status2 &= ~STATUS2_TORMENT;
+            gStatuses3[battler] &= ~STATUS3_HEAL_BLOCK;
             gDisableStructs[battler].disableTimer = 0;
             gDisableStructs[battler].disabledMove = 0;
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_DISABLE;
+            gBattleMons[battler].status2 &= ~(STATUS2_CONFUSION);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_INFATUATION; // STRINGID_TARGETGOTOVERINFATUATION
         }
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
@@ -12647,21 +12640,19 @@ static void Cmd_various(void)
     case VARIOUS_TRY_HEAL_ALL_HEALTH:
     {
         VARIOUS_ARGS(const u8 *failInstr);
-
-        const u8 *failInstr = cmd->failInstr;
-
-        if (cmd->battler == BS_ATTACKER)
-            gBattlerTarget = gBattlerAttacker;
-        gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP;
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
-        gBattleMoveDamage *= -1;
-
-        if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
-            gBattlescriptCurrInstr = failInstr;
+        if (BATTLER_MAX_HP(battler))
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
         else
+        {
+            gBattleMoveDamage = gBattleMons[battler].maxHP;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+            gBattleMoveDamage *= -1;
             gBattlescriptCurrInstr = cmd->nextInstr;
-        break;
+        }
+        return;
     }
     case VARIOUS_STAGGER_DAMAGE:
     {    
@@ -15759,7 +15750,7 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
 }
 
-static void Cmd_jumpifnopursuitswitchdmg(void)
+static void Cmd_jumpifpursuit(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
@@ -15795,13 +15786,13 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
         gCurrentMove = gChosenMoveByBattler[gBattlerTarget];
         gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerTarget);
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattlescriptCurrInstr = cmd->jumpInstr;
         gBattleScripting.animTurn = 1;
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     }
     else
     {
-        gBattlescriptCurrInstr = cmd->jumpInstr;
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
 
