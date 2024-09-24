@@ -1999,8 +1999,8 @@ static void Cmd_ppreduce(void)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
                     ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
-                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
+                    ppToDeduct += GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -2008,15 +2008,15 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                    ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                     ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         default:
             if (gBattlerAttacker != gBattlerTarget)
-                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                 ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             break;
         }
