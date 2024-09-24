@@ -544,7 +544,7 @@ static void Cmd_presentdamagecalculation(void);
 static void Cmd_setsafeguard(void);
 static void Cmd_magnitudedamagecalculation(void);
 static void Cmd_ficklebeamdamagecalculation(void);
-static void Cmd_jumpifnopursuitswitchdmg(void);
+static void Cmd_jumpifpursuit(void);
 static void Cmd_setsunny(void);
 static void Cmd_halvehp(void);
 static void Cmd_copyfoestats(void);
@@ -805,7 +805,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_presentdamagecalculation,                //0xB7
     Cmd_setsafeguard,                            //0xB8
     Cmd_magnitudedamagecalculation,              //0xB9
-    Cmd_jumpifnopursuitswitchdmg,                //0xBA
+    Cmd_jumpifpursuit,                           //0xBA
     Cmd_setsunny,                                //0xBB
     Cmd_halvehp,                                 //0xBC
     Cmd_copyfoestats,                            //0xBD
@@ -1999,8 +1999,8 @@ static void Cmd_ppreduce(void)
             {
                 if (i != gBattlerAttacker && IsBattlerAlive(i))
                     ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
-                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
+                    ppToDeduct += GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         case MOVE_TARGET_BOTH:
@@ -2008,15 +2008,15 @@ static void Cmd_ppreduce(void)
             for (i = 0; i < gBattlersCount; i++)
             {
                 if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
-                    ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                    ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                    ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                    ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                     ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             }
             break;
         default:
             if (gBattlerAttacker != gBattlerTarget)
-                ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
-                ppToDeduct += GetBattlerHoldEffect(gEffectBattler, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
+                ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE);
+                ppToDeduct += GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_SPECTRAL_IDOL * 2;
                 ppToDeduct += (GetBattlerAbility(gBattlerTarget) == ABILITY_SHUNYONG && gBattleResults.battleTurnCounter % 2 != 0);
             break;
         }
@@ -7985,7 +7985,7 @@ static void Cmd_returntoball(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     BtlController_EmitReturnMonToBall(battler, BUFFER_A, TRUE);
     MarkBattlerForControllerExec(battler);
-
+    
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
@@ -15750,7 +15750,7 @@ static void Cmd_dragonpokerdamagecalculation(void)
     }
 }
 
-static void Cmd_jumpifnopursuitswitchdmg(void)
+static void Cmd_jumpifpursuit(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
@@ -15786,13 +15786,13 @@ static void Cmd_jumpifnopursuitswitchdmg(void)
 
         gCurrentMove = gChosenMoveByBattler[gBattlerTarget];
         gCurrMovePos = gChosenMovePos = *(gBattleStruct->chosenMovePositions + gBattlerTarget);
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        gBattlescriptCurrInstr = cmd->jumpInstr;
         gBattleScripting.animTurn = 1;
         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     }
     else
     {
-        gBattlescriptCurrInstr = cmd->jumpInstr;
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
 

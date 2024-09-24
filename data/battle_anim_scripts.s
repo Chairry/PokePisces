@@ -29981,12 +29981,12 @@ Move_IMPRISON:
 	monbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_ImprisonOrbs, 5
 	delay 8
-	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_ATTACKER, 8, 5
+	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 8, 5
 	waitforvisualfinish
 	delay 4
-	createsprite gRedXSpriteTemplate, ANIM_ATTACKER, 5, ANIM_ATTACKER, 40
+	createsprite gRedXSpriteTemplate, ANIM_TARGET, 5, ANIM_TARGET, 40
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_PLAYER_LEFT, 1, 10
-	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
+	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_TARGET
 	clearmonbg ANIM_DEF_PARTNER
 	call UnsetPsychicBg
 	end
