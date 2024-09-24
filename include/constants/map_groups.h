@@ -180,6 +180,10 @@
 #define MAP_GYM6CORRIDOR                      (15 | (13 << 8))
 #define MAP_NEW_MAUVILLE_FLOOR2ROOMS          (16 | (13 << 8))
 #define MAP_NEW_MAUVILLE_RYDEL_CYCLES         (17 | (13 << 8))
+#define MAP_OCEANIC_MUSEUM_NEW                (18 | (13 << 8))
+#define MAP_SOUTHERN_ISLAND                   (19 | (13 << 8))
+#define MAP_VERDANTURF_GYM                    (20 | (13 << 8))
+#define MAP_SLATEPORT_INTERIORS               (21 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))
