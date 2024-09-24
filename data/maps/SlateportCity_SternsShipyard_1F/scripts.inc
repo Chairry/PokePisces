@@ -1,55 +1,101 @@
-.set LOCALID_DOCK, 1
+.set LOCALID_BARD, 1
+.set LOCALID_P_MAN, 4
 
 SlateportCity_SternsShipyard_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, SlateportCity_SternsShipyard_1F_OnLoad
 	.byte 0
 
+SlateportCity_SternsShipyard_1F_OnLoad:
+	call_if_lt VAR_OLD_GUYS_STATE, 9, SlateportCity_SternsShipyard_1F_EventScript_SetBardGfx
+	call SlateportCity_SternsShipyard_1F_EventScript_RemoveKizuna
+	call_if_ge VAR_OLD_GUYS_STATE, 9, SlateportCity_SternsShipyard_1F_EventScript_RemoveDock
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_SetBardGfx::
+	setvar VAR_BARD_COLOR, MAUVILLE_MAN_BARD
+	special SetMauvilleOldManObjEventGfx
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_RemoveKizuna::
+	removeobject LOCALID_P_MAN
+	setflag FLAG_TEMP_11
+	return
+
+SlateportCity_SternsShipyard_1F_EventScript_RemoveDock::
+	removeobject LOCALID_BARD
+	setflag FLAG_TEMP_12
+	return	
+
 SlateportCity_SternsShipyard_1F_EventScript_Dock::
-	lockall
-	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_SternsShipyard_1F_EventScript_FerryReady
-	goto_if_set FLAG_BADGE07_GET, SlateportCity_SternsShipyard_1F_EventScript_BrineyJoined
-	goto_if_set FLAG_DELIVERED_DEVON_GOODS, SlateportCity_SternsShipyard_1F_EventScript_NeedVeteran
-	goto_if_set FLAG_DOCK_REJECTED_DEVON_GOODS, SlateportCity_SternsShipyard_1F_EventScript_GoFindStern
-	msgbox SlateportCity_SternsShipyard_1F_Text_CantMakeHeadsOrTails, MSGBOX_DEFAULT
-	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SlateportCity_SternsShipyard_1F_Text_MeetDockDeliverToStern, MSGBOX_DEFAULT
+	lock
+	faceplayer
+	goto_if_set FLAG_DOCK_QUEST_FOUND_STERN, SlateportCity_SternsShipyard_1F_EventScript_DockCheckDrake
+	goto_if_lt VAR_OLD_GUYS_STATE, 7, SlateportCity_SternsShipyard_1F_EventScript_DockPreRydel
+	goto_if_eq VAR_OLD_GUYS_STATE, 8, SlateportCity_SternsShipyard_1F_EventScript_DockDuringMission
+	msgbox SlateportCity_SternsShipyard_1F_Text_IAmTheBard, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_DOCK, Common_Movement_FaceOriginalDirection
+	playse SE_DOOR
+	clearflag FLAG_TEMP_11
+	addobject LOCALID_P_MAN
+	applymovement LOCALID_P_MAN, SlateportCity_SternsShipyard_1F_Movement_KizunaEnters
 	waitmovement 0
-	setflag FLAG_DOCK_REJECTED_DEVON_GOODS
-	setflag FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA
-	releaseall
-	end
-
-SlateportCity_SternsShipyard_1F_EventScript_FerryReady::
-	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SlateportCity_SternsShipyard_1F_Text_FerryIsReady, MSGBOX_DEFAULT
-	releaseall
-	end
-
-SlateportCity_SternsShipyard_1F_EventScript_BrineyJoined::
-	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SlateportCity_SternsShipyard_1F_Text_BrineyJoinedUs, MSGBOX_DEFAULT
-	releaseall
-	end
-
-SlateportCity_SternsShipyard_1F_EventScript_GoFindStern::
-	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SlateportCity_SternsShipyard_1F_Text_CouldYouFindStern, MSGBOX_DEFAULT
+	speakername SlateportCity_SternsShipyard_1F_Text_NameKizuna
+	msgbox SlateportCity_SternsShipyard_1F_Text_YoureOurNextGuy, MSGBOX_DEFAULT
+	speakername SlateportCity_SternsShipyard_1F_Text_NameDock
+	msgbox SlateportCity_SternsShipyard_1F_Text_BeforeIRetire, MSGBOX_DEFAULT
+	speakername SlateportCity_SternsShipyard_1F_Text_NameKizuna
+	msgbox SlateportCity_SternsShipyard_1F_Text_WeCanDoThat, MSGBOX_DEFAULT
+	setvar VAR_OLD_GUYS_STATE, 8
 	closemessage
-	applymovement LOCALID_DOCK, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
+	release
 	end
 
-SlateportCity_SternsShipyard_1F_EventScript_NeedVeteran::
-	applymovement LOCALID_DOCK, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox SlateportCity_SternsShipyard_1F_Text_CouldUseAdviceFromVeteran, MSGBOX_DEFAULT
-	releaseall
+SlateportCity_SternsShipyard_1F_Movement_KizunaEnters:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SlateportCity_SternsShipyard_1F_EventScript_DockCheckDrake::
+	goto_if_set FLAG_DOCK_QUEST_FOUND_DRAKE, SlateportCity_SternsShipyard_1F_EventScript_DockCheckArchie
+	speakername SlateportCity_SternsShipyard_1F_Text_NameDock
+	msgbox SlateportCity_SternsShipyard_1F_Text_DockDuringMission, MSGBOX_AUTOCLOSE
+	release
+	end	
+
+SlateportCity_SternsShipyard_1F_EventScript_DockCheckArchie::
+	goto_if_set FLAG_DOCK_QUEST_FOUND_DRAKE, SlateportCity_SternsShipyard_1F_EventScript_DockFoundAll
+	speakername SlateportCity_SternsShipyard_1F_Text_NameDock
+	msgbox SlateportCity_SternsShipyard_1F_Text_DockDuringMission, MSGBOX_AUTOCLOSE
+	release
+	end	
+
+SlateportCity_SternsShipyard_1F_EventScript_DockFoundAll::
+	speakername SlateportCity_SternsShipyard_1F_Text_NameDock
+	msgbox SlateportCity_SternsShipyard_1F_Text_TheyreAllReady, MSGBOX_DEFAULT
+	setvar VAR_OLD_GUYS_STATE, 9
+	warp MAP_SEA_MAUVILLE, 41, 54
+	closemessage
+	release
+	end
+
+SlateportCity_SternsShipyard_1F_EventScript_DockPreRydel::
+	msgbox SlateportCity_SternsShipyard_1F_Text_DockPreRydel, MSGBOX_AUTOCLOSE
+	release
+	end	
+
+SlateportCity_SternsShipyard_1F_EventScript_DockDuringMission::
+	speakername SlateportCity_SternsShipyard_1F_Text_NameDock
+	msgbox SlateportCity_SternsShipyard_1F_Text_DockDuringMission, MSGBOX_AUTOCLOSE
+	release
+	end	
+
+SlateportCity_SternsShipyard_1F_EventScript_KizunaIdle::
+	msgbox SlateportCity_SternsShipyard_1F_Text_KizunaIdle, MSGBOX_NPC
 	end
 
 SlateportCity_SternsShipyard_1F_EventScript_Scientist1::
@@ -64,55 +110,35 @@ SlateportCity_SternsShipyard_1F_EventScript_Briney::
 	msgbox SlateportCity_SternsShipyard_1F_Text_DecidedToHelpDock, MSGBOX_NPC
 	end
 
-SlateportCity_SternsShipyard_1F_Text_CantMakeHeadsOrTails:
-	.string "Umm… If this goes here, and that\n"
-	.string "goes over there…\p"
-	.string "Then where does this thing go?\n"
-	.string "And what about that doohickey?\p"
-	.string "Aaargh! I can't make heads or tails\n"
-	.string "of this!$"
+SlateportCity_SternsShipyard_1F_Text_NameKizuna:
+	.string "Kizuna$"
 
-SlateportCity_SternsShipyard_1F_Text_MeetDockDeliverToStern:
-	.string "Hm?\n"
-	.string "Hi, I'm DOCK.\p"
-	.string "CAPT. STERN commissioned me to\n"
-	.string "design a ferry.\p"
-	.string "Oh! That there…\n"
-	.string "Are they DEVON GOODS?\p"
-	.string "But, hmm…\n"
-	.string "This won't do…\p"
-	.string "CAPT. STERN went off somewhere.\n"
-	.string "He said he had some work to do.\p"
-	.string "Could I get you to go find CAPT.\n"
-	.string "STERN and deliver that to him?$"
+SlateportCity_SternsShipyard_1F_Text_NameDock:
+	.string "Dock$"
 
-SlateportCity_SternsShipyard_1F_Text_CouldYouFindStern:
-	.string "DOCK: Where could CAPT. STERN have\n"
-	.string "gone off to?\p"
-	.string "Could you go find CAPT. STERN and\n"
-	.string "deliver that parcel to him?$"
+SlateportCity_SternsShipyard_1F_Text_DockPreRydel:
+	.string "go do giddy and rydel$"
 
-SlateportCity_SternsShipyard_1F_Text_CouldUseAdviceFromVeteran:
-	.string "DOCK: Shipbuilding is an art.\p"
-	.string "A lot of things can't be figured out\n"
-	.string "just by calculating.\p"
-	.string "I really could use advice from a veteran\n"
-	.string "who knows the seas…$"
+SlateportCity_SternsShipyard_1F_Text_IAmTheBard:
+	.string "im the bard dock$"
 
-SlateportCity_SternsShipyard_1F_Text_BrineyJoinedUs:
-	.string "DOCK: Hi! MR. BRINEY's joined us to\n"
-	.string "lend us his help.\p"
-	.string "Thanks to the veteran sailor, the\n"
-	.string "ferry is steadily coming together.$"
+SlateportCity_SternsShipyard_1F_Text_YoureOurNextGuy:
+	.string "you are next mf$"
 
-SlateportCity_SternsShipyard_1F_Text_FerryIsReady:
-	.string "DOCK: The ferry is finally ready!\p"
-	.string "The new S.S. TIDAL is truly a marvel\n"
-	.string "of technology!\p"
-	.string "But, I get the feeling that we can\n"
-	.string "make something even better.\p"
-	.string "You know, there's never an end to\n"
-	.string "technology's march.$"
+SlateportCity_SternsShipyard_1F_Text_BeforeIRetire:
+	.string "before i retire gather my doods$"
+
+SlateportCity_SternsShipyard_1F_Text_WeCanDoThat:
+	.string "ok$"
+
+SlateportCity_SternsShipyard_1F_Text_KizunaIdle:
+	.string "gotta get da doods$"
+
+SlateportCity_SternsShipyard_1F_Text_DockDuringMission:
+	.string "gather my doods$"
+
+SlateportCity_SternsShipyard_1F_Text_TheyreAllReady:
+	.string "doods have been gathered$"
 
 SlateportCity_SternsShipyard_1F_Text_DecidedToHelpDock:
 	.string "MR. BRINEY: Ah, {PLAYER}{KUN}!\n"

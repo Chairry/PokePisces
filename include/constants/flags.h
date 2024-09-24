@@ -666,9 +666,9 @@
 #define FLAG_DEFEATED_ANTON  0x26F // Unused Flag
 #define FLAG_SOLVED_TRICK_HOUSE_CODE  0x270 // Unused Flag
 #define FLAG_SOLVED_5_FAERED_PUZZLE  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
+#define FLAG_DOCK_QUEST_FOUND_STERN  0x272 // Unused Flag
+#define FLAG_DOCK_QUEST_FOUND_DRAKE  0x273 // Unused Flag
+#define FLAG_DOCK_QUEST_FOUND_ARCHIE  0x274 // Unused Flag
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
