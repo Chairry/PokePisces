@@ -5592,7 +5592,7 @@ BattleScript_EffectLaserFocusAttackUp:
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_LaserFocusStatUpEnd
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LaserFocusAnim
 	pause B_WAIT_TIME_SHORT
-	goto BattleScript_StatUpPrintString
+	goto BattleScript_LaserFocusStatUpPrintString
 BattleScript_LaserFocusAnim:
 	attackanimation
 	waitanimation
@@ -9394,17 +9394,41 @@ BattleScript_EffectConversion2::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectLockOn::
+	jumpifnothit BattleScript_EffectLockOnSpAttackUp
 	attackcanceler
 	attackstring
 	ppreduce
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifsafeguard BattleScript_ButItFailed
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	setalwayshitflag
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNTOOKAIM
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_EffectLockOnSpAttackUp:
+	setstatchanger STAT_SPATK, 2, FALSE
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifsafeguard BattleScript_ButItFailed
+	setalwayshitflag
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_LockOnStatUpEnd
+	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_LockOnAnim
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_LockOnStatUpPrintString
+BattleScript_LockOnAnim:
+	attackanimation
+	waitanimation
+	setgraphicalstatchangevalues
+	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_LockOnStatUpPrintString::
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_PKMNTOOKAIM
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_LockOnStatUpEnd::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectSketch::

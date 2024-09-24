@@ -5875,6 +5875,15 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
         else if (gBattleMons[battlerAtk].type3 != TYPE_MYSTERY)
             gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type3 | F_DYNAMIC_TYPE_2;
     }
+    else if (gBattleMoves[move].effect == EFFECT_SYNCHRONOISE)
+    {
+        if (gBattleMons[battlerDef].type1 != TYPE_MYSTERY)
+            gBattleStruct->dynamicMoveType = gBattleMons[battlerDef].type1 | F_DYNAMIC_TYPE_2;
+        else if (gBattleMons[battlerDef].type2 != TYPE_MYSTERY)
+            gBattleStruct->dynamicMoveType = gBattleMons[battlerDef].type2 | F_DYNAMIC_TYPE_2;
+        else if (gBattleMons[battlerDef].type3 != TYPE_MYSTERY)
+            gBattleStruct->dynamicMoveType = gBattleMons[battlerDef].type3 | F_DYNAMIC_TYPE_2;
+    }
     else if (gCurrentMove == MOVE_RAGING_BULL && gBattleMons[battlerAtk].type2 != TYPE_MYSTERY)
     {
         gBattleStruct->dynamicMoveType = gBattleMons[battlerAtk].type2 | F_DYNAMIC_TYPE_2;

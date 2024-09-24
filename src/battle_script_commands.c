@@ -15678,7 +15678,7 @@ static void Cmd_ficklebeamdamagecalculation(void)
     CMD_ARGS();
     gBattleStruct->fickleBeamBoosted = FALSE;
 
-    if (RandomPercentage(RNG_FICKLE_BEAM, 30))
+    if (RandomPercentage(RNG_FICKLE_BEAM, CalcSecondaryEffectChance(gBattlerAttacker, 30)))
     {
         gBattleStruct->fickleBeamBoosted = TRUE;
         if (gCurrentMove == MOVE_DRAGON_CLAW)
