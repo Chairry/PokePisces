@@ -142,6 +142,7 @@
 #define MAP_GYM5CORRIDOR                     (5 | (11 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_1F            (6 | (11 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_B1F           (7 | (11 << 8))
+#define MAP_FOSSIL_SHORE                     (8 | (11 << 8))
 
 // gMapGroup_PiscesLeg7Major
 #define MAP_SWELTORN_DESERT           (0 | (12 << 8))

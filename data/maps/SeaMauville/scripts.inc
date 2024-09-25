@@ -1,5 +1,6 @@
 .set LOCALID_P_MAN, 11
 .set LOCALID_P_MAN2, 9
+.set LOCALID_P_MAN3, 12
 .set LOCALID_BARD, 8
 .set LOCALID_TRADER, 10
 .set LOCALID_DRAKE, 7
@@ -30,12 +31,12 @@ SeaMauville_OnLoad:
 SeaMauville_EventScript_SetTraderGfx::
 	setvar VAR_BARD_COLOR, MAUVILLE_MAN_TRADER
 	special SetMauvilleOldManObjEventGfx
-	end
+	return
 
 SeaMauville_EventScript_SetBardGfx::
 	setvar VAR_BARD_COLOR, MAUVILLE_MAN_BARD
 	special SetMauvilleOldManObjEventGfx
-	end
+	return
 
 SeaMauville_EventScript_RemoveSeafarers::
 	removeobject LOCALID_ARCHIE
@@ -53,6 +54,8 @@ SeaMauville_EventScript_RemoveSeafarers::
 SeaMauville_EventScript_RemoveKizuna::
 	removeobject LOCALID_P_MAN
 	setflag FLAG_TEMP_11
+	removeobject LOCALID_P_MAN3
+	setflag FLAG_TEMP_19
 	return
 
 SeaMauville_EventScript_RemoveNue::
@@ -130,11 +133,67 @@ SeaMauville_EventScript_MustSail::
 	lock
 	msgbox SeaMauville_Text_MustSail, MSGBOX_AUTOCLOSE 
 	applymovement OBJ_EVENT_ID_PLAYER, SeaMauville_Movement_WalkRight
+	waitmovement 0
 	release
 	end
 
 SeaMauville_Movement_WalkRight:
 	walk_right
+	step_end
+
+SeaMauville_EventScript_PostIslandUpperTrigger::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, SeaMauville_Movement_MoveToRight
+	goto SeaMauville_EventScript_KizunaPostIsland
+	release
+	end
+
+SeaMauville_EventScript_KizunaPostIsland::
+	lock
+	clearflag FLAG_TEMP_19
+	addobject LOCALID_P_MAN3
+	playse SE_DOOR
+	waitse
+	applymovement LOCALID_P_MAN3, SeaMauville_Movement_KizunaGetOffShip
+	waitmovement 0
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_AboutDock, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_P_MAN3, SeaMauville_Movement_KizunaGoToMarket
+	waitmovement 0
+	setvar VAR_OLD_GUYS_STATE, 12
+	removeobject LOCALID_P_MAN3
+	setflag FLAG_TEMP_19
+	release
+	end
+
+SeaMauville_Movement_MoveToRight:
+	walk_right
+	face_down
+	step_end
+
+SeaMauville_Movement_KizunaGetOffShip:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+SeaMauville_Movement_KizunaGoToMarket:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 SeaMauville_EventScript_Nue::
@@ -215,3 +274,7 @@ SeaMauville_Text_DockIdle:
 
 SeaMauville_Text_MustSail:
 	.string "must sail$"
+
+SeaMauville_Text_AboutDock:
+	.string "so whats dock deal\p"
+	.string "anyways letsgo to market$"

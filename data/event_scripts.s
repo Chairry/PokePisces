@@ -3693,3 +3693,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/VerdanturfGym/scripts.inc"
 
 	.include "data/maps/SlateportInteriors/scripts.inc"
+
+	.include "data/maps/FossilShore/scripts.inc"

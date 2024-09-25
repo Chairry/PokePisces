@@ -5710,6 +5710,16 @@
       "secondary_tileset": "gTileset_BattleFrontier",
       "border_filepath": "data/layouts/SlateportInteriors/border.bin",
       "blockdata_filepath": "data/layouts/SlateportInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_SHORE",
+      "name": "FossilShore_Layout",
+      "width": 28,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/FossilShore/border.bin",
+      "blockdata_filepath": "data/layouts/FossilShore/map.bin"
     }
   ]
 }

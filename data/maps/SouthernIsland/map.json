@@ -32,12 +32,12 @@
       "x": 4,
       "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SouthernIsland_EventScript_BrineyFastTravel",
       "flag": "FLAG_TEMP_13"
     },
     {
@@ -134,9 +134,9 @@
       "x": 20,
       "y": 29,
       "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_OLD_GUYS_STATE",
+      "var_value": "10",
+      "script": "SouthernIsland_EventScript_BardSingsSong"
     }
   ],
   "bg_events": [
