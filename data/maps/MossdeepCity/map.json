@@ -592,6 +592,42 @@
       "var": "VAR_TEMP_4",
       "var_value": "5",
       "script": "MossdeepCity_EventScript_EggEncounter6FinalRight"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MossdeepCity_EventScript_EggEncounter3East"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MossdeepCity_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "2",
+      "script": "MossdeepCity_EventScript_EggEncounter3West"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 31,
+      "elevation": 0,
+      "var": "VAR_TEMP_4",
+      "var_value": "0",
+      "script": "MossdeepCity_EventScript_EggEncounter1West"
     }
   ],
   "bg_events": [
