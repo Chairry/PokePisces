@@ -19,13 +19,14 @@ SeaMauville_OnLoad:
 	call_if_eq VAR_OLD_GUYS_STATE, 12, SeaMauville_EventScript_SetTraderGfx
 	call_if_eq VAR_OLD_GUYS_STATE, 13, SeaMauville_EventScript_SetTraderGfx
 	call_if_eq VAR_OLD_GUYS_STATE, 14, SeaMauville_EventScript_SetTraderGfx
+	call_if_eq VAR_OLD_GUYS_STATE, 15, SeaMauville_EventScript_SetTraderGfx
 	call_if_lt VAR_OLD_GUYS_STATE, 9, SeaMauville_EventScript_RemoveSeafarers
 	call_if_gt VAR_OLD_GUYS_STATE, 9, SeaMauville_EventScript_RemoveSeafarers
 	call SeaMauville_EventScript_RemoveKizuna
 	call SeaMauville_EventScript_RemoveNue
 	call_if_eq VAR_OLD_GUYS_STATE, 9, SeaMauville_EventScript_RemoveNob
 	call_if_eq VAR_OLD_GUYS_STATE, 10, SeaMauville_EventScript_RemoveNob
-	call_if_gt VAR_OLD_GUYS_STATE, 14, SeaMauville_EventScript_RemoveNob
+	call_if_ge VAR_OLD_GUYS_STATE, 16, SeaMauville_EventScript_RemoveNob
 	end
 
 SeaMauville_EventScript_SetTraderGfx::
@@ -196,6 +197,171 @@ SeaMauville_Movement_KizunaGoToMarket:
 	walk_up
 	step_end
 
+SeaMauville_EventScript_Nob::
+	lock
+	faceplayer
+	goto_if_lt VAR_OLD_GUYS_STATE, 12, SeaMauville_EventScript_NobPreDock
+	goto_if_eq VAR_OLD_GUYS_STATE, 13, SeaMauville_EventScript_NobStartedQuest
+	goto_if_eq VAR_OLD_GUYS_STATE, 14, SeaMauville_EventScript_NobStartedQuest
+	goto_if_eq VAR_OLD_GUYS_STATE, 15, SeaMauville_EventScript_NobRetire
+	msgbox SeaMauville_Text_TraderGreeting, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_OLD_GUYS_STATE, 13
+	clearflag FLAG_TEMP_11
+	addobject LOCALID_P_MAN
+	delay 8
+	applymovement LOCALID_P_MAN, SeaMauville_Movement_KizunaGreetNob
+	waitmovement 0
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_HesSpeakingJapanese, MSGBOX_DEFAULT
+	speakername SeaMauville_Text_NameNob
+	msgbox SeaMauville_Text_IWantThis, MSGBOX_DEFAULT
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_LetsTryAndFigureItOut, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_Movement_KizunaGreetNob:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SeaMauville_EventScript_NobPreDock::
+	msgbox SeaMauville_Text_NobPreDock, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_NobStartedQuest::
+	speakername SeaMauville_Text_NameNob
+	msgbox SeaMauville_Text_NobStartedQuest, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_NobRetire::
+	speakername SeaMauville_Text_NameNob
+	msgbox SeaMauville_Text_IWillTradeForThatItem, MSGBOX_DEFAULT
+	giveitem ITEM_LOADED_DICE, 1
+	speakername SeaMauville_Text_NameNob
+	msgbox SeaMauville_Text_ThanksForYourTime, MSGBOX_DEFAULT
+	closemessage
+	clearflag FLAG_TEMP_11
+	addobject LOCALID_P_MAN
+	delay 8
+	applymovement LOCALID_P_MAN, SeaMauville_Movement_KizunaGreetNob
+	waitmovement 0
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_YouAllSet, MSGBOX_DEFAULT
+	fadenewbgm MUS_VERDANTURF
+	speakername SeaMauville_Text_NameNob
+	msgbox SeaMauville_Text_YesItsMyTimeToGo, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, SeaMauville_Movement_PlayerMoveOutOfWay
+	waitmovement 0
+	playse SE_M_MEGA_KICK
+	applymovement LOCALID_P_MAN, SeaMauville_Movement_KizunaAbsorbNob
+	waitmovement 0
+	removeobject LOCALID_TRADER
+	setflag FLAG_TEMP_12
+	setvar VAR_OLD_GUYS_STATE, 16
+	playse SE_M_FAINT_ATTACK
+	waitse
+	fadenewbgm MUS_NONE
+	applymovement LOCALID_P_MAN, SeaMauville_Movement_KizunaFormUp
+	waitmovement 0
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_OneMoreToGo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_P_MAN, SeaMauville_Movement_KizunaWalkAway
+	waitmovement 0
+	fadenewbgm MUS_SLATEPORT
+	delay 16
+	removeobject LOCALID_P_MAN
+	setflag FLAG_TEMP_11
+	release
+	end
+
+SeaMauville_Movement_PlayerMoveOutOfWay:
+	walk_right
+	delay_4
+	face_left
+	step_end
+
+SeaMauville_Movement_KizunaAbsorbNob:
+	walk_fast_right
+	walk_slow_up
+	step_end
+
+SeaMauville_Movement_KizunaFormUp:
+	walk_slow_down
+	delay_8
+	face_right
+	step_end
+
+SeaMauville_Movement_KizunaWalkAway:
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	step_end
+
+SeaMauville_EventScript_KizunaIdle2::
+	speakername SeaMauville_Text_NameKizuna
+	msgbox SeaMauville_Text_KizunaIdle2, MSGBOX_NPC
+	end
+
+SeaMauville_EventScript_SuitcaseInterceptor::
+	lock
+	faceplayer
+	goto_if_eq VAR_OLD_GUYS_STATE, 13, SeaMauville_EventScript_GoGetThatSuitcase
+	goto_if_eq VAR_OLD_GUYS_STATE, 14, SeaMauville_EventScript_SuitcaseInstructions
+	goto_if_eq VAR_OLD_GUYS_STATE, 14, SeaMauville_EventScript_TradeSuitcaseForTeachyTV
+	goto_if_gt VAR_OLD_GUYS_STATE, 15, SeaMauville_EventScript_ThanksForSuitcase
+	msgbox SeaMauville_Text_ImUpToNoGood, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_GoGetThatSuitcase::
+	setvar VAR_OLD_GUYS_STATE, 14
+	msgbox SeaMauville_Text_GoGetMeASuitcase, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_SuitcaseInstructions::
+	msgbox SeaMauville_Text_SuitcaseInstructions, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_TradeSuitcaseForTeachyTV::
+	msgbox SeaMauville_Text_YouGotTheStuff, MSGBOX_DEFAULT
+	removeitem ITEM_DEVON_PARTS, 1
+	giveitem ITEM_TEACHY_TV
+	msgbox SeaMauville_Text_ThanksForSuitcase, MSGBOX_AUTOCLOSE
+	release
+	end
+
+SeaMauville_EventScript_ThanksForSuitcase::
+	msgbox SeaMauville_Text_ThanksForSuitcase, MSGBOX_AUTOCLOSE
+	release
+	end
+
 SeaMauville_EventScript_Nue::
     trainerbattle_single TRAINER_P_NUE, SeaMauville_Text_NueIntro, SeaMauville_Text_NueDefeated
     msgbox SeaMauville_Text_NuePostBattle, MSGBOX_AUTOCLOSE
@@ -278,3 +444,54 @@ SeaMauville_Text_MustSail:
 SeaMauville_Text_AboutDock:
 	.string "so whats dock deal\p"
 	.string "anyways letsgo to market$"
+
+SeaMauville_Text_TraderGreeting:
+	.string "$"
+
+SeaMauville_Text_HesSpeakingJapanese:
+	.string "$"
+
+SeaMauville_Text_IWantThis:
+	.string "$"
+
+SeaMauville_Text_LetsTryAndFigureItOut:
+	.string "$"
+
+SeaMauville_Text_NobPreDock:
+	.string "$"
+
+SeaMauville_Text_NobStartedQuest:
+	.string "$"
+
+SeaMauville_Text_IWillTradeForThatItem:
+	.string "$"
+
+SeaMauville_Text_ThanksForYourTime:
+	.string "$"
+
+SeaMauville_Text_YouAllSet:
+	.string "$"
+
+SeaMauville_Text_YesItsMyTimeToGo:
+	.string "$"
+
+SeaMauville_Text_OneMoreToGo:
+	.string "$"
+
+SeaMauville_Text_KizunaIdle2:
+	.string "figure it out ig$"
+
+SeaMauville_Text_ImUpToNoGood:
+	.string "$"
+
+SeaMauville_Text_GoGetMeASuitcase:
+	.string "$"
+
+SeaMauville_Text_SuitcaseInstructions:
+	.string "$"
+
+SeaMauville_Text_YouGotTheStuff:
+	.string "$"
+
+SeaMauville_Text_ThanksForSuitcase:
+	.string "$"

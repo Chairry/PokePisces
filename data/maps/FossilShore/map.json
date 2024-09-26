@@ -27,15 +27,15 @@
       "x": 6,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_FOSSIL_SHORE",
+      "dest_map": "MAP_FOSSIL_SHORE_HOUSES",
       "dest_warp_id": "0"
     },
     {
       "x": 18,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_FOSSIL_SHORE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FOSSIL_SHORE_HOUSES",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

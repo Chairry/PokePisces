@@ -5720,6 +5720,16 @@
       "secondary_tileset": "gTileset_Chimney",
       "border_filepath": "data/layouts/FossilShore/border.bin",
       "blockdata_filepath": "data/layouts/FossilShore/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_SHORE_HOUSES",
+      "name": "FossilShoreHouses_Layout",
+      "width": 14,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FossilShoreHouses/border.bin",
+      "blockdata_filepath": "data/layouts/FossilShoreHouses/map.bin"
     }
   ]
 }

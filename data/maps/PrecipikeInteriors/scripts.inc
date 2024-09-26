@@ -101,25 +101,43 @@ PrecipikeInteriors_EventScript_SadFisherman::
 	lock
 	faceplayer
 	speakername PrecipikeInteriors_Text_NameSadFisher
-	goto_if_unset FLAG_RECEIVED_OLD_ROD, PrecipikeInteriors_EventScript_GoGetOldRod
+	goto_if_unset FLAG_RECEIVED_OLD_ROD, PrecipikeInteriors_EventScript_NoOldRod
 	goto_if_set FLAG_RECEIVED_GOOD_ROD, PrecipikeInteriors_EventScript_HowsFishing
 	msgbox PrecipikeInteriors_Text_GettingItchToFish, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, PrecipikeInteriors_EventScript_BattleSadFisher
 	goto_if_eq VAR_RESULT, NO, PrecipikeInteriors_EventScript_NotGettingItchToFish
 	end
 
-PrecipikeInteriors_EventScript_GoGetOldRod::
-	msgbox PrecipikeInteriors_Text_GoGetOldRod, MSGBOX_AUTOCLOSE
+PrecipikeInteriors_EventScript_NoOldRod::
+	msgbox PrecipikeInteriors_Text_NoOldRod, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PrecipikeInteriors_EventScript_BattleSadFisherNoOldRod
+	msgbox PrecipikeInteriors_Text_DontLetDoorHitYa, MSGBOX_AUTOCLOSE
+	speakername NULL
+	release
+	end
+
+PrecipikeInteriors_EventScript_BattleSadFisherNoOldRod::
+	trainerbattle_single TRAINER_P_SADFISHER_2, PrecipikeInteriors_Text_SadFisherIntro, PrecipikeInteriors_Text_SadFisherDefeat, PrecipikeInteriors_EventScript_GiveOldAndGoodRod
+	release
+	end
+
+PrecipikeInteriors_EventScript_GiveOldAndGoodRod::
+	msgbox PrecipikeInteriors_Text_PostNoOld, MSGBOX_DEFAULT
+	giveitem ITEM_OLD_ROD
+	setflag FLAG_RECEIVED_OLD_ROD
+	giveitem ITEM_GOOD_ROD
+	setflag FLAG_RECEIVED_GOOD_ROD
+	msgbox PrecipikeInteriors_Text_FishingAdviceNoOld, MSGBOX_DEFAULT
 	speakername NULL
 	release
 	end
 
 PrecipikeInteriors_EventScript_BattleSadFisher::
-	trainerbattle_single TRAINER_P_SADFISHER_2, PrecipikeInteriors_Text_SadFisherIntro, PrecipikeInteriors_Text_SadFisherDefeat, PrecipikeInteriors_EventScript_GiveOldRod
+	trainerbattle_single TRAINER_P_SADFISHER_2, PrecipikeInteriors_Text_SadFisherIntro, PrecipikeInteriors_Text_SadFisherDefeat, PrecipikeInteriors_EventScript_GiveGoodRod
 	release
 	end
 
-PrecipikeInteriors_EventScript_GiveOldRod::
+PrecipikeInteriors_EventScript_GiveGoodRod::
 	msgbox PrecipikeInteriors_Text_GiveYouOneOfMyRods, MSGBOX_DEFAULT
 	giveitem ITEM_GOOD_ROD
 	setflag FLAG_RECEIVED_GOOD_ROD
@@ -162,34 +180,95 @@ PrecipikeInteriors_Text_NameSadFisher:
 	.string "Sad Fisher$"
 
 PrecipikeInteriors_Text_GettingItchToFish:
-	.string "want to fight me for goodrod$"
+	.string "Surprised to come upon me again, eh?\n"
+	.string "Well, the shores have a way of\l"
+	.string "keepin' fishers connected.\p"
+	.string "I see you've been gettin' good use\n"
+	.string "out of your current fishin' skills.\l"
+	.string "Maybe it's time you got yourself\l"
+	.string "a shiny new upgrade.\p"
+	.string "Lucky you. I have a spare rod.\n"
+	.string "Bit of a step up from your gear.\l"
+	.string "But I ain't givin' it up\l"
+	.string "without a battle, rookie.\p"
+	.string "You prepared?\n"
+	.string "I ain't goin' easy on ya this time.$"
 
-PrecipikeInteriors_Text_GoGetOldRod:
-	.string "go get the old rod stupi$"
+PrecipikeInteriors_Text_NoOldRod:
+	.string "...Hey, stranger.\p"
+	.string "Hmm... you've gotten this far\n"
+	.string "without any fishin' whatsoever!?\l"
+	.string "Must be equally foolish, and lucky.\p"
+	.string "MAYBE I shouldn't give you the\n"
+	.string "courtesy of offerin' a Good Rod.\l"
+	.string "But... eh, what's a hobby\l"
+	.string "if ya don't try sharin' it.\p"
+	.string "Best me in battle, I give ya\n"
+	.string "an Old AND Good Rod. But I'm\l"
+	.string "a high level competitor...\p"
+	.string "Sound like a plan?\n$"
 
 PrecipikeInteriors_Text_SadFisherIntro:
-	.string "gonna beat your ass$"
+	.string "Don't you shed a tear\n"
+	.string "when you get whooped, y'hear?$"
 
 PrecipikeInteriors_Text_SadFisherDefeat:
-	.string "oh no !$"
+	.string "...Showed me up.$"
 
 PrecipikeInteriors_Text_GiveYouOneOfMyRods:
-	.string "have my rod lol$"
+	.string "Time for the next level, {PLAYER}.$"
 
 PrecipikeInteriors_Text_ThrowInFishingAdvice:
-	.string "heres advice; fish$"
+	.string "This rod is more enticing\n"
+	.string "to a broad range of aquatic Pokemon.\l"
+	.string "I'd advise usin' it whenever\l"
+	.string "you see water. You'll haul in\l"
+	.string "quite a few new catches.$"
 
 PrecipikeInteriors_Text_ThatsTooBadThen:
-	.string "coward$"
+	.string "Hah!\n"
+	.string "Once a rookie, always a rookie.$"
+
+PrecipikeInteriors_Text_DontLetDoorHitYa:
+	.string "Then don't let the door hit ya\n"
+	.string "on your way out.$"
+
+PrecipikeInteriors_Text_PostNoOld:
+	.string "Fair n' square. Here's your gear.$"
+
+PrecipikeInteriors_Text_FishingAdviceNoOld:
+	.string "Take them there rods out to any\n"
+	.string "shoreline and let 'em rip.\l"
+	.string "Huge variety of Pokemon in\l"
+	.string "the water that you can't be\l"
+	.string "gettin' anywhere else.\p"
+	.string "Don't remain ignorant to the\n"
+	.string "call of the seas, got it?\l"
+	.string "...n' best of luck to ya.$"
 
 PrecipikeInteriors_Text_HowsYourFishing:
-	.string "how goes it$"
+	.string "Sadsod's my most liked Pokemon.\n"
+	.string "There's somethin' in their\l"
+	.string "demeanor that makes ya want\l"
+	.string "to care for 'em.\p"
+	.string "Catch one and give it a good home.$"
 
 PrecipikeInteriors_Text_SadsodMaster:
-	.string "woah u have 6 sadsod$"
+	.string "Well, I'll be damned!\n"
+	.string "A whole party of Sadsod, like me...\l"
+	.string "you have pristine piscine taste.\p"
+	.string "Listen up. I don't have plans\n"
+	.string "to evolve mine, but... you might.\l"
+	.string "And to do that, Sadsod must be...\l"
+	.string "err, pushed, more than most.\p"
+	.string "This item may help ya.\n"
+	.string "But take caution, as the little guy\l"
+	.string "may get even sadder...$"
 
 PrecipikeInteriors_Text_AlreadyGaveIt:
-	.string "already gave it charlatan$"
+	.string "I can hear your Sadsod grunting\n"
+	.string "occassionally. That means they\l"
+	.string "like ya.$"
 
 PrecipikeInteriors_Text_CaughtThatRascal:
 	.string "gottem$"

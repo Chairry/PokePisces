@@ -45,10 +45,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_WHITE_HAIR",
-      "x": 35,
-      "y": 32,
+      "x": 38,
+      "y": 27,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -157,20 +157,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SeaMauville_EventScript_Nob",
       "flag": "FLAG_TEMP_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
-      "x": 20,
-      "y": 12,
+      "x": 24,
+      "y": 18,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 9,
-      "movement_range_y": 6,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SeaMauville_EventScript_KizunaIdle2",
       "flag": "FLAG_TEMP_11"
     },
     {
@@ -185,6 +185,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_TEMP_19"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
+      "x": 34,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BURGLAR",
+      "x": 33,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SeaMauville_EventScript_SuitcaseInterceptor",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -295,6 +321,33 @@
       "var": "VAR_OLD_GUYS_STATE",
       "var_value": "11",
       "script": "SeaMauville_EventScript_KizunaPostIsland"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 32,
+      "elevation": 0,
+      "var": "VAR_OLD_GUYS_STATE",
+      "var_value": "14",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_OLD_GUYS_STATE",
+      "var_value": "14",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_OLD_GUYS_STATE",
+      "var_value": "14",
+      "script": "NULL"
     }
   ],
   "bg_events": [
