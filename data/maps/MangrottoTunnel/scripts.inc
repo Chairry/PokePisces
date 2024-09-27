@@ -572,10 +572,10 @@ MangrottoTunnel_EventScript_GaveInfestation::
 
 MangrottoTunnel_EventScript_RockSmashDoor::
 	lockall
+	goto_if_set FLAG_TEMP_1C, MangrottoTunnel_EventScript_DoorAlreadySmashed
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CantSmashRock
 	checkpartymove MOVE_ROCK_SMASH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
-	addvar VAR_TEMP_4, 1
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
@@ -591,6 +591,12 @@ MangrottoTunnel_EventScript_RockSmashDoor::
 MangrottoTunnel_EventScript_RockSmashDoorEnd::
 	setmetatile 66, 30, METATILE_Mossdeep_MangrottoCaveDoor, FALSE
 	special DrawWholeMapView
+	setflag FLAG_TEMP_1C
+	releaseall
+	end
+
+MangrottoTunnel_EventScript_DoorAlreadySmashed::
+	msgbox MangrottoTunnel_Text_DoorAlreadySmashed, MSGBOX_AUTOCLOSE
 	releaseall
 	end
 
@@ -599,6 +605,19 @@ MangrottoTunnel_Text_WeirdIndent:
 	.string "the cave wall here.\p"
 	.string "Would you like to have a\n"
 	.string "Pokémon use Rock Smash?$"
+
+MangrottoTunnel_Text_DoorAlreadySmashed:
+	.string "(...)\p"
+	.string "You know. It is kinda strange\n"
+	.string "that you would press A on this\l"
+	.string "door after opening it.\p"
+	.string "That's not how you enter doors,\n"
+	.string "silly billy!\p"
+	.string "I must assume that you checked\n"
+	.string "here again to be thorough.\p"
+	.string "Congraturation! You have found\n"
+	.string "Flavor Text.\p"
+	.string "Get out.$"
 
 MangrottoTunnel_Text_InfestedTree:
 	.string "Ugh, this tree is INFESTED\n"

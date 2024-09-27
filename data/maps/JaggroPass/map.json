@@ -32,6 +32,11 @@
       "map": "MAP_MIDNEOR_FALLS",
       "offset": 28,
       "direction": "left"
+    },
+    {
+      "map": "MAP_FOSSIL_SHORE",
+      "offset": -2,
+      "direction": "up"
     }
   ],
   "object_events": [

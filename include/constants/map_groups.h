@@ -142,6 +142,8 @@
 #define MAP_GYM5CORRIDOR                     (5 | (11 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_1F            (6 | (11 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_B1F           (7 | (11 << 8))
+#define MAP_FOSSIL_SHORE                     (8 | (11 << 8))
+#define MAP_FOSSIL_SHORE_HOUSES              (9 | (11 << 8))
 
 // gMapGroup_PiscesLeg7Major
 #define MAP_SWELTORN_DESERT           (0 | (12 << 8))
@@ -180,6 +182,10 @@
 #define MAP_GYM6CORRIDOR                      (15 | (13 << 8))
 #define MAP_NEW_MAUVILLE_FLOOR2ROOMS          (16 | (13 << 8))
 #define MAP_NEW_MAUVILLE_RYDEL_CYCLES         (17 | (13 << 8))
+#define MAP_OCEANIC_MUSEUM_NEW                (18 | (13 << 8))
+#define MAP_SOUTHERN_ISLAND                   (19 | (13 << 8))
+#define MAP_VERDANTURF_GYM                    (20 | (13 << 8))
+#define MAP_SLATEPORT_INTERIORS               (21 | (13 << 8))
 
 // gMapGroup_PiscesLeg8Major
 #define MAP_SLATEPORT_SHORE       (0 | (14 << 8))

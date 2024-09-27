@@ -47,7 +47,25 @@
   "coord_events": [
     {
       "type": "trigger",
+      "x": 3,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PISCES_STORY_PROGRESS",
+      "var_value": "1",
+      "script": "StevenCorridor_EventScript_NoBadge2"
+    },
+    {
+      "type": "trigger",
       "x": 4,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_PISCES_STORY_PROGRESS",
+      "var_value": "1",
+      "script": "StevenCorridor_EventScript_NoBadge2"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
       "y": 6,
       "elevation": 0,
       "var": "VAR_PISCES_STORY_PROGRESS",

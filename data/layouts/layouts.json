@@ -5670,6 +5670,66 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/NewMauvilleRydelCycles/border.bin",
       "blockdata_filepath": "data/layouts/NewMauvilleRydelCycles/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEANIC_MUSEUM_NEW",
+      "name": "OceanicMuseumNew_Layout",
+      "width": 20,
+      "height": 23,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OceanicMuseum",
+      "border_filepath": "data/layouts/OceanicMuseumNew/border.bin",
+      "blockdata_filepath": "data/layouts/OceanicMuseumNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND",
+      "name": "SouthernIsland_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_GYM",
+      "name": "VerdanturfGym_Layout",
+      "width": 14,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonFanClub",
+      "border_filepath": "data/layouts/VerdanturfGym/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_INTERIORS",
+      "name": "SlateportInteriors_Layout",
+      "width": 38,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/SlateportInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_SHORE",
+      "name": "FossilShore_Layout",
+      "width": 28,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Chimney",
+      "border_filepath": "data/layouts/FossilShore/border.bin",
+      "blockdata_filepath": "data/layouts/FossilShore/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOSSIL_SHORE_HOUSES",
+      "name": "FossilShoreHouses_Layout",
+      "width": 14,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FossilShoreHouses/border.bin",
+      "blockdata_filepath": "data/layouts/FossilShoreHouses/map.bin"
     }
   ]
 }

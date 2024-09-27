@@ -323,7 +323,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OZONE_M",
-      "x": 8,
+      "x": 10,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

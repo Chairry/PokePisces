@@ -47,12 +47,12 @@ Route125_EventScript_SurferBlocking::
 
 Route125_EventScript_LeftRoadblocker::
 	lock
-	goto_if_set FLAG_DEFEATED_PANIC_EVENT, Route125_EventScript_LeftRoadblockerPost
 	msgbox Route125_Text_Left_1, MSGBOX_AUTOCLOSE
 	release
 	end
 
 Route125_EventScript_LeftRoadblockerPost::
+	lock
 	msgbox Route125_Text_Left_2, MSGBOX_AUTOCLOSE
 	release
 	end

@@ -1,5 +1,54 @@
+.set LOCALID_RYDEL1, 16
+.set LOCALID_RYDEL2, 17
+
 CyclingRoad_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CyclingRoad_OnTransition
 	.byte 0
+
+CyclingRoad_OnTransition:
+	call CyclingRoad_EventScript_RemoveRydel
+	call_if_eq VAR_OLD_GUYS_STATE, 6, CyclingRoad_EventScript_SetRydel
+	end
+
+CyclingRoad_EventScript_RemoveRydel::
+	removeobject LOCALID_RYDEL1
+	removeobject LOCALID_RYDEL2
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setvar VAR_TEMP_3, 1
+	setvar VAR_TEMP_4, 1
+	return
+
+CyclingRoad_EventScript_SetRydel::
+	clearflag FLAG_TEMP_11
+	clearflag FLAG_TEMP_12
+	addobject LOCALID_RYDEL1
+	addobject LOCALID_RYDEL2
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_4, 0
+	setvar VAR_BARD_COLOR, MAUVILLE_MAN_HIPSTER
+	special SetMauvilleOldManObjEventGfx
+	return	
+
+CyclingRoad_EventScript_RydelHype1::
+	playse SE_APPLAUSE
+	applymovement LOCALID_RYDEL1, CyclingRoad_Movement_HopUp
+	message CyclingRoad_Text_RydelHype1
+	setvar VAR_TEMP_3, 1
+	end
+
+CyclingRoad_EventScript_RydelHype2::
+	playse SE_APPLAUSE
+	applymovement LOCALID_RYDEL2, CyclingRoad_Movement_HopUp
+	message CyclingRoad_Text_RydelHype2
+	setvar VAR_TEMP_4, 1
+	end
+
+CyclingRoad_Movement_HopUp:
+	jump_in_place_left
+	jump_in_place_right
+	jump_in_place_down
+	step_end
 
 CyclingRoad_EventScript_Rhode::
     trainerbattle_single TRAINER_P_RHODE, CyclingRoad_Text_RhodeIntro, CyclingRoad_Text_RhodeDefeated
@@ -210,3 +259,11 @@ CyclingRoad_Text_PhillipDefeated:
 
 CyclingRoad_Text_PhillipPostBattle:
 	.string "post$"
+
+CyclingRoad_Text_RydelHype1:
+	.string "Folks, we have the quickest wheels\n"
+	.string "in Hoenn on the track! {PLAYER}!!!$"
+
+CyclingRoad_Text_RydelHype2:
+	.string "{PLAYER} is rounding the final\n"
+	.string "stretch! A true nail biter!!!$"

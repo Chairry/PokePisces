@@ -8,7 +8,8 @@ NewMauvilleRydelCycles_MapScripts::
 
 NewMauvilleRydelCycles_OnLoad:
 	call NewMauvilleRydelCycles_EventScript_RemoveKizuna
-	call NewMauvilleRydelCycles_EventScript_SetMauvilleOldManGfx
+	call_if_eq VAR_OLD_GUYS_STATE, 5, NewMauvilleRydelCycles_EventScript_SetMauvilleOldManGfx
+	call_if_lt VAR_OLD_GUYS_STATE, 5, NewMauvilleRydelCycles_EventScript_RemoveRydel
 	call_if_gt VAR_OLD_GUYS_STATE, 6, NewMauvilleRydelCycles_EventScript_RemoveRydel
 	end
 
@@ -29,18 +30,47 @@ NewMauvilleRydelCycles_EventScript_RemoveRydel::
 
 NewMauvilleRydelCycles_EventScript_Rydel::
 	lock
-	goto_if_lt VAR_OLD_GUYS_STATE, 5, NewMauvilleRydelCycles_EventScript_RydelPreTrickHouse
 	goto_if_eq VAR_OLD_GUYS_STATE, 6, NewMauvilleRydelCycles_EventScript_RydelPostChallenge
 	speakername NewMauvilleRydelCycles_Text_NameRydel
 	msgbox NewMauvilleRydelCycles_Text_IAmTheHipster, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_OLD_GUYS_STATE, 6
+	playse SE_DOOR
+	clearflag FLAG_TEMP_11
+	addobject LOCALID_P_MAN
+	applymovement LOCALID_P_MAN, NewMauvilleRydelCycles_Movement_KizunaEnterRoom
+	speakername NewMauvilleRydelCycles_Text_NameKizuna
+	msgbox NewMauvilleRydelCycles_Text_YouTheNextGuy, MSGBOX_DEFAULT
+	speakername NewMauvilleRydelCycles_Text_NameRydel
+	msgbox NewMauvilleRydelCycles_Text_TakeMyChallenge, MSGBOX_DEFAULT
+	giveitem ITEM_MACH_BIKE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	applymovement LOCALID_P_MAN, NewMauvilleRydelCycles_Movement_KizunaFaceRight
+	speakername NewMauvilleRydelCycles_Text_NameKizuna
+	msgbox NewMauvilleRydelCycles_Text_AsLongAsYoureUpForIt, MSGBOX_DEFAULT
+	speakername NewMauvilleRydelCycles_Text_NameRydel
+	msgbox NewMauvilleRydelCycles_Text_BrilliantLetsBegin, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_ROUTE110_SEASIDE_CYCLING_ROAD_NORTH_ENTRANCE, 4, 4
 	release
 	end
 
-NewMauvilleRydelCycles_EventScript_RydelPreTrickHouse::
-	release
-	end
+NewMauvilleRydelCycles_Movement_KizunaEnterRoom:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+NewMauvilleRydelCycles_Movement_KizunaFaceRight:
+	face_right
+	step_end
 
 NewMauvilleRydelCycles_EventScript_RydelPostChallenge::
+	msgbox NewMauvilleRydelCycles_Text_RydelPostChallenge, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -52,3 +82,18 @@ NewMauvilleRydelCycles_Text_NameKizuna:
 
 NewMauvilleRydelCycles_Text_IAmTheHipster:
 	.string "i da jokah baybee$"
+
+NewMauvilleRydelCycles_Text_YouTheNextGuy:
+	.string "you da next one baybee$"
+
+NewMauvilleRydelCycles_Text_TakeMyChallenge:
+	.string "take my challenge$"
+
+NewMauvilleRydelCycles_Text_AsLongAsYoureUpForIt:
+	.string "ok do it bro$"
+
+NewMauvilleRydelCycles_Text_BrilliantLetsBegin:
+	.string "briliant (british)$"
+
+NewMauvilleRydelCycles_Text_RydelPostChallenge:
+	.string "rydel post$"

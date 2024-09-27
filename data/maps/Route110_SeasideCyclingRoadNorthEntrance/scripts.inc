@@ -1,5 +1,24 @@
+.set LOCALID_RYDEL, 2
+
 Route110_SeasideCyclingRoadNorthEntrance_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Route110_SeasideCyclingRoadNorthEntrance_OnLoad
 	.byte 0
+
+Route110_SeasideCyclingRoadNorthEntrance_OnLoad:
+	call_if_eq VAR_OLD_GUYS_STATE, 6, Route110_SeasideCyclingRoadNorthEntrance_EventScript_SetMauvilleOldManGfx
+	call_if_lt VAR_OLD_GUYS_STATE, 6, Route110_SeasideCyclingRoadNorthEntrance_EventScript_RemoveRydel
+	call_if_gt VAR_OLD_GUYS_STATE, 6, Route110_SeasideCyclingRoadNorthEntrance_EventScript_RemoveRydel
+	end
+
+Route110_SeasideCyclingRoadNorthEntrance_EventScript_SetMauvilleOldManGfx::
+	setvar VAR_BARD_COLOR, MAUVILLE_MAN_HIPSTER
+	special SetMauvilleOldManObjEventGfx
+	end
+
+Route110_SeasideCyclingRoadNorthEntrance_EventScript_RemoveRydel::
+	removeobject LOCALID_RYDEL
+	setflag FLAG_TEMP_12
+	return
 
 Route110_SeasideCyclingRoadNorthEntrance_EventScript_Clerk::
 	lock
@@ -26,7 +45,7 @@ Route110_SeasideCyclingRoadNorthEntrance_EventScript_NoBike::
 	end
 
 Route110_SeasideCyclingRoadNorthEntrance_Movement_PushPlayerBackFromCounter:
-	walk_left
+	walk_up
 	step_end
 
 Route110_SeasideCyclingRoadNorthEntrance_EventScript_ClearCyclingRoad::
@@ -35,6 +54,13 @@ Route110_SeasideCyclingRoadNorthEntrance_EventScript_ClearCyclingRoad::
 	setvar VAR_TEMP_1, 0
 	releaseall
 	end
+
+Route110_SeasideCyclingRoadNorthEntrance_EventScript_RydelGoOn::
+	msgbox Route110_SeasideCyclingRoadNorthEntrance_Text_RydelGoOn, MSGBOX_NPC
+	end
+
+Route110_SeasideCyclingRoadNorthEntrance_Text_RydelGoOn:
+	.string "Go on.$"
 
 Route110_SeasideCyclingRoadNorthEntrance_Text_GoAllOutOnCyclingRoad:
 	.string "On CYCLING ROAD, you can go all out\n"

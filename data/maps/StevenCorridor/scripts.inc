@@ -23,6 +23,7 @@ StevenCorridor_EventScript_NoBadge2::
 	lock
 	msgbox StevenCorridor_Text_TooDark, MSGBOX_AUTOCLOSE
 	applymovement OBJ_EVENT_ID_PLAYER, StevenCorridor_Movement_BackAway
+	waitmovement 0
 	release
 	end
 

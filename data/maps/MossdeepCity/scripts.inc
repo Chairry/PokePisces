@@ -667,6 +667,12 @@ MossdeepCity_Movement_PlayerBlockRight:
 	face_up
 	step_end
 
+MossdeepCity_EventScript_ThicketTooThick::
+	lock
+	msgbox MossdeepCity_Text_ThicketTooThick, MSGBOX_AUTOCLOSE
+	release
+	end
+
 MossdeepCity_EventScript_BrineyFastTravel::
 	lock
 	faceplayer
@@ -703,6 +709,10 @@ MossdeepCity_Text_DroppedEgg:
 
 MossdeepCity_Text_PlayerReceivedEgg:
 	.string "{PLAYER} received an Egg!$"
+
+MossdeepCity_Text_ThicketTooThick:
+	.string "(This thicket is too thick\n"
+	.string "...et, to venture into.)$"
 
 MossdeepCity_Text_HaveMudShot:
 	.string "I love the feel of the beach\n"

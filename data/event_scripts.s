@@ -3685,3 +3685,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/NewMauvilleFloor2Rooms/scripts.inc"
 
 	.include "data/maps/NewMauvilleRydelCycles/scripts.inc"
+
+	.include "data/maps/OceanicMuseumNew/scripts.inc"
+
+	.include "data/maps/SouthernIsland/scripts.inc"
+
+	.include "data/maps/VerdanturfGym/scripts.inc"
+
+	.include "data/maps/SlateportInteriors/scripts.inc"
+
+	.include "data/maps/FossilShore/scripts.inc"
+
+	.include "data/maps/FossilShoreHouses/scripts.inc"

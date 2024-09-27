@@ -193,7 +193,9 @@
     "LavaridgeHouses",
     "Gym5Corridor",
     "LavaridgeTown_Gym_1F",
-    "LavaridgeTown_Gym_B1F"
+    "LavaridgeTown_Gym_B1F",
+    "FossilShore",
+    "FossilShoreHouses"
   ],
   "gMapGroup_PiscesLeg7Major": [
     "SweltornDesert",
@@ -231,7 +233,11 @@
     "TrickHousePotRoom",
     "Gym6Corridor",
     "NewMauvilleFloor2Rooms",
-    "NewMauvilleRydelCycles"
+    "NewMauvilleRydelCycles",
+    "OceanicMuseumNew",
+    "SouthernIsland",
+    "VerdanturfGym",
+    "SlateportInteriors"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",

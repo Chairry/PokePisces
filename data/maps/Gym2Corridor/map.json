@@ -33,15 +33,15 @@
       "x": 6,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_GYM2CORRIDOR",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_MOSSDEEP_CITY",
+      "dest_warp_id": "3"
     },
     {
       "x": 7,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_GYM2CORRIDOR",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_MOSSDEEP_CITY",
+      "dest_warp_id": "3"
     },
     {
       "x": 3,
