@@ -273,7 +273,7 @@
       "x": 48,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY_GYM",
+      "dest_map": "MAP_GYM2CORRIDOR",
       "dest_warp_id": "0"
     },
     {
@@ -631,6 +631,13 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MossdeepCity_EventScript_ThicketTooThick"
+    }
   ]
 }

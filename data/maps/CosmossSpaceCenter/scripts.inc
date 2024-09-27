@@ -39,13 +39,21 @@ CosmossSpaceCenter_EventScript_RocketResearcher::
 	goto_if_eq VAR_RESULT, NO, CosmossSpaceCenter_EventScript_ThenGoAway
 	closemessage
 	hidemoneybox
+	applymovement VAR_LAST_TALKED, CosmossSpaceCenter_Movement_FaceUp
+	waitmovement 0
 	release
 	end
+
+CosmossSpaceCenter_Movement_FaceUp:
+	face_up
+	step_end
 
 CosmossSpaceCenter_EventScript_ThenGoAway::
 	msgbox CosmossSpaceCenter_Text_ThenGoAway, MSGBOX_DEFAULT
 	closemessage
 	hidemoneybox
+	applymovement VAR_LAST_TALKED, CosmossSpaceCenter_Movement_FaceUp
+	waitmovement 0
 	release
 	end
 
@@ -63,6 +71,8 @@ CosmossSpaceCenter_EventScript_CheckMoneyForFund::
 	setvar VAR_SPACE_CENTER_QUEST_STATE, 1
 	msgbox CosmossSpaceCenter_Text_YouCanNowGoUpstairs, MSGBOX_DEFAULT
 	closemessage
+	applymovement VAR_LAST_TALKED, CosmossSpaceCenter_Movement_FaceUp
+	waitmovement 0
 	playse SE_PC_ON
 	waitse
 	msgbox CosmossSpaceCenter_Text_AccessGranted, MSGBOX_AUTOCLOSE
@@ -73,12 +83,16 @@ CosmossSpaceCenter_EventScript_NotEnoughMoney::
 	msgbox CosmossSpaceCenter_Text_NotEnoughMoney, MSGBOX_DEFAULT
 	closemessage
 	hidemoneybox
+	applymovement VAR_LAST_TALKED, CosmossSpaceCenter_Movement_FaceUp
+	waitmovement 0
 	release
 	end
 
 CosmossSpaceCenter_EventScript_RocketFunded::
 	msgbox CosmossSpaceCenter_Text_RocketFuel, MSGBOX_DEFAULT
 	closemessage
+	applymovement VAR_LAST_TALKED, CosmossSpaceCenter_Movement_FaceUp
+	waitmovement 0
 	release
 	end
 

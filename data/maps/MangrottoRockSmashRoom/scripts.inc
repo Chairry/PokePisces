@@ -38,18 +38,24 @@ MangrottoRockSmashRoom_EventScript_RockSmashChallenge::
 	faceplayer
 	checkitem ITEM_TM_BREAKING_SWIPE
 	goto_if_eq VAR_RESULT, TRUE, MangrottoRockSmashRoom_EventScript_NoMoreChallenge
+	goto_if_gt VAR_TEMP_4, 0, MangrottoRockSmashRoom_EventScript_MiddleOfChallenge
 	msgbox MangrottoRockSmashRoom_Text_WantToTakeOnChallenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, MangrottoRockSmashRoom_EventScript_StartRSChallenge
 	msgbox MangrottoRockSmashRoom_Text_MaybeNextTime, MSGBOX_AUTOCLOSE
-	warp MAP_MANGROTTO_TUNNEL, 10, 10
+	warp MAP_MANGROTTO_TUNNEL, 66, 31
 	waitstate
 	release
 	end
 
 MangrottoRockSmashRoom_EventScript_NoMoreChallenge::
 	msgbox MangrottoRockSmashRoom_Text_NoMoreChallenge, MSGBOX_AUTOCLOSE
-	warp MAP_MANGROTTO_TUNNEL, 10, 10
+	warp MAP_MANGROTTO_TUNNEL, 66, 31
 	waitstate
+	release
+	end
+
+MangrottoRockSmashRoom_EventScript_MiddleOfChallenge::
+	msgbox MangrottoRockSmashRoom_Text_MiddleOfChallenge, MSGBOX_AUTOCLOSE
 	release
 	end
 
@@ -66,7 +72,7 @@ MangrottoRockSmashRoom_EventScript_FailedChallenge::
 	special ResetSSTidalFlag
 	setvar VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_LILYCOVE
 	msgbox MangrottoRockSmashRoom_Text_FailedChallenge, MSGBOX_AUTOCLOSE
-	warp MAP_MANGROTTO_TUNNEL, 10, 10
+	warp MAP_MANGROTTO_TUNNEL, 66, 31
 	waitstate
 	release
 	end
@@ -106,3 +112,6 @@ MangrottoRockSmashRoom_Text_FailedChallenge:
 
 MangrottoRockSmashRoom_Text_ChallengeWon:
 	.string "won challenge$"
+
+MangrottoRockSmashRoom_Text_MiddleOfChallenge:
+	.string "go do it dood!!$"

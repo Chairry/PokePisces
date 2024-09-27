@@ -374,7 +374,7 @@ MossdeepCity_Gym_Text_LizaIntro:
 	.string "(There is a girl standing at the end\n"
 	.string "of this impossible space.\l"
 	.string "You recognize her as Liza,\l"
-	.string "the gym leader.)\p"
+	.string "the Gym Leader.)\p"
 	.string "(…It is strange that she is solo.)\p"
 	.string "(Without a word, Liza\n"
 	.string "holds out a Pokéball…)\p"
@@ -412,7 +412,7 @@ MossdeepCity_Gym_Text_GotSereneBadge:
 MossdeepCity_Gym_Text_LizaExplain:
 	.string "The Serene Badge allows you to use the\n"
 	.string "“Flash” move in the field.\p"
-	.string "You have also earned these two TMS;\n"
+	.string "You have also earned these two TMs;\n"
 	.string "use 'em well to set up your\l"
 	.string "Pokémon for success!$"
 
