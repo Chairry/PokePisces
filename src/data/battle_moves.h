@@ -634,13 +634,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_TAKE_DOWN] =
     {
         .effect = EFFECT_RECOIL_25,
-        .power = 100,
+        .power = 80,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
+        .priority = 1,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
@@ -15008,7 +15008,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SONIC_BURST] =
     {
         .effect = EFFECT_SONIC_BURST,
-        .power = 60,
+        .power = 70,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 15,
@@ -15018,6 +15018,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .windMove = TRUE,
+        .highCritRatio = TRUE,
     },
 
     [MOVE_SOUL_CUTTER] =
@@ -15404,7 +15405,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 140,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,

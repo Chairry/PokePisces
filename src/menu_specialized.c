@@ -773,7 +773,7 @@ void MoveRelearnerPrintMoveDescriptionToMsgWindow(u32 chosenMove)
         str = gNotDoneYetDescription;
 
     FormatTextByWidth(gStringVar4, 224, FONT_SMALL_NO_BG, str, 0);
-    AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_SMALL_NO_BG, gStringVar4, 0, 1, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(RELEARNERWIN_MSG, FONT_SMALL_NO_BG, gStringVar4, 0, 0, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(RELEARNERWIN_MSG, COPYWIN_GFX);
 }
 

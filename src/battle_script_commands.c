@@ -3041,7 +3041,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
 {
     s32 i, byTwo, affectsUser = 0;
     bool32 statusChanged = FALSE;
-    bool32 mirrorArmorReflected = (GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR);
+    bool32 mirrorArmorReflected = (GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR || (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_MOON_MIRROR && gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE));
     u32 flags = 0;
     u16 battlerAbility;
     bool8 activateAfterFaint = FALSE;
@@ -12148,6 +12148,19 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS(const u8 *jumpInstr);
         if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        return;
+    }
+    case VARIOUS_JUMP_IF_TERU_CHARM_PROTECTED:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM && gBattleMons[battler].species == SPECIES_CHIROBERRA)
         {
             gBattlescriptCurrInstr = cmd->jumpInstr;
         }

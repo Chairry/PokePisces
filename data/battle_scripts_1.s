@@ -3082,24 +3082,48 @@ BattleScript_EffectRazingSun::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifbyte CMP_GREATER_THAN, sB_ANIM_TARGETS_HIT, 0, BattleScript_EffectRazingSun_NoHpLoss
-	jumpifmorethanthirdHP BS_ATTACKER, BattleScript_EffectRazingSun_HpDown
-	setbyte sMULTIHIT_EFFECT, 0 @ Note to faint the attacker
-	instanthpdrop BS_ATTACKER
+	accuracycheck BattleScript_RazingSunMiss, ACC_CURR_MOVE
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
 	waitstate
-	goto BattleScript_EffectExplosion_AnimDmgFaintAttacker
-BattleScript_EffectRazingSun_NoHpLoss:
-	jumpifbyte CMP_EQUAL, sMULTIHIT_EFFECT, 0, BattleScript_EffectExplosion_AnimDmgFaintAttacker
-	goto BattleScript_EffectRazingSun_AnimDmgNoFaint
-BattleScript_EffectRazingSun_HpDown:
-	setbyte sMULTIHIT_EFFECT, 1 @ Note to not faint the attacker
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_RazingSunAfterSelfDamage
+	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_RazingSunAfterSelfDamage
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_RazingSunAfterSelfDamage
+	call BattleScript_RazingSunSelfDamage
+BattleScript_RazingSunAfterSelfDamage::
+	waitstate
+	tryfaintmon BS_ATTACKER
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+BattleScript_RazingSunMiss::
+	pause B_WAIT_TIME_SHORT
+	effectivenesssound
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MoveEnd
+	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_MoveEnd
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_MoveEnd
+	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	call BattleScript_RazingSunSelfDamage
+	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	goto BattleScript_RazingSunAfterSelfDamage
+BattleScript_RazingSunSelfDamage::
 	dmg_1_3_attackerhp
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
-	waitstate
-BattleScript_EffectRazingSun_AnimDmgNoFaint:
-	call BattleScript_EffectExplosion_AnimDmgRet
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_EffectSeizeChance:
 	attackcanceler
@@ -4672,7 +4696,7 @@ BattleScript_EffectSteelBeam::
 	seteffectwithchance
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_SteelBeamAfterSelfDamage
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_SteelBeamAfterSelfDamage
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_SteelBeamAfterSelfDamage
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_SteelBeamAfterSelfDamage
 	call BattleScript_SteelBeamSelfDamage
 BattleScript_SteelBeamAfterSelfDamage::
 	waitstate
@@ -4686,12 +4710,11 @@ BattleScript_SteelBeamMiss::
 	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MoveEnd
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_MoveEnd
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_MoveEnd
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_MoveEnd
 	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	call BattleScript_SteelBeamSelfDamage
 	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	goto BattleScript_SteelBeamAfterSelfDamage
-
 BattleScript_SteelBeamSelfDamage::
 	dmg_1_2_attackerhp
 	healthbarupdate BS_ATTACKER
@@ -8142,28 +8165,52 @@ BattleScript_EffectMindBlown::
 	attackcanceler
 	attackstring
 	ppreduce
-	jumpifbyte CMP_GREATER_THAN, sB_ANIM_TARGETS_HIT, 0, BattleScript_EffectMindBlown_NoHpLoss
 	jumpifabilitypresent ABILITY_DAMP, BattleScript_MindBlownDamp
-	jumpifmorethanhalfHP BS_ATTACKER, BattleScript_EffectMindBlown_HpDown
-	setbyte sMULTIHIT_EFFECT, 0 @ Note to faint the attacker
-	instanthpdrop BS_ATTACKER
+	accuracycheck BattleScript_MindBlownMiss, ACC_CURR_MOVE
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
 	waitstate
-	goto BattleScript_EffectExplosion_AnimDmgFaintAttacker
-BattleScript_EffectMindBlown_NoHpLoss:
-	jumpifbyte CMP_EQUAL, sMULTIHIT_EFFECT, 0, BattleScript_EffectExplosion_AnimDmgFaintAttacker
-	goto BattleScript_EffectMindBlown_AnimDmgNoFaint
-BattleScript_MindBlownDamp:
-	copybyte gBattlerTarget, gBattlerAbility
-	goto BattleScript_DampStopsExplosion
-BattleScript_EffectMindBlown_HpDown:
-	setbyte sMULTIHIT_EFFECT, 1 @ Note to not faint the attacker
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MindBlownAfterSelfDamage
+	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_MindBlownAfterSelfDamage
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_MindBlownAfterSelfDamage
+	call BattleScript_MindBlownSelfDamage
+BattleScript_MindBlownAfterSelfDamage::
+	waitstate
+	tryfaintmon BS_ATTACKER
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+BattleScript_MindBlownMiss::
+	pause B_WAIT_TIME_SHORT
+	effectivenesssound
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_MoveEnd
+	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_MoveEnd
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_MoveEnd
+	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	call BattleScript_MindBlownSelfDamage
+	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
+	goto BattleScript_MindBlownAfterSelfDamage
+BattleScript_MindBlownSelfDamage::
 	dmg_1_2_attackerhp
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
-	waitstate
-BattleScript_EffectMindBlown_AnimDmgNoFaint:
-	call BattleScript_EffectExplosion_AnimDmgRet
-	goto BattleScript_MoveEnd
+	return
+BattleScript_MindBlownDamp:
+	copybyte gBattlerTarget, gBattlerAbility
+	goto BattleScript_DampStopsExplosion
 
 BattleScript_PreserveMissedBitDoMoveAnim:
 	bichalfword gMoveResultFlags, MOVE_RESULT_MISSED
@@ -8329,7 +8376,7 @@ BattleScript_StatDownEnd::
 
 BattleScript_MirrorArmorReflect::
 	pause B_WAIT_TIME_SHORT
-	jumpifholdeffect BS_TARGET, HOLD_EFFECT_MOON_MIRROR, BattleScript_MirrorArmorNoAbilityPopup
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_MOON_MIRROR, BattleScript_LazyLunatoneCheck2
 	call BattleScript_AbilityPopUp
 BattleScript_MirrorArmorNoAbilityPopup:
 	jumpifsubstituteblocks BattleScript_AbilityNoSpecificStatLoss
@@ -8345,6 +8392,8 @@ BattleScript_MirrorArmorReflectPrintString:
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_MirrorArmorReflectEnd:
 	return
+BattleScript_LazyLunatoneCheck2:
+	jumpifspecies BS_TARGET, SPECIES_LUNATONE, BattleScript_MirrorArmorNoAbilityPopup
 
 BattleScript_MirrorArmorReflectWontFall:
 	copybyte gBattlerTarget, gBattlerAttacker   @ STRINGID_STATSWONTDECREASE uses target
@@ -8353,6 +8402,7 @@ BattleScript_MirrorArmorReflectWontFall:
 @ gBattlerTarget is battler with Mirror Armor
 BattleScript_MirrorArmorReflectStickyWeb:
 	call BattleScript_AbilityPopUp
+BattleScript_MirrorArmorReflectStickyWebNoAbilityPopup:
 	setattackertostickywebuser
 	jumpifbyteequal gBattlerAttacker, gBattlerTarget, BattleScript_StickyWebOnSwitchInEnd   @ Sticky web user not on field -> no stat loss
 	goto BattleScript_MirrorArmorReflectStatLoss
@@ -8728,7 +8778,7 @@ BattleScript_EffectRecoilIfMiss::
 BattleScript_MoveMissedDoDamage::
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_PrintMoveMissed
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_PrintMoveMissed
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_PrintMoveMissed
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_PrintMoveMissed
 	attackstring
 	ppreduce
 	pause B_WAIT_TIME_LONG
@@ -12452,6 +12502,7 @@ BattleScript_StickyWebOnSwitchIn::
 	printstring STRINGID_STICKYWEBSWITCHIN
 	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_TARGET, ABILITY_MIRROR_ARMOR, BattleScript_MirrorArmorReflectStickyWeb
+	jumpifholdeffect BS_TARGET, HOLD_EFFECT_MOON_MIRROR, BattleScript_LazyLunatoneCheck
 	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StickyWebOnSwitchInEnd
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_StickyWebOnSwitchInStatAnim
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_StickyWebOnSwitchInEnd
@@ -12466,6 +12517,8 @@ BattleScript_StickyWebOnSwitchInPrintStatMsg:
 BattleScript_StickyWebOnSwitchInEnd:
 	restoretarget
 	return
+BattleScript_LazyLunatoneCheck:
+	jumpifspecies BS_TARGET, SPECIES_LUNATONE, BattleScript_MirrorArmorReflectStickyWebNoAbilityPopup
 
 BattleScript_PerishSongTakesLife::
 	printstring STRINGID_PKMNPERISHCOUNTFELL
@@ -12493,7 +12546,7 @@ BattleScript_GulpMissileGorging::
 	waitstate
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_GulpMissileNoDmgGorging
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_GulpMissileNoDmgGorging
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_GulpMissileNoDmgGorging
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_GulpMissileNoDmgGorging
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
@@ -12523,7 +12576,7 @@ BattleScript_GulpMissileGulping::
 	waitstate
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_GulpMissileNoDmgGulping
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_GulpMissileNoDmgGulping
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_GulpMissileNoDmgGulping
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_GulpMissileNoDmgGulping
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
@@ -13805,7 +13858,7 @@ BattleScript_PrintPayDayMoneyString::
 BattleScript_WrapTurnDmg::
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_DoTurnDmgEnd
 	jumpifability BS_ATTACKER, ABILITY_SUGAR_COAT, BattleScript_DoTurnDmgEnd
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_DoTurnDmgEnd
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_DoTurnDmgEnd
 	playanimation BS_ATTACKER, B_ANIM_TURN_TRAP, sB_ANIM_ARG1
 	printstring STRINGID_PKMNHURTBY
 	waitmessage B_WAIT_TIME_LONG
@@ -14745,7 +14798,7 @@ BattleScript_BadDreamsLoop:
 	jumpiftargetally BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_SUGAR_COAT, BattleScript_BadDreamsIncrement
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_BadDreamsIncrement
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_BadDreamsIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_BadDreams_Dmg
 	jumpifstatus BS_TARGET, STATUS1_SLEEP_ANY, BattleScript_BadDreams_Dmg
 	goto BattleScript_BadDreamsIncrement
@@ -14783,7 +14836,7 @@ BattleScript_MiasmaLoop:
 	jumpiftargetally BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_MAGIC_GUARD, BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_SUGAR_COAT, BattleScript_MiasmaIncrement
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TERU_CHARM, BattleScript_MiasmaIncrement
+	jumpifterucharmprotected BS_ATTACKER, BattleScript_MiasmaIncrement
 	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_Miasma_Dmg
 	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_Miasma_Dmg
 	goto BattleScript_MiasmaIncrement
