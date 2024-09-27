@@ -702,9 +702,9 @@ static const struct WindowTemplate sPageMovesTemplate[] = // This is used for bo
     [PSS_DATA_WINDOW_MOVE_DESCRIPTION] = {
         .bg = 0,
         .tilemapLeft = 10,
-        .tilemapTop = 15,
+        .tilemapTop = 14,
         .width = 20,
-        .height = 4,
+        .height = 6,
         .paletteNum = 6,
         .baseBlock = 619,
     },
@@ -3317,7 +3317,7 @@ static void PrintMonAbilityName(void)
 static void PrintMonAbilityDescription(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
-    PrintTextOnWindowSmallNarrow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityDescriptionPointers[ability], 0, 17, 0, 0);
+    PrintTextOnWindowSmallNarrow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilityDescriptionPointers[ability], 0, 14, 0, 0);
 }
 
 static void BufferMonTrainerMemo(void)
@@ -3860,9 +3860,9 @@ static void PrintMoveDetails(u16 move)
             PrintMovePowerAndAccuracy(move);
 
             if (moveEffect != EFFECT_PLACEHOLDER)
-                PrintTextOnWindowSmallNarrow(windowId, gMoveDescriptionPointers[move - 1], 6, 1, 0, 0);
+                PrintTextOnWindowSmallNarrow(windowId, gMoveDescriptionPointers[move - 1], 6, 7, 0, 0);
             else
-                PrintTextOnWindowSmallNarrow(windowId, gNotDoneYetDescription, 6, 1, 0, 0);
+                PrintTextOnWindowSmallNarrow(windowId, gNotDoneYetDescription, 6, 7, 0, 0);
         }
         else
         {

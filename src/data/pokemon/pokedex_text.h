@@ -5235,41 +5235,45 @@ const u8 gBalbyrnPokedexText[] = _(
     "horns as components for alchemy and curatives.");
 
 const u8 gBlazizahakPokedexText[] = _(
-    "Their domineering presence instill fear and\n"
+    "Their domineering presence instills fear and\n"
     "pressure in those around them. Leading fights\n"
-    "covered in black flames they command Balbyrn\n"
-    "and Fiefreet battalions. The sheer destruction\n"
-    "of their raids has led to them being hunted down.");
+    "covered in black flames they command Balbyrn and\n"
+    "Fiefreet battalions. The sheer destruction of\n"
+    "their raids have led to them being hunted down.");
 
 const u8 gProngyPokedexText[] = _(
-    "Prongy sticks out its tongue to smell\n"
-    "and hunt its favorite food Minote.\n"
-    "Prongy uses its tail to skewer and pulls\n"
-    "them towards its mouth.");
+    "Prongy stick their tongue out to smell and hunt\n"
+    "for their favorite prey, Minote. Once they find\n"
+    "one, they use their tail to skewer and pull the\n"
+    "unfortunate fry toward their mouth.");
 
 const u8 gTridalierPokedexText[] = _(
-    "Tridalier's head, tail, and fins are\n"
-    "encrusted in steel-like keratin. Because\n"
-    "of the toughness of this armor, chefs\n"
-    "have to use power saws to cut it up.");
+    "A Tridalier’s head, tail, and fins are encrusted\n"
+    "in steel-like keratin, while their flesh inside\n"
+    "is very tender and delicious. Because of the\n"
+    "toughness of their armor, chefs have to use\n"
+    "heavy-duty power saws to cut them up.");
 
 const u8 gTritonautPokedexText[] = _(
-    "Tritonaut is revered in deep ocean\n"
-    "trenches. Its steel armor protects it from\n"
-    "great pressures and its trident-like tail\n"
-    "can sink ships and pierce thick steel.");
+    "Our ancestors revered Tritonaut as kings of the\n"
+    "seas. They live in trenches, where their armor\n"
+    "protects them from the pressures of the deep.\n"
+    "Their trident-like tails can pierce the thickest\n"
+    "of armor, sinking ships and ocean cruisers.");
 
 const u8 gSnelfrendPokedexText[] = _(
-    "Snelfrend are well known for their\n"
-    "incredibly pleasant personalities. It is\n"
-    "for this reason that they are popular\n"
-    "household pets.");
+    "These shell-bound creatures are known for their\n"
+    "amiable personalities. The slime they produce\n"
+    "helps sanitize themselves and lets them collect\n"
+    "dust and residue, which they feed on. This makes\n"
+    "them very popular household pets.");
 
 const u8 gSycoplodPokedexText[] = _(
-    "Sycoplod's shell seems to emit psychic\n"
-    "signals to it. This causes the Pokémon\n"
-    "to eat more than what scientists believe\n"
-    "to be its regular food intake.");
+    "A Sycoplod’s shell seems to emit psychic signals\n"
+    "to them. This causes them to eat more than what\n"
+    "scientists believe to be their regular food\n"
+    "intake. They have difficulty coordinating their\n"
+    "movements as if they can’t control themselves.");
 
 const u8 gSycostromPokedexText[] = _(
     "Sycostrom's shell has lived as a distinct\n"

@@ -2453,6 +2453,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifterucharmprotected battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_TERU_CHARM_PROTECTED
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifsafeguard jumpInstr:req
 	jumpifability BS_ATTACKER, ABILITY_INFILTRATOR, 1f
 	jumpIfType BS_ATTACKER, TYPE_BUG, 1f
