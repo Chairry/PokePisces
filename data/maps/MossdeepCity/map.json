@@ -222,8 +222,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
-      "x": 6,
-      "y": 7,
+      "x": 5,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
