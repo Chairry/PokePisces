@@ -3041,7 +3041,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
 {
     s32 i, byTwo, affectsUser = 0;
     bool32 statusChanged = FALSE;
-    bool32 mirrorArmorReflected = (GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR);
+    bool32 mirrorArmorReflected = (GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR || (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_MOON_MIRROR && gBattleMons[gBattlerTarget].species == SPECIES_LUNATONE));
     u32 flags = 0;
     u16 battlerAbility;
     bool8 activateAfterFaint = FALSE;
@@ -12157,6 +12157,19 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_JUMP_IF_TERU_CHARM_PROTECTED:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_TERU_CHARM && gBattleMons[battler].species == SPECIES_CHIROBERRA)
+        {
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        return;
+    }
     case VARIOUS_SET_ATTACKER_STICKY_WEB_USER:
     {
         VARIOUS_ARGS();
@@ -15678,7 +15691,7 @@ static void Cmd_ficklebeamdamagecalculation(void)
     CMD_ARGS();
     gBattleStruct->fickleBeamBoosted = FALSE;
 
-    if (RandomPercentage(RNG_FICKLE_BEAM, 30))
+    if (RandomPercentage(RNG_FICKLE_BEAM, CalcSecondaryEffectChance(gBattlerAttacker, 30)))
     {
         gBattleStruct->fickleBeamBoosted = TRUE;
         if (gCurrentMove == MOVE_DRAGON_CLAW)
