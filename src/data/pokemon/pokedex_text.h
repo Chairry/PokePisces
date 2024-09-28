@@ -335,16 +335,18 @@ const u8 gGolduckPokedexText[] = _(
     "its forehead shimmers with light.");
 
 const u8 gMankeyPokedexText[] = _(
-    "Even the sound of snapping a branch sets\n"
-    "off Mankey. Its tolerance of irritants\n"
-    "shows how close Mankey is to its\n"
-    "trainer.");
+    "Even the sounds of a snapping branch or fallen\n"
+    "leaves rustling are enough to set off a Mankey.\n"
+    "The closer Mankey are to their trainer, the less\n"
+    "they get irritated by their commands. If yours\n"
+    "likes you, it'll only beat you up thrice a week.");
 
 const u8 gPrimeapePokedexText[] = _(
-    "Said to be the manifestation of rage,\n"
-    "Primeape blazes with anger at the\n"
-    "slightest movement. Even the strongest of\n"
-    "Pokémon avoid it due to its tenaciousness.");
+    "Said to be manifestations of rage, Primeape\n"
+    "blaze with anger at the slightest disturbance in\n"
+    "the air. Even the strongest Pokémon avoid them\n"
+    "due to their tenaciousness, which often leave\n"
+    "Primeape heavily injured regardless of who wins.");
 
 const u8 gGrowlithePokedexText[] = _(
     "Growlid is a stalwart canine companion\n"
@@ -5236,10 +5238,10 @@ const u8 gBalbyrnPokedexText[] = _(
 
 const u8 gBlazizahakPokedexText[] = _(
     "Their domineering presence instills fear and\n"
-    "pressure in those around them. Leading fights\n"
-    "covered in black flames they command Balbyrn and\n"
-    "Fiefreet battalions. The sheer destruction of\n"
-    "their raids have led to them being hunted down.");
+    "pressure on those around them. Leading fights\n"
+    "covered in black flames, they command Balbyrn\n"
+    "and Fiefreet battalions. Their battles leave a\n"
+    "wake of smoldering embers and destruction.");
 
 const u8 gProngyPokedexText[] = _(
     "Prongy stick their tongue out to smell and hunt\n"
@@ -5276,64 +5278,74 @@ const u8 gSycoplodPokedexText[] = _(
     "movements as if they can’t control themselves.");
 
 const u8 gSycostromPokedexText[] = _(
-    "Sycostrom's shell has lived as a distinct\n"
-    "being the entire time, eating the\n"
-    "Pokémon's brain. Scientists are studying\n"
-    "why they are born with spiral parasites.");
+    "The shells of Sycostrom have lived as distinct\n"
+    "creatures this entire time, eating their brains\n"
+    "as they grew up. If threatened Sycostrom produce\n"
+    "a strong psychic force, causing intense vertigo\n"
+    "or even storms, tornadoes, and whirlpools.");
 
 const u8 gGupsparPokedexText[] = _(
-    "Gupspar are overly aggressive Pokémon\n"
-    "that possess no sense of danger. They\n"
-    "will viciously assault any who come\n"
-    "across them.");
+    "Aggressive and belligerent, Gupspar possess no\n"
+    "sense of danger. They will viciously assault all\n"
+    "and any of those who come across them. Worse is,\n"
+    "they travel in swarms up to hundreds, capable of\n"
+    "overwhelming even fully evolved Pokémon.");
 
 const u8 gVangarPokedexText[] = _(
-    "Vangar's highly aggressive behavior is\n"
-    "famous throughout the region. They are\n"
-    "also known for gnawing holes under\n"
-    "ships.");
+    "Vangar are famous throughout the region for\n"
+    "their highly aggressive behavior. Their huge\n"
+    "snouts snap at anything and everything that gets\n"
+    "near them. Shore-borne locals use their jaws as\n"
+    "tips for spearfishing.");
 
 const u8 gGhaerialPokedexText[] = _(
-    "Ghaerial's odd fins have granted them the\n"
-    "ability to glide, like “swimming” in the\n"
-    "air. They are often sighted in groups\n"
-    "guarding “The Princess of the Sea.”");
+    "Ghaerial have specially developed wings that\n"
+    "grant them the ability to glide and soar. They\n"
+    "are capable of aerobic feats, akin to “swimming”\n"
+    "out of water. Ghaerial often appear in groups,\n"
+    "serving as escorts for “The Princess of the Sea.”");
 
 const u8 gQuilwardPokedexText[] = _(
-    "Their quills feel warm to the touch.\n"
-    "When agitated, those that are pricked by\n"
-    "their quills experience a severe burning\n"
-    "sensation.");
+    "Their quills feel warm to the touch. When\n"
+    "agitated, Quilward raise their quills and\n"
+    "produce a slight burning smell. Those who are\n"
+    "pricked by Quilward experience a severe burning\n"
+    "sensation and acute hot flashes.");
 
 const u8 gBonfeuPokedexText[] = _(
-    "The quills of this Pokémon constantly\n"
-    "radiate heat. Pokémon gather around them\n"
-    "as a source of comfort during frosty\n"
-    "nights.");
+    "Bonfeu constantly radiate heat, and the\n"
+    "intensity varies according to their mood. They\n"
+    "allow Pokémon to gather around them as a source\n"
+    "of comfort during frosty nights. Bonfeu even try\n"
+    "protecting them from predators.");
 
 const u8 gInfrarecPokedexText[] = _(
-    "Infrarec's quills can generate so much\n"
-    "excessive heat that they erupt into a\n"
-    "violent blast. They rarely do so to\n"
-    "prevent forest fires from occurring.");
+    "An Infrarec’s quills can generate so much\n"
+    "excessive heat that they suddenly erupt into a\n"
+    "violent blast. Merely touching their quills can\n"
+    "cause spontaneous combustion. Infrarec live\n"
+    "near water to help them regulate their heat.");
 
 const u8 gBermPokedexText[] = _(
-    "Berm are frequently mistaken for regular\n"
-    "grass and stepped on. They also mistake\n"
-    "other Berm for grass and sometimes eat\n"
-    "them.");
+    "Berm are slow-witted and frequently mistaken for\n"
+    "regular grass, often getting stepped on. They\n"
+    "also mistake other Berm for grass and may end up\n"
+    "eating their grassy mane. They are unfazed by\n"
+    "all of this.");
 
 const u8 gMoodaPokedexText[] = _(
-    "Mooda are known to be very docile and\n"
-    "friendly. Overly friendly, this makes\n"
-    "them easy targets for predators since\n"
-    "they don't possess any sense of danger.");
+    "Mooda are known to be very docile and friendly,\n"
+    "too friendly. This makes them easy targets for\n"
+    "predators since they don’t possess any sense of\n"
+    "danger. They don’t seem to mind this, however,\n"
+    "and their population remains stable.");
 
 const u8 gBermudonPokedexText[] = _(
-    "Groups of Berm and Mooda are well\n"
-    "guarded by Bermudon. They are more wary\n"
-    "and Bull Rush anything they perceive as\n"
-    "a danger to their herd.");
+    "Groups of Berm and Mooda are well guarded by\n"
+    "Bermudon. They are more aware of danger and\n"
+    "Bull Rush anything they perceive as a threat to\n"
+    "their herd. Bermudon are capable of flattening\n"
+    "an entire truck with their charge.");
 
 const u8 gMarinarocPokedexText[] = _(
     "Marinaroc travel down deep, filtering\n"
@@ -5348,81 +5360,95 @@ const u8 gMettatollPokedexText[] = _(
     "ocean's immense pressure.");
 
 const u8 gIcksqueekPokedexText[] = _(
-    "Icksqueek dart around quickly when\n"
-    "searching for small prey. Their saliva\n"
-    "is teeming with pathogens that can cause\n"
-    "illnesses.");
+    "Icksqueek dart around quickly when searching for\n"
+    "small prey. Their saliva is teeming with\n"
+    "pathogens that can cause illnesses. This weakens\n"
+    "and paralyzes the prey, which they then drag\n"
+    "into their burrow.");
 
 const u8 gKomorodePokedexText[] = _(
-    "Komorode lay still in the grass and\n"
-    "ambush their prey with a quick bite.\n"
-    "They then let their prey run and wait\n"
-    "for them to be knocked out.");
+    "Komorode lay still, waiting for prey to pass,\n"
+    "which they then swiftly bite. Komorode then let\n"
+    "the prey run, injured and infected by their\n"
+    "saliva. Following their trail, they soon find\n"
+    "the bitten Pokémon, collapsed and half dead.");
 
 const u8 gAnnihilapePokedexText[] = _(
-    "Its rage? Tempered. Fury? Tamed. It has\n"
-    "mastery over its anger, becoming one\n"
-    "that is enraged like a stormy sea, yet\n"
-    "calm as a still pond.");
+    "Its rage? Tempered. Fury? Tamed. Its death has\n"
+    "given it mastery over its endless ire, reaching\n"
+    "the singularity of indignation. Its wrath is like\n"
+    "a body of water, becoming one that is enraged as\n"
+    "a stormy sea, yet tranquil as a still pond.");
 
 const u8 gEbibiPokedexText[] = _(
-    "Its furry shell is coated with\n"
-    "hydrophobic oil, allowing it to glide\n"
-    "through the water with minimal friction.");
+    "Their furry shells have a coating of hydrophobic\n"
+    "oil, which enable them to skim through water with\n"
+    "minimal friction. They’re trawled on the shores\n"
+    "of Pacifidlog due to their popularity in the\n"
+    "market. They taste great dipped in Makibi oil.");
 
 const u8 gMakibiPokedexText[] = _(
-    "Although not as fast as Ebibi, it has\n"
-    "enough speed to impale prey brutally with\n"
-    "its sharp horn. The oil it produces serves\n"
-    "as an ingredient in high-quality frying.");
+    "Although not as fast as Ebibi, Makibi can\n"
+    "accelerate to impale prey brutally with their\n"
+    "singular sharp horn. People extract the\n"
+    "nutrient-rich oil they produce and use it in a\n"
+    "variety of culinary dishes.");
 
 const u8 gEbirosashiPokedexText[] = _(
-    "Their meat is described as comparable to\n"
-    "the food of the gods. However, due to\n"
-    "how powerful these dragons are,\n"
-    "obtaining their meat is very difficult.");
+    "Powerful yet elegant, fierce but dignified. They\n"
+    "elude danger whilst performing a mesmerizing\n"
+    "dance. For all their beauty, however, they’re\n"
+    "unsafe from the hunger of man. Capturing one\n"
+    "builds great refute from both hunters and chefs.");
 
 const u8 gKitikitiPokedexText[] = _(
-    "Kitikiti are pests that populate the\n"
-    "pond waters of Hoenn. They tend to\n"
-    "overcrowd waters, causing other\n"
-    "Water-type Pokémon to become sickly.");
+    "Kitikiti are pests that populate the pond waters\n"
+    "of Hoenn. They tend to overcrowd waters, causing\n"
+    "other Water-type Pokémon to become sickly. To\n"
+    "make matters worse, they parasitize a\n"
+    "significant majority of Pokémon.");
 
 const u8 gMoskopoPokedexText[] = _(
     "Hordes of them swarm people and Pokémon,\n"
-    "absorbing as much fluids as they can.\n"
-    "They seem to grow more ravenous with\n"
-    "each generation.");
+    "absorbing as many fluids as they can. They seem\n"
+    "to grow more ravenous with each generation.\n"
+    "Recent studies about quelling their population\n"
+    "have revealed its harrowing true nature.");
 
 const u8 gAbsolariaPokedexText[] = _(
-    "They inherit the genetic traits of all\n"
-    "beings, generations of Moskopo have fed\n"
-    "on. Each generation grows exponentially\n"
-    "more supreme.");
+    "Studies on their DNA have revealed they inherit\n"
+    "the genetic code of all creatures, which many\n"
+    "generations of Moskopo have fed on. This implies\n"
+    "each generation of Absolaria becomes more\n"
+    "powerful than the previous iterations.");
 
 const u8 gKyudiPokedexText[] = _(
-    "A primarily nocturnal scavenger, Kyudi\n"
-    "uses any chance it gets for food. Reports\n"
-    "tell of Kyudi leading lost wanderers back\n"
-    "to dens for it and its brethren to feed on.");
+    "Kyudi are primarily nocturnal scavengers who\n"
+    "take advantage of any opportunity to find food.\n"
+    "Locals warn outsiders to avoid Kyudi because\n"
+    "they are known to guide lost wanderers back to\n"
+    "their den for them and their brethren to feed on.");
 
 const u8 gKombakyuPokedexText[] = _(
-    "This Pokémon wanders the desert\n"
-    "expecting fights. If Kombakyu is at a\n"
-    "disadvantage, it will produce sandstorms\n"
-    "to hide within and confuse its foe.");
+    "They are desert vagrants that relish hunting\n"
+    "strong prey. It is advisable to stay clear of\n"
+    "sandstorms in the desert, as Kombakyu will lie\n"
+    "in wait to strike from within the sands. The\n"
+    "only way to escape their pursuit is to fight.");
 
 const u8 gFluffsirPokedexText[] = _(
-    "Its dense body hair causes immense joy\n"
-    "just by touching it. Although some\n"
-    "people claim that Fluffsir's eyes are\n"
-    "unsettling and won't even get near one.");
+    "Their dense body hairs cause immense joy just by\n"
+    "touching them. Although some people claim that a\n"
+    "Fluffsir’s eyes are unsettling, and won’t even\n"
+    "get near one. When struck with an attack, they\n"
+    "make a high-pitched squeaking sound.");
 
 const u8 gFluffrearPokedexText[] = _(
-    "Fluffrear constantly carry their\n"
-    "children. When danger hits, Fluffrear\n"
-    "put their bodies between them and their\n"
-    "children, ensuring the child's survival.");
+    "Fluffrear carry their offspring wherever they\n"
+    "go, making sure they're warm and safe. Whenever\n"
+    "danger is present, Fluffrear make sure to put\n"
+    "their bodies between the source of danger and\n"
+    "their young, ensuring the child's survival.");
 
 const u8 gSaintisowPokedexText[] = _(
     "It clumsily flies together in groups,\n"
