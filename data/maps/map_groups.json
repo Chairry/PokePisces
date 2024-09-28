@@ -213,7 +213,7 @@
     "NewMauville_Inside",
     "MaintenanceBondingArena",
     "VerdanturfNew",
-    "MauvilleCity_Gym"
+    "VerdanturfInteriors"
   ],
   "gMapGroup_PiscesLeg7Minor": [
     "LavaridgeTown_PokemonCenter_2F",
@@ -224,6 +224,8 @@
     "BattleFrontier_PokemonCenter_1F",
     "SweltornTransitionCave",
     "SweltornTransitionHallway",
+    "NewMauvilleFloor2Rooms",
+    "HatchloamDayCare",
     "TrickHouseEntrance",
     "TrickHouseMainPortion",
     "TrickHouseLeverRooms",
@@ -231,13 +233,15 @@
     "TrickHouseUpsideDownRoom",
     "TrickHouseBallRoom",
     "TrickHousePotRoom",
-    "Gym6Corridor",
-    "NewMauvilleFloor2Rooms",
     "NewMauvilleRydelCycles",
+    "SlateportInteriors",
     "OceanicMuseumNew",
     "SouthernIsland",
+    "SmokingArea",
+    "VerdanturfTransition",
+    "Gym6Corridor",
     "VerdanturfGym",
-    "SlateportInteriors"
+    "MauvilleCity_Gym"
   ],
   "gMapGroup_PiscesLeg8Major": [
     "SlateportShore",

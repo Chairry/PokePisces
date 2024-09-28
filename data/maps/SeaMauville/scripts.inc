@@ -219,6 +219,7 @@ SeaMauville_EventScript_Nob::
 	msgbox SeaMauville_Text_IWantThis, MSGBOX_DEFAULT
 	speakername SeaMauville_Text_NameKizuna
 	msgbox SeaMauville_Text_LetsTryAndFigureItOut, MSGBOX_AUTOCLOSE
+	setflag FLAG_TEMP_11
 	release
 	end
 
@@ -312,16 +313,7 @@ SeaMauville_Movement_KizunaWalkAway:
 	walk_slow_down
 	walk_slow_down
 	walk_slow_down
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
+	walk_slow_down
 	step_end
 
 SeaMauville_EventScript_KizunaIdle2::

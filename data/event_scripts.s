@@ -3697,3 +3697,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/FossilShore/scripts.inc"
 
 	.include "data/maps/FossilShoreHouses/scripts.inc"
+
+	.include "data/maps/SmokingArea/scripts.inc"
+
+	.include "data/maps/VerdanturfInteriors/scripts.inc"
+
+	.include "data/maps/VerdanturfTransition/scripts.inc"
+
+	.include "data/maps/HatchloamDayCare/scripts.inc"

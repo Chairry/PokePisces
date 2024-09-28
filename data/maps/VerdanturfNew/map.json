@@ -27,50 +27,64 @@
       "x": 18,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
+      "dest_map": "MAP_BATTLE_FRONTIER_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
+      "dest_warp_id": "8"
     },
     {
       "x": 4,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 9,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
+      "dest_warp_id": "10"
     },
     {
       "x": 14,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
+      "dest_warp_id": "6"
     },
     {
       "x": 22,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
+      "dest_warp_id": "4"
     },
     {
       "x": 32,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_NEW",
+      "dest_map": "MAP_VERDANTURF_INTERIORS",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TRANSITION",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 37,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TRANSITION",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

@@ -5730,6 +5730,46 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FossilShoreHouses/border.bin",
       "blockdata_filepath": "data/layouts/FossilShoreHouses/map.bin"
+    },
+    {
+      "id": "LAYOUT_SMOKING_AREA",
+      "name": "SmokingArea_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_mauvillenew",
+      "border_filepath": "data/layouts/SmokingArea/border.bin",
+      "blockdata_filepath": "data/layouts/SmokingArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_INTERIORS",
+      "name": "VerdanturfInteriors_Layout",
+      "width": 45,
+      "height": 28,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonFanClub",
+      "border_filepath": "data/layouts/VerdanturfInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_TRANSITION",
+      "name": "VerdanturfTransition_Layout",
+      "width": 10,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/VerdanturfTransition/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfTransition/map.bin"
+    },
+    {
+      "id": "LAYOUT_HATCHLOAM_DAY_CARE",
+      "name": "HatchloamDayCare_Layout",
+      "width": 18,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonDayCare",
+      "border_filepath": "data/layouts/HatchloamDayCare/border.bin",
+      "blockdata_filepath": "data/layouts/HatchloamDayCare/map.bin"
     }
   ]
 }

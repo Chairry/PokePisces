@@ -140,7 +140,7 @@
       "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
-      "movement_range_x": 62,
+      "movement_range_x": 15,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
@@ -211,6 +211,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COURTNEY",
+      "x": 32,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 6,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -225,7 +238,14 @@
       "x": 35,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_HATCHLOAM_FIELD",
+      "dest_map": "MAP_HATCHLOAM_DAY_CARE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TRANSITION",
       "dest_warp_id": "0"
     }
   ],

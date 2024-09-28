@@ -176,85 +176,85 @@
       "x": 39,
       "y": 55,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
+      "dest_warp_id": "1"
     },
     {
       "x": 40,
       "y": 55,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
+      "dest_warp_id": "1"
     },
     {
       "x": 14,
       "y": 51,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "7"
     },
     {
       "x": 22,
       "y": 39,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "5"
     },
     {
       "x": 42,
       "y": 39,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "8"
     },
     {
       "x": 12,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "1"
     },
     {
       "x": 36,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "3"
     },
     {
       "x": 10,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "2"
     },
     {
       "x": 30,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "4"
     },
     {
       "x": 44,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
+      "dest_warp_id": "6"
     },
     {
       "x": 9,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
+      "dest_map": "MAP_SMOKING_AREA",
       "dest_warp_id": "0"
     },
     {
       "x": 31,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_MAINTENANCE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_FLOOR1",
+      "dest_warp_id": "15"
     }
   ],
   "coord_events": [
