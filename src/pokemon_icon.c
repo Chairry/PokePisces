@@ -1525,6 +1525,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_SHISHIMA_ALT] = gMonIcon_Shishima,
     [SPECIES_SHISHIMA_PUNISHER_ALT] = gMonIcon_ShishimaPunisherAlt,
     [SPECIES_LYOLICA] = gMonIcon_Lyolica,
+    [SPECIES_FAKYSNAKY_BUSTED] = gMonIcon_FakysnakyBusted,
 #endif
     [SPECIES_EGG] = gMonIcon_Egg,
 };
@@ -2991,6 +2992,7 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_SHISHIMA_PUNISHER_ALT] = 0,
     [SPECIES_LYOLICA] = 4,
     [SPECIES_POTTRICIA_SHATTERED] = 0,
+    [SPECIES_FAKYSNAKY_BUSTED] = 1,
 #endif
     [SPECIES_EGG] = 1,
 };

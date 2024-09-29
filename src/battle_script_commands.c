@@ -2591,7 +2591,7 @@ static void Cmd_datahpupdate(void)
             gBattleScripting.battler = battler;
             if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] == SPECIES_NONE)
                 gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] = gBattleMons[battler].species;
-            gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            gBattleMons[battler].species = SPECIES_FAKYSNAKY_BUSTED;
             gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_TargetFormChangeDisguise;

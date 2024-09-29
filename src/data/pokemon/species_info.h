@@ -24608,6 +24608,28 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .noFlip = FALSE,
     },
 
+    [SPECIES_FAKYSNAKY_BUSTED] =
+    {
+        .baseHP        = 52,
+        .baseAttack    = 99,
+        .baseDefense   = 65,
+        .baseSpeed     = 128,
+        .baseSpAttack  = 52,
+        .baseSpDefense = 68,
+        .catchRate = 45,
+        .expYield = 116,
+        .evYield_Speed = 2,
+        .itemRare = ITEM_SILK_SCARF,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS},
+        .abilities = {ABILITY_DISGUISE, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_GREEN,
+        .noFlip = FALSE,
+    },
+
     [SPECIES_PANTNEY] =
     {
         .baseHP        = 65,

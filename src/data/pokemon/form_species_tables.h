@@ -1219,4 +1219,11 @@ static const u16 sPottriciaFormSpeciesIdTable[] = {
     SPECIES_POTTRICIA_SHATTERED,
     FORM_SPECIES_END,
 };
+
+static const u16 sFakysnakyFormSpeciesIdTable[] = {
+    SPECIES_FAKYSNAKY,
+    SPECIES_FAKYSNAKY_BUSTED,
+    FORM_SPECIES_END,
+};
+
 #endif

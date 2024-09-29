@@ -635,6 +635,12 @@ static const struct FormChange sPottriciaFormChangeTable[] = {
     {FORM_CHANGE_END_BATTLE,    SPECIES_POTTRICIA},
     {FORM_CHANGE_TERMINATOR},
 };
+
+static const struct FormChange sFakysnakyFormChangeTable[] = {
+    {FORM_CHANGE_FAINT,         SPECIES_FAKYSNAKY},
+    {FORM_CHANGE_END_BATTLE,    SPECIES_FAKYSNAKY},
+    {FORM_CHANGE_TERMINATOR},
+};
 #endif
 
 #undef WHEN_LEARNED
