@@ -1255,8 +1255,8 @@
 #define FLAG_TALKED_TO_MOSS_GUY                                           0x4B5 // Unused Flag
 #define FLAG_BALL_QUEST_DIALOGUE_TRUNCATOR                                           0x4B6 // Unused Flag
 #define FLAG_PAID_FOR_BADGE_06                                           0x4B7 // Unused Flag
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
+#define FLAG_FOUND_SHELLY                                           0x4B8 // Unused Flag
+#define FLAG_FOUND_BRAWLY                                           0x4B9 // Unused Flag
 #define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
 #define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
 #define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag

@@ -1,5 +1,35 @@
 SailorsPauseShips_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, SailorsPauseShips_OnLoad
 	.byte 0
+
+SailorsPauseShips_OnLoad:
+	call_if_set FLAG_FOUND_SHELLY, SailorsPauseShips_EventScript_RemoveShelly
+	end
+
+SailorsPauseShips_EventScript_RemoveShelly::
+	setmetatile 39, 1, METATILE_InsideShip_ShellyGoneTop, TRUE
+	setmetatile 39, 2, METATILE_InsideShip_ShellyGoneBottom, TRUE
+	special DrawWholeMapView
+	return
+
+SailorsPauseShips_EventScript_Shelly::
+	lockall
+	goto_if_set FLAG_FOUND_SHELLY, SailorsPauseShips_EventScript_ShellyGone
+	msgbox SailorsPauseShips_Text_ShellyGreeting, MSGBOX_DEFAULT
+	setflag FLAG_FOUND_SHELLY
+	delay 32
+	closemessage
+	playse SE_EXIT
+	setmetatile 39, 1, METATILE_InsideShip_ShellyGoneTop, TRUE
+	setmetatile 39, 2, METATILE_InsideShip_ShellyGoneBottom, TRUE
+	special DrawWholeMapView
+	releaseall
+	end
+
+SailorsPauseShips_EventScript_ShellyGone::
+	msgbox SailorsPauseShips_Text_ShellyGone, MSGBOX_AUTOCLOSE
+	releaseall
+	end
 
 SailorsPauseShips_EventScript_Ami::
     trainerbattle_single TRAINER_P_AMI, SailorsPauseShips_Text_AmiIntro, SailorsPauseShips_Text_AmiDefeated
@@ -126,3 +156,9 @@ SailorsPauseShips_Text_RoseDefeated:
 
 SailorsPauseShips_Text_RosePostBattle:
 	.string "post$"
+
+SailorsPauseShips_Text_ShellyGreeting:
+	.string "shellgreet$"
+
+SailorsPauseShips_Text_ShellyGone:
+	.string "nothing there (reference)$"
