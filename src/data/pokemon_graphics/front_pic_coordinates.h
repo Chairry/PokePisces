@@ -1066,7 +1066,7 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_MARSOYART]                    = { .size = MON_COORDS_SIZE(56, 40), .y_offset =  9 },
     [SPECIES_CINDRILLON]                   = { .size = MON_COORDS_SIZE(32, 48), .y_offset =  8 },
     [SPECIES_ARMAGATTON]                   = { .size = MON_COORDS_SIZE(64, 56), .y_offset =  2 },
-    [SPECIES_FAKYSNAKY]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  2 },
+    [SPECIES_FAKYSNAKY]                    = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },
     [SPECIES_PANTNEY]                      = { .size = MON_COORDS_SIZE(48, 48), .y_offset = 11 },
     [SPECIES_NYARLY]                       = { .size = MON_COORDS_SIZE(56, 48), .y_offset =  6 },
     [SPECIES_SUDCUB]                       = { .size = MON_COORDS_SIZE(32, 32), .y_offset = 13 },
@@ -1565,10 +1565,11 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SPINDA_DESERT]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_SPINDA_FOREST]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_SPINDA_MOUNTAIN]              = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
-    [SPECIES_SPINDA_PLAINS]               = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
+    [SPECIES_SPINDA_PLAINS]                = { .size = MON_COORDS_SIZE(40, 56), .y_offset =  5 },
     [SPECIES_DUDUNSPARS_EIGHT_SEGMENT]     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_KODOUGH_BLUNT]                = { .size = MON_COORDS_SIZE(40, 32), .y_offset = 12 },
     [SPECIES_CASTFORM_SANDY]               = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_FAKYSNAKY_BUSTED]             = { .size = MON_COORDS_SIZE(32, 24), .y_offset =  3 },
 #endif
     // Egg
     [SPECIES_EGG]                          = { .size = MON_COORDS_SIZE(24, 24), .y_offset = 20 },

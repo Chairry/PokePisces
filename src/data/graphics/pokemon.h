@@ -8501,4 +8501,9 @@ const u32 gMonFrontPic_Pottricia[] = INCBIN_U32("graphics/pokemon/pottricia/fron
 const u32 gMonPalette_Pottricia[] = INCBIN_U32("graphics/pokemon/pottricia/normal.gbapal.lz");
 const u32 gMonFrontPic_PottriciaShattered[] = INCBIN_U32("graphics/pokemon/pottricia/shattered/front.4bpp.lz");
 const u32 gMonPalette_PottriciaShattered[] = INCBIN_U32("graphics/pokemon/pottricia/shattered/normal.gbapal.lz");
+const u32 gMonFrontPic_FakysnakyBusted[] = INCBIN_U32("graphics/pokemon/225fakysnaky/busted/front.4bpp.lz");
+const u32 gMonPalette_FakysnakyBusted[] = INCBIN_U32("graphics/pokemon/225fakysnaky/busted/normal.gbapal.lz");
+const u32 gMonBackPic_FakysnakyBusted[] = INCBIN_U32("graphics/pokemon/225fakysnaky/busted/back.4bpp.lz");
+const u32 gMonShinyPalette_FakysnakyBusted[] = INCBIN_U32("graphics/pokemon/225fakysnaky/busted/shiny.gbapal.lz");
+const u8 gMonIcon_FakysnakyBusted[] = INCBIN_U8("graphics/pokemon/225fakysnaky/busted/icon.4bpp");
 #endif
