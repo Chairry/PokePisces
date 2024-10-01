@@ -269,6 +269,8 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Interior  0x297
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
+#define METATILE_InsideShip_ShellyGoneBottom            0x304
+#define METATILE_InsideShip_ShellyGoneTop               0x302
 
 // gTileset_LavaridgeGymNew
 #define METATILE_LavaridgeGymNew_DurinOnTable  0x230

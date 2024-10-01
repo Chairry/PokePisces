@@ -5,7 +5,8 @@ SlateportInteriors_EventScript_FanClubChairman::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_POKE_FLUTE, SlateportInteriors_EventScript_FanClubChairmanPostFlute
-	goto_if_eq VAR_OLD_GUYS_STATE, 15, SlateportInteriors_EventScript_PokeFluteSpiel
+	checkitem ITEM_TEACHY_TV
+	goto_if_eq VAR_RESULT, TRUE, SlateportInteriors_EventScript_PokeFluteSpiel
 	msgbox SlateportInteriors_Text_ILovePrimo, MSGBOX_AUTOCLOSE
 	release
 	end

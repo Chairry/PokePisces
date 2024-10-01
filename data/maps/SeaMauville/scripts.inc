@@ -618,49 +618,49 @@ SeaMauville_Text_AboutDock:
 	.string "anyways letsgo to market$"
 
 SeaMauville_Text_TraderGreeting:
-	.string "アイ アム ザー トレーダー\n"
-	.string "マイ ネーム イズ ノブ$"
+	.string "{JPN}アイ アム ザー トレーダー\n"
+	.string "{JPN}マイ ネーム イズ ノブ$"
 
 SeaMauville_Text_HesSpeakingJapanese:
 	.string "oh hes speaking japanese$"
 
 SeaMauville_Text_IWantThis:
-	.string "イフ ユー ウッド ライク ター トレード\n"
-	.string "アイ ウィル ギブ ユー アー キー\l"
-	.string "イン エクスチェーンジ フォー ティー$"
+	.string "{JPN}イフ ユー ウッド ライク ター トレード\n"
+	.string "{JPN}アイ ウィル ギブ ユー アー キー\l"
+	.string "{JPN}イン エクスチェーンジ フォー ティー$"
 
 SeaMauville_Text_LetsTryAndFigureItOut:
 	.string "lets figure it out$"
 
 SeaMauville_Text_NobPreDock:
-	.string "マイ アポロジズ\n"
-	.string "カレントリー セティング アップ ヒア$"
+	.string "{JPN}マイ アポロジズ\n"
+	.string "{JPN}カレントリー セティング アップ ヒア$"
 
 SeaMauville_Text_NobStartedQuest:
-	.string "アイ ウィル ギブ ユー アー キー\n"
-	.string "イン エクスチェーンジ フォー ティー$"
+	.string "{JPN}アイ ウィル ギブ ユー アー キー\n"
+	.string "{JPN}イン エクスチェーンジ フォー ティー$"
 
 SeaMauville_Text_IWillTradeForThatItem:
-	.string "ブリリアント！\n"
-	.string "ザー ティー スメルズ デライトフル$"
+	.string "{JPN}ブリリアント！\n"
+	.string "{JPN}ザー ティー スメルズ デライトフル$"
 
 SeaMauville_Text_ThanksForYourTime:
-	.string "アイ バリュー ザット ユー トゥック\n"
-	.string "ザー タイム フォー マイ レクェスト$"
+	.string "{JPN}アイ バリュー ザット ユー トゥック\n"
+	.string "{JPN}ザー タイム フォー マイ レクェスト$"
 
 SeaMauville_Text_YouAllSet:
 	.string "you all set bestie$"
 
 SeaMauville_Text_YesItsMyTimeToGo:
-	.string "イェス⋯\n"
-	.string "イット イズ マイ タイム ター ゴー\p"
-	.string "レタイエムント ハズ エルーディッド ミー\n"
-	.string "フォー デケードズ ナウ\p"
-	.string "アイ クッド ノット ストップ トレーディング\n"
-	.string "アイ アドー ザー ハント\p"
-	.string "ザット キー ウォズ マイ\n"
-	.string "ラースト グッド ター ギフト\p"
-	.string "レッディー キザナー$"
+	.string "{JPN}イェス⋯\n"
+	.string "{JPN}イット イズ マイ タイム ター ゴー\p"
+	.string "{JPN}レタイエムント ハズ エルーディッド ミー\n"
+	.string "{JPN}フォー デケードズ ナウ\p"
+	.string "{JPN}アイ クッド ノット ストップ トレーディング\n"
+	.string "{JPN}アイ アドー ザー ハント\p"
+	.string "{JPN}ザット キー ウォズ マイ\n"
+	.string "{JPN}ラースト グッド ター ギフト\p"
+	.string "{JPN}レッディー キザナー$"
 
 SeaMauville_Text_OneMoreToGo:
 	.string "uno mas brothere$"

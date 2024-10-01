@@ -11906,17 +11906,17 @@
             ]
           },
           "fishing_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MANKEY"
+                "species": "SPECIES_VANGAR"
               },
               {
                 "min_level": 44,
                 "max_level": 44,
-                "species": "SPECIES_MANKEY"
+                "species": "SPECIES_VANGAR"
               },
               {
                 "min_level": 5,
