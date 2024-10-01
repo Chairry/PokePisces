@@ -13405,11 +13405,42 @@ static const struct TrainerMon sParty_PJimmy2os[] = {
     }
 };
 
-static const struct TrainerMon sParty_Rhett[] = {
+static const struct TrainerMon sParty_PSadfisher3[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 15,
-    .species = SPECIES_MAKUHITA,
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 1,
+    .species = SPECIES_SADSOD,
+    .heldItem = ITEM_SALTY_TEAR,
+    .moves = {MOVE_REAL_TEARS, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 

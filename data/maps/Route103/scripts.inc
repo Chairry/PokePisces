@@ -274,7 +274,7 @@ Route103_EventScript_Marcos::
 	end
 
 Route103_EventScript_Rhett::
-	trainerbattle_single TRAINER_RHETT, Route103_Text_RhettIntro, Route103_Text_RhettDefeated
+	trainerbattle_single TRAINER_P_SADFISHER_3, Route103_Text_RhettIntro, Route103_Text_RhettDefeated
 	msgbox Route103_Text_RhettPostBattle, MSGBOX_AUTOCLOSE
 	end
 
