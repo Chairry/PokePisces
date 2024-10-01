@@ -7821,7 +7821,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
-        .party = TRAINER_PARTY(sParty_PRaoTwunne1),
+        .party = TRAINER_PARTY(sParty_PLytxi),
     },
 
     [TRAINER_P_SHERIMOYA] =
@@ -7833,7 +7833,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
-        .party = TRAINER_PARTY(sParty_PRaoTwunne2),
+        .party = TRAINER_PARTY(sParty_PSherimoya),
     },
 
     [TRAINER_P_PANDOU_6] =

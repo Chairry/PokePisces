@@ -20765,7 +20765,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD},
-        .abilities = {ABILITY_BRAND_CLAWS, ABILITY_IRON_BARBS, ABILITY_TOUGH_CLAWS, ABILITY_NONE},
+        .abilities = {ABILITY_BRANDING_CLAWS, ABILITY_IRON_BARBS, ABILITY_TOUGH_CLAWS, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
     },
@@ -21390,9 +21390,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_GUMONA] =
     {
-        .baseHP        = 75,
+        .baseHP        = 70,
         .baseAttack    = 85,
-        .baseDefense   = 100,
+        .baseDefense   = 105,
         .baseSpeed     = 125,
         .baseSpAttack  = 50,
         .baseSpDefense = 95,
@@ -21412,12 +21412,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_NANGGAL] =
     {
-        .baseHP        = 95,
-        .baseAttack    = 120,
+        .baseHP        = 85,
+        .baseAttack    = 125,
         .baseDefense   = 50,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 75,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 105,
+        .baseSpDefense = 70,
         .types = { TYPE_DARK, TYPE_FLYING },
         .catchRate = 45,
         .expYield = 158,
@@ -21434,11 +21434,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_SHEEDRAKE] =
     {
-        .baseHP        = 100,
-        .baseAttack    = 75,
+        .baseHP        = 105,
+        .baseAttack    = 70,
         .baseDefense   = 95,
         .baseSpeed     = 50,
-        .baseSpAttack  = 120,
+        .baseSpAttack  = 125,
         .baseSpDefense = 85,
         .types = { TYPE_DARK, TYPE_GRASS },
         .catchRate = 45,
