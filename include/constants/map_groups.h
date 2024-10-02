@@ -201,6 +201,7 @@
 #define MAP_SHOAL_CAVE_NEW_FLOOR1 (6 | (14 << 8))
 #define MAP_SHOAL_CAVE_NEW_FLOOR2 (7 | (14 << 8))
 #define MAP_DEWFORD_TOWN_GYM      (8 | (14 << 8))
+#define MAP_DEWFORD_GYM_NEW       (9 | (14 << 8))
 
 // gMapGroup_PiscesLeg8Minor
 #define MAP_DEWFORD_TOWN_POKEMON_CENTER_1F (0 | (15 << 8))
