@@ -2229,31 +2229,44 @@ static void Cmd_damagecalc(void)
 
     // Counter for EVO_HIT_BY_SLASH_MOVE.
     partySlot = gBattlerPartyIndexes[gBattlerTarget];
-    if (gBattleMoves[gCurrentMove].slicingMove && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
-        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT))
-        gHitBySlashMove[partySlot]++;
-        if (gHitByPierceMove[partySlot] >= 1)
-            gHitByPierceMove[partySlot] == 0;
-        if (gHitByBluntMove[partySlot] >= 1)
-            gHitByBluntMove[partySlot] == 0;
-
+    if (gBattleMoves[gCurrentMove].slicingMove
+        && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
+        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI
+        && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT)
+        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            gHitBySlashMove[partySlot]++;
+            gHitByPierceMove[partySlot] = 0;
+            gHitByBluntMove[partySlot] = 0;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     // Counter for EVO_HIT_BY_PIERCE_MOVE.
-    if (gBattleMoves[gCurrentMove].piercingMove && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
-        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT))
-        gHitByPierceMove[partySlot]++;
-        if (gHitBySlashMove[partySlot] >= 1)
-            gHitBySlashMove[partySlot] == 0;
-        if (gHitByBluntMove[partySlot] >= 1)
-            gHitByBluntMove[partySlot] == 0;
+    if (gBattleMoves[gCurrentMove].piercingMove 
+        && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
+        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI 
+        && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT)
+        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            gHitByPierceMove[partySlot]++;
+            gHitBySlashMove[partySlot] = 0;
+            gHitByBluntMove[partySlot] = 0;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
 
     // Counter for EVO_HIT_BY_BLUNT_MOVE.
-    if ((gBattleMoves[gCurrentMove].punchingMove || gBattleMoves[gCurrentMove].kickingMove || gBattleMoves[gCurrentMove].ballisticMove) && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
-        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT))
-        gHitByBluntMove[partySlot]++;
-        if (gHitBySlashMove[partySlot] >= 1)
-            gHitBySlashMove[partySlot] == 0;
-        if (gHitByPierceMove[partySlot] >= 1)
-            gHitByPierceMove[partySlot] == 0;
+    if ((gBattleMoves[gCurrentMove].punchingMove
+        || gBattleMoves[gCurrentMove].kickingMove
+        || gBattleMoves[gCurrentMove].ballisticMove)
+        && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER
+        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI
+        && GetBattlerPosition(gBattlerTarget) == B_POSITION_PLAYER_LEFT)
+        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        {
+            gHitByBluntMove[partySlot]++;
+            gHitBySlashMove[partySlot] = 0;
+            gHitByPierceMove[partySlot] = 0;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }

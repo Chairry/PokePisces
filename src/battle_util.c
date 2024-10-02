@@ -7784,6 +7784,14 @@ bool32 IsMoldBreakerTypeAbility(u32 battler, u32 ability)
         || (ability == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gCurrentMove)));
 }
 
+bool32 IsIgnorantBliss(u32 battler, u32 ability)
+{
+    if (gStatuses3[battler] & STATUS3_GASTRO_ACID)
+        return FALSE;
+
+    return (ability == ABILITY_IGNORANT_BLISS);
+}
+
 static inline bool32 CanBreakThroughAbility(u32 battlerAtk, u32 battlerDef, u32 ability)
 {
     return ((IsMoldBreakerTypeAbility(battlerAtk, ability)
@@ -7800,7 +7808,7 @@ static inline bool32 CanBreakThroughAbility(u32 battlerAtk, u32 battlerDef, u32 
 u32 GetBattlerAbility(u32 battler)
 {
     bool32 noAbilityShield = GetBattlerHoldEffectIgnoreAbility(battler, TRUE) != HOLD_EFFECT_ABILITY_SHIELD;
-    bool32 noIgnorantBliss = GetBattlerAbility(battler) != ABILITY_IGNORANT_BLISS;
+    bool32 noIgnorantBliss = (!(IsIgnorantBliss(battler, gBattleMons[gBattlerTarget].ability)));
 
     if (!(sAbilitiesAffectedByMoldBreaker[gBattleMons[battler].ability]))
     {
