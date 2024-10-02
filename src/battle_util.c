@@ -11121,6 +11121,30 @@ u32 GetBattlerWeight(u32 battler)
     if (holdEffect == HOLD_EFFECT_FLOAT_STONE)
         weight /= 2;
 
+    if (gBattleMons[battler].species == SPECIES_MINIOR_CORE_RED
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_ORANGE
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_YELLOW
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_GREEN
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_BLUE
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_INDIGO
+        || gBattleMons[battler].species == SPECIES_MINIOR_CORE_VIOLET)
+        weight = 3;
+
+    if (gBattleMons[battler].species == SPECIES_DUDUNSPARS_THREE_SEGMENT)
+        weight = 474;
+
+    if (gBattleMons[battler].species == SPECIES_DUDUNSPARS_EIGHT_SEGMENT)
+        weight = 884;
+
+    if (gBattleMons[battler].species == SPECIES_LOTTABATS_HUDDLED)
+        weight = 2800;
+
+    if (gBattleMons[battler].species == SPECIES_BISHOUCHA_WARMONGER)
+        weight = 862;
+
+    if (gBattleMons[battler].species == SPECIES_PAPYPUS_FEMALE)
+        weight = 1344;
+
     for (i = 0; i < gDisableStructs[battler].autotomizeCount; i++)
     {
         if (weight > 1000)
@@ -11138,6 +11162,31 @@ u32 GetBattlerWeight(u32 battler)
         weight = 1;
 
     return weight;
+}
+
+u32 GetBattlerHeight(u32 battler)
+{
+    u32 i;
+    u32 height = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[battler].species), 0);
+    u32 ability = GetBattlerAbility(battler);
+    u32 holdEffect = GetBattlerHoldEffect(battler, TRUE);
+
+    if (gBattleMons[battler].species == SPECIES_DUDUNSPARS_THREE_SEGMENT)
+        height = 45;
+
+    if (gBattleMons[battler].species == SPECIES_DUDUNSPARS_EIGHT_SEGMENT)
+        height = 90;
+
+    if (gBattleMons[battler].species == SPECIES_LOTTABATS_HUDDLED)
+        height = 25;
+
+    if (gBattleMons[battler].species == SPECIES_PAPYPUS_FEMALE)
+        height = 27;
+
+    if (height == 0)
+        height = 1;
+
+    return height;
 }
 
 u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc)

@@ -17506,7 +17506,7 @@ static void Cmd_handleballthrow(void)
             ballMultiplier = 150;
             break;
         case ITEM_NET_BALL:
-            i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 0);
+            i = GetBattlerHeight(gBattlerTarget);;
             if (i > 36)
                 ballAddition = -20;
             else if (i > 24)
@@ -17691,7 +17691,7 @@ static void Cmd_handleballthrow(void)
                 ballMultiplier = 400;
             break;
         case ITEM_HEAVY_BALL:
-            i = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
+            i = GetBattlerWeight(gBattlerTarget);
         #if B_HEAVY_BALL_MODIFIER >= GEN_7
             if (i < 1000)
                 ballAddition = -20;
