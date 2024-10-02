@@ -1075,6 +1075,9 @@ extern u16 gLastThrownBall;
 extern u16 gBallToDisplay;
 extern bool8 gLastUsedBallMenuPresent;
 extern u8 gPartyCriticalHits[PARTY_SIZE];
+extern u8 gHitBySlashMove[PARTY_SIZE];
+extern u8 gHitByPierceMove[PARTY_SIZE];
+extern u8 gHitByBluntMove[PARTY_SIZE];
 
 static inline u32 GetBattlerPosition(u32 battler)
 {
