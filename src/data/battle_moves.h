@@ -15996,7 +15996,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_SPIRIT_AWAY] =
     {
         .effect = EFFECT_SPIRIT_AWAY,
-        .power = 70,
+        .power = 75,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 15,
@@ -16882,7 +16882,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_PLUNDER] =
     {
         .effect = EFFECT_PLUNDER,
-        .power = 90,
+        .power = 70,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 15,

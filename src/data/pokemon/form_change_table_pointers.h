@@ -238,5 +238,7 @@ const struct FormChange *const gFormChangeTablePointers[NUM_SPECIES] =
     [SPECIES_SHISHIMA_PUNISHER_ALT] = sShishimaAltFormChangeTable,
     [SPECIES_POTTRICIA] = sPottriciaFormChangeTable,
     [SPECIES_POTTRICIA_SHATTERED] = sPottriciaFormChangeTable,
+    [SPECIES_FAKYSNAKY] = sFakysnakyFormChangeTable,
+    [SPECIES_FAKYSNAKY_BUSTED] = sFakysnakyFormChangeTable,
 #endif
 };

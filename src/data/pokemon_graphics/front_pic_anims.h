@@ -14245,6 +14245,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_WALLY] = sAnims_Lyolica,
     [SPECIES_POTTRICIA] = sAnims_Pottricia,
     [SPECIES_POTTRICIA_SHATTERED] = sAnims_PottriciaShattered,
+    [SPECIES_FAKYSNAKY_BUSTED] = sAnims_Fakysnaky,
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

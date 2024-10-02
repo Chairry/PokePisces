@@ -619,5 +619,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_SHISHIMA_PUNISHER_ALT] = sShishimaFormSpeciesIdTable,
     [SPECIES_LYOLICA] = sLyoresaFormSpeciesIdTable,
     [SPECIES_POTTRICIA_SHATTERED] = sPottriciaFormSpeciesIdTable,
+    [SPECIES_FAKYSNAKY] = sFakysnakyFormSpeciesIdTable,
+    [SPECIES_FAKYSNAKY_BUSTED] = sFakysnakyFormSpeciesIdTable,
 #endif
 };

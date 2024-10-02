@@ -406,6 +406,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     [SPECIES_SHISHIMA_ALT - 1] = HOENN_DEX_SHISHIMA,
     [SPECIES_SHISHIMA_PUNISHER_ALT - 1] = HOENN_DEX_SHISHIMA,
     [SPECIES_LYOLICA - 1] = HOENN_DEX_LYORESA,
+    [SPECIES_FAKYSNAKY_BUSTED - 1] = HOENN_DEX_FAKYSNAKY,
 };
 
 // Assigns all species to the National Dex Index (Summary No. for National Dex)

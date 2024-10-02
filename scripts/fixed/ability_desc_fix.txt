@@ -37,7 +37,7 @@ Defines
 #define ABILITY_SPIRALYSIS 336
 #define ABILITY_PINK_MIST 337
 #define ABILITY_AQUA_HEART 338
-#define ABILITY_BRAND_CLAWS 339
+#define ABILITY_BRANDING_CLAWS 339
 #define ABILITY_DISDAIN 340
 #define ABILITY_DISTURB 341
 #define ABILITY_DRACO_FORCE 342
@@ -104,7 +104,7 @@ Names
 [ABILITY_SPIRALYSIS] = _("Spiralysis"),
 [ABILITY_PINK_MIST] = _("Pink Mist"),
 [ABILITY_AQUA_HEART] = _("Aqua Heart"),
-[ABILITY_BRAND_CLAWS] = _("Brand Claws"),
+[ABILITY_BRANDING_CLAWS] = _("Brand Claws"),
 [ABILITY_DISDAIN] = _("Disdain"),
 [ABILITY_DISTURB] = _("Disturb"),
 [ABILITY_DRACO_FORCE] = _("Draco Force"),
@@ -171,7 +171,7 @@ static const u8 sSoulLockerDescription[] = _("Draws in ghost moves.");
 static const u8 sSpiralysisDescription[] = _("Halves Speed of foe.");
 static const u8 sPinkMistDescription[] = _("Not hit by Psychic attacks.");
 static const u8 sAquaHeartDescription[] = _("Normal moves become Water.");
-static const u8 sBrandClawsDescription[] = _("Boost against burn. May burn.");
+static const u8 sBrandingClawsDescription[] = _("Boost against burn. May burn.");
 static const u8 sDisdainDescription[] = _("KOs raise Special Attack.");
 static const u8 sDisturbDescription[] = _("Lowers the foe's Sp. Attack.");
 static const u8 sDracoForceDescription[] = _("Normal moves become Dragon.");
@@ -238,7 +238,7 @@ DefToDesc
 [ABILITY_SPIRALYSIS] = sSpiralysisDescription,
 [ABILITY_PINK_MIST] = sPinkMistDescription,
 [ABILITY_AQUA_HEART] = sAquaHeartDescription,
-[ABILITY_BRAND_CLAWS] = sBrandClawsDescription,
+[ABILITY_BRANDING_CLAWS] = sBrandingClawsDescription,
 [ABILITY_DISDAIN] = sDisdainDescription,
 [ABILITY_DISTURB] = sDisturbDescription,
 [ABILITY_DRACO_FORCE] = sDracoForceDescription,

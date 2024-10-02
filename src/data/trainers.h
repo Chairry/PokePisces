@@ -7821,7 +7821,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
-        .party = TRAINER_PARTY(sParty_PRaoTwunne1),
+        .party = TRAINER_PARTY(sParty_PLytxi),
     },
 
     [TRAINER_P_SHERIMOYA] =
@@ -7833,7 +7833,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
-        .party = TRAINER_PARTY(sParty_PRaoTwunne2),
+        .party = TRAINER_PARTY(sParty_PSherimoya),
     },
 
     [TRAINER_P_PANDOU_6] =
@@ -8436,16 +8436,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_PJimmy2os),
     },
 
-    [TRAINER_RHETT] =
+    [TRAINER_P_SADFISHER_3] =
     {
-        .trainerClass = TRAINER_CLASS_BLACK_BELT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BLACK_BELT,
-        .trainerName = _("RHETT"),
+        .trainerClass = TRAINER_CLASS_FACTORY_HEAD,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_BLUE,
+        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerName = _("Sad Fisher"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Rhett),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .party = TRAINER_PARTY(sParty_PSadfisher3),
     },
 
     [TRAINER_TYRON] =

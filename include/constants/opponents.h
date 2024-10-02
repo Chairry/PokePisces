@@ -704,7 +704,7 @@
 #define TRAINER_P_CENTAURIPH                      700
 #define TRAINER_ALYSSA                      701
 #define TRAINER_P_JIMMYOS                      702
-#define TRAINER_RHETT                       703
+#define TRAINER_P_SADFISHER_3                       703
 #define TRAINER_TYRON                       704
 #define TRAINER_CELINA                      705
 #define TRAINER_BIANCA                      706

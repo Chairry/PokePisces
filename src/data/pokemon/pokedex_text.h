@@ -1638,40 +1638,46 @@ const u8 gLudicoloPokedexText[] = _(
     "quail even when it faces a tough opponent.");
 
 const u8 gSeedotPokedexText[] = _(
-    "They hang around the branches of majestic\n"
+    "Seedot hang around the branches of majestic\n"
     "trees, sapping nutrients for themselves.\n"
-    "Loafoof ensure they don’t overcrowd a\n"
-    "tree, ensuring the tree's survival.");
+    "Loafoof ensure they don’t overcrowd a tree,\n"
+    "securing its survival. They sometimes fall from\n"
+    "trees, causing concussions to those below.");
 
 const u8 gNuzleafPokedexText[] = _(
-    "Nuzleaf pretends to guide travelers down\n"
-    "the right path. They lead them astray\n"
-    "deep into the dark, overgrown forest,\n"
-    "then disappear with an audible snicker.");
+    "Nuzleaf pretend to guide travelers, beckoning\n"
+    "them through the forest. They lead them astray\n"
+    "deep into the dark, overgrown forest, then\n"
+    "disappear with an audible snicker. They get\n"
+    "scolded by Shiftry for this often.");
 
 const u8 gShiftryPokedexText[] = _(
-    "Shiftry holds two fans said to produce\n"
-    "winds so great it could topple towers.\n"
-    "It stays atop the trees, keeping a close\n"
-    "eye over the forest.");
+    "Shiftry hold two fans that conjure wind. One\n"
+    "topples grand towers of old, the other chills\n"
+    "great evils in the world. They stay atop trees,\n"
+    "keeping close eye over forests. Stories say they\n"
+    "were birds punished for their vile deeds.");
 
 const u8 gNincadaPokedexText[] = _(
-    "They lay underground, absorbing\n"
-    "nutrients from a tree’s roots. Every ten\n"
-    "years, they come up in droves to fully\n"
+    "Nincada lay underneath old trees, absorbing\n"
+    "nutrients from the roots. They spend the\n"
+    "majority of their lifespan underground. Every\n"
+    "ten years, they come up in droves to fully\n"
     "mature into Ninjask.");
 
 const u8 gNinjaskPokedexText[] = _(
-    "Ninjask moves so fast that it was thought\n"
-    "to have known the move Teleport. In tandem\n"
-    "with its speed and claws, it can take out\n"
-    "the toughest of Pokémon in a single hit.");
+    "Ninjask move so fast, they were thought to have\n"
+    "known the move Teleport. Combining their speed\n"
+    "and claws, they can take out the toughest of\n"
+    "Pokémon in a single hit. When resting, Ninjask\n"
+    "ensure they’re covered in leaves for protection.");
 
 const u8 gShedinjaPokedexText[] = _(
-    "Lost souls who find their way into the\n"
-    "exuviae of Nincada, become a Shedinja.\n"
-    "This twists them into a greedy void,\n"
-    "pulling at souls who stare at the cracks.");
+    "Lost souls who find their way into the exuviae of\n"
+    "Nincada, become a Shedinja. This twists them into\n"
+    "a greedy void, pulling at the souls of those who\n"
+    "peer at the crack on their back. Trainers who own\n"
+    "Shedinja seem to develop apathy in their lives.");
 
 const u8 gTaillowPokedexText[] = _(
     "Although it is small, it is very courageous.\n"
@@ -5280,7 +5286,7 @@ const u8 gSycoplodPokedexText[] = _(
 const u8 gSycostromPokedexText[] = _(
     "The shells of Sycostrom have lived as distinct\n"
     "creatures this entire time, eating their brains\n"
-    "as they grew up. If threatened Sycostrom produce\n"
+    "as they grew up. If threatened, Sycostrom create\n"
     "a strong psychic force, causing intense vertigo\n"
     "or even storms, tornadoes, and whirlpools.");
 
@@ -5451,82 +5457,95 @@ const u8 gFluffrearPokedexText[] = _(
     "their young, ensuring the child's survival.");
 
 const u8 gSaintisowPokedexText[] = _(
-    "It clumsily flies together in groups,\n"
-    "running from anything that comes near.\n"
-    "Its skin has the texture of\n"
-    "marshmallows.");
+    "They clumsily fly in groups, sniffing around and\n"
+    "looking for food. Saintisow share what they find\n"
+    "with the rest of the herd equally, no matter the\n"
+    "amount. Their wing feathers are incredibly soft,\n"
+    "and their skin has the texture of marshmallows.");
 
 const u8 gSanctisowPokedexText[] = _(
-    "Its feathers are so soft that they're\n"
-    "used in high-quality cushions. It\n"
-    "spreads its large wings when it\n"
-    "recognizes danger.");
+    "Their feathers are so soft that they’re used in\n"
+    "high-quality cushions. Saintisow spread and\n"
+    "raise their many wings when they recognize\n"
+    "danger. Saintisow then whip up strong winds to\n"
+    "fend off attackers.");
 
 const u8 gSowphirothPokedexText[] = _(
-    "Its presence inspires peace and serenity,\n"
-    "but in cases of battle, it instills fervor\n"
-    "and morale instead. It creates strange\n"
-    "barriers to protect itself from harm.");
+    "Their serene presence inspires comfort like the\n"
+    "clear vast sky. However, in times of danger and\n"
+    "battle, their presence instills fervor, vigor,\n"
+    "and ardor in their allies. They create magical\n"
+    "barriers to protect themselves in battle.");
 
 const u8 gToxexotPokedexText[] = _(
-    "Toxexot confound enemies with their\n"
-    "abnormal patterns. They use toxic fumes\n"
-    "to knock out their favorite snack,\n"
+    "Toxexot confound enemies with their abnormal\n"
+    "patterns, which makes it look like they have two\n"
+    "heads. They then produce toxic fumes from their\n"
+    "snouts to knock out their favorite snack,\n"
     "Mandimyte.");
 
 const u8 gPseudraPokedexText[] = _(
-    "What seems to be three extra heads are\n"
-    "their limbs and tail. These often disorient\n"
-    "the enemy they're opposing, leaving them\n"
-    "unable to react accordingly to attacks.");
+    "What seem to be three extra heads are their\n"
+    "forearms and a tail. In battle, Pseudra\n"
+    "disorient opponents by moving them as if they\n"
+    "were extra heads. They spew poisonous gas to\n"
+    "further confound and weaken their foes.");
 
 const u8 gMandimytePokedexText[] = _(
-    "Mandimyte live in interconnected tunnels\n"
-    "they have dug out deep within caves.\n"
-    "They rush and explode on any intruders\n"
-    "approaching the nest.");
+    "Mandimyte colonies live in interconnected\n"
+    "tunnels dug out deep within caves. When their\n"
+    "nest is in danger, they rush and explode on the\n"
+    "intruder. This produces a scent that calls the\n"
+    "rest of the colony to attack the interloper.");
 
 const u8 gTerminytePokedexText[] = _(
-    "Terminyte's abdomen is filled with\n"
-    "extremely volatile chemicals. These\n"
-    "chemicals release whenever it explodes\n"
-    "and eat through any type of metal.");
+    "A Terminyte’s abdomen is filled with extremely\n"
+    "volatile chemicals. These compounds release\n"
+    "when Terminyte explode, eating through any\n"
+    "metal. The criminal underworld extracts this\n"
+    "blend and uses it to crack secure storehouses.");
 
 const u8 gSnotloudPokedexText[] = _(
-    "Snotloud live in odd minerals that\n"
-    "generate unusual chime-like noises with\n"
-    "consistent rhythms. Snotloud uses it for\n"
-    "echolocation and as a weapon.");
+    "Snotloud reside in odd minerals that generate\n"
+    "unusual chime-like noise with a consistent\n"
+    "rhythm. They use this for echolocation, shelter,\n"
+    "and as a weapon. They amplify the vibrations\n"
+    "with their slime body and release sound blasts.");
 
 const u8 gSickbeatPokedexText[] = _(
     "Sickbeat have mastered control over the\n"
-    "vibrations their odd mineral makes.\n"
-    "Sound bounces around their body and\n"
-    "becomes destructive when released.");
+    "vibrations their mineral makes. Sound bounces\n"
+    "around their body and becomes destructive when\n"
+    "released. They have learned a unique way of\n"
+    "fighting, beating their opponent in rhythm.");
 
 const u8 gSprytePokedexText[] = _(
-    "Spryte keep to themselves as they like\n"
-    "to avoid conflict. They seem to be\n"
-    "fragile and shatter into three parts\n"
-    "when dealt a massive blow.");
+    "Spryte prefer to keep to themselves, as they\n"
+    "like avoiding conflict. Spryte are incredibly\n"
+    "fragile and shatter into three parts when dealt\n"
+    "a massive blow. They reassemble themselves after\n"
+    "a few days later.");
 
 const u8 gGumonaPokedexText[] = _(
-    "They cover their territory in a\n"
-    "hair-like thread that tangles anyone\n"
-    "that approaches. What seems to be legs\n"
-    "is essentially composed of hair.");
+    "Gumona cover their territory in a hair-like\n"
+    "thread that tangles anything that approaches\n"
+    "their nest. Their hair, which never stops\n"
+    "growing, makes up their many legs. A single\n"
+    "strand of hair can carry up to 4,000 lbs.");
 
 const u8 gNanggalPokedexText[] = _(
-    "At night, they prowl, seeking young\n"
-    "children who are lost. Once Nanggal see\n"
-    "one, they swoop in and bring them to its\n"
-    "cave to be safe until the sun rises.");
+    "Nanggal stalk the night, making nary a sound,\n"
+    "searching for prey. However, they have an odd\n"
+    "shift in behavior once they see a child. Nanggal\n"
+    "kidnap the child and take them to their cave\n"
+    "to keep them safe until morning comes.");
 
 const u8 gSheedrakePokedexText[] = _(
-    "Men should avoid caves where many of a\n"
-    "woman's cries can be heard, as Sheedrake\n"
-    "uses this and spores to lure them in,\n"
-    "stealing their life force.");
+    "Men should avoid caves where one can hear the\n"
+    "cries of a young woman. If one fails to heed\n"
+    "this warning, they soon lose consciousness and\n"
+    "fall prey to a Sheedrake. They root themselves\n"
+    "deep into their skin, draining their energy.");
 
 const u8 gTranseraPokedexText[] = _(
     "Groups of them gather in dark caves,\n"
@@ -5736,22 +5755,25 @@ const u8 gKowakoPokedexText[] = _(
     "husk of the victim that gave it life.");
 
 const u8 gUmbratPokedexText[] = _(
-    "Umbrat are friendly Pokémon that try to\n"
-    "shelter others from the weather using\n"
-    "their wings. Although, due to their small\n"
-    "size, they are usually not that helpful.");
+    "Umbrat are good-natured Pokémon that have a\n"
+    "knack for helping others. They try sheltering\n"
+    "others from bad weather using their wings.\n"
+    "However, because of their small size, they're\n"
+    "usually not that helpful.");
 
 const u8 gChiroberraPokedexText[] = _(
-    "Chiroberra uses its body to shield\n"
-    "others from the weather. Its fur is\n"
-    "uniquely waterproof, leaving it less\n"
-    "vulnerable to the elements.");
+    "Chiroberra use their body to shield others from\n"
+    "strong weather. Their fur is uniquely waterproof\n"
+    "and sturdy, leaving it less vulnerable to the\n"
+    "elements. However, they occasionally get struck\n"
+    "by lightning, knocking them out.");
 
 const u8 gWeroberraPokedexText[] = _(
-    "Weroberra will protect those it cares\n"
-    "about, to the point of risking its own\n"
-    "life. It can detect when storms are\n"
-    "approaching.");
+    "Weroberra will protect those they care about, to\n"
+    "the point of risking its own life. Weroberra use\n"
+    "their wings to protect allies from the weather\n"
+    "and can deflect attacks with them. They can\n"
+    "detect when the weather changes ahead of time.");
 
 const u8 gSackytwackPokedexText[] = _(
     "It lashes opponents with vines covered\n"
