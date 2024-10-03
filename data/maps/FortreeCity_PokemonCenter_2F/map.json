@@ -3,7 +3,7 @@
   "name": "FortreeCity_PokemonCenter_2F",
   "layout": "LAYOUT_POKEMON_CENTER_2F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_FORTREE_CITY",
+  "region_map_section": "MAPSEC_ROUTE_116",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -46,8 +46,8 @@
       "x": 8,
       "y": 9,
       "elevation": 4,
-      "dest_map": "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_ROUTE113",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

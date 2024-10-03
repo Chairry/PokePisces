@@ -3,7 +3,7 @@
   "name": "BattleFrontier_PokemonCenter_1F",
   "layout": "LAYOUT_POKEMON_CENTER_1F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_BATTLE_FRONTIER",
+  "region_map_section": "MAPSEC_VERDANTURF_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -46,8 +46,8 @@
       "x": 11,
       "y": 9,
       "elevation": 3,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
-      "dest_warp_id": "12"
+      "dest_map": "MAP_VERDANTURF_NEW",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
