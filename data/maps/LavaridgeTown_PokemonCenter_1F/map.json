@@ -47,7 +47,7 @@
       "y": 9,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN",
-      "dest_warp_id": "3"
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

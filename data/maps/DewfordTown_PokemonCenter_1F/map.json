@@ -46,8 +46,8 @@
       "x": 11,
       "y": 9,
       "elevation": 3,
-      "dest_map": "MAP_DEWFORD_TOWN",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

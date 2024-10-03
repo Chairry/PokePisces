@@ -40,7 +40,41 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 24,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
