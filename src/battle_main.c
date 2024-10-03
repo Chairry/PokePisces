@@ -248,6 +248,9 @@ EWRAM_DATA bool8 gLastUsedBallMenuPresent = FALSE;
 EWRAM_DATA u8 gPartyCriticalHits[PARTY_SIZE] = {0};
 EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u8 gBattleMoveTypeSpriteId = 0;
+EWRAM_DATA u8 gHitBySlashMove[PARTY_SIZE] = {0};
+EWRAM_DATA u8 gHitByPierceMove[PARTY_SIZE] = {0};
+EWRAM_DATA u8 gHitByBluntMove[PARTY_SIZE] = {0};
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -3194,6 +3197,9 @@ static void BattleStartClearSetData(void)
         gBattleStruct->usedHeldItems[i][B_SIDE_OPPONENT] = 0;
         gBattleStruct->itemLost[i].originalItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
         gPartyCriticalHits[i] = 0;
+        gHitBySlashMove[i] = 0;
+        gHitByPierceMove[i] = 0;
+        gHitByBluntMove[i] = 0;
         gBattleStruct->allowedToChangeFormInWeather[i][B_SIDE_PLAYER] = FALSE;
         gBattleStruct->allowedToChangeFormInWeather[i][B_SIDE_OPPONENT] = FALSE;
     }

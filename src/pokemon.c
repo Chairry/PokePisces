@@ -7413,15 +7413,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_SLASH_MOVE:
-                if (gBattleMoves[gLastLandedMoves[evolutionItem]].slicingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
+                if (gHitBySlashMove[evolutionItem] >= 1 && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_PIERCE_MOVE:
-                if (gBattleMoves[gLastLandedMoves[evolutionItem]].piercingMove && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
+                if (gHitByPierceMove[evolutionItem] >= 1 && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             case EVO_HIT_BY_BLUNT_MOVE:
-                if ((gBattleMoves[gLastLandedMoves[evolutionItem]].punchingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].kickingMove || gBattleMoves[gLastLandedMoves[evolutionItem]].ballisticMove) && gBattlerTarget == SPECIES_SPRYTE && gEvolutionTable[species][i].param <= level)
+                if (gHitByBluntMove[evolutionItem] >= 1 && gEvolutionTable[species][i].param <= level)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
