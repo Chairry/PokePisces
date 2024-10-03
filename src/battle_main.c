@@ -251,6 +251,7 @@ EWRAM_DATA u8 gBattleMoveTypeSpriteId = 0;
 EWRAM_DATA u8 gHitBySlashMove[PARTY_SIZE] = {0};
 EWRAM_DATA u8 gHitByPierceMove[PARTY_SIZE] = {0};
 EWRAM_DATA u8 gHitByBluntMove[PARTY_SIZE] = {0};
+EWRAM_DATA struct QueuedStatBoost gQueuedStatBoosts[MAX_BATTLERS_COUNT] = {0};
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -3960,6 +3961,7 @@ static void TryDoEventsBeforeFirstTurn(void)
 
     gRandomTurnNumber = Random();
 
+    memset(gQueuedStatBoosts, 0, sizeof(gQueuedStatBoosts));
     SetAiLogicDataForTurn(AI_DATA); // get assumed abilities, hold effects, etc of all battlers
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
@@ -5183,6 +5185,9 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].banefulBunkered = FALSE;
             gProtectStructs[i].burningBulwarked = FALSE;
             gProtectStructs[i].quash = FALSE;
+            gProtectStructs[i].usedCustapBerry = FALSE;
+            gProtectStructs[i].quickDraw = FALSE;
+            memset(&gQueuedStatBoosts[i], 0, sizeof(struct QueuedStatBoost));
         }
         else
         {

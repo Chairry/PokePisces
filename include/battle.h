@@ -945,6 +945,12 @@ struct MonSpritesGfx
     u16 *buffer;
 };
 
+struct QueuedStatBoost
+{
+    u8 stats;   // bitfield for each battle stat that is set if the stat changes
+    s8 statChanges[NUM_BATTLE_STATS - 1];    // highest bit being set decreases the stat
+}; /* size = 8 */
+
 struct TotemBoost
 {
     u8 stats;   // bitfield for each battle stat that is set if the stat changes
@@ -1061,6 +1067,7 @@ extern u8 gBattlerAbility;
 extern u16 gPartnerSpriteId;
 extern struct TotemBoost gTotemBoosts[MAX_BATTLERS_COUNT];
 extern u8 gBattleMoveTypeSpriteId;
+extern struct QueuedStatBoost gQueuedStatBoosts[MAX_BATTLERS_COUNT];
 
 extern void (*gPreBattleCallback1)(void);
 extern void (*gBattleMainFunc)(void);
