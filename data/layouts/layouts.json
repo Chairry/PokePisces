@@ -5810,6 +5810,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FallarborInteriors/border.bin",
       "blockdata_filepath": "data/layouts/FallarborInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_OZONE_TRANSITION_BUILDINGS",
+      "name": "OzoneTransitionBuildings_Layout",
+      "width": 29,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/OzoneTransitionBuildings/border.bin",
+      "blockdata_filepath": "data/layouts/OzoneTransitionBuildings/map.bin"
     }
   ]
 }

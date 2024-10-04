@@ -420,8 +420,8 @@
       "x": 34,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_CAVE",
+      "dest_warp_id": "6"
     }
   ],
   "coord_events": [

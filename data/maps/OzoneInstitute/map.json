@@ -108,14 +108,14 @@
       "x": 17,
       "y": 36,
       "elevation": 0,
-      "dest_map": "MAP_OZONE_INSTITUTE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_OZONE_TRANSITION_BUILDINGS",
+      "dest_warp_id": "1"
     },
     {
       "x": 39,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_OZONE_INSTITUTE",
+      "dest_map": "MAP_OZONE_TRANSITION_BUILDINGS",
       "dest_warp_id": "0"
     }
   ],

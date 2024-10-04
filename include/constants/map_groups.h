@@ -146,6 +146,7 @@
 #define MAP_FOSSIL_SHORE                     (8 | (11 << 8))
 #define MAP_FOSSIL_SHORE_HOUSES              (9 | (11 << 8))
 #define MAP_FALLARBOR_INTERIORS              (10 | (11 << 8))
+#define MAP_OZONE_TRANSITION_BUILDINGS       (11 | (11 << 8))
 
 // gMapGroup_PiscesLeg7Major
 #define MAP_SWELTORN_DESERT           (0 | (12 << 8))

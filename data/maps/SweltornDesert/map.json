@@ -234,8 +234,8 @@
       "x": 11,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_SWELTORN_DESERT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_CAVE",
+      "dest_warp_id": "3"
     },
     {
       "x": 50,

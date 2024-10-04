@@ -457,8 +457,8 @@
       "x": 3,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_OZONE_INSTITUTE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_OZONE_TRANSITION_BUILDINGS",
+      "dest_warp_id": "2"
     },
     {
       "x": 31,

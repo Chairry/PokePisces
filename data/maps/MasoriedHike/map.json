@@ -121,8 +121,8 @@
       "x": 42,
       "y": 28,
       "elevation": 0,
-      "dest_map": "MAP_MASORIED_HIKE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SWELTORN_TRANSITION_CAVE",
+      "dest_warp_id": "1"
     },
     {
       "x": 14,
