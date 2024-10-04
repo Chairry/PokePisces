@@ -170,7 +170,8 @@
     "ScuttillSecretTreeHouse",
     "Gym4Corridor",
     "FortreeTransitionArea",
-    "FortreeGymBattleLocation"
+    "FortreeGymBattleLocation",
+    "FortreeInteriors"
   ],
   "gMapGroup_PiscesLeg6Major": [
     "OzoneInstitute",
@@ -195,7 +196,8 @@
     "LavaridgeTown_Gym_1F",
     "LavaridgeTown_Gym_B1F",
     "FossilShore",
-    "FossilShoreHouses"
+    "FossilShoreHouses",
+    "FallarborInteriors"
   ],
   "gMapGroup_PiscesLeg7Major": [
     "SweltornDesert",
@@ -260,7 +262,8 @@
     "Gym7Corridor",
     "NavigulfUnderwater",
     "SailorsPauseUnderwater",
-    "StraeSeapathUnderwater"
+    "StraeSeapathUnderwater",
+    "DewfordInteriors"
   ],
   "gMapGroup_PiscesLeg9Major": [
     "DetermaniteBeach",

@@ -44,6 +44,11 @@ FortreeGymNew_EventScript_PrepForGym::
 	clearflag FLAG_PISCES_D
 	clearflag FLAG_PISCES_E
 	clearflag FLAG_PISCES_F
+	cleartrainerflag TRAINER_P_FUJI
+	cleartrainerflag TRAINER_P_DENALI
+	cleartrainerflag TRAINER_P_RAINIER
+	cleartrainerflag TRAINER_P_EVEREST
+	cleartrainerflag TRAINER_P_LHOTSE
 	msgbox FortreeGymNew_Text_TimeForGym, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, FortreeGymNew_Movement_IntoGym
 	waitmovement 0

@@ -28,8 +28,12 @@ Gym5Corridor_EventScript_PrepForGym::
 	clearflag FLAG_PISCES_D
 	clearflag FLAG_PISCES_E
 	clearflag FLAG_PISCES_F
+	cleartrainerflag TRAINER_P_HEDORAH
+	cleartrainerflag TRAINER_P_GHIDORAH
+	cleartrainerflag TRAINER_P_GOJIRA
+	cleartrainerflag TRAINER_P_GAMERA
 	msgbox Gym5Corridor_Text_TimeForGym, MSGBOX_DEFAULT
-	warp MAP_LAVARIDGE_TOWN_GYM_1F, 0, 0
+	warp MAP_LAVARIDGE_GYM_NEW, 11, 10
 	waitstate
 	release
 	end

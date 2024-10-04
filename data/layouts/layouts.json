@@ -5780,6 +5780,36 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/DewfordGymNew/border.bin",
       "blockdata_filepath": "data/layouts/DewfordGymNew/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_INTERIORS",
+      "name": "DewfordInteriors_Layout",
+      "width": 32,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORTREE_INTERIORS",
+      "name": "FortreeInteriors_Layout",
+      "width": 47,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FortreeInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeInteriors/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_INTERIORS",
+      "name": "FallarborInteriors_Layout",
+      "width": 47,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborInteriors/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborInteriors/map.bin"
     }
   ]
 }

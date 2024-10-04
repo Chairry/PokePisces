@@ -39,6 +39,55 @@
       "elevation": 0,
       "dest_map": "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 29,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 5,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 28,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 11,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_INTERIORS",
+      "dest_warp_id": "12"
     }
   ],
   "coord_events": [

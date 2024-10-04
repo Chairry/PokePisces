@@ -77,28 +77,28 @@
       "x": 29,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_DEWFORD_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 20,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_DEWFORD_INTERIORS",
+      "dest_warp_id": "4"
     },
     {
       "x": 39,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_map": "MAP_DEWFORD_INTERIORS",
       "dest_warp_id": "0"
     },
     {
       "x": 37,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_NEW",
+      "dest_map": "MAP_GYM7CORRIDOR",
       "dest_warp_id": "0"
     }
   ],

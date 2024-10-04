@@ -42,7 +42,20 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 25,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "8"
+    }
   ],
   "coord_events": [
 

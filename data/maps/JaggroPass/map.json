@@ -144,8 +144,8 @@
       "x": 37,
       "y": 41,
       "elevation": 0,
-      "dest_map": "MAP_JAGGRO_PASS",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

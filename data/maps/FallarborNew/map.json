@@ -44,49 +44,49 @@
       "x": 29,
       "y": 34,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
       "dest_warp_id": "0"
     },
     {
       "x": 30,
       "y": 25,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
+      "dest_warp_id": "2"
     },
     {
       "x": 18,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
+      "dest_warp_id": "4"
     },
     {
       "x": 11,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
+      "dest_warp_id": "10"
     },
     {
       "x": 18,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
+      "dest_warp_id": "6"
     },
     {
-      "x": 29,
+      "x": 30,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_INTERIORS",
+      "dest_warp_id": "8"
     },
     {
       "x": 7,
       "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_map": "MAP_FIERY_PATH",
       "dest_warp_id": "0"
     }
   ],

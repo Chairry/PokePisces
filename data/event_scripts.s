@@ -3707,3 +3707,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/HatchloamDayCare/scripts.inc"
 
 	.include "data/maps/DewfordGymNew/scripts.inc"
+
+	.include "data/maps/DewfordInteriors/scripts.inc"
+
+	.include "data/maps/FortreeInteriors/scripts.inc"
+
+	.include "data/maps/FallarborInteriors/scripts.inc"

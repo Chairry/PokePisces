@@ -241,15 +241,15 @@
       "x": 67,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CRIMNEY_CLIMB",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "2"
     },
     {
       "x": 68,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_CRIMNEY_CLIMB",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "2"
     },
     {
       "x": 27,

@@ -28,8 +28,16 @@ Gym7Corridor_EventScript_PrepForGym::
 	clearflag FLAG_PISCES_D
 	clearflag FLAG_PISCES_E
 	clearflag FLAG_PISCES_F
+	cleartrainerflag TRAINER_P_TAHOE
+	cleartrainerflag TRAINER_P_HURON
+	cleartrainerflag TRAINER_P_EYRE
+	cleartrainerflag TRAINER_P_CASPIAN
+	cleartrainerflag TRAINER_P_VICTORIA
+	cleartrainerflag TRAINER_P_ALBERT
+	cleartrainerflag TRAINER_P_MARCEL
+	cleartrainerflag TRAINER_P_NESSIE
 	msgbox Gym7Corridor_Text_TimeForGym, MSGBOX_DEFAULT
-	warp MAP_DEWFORD_TOWN_GYM, 0, 0
+	warp MAP_DEWFORD_TOWN_GYM, 33, 21
 	waitstate
 	release
 	end

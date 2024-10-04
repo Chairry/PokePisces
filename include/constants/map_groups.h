@@ -119,6 +119,7 @@
 #define MAP_GYM4CORRIDOR                      (4 | (9 << 8))
 #define MAP_FORTREE_TRANSITION_AREA           (5 | (9 << 8))
 #define MAP_FORTREE_GYM_BATTLE_LOCATION       (6 | (9 << 8))
+#define MAP_FORTREE_INTERIORS                 (7 | (9 << 8))
 
 // gMapGroup_PiscesLeg6Major
 #define MAP_OZONE_INSTITUTE    (0 | (10 << 8))
@@ -144,6 +145,7 @@
 #define MAP_LAVARIDGE_TOWN_GYM_B1F           (7 | (11 << 8))
 #define MAP_FOSSIL_SHORE                     (8 | (11 << 8))
 #define MAP_FOSSIL_SHORE_HOUSES              (9 | (11 << 8))
+#define MAP_FALLARBOR_INTERIORS              (10 | (11 << 8))
 
 // gMapGroup_PiscesLeg7Major
 #define MAP_SWELTORN_DESERT           (0 | (12 << 8))
@@ -209,6 +211,7 @@
 #define MAP_NAVIGULF_UNDERWATER            (2 | (15 << 8))
 #define MAP_SAILORS_PAUSE_UNDERWATER       (3 | (15 << 8))
 #define MAP_STRAE_SEAPATH_UNDERWATER       (4 | (15 << 8))
+#define MAP_DEWFORD_INTERIORS              (5 | (15 << 8))
 
 // gMapGroup_PiscesLeg9Major
 #define MAP_DETERMANITE_BEACH    (0 | (16 << 8))

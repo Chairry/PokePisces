@@ -110,7 +110,34 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 13,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_FIERY_PATH",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 42,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_MASORIED_HIKE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_MASORIED_HIKE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_MASORIED_HIKE",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

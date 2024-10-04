@@ -247,6 +247,19 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "FieryPath_EventScript_BlaiseAndMar",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 92,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -254,57 +267,64 @@
       "x": 15,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_FALLARBOR_NEW",
+      "dest_warp_id": "7"
     },
     {
       "x": 79,
       "y": 50,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
+      "dest_map": "MAP_MASORIED_HIKE",
       "dest_warp_id": "0"
     },
     {
       "x": 48,
       "y": 32,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
+      "dest_map": "MAP_CRIMNEY_CLIMB",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 10,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_JAGGRO_PASS",
+      "dest_warp_id": "1"
     },
     {
       "x": 73,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_LAVARIDGE_INT",
+      "dest_warp_id": "3"
     },
     {
       "x": 46,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
+      "dest_map": "MAP_CRIMNEY_CALDERA",
       "dest_warp_id": "0"
     },
     {
       "x": 47,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
+      "dest_map": "MAP_CRIMNEY_CALDERA",
       "dest_warp_id": "0"
     },
     {
       "x": 48,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_FIERY_PATH",
+      "dest_map": "MAP_CRIMNEY_CALDERA",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 95,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_CRIMNEY_CALDERA",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

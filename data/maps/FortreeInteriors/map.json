@@ -1,0 +1,125 @@
+{
+  "id": "MAP_FORTREE_INTERIORS",
+  "name": "FortreeInteriors",
+  "layout": "LAYOUT_FORTREE_INTERIORS",
+  "music": "MUS_FORTREE",
+  "region_map_section": "MAPSEC_FORTREE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 42,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 43,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 29,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 30,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 28,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 29,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FORTREE_CITY",
+      "dest_warp_id": "7"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}
