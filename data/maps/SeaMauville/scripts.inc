@@ -72,6 +72,7 @@ SeaMauville_EventScript_RemoveNob::
 SeaMauville_EventScript_BrineyFastTravel::
 	lock
 	faceplayer
+	clearflag FLAG_BRINEY_MIDGAME_VISIT
 	goto_if_eq VAR_OLD_GUYS_STATE, 9, SeaMauville_EventScript_BrineyGoToSouthernIsland
 	speakername SeaMauville_Text_NameBriney
 	msgbox SeaMauville_Text_WantToVoyage, MSGBOX_YESNO
@@ -584,13 +585,17 @@ SeaMauville_Text_GaryPostBattle:
 	.string "(The coward is ignoring you.)$"
 
 SeaMauville_Text_WantToVoyage:
-	.string "wanna go to ss tidle$"
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
 
 SeaMauville_Text_IllBeHere:
-	.string "ill be waitin$"
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
 
 SeaMauville_Text_BonVoyage:
-	.string "bon voyage$"
+	.string "About time to haul anchor, then!$"
 
 SeaMauville_Text_ReadyForSouthernIsland:
 	.string "ready for the south?$"

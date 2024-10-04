@@ -293,7 +293,7 @@ static const struct MenuAction MultichoiceList_BrineyBoat[] =
     {gText_Desti1},
     {gText_Desti2},
     {gText_Desti3},
-    {gText_Desti4},
+    {gText_DestiWait},
 };
 
 static const struct MenuAction MultichoiceList_SSTidalSlateportWithBF[] =
@@ -875,6 +875,29 @@ static const struct MenuAction MultichoiceList_TrickHouseFinalDoor[] = {
     {sText_Trick9},
 };
 
+static const u8 sText_Desti4[] = _("Sea Mauville");
+static const u8 sText_Desti5[] = _("Southern Isl.");
+static const struct MenuAction MultichoiceList_BrineyBoat2[] =
+{
+    {gText_Desti1},
+    {gText_Desti2},
+    {gText_Desti3},
+    {sText_Desti4},
+    {sText_Desti5},
+    {gText_DestiWait},
+};
+
+static const u8 sText_Desti6[] = _("Dewford");
+static const struct MenuAction MultichoiceList_BrineyBoat3[] =
+{
+    {gText_Desti1},
+    {gText_Desti2},
+    {gText_Desti3},
+    {sText_Desti4},
+    {sText_Desti5},
+    {sText_Desti6},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1013,6 +1036,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_LAVAGYM_QUESTION_5]           = MULTICHOICE(MultichoiceList_LavaGymQuestion5),
     [MULTI_EAT_OR_DONT_EAT]              = MULTICHOICE(MultichoiceList_EatOrDontEat),
     [MULTI_TRICK_HOUSE_FINAL_DOOR]       = MULTICHOICE(MultichoiceList_TrickHouseFinalDoor),
+    [MULTI_BRINEY_BOAT_2]                = MULTICHOICE(MultichoiceList_BrineyBoat2),
+    [MULTI_BRINEY_BOAT_3]                = MULTICHOICE(MultichoiceList_BrineyBoat3),
 };
 
 const u8 *const gStdStrings[] =

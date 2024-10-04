@@ -189,13 +189,17 @@ SouthernIsland_Text_NameArchie:
 	.string "Archie$"
 
 SouthernIsland_Text_WantToVoyage:
-	.string "wanna go to ss tidle$"
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
 
 SouthernIsland_Text_IllBeHere:
-	.string "ill be waitin$"
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
 
 SouthernIsland_Text_BonVoyage:
-	.string "bon voyage$"
+	.string "About time to haul anchor, then!$"
 
 SouthernIsland_Text_ISeeEveryoneHasGathered:
 	.string "I see yall here now$"

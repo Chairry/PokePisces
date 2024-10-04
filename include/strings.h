@@ -1222,7 +1222,7 @@ extern const u8 gText_NotSoGood[];
 extern const u8 gText_Desti1[];
 extern const u8 gText_Desti2[];
 extern const u8 gText_Desti3[];
-extern const u8 gText_Desti4[];
+extern const u8 gText_DestiWait[];
 extern const u8 gText_LilycoveCity[];
 extern const u8 gText_Right[];
 extern const u8 gText_Left[];

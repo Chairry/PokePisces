@@ -133,6 +133,8 @@
 #define MULTI_LAVAGYM_QUESTION_5            121
 #define MULTI_EAT_OR_DONT_EAT               122
 #define MULTI_TRICK_HOUSE_FINAL_DOOR        123
+#define MULTI_BRINEY_BOAT_2                 124
+#define MULTI_BRINEY_BOAT_3                 125
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
