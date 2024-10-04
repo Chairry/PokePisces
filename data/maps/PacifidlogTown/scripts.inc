@@ -332,13 +332,17 @@ PacifidlogTown_Text_NameBriney:
 	.string "Cpt. Briney$"
 
 PacifidlogTown_Text_WantToVoyage:
-	.string "wanna go to ss tidle$"
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
 
 PacifidlogTown_Text_IllBeHere:
-	.string "ill be waitin$"
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
 
 PacifidlogTown_Text_BonVoyage:
-	.string "bon voyage$"
+	.string "About time to haul anchor, then!$"
 
 PacifidlogTown_Text_FastRunningCurrent:
 	.string "The sea between PACIFIDLOG and\n"

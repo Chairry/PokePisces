@@ -45,6 +45,29 @@ DewfordNew_EventScript_GoFindBrawly::
 	release
 	end
 
+DewfordNew_EventScript_BrineyFastTravel::
+	lock
+	faceplayer
+	clearflag FLAG_BRINEY_MIDGAME_VISIT
+	setflag FLAG_BRINEY_DEWFORD_VISIT
+	speakername DewfordNew_Text_NameBriney
+	msgbox DewfordNew_Text_WantToVoyage, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, DewfordNew_EventScript_WarpToTidal
+	msgbox DewfordNew_Text_IllBeHere, MSGBOX_AUTOCLOSE
+	speakername NULL
+	release
+	end
+
+DewfordNew_EventScript_WarpToTidal::
+	msgbox DewfordNew_Text_BonVoyage, MSGBOX_DEFAULT
+	speakername NULL
+	warp MAP_SS_TIDAL_MID_TERIORS, 33, 4
+	release
+	end
+
+DewfordNew_Text_NameBriney:
+	.string "Cpt. Briney$"
+
 DewfordNew_Text_GoFindTheLeaders:
 	.string "go find them mfs$"
 
@@ -53,3 +76,16 @@ DewfordNew_Text_GoFindShelly:
 
 DewfordNew_Text_GoFindBrawly:
 	.string "go find brawly$"
+
+DewfordNew_Text_WantToVoyage:
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
+
+DewfordNew_Text_IllBeHere:
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
+
+DewfordNew_Text_BonVoyage:
+	.string "About time to haul anchor, then!$"

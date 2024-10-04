@@ -85,10 +85,14 @@ LilycoveInteriors_Text_ThanksForTrading:
 	.string "Thanks for the trade.$"
 
 LilycoveInteriors_Text_WantToVoyage:
-	.string "wanna go to ss tidle$"
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
 
 LilycoveInteriors_Text_IllBeHere:
-	.string "ill be waitin$"
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
 
 LilycoveInteriors_Text_BonVoyage:
-	.string "bon voyage$"
+	.string "About time to haul anchor, then!$"

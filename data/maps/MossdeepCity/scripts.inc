@@ -695,13 +695,17 @@ MossdeepCity_Text_NameBriney:
 	.string "Cpt. Briney$"
 
 MossdeepCity_Text_WantToVoyage:
-	.string "wanna go to ss tidle$"
+	.string "Ahoy there {PLAYER}!\p"
+	.string "The Tidal is docked and\n"
+	.string "itching for another voyage.\p"
+	.string "Will you be joining us?$"
 
 MossdeepCity_Text_IllBeHere:
-	.string "ill be waitin$"
+	.string "You're always welcome aboard!\n"
+	.string "Have a good one.$"
 
 MossdeepCity_Text_BonVoyage:
-	.string "bon voyage$"
+	.string "About time to haul anchor, then!$"
 
 MossdeepCity_Text_DroppedEgg:
 	.string "(The strange wild Pokémon dropped\n"
