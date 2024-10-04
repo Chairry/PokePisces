@@ -5770,16 +5770,6 @@
       "secondary_tileset": "gTileset_PokemonDayCare",
       "border_filepath": "data/layouts/HatchloamDayCare/border.bin",
       "blockdata_filepath": "data/layouts/HatchloamDayCare/map.bin"
-    },
-    {
-      "id": "LAYOUT_DEWFORD_GYM_NEW",
-      "name": "DewfordGymNew_Layout",
-      "width": 64,
-      "height": 26,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Pacifidlog",
-      "border_filepath": "data/layouts/DewfordGymNew/border.bin",
-      "blockdata_filepath": "data/layouts/DewfordGymNew/map.bin"
     }
   ]
 }
