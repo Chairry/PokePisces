@@ -5514,7 +5514,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_GRASS,
-        .accuracy = 55,
+        .accuracy = 80,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -11753,7 +11753,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BOLT_BEAK] =
     {
         .effect = EFFECT_BOLT_BEAK,
-        .power = 85,
+        .power = 65,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 10,
@@ -15368,7 +15368,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_TERRORIZE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 85,
+            .accuracy = 90,
         #else
             .accuracy = 75,
         #endif

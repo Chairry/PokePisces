@@ -4781,7 +4781,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     else if (holdEffect == HOLD_EFFECT_ZIG_SASH && gBattleMons[battler].species == SPECIES_ZIGZAGOON)
         speed = (speed * 150) / 100;
     else if (holdEffect == HOLD_EFFECT_GRAVITY_CORE && gFieldStatuses & STATUS_FIELD_GRAVITY)
-        speed = (speed * 130) / 100;
+        speed = (speed * 133) / 100;
     else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF)
         speed = (speed * 110) / 100;
     else if (holdEffect == HOLD_EFFECT_FLOAT_STONE)
