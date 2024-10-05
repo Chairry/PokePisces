@@ -1709,6 +1709,51 @@ bool8 ScrCmd_giveegg(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_givecommonegg(void)
+{
+    static const u16 commonEggSpeciesList[] = {
+        SPECIES_MAGBY
+    };
+
+    u16 species = commonEggSpeciesList[Random() % ARRAY_COUNT(commonEggSpeciesList)];
+    gSpecialVar_Result = ScriptGiveEgg(species);
+    return FALSE;
+}
+
+bool8 ScrCmd_giveuncommonegg(void)
+{
+    static const u16 uncommonEggSpeciesList[] = {
+        SPECIES_MAGBY
+    };
+
+    u16 species = uncommonEggSpeciesList[Random() % ARRAY_COUNT(uncommonEggSpeciesList)];
+    gSpecialVar_Result = ScriptGiveEgg(species);
+    return FALSE;
+}
+
+bool8 ScrCmd_giverareegg(void)
+{
+    static const u16 rareEggSpeciesList[] = {
+        SPECIES_MAGBY
+    };
+
+    u16 species = rareEggSpeciesList[Random() % ARRAY_COUNT(rareEggSpeciesList)];
+    gSpecialVar_Result = ScriptGiveEgg(species);
+    return FALSE;
+}
+
+bool8 ScrCmd_givescarceegg(void)
+{
+    static const u16 scarceEggSpeciesList[] = {
+        SPECIES_MAGBY
+    };
+
+    u16 species = scarceEggSpeciesList[Random() % ARRAY_COUNT(scarceEggSpeciesList)];
+
+    gSpecialVar_Result = ScriptGiveEgg(species);
+    return FALSE;
+}
+
 bool8 ScrCmd_setmonmove(struct ScriptContext *ctx)
 {
     u8 partyIndex = ScriptReadByte(ctx);
