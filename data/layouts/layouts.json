@@ -365,7 +365,7 @@
       "id": "LAYOUT_ROUTE121",
       "name": "Route121_Layout",
       "width": 96,
-      "height": 32,
+      "height": 34,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Snow",
       "border_filepath": "data/layouts/Route121/border.bin",
