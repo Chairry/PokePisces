@@ -1501,7 +1501,6 @@ Move_U_TURN::
 	invisible ANIM_ATTACKER
 	waitforvisualfinish
 	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
 	createsprite gLungeGreenBubbleTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
 	delay 20
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 1, 0
@@ -1510,8 +1509,8 @@ Move_U_TURN::
 	waitforvisualfinish
 	clearmonbg ANIM_DEF_PARTNER
 	createvisualtask AnimTask_CanBattlerSwitch, 1, ANIM_ATTACKER
-	jumpretfalse UTurnLast
-	invisible ANIM_ATTACKER
+	jumprettrue UTurnLast
+	visible ANIM_ATTACKER
 UTurnLast:
 	blendoff
 	waitforvisualfinish

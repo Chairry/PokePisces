@@ -3269,7 +3269,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_OCTOLOCK:
         {
             u16 battlerAbility = GetBattlerAbility(battler);
-            if (gDisableStructs[battler].octolock && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+            if (gDisableStructs[battler].octolock && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
 
             {
                 gBattlerTarget = battler;
@@ -3282,7 +3282,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_SPIDER_WEB:
         {
             u16 battlerAbility = GetBattlerAbility(battler);
-            if (gDisableStructs[battler].spiderweb && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || battlerAbility == ABILITY_WHITE_SMOKE || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
+            if (gDisableStructs[battler].spiderweb && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_CLEAR_AMULET || battlerAbility == ABILITY_CLEAR_BODY || battlerAbility == ABILITY_TITANIC || battlerAbility == ABILITY_FULL_METAL_BODY || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))))
             {
                 gBattlerTarget = battler;
                 BattleScriptExecute(BattleScript_SpiderWebEndTurn);
@@ -4087,7 +4087,7 @@ u8 AtkCanceller_UnableToUseMove(u32 moveType)
         case CANCELLER_TRUANT: // truant
             if (GetBattlerAbility(gBattlerAttacker) == ABILITY_TRUANT && gDisableStructs[gBattlerAttacker].truantCounter)
             {
-                if (gCurrentMove != MOVE_REST && gCurrentMove != MOVE_SLACK_OFF && gCurrentMove != MOVE_YAWN && gCurrentMove != MOVE_SLEEP_TALK && gCurrentMove != MOVE_SNORE)
+                if (!(gBattleMoves[gCurrentMove].lazyMove))
                 {
                     CancelMultiTurnMoves(gBattlerAttacker);
                     gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
@@ -6037,7 +6037,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 break;
             case ABILITY_TRUANT:
-                if ((gCurrentMove != MOVE_REST || gCurrentMove != MOVE_SLACK_OFF || gCurrentMove != MOVE_YAWN || gCurrentMove != MOVE_SLEEP_TALK || gCurrentMove != MOVE_SNORE))
+                if (!(gBattleMoves[gCurrentMove].lazyMove))
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                 break;
             case ABILITY_BAD_DREAMS:
@@ -8634,11 +8634,6 @@ static u8 DamagedBlukBerryEffect(u32 battler, u32 itemId, u32 statId, bool32 end
     gBattlerTarget = opposingBattler;
     if (HasEnoughHpToEatBerry(battler, GetBattlerItemHoldEffectParam(battler, itemId), itemId))
     {
-        BufferStatChange(battler, statId, STRINGID_STATROSE);
-        gEffectBattler = battler;
-        gBattleScripting.animArg1 = 14 + statId;
-        gBattleScripting.animArg2 = 0;
-
         if (end2)
         {
             BattleScriptExecute(BattleScript_BlukBerryEnd);
@@ -11476,8 +11471,12 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     if (DoBattlersShareType(gBattlerAttacker, gBattlerTarget) && (move == MOVE_SYNCHRONOISE))
         basePower *= 2;
 
+    if (move == MOVE_COLD_SNAP && weather & B_WEATHER_HAIL)
+        basePower *= 2;
+
     if (gBattleStruct->zmove.active)
         return GetZMovePower(gBattleStruct->zmove.baseMoves[battlerAtk]);
+
     switch (gBattleMoves[move].effect)
     {
     case EFFECT_PLEDGE:
@@ -11589,7 +11588,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower = 70;
         break;
     }
-
     case EFFECT_FEINT:
         if (gProtectStructs[gBattlerTarget].protected
             || gSideStatuses[GetBattlerSide(gBattlerTarget)] == SIDE_STATUS_WIDE_GUARD
@@ -11608,10 +11606,6 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
             basePower *= 2;
     case EFFECT_WEATHER_BALL:
         if (weather & B_WEATHER_ANY)
-            basePower *= 2;
-        break;
-    case EFFECT_FAKE_OUT:
-        if ((gCurrentMove == MOVE_COLD_SNAP) && (weather & B_WEATHER_HAIL))
             basePower *= 2;
         break;
     case EFFECT_PURSUIT:
@@ -12206,6 +12200,11 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
         else
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.33));
+    }
+
+    if (IsAbilityOnField(ABILITY_DAMP) && (moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK))
+    {
+        modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
     }
 
     if (IsAbilityOnField(ABILITY_FALLING) && atkAbility != ABILITY_FALLING && (IS_MOVE_SPECIAL(gCurrentMove) || IS_MOVE_PHYSICAL(gCurrentMove)))
@@ -13225,10 +13224,6 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (IS_MOVE_SPECIAL(move))
             return UQ_4_12(0.5);
         break;
-    case ABILITY_DAMP:
-        if (moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
-            return UQ_4_12(0.8);
-        break;
     case ABILITY_STALL:
         return UQ_4_12(0.7);
         break;
@@ -13246,10 +13241,6 @@ static inline uq4_12_t GetDefenderPartnerAbilitiesModifier(u32 battlerPartnerDef
     {
     case ABILITY_FRIEND_GUARD:
         return UQ_4_12(0.75);
-        break;
-    case ABILITY_DAMP:
-        if (moveType == TYPE_FIRE || moveType == TYPE_GROUND || moveType == TYPE_ROCK)
-            return UQ_4_12(0.8);
         break;
     case ABILITY_CACOPHONY:
         if (gBattleMoves[gCurrentMove].soundMove)
@@ -13569,6 +13560,8 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_FREEZE_DRY && defType == TYPE_WATER)
         mod = UQ_4_12(2.0);
+    if (!IsBattlerGrounded(battlerDef) && (gBattleMoves[move].ignoreTypeIfFlyingAndUngrounded) && (defType == TYPE_FLYING))
+        mod = UQ_4_12(1.0);
     if (gBattleMoves[move].effect == EFFECT_PLASMA_CUTTER && defType == TYPE_GROUND)
         mod = UQ_4_12(1.0);
     if (gCurrentMove == MOVE_BREAK_LANCE && (typeEffectivenessModifier > UQ_4_12(0.0)) && (typeEffectivenessModifier <= UQ_4_12(0.5)))
@@ -13781,12 +13774,6 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
             gBattleCommunication[MISS_TYPE] = B_MSG_MISSED;
             RecordAbilityBattle(battlerDef, ABILITY_PINK_MIST);
         }
-    }
-
-    // Thousand Arrows ignores type modifiers for flying mons
-    if (!IsBattlerGrounded(battlerDef) && (gBattleMoves[move].ignoreTypeIfFlyingAndUngrounded) && (gBattleMons[battlerDef].type1 == TYPE_FLYING || gBattleMons[battlerDef].type2 == TYPE_FLYING || gBattleMons[battlerDef].type3 == TYPE_FLYING))
-    {
-        modifier = UQ_4_12(1.0);
     }
 
     if (((defAbility == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0)) || (defAbility == ABILITY_TELEPATHY && battlerDef == BATTLE_PARTNER(battlerAtk))) && gBattleMoves[move].power)

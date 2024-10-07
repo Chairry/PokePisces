@@ -1551,7 +1551,7 @@ BattleScript_CutieCryStatPart:
 	goto BattleScript_EffectHit
 
 BattleScript_EffectBlock:
-    setstatchanger STAT_SPEED, 2, FALSE
+    setstatchanger STAT_SPEED, 2, TRUE
     attackcanceler
 	jumpifsafeguard BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_ESCAPE_PREVENTION, BattleScript_ButItFailed

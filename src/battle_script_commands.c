@@ -1824,7 +1824,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         break;
     case ABILITY_TANGLED_FEET:
         if (gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
-            calc = (calc * 50) / 100; // 1.5 tangled feet loss
+            calc = (calc * 50) / 100; // 0.5 tangled feet loss
         break;
     case ABILITY_LIMBER:
         calc = (calc * 90) / 100; // 10% evasion increase
@@ -2037,7 +2037,8 @@ static void Cmd_ppreduce(void)
         else
             gBattleStruct->sameMoveTurns[gBattlerAttacker] = 0;
 
-        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE) {
+        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FIRE)
+        {
             ppToDeduct *= 2;
         }
 
@@ -6007,7 +6008,6 @@ static void Cmd_playstatchangeanimation(void)
                         && ability != ABILITY_CLEAR_BODY
                         && ability != ABILITY_TITANIC
                         && ability != ABILITY_FULL_METAL_BODY
-                        && ability != ABILITY_WHITE_SMOKE
                         && !(ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
                         && !(ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK)
                         && !(GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_SAFETY_GOGGLES && currStat == STAT_ACC)
@@ -7328,7 +7328,7 @@ bool32 CanBattlerSwitch(u32 battler)
         {
             battlerIn1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
 
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            if (IsDoubleBattle())
                 battlerIn2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
             else
                 battlerIn2 = battlerIn1;
@@ -7340,7 +7340,7 @@ bool32 CanBattlerSwitch(u32 battler)
             // Check if attacker side has mon to switch into
             battlerIn1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
 
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            if (IsDoubleBattle())
                 battlerIn2 = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
             else
                 battlerIn2 = battlerIn1;
@@ -10644,10 +10644,17 @@ static void Cmd_various(void)
     case VARIOUS_JUMP_IF_HAS_A_STAT_BOOST:
     {
         VARIOUS_ARGS(const u8 *jumpInstr);
-        if (gBattleMons[battler].statStages[i] > DEFAULT_STAT_STAGE)
-            gBattlescriptCurrInstr = cmd->jumpInstr;
-        else
-            gBattlescriptCurrInstr = cmd->nextInstr;
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+        {
+            if (gBattleMons[battler].statStages[i] > DEFAULT_STAT_STAGE)
+            {
+                gBattlescriptCurrInstr = cmd->jumpInstr;
+            }
+            else
+            {
+                gBattlescriptCurrInstr = cmd->nextInstr;
+            }
+        }
         return;
     }
     case VARIOUS_CURE_IF_BLOOMING:
@@ -13567,8 +13574,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
                   || (battlerHoldEffect == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
                   || battlerAbility == ABILITY_CLEAR_BODY
                   || battlerAbility == ABILITY_TITANIC
-                  || battlerAbility == ABILITY_FULL_METAL_BODY
-                  || battlerAbility == ABILITY_WHITE_SMOKE)
+                  || battlerAbility == ABILITY_FULL_METAL_BODY)
                  && (!affectsUser || mirrorArmored) && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET)
