@@ -900,6 +900,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_EMBER] =
@@ -2715,6 +2716,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_RESET_STATS,
         .snatchAffected = TRUE,
+        .lazyMove = TRUE,
     },
 
     [MOVE_ROCK_SLIDE] =
@@ -3017,6 +3019,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .sheerForceBoost = TRUE,
         .soundMove = TRUE,
         .metronomeBanned = B_UPDATED_MOVE_FLAGS >= GEN_5,
+        .lazyMove = TRUE,
     },
 
     [MOVE_CURSE] =
@@ -3743,6 +3746,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .copycatBanned = TRUE,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
+        .lazyMove = TRUE,
     },
 
     [MOVE_HEAL_BELL] =
@@ -4869,6 +4873,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_SPD_UP_1,
         .magicCoatAffected = TRUE,
+        .lazyMove = TRUE,
     },
 
     [MOVE_KNOCK_OFF] =
@@ -5227,6 +5232,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_STATUS,
         .zMoveEffect = Z_EFFECT_RESET_STATS,
         .snatchAffected = TRUE,
+        .lazyMove = TRUE,
     },
 
     [MOVE_HYPER_VOICE] =
@@ -5514,7 +5520,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_SLEEP,
         .power = 0,
         .type = TYPE_GRASS,
-        .accuracy = 55,
+        .accuracy = 80,
         .pp = 15,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
@@ -8057,6 +8063,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_AUTOTOMIZE] =
@@ -8336,6 +8343,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
         .ballisticMove = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_FOUL_PLAY] =
@@ -11753,7 +11761,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_BOLT_BEAK] =
     {
         .effect = EFFECT_BOLT_BEAK,
-        .power = 85,
+        .power = 65,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 10,
@@ -14598,6 +14606,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_PARTING_CURRY] =
@@ -14853,6 +14862,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .oozeMove = TRUE,
     },
 
     [MOVE_STELLAR_FISTS] =
@@ -15368,7 +15378,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_TERRORIZE] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 85,
+            .accuracy = 90,
         #else
             .accuracy = 75,
         #endif

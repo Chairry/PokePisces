@@ -251,6 +251,7 @@ EWRAM_DATA u8 gBattleMoveTypeSpriteId = 0;
 EWRAM_DATA u8 gHitBySlashMove[PARTY_SIZE] = {0};
 EWRAM_DATA u8 gHitByPierceMove[PARTY_SIZE] = {0};
 EWRAM_DATA u8 gHitByBluntMove[PARTY_SIZE] = {0};
+EWRAM_DATA struct QueuedStatBoost gQueuedStatBoosts[MAX_BATTLERS_COUNT] = {0};
 
 void (*gPreBattleCallback1)(void);
 void (*gBattleMainFunc)(void);
@@ -3195,7 +3196,8 @@ static void BattleStartClearSetData(void)
     {
         gBattleStruct->usedHeldItems[i][B_SIDE_PLAYER] = 0;
         gBattleStruct->usedHeldItems[i][B_SIDE_OPPONENT] = 0;
-        gBattleStruct->itemLost[i].originalItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+        gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+        gBattleStruct->itemLost[B_SIDE_OPPONENT][i].originalItem = GetMonData(&gEnemyParty[i], MON_DATA_HELD_ITEM);
         gPartyCriticalHits[i] = 0;
         gHitBySlashMove[i] = 0;
         gHitByPierceMove[i] = 0;
@@ -3960,6 +3962,7 @@ static void TryDoEventsBeforeFirstTurn(void)
 
     gRandomTurnNumber = Random();
 
+    memset(gQueuedStatBoosts, 0, sizeof(gQueuedStatBoosts));
     SetAiLogicDataForTurn(AI_DATA); // get assumed abilities, hold effects, etc of all battlers
 
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
@@ -4779,7 +4782,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     else if (holdEffect == HOLD_EFFECT_ZIG_SASH && gBattleMons[battler].species == SPECIES_ZIGZAGOON)
         speed = (speed * 150) / 100;
     else if (holdEffect == HOLD_EFFECT_GRAVITY_CORE && gFieldStatuses & STATUS_FIELD_GRAVITY)
-        speed = (speed * 130) / 100;
+        speed = (speed * 133) / 100;
     else if (holdEffect == HOLD_EFFECT_FAVOR_SCARF)
         speed = (speed * 110) / 100;
     else if (holdEffect == HOLD_EFFECT_FLOAT_STONE)
@@ -5183,6 +5186,9 @@ static void TurnValuesCleanUp(bool8 var0)
             gProtectStructs[i].banefulBunkered = FALSE;
             gProtectStructs[i].burningBulwarked = FALSE;
             gProtectStructs[i].quash = FALSE;
+            gProtectStructs[i].usedCustapBerry = FALSE;
+            gProtectStructs[i].quickDraw = FALSE;
+            memset(&gQueuedStatBoosts[i], 0, sizeof(struct QueuedStatBoost));
         }
         else
         {

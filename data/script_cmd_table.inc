@@ -232,6 +232,10 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkpartynonhmmove               @ 0xe5
 	.4byte ScrCmd_checkpartyitem                    @ 0xe6
 	.4byte ScrCmd_setspeaker                        @ 0xe7
+	.4byte ScrCmd_givecommonegg                     @ 0xe8
+	.4byte ScrCmd_giveuncommonegg                   @ 0xe9
+	.4byte ScrCmd_giverareegg                       @ 0xea
+	.4byte ScrCmd_givescarceegg                     @ 0xeb
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
