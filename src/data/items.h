@@ -5187,7 +5187,7 @@ const struct Item gItems[] =
     {
         .name = _("Charcoal"),
         .price = 1000,
-        .holdEffect = HOLD_EFFECT_FIRE_POWER,
+        .holdEffect = HOLD_EFFECT_CHARCOAL,
         .holdEffectParam = TYPE_BOOST_PARAM,
         .description = sCharcoalDesc,
         .pocket = POCKET_BATTLE_ITEMS,

@@ -11,7 +11,7 @@ struct Item
 {
     u8 name[ITEM_NAME_LENGTH];
     u16 price;
-    u8 holdEffect;
+    u16 holdEffect;
     u8 holdEffectParam;
     const u8 *description;
     u8 importance;

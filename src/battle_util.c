@@ -12381,6 +12381,16 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMoves[move].kickingMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.1));
         break;
+    case HOLD_EFFECT_CHARCOAL:  // fire power +20%, additional +20% if target is burned
+        if (moveType == TYPE_FIRE)
+        {
+            holdEffectModifier = UQ_4_12(1.0);
+            holdEffectModifier += sPercentToModifier[20];
+            if (gBattleMons[battlerDef].status1 & STATUS1_BURN)
+                holdEffectModifier += sPercentToModifier[20];
+            modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        }
+        break;
     }
     return uq4_12_multiply_by_int_half_down(modifier, basePower);
 

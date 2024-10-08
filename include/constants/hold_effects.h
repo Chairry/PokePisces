@@ -238,6 +238,7 @@
 #define HOLD_EFFECT_DURIN_BERRY         253
 #define HOLD_EFFECT_CHUPACABRA          254
 #define HOLD_EFFECT_HEART_GIFT          255
+#define HOLD_EFFECT_CHARCOAL            256
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
