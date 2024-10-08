@@ -6979,7 +6979,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED 
             && CanGetPanicked(gBattlerAttacker)
-            && RandomWeighted(RNG_POISON_POINT, 5, 1))
+            && RandomWeighted(RNG_POISON_POINT, 20, 3))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_PANIC;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7010,7 +7010,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_CUTE_CHARM:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp != 0 && RandomWeighted(RNG_CUTE_CHARM, 2, 1) && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION) && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget) && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS && GetBattlerAbility(gBattlerAttacker) != ABILITY_IGNORANT_BLISS && IsMoveMakingContact(move, gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerAttacker].hp != 0
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && TARGET_TURN_DAMAGED
+            && gBattleMons[gBattlerTarget].hp != 0
+            && RandomWeighted(RNG_CUTE_CHARM, 20, 3)
+            && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
+            && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+            && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS
+            && GetBattlerAbility(gBattlerAttacker) != ABILITY_IGNORANT_BLISS
+            && IsMoveMakingContact(move, gBattlerAttacker)
+            && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL))
             {
                 gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(gBattlerTarget);
                 BattleScriptPushCursor();
@@ -7268,7 +7279,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanGetPanicked(gBattlerTarget) 
             && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 6) == 0)
+            && RandomWeighted(RNG_POISON_POINT, 20, 3))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_PANIC;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7356,7 +7367,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_CUTE_CHARM:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp != 0 && RandomWeighted(RNG_CUTE_CHARM, 2, 1) && !(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION) && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget) && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS && GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS && IsMoveMakingContact(move, gBattlerAttacker) && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerAttacker].hp != 0
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && TARGET_TURN_DAMAGED
+            && gBattleMons[gBattlerTarget].hp != 0
+            && RandomWeighted(RNG_CUTE_CHARM, 20, 3)
+            && !(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
+            && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+            && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS
+            && GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS
+            && IsMoveMakingContact(move, gBattlerAttacker)
+            && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
             {
                 gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
                 BattleScriptPushCursor();
