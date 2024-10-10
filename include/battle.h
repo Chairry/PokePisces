@@ -170,6 +170,7 @@ struct ProtectStruct
     u8 physicalBattlerId;
     u8 specialBattlerId;
     u32 extraMoveUsed:1;
+    u32 hardStoneBoost:1;
 };
 
 struct SpecialStatus
