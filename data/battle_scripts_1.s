@@ -13395,6 +13395,17 @@ BattleScript_AtkDown2::
 BattleScript_AtkDown2End::
 	return
 
+BattleScript_AccDown::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_EFFECT_BATTLER, BIT_ACC, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE
+	setstatchanger STAT_ACC, 1, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN | STAT_CHANGE_ALLOW_PTR, BattleScript_AtkDownEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_AccDownEnd
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AccDownEnd::
+	return
+
 BattleScript_MoveEffectClearSmog::
 	printstring STRINGID_RESETSTARGETSSTATLEVELS
 	waitmessage B_WAIT_TIME_LONG
@@ -17526,4 +17537,23 @@ BattleScript_EffectMtSplendor_TryRaiseStats:
 BattleScript_EffectMtSplendor_End:
     tryfaintmon BS_TARGET
     goto BattleScript_MoveEnd
+
+BattleScript_ResetNegativeStatStages::
+    tryresetnegativestatstages BS_SCRIPTING
+    printstring STRINGID_USERSTATCHANGESGONE
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_MoveEffectPowder::
+    setpowder BS_TARGET
+    printstring STRINGID_COVEREDINPOWDER
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_MoveEffectPPReduce::
+    tryspiteppreduce BattleScript_MoveEffectPPReduce_End
+	printstring STRINGID_PKMNREDUCEDPP
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_MoveEffectPPReduce_End:
+	return
 

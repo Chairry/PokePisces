@@ -2315,6 +2315,25 @@ static const u8 *const sHoldEffectNames[] =
     [HOLD_EFFECT_BLUNDER_POLICY] = sText_HoldEffectBlunderPolicy,
     [HOLD_EFFECT_HEAVY_DUTY_BOOTS] = sText_HoldEffectHeavyDutyBoots,
     [HOLD_EFFECT_THROAT_SPRAY] = sText_HoldEffectThroatSpray,
+    
+    [HOLD_EFFECT_SILVER_POWDER] = sText_HoldEffectBugPower, 
+    [HOLD_EFFECT_METAL_COAT] = sText_HoldEffectSteelPower,
+    [HOLD_EFFECT_SOFT_SAND] = sText_HoldEffectGroundPower,
+    [HOLD_EFFECT_HARD_STONE] = sText_HoldEffectRockPower,
+    [HOLD_EFFECT_MIRACLE_SEED] = sText_HoldEffectGrassPower,
+    [HOLD_EFFECT_BLACK_GLASSES] = sText_HoldEffectDarkPower,
+    [HOLD_EFFECT_BLACK_BELT] = sText_HoldEffectFightingPower,
+    [HOLD_EFFECT_MAGNET] = sText_HoldEffectElectricPower,
+    [HOLD_EFFECT_MYSTIC_WATER] = sText_HoldEffectWaterPower,
+    [HOLD_EFFECT_SHARP_BEAK] = sText_HoldEffectFlyingPower,
+    [HOLD_EFFECT_POISON_BARB] = sText_HoldEffectPoisonPower,
+    [HOLD_EFFECT_NEVER_MELT_ICE] = sText_HoldEffectIcePower,
+    [HOLD_EFFECT_SPELL_TAG] = sText_HoldEffectGhostPower,
+    [HOLD_EFFECT_TWISTED_SPOON] = sText_HoldEffectPsychicPower,
+    [HOLD_EFFECT_CHARCOAL] = sText_HoldEffectFirePower,
+    [HOLD_EFFECT_DRAGON_FANG] = sText_HoldEffectDragonPower,
+    [HOLD_EFFECT_SILK_SCARF] = sText_HoldEffectNormalPower,
+    [HOLD_EFFECT_FAIRY_FEATHER] = sText_HoldEffectFairyPower,
 };
 static const u8 *GetHoldEffectName(u16 holdEffect)
 {

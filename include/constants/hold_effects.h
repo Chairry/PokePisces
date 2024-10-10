@@ -238,7 +238,24 @@
 #define HOLD_EFFECT_DURIN_BERRY         253
 #define HOLD_EFFECT_CHUPACABRA          254
 #define HOLD_EFFECT_HEART_GIFT          255
-#define HOLD_EFFECT_CHARCOAL            256
+#define HOLD_EFFECT_SILVER_POWDER   256    // bug power +20%, 50% chance to leave powder on foe when using bug type move
+#define HOLD_EFFECT_METAL_COAT      257  // steel power +20%, reduce chance to be hit by secondary effect by 50%
+#define HOLD_EFFECT_SOFT_SAND       258  // ground power +20%, ground type moves have 30% chance to lower accuracy
+#define HOLD_EFFECT_HARD_STONE      259  // rock power +20%. when use rock move, next attack on you does 20% less dmg
+#define HOLD_EFFECT_MIRACLE_SEED    260  // grass power +20%, additional 20% chance to gain blooming when using grass moves
+#define HOLD_EFFECT_BLACK_GLASSES   261    // dark power +20%, dark moves have 20% chance to inflict panic
+#define HOLD_EFFECT_BLACK_BELT      262  // fighting power +20%, additional 20% if super effective
+#define HOLD_EFFECT_MAGNET          263  // electric power +20%, boost ally electric power by 20%    
+#define HOLD_EFFECT_MYSTIC_WATER    264  // water power +20%, and 30% chance to reset users negative stat changes when using water move
+#define HOLD_EFFECT_SHARP_BEAK      265 // flying power +20%, additional +10% against grounded foes    
+#define HOLD_EFFECT_POISON_BARB     266  // poison power +20%, additional 15% of target maxHP if they're poisoned
+#define HOLD_EFFECT_NEVER_MELT_ICE  267  // ice power +20%, prevents burn
+#define HOLD_EFFECT_SPELL_TAG       268  // ghost power +20%, ghost moves reduce targets last used move PP by 2
+#define HOLD_EFFECT_TWISTED_SPOON   269  // psychic power +20%, +30% more if target has a reduced stat
+#define HOLD_EFFECT_CHARCOAL        270  // fire power +20%, additional +20% if target is burned
+#define HOLD_EFFECT_DRAGON_FANG     271  // dragon power +20%, additional +40% if move not very effective
+#define HOLD_EFFECT_SILK_SCARF      272  // normal power +20%, 10% boost to all other typed moves
+#define HOLD_EFFECT_FAIRY_FEATHER   273  // fairy power +20% and secondary effect chance -> 100%
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

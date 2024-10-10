@@ -8063,7 +8063,8 @@ bool32 CanBeBurned(u32 battler)
     || (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EERIE_MASK && (gBattleMons[battler].species == SPECIES_SEEDOT || gBattleMons[battler].species == SPECIES_NUZLEAF || gBattleMons[battler].species == SPECIES_SHIFTRY) && (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND))
     || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(1) 
     || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(2) 
-    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3))
+    || gBattleMons[battler].status1 & STATUS1_BLOOMING_TURN(3)
+    || GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_NEVER_MELT_ICE)
         return FALSE;
     return TRUE;
 }
@@ -10396,6 +10397,61 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
             }
             break;
+        case HOLD_EFFECT_BLACK_GLASSES: // dark type moves have 20% chance to inflict panic
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && gBattleMoves[gCurrentMove].type == TYPE_DARK
+                    && IsBattlerAlive(gBattlerTarget)
+                    && TARGET_TURN_DAMAGED
+                    && RandomPercentage(RNG_HOLD_EFFECT_BLACK_GLASSES, 20)
+                    && CanGetPanicked(gBattlerTarget)) {
+                gEffectBattler = gBattlerTarget;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MoveEffectPanic;
+                effect++;
+            }
+            break;
+        case HOLD_EFFECT_SILVER_POWDER: // 50% chance to leave powder on foe when using bug type move
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && gBattleMoves[gCurrentMove].type == TYPE_BUG
+                    && IsBattlerAlive(gBattlerTarget)
+                    && TARGET_TURN_DAMAGED
+                    && !(gBattleMons[gBattlerTarget].status2 & STATUS2_POWDER)
+                    && !(gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+                    && RandomPercentage(RNG_HOLD_EFFECT_SILVER_POWDER, 50)) {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MoveEffectPowder;
+                effect++;
+            }
+            break;
+        case HOLD_EFFECT_SOFT_SAND: // ground type moves have 30% chance to lower accuracy
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && gBattleMoves[gCurrentMove].type == TYPE_GROUND
+                    && IsBattlerAlive(gBattlerTarget)
+                    && TARGET_TURN_DAMAGED
+                    && CompareStat(gBattlerTarget, STAT_ACC, 0, CMP_GREATER_THAN)
+                    && RandomPercentage(RNG_HOLD_EFFECT_SOFT_SAND, 30)) {
+                gEffectBattler = gBattlerTarget;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_AccDown;
+                effect++;
+            }
+            break;
+        case HOLD_EFFECT_SPELL_TAG: // ghost moves reduce target PP by 2
+            if (gBattleMoveDamage != 0 // Need to have done damage
+                    && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+                    && gBattleMoves[gCurrentMove].type == TYPE_GHOST
+                    && IsBattlerAlive(gBattlerTarget)
+                    && TARGET_TURN_DAMAGED) {
+                gEffectBattler = gBattlerTarget;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MoveEffectPPReduce;
+                effect++;
+            }
+            break;
         }
         break;
     case ITEMEFFECT_LIFEORB_SHELLBELL:
@@ -10423,6 +10479,35 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 effect = ITEM_STATS_CHANGE;
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AttackerItemStatRaise;
+            }
+            break;
+        case HOLD_EFFECT_HARD_STONE:    // if use rock type move, next attack on us does 20% less dmg (this turn only)
+            if (IsBattlerAlive(gBattlerAttacker)
+                    && gBattleMoves[gCurrentMove].type == TYPE_ROCK
+                    && !gProtectStructs[gBattlerAttacker].hardStoneBoost)
+                gProtectStructs[gBattlerAttacker].hardStoneBoost = TRUE;
+            break;
+        case HOLD_EFFECT_MIRACLE_SEED:  // if using grass move, 20% chance to gain blooming
+            if (IsBattlerAlive(gBattlerAttacker)
+                    && gBattleMoves[gCurrentMove].type == TYPE_GRASS
+                    && CanStartBlooming(gBattlerAttacker)
+                    && RandomPercentage(RNG_HOLD_EFFECT_MIRACLE_SEED, 20)) {
+                gBattleScripting.battler = gEffectBattler = gBattlerAttacker;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUSED_BY_ITEM;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MoveEffectBlooming;
+                effect++;
+            }
+            break;
+        case HOLD_EFFECT_MYSTIC_WATER:  // if using water move, 30% chance to undo negative stat changes
+            if (IsBattlerAlive(gBattlerAttacker)
+                    && gBattleMoves[gCurrentMove].type == TYPE_WATER
+                    && CountNegativeStatStages(gBattlerAttacker) > 0
+                    && RandomPercentage(RNG_HOLD_EFFECT_MYSTIC_WATER, 30)) {
+                gBattleScripting.battler = gBattlerAttacker;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ResetNegativeStatStages;
+                effect++;
             }
             break;
         }
@@ -11891,6 +11976,13 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     return basePower;
 }
 
+#define TYPE_POWER_INCREASE_CHECK(typeCheck) {    \
+    if (moveType == typeCheck) { \
+        holdEffectModifier = UQ_4_12(1.0) + sPercentToModifier[20]; \
+        modifier = uq4_12_multiply(modifier, holdEffectModifier);   \
+    }                                                               \
+}
+
 u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk, u32 weather)
 {
     u32 i;
@@ -12347,6 +12439,90 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
             }
         }
         break;
+    case HOLD_EFFECT_SILVER_POWDER:
+        TYPE_POWER_INCREASE_CHECK(TYPE_BUG);
+        break;
+    case HOLD_EFFECT_METAL_COAT:
+        TYPE_POWER_INCREASE_CHECK(TYPE_STEEL);
+        break;
+    case HOLD_EFFECT_SOFT_SAND:
+        TYPE_POWER_INCREASE_CHECK(TYPE_GROUND);
+        break;
+    case HOLD_EFFECT_HARD_STONE:
+        TYPE_POWER_INCREASE_CHECK(TYPE_ROCK);
+        break;
+    case HOLD_EFFECT_MIRACLE_SEED:
+        TYPE_POWER_INCREASE_CHECK(TYPE_GRASS);
+        break;
+    case HOLD_EFFECT_BLACK_GLASSES:
+        TYPE_POWER_INCREASE_CHECK(TYPE_DARK);
+        break;
+    case HOLD_EFFECT_BLACK_BELT:
+        TYPE_POWER_INCREASE_CHECK(TYPE_FIGHTING);
+        break;
+    case HOLD_EFFECT_MAGNET:
+        TYPE_POWER_INCREASE_CHECK(TYPE_ELECTRIC);
+        break;
+    case HOLD_EFFECT_MYSTIC_WATER:
+        TYPE_POWER_INCREASE_CHECK(TYPE_WATER);
+        break;
+    case HOLD_EFFECT_SHARP_BEAK:
+        if (moveType == TYPE_FLYING) {
+            holdEffectModifier = UQ_4_12(1.0);
+            holdEffectModifier += sPercentToModifier[20];
+            if (IsBattlerGrounded(battlerDef))
+                holdEffectModifier += sPercentToModifier[10];
+            modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        }
+        break;
+    case HOLD_EFFECT_POISON_BARB:
+        if (moveType == TYPE_POISON) {
+            holdEffectModifier = UQ_4_12(1.0) + sPercentToModifier[20];
+            if (gBattleMons[battlerDef].status1 & STATUS1_PSN_ANY)
+                holdEffectModifier += (gBattleMons[battlerDef].maxHP * 115) / 100;
+            modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        }
+        break;
+    case HOLD_EFFECT_NEVER_MELT_ICE:
+        TYPE_POWER_INCREASE_CHECK(TYPE_ICE);
+        break;
+    case HOLD_EFFECT_SPELL_TAG:
+        TYPE_POWER_INCREASE_CHECK(TYPE_GHOST);
+        break;
+    case HOLD_EFFECT_TWISTED_SPOON:
+        if (moveType == TYPE_PSYCHIC) {
+            holdEffectModifier = UQ_4_12(1.0) + sPercentToModifier[20];
+            if (CountNegativeStatStages(battlerAtk) > 0)
+                holdEffectModifier += sPercentToModifier[30];
+            modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        }
+        break;
+    case HOLD_EFFECT_CHARCOAL:
+        if (moveType == TYPE_FIRE)
+        {
+            holdEffectModifier = UQ_4_12(1.0);
+            holdEffectModifier += sPercentToModifier[20];
+            if (gBattleMons[battlerDef].status1 & STATUS1_BURN)
+                holdEffectModifier += sPercentToModifier[20];
+            modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        }
+        break;
+    case HOLD_EFFECT_DRAGON_FANG:
+        TYPE_POWER_INCREASE_CHECK(TYPE_DRAGON);
+        break;
+    case HOLD_EFFECT_SILK_SCARF:
+        // either boosts 20% for normal moves or 10%
+        holdEffectModifier = UQ_4_12(1.0);
+        if (moveType == TYPE_NORMAL) {
+            holdEffectModifier += sPercentToModifier[20];
+        } else {
+            holdEffectModifier += sPercentToModifier[10];
+        }
+        modifier = uq4_12_multiply(modifier, holdEffectModifier);
+        break;
+    case HOLD_EFFECT_FAIRY_FEATHER:
+        TYPE_POWER_INCREASE_CHECK(TYPE_FAIRY);
+        break;
     case HOLD_EFFECT_PLATE:
         if (moveType == ItemId_GetSecondaryId(gBattleMons[battlerAtk].item))
             modifier = uq4_12_multiply(modifier, holdEffectModifier);
@@ -12359,19 +12535,10 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         if (gBattleMoves[move].kickingMove)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.1));
         break;
-    case HOLD_EFFECT_CHARCOAL:  // fire power +20%, additional +20% if target is burned
-        if (moveType == TYPE_FIRE)
-        {
-            holdEffectModifier = UQ_4_12(1.0);
-            holdEffectModifier += sPercentToModifier[20];
-            if (gBattleMons[battlerDef].status1 & STATUS1_BURN)
-                holdEffectModifier += sPercentToModifier[20];
-            modifier = uq4_12_multiply(modifier, holdEffectModifier);
-        }
-        break;
     }
     return uq4_12_multiply_by_int_half_down(modifier, basePower);
 
+    // Ally hold effect
     if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
     {
         switch (GetBattlerHoldEffect(BATTLE_PARTNER(battlerAtk), TRUE))
@@ -12379,11 +12546,16 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         case HOLD_EFFECT_FRIEND_RIBBON:
             if (BATTLE_PARTNER(battlerAtk) == SPECIES_COLFIN)
                 modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-                break;
+                break;        
+        case HOLD_EFFECT_MAGNET: // boost ally electric power by 20%
+            if (moveType == TYPE_ELECTRIC)
+                modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+            break;
         }
     }
 }
 #undef TERRAIN_TYPE_BOOST
+#undef TYPE_POWER_INCREASE_CHECK
 
 static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveType, bool32 isCrit, bool32 updateFlags, u32 atkAbility, u32 defAbility, u32 holdEffectAtk)
 {
@@ -12895,6 +13067,11 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     case HOLD_EFFECT_RING_TARGET:
         modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.75));
         break;
+    case HOLD_EFFECT_HARD_STONE:
+        if (gProtectStructs[battlerDef].hardStoneBoost) {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.8));
+        }
+        break;
     }
 
     // sandstorm sp.def boost for rock types
@@ -13301,6 +13478,21 @@ static inline uq4_12_t GetAttackerItemsModifier(u32 battlerAtk, uq4_12_t typeEff
         break;
     case HOLD_EFFECT_LIFE_ORB:
         return UQ_4_12(1.3);
+    case HOLD_EFFECT_BLACK_BELT:
+        { // +20% if super effective fighting move
+            u8 moveType;
+            GET_MOVE_TYPE(gCurrentMove, moveType);
+            if (moveType == TYPE_FIGHTING && typeEffectivenessModifier >= UQ_4_12(2.0))
+                return UQ_4_12(1.2);
+        }
+        break;
+    case HOLD_EFFECT_DRAGON_FANG:
+        { // +40% if not very effective dragon move
+            u8 moveType;
+            GET_MOVE_TYPE(gCurrentMove, moveType);
+            if (moveType == TYPE_DRAGON && typeEffectivenessModifier < UQ_4_12(1.0))
+                return UQ_4_12(1.4);
+        }
         break;
     }
     return UQ_4_12(1.0);
@@ -14937,6 +15129,13 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 
 u32 CalcSecondaryEffectChance(u32 battler, u8 secondaryEffectChance)
 {
+    if (GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_FAIRY_FEATHER) {
+        u8 moveType;
+        GET_MOVE_TYPE(gCurrentMove, moveType);
+        if (moveType == TYPE_FAIRY)
+            return 100;
+    }
+    
     if (gCurrentMove == MOVE_METEOR_MASH && gFieldStatuses & STATUS_FIELD_GRAVITY)
         secondaryEffectChance *= 5;
 

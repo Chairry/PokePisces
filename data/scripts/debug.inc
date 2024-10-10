@@ -70,6 +70,9 @@ Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
 Debug_Script_1::
+
+    warp MAP_BASALIN_COAST, 37, 19
+    
     end
 
 Debug_Script_2::

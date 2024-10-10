@@ -1,6 +1,10 @@
 #ifndef GUARD_BATTLE_SCRIPTS_H
 #define GUARD_BATTLE_SCRIPTS_H
 
+extern const u8 BattleScript_MoveEffectPPReduce[];
+extern const u8 BattleScript_AccDown[];
+extern const u8 BattleScript_MoveEffectPowder[];
+extern const u8 BattleScript_ResetNegativeStatStages[];
 extern const u8 BattleScript_TickedTurnDrain[];
 extern const u8 BattleScript_UnfrozeTargetWaitMessage[];
 extern const u8 BattleScript_TargetWokeUpWaitMessage[];

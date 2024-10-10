@@ -4584,6 +4584,10 @@ static void Cmd_seteffectwithchance(void)
             VarSet(VAR_TEMP_MOVEEFFECT, 0);
         }
     }
+    
+    if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_METAL_COAT
+            && !(gBattleScripting.moveEffect & MOVE_EFFECT_AFFECTS_USER))
+        percentChance /= 2;
 
     if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
      && gBattleScripting.moveEffect)
