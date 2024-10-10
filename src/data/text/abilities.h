@@ -92,9 +92,9 @@ static const u8 sShieldDustDescription[] = _(
     "traps set on the battlefield.");
 
 static const u8 sOwnTempoDescription[] = _(
-    "Prevents confusion and boosts\n"
-    "power if different dance moves\n"
-    "are used consecutively.");
+    "Boosts power if different dance\n"
+    "moves are used consecutively.\n"
+    "Prevents confusion.");
 
 static const u8 sSuctionCupsDescription[] = _(
     "Negates all moves and items that\n"
@@ -102,8 +102,8 @@ static const u8 sSuctionCupsDescription[] = _(
 
 static const u8 sIntimidateDescription[] = _(
     "Lowers the Attack stats of\n"
-    "opposing Pokémon and decreases\n"
-    "the chance of wild encounters.");
+    "opposing Pokémon. Decreases the\n"
+    "chance of wild encounters.");
 
 static const u8 sShadowTagDescription[] = _(
     "The Pokémon steps on the opposing\n"
@@ -136,8 +136,8 @@ static const u8 sSynchronizeDescription[] = _(
     "will have the same Nature.");
 
 static const u8 sClearBodyDescription[] = _(
-    "Prevents other Pokémon's moves or\n"
-    "Abilities from lowering the\n"
+    "Prevents other Pokémon's moves\n"
+    "or Abilities from lowering the\n"
     "Pokémon's stats.");
 
 static const u8 sNaturalCureDescription[] = _(
@@ -146,7 +146,7 @@ static const u8 sNaturalCureDescription[] = _(
 
 static const u8 sLightningRodDescription[] = _(
     "Draws in all Electric-type moves\n"
-    "to boost its Sp. Atk stat.");
+    "to boost its Special Attack stat.");
 
 static const u8 sSereneGraceDescription[] = _(
     "Raises the likelihood of\n"
@@ -238,8 +238,8 @@ static const u8 sRunAwayDescription[] = _(
 
 static const u8 sKeenEyeDescription[] = _(
     "Prevents other Pokémon from\n"
-    "lowering accuracy and decreases\n"
-    "the chance of wild encounters.");
+    "lowering accuracy. Decreases the\n"
+    "chance of wild encounters.");
 
 static const u8 sHyperCutterDescription[] = _(
     "The Pokémon's prized, mighty\n"
@@ -331,7 +331,7 @@ static const u8 sDroughtDescription[] = _(
 
 static const u8 sArenaTrapDescription[] = _(
     "Prevents opposing Pokémon from\n"
-    "fleeing from battle and increases\n"
+    "fleeing from battle. Increases\n"
     "the chance of wild encounters.");
 
 static const u8 sVitalSpiritDescription[] = _(
@@ -433,8 +433,8 @@ static const u8 sHydrationDescription[] = _(
 
 static const u8 sSolarPowerDescription[] = _(
     "In harsh sunlight, the Pokémon's\n"
-    "Sp. Atk stat is boosted, but its\n"
-    "HP decreases every turn.");
+    "Special Attack stat is boosted,\n"
+    "but its HP decreases every turn.");
 
 static const u8 sQuickFeetDescription[] = _(
     "Boosts the Speed stat if the\n"
@@ -451,55 +451,210 @@ static const u8 sSniperDescription[] = _(
     "critical hit, the attack is\n"
     "powered up even further.");
 
-static const u8 sMagicGuardDescription[] = _("The Pokémon only takes\ndamage from direct attacks.");
-static const u8 sNoGuardDescription[] = _("User and foe never miss.\nIncreases encounter rate.");
-static const u8 sStallDescription[] = _("Moves last, but deals more\nand takes less damage.");
-static const u8 sTechnicianDescription[] = _("Boosts the Pokémon's moves\nthat are 60 BP or less.");
-static const u8 sLeafGuardDescription[] = _("Prevents status conditions\nin harsh sunlight.");
-static const u8 sKlutzDescription[] = _("The Pokémon can't use any\nheld items.");
-static const u8 sMoldBreakerDescription[] = _("Moves can be used\nregardless of Abilities.");
-static const u8 sSuperLuckDescription[] = _("Ups chance of critical-hits\nand finding wild held items.");
-static const u8 sAftermathDescription[] = _("Explodes at 1 HP. Survives\nat 1 HP from direct attacks.");
-static const u8 sAnticipationDescription[] = _("May evade moves on the\nfirst turn it's out.");
-static const u8 sForewarnDescription[] = _("Ups BP of Future Sight/Doom\nDesire. Also strike earlier.");
-static const u8 sUnawareDescription[] = _("Ignores foe's stat changes.\nCan't become panicked.");
-static const u8 sTintedLensDescription[] = _("Powers up not very\neffective moves.");
-static const u8 sFilterDescription[] = _("Reduces damage from\nsuper effective attacks.");
-static const u8 sSlowStartDescription[] = _("For two turns, the user's\nAttack and Speed are halved.");
-static const u8 sScrappyDescription[] = _("Ignores stat drop abilities,\nghost immunities, and Empty.");
-static const u8 sStormDrainDescription[] = _("Draws in Water-type moves to\nboost its Sp. Atk stat.");
-static const u8 sIceBodyDescription[] = _("Heals HP in a hailstorm. May\ncause frostbite on contact.");
-#if B_SNOW_WARNING < GEN_9
-static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
-#elif B_SNOW_WARNING >= GEN_9
-static const u8 sSnowWarningDescription[] = _("The Pokémon summons a\nhailstorm in battle.");
-#endif
-static const u8 sHoneyGatherDescription[] = _("The Pokémon may gather Honey\nafter a battle.");
-static const u8 sFriskDescription[] = _("Sets an Embargo on the foe\nwhen switching in.");
-static const u8 sRecklessDescription[] = _("Powers up moves that have\nrecoil damage.");
-static const u8 sMultitypeDescription[] = _("Changes the user's type to\nmatch its Plate/Z-Crystal.");
-static const u8 sFlowerGiftDescription[] = _("Boosts the Atk/Sp. Def of\nuser/allies when sunny.");
-static const u8 sBadDreamsDescription[] = _("Damages opposing Pokémon\nthat are asleep.");
-static const u8 sPickpocketDescription[] = _("Steals foe's item when\ncontact is made either way.");
-static const u8 sSheerForceDescription[] = _("Removes additional effects\nto increase move damage.");
-static const u8 sContraryDescription[] = _("Makes stat changes have an\nopposite effect.");
-static const u8 sUnnerveDescription[] = _("Makes foes unable to eat\nBerries and Torments them.");
-static const u8 sDefiantDescription[] = _("Raises Atk stat sharply\nwhen its stats are lowered.");
-static const u8 sDefeatistDescription[] = _("Halves the user's Atk/Sp.\nAtk when HP becomes half.");
-static const u8 sCursedBodyDescription[] = _("May disable a move that has\ndealt damage to the Pokémon.");
-static const u8 sHealerDescription[] = _("May cure the status\nconditions of the allies.");
-static const u8 sFriendGuardDescription[] = _("Reduces damage dealt to\nallies.");
-static const u8 sWeakArmorDescription[] = _("Physical moves lower Def\nand sharply raise Speed.");
-static const u8 sHeavyMetalDescription[] = _("Doubles the Pokémon's\nweight.");
-static const u8 sLightMetalDescription[] = _("Halves the Pokémon's weight.");
-static const u8 sMultiscaleDescription[] = _("Reduces damage the Pokémon\ntakes when its HP is full.");
-static const u8 sToxicBoostDescription[] = _("Ups Sp. Atk when poisoned\nor hit by Poison-type moves.");
-static const u8 sFlareBoostDescription[] = _("Boosts Sp. Atk when burned\nor hit by Fire-type moves.");
-static const u8 sHarvestDescription[] = _("May create another Berry\nafter one is used.");
-static const u8 sTelepathyDescription[] = _("Foe's multi-target become\nweaker. Avoids ally's moves.");
-static const u8 sMoodyDescription[] = _("Raises one stat sharply and\nlowers another every turn.");
-static const u8 sOvercoatDescription[] = _("Protects the Pokémon from\nsand/hail/powder moves.");
-static const u8 sBigPecksDescription[] = _("Boosts the power of\nFlying-type moves.");
+static const u8 sMagicGuardDescription[] = _(
+    "The Pokémon only takes damage\n"
+    "from attacks.");
+
+static const u8 sStallDescription[] = _(
+    "Ensures both Pokémon's and foe's\n"
+    "attacks land. Increases the\n"
+    "chance of wild encounters.");
+
+static const u8 sNoGuardDescription[] = _(
+    "The Pokémon is always the last to\n"
+    "use its moves, however it deals\n"
+    "more and takes less damage.");
+
+static const u8 sTechnicianDescription[] = _(
+    "Powers up weak moves so the\n"
+    "Pokémon can deal more damage with\n"
+    "them.");
+
+static const u8 sLeafGuardDescription[] = _(
+    "Prevents status conditions in\n"
+    "harsh sunlight.");
+
+static const u8 sKlutzDescription[] = _(
+    "The Pokémon can't use any held\n"
+    "items.");
+
+static const u8 sMoldBreakerDescription[] = _(
+    "The Pokémon's moves are unimpeded\n"
+    "by the Ability of the target.");
+
+static const u8 sSuperLuckDescription[] = _(
+    "Boosts the critical-hit ratios of\n"
+    "moves and chances to find a wild\n"
+    "Pokémon holding an item.");
+
+static const u8 sAftermathDescription[] = _(
+    "The Pokémon cannot be knocked\n"
+    "out by a single hit. At one HP,\n"
+    "uses a Fire-type exploding move.");
+
+static const u8 sAnticipationDescription[] = _(
+    "When the Pokémon enters battle it\n"
+    "is way more likely to evade the\n"
+    "next move it gets targeted by.");
+
+static const u8 sForewarnDescription[] = _(
+    "Boosts Future Sight and\n"
+    "Doom Desire while also making\n"
+    "them strike a turn earlier.");
+
+static const u8 sUnawareDescription[] = _(
+    "Ignores the opposing Pokémon's\n"
+    "stat changes. Prevents the\n"
+    "Pokémon from panicking.");
+
+static const u8 sTintedLensDescription[] = _(
+    "The Pokémon can use resisted\n"
+    "moves to deal regular damage.");
+
+static const u8 sFilterDescription[] = _(
+    "Reduces the power of super\n"
+    "effective attacks that hit the\n"
+    "Pokémon.");
+
+static const u8 sSlowStartDescription[] = _(
+    "For two turns, the Pokémon's\n"
+    "Attack and Speed stats are\n"
+    "halved.");
+
+static const u8 sScrappyDescription[] = _(
+    "Makes Normal and Fighting-type\n"
+    "moves hit Ghost-types. Ignores\n"
+    "Intimidate, Mocking, and Disturb.");
+
+static const u8 sStormDrainDescription[] = _(
+    "Draws in all Water-type moves to\n"
+    "boost its Special Attack stat.");
+
+static const u8 sIceBodyDescription[] = _(
+    "The Pokémon gradually regains HP\n"
+    "in a hailstorm. Contact with it\n"
+    "may frostbite the attacker.");
+
+static const u8 sSnowWarningDescription[] = _(
+    "The Pokémon summons a hailstorm\n"
+    "when it enters a battle.");
+
+static const u8 sHoneyGatherDescription[] = _(
+    "The Pokémon may gather Honey\n"
+    "after a battle.");
+
+static const u8 sFriskDescription[] = _(
+    "The Pokémon prevents opposing\n"
+    "Pokémon and Trainers from using\n"
+    "items when it enters a battle.");
+
+static const u8 sRecklessDescription[] = _(
+    "Powers up moves that have recoil\n"
+    "damage.");
+
+static const u8 sMultitypeDescription[] = _(
+    "Changes the Pokémon's type to\n"
+    "match the Plate or Z-Crystal it\n"
+    "holds.");
+
+static const u8 sFlowerGiftDescription[] = _(
+    "Boosts the Attack and Special\n"
+    "Defense stats of the Pokémon and\n"
+    "its allies in harsh sunlight.");
+
+static const u8 sBadDreamsDescription[] = _(
+    "Damages opposing Pokémon that are\n"
+    "damage.");
+
+static const u8 sPickpocketDescription[] = _(
+    "May steal items when contact is\n"
+    "made with the Pokémon and when\n"
+    "the Pokémon makes contact.");
+
+static const u8 sSheerForceDescription[] = _(
+    "Removes any additional effects\n"
+    "from the Pokémon's moves, but\n"
+    "increases the moves' power.");
+
+static const u8 sContraryDescription[] = _(
+    "Makes stat changes have an\n"
+    "opposite effect.");
+
+static const u8 sUnnerveDescription[] = _(
+    "Unnerves opposing Pokémon and\n"
+    "makes them unable to eat Berries\n"
+    "and use the same move in a row.");
+
+static const u8 sDefiantDescription[] = _(
+    "Boosts the Pokémon's Attack stat\n"
+    "sharply when its stats are\n"
+    "lowered by an opposing Pokémon.");
+
+static const u8 sDefeatistDescription[] = _(
+    "Halves the Pokémon's Attack and\n"
+    "Special Attack stats when its HP\n"
+    "drops to half or less.");
+
+static const u8 sCursedBodyDescription[] = _(
+    "May disable a move that has dealt\n"
+    "damage to the Pokémon.");
+
+static const u8 sHealerDescription[] = _(
+    "Heals some of the ally's HP when\n"
+    "the Pokémon enters a battle. May\n"
+    "heal an ally's status conditions.");
+
+static const u8 sFriendGuardDescription[] = _(
+    "Reduces damage done to allies.");
+
+static const u8 sWeakArmorDescription[] = _(
+    "Physical attacks to the Pokémon\n"
+    "lower its Defense stat but\n"
+    "sharply raise its Speed stat.");
+
+static const u8 sHeavyMetalDescription[] = _(
+    "Doubles the Pokémon's weight.");
+
+static const u8 sLightMetalDescription[] = _(
+    "Halves the Pokémon's weight.");
+
+static const u8 sMultiscaleDescription[] = _(
+    "Reduces the amount of damage the\n"
+    "Pokémon takes while its HP is\n"
+    "full.");
+
+static const u8 sToxicBoostDescription[] = _(
+    "Powers up physical attacks when\n"
+    "poisoned. Boosts the Attack stat\n"
+    "when hit by a Poison-type move.");
+
+static const u8 sFlareBoostDescription[] = _(
+    "Powers up special attacks when\n"
+    "burned. Boosts the Sp. Atk stat\n"
+    "when hit by a Fire-type move.");
+
+static const u8 sHarvestDescription[] = _(
+    "May create another Berry after\n"
+    "one is used.");
+
+static const u8 sTelepathyDescription[] = _(
+    "Anticipates an ally's attack and\n"
+    "dodges it. Powers down opposing\n"
+    "Pokémon's multi-target moves.");
+
+static const u8 sMoodyDescription[] = _(
+    "Every turn, one of the Pokémon's\n"
+    "stats will be boosted sharply but\n"
+    "another stat will be lowered.");
+
+static const u8 sOvercoatDescription[] = _(
+    "Blocks things like sand, hail,\n"
+    "and powder. Reflects some damage\n"
+    "taken from non-contact moves.");
+
+static const u8 sBigPecksDescription[] = _(
+    "Powers up Flying-type moves.");
+
 static const u8 sSandRushDescription[] = _("Doubles the Pokémon's Speed\nin a sandstorm.");
 static const u8 sWonderSkinDescription[] = _("Makes status moves more\nlikely to miss the Pokémon.");
 static const u8 sAnalyticDescription[] = _("Boosts move power when the\nPokémon moves last.");
