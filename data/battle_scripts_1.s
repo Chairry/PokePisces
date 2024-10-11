@@ -16611,8 +16611,8 @@ BattleScript_RizzBerryEnd::
 	return
 
 BattleScript_BlukBerryActivatesRet::
-	tryspiteppreduce BattleScript_BlukBerryEnd
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	tryspiteppreduce BattleScript_BlukBerryEnd
 	printstring STRINGID_PKMNREDUCEDPP
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
