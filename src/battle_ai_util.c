@@ -349,6 +349,7 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_SNOWSCAPE,
     EFFECT_TORMENT,
     EFFECT_WILL_O_WISP,
+    EFFECT_GLACIATE,
     EFFECT_FOLLOW_ME,
     EFFECT_CHARGE,
     EFFECT_TRICK,
@@ -365,6 +366,9 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_WATER_SPORT,
     EFFECT_DRAGON_DANCE,
     EFFECT_CAMOUFLAGE,
+    EFFECT_FILLET_AWAY,
+    EFFECT_SPOOK,
+    EFFECT_FLASH,
 };
 
 // For the purposes of determining the most powerful move in a moveset, these
@@ -384,6 +388,7 @@ static const u16 sIgnoredPowerfulMoveEffects[] =
     EFFECT_OVERHEAT,
     EFFECT_MIND_BLOWN,
     EFFECT_MAKE_IT_RAIN,
+    EFFECT_DRAGON_RUIN,
     IGNORED_MOVES_END
 };
 
@@ -789,6 +794,12 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
         case EFFECT_FURY_CUTTER:
             fixedBasePower = CalcFuryCutterBasePower(gBattleMoves[move].power, min(gDisableStructs[battlerAtk].furyCutterCounter + 1, 5));
             break;
+        case EFFECT_RAGE_FIST:
+            fixedBasePower = CalcRageFistPower(gBattleMoves[move].power, min(gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]], 5));
+            break;
+        case EFFECT_LAST_RESPECTS:
+            fixedBasePower = CalcRageFistPower(gBattleMoves[move].power, min(gBattleStruct->faintedMonCount[GetBattlerSide(battlerAtk)], 5));
+            break;
         default:
             fixedBasePower = 0;
             break;
@@ -905,16 +916,20 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
     // Check recoil
     if (GetBattlerAbility(sBattler_AI) != ABILITY_ROCK_HEAD)
     {
-        if (IS_MOVE_RECOIL(move1) && !IS_MOVE_RECOIL(move2) && gBattleMoves[move2].effect != EFFECT_RECHARGE)
+        if (IS_MOVE_RECOIL(move1) && !IS_MOVE_RECOIL(move2) && gBattleMoves[move2].effect != EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN)
             return 1;
 
-        if (IS_MOVE_RECOIL(move2) && !IS_MOVE_RECOIL(move1) && gBattleMoves[move1].effect != EFFECT_RECHARGE)
+        if (IS_MOVE_RECOIL(move2) && !IS_MOVE_RECOIL(move1) && gBattleMoves[move1].effect != EFFECT_RECHARGE && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN)
             return 0;
     }
     // Check recharge
     if (gBattleMoves[move1].effect == EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_RECHARGE)
         return 1;
     if (gBattleMoves[move2].effect == EFFECT_RECHARGE && gBattleMoves[move1].effect != EFFECT_RECHARGE)
+        return 0;
+    if (gBattleMoves[move1].effect == EFFECT_DRAGON_RUIN && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN)
+        return 1;
+    if (gBattleMoves[move2].effect == EFFECT_DRAGON_RUIN && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN)
         return 0;
     // Check additional effect.
     if (gBattleMoves[move1].effect == 0 && gBattleMoves[move2].effect != 0)
@@ -1393,6 +1408,7 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_POISON:
     case EFFECT_PARALYZE:
     case EFFECT_WILL_O_WISP:
+    case EFFECT_GLACIATE:
     case EFFECT_YAWN:
         return TRUE;
     default:
@@ -1408,6 +1424,7 @@ bool32 IsConfusionMoveEffect(u32 moveEffect)
     case EFFECT_SWAGGER:
     case EFFECT_FLATTER:
     case EFFECT_TEETER_DANCE:
+    case EFFECT_FLASH:
         return TRUE;
     default:
         return FALSE;
@@ -1432,6 +1449,11 @@ bool32 IsStatLoweringMoveEffect(u32 moveEffect)
     case EFFECT_SPECIAL_DEFENSE_DOWN_2:
     case EFFECT_ACCURACY_DOWN_2:
     case EFFECT_EVASION_DOWN_2:
+    case EFFECT_CHILLY_AIR:
+    case EFFECT_SPIDER_WEB:
+    case EFFECT_EERIE_IMPULSE:
+    case EFFECT_FLASH:
+    case EFFECT_CHARM:
         return TRUE;
     default:
         return FALSE;
@@ -1601,7 +1623,8 @@ bool32 ShouldSetHail(u32 battler, u32 ability, u32 holdEffect)
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
       || HasMove(battler, MOVE_BLIZZARD)
       || HasMoveEffect(battler, EFFECT_AURORA_VEIL)
-      || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
+      || HasMoveEffect(battler, EFFECT_WEATHER_BALL)
+      || HasMoveEffect(battler, EFFECT_COLD_MEND))
     {
         return TRUE;
     }
@@ -1669,7 +1692,8 @@ bool32 ShouldSetSnow(u32 battler, u32 ability, u32 holdEffect)
       || IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
       || HasMove(battler, MOVE_BLIZZARD)
       || HasMoveEffect(battler, EFFECT_AURORA_VEIL)
-      || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
+      || HasMoveEffect(battler, EFFECT_WEATHER_BALL)
+      || HasMoveEffect(battler, EFFECT_COLD_MEND))
     {
         return TRUE;
     }
@@ -2055,6 +2079,7 @@ bool32 IsHealingMoveEffect(u32 effect)
     case EFFECT_HEAL_PULSE:
     case EFFECT_REST:
     case EFFECT_JUNGLE_HEALING:
+    case EFFECT_COLD_MEND:
         return TRUE;
     default:
         return FALSE;
@@ -2081,6 +2106,7 @@ bool32 IsTrappingMoveEffect(u32 effect)
     {
     case EFFECT_MEAN_LOOK:
     case EFFECT_TRAP:
+    case EFFECT_SPIDER_WEB:
     case EFFECT_HIT_PREVENT_ESCAPE:
     case EFFECT_FAIRY_LOCK:
     //case EFFECT_NO_RETREAT:   // TODO
@@ -2134,6 +2160,8 @@ bool32 IsAttackBoostMoveEffect(u32 effect)
     case EFFECT_BELLY_DRUM:
     case EFFECT_BULK_UP:
     case EFFECT_GROWTH:
+    case EFFECT_FILLET_AWAY:
+    case EFFECT_MEDITATE:
         return TRUE;
     default:
         return FALSE;
@@ -2180,6 +2208,8 @@ bool32 IsStatRaisingEffect(u32 effect)
     case EFFECT_GEOMANCY:
     case EFFECT_STOCKPILE:
     case EFFECT_VICTORY_DANCE:
+    case EFFECT_FILLET_AWAY:
+    case EFFECT_MEDITATE:
         return TRUE;
     default:
         return FALSE;
@@ -2208,6 +2238,11 @@ bool32 IsStatLoweringEffect(u32 effect)
     case EFFECT_TICKLE:
     case EFFECT_CAPTIVATE:
     case EFFECT_NOBLE_ROAR:
+    case EFFECT_CHILLY_AIR:
+    case EFFECT_SPIDER_WEB:
+    case EFFECT_EERIE_IMPULSE:
+    case EFFECT_FLASH:
+    case EFFECT_CHARM:
         return TRUE;
     default:
         return FALSE;
@@ -3233,6 +3268,7 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gBattleMoves[partnerMove].effect == EFFECT_TOXIC
        || gBattleMoves[partnerMove].effect == EFFECT_PARALYZE
        || gBattleMoves[partnerMove].effect == EFFECT_WILL_O_WISP
+       || gBattleMoves[partnerMove].effect == EFFECT_GLACIATE
        || gBattleMoves[partnerMove].effect == EFFECT_YAWN))
         return TRUE;
     return FALSE;
@@ -3734,6 +3770,7 @@ void IncreaseParalyzeScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
         if ((defSpeed >= atkSpeed && defSpeed / 2 < atkSpeed) // You'll go first after paralyzing foe
           || HasMoveEffect(battlerAtk, EFFECT_HEX)
           || HasMoveEffect(battlerAtk, EFFECT_FLINCH_HIT)
+          || HasMoveEffect(battlerAtk, EFFECT_HEART_STAMP)
           || gBattleMons[battlerDef].status2 & STATUS2_INFATUATION
           || gBattleMons[battlerDef].status2 & STATUS2_CONFUSION)
             *score += 4;
@@ -3773,7 +3810,8 @@ void IncreaseConfusionScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score
     {
         if (gBattleMons[battlerDef].status1 & STATUS1_PARALYSIS
           || gBattleMons[battlerDef].status2 & STATUS2_INFATUATION
-          || (AI_DATA->abilities[battlerAtk] == ABILITY_SERENE_GRACE && HasMoveEffect(battlerAtk, EFFECT_FLINCH_HIT)))
+          || (AI_DATA->abilities[battlerAtk] == ABILITY_SERENE_GRACE && HasMoveEffect(battlerAtk, EFFECT_FLINCH_HIT))
+          || (AI_DATA->abilities[battlerAtk] == ABILITY_SERENE_GRACE && HasMoveEffect(battlerAtk, EFFECT_HEART_STAMP)))
             *score += 3;
         else
             *score += 2;

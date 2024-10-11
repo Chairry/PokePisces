@@ -11551,6 +11551,14 @@ u32 CalcFuryCutterBasePower(u32 basePower, u32 furyCutterCounter)
     return basePower;
 }
 
+u32 CalcRageFistPower(u32 basePower, u32 ragefistCounter)
+{
+    u32 i;
+    for (i = 1; i < ragefistCounter; i++)
+        basePower += 50;
+    return basePower;
+}
+
 static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 weather)
 {
     u32 i;

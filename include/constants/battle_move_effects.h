@@ -413,39 +413,39 @@
 #define EFFECT_POPULATION_BOMB              407
 #define EFFECT_MORTAL_SPIN                  408
 #define EFFECT_GIGATON_HAMMER               409
-#define EFFECT_SALT_CURE                    410
-#define EFFECT_GLACIATE                     411
-#define EFFECT_CHILLY_AIR                   412
-#define EFFECT_LAST_RESPECTS                413
-#define EFFECT_RAGE_FIST                    414
-#define EFFECT_FILLET_AWAY                  415
-#define EFFECT_CHILLY_RECEPTION             416
-#define EFFECT_SHED_TAIL                    417
-#define EFFECT_FICKLE_BEAM                  418
-#define EFFECT_DRAGON_CHEER                 419
-#define EFFECT_PSYCHIC_NOISE                420
-#define EFFECT_SNUFF_OUT                    421
-#define EFFECT_COLD_MEND                    422
-#define EFFECT_VIPER_STRIKE                 423
-#define EFFECT_ALL_STATS_UP_2_HIT           424
-#define EFFECT_SPOOK                        425
-#define EFFECT_U_TURN                       426
-#define EFFECT_SILVER_WIND                  427
-#define EFFECT_SIGNAL_BEAM                  428
-#define EFFECT_RAGE_POWDER                  429
-#define EFFECT_SPIDER_WEB                   430
-#define EFFECT_RECOIL_50_STATUS             431
-#define EFFECT_EERIE_IMPULSE                432
-#define EFFECT_FLASH                        433
-#define EFFECT_CHARM                        434
-#define EFFECT_BITTER_MALICE                435
-#define EFFECT_HEART_STAMP                  436
-#define EFFECT_MEDITATE                     437
-#define EFFECT_FLIP_TURN                    438
-#define EFFECT_MUDDY_WATER                  439
-#define EFFECT_DRAGON_RUIN                  440
-#define EFFECT_CINDER_TWIRL                 441
-#define EFFECT_CINDER_DRILL                 442
+#define EFFECT_SALT_CURE                    410 //Below this are effects we added for Pisces, will denote which have AI flags completed
+#define EFFECT_GLACIATE                     411 //AI Flags complete
+#define EFFECT_CHILLY_AIR                   412 //AI Flags complete
+#define EFFECT_LAST_RESPECTS                413 //AI Flags added, used new function CalcRageFistPower (works for this and below), may be some bugs, untested 
+#define EFFECT_RAGE_FIST                    414 //AI Flags added, used new function CalcRageFistPower, may be some bugs, untested
+#define EFFECT_FILLET_AWAY                  415 //AI Flags complete
+#define EFFECT_CHILLY_RECEPTION             416 //AI Flags added, combined stuff from EFFECT_HAIL and EFFECT_TELEPORT, may cause a bug
+#define EFFECT_SHED_TAIL                    417 //AI Flags added, combined stuff from EFFECT_SUBSTITUTE and EFFECT_TELEPORT, may cause a bug
+#define EFFECT_FICKLE_BEAM                  418 //AI Flags complete
+#define EFFECT_DRAGON_CHEER                 419 //AI Flags complete
+#define EFFECT_PSYCHIC_NOISE                420 //AI Flags complete (mostly copied what Heal Block already had)
+#define EFFECT_SNUFF_OUT                    421 //According to EFFECT_FREEZE_DRY, this doesnt need any special AI code
+#define EFFECT_COLD_MEND                    422 //AI Flags complete
+#define EFFECT_VIPER_STRIKE                 423 //According to EFFECT_POISON_HIT, this doesnt need any special AI code
+#define EFFECT_ALL_STATS_UP_2_HIT           424 //AI Flags complete
+#define EFFECT_SPOOK                        425 //AI Flags complete
+#define EFFECT_U_TURN                       426 //AI Flags complete
+#define EFFECT_SILVER_WIND                  427 //AI Flags complete
+#define EFFECT_SIGNAL_BEAM                  428 //AI Flags complete
+#define EFFECT_RAGE_POWDER                  429 //AI Flags complete
+#define EFFECT_SPIDER_WEB                   430 //AI Flags added, combined stuff from EFFECT_TRAP and stat down effects, may cause a bug
+#define EFFECT_RECOIL_50_STATUS             431 //AI Flags complete
+#define EFFECT_EERIE_IMPULSE                432 //AI Flags complete
+#define EFFECT_FLASH                        433 //AI Flags complete
+#define EFFECT_CHARM                        434 //AI Flags added, combined stuff from EFFECT_WAKE_UP_SLAP and stat down effects, may cause a bug
+#define EFFECT_BITTER_MALICE                435 //According to EFFECT_FROSTBITE_HIT, this doesnt need any special AI code, but will prob add something for the status condition power raise
+#define EFFECT_HEART_STAMP                  436 //AI Flags complete
+#define EFFECT_MEDITATE                     437 //AI Flags complete
+#define EFFECT_FLIP_TURN                    438 //AI Flags complete
+#define EFFECT_MUDDY_WATER                  439 //According to EFFECT_FLYING_PRESS, this doesnt need any special AI code (i did add it under EFFECT_ACCURACY_DOWN_HIT though)
+#define EFFECT_DRAGON_RUIN                  440 //AI Flags added, combined stuff from EFFECT_RECHARGE and EFFECT_SKULL_BASH, may cause a bug
+#define EFFECT_CINDER_TWIRL                 441 //AI Flags added, may need to add more scoring in in regards to which form would be best. Currently just added it to SetupFirstTurn
+#define EFFECT_CINDER_DRILL                 442 //AI Flags added, may need to add more scoring in in regards to which form would be best. Currently just added it to SetupFirstTurn
 #define EFFECT_SILENCE                      443
 #define EFFECT_TORMENT_HIT                  444
 #define EFFECT_DECAY_BEAM                   445
