@@ -100,7 +100,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 16,
+      "y": 58,
+      "elevation": 0,
+      "dest_map": "MAP_UNDURA_TUNNELS",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
