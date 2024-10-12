@@ -4751,7 +4751,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
         speed *= 1.5;
     
     // abilities on field
-    if (IsAbilityOnField(ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
+    if (IsAbilityOnOpposingSide(battler, ABILITY_FALLING) && GetBattlerAbility(battler) != ABILITY_FALLING)
         speed *= 0.75;
     if (IsAbilityOnOpposingSide(battler, ABILITY_SPIRALYSIS))
         speed *= 0.5;

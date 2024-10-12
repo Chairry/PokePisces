@@ -437,6 +437,7 @@
 #define ANIM_TAG_SYRUP_BLOB_RED             (ANIM_SPRITES_START + 423)
 #define ANIM_TAG_SYRUP_SHELL_RED            (ANIM_SPRITES_START + 424)
 #define ANIM_TAG_SYRUP_SPLAT_RED            (ANIM_SPRITES_START + 425)
+#define ANIM_TAG_PINKVIO_ORB                (ANIM_SPRITES_START + 426)
 
 // battlers
 #define ANIM_ATTACKER         0
