@@ -10883,6 +10883,7 @@ static void Cmd_various(void)
         {
             SET_BATTLER_TYPE(gBattlerTarget, gBattleMoves[gCurrentMove].type);
             PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
+            gBattlescriptCurrInstr = cmd->nextInstr;
         }
         return;
     }
@@ -11081,18 +11082,6 @@ static void Cmd_various(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         
         return;
-    }
-    case VARIOUS_SURPRISE_EGG:
-    {
-        VARIOUS_ARGS();
-        u32 moveCount = MOVES_COUNT_PISCES;
-
-        gCurrentMove = RandomUniformExcept(RNG_METRONOME, 1, moveCount - 1, InvalidSurpriseEggMove);
-        gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
-        SetAtkCancellerForCalledMove();
-        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
-        gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
-        break;
     }
     case VARIOUS_ABILITY_POPUP:
     {
@@ -14878,7 +14867,14 @@ static void Cmd_metronome(void)
     u32 moveCount = MOVES_COUNT_GEN3;
 #endif
 
-    gCurrentMove = RandomUniformExcept(RNG_METRONOME, 1, moveCount - 1, InvalidMetronomeMove);
+    if (gCurrentMove == MOVE_SURPRISE_EGG)
+    {
+        gCurrentMove = RandomUniformExcept(RNG_METRONOME, 1, moveCount - 1, InvalidSurpriseEggMove);
+    }
+    else
+    {
+        gCurrentMove = RandomUniformExcept(RNG_METRONOME, 1, moveCount - 1, InvalidMetronomeMove);
+    }
     gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
     SetAtkCancellerForCalledMove();
     gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];

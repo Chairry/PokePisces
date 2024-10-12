@@ -1590,7 +1590,7 @@ BattleScript_EffectSurpriseEgg::
 	waitanimation
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
-	surpriseegg
+	metronome
 
 BattleScript_EffectOdorSleuth:
 	jumpifhpthreshold BS_TARGET, BattleScript_OdorSleuthWithStatRaise
@@ -10085,6 +10085,7 @@ BattleScript_EffectSonicboom::
 	ppreduce
 	typecalc
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
+	dmgtolevel
 	adjustdamage
 	goto BattleScript_HitFromAtkAnimation
 
@@ -10570,6 +10571,8 @@ BattleScript_AlreadyAtFullHp::
 BattleScript_EffectFakeOut::
 	attackcanceler
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
+	jumpifmove MOVE_FIRST_IMPRESSION BattleScript_EffectHit
+	jumpifmove MOVE_BEAT_DROP BattleScript_EffectHit
 	setmoveeffect MOVE_EFFECT_FLINCH | MOVE_EFFECT_CERTAIN
 	seteffectwithchance
 	jumpifmove MOVE_NOBLE_ROAR, BattleScript_EffectSpeedDown
