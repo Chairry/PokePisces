@@ -1668,7 +1668,7 @@ static const u8 sAppetiteDescription[] = _(
 
 static const u8 sAllGameDescription[] = _(
     "Soaks the field with water and\n"
-    "mud when entering battle. Not hit\n"
+    "mud when joining battle. Not hit\n"
     "by Ground or Water-type moves.");
 
 static const u8 sEggsRoyaleDescription[] = _(
@@ -1690,7 +1690,7 @@ static const u8 sVertigoDescription[] = _(
     "move that lowers Evasion.");
 
 static const u8 sStormBrewDescription[] = _(
-    "When using an Electric move, uses\n"
+    "When using Electric moves, uses\n"
     "a move that's boosted for every\n"
     "Electric move used that turn.");
 
