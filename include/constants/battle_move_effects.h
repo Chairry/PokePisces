@@ -446,54 +446,54 @@
 #define EFFECT_DRAGON_RUIN                  440 //AI Flags added, combined stuff from EFFECT_RECHARGE and EFFECT_SKULL_BASH, may cause a bug
 #define EFFECT_CINDER_TWIRL                 441 //AI Flags added, may need to add more scoring in in regards to which form would be best. Currently just added it to SetupFirstTurn
 #define EFFECT_CINDER_DRILL                 442 //AI Flags added, may need to add more scoring in in regards to which form would be best. Currently just added it to SetupFirstTurn
-#define EFFECT_SILENCE                      443
-#define EFFECT_TORMENT_HIT                  444
-#define EFFECT_DECAY_BEAM                   445
-#define EFFECT_WARM_WELCOME                 446
-#define EFFECT_RADIOACID                    447
-#define EFFECT_PARTING_CURRY                448
-#define EFFECT_SERPENT_SURGE                449
-#define EFFECT_TIDY_UP                      450
-#define EFFECT_DRAINING_KISS                451
-#define EFFECT_HULLBREAKER                  452
-#define EFFECT_HEART_CARVE_HIT              453
-#define EFFECT_DRAGON_POKER                 454
-#define EFFECT_WATERFALL                    455
-#define EFFECT_CUT                          456
-#define EFFECT_ROCK_SMASH                   457
-#define EFFECT_STRENGTH                     458
-#define EFFECT_ROCK_CLIMB                   459
-#define EFFECT_SURF                         460
-#define EFFECT_DIVE                         461
-#define EFFECT_FLY                          462
-#define EFFECT_WHIRLPOOL                    463
-#define EFFECT_LONE_SHARK                   464
-#define EFFECT_HEART_STEAL                  465
-#define EFFECT_IGNA_STRIKE                  466
-#define EFFECT_ACCURACY_DEFENSE_DOWN_HIT    467
-#define EFFECT_VENOM_DRAIN                  468
-#define EFFECT_ALL_STATS_DOWN_HIT           469
-#define EFFECT_WILLPOWER                    470
-#define EFFECT_MANEUVER                     471
-#define EFFECT_SCORP_FANG                   472
-#define EFFECT_RECOIL_50_HAZARD             473
-#define EFFECT_WICKED_WINDS                 474
-#define EFFECT_SAND_TOMB                    475
-#define EFFECT_SONIC_BURST                  476
-#define EFFECT_SOUL_CUTTER                  477
-#define EFFECT_VOID                         478
-#define EFFECT_KERFUFFLE                    479
-#define EFFECT_VERGLASTROM                  480
-#define EFFECT_EXORCISM                     481
-#define EFFECT_LOVE_TAP                     482
-#define EFFECT_SOLAR_FLARE                  483
-#define EFFECT_PANIC_HIT                    484
-#define EFFECT_BLOOMING_HIT                 485
-#define EFFECT_EXPOSED_HIT                  486
-#define EFFECT_TEARFUL_LOOK                 487
-#define EFFECT_BLACK_BUFFET                 488
-#define EFFECT_FINISH_OFF                   489
-#define EFFECT_SEIZE_CHANCE                 490
+#define EFFECT_SILENCE                      443 //AI Flags complete
+#define EFFECT_TORMENT_HIT                  444 //AI Flags complete
+#define EFFECT_DECAY_BEAM                   445 //According to EFFECT_FREEZE_DRY and EFFECT_EERIE_SPELL, this doesnt need any special AI code
+#define EFFECT_WARM_WELCOME                 446 //AI Flags complete
+#define EFFECT_RADIOACID                    447 //AI Flags complete
+#define EFFECT_PARTING_CURRY                448 //AI Flags complete
+#define EFFECT_SERPENT_SURGE                449 //AI Flags added, combined stuff from various effects based on the different abilities. Should see if problems are caused
+#define EFFECT_TIDY_UP                      450 //AI Flags added in from latest Expansion build
+#define EFFECT_DRAINING_KISS                451 //AI Flags complete, should not need a check for infatuation because AI factors in calculated damage increases
+#define EFFECT_HULLBREAKER                  452 //AI Flags added, combined stuff from EFFECT_FEINT and EFFECT_BRICK_BREAK, may cause a bug
+#define EFFECT_HEART_CARVE_HIT              453 //AI Flags complete
+#define EFFECT_DRAGON_POKER                 454 //AI Flags added, kinda just copied Magnitude but it doesnt have much. Added it and Magnitude to AI_Risky
+#define EFFECT_WATERFALL                    455 //AI Flags complete (For Waterfall through Whirlpool, EFFECT_RETURN was merged with their regular effects)
+#define EFFECT_CUT                          456 //AI Flags complete
+#define EFFECT_ROCK_SMASH                   457 //AI Flags complete
+#define EFFECT_STRENGTH                     458 //AI Flags complete
+#define EFFECT_ROCK_CLIMB                   459 //AI Flags complete
+#define EFFECT_SURF                         460 //AI Flags complete
+#define EFFECT_DIVE                         461 //AI Flags complete
+#define EFFECT_FLY                          462 //AI Flags complete
+#define EFFECT_WHIRLPOOL                    463 //AI Flags complete
+#define EFFECT_LONE_SHARK                   464 //AI Flags added, currently is encouraged above 60% health to use it but could maybe add more sophisticated check in future
+#define EFFECT_HEART_STEAL                  465 //AI Flags complete
+#define EFFECT_IGNA_STRIKE                  466 //According to EFFECT_FREEZE_DRY, this doesnt need any special AI code
+#define EFFECT_ACCURACY_DEFENSE_DOWN_HIT    467 //AI Flags complete
+#define EFFECT_VENOM_DRAIN                  468 //AI Flags added, combined EFFECT_ABSORB with a check for PSN_ANY
+#define EFFECT_ALL_STATS_DOWN_HIT           469 //AI Flags added, combined EFFECT_ATTACK_DOWN_HIT with a check for PSN_ANY
+#define EFFECT_WILLPOWER                    470 //According to EFFECT_BODY_PRESS, this doesnt need any special AI code 
+#define EFFECT_MANEUVER                     471 //AI Flags complete
+#define EFFECT_SCORP_FANG                   472 //AI Flags complete
+#define EFFECT_RECOIL_50_HAZARD             473 //AI Flags added, combined stuff from EFFECT_RECOIL_50 and EFFECT_HIT_SET_ENTRY_HAZARD, may cause a bug
+#define EFFECT_WICKED_WINDS                 474 //According to EFFECT_FROSTBITE_HIT and EFFECT_FLYING_PRESS, this doesnt need any special AI code
+#define EFFECT_SAND_TOMB                    475 //AI Flags complete
+#define EFFECT_SONIC_BURST                  476 //AI Flags complete
+#define EFFECT_SOUL_CUTTER                  477 //According to EFFECT_PSYSHOCK, this doesnt need any special AI code
+#define EFFECT_VOID                         478 //AI Flags added, combined stuff from EFFECT_DISABLE and EFFECT_FEINT, may cause a bug
+#define EFFECT_KERFUFFLE                    479 //AI Flags added, mostly took from EFFECT_EARTHQUAKE so the AI doesnt kill allies with it. Could add in another check weighing the confusion odds
+#define EFFECT_VERGLASTROM                  480 //AI Flags added, combined stuff from EFFECT_TRAP and EFFECT_COLD_MEND, may cause a bug
+#define EFFECT_EXORCISM                     481 //According to EFFECT_FREEZE_DRY, this doesnt need any special AI code
+#define EFFECT_LOVE_TAP                     482 //AI Flags complete (added a conditional to EFFECT_FAKE_OUT code)
+#define EFFECT_SOLAR_FLARE                  483 //According to EFFECT_BURN_HIT and EFFECT_FREEZE_DRY, this doesnt need any special AI code
+#define EFFECT_PANIC_HIT                    484 //According to EFFECT_POISON_HIT et al, this doesnt need any special AI code, but may take the liberty to add it
+#define EFFECT_BLOOMING_HIT                 485 //According to EFFECT_POISON_HIT et al, this doesnt need any special AI code, but may take the liberty to add it
+#define EFFECT_EXPOSED_HIT                  486 //According to EFFECT_POISON_HIT et al, this doesnt need any special AI code, but may take the liberty to add it
+#define EFFECT_TEARFUL_LOOK                 487 //AI Flags complete (replaced Noble Roar)
+#define EFFECT_BLACK_BUFFET                 488 //AI Flags added, combined stuff from EFFECT_MULTI_HIT and EFFECT_ABSORB, may cause a bug
+#define EFFECT_FINISH_OFF                   489 //According to EFFECT_BRINE, this doesnt need any special AI code
+#define EFFECT_SEIZE_CHANCE                 490 //AI Flags added, combined stuff from EFFECT_SUCKER_PUNCH and EFFECT_ALWAYS_CRIT, may cause a bug
 #define EFFECT_RAZING_SUN                   491
 #define EFFECT_TERRORIZE                    492
 #define EFFECT_BRUTALIZE                    493

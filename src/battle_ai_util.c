@@ -369,6 +369,8 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_FILLET_AWAY,
     EFFECT_SPOOK,
     EFFECT_FLASH,
+    EFFECT_SILENCE,
+    EFFECT_WARM_WELCOME,
 };
 
 // For the purposes of determining the most powerful move in a moveset, these
@@ -389,6 +391,7 @@ static const u16 sIgnoredPowerfulMoveEffects[] =
     EFFECT_MIND_BLOWN,
     EFFECT_MAKE_IT_RAIN,
     EFFECT_DRAGON_RUIN,
+    EFFECT_LONE_SHARK,
     IGNORED_MOVES_END
 };
 
@@ -703,6 +706,10 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
             return TRUE;
         if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && AI_WhoStrikesFirst(battlerAI, opposingBattler, GetAIChosenMove(battlerAI)) == AI_IS_SLOWER)
             return TRUE;
+        if (gBattleMoves[move].effect == EFFECT_DIVE && AI_WhoStrikesFirst(battlerAI, opposingBattler, GetAIChosenMove(battlerAI)) == AI_IS_SLOWER)
+            return TRUE;
+        if (gBattleMoves[move].effect == EFFECT_FLY && AI_WhoStrikesFirst(battlerAI, opposingBattler, GetAIChosenMove(battlerAI)) == AI_IS_SLOWER)
+            return TRUE;
     }
     return FALSE;
 }
@@ -841,6 +848,7 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
                 dmg = 20 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
                 break;
             case EFFECT_MULTI_HIT:
+            case EFFECT_BLACK_BUFFET:
                 dmg *= (aiData->abilities[battlerAtk] == ABILITY_SKILL_LINK ? 5 : 3);
                 break;
             case EFFECT_ENDEAVOR:
@@ -1624,7 +1632,8 @@ bool32 ShouldSetHail(u32 battler, u32 ability, u32 holdEffect)
       || HasMove(battler, MOVE_BLIZZARD)
       || HasMoveEffect(battler, EFFECT_AURORA_VEIL)
       || HasMoveEffect(battler, EFFECT_WEATHER_BALL)
-      || HasMoveEffect(battler, EFFECT_COLD_MEND))
+      || HasMoveEffect(battler, EFFECT_COLD_MEND)
+      || HasMoveEffect(battler, EFFECT_VERGLASTROM))
     {
         return TRUE;
     }
@@ -1693,7 +1702,8 @@ bool32 ShouldSetSnow(u32 battler, u32 ability, u32 holdEffect)
       || HasMove(battler, MOVE_BLIZZARD)
       || HasMoveEffect(battler, EFFECT_AURORA_VEIL)
       || HasMoveEffect(battler, EFFECT_WEATHER_BALL)
-      || HasMoveEffect(battler, EFFECT_COLD_MEND))
+      || HasMoveEffect(battler, EFFECT_COLD_MEND)
+      || HasMoveEffect(battler, EFFECT_VERGLASTROM))
     {
         return TRUE;
     }
@@ -1737,7 +1747,8 @@ void ProtectChecks(u32 battlerAtk, u32 battlerDef, u32 move, u32 predictedMove, 
 
     if (gBattleMons[battlerDef].status1 & STATUS1_TOXIC_POISON
       || gBattleMons[battlerDef].status2 & (STATUS2_CURSED | STATUS2_INFATUATION)
-      || gStatuses3[battlerDef] & (STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN))
+      || gStatuses3[battlerDef] & (STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN)
+      || gSideStatuses[battlerAtk] & SIDE_STATUS_SILENCE)
         (*score) += 2;
 }
 
@@ -2109,6 +2120,8 @@ bool32 IsTrappingMoveEffect(u32 effect)
     case EFFECT_SPIDER_WEB:
     case EFFECT_HIT_PREVENT_ESCAPE:
     case EFFECT_FAIRY_LOCK:
+    case EFFECT_WHIRLPOOL:
+    case EFFECT_SAND_TOMB:
     //case EFFECT_NO_RETREAT:   // TODO
         return TRUE;
     default:
@@ -2237,7 +2250,7 @@ bool32 IsStatLoweringEffect(u32 effect)
     case EFFECT_EVASION_DOWN_2:
     case EFFECT_TICKLE:
     case EFFECT_CAPTIVATE:
-    case EFFECT_NOBLE_ROAR:
+    case EFFECT_TEARFUL_LOOK:
     case EFFECT_CHILLY_AIR:
     case EFFECT_SPIDER_WEB:
     case EFFECT_EERIE_IMPULSE:
@@ -3285,7 +3298,8 @@ bool32 PartnerMoveEffectIsWeather(u32 battlerAtkPartner, u32 partnerMove)
       || gBattleMoves[partnerMove].effect == EFFECT_RAIN_DANCE
       || gBattleMoves[partnerMove].effect == EFFECT_SANDSTORM
       || gBattleMoves[partnerMove].effect == EFFECT_HAIL
-      || gBattleMoves[partnerMove].effect == EFFECT_SNOWSCAPE))
+      || gBattleMoves[partnerMove].effect == EFFECT_SNOWSCAPE
+      || gBattleMoves[partnerMove].effect == EFFECT_WARM_WELCOME))
         return TRUE;
 
     return FALSE;
@@ -3729,6 +3743,9 @@ void IncreasePoisonScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
         if (HasMoveEffect(battlerAtk, EFFECT_VENOSHOCK)
           || HasMoveEffect(battlerAtk, EFFECT_HEX)
           || HasMoveEffect(battlerAtk, EFFECT_VENOM_DRENCH)
+          || HasMoveEffect(battlerAtk, EFFECT_RADIOACID)
+          || HasMoveEffect(battlerAtk, EFFECT_VENOM_DRAIN)
+          || HasMoveEffect(battlerAtk, EFFECT_ALL_STATS_DOWN_HIT)
           || AI_DATA->abilities[battlerAtk] == ABILITY_MERCILESS)
             *(score) += 2;
         else
@@ -3751,7 +3768,7 @@ void IncreaseBurnScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
                 *score += 2; // burning the target to stay alive is cool
         }
 
-        if (HasMoveEffect(battlerAtk, EFFECT_HEX) || HasMoveEffect(BATTLE_PARTNER(battlerAtk), EFFECT_HEX))
+        if (HasMoveEffect(battlerAtk, EFFECT_HEX) || HasMoveEffect(BATTLE_PARTNER(battlerAtk), EFFECT_HEX) || HasMoveEffect(battlerAtk, EFFECT_RADIOACID))
             (*score)++;
     }
 }
@@ -3835,6 +3852,24 @@ void IncreaseFrostbiteScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score
         if (HasMoveEffect(battlerAtk, EFFECT_HEX) || HasMoveEffect(BATTLE_PARTNER(battlerAtk), EFFECT_HEX))
             (*score)++;
     }
+}
+
+void IncreaseTidyUpScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
+{
+    if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerAtk) != 0)
+        *score += 3;
+    if (gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_HAZARDS_ANY && CountUsablePartyMons(battlerDef) != 0)
+        *score -= 2;
+
+    if (gBattleMons[battlerAtk].status2 & STATUS2_SUBSTITUTE && (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER))
+        *score -= 10;
+    if (gBattleMons[battlerDef].status2 & STATUS2_SUBSTITUTE)
+        *score += 3;
+
+    if (gStatuses3[battlerAtk] & STATUS3_LEECHSEED)
+        *score += 2;
+    if (gStatuses3[battlerDef] & STATUS3_LEECHSEED)
+        *score -= 2;
 }
 
 bool32 AI_MoveMakesContact(u32 ability, u32 holdEffect, u32 move)
