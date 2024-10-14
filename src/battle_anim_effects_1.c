@@ -2423,7 +2423,7 @@ const struct SpriteTemplate gWavyMusicNotesSpriteTemplate =
     .callback = AnimWavyMusicNotes,
 };
 
-const struct SpriteTemplate gBeatboxDuckSpriteTemplate =
+const struct SpriteTemplate gBeatboxMusicNoteSpriteTemplate =
 {
     .tileTag = ANIM_TAG_MUSIC_NOTES,
     .paletteTag = ANIM_TAG_MUSIC_NOTES,
@@ -5588,6 +5588,11 @@ void AnimGrantingStars(struct Sprite *sprite)
 {
     if (!InitSpritePosToAnimBattler(gBattleAnimArgs[2], sprite, FALSE))
         return;
+
+    if (gAnimMoveIndex == MOVE_PURIFICATION)
+    {
+        InitSpritePosToAnimTarget(sprite, FALSE);
+    }
 
     SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
     sprite->y += gBattleAnimArgs[1];

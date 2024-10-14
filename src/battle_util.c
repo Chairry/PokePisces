@@ -6651,7 +6651,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_ANGER_POINT:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && TARGET_TURN_DAMAGED && IsBattlerAlive(battler) && CompareStat(battler, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && TARGET_TURN_DAMAGED
+            && IsBattlerAlive(battler)
+            && CompareStat(battler, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN))
             {
                 if (gIsCriticalHit)
                 {
@@ -6662,6 +6665,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 }
                 else if (CalcTypeEffectivenessMultiplier(move, moveType, battler, gBattlerTarget, GetBattlerAbility(gBattlerTarget), FALSE) >= UQ_4_12(2.0))
                 {
+                    gEffectBattler = battler;
                     SET_STATCHANGER(STAT_ATK, 2, FALSE);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaiseRet;
@@ -6750,7 +6754,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             && gBattleMons[gBattlerAttacker].hp != 0 && 
             !gProtectStructs[gBattlerAttacker].confusionSelfDmg 
             && TARGET_TURN_DAMAGED 
-            && !IsMoveMakingContact(move, gBattlerAttacker))
+            && (!(IsMoveMakingContact(move, gBattlerAttacker)))
+            && (gCurrentMove != MOVE_EARTHQUAKE || gCurrentMove != MOVE_MAGNITUDE || gCurrentMove != MOVE_BULLDOZE))
             {
                 gBattleMoveDamage /= 2; // 50% Overcoat dmaage
                 if (gBattleMoveDamage == 0)
@@ -6989,7 +6994,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED 
             && CanGetPanicked(gBattlerAttacker)
-            && RandomWeighted(RNG_POISON_POINT, 5, 1))
+            && RandomWeighted(RNG_POISON_POINT, 20, 3))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_PANIC;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7020,7 +7025,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_CUTE_CHARM:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp != 0 && RandomWeighted(RNG_CUTE_CHARM, 2, 1) && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION) && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget) && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS && GetBattlerAbility(gBattlerAttacker) != ABILITY_IGNORANT_BLISS && IsMoveMakingContact(move, gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerAttacker].hp != 0
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && TARGET_TURN_DAMAGED
+            && gBattleMons[gBattlerTarget].hp != 0
+            && RandomWeighted(RNG_CUTE_CHARM, 20, 3)
+            && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_INFATUATION)
+            && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+            && GetBattlerAbility(gBattlerAttacker) != ABILITY_OBLIVIOUS
+            && GetBattlerAbility(gBattlerAttacker) != ABILITY_IGNORANT_BLISS
+            && IsMoveMakingContact(move, gBattlerAttacker)
+            && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL))
             {
                 gBattleMons[gBattlerAttacker].status2 |= STATUS2_INFATUATED_WITH(gBattlerTarget);
                 BattleScriptPushCursor();
@@ -7032,7 +7048,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED 
             && CanBeConfused(gBattlerTarget) && IsMoveMakingContact(move, gBattlerAttacker) 
-            && RandomPercentage(RNG_POISON_POINT, 20))
+            && RandomPercentage(RNG_POISON_POINT, 30))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CONFUSION;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7278,7 +7294,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerTarget].hp != 0 
             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && CanGetPanicked(gBattlerTarget) 
             && TARGET_TURN_DAMAGED // Need to actually hit the target
-                && (Random() % 6) == 0)
+            && RandomWeighted(RNG_POISON_POINT, 20, 3))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_PANIC;
                 PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
@@ -7366,7 +7382,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_CUTE_CHARM:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMons[gBattlerAttacker].hp != 0 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg && TARGET_TURN_DAMAGED && gBattleMons[gBattlerTarget].hp != 0 && RandomWeighted(RNG_CUTE_CHARM, 2, 1) && !(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION) && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget) && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS && GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS && IsMoveMakingContact(move, gBattlerAttacker) && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            && gBattleMons[gBattlerAttacker].hp != 0
+            && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            && TARGET_TURN_DAMAGED
+            && gBattleMons[gBattlerTarget].hp != 0
+            && RandomWeighted(RNG_CUTE_CHARM, 20, 3)
+            && !(gBattleMons[gBattlerTarget].status2 & STATUS2_INFATUATION)
+            && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget)
+            && GetBattlerAbility(gBattlerTarget) != ABILITY_OBLIVIOUS
+            && GetBattlerAbility(gBattlerTarget) != ABILITY_IGNORANT_BLISS
+            && IsMoveMakingContact(move, gBattlerAttacker)
+            && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL))
             {
                 gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
                 BattleScriptPushCursor();
@@ -10529,7 +10556,7 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             switch (battlerHoldEffect)
             {
             case HOLD_EFFECT_CURSED_AMULET:
-                if (TARGET_TURN_DAMAGED && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 10) <= 2) // Hardcoding the chance here since cant get it working right through holdEffectParam
+                if (TARGET_TURN_DAMAGED && IsMoveMakingContact(gCurrentMove, gBattlerAttacker) && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE && IsBattlerAlive(gBattlerAttacker) && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL) && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0 && (Random() % 3) == 0) // Hardcoding the chance here since cant get it working right through holdEffectParam
                 {
                     gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                     gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -12167,7 +12194,7 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_STALL:
-            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
         break;
     case ABILITY_STRONG_JAW:
         if (gBattleMoves[move].bitingMove)
@@ -12317,20 +12344,14 @@ u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 battlerDef, u3
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
     }
 
-    if (IsAbilityOnField(ABILITY_FALLING) && atkAbility != ABILITY_FALLING && (IS_MOVE_SPECIAL(gCurrentMove) || IS_MOVE_PHYSICAL(gCurrentMove)))
+    if (IsAbilityOnOpposingSide(battlerAtk, ABILITY_FALLING) && atkAbility != ABILITY_FALLING && (IS_MOVE_SPECIAL(gCurrentMove) || IS_MOVE_PHYSICAL(gCurrentMove)))
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
 
     if (IsAbilityOnField(ABILITY_VESSEL_OF_RUIN) && atkAbility != ABILITY_VESSEL_OF_RUIN && IS_MOVE_SPECIAL(gCurrentMove))
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
 
-    if (IsAbilityOnField(ABILITY_SWORD_OF_RUIN) && defAbility != ABILITY_SWORD_OF_RUIN && IS_MOVE_PHYSICAL(gCurrentMove))
-        modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
-
     if (IsAbilityOnField(ABILITY_TABLETS_OF_RUIN) && atkAbility != ABILITY_TABLETS_OF_RUIN && IS_MOVE_PHYSICAL(gCurrentMove))
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
-
-    if (IsAbilityOnField(ABILITY_BEADS_OF_RUIN) && defAbility != ABILITY_BEADS_OF_RUIN && IS_MOVE_SPECIAL(gCurrentMove))
-        modifier = uq4_12_multiply(modifier, UQ_4_12(1.25));
 
     // attacker partner's abilities
     if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
@@ -13028,6 +13049,13 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         }
     }
 
+    // field abilities
+    if (IsAbilityOnField(ABILITY_SWORD_OF_RUIN) && defAbility != ABILITY_SWORD_OF_RUIN && usesDefStat)
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.75));
+
+    if (IsAbilityOnField(ABILITY_BEADS_OF_RUIN) && defAbility != ABILITY_BEADS_OF_RUIN && !usesDefStat)
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.75));
+
     // target's hold effects
     switch (holdEffectDef)
     {
@@ -13430,7 +13458,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
             return UQ_4_12(0.5);
         break;
     case ABILITY_STALL:
-        return UQ_4_12(0.7);
+        return UQ_4_12(0.75);
         break;
     }
     return UQ_4_12(1.0);
