@@ -491,7 +491,7 @@ static const u8 sSuperLuckDescription[] = _(
 
 static const u8 sAftermathDescription[] = _(
     "The Pokémon cannot be knocked\n"
-    "out by a single hit. At one HP,\n"
+    "out by a single hit. At 1 HP,\n"
     "uses a Fire-type exploding move.");
 
 static const u8 sAnticipationDescription[] = _(
@@ -519,7 +519,7 @@ static const u8 sFilterDescription[] = _(
     "Pokémon.");
 
 static const u8 sSlowStartDescription[] = _(
-    "For two turns, the Pokémon's\n"
+    "For 2 turns, the Pokémon's\n"
     "Attack and Speed stats are\n"
     "halved.");
 
@@ -1030,7 +1030,7 @@ static const u8 sGrassySurgeDescription[] = _(
     "a battle.");
 
 static const u8 sNeuroforceDescription[] = _(
-    "Powers up the Pokémon’s super\n"
+    "Powers up the Pokémon's super\n"
     "effective attacks even further.");
 
 static const u8 sIntrepidSwordDescription[] = _(
@@ -1389,7 +1389,7 @@ static const u8 sPunisherDescription[] = _(
     "Attack stat.");
 
 static const u8 sStarsGraceDescription[] = _(
-    "After four turns, the Pokémon's\n"
+    "After 4 turns, the Pokémon's\n"
     "Special Attack and Speed stats\n"
     "are doubled.");
 
@@ -1607,9 +1607,9 @@ static const u8 sPotencyDescription[] = _(
     "Powers up Poison-type moves.");
 
 static const u8 sPowerSpikeDescription[] = _(
-    "Powers up piercing moves when\n"
-    "the Pokémon's HP is at half or\n"
-    "less.");
+    "Powers up piercing moves and\n"
+    "boosts odds of Horn Drill when\n"
+    "the Pokémon's below half health.");
 
 static const u8 sArbiterDescription[] = _(
     "Cuts the health of all other\n"

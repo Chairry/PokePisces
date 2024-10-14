@@ -14885,9 +14885,13 @@ static void Cmd_dmgtolevel(void)
 {
     CMD_ARGS();
 
-    if ((gBattleMoves[gCurrentMove].effect == EFFECT_SONICBOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
+    if ((gCurrentMove == MOVE_SONIC_BOOM) && (gBattleMons[gBattlerAttacker].level >= 50))
     {
         gBattleMoveDamage = 120;
+    }
+    else if ((gCurrentMove == MOVE_DRAGON_RAGE) && (gBattleMons[gBattlerAttacker].level >= 50))
+    {
+        gBattleMoveDamage = 140;
     }
     else if (gBattleMoves[gCurrentMove].effect == EFFECT_LEVEL_DAMAGE)
     {
@@ -15972,16 +15976,16 @@ static void Cmd_copyfoestats(void)
     if (gBattleMons[gBattlerTarget].status2 & STATUS2_FOCUS_ENERGY)
     {
         gBattleMons[gBattlerAttacker].status2 |= STATUS2_FOCUS_ENERGY;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
     }
     else if (gBattleMons[gBattlerTarget].status2 & STATUS2_DRAGON_CHEER)
     {
         gBattleMons[gBattlerAttacker].status2 |= STATUS2_DRAGON_CHEER;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_GETTING_PUMPED;
     }
     else 
     {
-        gBattlescriptCurrInstr = cmd->nextInstr;    
+        gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_FOCUS_ENERGY;
+        gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_DRAGON_CHEER;
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr; // Has an unused jump ptr(possibly for a failed attempt) parameter.
