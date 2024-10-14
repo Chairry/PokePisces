@@ -476,11 +476,11 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_ROLLING_KICK] =
     {
-        .effect = EFFECT_FLINCH_HIT,
-        .power = 65,
+        .effect = EFFECT_RAPID_SPIN,
+        .power = 60,
         .type = TYPE_FIGHTING,
-        .accuracy = 100,
-        .pp = 20,
+        .accuracy = 95,
+        .pp = 40,
         .secondaryEffectChance = 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -1034,7 +1034,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
             .power = 120,
         #endif
         #if B_USE_FROSTBITE == TRUE
-            .effect = EFFECT_FROSTBITE_HIT,
+            .effect = EFFECT_FREEZE_HIT,
         #else
             .effect = EFFECT_FREEZE_HIT,
         #endif
@@ -1132,14 +1132,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_FLYING,
-        .accuracy = 100,
-        .pp = 20,
+        .accuracy = 95,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .makesContact = TRUE,
+        .highCritRatio = TRUE,
         .piercingMove = TRUE,
     },
 
