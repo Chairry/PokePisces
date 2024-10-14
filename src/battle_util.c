@@ -13824,11 +13824,11 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_EXORCISM && defType == TYPE_GHOST)
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_POISON || defType == TYPE_ELECTRIC || defType == TYPE_STEEL))
+    if (gBattleMoves[move].effect == EFFECT_MUDDY_WATER && (defType == TYPE_WATER || defType == TYPE_POISON))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_EARTH_SHATTER && (defType == TYPE_ROCK || defType == TYPE_STEEL || defType == TYPE_GROUND))
         mod = UQ_4_12(2.0);
-    if (gBattleMoves[move].effect == EFFECT_IGNA_STRIKE && (defType == TYPE_FIRE || defType == TYPE_FLYING))
+    if (gBattleMoves[move].effect == EFFECT_IGNA_STRIKE && (defType == TYPE_FIRE || defType == TYPE_ROCK))
         mod = UQ_4_12(2.0);
     if (gBattleMoves[move].effect == EFFECT_DECAY_BEAM && (defType == TYPE_BUG || defType == TYPE_GRASS))
         mod = UQ_4_12(2.0);
