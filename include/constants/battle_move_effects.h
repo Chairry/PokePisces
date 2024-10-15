@@ -385,7 +385,7 @@
 #define EFFECT_COURT_CHANGE                 379
 #define EFFECT_STEEL_BEAM                   380
 #define EFFECT_EXTREME_EVOBOOST             381
-#define EFFECT_HIT_SET_REMOVE_TERRAIN       382 // genesis supernova
+#define EFFECT_HIT_SET_REMOVE_TERRAIN       382 //Edited for Pisces
 #define EFFECT_DARK_VOID                    383
 #define EFFECT_SLEEP_HIT                    384
 #define EFFECT_DOUBLE_SHOCK                 385
@@ -494,30 +494,30 @@
 #define EFFECT_BLACK_BUFFET                 488 //AI Flags added, combined stuff from EFFECT_MULTI_HIT and EFFECT_ABSORB, may cause a bug
 #define EFFECT_FINISH_OFF                   489 //According to EFFECT_BRINE, this doesnt need any special AI code
 #define EFFECT_SEIZE_CHANCE                 490 //AI Flags added, combined stuff from EFFECT_SUCKER_PUNCH and EFFECT_ALWAYS_CRIT, may cause a bug
-#define EFFECT_RAZING_SUN                   491
-#define EFFECT_TERRORIZE                    492
-#define EFFECT_BRUTALIZE                    493
-#define EFFECT_ROADBLOCK                    494
-#define EFFECT_DEFENSE_DOWN_HIT_2           495
-#define EFFECT_EARTH_SHATTER                496
-#define EFFECT_PILGRIMAGE                   497
-#define EFFECT_HEAVY_CANNON                 498
-#define EFFECT_GIANTS_SPEAR                 499
-#define EFFECT_REDLINE                      500
-#define EFFECT_ZAPPER                       501
-#define EFFECT_SKY_SPLITTER                 502
-#define EFFECT_ALL_STATS_UP_2_HIT_FOE       503
-#define EFFECT_TICK_TACK                    504
-#define EFFECT_DEEP_GAZE                    505
-#define EFFECT_ENERVATOR                    506
-#define EFFECT_ERODE_FIELD                  507
-#define EFFECT_HEAVY_CELL                   508
-#define EFFECT_CRITICAL_REPAIR                  509
-#define EFFECT_REMODEL                      510
-#define EFFECT_BARI_BARI_BEAM               511
-#define EFFECT_BARI_BARI_BASH               512
-#define EFFECT_SP_ATTACK_ACCURACY_UP        513
-#define EFFECT_SUN_BASK                     514
+#define EFFECT_RAZING_SUN                   491 //AI Flags added, combined stuff from EFFECT_RECOIL_33 and EFFECT_FEINT, may cause a bug
+#define EFFECT_TERRORIZE                    492 //AI Flags added, made unique code for IncreasePanicScore and its associated functions which was copied from Poison. Needs testing
+#define EFFECT_BRUTALIZE                    493 //AI Flags complete
+#define EFFECT_ROADBLOCK                    494 //AI Flags complete
+#define EFFECT_DEFENSE_DOWN_HIT_2           495 //AI Flags complete
+#define EFFECT_EARTH_SHATTER                496 //AI Flags added, new code related to checking if any Terrain is present. Needs testing (also applies to EFFECT_HIT_SET_REMOVE_TERRAIN)
+#define EFFECT_PILGRIMAGE                   497 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_HEAVY_CANNON                 498 //AI Flags complete
+#define EFFECT_GIANTS_SPEAR                 499 //AI Flags complete
+#define EFFECT_REDLINE                      500 //AI Flags added, new code taken somewhat from EFFECT_CLEAR_SMOG
+#define EFFECT_ZAPPER                       501 //AI Flags added, new code taken somewhat from EFFECT_REDLINE above
+#define EFFECT_SKY_SPLITTER                 502 //AI Flags added, new code taken somewhat from EFFECT_EARTH_SHATTER above, but for Weather instead of Terrain
+#define EFFECT_ALL_STATS_UP_2_HIT_FOE       503 //AI Flags added, tagged on to EFFECT_VITAL_THROW and put in a thing for HP_AWARE that discourages its use when foe is at high HP
+#define EFFECT_TICK_TACK                    504 //AI Flags added, tagged on to EFFECT_ABSORB and put in a thing for HP_AWARE that encourages it if the foe is at high HP or the user is at low HP
+#define EFFECT_DEEP_GAZE                    505 //AI Flags added, does not need as much as other STATUS1s so just added a general discouragement if the target is statused and encouragement at the start of battle or if the target is not statused
+#define EFFECT_ENERVATOR                    506 //AI Flags complete
+#define EFFECT_ERODE_FIELD                  507            //No idea how to code this one
+#define EFFECT_HEAVY_CELL                   508 //AI Flags added, copied a bunch from EFFECT_COIL. No idea if AI will try and use it consecutively
+#define EFFECT_CRITICAL_REPAIR              509 //AI Flags complete
+#define EFFECT_REMODEL                      510            //No idea how to code this one
+#define EFFECT_BARI_BARI_BEAM               511 //AI Flags added, used new function CalcBariBariBeamPower, may be some bugs, untested
+#define EFFECT_BARI_BARI_BASH               512 //According to EFFECT_BRINE, this doesnt need any special AI code
+#define EFFECT_SP_ATTACK_ACCURACY_UP        513 //AI Flags complete
+#define EFFECT_SUN_BASK                     514 //AI Flags added, copied stuff from EFFECT_COSMIC_POWER and added a B_WEATHER_SUN check
 #define EFFECT_HEARTHWARM                   515
 #define EFFECT_DUNE_SLICER                  516
 #define EFFECT_POWER_DRAIN                  517
