@@ -373,6 +373,11 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_WARM_WELCOME,
     EFFECT_TERRORIZE,
     EFFECT_DEEP_GAZE,
+    EFFECT_TRAILBLAZE,
+    EFFECT_AROMATHERAPY,
+    EFFECT_GREEN_GUISE,
+    EFFECT_SPEED_UP_USER_ALLY,
+    EFFECT_IGNITION,
 };
 
 // For the purposes of determining the most powerful move in a moveset, these
@@ -398,6 +403,8 @@ static const u16 sIgnoredPowerfulMoveEffects[] =
     EFFECT_HEAVY_CANNON,
     EFFECT_GIANTS_SPEAR,
     EFFECT_ALL_STATS_UP_2_HIT_FOE,
+    EFFECT_FRENZY_PLANT,
+    EFFECT_AIR_CANNON,
     IGNORED_MOVES_END
 };
 
@@ -933,10 +940,18 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
     // Check recoil
     if (GetBattlerAbility(sBattler_AI) != ABILITY_ROCK_HEAD)
     {
-        if (IS_MOVE_RECOIL(move1) && !IS_MOVE_RECOIL(move2) && gBattleMoves[move2].effect != EFFECT_RECHARGE && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN)
+        if (IS_MOVE_RECOIL(move1)
+         && !IS_MOVE_RECOIL(move2)
+         && gBattleMoves[move2].effect != EFFECT_RECHARGE
+         && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN
+         && gBattleMoves[move2].effect != EFFECT_FRENZY_PLANT)
             return 1;
 
-        if (IS_MOVE_RECOIL(move2) && !IS_MOVE_RECOIL(move1) && gBattleMoves[move1].effect != EFFECT_RECHARGE && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN)
+        if (IS_MOVE_RECOIL(move2)
+         && !IS_MOVE_RECOIL(move1)
+         && gBattleMoves[move1].effect != EFFECT_RECHARGE
+         && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN
+         && gBattleMoves[move1].effect != EFFECT_FRENZY_PLANT)
             return 0;
     }
     // Check recharge
@@ -947,6 +962,10 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
     if (gBattleMoves[move1].effect == EFFECT_DRAGON_RUIN && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN)
         return 1;
     if (gBattleMoves[move2].effect == EFFECT_DRAGON_RUIN && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN)
+        return 0;
+    if (gBattleMoves[move1].effect == EFFECT_FRENZY_PLANT && gBattleMoves[move2].effect != EFFECT_FRENZY_PLANT)
+        return 1;
+    if (gBattleMoves[move2].effect == EFFECT_FRENZY_PLANT && gBattleMoves[move1].effect != EFFECT_FRENZY_PLANT)
         return 0;
     // Check additional effect.
     if (gBattleMoves[move1].effect == 0 && gBattleMoves[move2].effect != 0)
@@ -1429,6 +1448,7 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_YAWN:
     case EFFECT_TERRORIZE:
     case EFFECT_DEEP_GAZE:
+    case EFFECT_SLEEP_POWDER:
         return TRUE;
     default:
         return FALSE;
@@ -1474,6 +1494,8 @@ bool32 IsStatLoweringMoveEffect(u32 moveEffect)
     case EFFECT_FLASH:
     case EFFECT_CHARM:
     case EFFECT_DEFENSE_DOWN_HIT_2:
+    case EFFECT_COTTON_SPORE:
+    case EFFECT_FEATHER_DANCE:
         return TRUE;
     default:
         return FALSE;
@@ -2078,7 +2100,7 @@ bool32 HasSleepMoveWithLowAccuracy(u32 battlerAtk, u32 battlerDef)
             break;
         if (!(gBitTable[i] & moveLimitations))
         {
-            if (gBattleMoves[moves[i]].effect == EFFECT_SLEEP
+            if (gBattleMoves[moves[i]].effect == (EFFECT_SLEEP || EFFECT_SLEEP_POWDER)
               && AI_GetMoveAccuracy(battlerAtk, battlerDef, moves[i]) < 85)
                 return TRUE;
         }
@@ -2104,6 +2126,8 @@ bool32 IsHealingMoveEffect(u32 effect)
     case EFFECT_JUNGLE_HEALING:
     case EFFECT_COLD_MEND:
     case EFFECT_CRITICAL_REPAIR:
+    case EFFECT_VIGOR_ROOT:
+    case EFFECT_FLORAL_HEALING:
         return TRUE;
     default:
         return FALSE;
@@ -2135,6 +2159,7 @@ bool32 IsTrappingMoveEffect(u32 effect)
     case EFFECT_FAIRY_LOCK:
     case EFFECT_WHIRLPOOL:
     case EFFECT_SAND_TOMB:
+    case EFFECT_SNAP_TRAP:
     //case EFFECT_NO_RETREAT:   // TODO
         return TRUE;
     default:
@@ -2239,6 +2264,9 @@ bool32 IsStatRaisingEffect(u32 effect)
     case EFFECT_HEAVY_CELL:
     case EFFECT_SP_ATTACK_ACCURACY_UP:
     case EFFECT_SUN_BASK:
+    case EFFECT_TRAILBLAZE:
+    case EFFECT_PHANTASM:
+    case EFFECT_SPEED_UP_USER_ALLY:
         return TRUE;
     default:
         return FALSE;
@@ -2274,6 +2302,8 @@ bool32 IsStatLoweringEffect(u32 effect)
     case EFFECT_FLASH:
     case EFFECT_CHARM:
     case EFFECT_ENERVATOR:
+    case EFFECT_COTTON_SPORE:
+    case EFFECT_FEATHER_DANCE:
         return TRUE;
     default:
         return FALSE;
@@ -2861,6 +2891,82 @@ bool32 AI_CanPutToSleep(u32 battlerAtk, u32 battlerDef, u32 defAbility, u32 move
     return TRUE;
 }
 
+static bool32 AI_CanBloomType(u32 battlerAttacker, u32 battlerTarget, u32 move)
+{
+    return (!(IS_BATTLER_OF_TYPE(battlerTarget, TYPE_FIRE)));
+}
+
+static bool32 AI_CanBloom(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    u32 ability = AI_DATA->abilities[battlerDef];
+
+    if (!(AI_CanBloomType(battlerAtk, battlerDef, move))
+     || gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_SAFEGUARD
+     || gBattleMons[battlerDef].status1 & STATUS1_ANY
+     || ability == ABILITY_COMATOSE
+     || AI_IsAbilityOnSide(battlerDef, ABILITY_PASTEL_VEIL)
+     || gBattleMons[battlerDef].status1 & STATUS1_ANY
+     || IsAbilityStatusProtected(battlerDef)
+     || AI_IsTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN))
+        return FALSE;
+    return TRUE;
+}
+
+bool32 ShouldBloomSelf(u32 battler, u32 ability)
+{
+    if (AI_CanBloom(battler, battler, 0) && (
+     HasMoveEffect(battler, EFFECT_GRIPPING_NAIL)
+      || HasMoveEffect(battler, EFFECT_SNAP_TRAP)
+      || HasMoveEffect(battler, EFFECT_VIGOR_ROOT)
+      || HasMoveEffect(battler, EFFECT_SEED_BOMB)
+      || HasMoveEffect(battler, EFFECT_PETAL_BLIZZARD)
+      || HasMoveEffect(battler, EFFECT_SNAPBLOSSOM)
+      || HasMoveEffect(battler, EFFECT_GRASS_CANNON)
+      || HasMoveEffect(battler, EFFECT_VINE_WHIP)
+      || HasMoveEffect(battler, EFFECT_TRAILBLAZE)
+      || HasMoveEffect(battler, EFFECT_NEEDLE_ARM)
+      || HasMoveEffect(battler, EFFECT_TROP_KICK)
+      || HasMoveEffect(battler, EFFECT_DRUM_BEATING)
+      || HasMoveEffect(battler, EFFECT_WOOD_HAMMER)
+      || HasMoveEffect(battler, EFFECT_APPLE_ACID)
+      || HasMoveEffect(battler, EFFECT_ENERGY_BALL)
+      || HasMoveEffect(battler, EFFECT_PETAL_DANCE)
+      || HasMoveEffect(battler, EFFECT_FRENZY_PLANT)
+      || HasMoveEffect(battler, EFFECT_AROMATHERAPY)
+      || HasMoveEffect(battler, EFFECT_GREEN_GUISE)
+      || HasMoveEffect(battler, EFFECT_COTTON_SPORE)
+      || HasMoveEffect(battler, EFFECT_SLEEP_POWDER)
+      || HasMoveEffect(battler, EFFECT_STUN_SPORE)
+      || HasMoveEffect(battler, EFFECT_POISON_POWDER)
+      || HasMoveEffect(battler, EFFECT_LEAF_TORNADO)
+      || HasMoveEffect(battler, EFFECT_GRAV_APPLE)
+      || HasMoveEffect(battler, EFFECT_SOLAR_BEAM)
+      || HasMoveEffect(battler, EFFECT_THIRD_TYPE)
+      || HasMoveEffect(battler, EFFECT_INGRAIN)
+      || HasMoveEffect(battler, EFFECT_LEECH_SEED)
+      || HasMoveEffect(battler, EFFECT_STRENGTH_SAP)
+      || HasMoveEffect(battler, EFFECT_SYNTHESIS)
+      || HasMoveEffect(battler, EFFECT_WORRY_SEED)
+      || HasMoveEffect(battler, EFFECT_FLOWER_SHIELD)
+      || HasMoveEffect(battler, EFFECT_FLEUR_CANNON)
+      || HasMoveEffect(battler, EFFECT_ROTOTILLER)))
+        return TRUE;    // battler can be poisoned and has move/ability that synergizes with being poisoned
+    return FALSE;
+}
+
+bool32 AI_CanTryBloom(u32 battlerAtk, u32 battlerDef, u32 defAbility, u32 move, u32 partnerMove)
+{
+    if (!AI_CanBloom(battlerAtk, battlerDef, move)
+      || AI_GetMoveEffectiveness(move, battlerAtk, battlerDef) == AI_EFFECTIVENESS_x0
+      || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
+      || PartnerMoveEffectIsStatusSameTarget(BATTLE_PARTNER(battlerAtk), battlerDef, partnerMove))
+        return FALSE;
+    else if (IsValidDoubleBattle(battlerAtk) && AI_DATA->abilities[BATTLE_PARTNER(battlerDef)] == ABILITY_PASTEL_VEIL)
+        return FALSE;
+
+    return TRUE;
+}
+
 static bool32 AI_CanPoisonType(u32 battlerAttacker, u32 battlerTarget, u32 move)
 {
     return ((AI_DATA->abilities[battlerAttacker] == ABILITY_CORROSION && gBattleMoves[move].split == SPLIT_STATUS)
@@ -2930,6 +3036,7 @@ static bool32 AI_CanBePanicked(u32 battlerAtk, u32 battlerDef, u32 move)
      || ability == ABILITY_IGNORANT_BLISS
      || ability == ABILITY_UNAWARE
      || ability == ABILITY_OBLIVIOUS
+     || ability == ABILITY_COMATOSE
      || AI_IsAbilityOnSide(battlerDef, ABILITY_PASTEL_VEIL)
      || gBattleMons[battlerDef].status1 & STATUS1_ANY
      || IsAbilityStatusProtected(battlerDef)
@@ -3339,7 +3446,8 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gBattleMoves[partnerMove].effect == EFFECT_GLACIATE
        || gBattleMoves[partnerMove].effect == EFFECT_YAWN
        || gBattleMoves[partnerMove].effect == EFFECT_TERRORIZE
-       || gBattleMoves[partnerMove].effect == EFFECT_DEEP_GAZE))
+       || gBattleMoves[partnerMove].effect == EFFECT_DEEP_GAZE
+       || gBattleMoves[partnerMove].effect == EFFECT_SLEEP_POWDER))
         return TRUE;
     return FALSE;
 }
@@ -3459,6 +3567,7 @@ bool32 ShouldUseWishAromatherapy(u32 battlerAtk, u32 battlerDef, u32 move)
                 return TRUE;
             break;
         case EFFECT_HEAL_BELL:
+        case EFFECT_AROMATHERAPY:
             if (hasStatus)
                 return TRUE;
         }
@@ -3470,6 +3579,7 @@ bool32 ShouldUseWishAromatherapy(u32 battlerAtk, u32 battlerDef, u32 move)
         case EFFECT_WISH:
             return ShouldRecover(battlerAtk, battlerDef, move, 50); // Switch recovery isn't good idea in doubles
         case EFFECT_HEAL_BELL:
+        case EFFECT_AROMATHERAPY:
             if (hasStatus)
                 return TRUE;
         }
