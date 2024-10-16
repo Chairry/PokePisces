@@ -565,23 +565,23 @@
 #define EFFECT_FROST_SHRED                  559 //According to MOVE_DOUBLE_KICK, this doesnt need any special AI code
 #define EFFECT_COTTON_SPORE                 560 //AI Flags added, Blooming conditional should be tested
 #define EFFECT_SLEEP_POWDER                 561 //Copied EFFECT_SLEEP, didnt feel the need for Blooming conditional
-#define EFFECT_PLUNDER                      562
-#define EFFECT_STUN_SPORE                   563
-#define EFFECT_GOLD_PLAINS                  564
-#define EFFECT_DOWNFALL                     565
-#define EFFECT_MT_SPLENDOR                  566
-#define EFFECT_GATTLING_PINS                567
-#define EFFECT_CONSTRICT                    568
-#define EFFECT_HYPER_DRILL                  569
-#define EFFECT_RECHARGE_REDUCE              570
-#define EFFECT_PURIFICATION                 571
-#define EFFECT_MIND_READER                  572
-#define EFFECT_ODOR_SLEUTH                  573
-#define EFFECT_SURPRISE_EGG                 574
-#define EFFECT_BLOCK                        575
-#define EFFECT_CUTIE_CRY                    576
-#define EFFECT_FLEUR_CANNON                 577
-#define EFFECT_UPPER_HAND                   578
+#define EFFECT_PLUNDER                      562 //AI Flags added, combined stuff from EFFECT_THIEF and EFFECT_SPECTRAL_THIEF, may cause a bug
+#define EFFECT_STUN_SPORE                   563 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_GOLD_PLAINS                  564            //Will come back to this one (Only used in boss battle)
+#define EFFECT_DOWNFALL                     565            //Will come back to this one (Only used in boss battle)
+#define EFFECT_MT_SPLENDOR                  566            //Will come back to this one (Only used in boss battle)
+#define EFFECT_GATTLING_PINS                567 //Just added it to be preferred by AI_RISKY, damage calc should do the rest
+#define EFFECT_CONSTRICT                    568 //Copied EFFECT_TRAP, but may need to add more sophisticated code
+#define EFFECT_HYPER_DRILL                  569 //AI Flags added, combined stuff from EFFECT_FEINT and EFFECT_BRICK_BREAK, may cause a bug
+#define EFFECT_RECHARGE_REDUCE              570 //AI Flags complete
+#define EFFECT_PURIFICATION                 571 //AI Flags complete
+#define EFFECT_MIND_READER                  572 //AI Flags complete
+#define EFFECT_ODOR_SLEUTH                  573 //AI Flags complete
+#define EFFECT_SURPRISE_EGG                 574 //AI Flags complete
+#define EFFECT_BLOCK                        575 //AI Flags complete
+#define EFFECT_CUTIE_CRY                    576 //AI Flags complete
+#define EFFECT_FLEUR_CANNON                 577 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_UPPER_HAND                   578 //Should not need special AI code as damage is calculated beforehand into AI move preferences
 #define EFFECT_WHIRLWIND                    579
 #define EFFECT_GLACIAL_SHIFT                580
 #define EFFECT_FROST_NOVA                   581

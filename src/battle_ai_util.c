@@ -378,6 +378,9 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_GREEN_GUISE,
     EFFECT_SPEED_UP_USER_ALLY,
     EFFECT_IGNITION,
+    EFFECT_STUN_SPORE,
+    EFFECT_MIND_READER,
+    EFFECT_ODOR_SLEUTH,
 };
 
 // For the purposes of determining the most powerful move in a moveset, these
@@ -405,6 +408,8 @@ static const u16 sIgnoredPowerfulMoveEffects[] =
     EFFECT_ALL_STATS_UP_2_HIT_FOE,
     EFFECT_FRENZY_PLANT,
     EFFECT_AIR_CANNON,
+    EFFECT_RECHARGE_REDUCE,
+    EFFECT_FLEUR_CANNON,
     IGNORED_MOVES_END
 };
 
@@ -944,14 +949,16 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
          && !IS_MOVE_RECOIL(move2)
          && gBattleMoves[move2].effect != EFFECT_RECHARGE
          && gBattleMoves[move2].effect != EFFECT_DRAGON_RUIN
-         && gBattleMoves[move2].effect != EFFECT_FRENZY_PLANT)
+         && gBattleMoves[move2].effect != EFFECT_FRENZY_PLANT
+         && gBattleMoves[move2].effect != EFFECT_RECHARGE_REDUCE)
             return 1;
 
         if (IS_MOVE_RECOIL(move2)
          && !IS_MOVE_RECOIL(move1)
          && gBattleMoves[move1].effect != EFFECT_RECHARGE
          && gBattleMoves[move1].effect != EFFECT_DRAGON_RUIN
-         && gBattleMoves[move1].effect != EFFECT_FRENZY_PLANT)
+         && gBattleMoves[move1].effect != EFFECT_FRENZY_PLANT
+         && gBattleMoves[move1].effect != EFFECT_RECHARGE_REDUCE)
             return 0;
     }
     // Check recharge
@@ -966,6 +973,10 @@ static u32 WhichMoveBetter(u32 move1, u32 move2)
     if (gBattleMoves[move1].effect == EFFECT_FRENZY_PLANT && gBattleMoves[move2].effect != EFFECT_FRENZY_PLANT)
         return 1;
     if (gBattleMoves[move2].effect == EFFECT_FRENZY_PLANT && gBattleMoves[move1].effect != EFFECT_FRENZY_PLANT)
+        return 0;
+    if (gBattleMoves[move1].effect == EFFECT_RECHARGE_REDUCE && gBattleMoves[move2].effect != EFFECT_RECHARGE_REDUCE)
+        return 1;
+    if (gBattleMoves[move2].effect == EFFECT_RECHARGE_REDUCE && gBattleMoves[move1].effect != EFFECT_RECHARGE_REDUCE)
         return 0;
     // Check additional effect.
     if (gBattleMoves[move1].effect == 0 && gBattleMoves[move2].effect != 0)
@@ -1449,6 +1460,7 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_TERRORIZE:
     case EFFECT_DEEP_GAZE:
     case EFFECT_SLEEP_POWDER:
+    case EFFECT_STUN_SPORE:
         return TRUE;
     default:
         return FALSE;
@@ -2160,6 +2172,8 @@ bool32 IsTrappingMoveEffect(u32 effect)
     case EFFECT_WHIRLPOOL:
     case EFFECT_SAND_TOMB:
     case EFFECT_SNAP_TRAP:
+    case EFFECT_CONSTRICT:
+    case EFFECT_BLOCK:
     //case EFFECT_NO_RETREAT:   // TODO
         return TRUE;
     default:
@@ -3447,7 +3461,8 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gBattleMoves[partnerMove].effect == EFFECT_YAWN
        || gBattleMoves[partnerMove].effect == EFFECT_TERRORIZE
        || gBattleMoves[partnerMove].effect == EFFECT_DEEP_GAZE
-       || gBattleMoves[partnerMove].effect == EFFECT_SLEEP_POWDER))
+       || gBattleMoves[partnerMove].effect == EFFECT_SLEEP_POWDER
+       || gBattleMoves[partnerMove].effect == EFFECT_STUN_SPORE))
         return TRUE;
     return FALSE;
 }
