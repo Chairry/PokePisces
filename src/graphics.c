@@ -417,6 +417,7 @@ const u32 gBattleAnimSpriteGfx_BlueBurst[] = INCBIN_U32("graphics/battle_anims/s
 
 const u32 gBattleAnimSpriteGfx_SmallEmber[] = INCBIN_U32("graphics/battle_anims/sprites/small_ember.4bpp.lz");
 const u32 gBattleAnimSpritePal_SmallEmber[] = INCBIN_U32("graphics/battle_anims/sprites/small_ember.gbapal.lz");
+const u32 gBattleAnimSpritePal_PurpleSmallEmber[] = INCBIN_U32("graphics/battle_anims/sprites/purple_small_ember.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_WaterBlade[] = INCBIN_U32("graphics/battle_anims/sprites/water_blade.4bpp.lz");
 const u32 gBattleAnimSpritePal_WaterBlade[] = INCBIN_U32("graphics/battle_anims/sprites/water_blade.gbapal.lz");
@@ -429,6 +430,7 @@ const u32 gBattleAnimSpritePal_BlackGraySmoke[] = INCBIN_U32("graphics/battle_an
 
 const u32 gBattleAnimSpritePal_Fire[] = INCBIN_U32("graphics/battle_anims/sprites/fire.gbapal.lz");
 const u32 gBattleAnimSpriteGfx_Fire[] = INCBIN_U32("graphics/battle_anims/sprites/fire.4bpp.lz");
+const u32 gBattleAnimSpritePal_PurpleFirePlume[] = INCBIN_U32("graphics/battle_anims/sprites/purple_fire_plume.gbapal.lz");
 
 const u32 gBattleAnimSpriteGfx_SpinningFire[] = INCBIN_U32("graphics/battle_anims/sprites/spinning_fire.4bpp.lz");
 const u32 gBattleAnimSpriteGfx_FirePlume[] = INCBIN_U32("graphics/battle_anims/sprites/fire_plume.4bpp.lz");

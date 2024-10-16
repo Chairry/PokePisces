@@ -442,8 +442,9 @@
 #define MOVE_EFFECT_WILD_CHARGE         109
 #define MOVE_EFFECT_CONSTRICT           110
 #define MOVE_EFFECT_SYRUP_BOMB          111
+#define MOVE_EFFECT_OCTAZOOKA           112
 
-#define NUM_MOVE_EFFECTS                112
+#define NUM_MOVE_EFFECTS                113
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

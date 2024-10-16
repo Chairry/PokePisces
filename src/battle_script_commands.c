@@ -1854,7 +1854,6 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
             calc = (calc * (100 + atkParam)) / 100;
     case HOLD_EFFECT_FAVOR_SCARF:
-        if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
             calc = (calc * 110) / 100;
         break;
     }
@@ -4502,6 +4501,22 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     else
                     {
                         gBattlescriptCurrInstr++;
+                    }
+                }
+                break;
+            case MOVE_EFFECT_OCTAZOOKA:
+                {
+                    u8 randomLowerAccuracyChance = RandomPercentage(RNG_TRIPLE_ARROWS_DEFENSE_DOWN, CalcSecondaryEffectChance(gBattlerAttacker, 80));
+
+                    if (randomLowerAccuracyChance)
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_AccDownAgain;
+                    }
+                    else
+                    {
+                        BattleScriptPush(gBattlescriptCurrInstr + 1);
+                        gBattlescriptCurrInstr = BattleScript_AccDown2;
                     }
                 }
                 break;
@@ -18268,7 +18283,6 @@ static void Cmd_settelekinesis(void)
     else
     {
         gStatuses3[gBattlerTarget] |= STATUS3_TELEKINESIS;
-        gDisableStructs[gBattlerTarget].telekinesisTimer = 3;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
