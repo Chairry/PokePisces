@@ -644,6 +644,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTrueLovesKiss           @ EFFECT_TRUE_LOVES_KISS
 	.4byte BattleScript_EffectFlinchHit               @ EFFECT_SABRE_BREAK
 	.4byte BattleScript_EffectSyrupBomb               @ EFFECT_SYRUP_BOMB
+	.4byte BattleScript_EffectOctazooka               @ EFFECT_OCTAZOOKA
+
+BattleScript_EffectOctazooka::
+	setmoveeffect MOVE_EFFECT_OCTAZOOKA
+	goto BattleScript_EffectHit
 
 BattleScript_EffectSyrupBomb::
 	setmoveeffect MOVE_EFFECT_SYRUP_BOMB
@@ -5403,6 +5408,14 @@ BattleScript_DefDown::
 BattleScript_DefDown_Ret:
 	return
 
+BattleScript_AccDownAgain::
+	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 1, BattleScript_DefDown_Ret, ANIM_ON
+	return
+
+BattleScript_AccDown2::
+	modifybattlerstatstage BS_TARGET, STAT_ACC, DECREASE, 2, BattleScript_DefDown_Ret, ANIM_ON
+	return
+
 BattleScript_TauntString::
 	printstring STRINGID_PKMNFELLFORTAUNT
 	waitmessage B_WAIT_TIME_LONG
@@ -7332,7 +7345,7 @@ BattleScript_EffectTelekinesis:
 	waitanimation
 	setmoveeffect MOVE_EFFECT_PREVENT_ESCAPE
 	seteffectprimary
-	printstring STRINGID_PKMNIDENTIFIED
+	printstring STRINGID_HURLEDINTOTHEAIR
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_TARGETCANTESCAPENOW
 	waitmessage B_WAIT_TIME_LONG
@@ -7344,7 +7357,7 @@ BattleScript_EffectTelekinesisNoBlock:
 	settelekinesis BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	printstring STRINGID_PKMNIDENTIFIED
+	printstring STRINGID_HURLEDINTOTHEAIR
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

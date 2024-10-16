@@ -512,7 +512,7 @@
 #define EFFECT_ENERVATOR                    506
 #define EFFECT_ERODE_FIELD                  507
 #define EFFECT_HEAVY_CELL                   508
-#define EFFECT_CRITICAL_REPAIR                  509
+#define EFFECT_CRITICAL_REPAIR              509
 #define EFFECT_REMODEL                      510
 #define EFFECT_BARI_BARI_BEAM               511
 #define EFFECT_BARI_BARI_BASH               512
@@ -621,7 +621,8 @@
 #define EFFECT_TRUE_LOVES_KISS              615
 #define EFFECT_SABRE_BREAK                  616
 #define EFFECT_SYRUP_BOMB                   617
+#define EFFECT_OCTAZOOKA                   618
 
-#define NUM_BATTLE_MOVE_EFFECTS             618
+#define NUM_BATTLE_MOVE_EFFECTS             619
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

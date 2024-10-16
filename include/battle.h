@@ -88,7 +88,6 @@ struct DisableStruct
     u8 slowStartTimer;
     u8 embargoTimer;
     u8 magnetRiseTimer;
-    u8 telekinesisTimer;
     u8 healBlockTimer;
     u8 laserFocusTimer;
     u8 throatChopTimer;

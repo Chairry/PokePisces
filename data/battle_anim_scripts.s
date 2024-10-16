@@ -2853,21 +2853,21 @@ Move_EARTH_POWER::
 	delay 40
 	loopsewithpan 145, SOUND_PAN_TARGET 11, 3
 	createvisualtask AnimTask_ShakeMon, 5, 5, ANIM_TARGET, 0, 3, 25, 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 194, 3, 1, 5, 0
+	createsprite gFlamePlumeSpriteTemplate, 194, 3, 1, 5, 0
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 194, 3, 1, -10, -15
+	createsprite gFlamePlumeSpriteTemplate, 194, 3, 1, -10, -15
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 130, 3, 1, 0, 25
+	createsprite gFlamePlumeSpriteTemplate, 130, 3, 1, 0, 25
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 194, 3, 1, 15, 5
+	createsprite gFlamePlumeSpriteTemplate, 194, 3, 1, 15, 5
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 194, 3, 1, -25, 0
+	createsprite gFlamePlumeSpriteTemplate, 194, 3, 1, -25, 0
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 130, 3, 1, 30, 30
+	createsprite gFlamePlumeSpriteTemplate, 130, 3, 1, 30, 30
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 130, 3, 1, -27, 25
+	createsprite gFlamePlumeSpriteTemplate, 130, 3, 1, -27, 25
 	delay 1
-	createsprite gDragonRageFirePlumeSpriteTemplate, 194, 3, 1, 0, 8
+	createsprite gFlamePlumeSpriteTemplate, 194, 3, 1, 0, 8
 	waitforvisualfinish
 	createsprite gSlideMonToOriginalPosSpriteTemplate, 194, 3, 0, 0, 4
 	waitforvisualfinish
@@ -3506,7 +3506,7 @@ Move_DRACO_METEOR::
 	loadspritegfx ANIM_TAG_ROCKS @Rocks
 	loadspritegfx ANIM_TAG_FAIRY_LOCK_CHAINS @Gray Colour
 	loadspritegfx ANIM_TAG_WATER_GUN @Sparkles Trail
-	loadspritegfx ANIM_TAG_FIRE_PLUME @Eruption
+	loadspritegfx ANIM_TAG_PURPLE_FIRE_PLUME @Eruption
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 1, 0, 12, 0x2C41
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_WATER_GUN, 0, 10, 10, RGB_PURPLE @;Purple
 	monbg ANIM_TARGET
@@ -5350,7 +5350,7 @@ Move_FLAME_BURST::
 	loadspritegfx ANIM_TAG_SMALL_EMBER
 	loadspritegfx ANIM_TAG_EXPLOSION
 	playsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER
-	createsprite gDragonBreathFireSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 20
+	createsprite gFlameBurstFireSpriteTemplate, ANIM_TARGET, 2, 0, 0, 0, 0, 20
 	delay 18
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 16, 1
 	createsprite gExplosionSpriteTemplate, ANIM_TARGET, 4, 0, 0, 1, 0
@@ -16719,8 +16719,8 @@ Move_RAGING_FURY::
 	loopsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER, 0x8, 0x3
 	createvisualtask AnimTask_BlendColorCycle, 2, (F_PAL_BG | F_PAL_ATTACKER | F_PAL_TARGET), 2, 5, 3, 8, RGB_RED
 	createvisualtask AnimTask_WindUpLunge, 5, ANIM_ATTACKER, -20, 8, 32, 8, 56, 6
-	call OutrageFlames
-	call OutrageFlames
+	call RageFlames
+	call RageFlames
 	delay 10
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 24, 1
 	playsewithpan SE_M_FIRE_PUNCH, SOUND_PAN_TARGET
@@ -16729,6 +16729,22 @@ Move_RAGING_FURY::
 	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 0x0, 0x5
 	waitforvisualfinish
 	end
+RageFlames:
+	delay 3
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, -1280, 0, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 0, 1280, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 0, -1280, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 1280, 768, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, -1280, 768, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, 1280, -768, 3
+	delay 0
+	createsprite gRageFlameSpriteTemplate, ANIM_TARGET, 2, 0, 0, 30, -1280, -768, 3
+	return
 
 @Credits to Skeli
 Move_WAVE_CRASH::
@@ -28170,7 +28186,7 @@ Move_PAY_DAY:
 	end
 
 Move_OUTRAGE:
-	loadspritegfx ANIM_TAG_SMALL_EMBER
+	loadspritegfx ANIM_TAG_PURPLE_SMALL_EMBER
 	loopsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER, 8, 3
 	createvisualtask AnimTask_BlendColorCycle, 2, (F_PAL_BG | F_PAL_ATTACKER | F_PAL_TARGET), 2, 5, 3, 8, RGB(14, 13, 0)
 	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 12, 6, 5, 4
@@ -31195,7 +31211,7 @@ Move_SCRATCH:
 	end
 
 Move_DRAGON_BREATH:
-	loadspritegfx ANIM_TAG_SMALL_EMBER
+	loadspritegfx ANIM_TAG_PURPLE_SMALL_EMBER
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
 	loopsewithpan SE_M_FLAME_WHEEL, SOUND_PAN_ATTACKER, 7, 7
@@ -31497,8 +31513,8 @@ MudSlapMud:
 	return
 
 Move_DRAGON_RAGE:
-	loadspritegfx ANIM_TAG_SMALL_EMBER
-	loadspritegfx ANIM_TAG_FIRE_PLUME
+	loadspritegfx ANIM_TAG_PURPLE_SMALL_EMBER
+	loadspritegfx ANIM_TAG_PURPLE_FIRE_PLUME
 	playsewithpan SE_M_DRAGON_RAGE, SOUND_PAN_ATTACKER
 	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 40, 1
 	waitforvisualfinish
