@@ -11781,32 +11781,32 @@
           "map": "MAP_TEST_MAP",
           "base_label": "gTestMap0",
           "land_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ICKSQUEEK"
+                "species": "SPECIES_RATICATE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ICKSQUEEK"
+                "species": "SPECIES_RATICATE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ICKSQUEEK"
+                "species": "SPECIES_RATICATE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ICKSQUEEK"
+                "species": "SPECIES_RATICATE"
               },
               {
                 "min_level": 50,
                 "max_level": 50,
-                "species": "SPECIES_ICKSQUEEK"
+                "species": "SPECIES_RATICATE"
               },
               {
                 "min_level": 50,
