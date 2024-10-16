@@ -385,7 +385,7 @@
 #define EFFECT_COURT_CHANGE                 379
 #define EFFECT_STEEL_BEAM                   380
 #define EFFECT_EXTREME_EVOBOOST             381
-#define EFFECT_HIT_SET_REMOVE_TERRAIN       382 // genesis supernova
+#define EFFECT_HIT_SET_REMOVE_TERRAIN       382 //Edited for Pisces
 #define EFFECT_DARK_VOID                    383
 #define EFFECT_SLEEP_HIT                    384
 #define EFFECT_DOUBLE_SHOCK                 385
@@ -494,94 +494,94 @@
 #define EFFECT_BLACK_BUFFET                 488 //AI Flags added, combined stuff from EFFECT_MULTI_HIT and EFFECT_ABSORB, may cause a bug
 #define EFFECT_FINISH_OFF                   489 //According to EFFECT_BRINE, this doesnt need any special AI code
 #define EFFECT_SEIZE_CHANCE                 490 //AI Flags added, combined stuff from EFFECT_SUCKER_PUNCH and EFFECT_ALWAYS_CRIT, may cause a bug
-#define EFFECT_RAZING_SUN                   491
-#define EFFECT_TERRORIZE                    492
-#define EFFECT_BRUTALIZE                    493
-#define EFFECT_ROADBLOCK                    494
-#define EFFECT_DEFENSE_DOWN_HIT_2           495
-#define EFFECT_EARTH_SHATTER                496
-#define EFFECT_PILGRIMAGE                   497
-#define EFFECT_HEAVY_CANNON                 498
-#define EFFECT_GIANTS_SPEAR                 499
-#define EFFECT_REDLINE                      500
-#define EFFECT_ZAPPER                       501
-#define EFFECT_SKY_SPLITTER                 502
-#define EFFECT_ALL_STATS_UP_2_HIT_FOE       503
-#define EFFECT_TICK_TACK                    504
-#define EFFECT_DEEP_GAZE                    505
-#define EFFECT_ENERVATOR                    506
-#define EFFECT_ERODE_FIELD                  507
-#define EFFECT_HEAVY_CELL                   508
-#define EFFECT_CRITICAL_REPAIR              509
-#define EFFECT_REMODEL                      510
-#define EFFECT_BARI_BARI_BEAM               511
-#define EFFECT_BARI_BARI_BASH               512
-#define EFFECT_SP_ATTACK_ACCURACY_UP        513
-#define EFFECT_SUN_BASK                     514
-#define EFFECT_HEARTHWARM                   515
-#define EFFECT_DUNE_SLICER                  516
-#define EFFECT_POWER_DRAIN                  517
-#define EFFECT_FLORESCENCE                  518
-#define EFFECT_GRIPPING_NAIL                519
-#define EFFECT_SNAP_TRAP                    520
-#define EFFECT_SPEED_DOWN_HIT_2             521
-#define EFFECT_VIGOR_ROOT                   522
-#define EFFECT_SEED_BOMB                    523
-#define EFFECT_PETAL_BLIZZARD               524
-#define EFFECT_SPIRIT_AWAY                  525
-#define EFFECT_PHANTASM                     526
-#define EFFECT_SNAPBLOSSOM                  527
-#define EFFECT_GRASS_CANNON                 528
-#define EFFECT_SPECIAL_DEFENSE_UP_HIT       529
-#define EFFECT_DEF_SP_DEF_UP_HIT            530
-#define EFFECT_SAVAGE_WING                  531
-#define EFFECT_PLASMA_CUTTER                532
-#define EFFECT_BOUNDARY                     533
-#define EFFECT_PARTY_TRICK                  534
-#define EFFECT_DANCE_MANIA                  535
-#define EFFECT_BEATBOX                      536
-#define EFFECT_SPEED_UP_USER_ALLY           537
-#define EFFECT_IGNITION                     538
-#define EFFECT_FAIRY_WIND                   539
-#define EFFECT_FLORAL_HEALING               540
-#define EFFECT_SHARP_GLIDE                  541
-#define EFFECT_CRASH_LAND                   542
-#define EFFECT_AIR_CANNON                   543
-#define EFFECT_FEATHER_DANCE                544
-#define EFFECT_BANSHRIEK                    545
-#define EFFECT_VINE_WHIP                    546
-#define EFFECT_TRAILBLAZE                   547
-#define EFFECT_NEEDLE_ARM                   548
-#define EFFECT_TROP_KICK                    549
-#define EFFECT_DRUM_BEATING                 550
-#define EFFECT_WOOD_HAMMER                  551
-#define EFFECT_APPLE_ACID                   552
-#define EFFECT_ENERGY_BALL                  553
-#define EFFECT_PETAL_DANCE                  554
-#define EFFECT_SNOWFADE                     555
-#define EFFECT_FRENZY_PLANT                 556
-#define EFFECT_AROMATHERAPY                 557
-#define EFFECT_GREEN_GUISE                  558
-#define EFFECT_FROST_SHRED                  559
-#define EFFECT_COTTON_SPORE                 560
-#define EFFECT_SLEEP_POWDER                 561
-#define EFFECT_PLUNDER                      562
-#define EFFECT_STUN_SPORE                   563
-#define EFFECT_GOLD_PLAINS                  564
-#define EFFECT_DOWNFALL                     565
-#define EFFECT_MT_SPLENDOR                  566
-#define EFFECT_GATTLING_PINS                567
-#define EFFECT_CONSTRICT                    568
-#define EFFECT_HYPER_DRILL                  569
-#define EFFECT_RECHARGE_REDUCE              570
-#define EFFECT_PURIFICATION                 571
-#define EFFECT_MIND_READER                  572
-#define EFFECT_ODOR_SLEUTH                  573
-#define EFFECT_SURPRISE_EGG                 574
-#define EFFECT_BLOCK                        575
-#define EFFECT_CUTIE_CRY                    576
-#define EFFECT_FLEUR_CANNON                 577
-#define EFFECT_UPPER_HAND                   578
+#define EFFECT_RAZING_SUN                   491 //AI Flags added, combined stuff from EFFECT_RECOIL_33 and EFFECT_FEINT, may cause a bug
+#define EFFECT_TERRORIZE                    492 //AI Flags added, made unique code for IncreasePanicScore and its associated functions which was copied from Poison. Needs testing
+#define EFFECT_BRUTALIZE                    493 //AI Flags complete
+#define EFFECT_ROADBLOCK                    494 //AI Flags complete
+#define EFFECT_DEFENSE_DOWN_HIT_2           495 //AI Flags complete
+#define EFFECT_EARTH_SHATTER                496 //AI Flags added, new code related to checking if any Terrain is present. Needs testing (also applies to EFFECT_HIT_SET_REMOVE_TERRAIN)
+#define EFFECT_PILGRIMAGE                   497 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_HEAVY_CANNON                 498 //AI Flags complete
+#define EFFECT_GIANTS_SPEAR                 499 //AI Flags complete
+#define EFFECT_REDLINE                      500 //AI Flags added, new code taken somewhat from EFFECT_CLEAR_SMOG
+#define EFFECT_ZAPPER                       501 //AI Flags added, new code taken somewhat from EFFECT_REDLINE above
+#define EFFECT_SKY_SPLITTER                 502 //AI Flags added, new code taken somewhat from EFFECT_EARTH_SHATTER above, but for Weather instead of Terrain
+#define EFFECT_ALL_STATS_UP_2_HIT_FOE       503 //AI Flags added, tagged on to EFFECT_VITAL_THROW and put in a thing for HP_AWARE that discourages its use when foe is at high HP
+#define EFFECT_TICK_TACK                    504 //AI Flags added, tagged on to EFFECT_ABSORB and put in a thing for HP_AWARE that encourages it if the foe is at high HP or the user is at low HP
+#define EFFECT_DEEP_GAZE                    505 //AI Flags added, does not need as much as other STATUS1s so just added a general discouragement if the target is statused and encouragement at the start of battle or if the target is not statused
+#define EFFECT_ENERVATOR                    506 //AI Flags complete
+#define EFFECT_ERODE_FIELD                  507            //No idea how to code this one
+#define EFFECT_HEAVY_CELL                   508 //AI Flags added, copied a bunch from EFFECT_COIL. No idea if AI will try and use it consecutively
+#define EFFECT_CRITICAL_REPAIR              509 //AI Flags complete
+#define EFFECT_REMODEL                      510            //No idea how to code this one
+#define EFFECT_BARI_BARI_BEAM               511 //AI Flags added, used new function CalcBariBariBeamPower, may be some bugs, untested
+#define EFFECT_BARI_BARI_BASH               512 //According to EFFECT_BRINE, this doesnt need any special AI code
+#define EFFECT_SP_ATTACK_ACCURACY_UP        513 //AI Flags complete
+#define EFFECT_SUN_BASK                     514 //AI Flags added, copied stuff from EFFECT_COSMIC_POWER and added a B_WEATHER_SUN check
+#define EFFECT_HEARTHWARM                   515 //AI Flags complete
+#define EFFECT_DUNE_SLICER                  516 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_POWER_DRAIN                  517 //Copied EFFECT_STRENGTH_SAP, feel like both could use a little more code but I'll leave for now
+#define EFFECT_FLORESCENCE                  518 //AI Flags added, made unique code for ShouldBloomSelf and its associated functions which was copied from Poison. Needs testing
+#define EFFECT_GRIPPING_NAIL                519 //AI Flags complete, did not feel need for Blooming conditional
+#define EFFECT_SNAP_TRAP                    520 //AI Flags complete, did not feel need for Blooming conditional
+#define EFFECT_SPEED_DOWN_HIT_2             521                 //lmao this is unused??
+#define EFFECT_VIGOR_ROOT                   522 //AI Flags complete. HP_AWARE AI will almost always go for this when at low health.
+#define EFFECT_SEED_BOMB                    523 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_PETAL_BLIZZARD               524 //No special AI code necessary
+#define EFFECT_SPIRIT_AWAY                  525 //AI Flags complete
+#define EFFECT_PHANTASM                     526 //AI Flags complete
+#define EFFECT_SNAPBLOSSOM                  527 //AI Flags added, combined stuff from EFFECT_ABSORB and EFFECT_FLORESCENCE, may cause a bug
+#define EFFECT_GRASS_CANNON                 528 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_SPECIAL_DEFENSE_UP_HIT       529 //According to EFFECT_DEFENSE_UP_HIT, this doesnt need any special AI code
+#define EFFECT_DEF_SP_DEF_UP_HIT            530 //According to EFFECT_DEFENSE_UP_HIT, this doesnt need any special AI code
+#define EFFECT_SAVAGE_WING                  531 //AI Flags complete
+#define EFFECT_PLASMA_CUTTER                532 //According to EFFECT_BURN_HIT and EFFECT_FREEZE_DRY, this doesnt need any special AI code
+#define EFFECT_BOUNDARY                     533 //Currently just has priority for risky AI. May add something else
+#define EFFECT_PARTY_TRICK                  534 //AI Flags complete
+#define EFFECT_DANCE_MANIA                  535 //Needs SETUP_FIRST_TURN to function currently
+#define EFFECT_BEATBOX                      536 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_SPEED_UP_USER_ALLY           537 //AI Flags complete
+#define EFFECT_IGNITION                     538 //AI Flags complete
+#define EFFECT_FAIRY_WIND                   539            //Will come back to this one (have to add Minimizing logic)
+#define EFFECT_FLORAL_HEALING               540 //AI Flags complete
+#define EFFECT_SHARP_GLIDE                  541 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_CRASH_LAND                   542 //AI Flags complete
+#define EFFECT_AIR_CANNON                   543 //AI Flags added, combined stuff from EFFECT_SOLAR_BEAM with a check for Tailwind timer, may cause a bug
+#define EFFECT_FEATHER_DANCE                544 //AI Flags complete
+#define EFFECT_BANSHRIEK                    545 //According to EFFECT_CONFUSE_HIT, this doesnt need any special AI code
+#define EFFECT_VINE_WHIP                    546 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_TRAILBLAZE                   547 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_NEEDLE_ARM                   548 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_TROP_KICK                    549 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_DRUM_BEATING                 550 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_WOOD_HAMMER                  551 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_APPLE_ACID                   552 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_ENERGY_BALL                  553 //Does not need special AI code
+#define EFFECT_PETAL_DANCE                  554 //According to EFFECT_RAMPAGE, this doesnt need any special AI code
+#define EFFECT_SNOWFADE                     555 //AI Flags added, combined stuff from EFFECT_HIT_ESCAPE with a B_WEATHER_HAIL check, may cause a bug
+#define EFFECT_FRENZY_PLANT                 556 //AI Flags complete
+#define EFFECT_AROMATHERAPY                 557 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_GREEN_GUISE                  558 //AI Flags complete
+#define EFFECT_FROST_SHRED                  559 //According to MOVE_DOUBLE_KICK, this doesnt need any special AI code
+#define EFFECT_COTTON_SPORE                 560 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_SLEEP_POWDER                 561 //Copied EFFECT_SLEEP, didnt feel the need for Blooming conditional
+#define EFFECT_PLUNDER                      562 //AI Flags added, combined stuff from EFFECT_THIEF and EFFECT_SPECTRAL_THIEF, may cause a bug
+#define EFFECT_STUN_SPORE                   563 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_GOLD_PLAINS                  564            //Will come back to this one (Only used in boss battle)
+#define EFFECT_DOWNFALL                     565            //Will come back to this one (Only used in boss battle)
+#define EFFECT_MT_SPLENDOR                  566            //Will come back to this one (Only used in boss battle)
+#define EFFECT_GATTLING_PINS                567 //Just added it to be preferred by AI_RISKY, damage calc should do the rest
+#define EFFECT_CONSTRICT                    568 //Copied EFFECT_TRAP, but may need to add more sophisticated code
+#define EFFECT_HYPER_DRILL                  569 //AI Flags added, combined stuff from EFFECT_FEINT and EFFECT_BRICK_BREAK, may cause a bug
+#define EFFECT_RECHARGE_REDUCE              570 //AI Flags complete
+#define EFFECT_PURIFICATION                 571 //AI Flags complete
+#define EFFECT_MIND_READER                  572 //AI Flags complete
+#define EFFECT_ODOR_SLEUTH                  573 //AI Flags complete
+#define EFFECT_SURPRISE_EGG                 574 //AI Flags complete
+#define EFFECT_BLOCK                        575 //AI Flags complete
+#define EFFECT_CUTIE_CRY                    576 //AI Flags complete
+#define EFFECT_FLEUR_CANNON                 577 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_UPPER_HAND                   578 //Should not need special AI code as damage is calculated beforehand into AI move preferences
 #define EFFECT_WHIRLWIND                    579
 #define EFFECT_GLACIAL_SHIFT                580
 #define EFFECT_FROST_NOVA                   581
