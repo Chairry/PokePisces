@@ -3333,13 +3333,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_ZAP_CANNON] =
     {
         #if B_UPDATED_MOVE_DATA >= GEN_4
-            .power = 100,
+            .power = 120,
         #else
-            .power = 100,
+            .power = 120,
         #endif
         .effect = EFFECT_PARALYZE_HIT,
         .type = TYPE_ELECTRIC,
-        .accuracy = 75,
+        .accuracy = 65,
         .pp = 5,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
@@ -8748,7 +8748,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .effect = EFFECT_BURN_HIT,
         .power = 100,
         .type = TYPE_FIRE,
-        .accuracy = 70,
+        .accuracy = 65,
         .pp = 5,
         .secondaryEffectChance = 100,
         .target = MOVE_TARGET_BOTH,
@@ -9624,7 +9624,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 0,
         .type = TYPE_ELECTRIC,
         .accuracy = 0,
-        .pp = 25,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_BOTH,
         .priority = 1,

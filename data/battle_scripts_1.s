@@ -1895,7 +1895,7 @@ BattleScript_GreenGuiseStatUpPrintString::
 	goto BattleScript_MoveEnd
 
 BattleScript_GreenGuiseBloomGoodFocusBadCheckEvasion::
-	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_GreenGuiseOnlyBlooming
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_OnlyBlooming
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_GreenGuiseBloomGoodFocusBadStatUpAttackAnim
 	pause B_WAIT_TIME_SHORT
 	goto BattleScript_GreenGuiseBloomGoodFocusBadStatUpPrintString
@@ -1913,7 +1913,7 @@ BattleScript_GreenGuiseBloomGoodFocusBadStatUpPrintString::
 BattleScript_GreenGuiseBloomGoodFocusBadStatUpEnd::
 	goto BattleScript_MoveEnd
 
-BattleScript_GreenGuiseOnlyBlooming::
+BattleScript_OnlyBlooming::
 	attackanimation
 	waitanimation
 	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_AFFECTS_USER
@@ -6084,7 +6084,7 @@ BattleScript_EffectRototiller:
 	jumpifstatus BS_ATTACKER, STATUS1_ANY, BattleScript_RototillerBloomFailed
 	setmoveeffect MOVE_EFFECT_BLOOMING | MOVE_EFFECT_AFFECTS_USER
 	seteffectprimary
-	getrototillertargets BattleScript_RototillerOnlyBlooming
+	getrototillertargets BattleScript_OnlyBlooming
 	@ at least one battler is affected
 	attackanimation
 	waitanimation
@@ -6095,7 +6095,7 @@ BattleScript_EffectRototiller:
 BattleScript_RototillerLoop:
 	movevaluescleanup
 	jumpifstat BS_TARGET, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_RototillerCheckAffected
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_RototillerOnlyBlooming
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPATK, MAX_STAT_STAGE, BattleScript_OnlyBlooming
 BattleScript_RototillerCheckAffected:
 	jumpifnotrototilleraffected BS_TARGET, BattleScript_RototillerNoEffect
 BattleScript_RototillerAffected:
@@ -6117,11 +6117,6 @@ BattleScript_RototillerMoveTargetEnd:
 	addbyte gBattlerTarget, 1
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_RototillerLoop
 	end
-
-BattleScript_RototillerOnlyBlooming::
-	attackanimation
-	waitanimation
-	goto BattleScript_MoveEnd
 
 BattleScript_RototillerBloomFailed:
 	getrototillertargets BattleScript_ButItFailed
