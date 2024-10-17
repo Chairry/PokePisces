@@ -582,28 +582,28 @@
 #define EFFECT_CUTIE_CRY                    576 //AI Flags complete
 #define EFFECT_FLEUR_CANNON                 577 //AI Flags added, Blooming conditional should be tested
 #define EFFECT_UPPER_HAND                   578 //Should not need special AI code as damage is calculated beforehand into AI move preferences
-#define EFFECT_WHIRLWIND                    579
-#define EFFECT_GLACIAL_SHIFT                580
-#define EFFECT_FROST_NOVA                   581
-#define EFFECT_POISON_DART                  582
-#define EFFECT_SMOG                         583
-#define EFFECT_GUNK_FUNK                    584
-#define EFFECT_POISON_POWDER                585
-#define EFFECT_GRAVITON_ARM                 586
-#define EFFECT_MIST_BALL                    587
-#define EFFECT_KINESIS                      588
-#define EFFECT_RESERVOIR                    589
-#define EFFECT_CANNONADE                    590
-#define EFFECT_BURNING_ENVY                 591
-#define EFFECT_ACID_ARMOR                   592
-#define EFFECT_POWER_SHIFT                  593
-#define EFFECT_MAGIC_POWDER                 594
-#define EFFECT_PSY_SWAP                     595
-#define EFFECT_SHIELDS_UP                   596
-#define EFFECT_BERRY_BAD_JOKE               597
-#define EFFECT_STALAG_BLAST                 598
-#define EFFECT_MOON_BEAM                    599
-#define EFFECT_HUNKER_DOWN                  600
+#define EFFECT_WHIRLWIND                    579 //AI Flags added, combined stuff from EFFECT_ROAR with a Tailwind check, may cause a bug
+#define EFFECT_GLACIAL_SHIFT                580 //AI Flags added, combined stuff from EFFECT_HIT_ESCAPE with a B_WEATHER_HAIL check, may cause a bug
+#define EFFECT_FROST_NOVA                   581 //AI Flags complete
+#define EFFECT_POISON_DART                  582 //AI Flags complete
+#define EFFECT_SMOG                         583 //According to EFFECT_POISON_HIT, this doesnt need any special AI code
+#define EFFECT_GUNK_FUNK                    584 //AI Flags complete
+#define EFFECT_POISON_POWDER                585 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_GRAVITON_ARM                 586 //AI Flags added, 'tis a boss battle move so may return to make it a bit more complicated
+#define EFFECT_MIST_BALL                    587 //AI Flags complete
+#define EFFECT_KINESIS                      588 //AI Flags added, combined stuff from various stat changing effects with a PSYCHIC_TERRAIN check, may cause a bug
+#define EFFECT_RESERVOIR                    589 //AI Flags added, combined stuff from EFFECT_RESTORE_HP and EFFECT_REFRESH, may cause a bug
+#define EFFECT_CANNONADE                    590 //Damage calculation should mostly handle things, though AI_RISKY and HP_AWARE can be utilized to make them use it more often or less often at low health, respectively
+#define EFFECT_BURNING_ENVY                 591 //AI Flags added, combined stuff from EFFECT_TOPSY_TURVY with a check for Burn, may cause a bug
+#define EFFECT_ACID_ARMOR                   592 //AI Flags complete
+#define EFFECT_POWER_SHIFT                  593            //No idea how to code this one
+#define EFFECT_MAGIC_POWDER                 594 //AI Flags added, combined stuff from EFFECT_SOAK and EFFECT_YAWN, may cause a bug
+#define EFFECT_PSY_SWAP                     595 //AI Flags complete
+#define EFFECT_SHIELDS_UP                   596 //AI Flags complete
+#define EFFECT_BERRY_BAD_JOKE               597 //AI Flags added, just copied EFFECT_HIT_SWITCH_TARGET, could maybe add more
+#define EFFECT_STALAG_BLAST                 598 //AI Flags added, made new code based off EFFECT_BELLY_DRUM. If AI_RISKY and not HP_AWARE, will use recklessly
+#define EFFECT_MOON_BEAM                    599 //AI Flags complete
+#define EFFECT_HUNKER_DOWN                  600 //AI Flags added, copied stuff from EFFECT_GEOMANCY
 #define EFFECT_POISON_GAS                   601
 #define EFFECT_HIGH_ROLL_HIT                602
 #define EFFECT_SPINDA_SWING                 603

@@ -381,6 +381,9 @@ static const u16 sEncouragedEncoreEffects[] =
     EFFECT_STUN_SPORE,
     EFFECT_MIND_READER,
     EFFECT_ODOR_SLEUTH,
+    EFFECT_WHIRLWIND,
+    EFFECT_POISON_POWDER,
+    EFFECT_PSY_SWAP,
 };
 
 // For the purposes of determining the most powerful move in a moveset, these
@@ -1461,6 +1464,8 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_DEEP_GAZE:
     case EFFECT_SLEEP_POWDER:
     case EFFECT_STUN_SPORE:
+    case EFFECT_POISON_POWDER:
+    case EFFECT_MAGIC_POWDER:
         return TRUE;
     default:
         return FALSE;
@@ -1508,6 +1513,7 @@ bool32 IsStatLoweringMoveEffect(u32 moveEffect)
     case EFFECT_DEFENSE_DOWN_HIT_2:
     case EFFECT_COTTON_SPORE:
     case EFFECT_FEATHER_DANCE:
+    case EFFECT_KINESIS:
         return TRUE;
     default:
         return FALSE;
@@ -2140,6 +2146,8 @@ bool32 IsHealingMoveEffect(u32 effect)
     case EFFECT_CRITICAL_REPAIR:
     case EFFECT_VIGOR_ROOT:
     case EFFECT_FLORAL_HEALING:
+    case EFFECT_RESERVOIR:
+    case EFFECT_SHIELDS_UP:
         return TRUE;
     default:
         return FALSE;
@@ -2281,6 +2289,8 @@ bool32 IsStatRaisingEffect(u32 effect)
     case EFFECT_TRAILBLAZE:
     case EFFECT_PHANTASM:
     case EFFECT_SPEED_UP_USER_ALLY:
+    case EFFECT_ACID_ARMOR:
+    case EFFECT_HUNKER_DOWN:
         return TRUE;
     default:
         return FALSE;
@@ -2318,6 +2328,7 @@ bool32 IsStatLoweringEffect(u32 effect)
     case EFFECT_ENERVATOR:
     case EFFECT_COTTON_SPORE:
     case EFFECT_FEATHER_DANCE:
+    case EFFECT_KINESIS:
         return TRUE;
     default:
         return FALSE;
@@ -3462,7 +3473,9 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gBattleMoves[partnerMove].effect == EFFECT_TERRORIZE
        || gBattleMoves[partnerMove].effect == EFFECT_DEEP_GAZE
        || gBattleMoves[partnerMove].effect == EFFECT_SLEEP_POWDER
-       || gBattleMoves[partnerMove].effect == EFFECT_STUN_SPORE))
+       || gBattleMoves[partnerMove].effect == EFFECT_STUN_SPORE
+       || gBattleMoves[partnerMove].effect == EFFECT_POISON_POWDER
+       || gBattleMoves[partnerMove].effect == EFFECT_MAGIC_POWDER))
         return TRUE;
     return FALSE;
 }
