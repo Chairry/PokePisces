@@ -621,7 +621,7 @@
 #define EFFECT_TRUE_LOVES_KISS              615
 #define EFFECT_SABRE_BREAK                  616
 #define EFFECT_SYRUP_BOMB                   617
-#define EFFECT_OCTAZOOKA                   618
+#define EFFECT_OCTAZOOKA                    618
 
 #define NUM_BATTLE_MOVE_EFFECTS             619
 
