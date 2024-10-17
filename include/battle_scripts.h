@@ -629,6 +629,8 @@ extern const u8 BattleScript_SpikesActivates[];
 extern const u8 BattleScript_BerserkGeneRet[];
 extern const u8 BattleScript_TargetFormChangeWithStringNoPopup[];
 extern const u8 BattleScript_DefDown[];
+extern const u8 BattleScript_AccDownAgain[];
+extern const u8 BattleScript_AccDown2[];
 extern const u8 BattleScript_TauntString[];
 extern const u8 BattleScript_TormentString[];
 extern const u8 BattleScript_TormentTauntString[];

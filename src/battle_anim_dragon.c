@@ -33,6 +33,17 @@ static const union AnimCmd *const sAnims_OutrageOverheatFire[] =
 
 const struct SpriteTemplate gOutrageFlameSpriteTemplate =
 {
+    .tileTag = ANIM_TAG_PURPLE_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_PURPLE_SMALL_EMBER,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = sAnims_OutrageOverheatFire,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimOutrageFlame,
+};
+
+const struct SpriteTemplate gRageFlameSpriteTemplate =
+{
     .tileTag = ANIM_TAG_SMALL_EMBER,
     .paletteTag = ANIM_TAG_SMALL_EMBER,
     .oam = &gOamData_AffineOff_ObjNormal_32x32,
@@ -86,6 +97,17 @@ const union AffineAnimCmd *const gAffineAnims_DragonBreathFire[] =
 
 const struct SpriteTemplate gDragonBreathFireSpriteTemplate =
 {
+    .tileTag = ANIM_TAG_PURPLE_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_PURPLE_SMALL_EMBER,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = gAnims_DragonBreathFire,
+    .images = NULL,
+    .affineAnims = gAffineAnims_DragonBreathFire,
+    .callback = AnimDragonFireToTarget,
+};
+
+const struct SpriteTemplate gFlameBurstFireSpriteTemplate =
+{
     .tileTag = ANIM_TAG_SMALL_EMBER,
     .paletteTag = ANIM_TAG_SMALL_EMBER,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
@@ -111,6 +133,17 @@ const union AnimCmd *const gAnims_DragonRageFirePlume[] =
 };
 
 const struct SpriteTemplate gDragonRageFirePlumeSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_PURPLE_FIRE_PLUME,
+    .paletteTag = ANIM_TAG_PURPLE_FIRE_PLUME,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gAnims_DragonRageFirePlume,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDragonRageFirePlume,
+};
+
+const struct SpriteTemplate gFlamePlumeSpriteTemplate =
 {
     .tileTag = ANIM_TAG_FIRE_PLUME,
     .paletteTag = ANIM_TAG_FIRE_PLUME,
@@ -155,8 +188,8 @@ const union AffineAnimCmd *const gAffineAnims_DragonRageFire[] =
 
 const struct SpriteTemplate gDragonRageFireSpitSpriteTemplate =
 {
-    .tileTag = ANIM_TAG_SMALL_EMBER,
-    .paletteTag = ANIM_TAG_SMALL_EMBER,
+    .tileTag = ANIM_TAG_PURPLE_SMALL_EMBER,
+    .paletteTag = ANIM_TAG_PURPLE_SMALL_EMBER,
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = gAnims_DragonRageFire,
     .images = NULL,
