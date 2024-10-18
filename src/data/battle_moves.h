@@ -12183,12 +12183,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
     [MOVE_STEEL_ROLLER] =
     {
         .effect = EFFECT_HIT_SET_REMOVE_TERRAIN,
-        .power = 70,
+        .power = 80,
         .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 15,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_BOTH,
+        .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
