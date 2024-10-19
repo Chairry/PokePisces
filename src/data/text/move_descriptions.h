@@ -3773,176 +3773,213 @@ static const u8 sTakeHeartDescription[] = _(
     "boosting its Sp. Atk and Sp. Def.");
 
 static const u8 sTeraBlastDescription[] = _(
-    "If the user's Terastallized,\n"
-    "it hits with its Tera-type.");
+    "who cares lol");
 
 static const u8 sSilkTrapDescription[] =_(
-    "Protects itself, lowering\n"
-    "Speed on contact.");
+    "Protects from attacks and lowers\n"
+    "the Speed stat of any attacker\n"
+    "who makes direct contact.");
 
 static const u8 sAxeKickDescription[] = _(
-    "May miss and hurt the kicker.\n"
-    "May cause confusion.");
+    "Attacks the foe with a heel kick\n"
+    "from a jump. May confuse the foe.\n"
+    "If it misses, the user is hurt.");
 
 static const u8 sLastRespectsDescription[] = _(
-    "This move deals more damage\n"
-    "for each defeated ally.");
+    "The user attacks to avenge its\n"
+    "allies. Boosted for each fainted\n"
+    "ally in the user's party.");
 
 static const u8 sLuminaCrashDescription[] = _(
-    "A mind-affecting light\n"
-    "harshly lowers Sp. Def.");
+    "The user unleashes a peculiar\n"
+    "light that affects the mind. This\n"
+    "harshly lowers the foe's Sp. Def.");
 
 static const u8 sOrderUpDescription[] = _(
-    "A sushi order that is likely\n"
-    "to boost the user's Attack.");
+    "The user strikes with elegant\n"
+    "poise that may boost Attack.\n"
+    "Critical hits land more easily.");
 
 static const u8 sJetPunchDescription[] = _(
-    "A punch is thrown at blinding\n"
-    "speed to strike first.");
+    "The user summons a torrent\n"
+    "around its fist and punches at\n"
+    "blinding speed. Strikes first.");
 
 static const u8 sSpicyExtractDescription[] = _(
-    "Sharply ups target's Attack,\n"
-    "harshly lowers its Defense.");
+    "The user emits a spicy extract,\n"
+    "sharply raising the foe's Attack\n"
+    "and harshly cutting its Defense.");
 
 static const u8 sSpinOutDescription[] = _(
-    "A furious spin attack that\n"
-    "also lowers Speed.");
+    "The user spins furiously by\n"
+    "straining its legs. It lowers\n"
+    "the user's Speed, however.");
 
 static const u8 sPopulationBombDescription[] = _(
-    "The user's fellows hit one\n"
-    "to ten times in a row.");
+    "The user's fellows gather to\n"
+    "perform a combo attack that hits\n"
+    "the foe 1 to 10 times in a row.");
 
 static const u8 sGlaiveRushDescription[] = _(
-    "Foe attacks next turn can't\n"
-    "miss and do double damage.");
+    "The user goes for a reckless\n"
+    "charge. Until the next turn, foes\n"
+    "cannot miss and do double damage.");
 
 static const u8 sRevivalBlessingDescription[] = _(
-    "Revives a fainted party {PKMN}\n"
-    "and restores half of its HP.");
+    "The user bestows a loving\n"
+    "blessing, reviving a fainted ally\n"
+    "and restoring half its max HP.");
 
 static const u8 sSaltCureDescription[] = _(
-    "Hurts foe every turn. Double\n"
-    "damage to Steel and Water.");
+    "The user salt cures the foe,\n"
+    "doing damage every turn. Steel\n"
+    "and Water-types take more damage.");
 
 static const u8 sTripleDiveDescription[] = _(
-    "Hits target with splashes\n"
-    "of water 3 times in a row.");
+    "The user performs a perfectly\n"
+    "timed triple dive, splashing the\n"
+    "foe with water 3 times in a row.");
 
 static const u8 sMortalSpinDescription[] = _(
-    "Erases trap moves and Leech\n"
-    "Seed. Poisons adjacent foes.");
+    "A spin attack that can remove\n"
+    "moves like Bind and Spikes. This\n"
+    "also leaves foes poisoned.");
 
 static const u8 sDoodleDescription[] = _(
-    "Changes user's and ally's\n"
-    "Ability into the target's.");
+    "Captures the essence of the foe\n"
+    "in a sketch. Gives the Ability of\n"
+    "the foe to the user and allies.");
 
 static const u8 sFilletAwayDescription[] = _(
-    "Sharply boosts offenses and\n"
-    "Speed by using its own HP.");
+    "The user sharply boosts its\n"
+    "Attack, Special Attack, and Speed\n"
+    "stats by using 1/3 of its own HP.");
 
 static const u8 sKowtowCleaveDescription[] = _(
-    "User slashes the foe after\n"
-    "kowtowing. It never misses.");
+    "The user slashes at the foe\n"
+    "after kowtowing to let down its\n"
+    "guard. This attack never misses.");
 
 static const u8 sFlowerTrickDescription[] = _(
-    "Always critical-hits and\n"
-    "never misses. May bloom.");
+    "This attack never misses and\n"
+    "always lands critical hits. The\n"
+    "user may start blooming.");
 
 static const u8 sTorchSongDescription[] = _(
-    "Flames scorch the target.\n"
-    "Boosts the user's Sp. Atk.");
+    "The user blows out raging flames\n"
+    "as if singing, scorching the foe.\n"
+    "This boosts the user's Sp. Atk.");
 
 static const u8 sAquaStepDescription[] = _(
-    "Hits with light, fluid dance\n"
-    "steps. Ups the user's Speed.");
+    "The user toys with the foe using\n"
+    "light and fluid dance steps.\n"
+    "This boosts the user's Speed.");
 
 static const u8 sRagingBullDescription[] = _(
-    "Breaks Screens and becomes\n"
-    "user's secondary type.");
+    "This move matches the user's\n"
+    "second type. It breaks barriers\n"
+    "like Light Screen and Reflect.");
 
 static const u8 sMakeItRainDescription[] = _(
-    "Harshly drops the user's Sp.\n"
-    "Atk. Collects money after.");
+    "The user throws masses of coins,\n"
+    "harshly lowering the user's Sp.\n"
+    "Atk. Earns money after the fight.");
 
 static const u8 sRuinationDescription[] = _(
-    "Summons a ruinous disaster\n"
-    "and cuts half the foe's HP.");
+    "The user summons a ruinous\n"
+    "disaster. This cuts the target's\n"
+    "HP in half.");
 
 static const u8 sCollisionCourseDescription[] = _(
-    "Prehistoric explosion that's\n"
-    "stronger if super effective.");
+    "The user crashes to the ground,\n"
+    "causing a massive explosion.\n"
+    "Boosted if it's super effective.");
 
 static const u8 sElectroDriftDescription[] = _(
-    "Futuristic electricity. It's\n"
-    "stronger if super effective.");
+    "The user races at quick speeds,\n"
+    "piercing its foe with lightning.\n"
+    "Boosted if it's super effective.");
 
 static const u8 sShedTailDescription[] = _(
-    "Creates a Substitute for\n"
-    "itself before switching out.");
+    "The user creates a substitute\n"
+    "using its own HP before switching\n"
+    "places with a party Pokémon.");
 
 static const u8 sChillyReceptionDescription[] =_(
-    "A bad joke that summons\n"
-    "hail. User switches out.");
+    "The user tells a cold joke before\n"
+    "switching with a party Pokémon.\n"
+    "This summons hail for 5 turns.");
 
 static const u8 sTidyUpDescription[] = _(
-    "User tidies up hazards and\n"
-    "boosts its Attack and Speed.");
+    "The user tidies up, undoing moves\n"
+    "like Spikes and Substitute. This\n"
+    "boosts the user's Atk and Spd.");
 
 static const u8 sSnowscapeDescription[] = _(
-    "Summons a snowstorm that\n"
-    "lasts for five turns.");
+    "who cares");
 
 static const u8 sPounceDescription[] = _(
-    "The user pounces on the foe,\n"
-    "lowering its Speed.");
+    "The user attacks by pouncing on\n"
+    "the target. This also lowers the\n"
+    "target's Speed stat.");
 
 static const u8 sTrailblazeDescription[] = _(
-    "boosts user's Speed. If\n"
-    "blooming, boosts user's Acc.");
+    "The user leaps suddenly which\n"
+    "boosts its Speed. If the user is\n"
+    "blooming, also boosts accuracy.");
 
 static const u8 sChillingWaterDescription[] = _(
-    "A shower with ice-cold water\n"
-    "lowers the target's Attack.");
+    "The user attacks the target by\n"
+    "showering it with cold water.\n"
+    "This lowers the target's Attack.");
 
 static const u8 sHyperDrillDescription[] = _(
-    "Bypasses Protect-like moves\n"
-    "and screens. May lower Def.");
+    "This move ignores barriers and\n"
+    "protection and may lower the\n"
+    "target's Defense stat.");
 
 static const u8 sTwinBeamDescription[] = _(
-    "Mystical eye-beams that hit\n"
-    "the target twice in a row.");
+    "The user shoots mystical beams\n"
+    "from its eyes to inflict damage.\n"
+    "The foe is hit twice in a row.");
 
 static const u8 sRageFistDescription[] = _(
-    "The more the user has been\n"
-    "hit, the stronger the move.");
+    "The user converts its rage into\n"
+    "energy to attack. Boosted for\n"
+    "each time the user has been hit.");
 
 static const u8 sArmorCannonDescription[] = _(
-    "A strong attack but lowers\n"
-    "the defensive stats.");
+    "The user shoots its own armor\n"
+    "out as blazing projectiles. This\n"
+    "cuts the user's defensive stats.");
 
 static const u8 sBitterBladeDescription[] = _(
-    "An attack that absorbs\n"
-    "half the damage inflicted.");
+    "The user slashes the foe powered\n"
+    "by its regret. Heals the user's\n"
+    "HP by half the damage inflicted.");
 
 static const u8 sDoubleShockDescription[] = _(
-    "Discharges all electricity,\n"
-    "losing the Electric-type.");
+    "The user discharges all its\n"
+    "electricity to attack. This will\n"
+    "make it no longer Electric-type.");
 
 static const u8 sGigatonHammerDescription[] = _(
-    "Swings a huge hammer. Can't\n"
-    "be used twice in a row.");
+    "The user swings its whole body to\n"
+    "attack with its huge hammer. This\n"
+    "move can't be used successively.");
 
 static const u8 sComeuppanceDescription[] = _(
-    "Retaliates strongly against\n"
-    "who last hurt the user.");
+    "The user retaliates with much\n"
+    "greater force against the foe\n"
+    "that last dealt damage on it.");
 
 static const u8 sAquaCutterDescription[] = _(
-    "Pressurized water cut with a\n"
-    "high critical-hit ratio.");
+    "The user expels pressurized water\n"
+    "to cut at the foe like a blade.\n"
+    "Critical hits land more easily.");
 
 static const u8 sBlazingTorqueDescription[] = _(
-    "A furious spin attack that\n"
-    "may burn the foe.");
+    "---");
 
 static const u8 sWickedTorqueDescription[] = _(
     "---");
@@ -3957,12 +3994,64 @@ static const u8 sMagicalTorqueDescription[] = _(
     "---");
 
 static const u8 sPsybladeDescription[] = _(
-    "This move's power increases\n"
-    "when on Electric Terrain.");
+    "The user rends the foe with an\n"
+    "ethereal blade. This move is\n"
+    "boosted on Electric Terrain.");
 
 static const u8 sHydroSteamDescription[] = _(
-    "This move's power increases\n"
-    "under harsh sunlight.");
+    "The user blasts the foe with\n"
+    "boiling water. This move is not\n"
+    "weakened in sunlight but boosted.");
+
+static const u8 sElectroShotDescription[] = _(
+    "Gathers electricity and boosts\n"
+    "its Sp. Atk on the first turn,\n"
+    "then attacks on the next turn.");
+
+static const u8 sFickleBeamDescription[] = _(
+    "The user shoots a beam of light.\n"
+    "Randomly the user's heads shoot\n"
+    "together, doubling its power.");
+
+static const u8 sBurningBulwarkDescription[] = _(
+    "Protects the user from attacks,\n"
+    "and also burns any attacker that\n"
+    "makes direct contact.");
+
+static const u8 sHardPressDescription[] = _(
+    "The foe is crushed with an arm,\n"
+    "a claw. The more HP the foe has\n"
+    "left, the greater move's power.");
+
+static const u8 sDragonCheerDescription[] = _(
+    "The user boosts its allies'\n"
+    "accuracy and critical hit ratio.\n"
+    "This rouses Dragon-types more.");
+
+static const u8 sAlluringVoiceDescription[] = _(
+    "The user sings using its angelic\n"
+    "voice. This confuses the foe if\n"
+    "its stats were boosted that turn.");
+
+static const u8 sTemperFlareDescription[] = _(
+    "Spurred by desperation, the user\n"
+    "attacks the foe. Boosted if the\n"
+    "user's previous move failed.");
+
+static const u8 sPsychicNoiseDescription[] = _(
+    "The user attacks the foe with\n"
+    "unpleasant sound waves. For 2\n"
+    "turns, the foe can't recover HP.");
+
+static const u8 sUpperHandDescription[] = _(
+    "Boosted and flinches the foe if\n"
+    "it is readying a priority move.\n"
+    "This move always goes first.");
+
+static const u8 sMalignantChainDescription[] = _(
+    "The user pours toxins into the\n"
+    "foe by wrapping them in chains.\n"
+    "This may badly poison the foe.");
 
 static const u8 sSpookDescription[] = _(
     "Switches out foe and lowers\n"
@@ -3971,48 +4060,6 @@ static const u8 sSpookDescription[] = _(
 static const u8 sChillyAirDescription[] = _(
     "Chills the foe to harshly\n"
     "lower Evasion and Speed.");
-
-static const u8 sElectroShotDescription[] = _(
-    "Gathers electricity and boosts\n"
-    "its Sp. Atk on the first turn,\n"
-    "then attacks on the next turn.");
-
-static const u8 sFickleBeamDescription[] = _(
-    "Shoots a beam of light.\n"
-    "Sometimes twice as strong.");
-
-static const u8 sBurningBulwarkDescription[] = _(
-    "Protects user and burns\n"
-    "foes on contact.");
-
-static const u8 sHardPressDescription[] = _(
-    "The foe is crushed with an arm,\n"
-    "a claw. The more HP the foe has\n"
-    "left, the greater move's power.");
-
-static const u8 sDragonCheerDescription[] = _(
-    "boosts ally's crit-rate and\n"
-    "Acc. Dragons are roused more.");
-
-static const u8 sAlluringVoiceDescription[] = _(
-    "Foes that have stats upped\n"
-    "this turn get confused.");
-
-static const u8 sTemperFlareDescription[] = _(
-    "Desperately attacks foe.\n"
-    "Stronger after a failure.");
-
-static const u8 sPsychicNoiseDescription[] = _(
-    "Uses Sound waves to prevent\n"
-    "the foe from recovering HP.");
-
-static const u8 sUpperHandDescription[] = _(
-    "Ups power and flinches versus\n"
-    "priority moves. Moves first.");
-
-static const u8 sMalignantChainDescription[] = _(
-    "Corrosive chains wrap around\n"
-    "the foe and may badly poison.");
 
 static const u8 sHitNRunDescription[] = _(
     "After running over the foe, the\n"
@@ -4682,6 +4729,11 @@ static const u8 sColdSnapDescription[] = _(
 static const u8 sColdMendDescription[] = _(
     "Restores HP. The amount\n"
     "varies with the weather.");
+
+static const u8 sHighJumpKickDescription[] = _(
+    "Attacks the foe with a\n"
+    "electrified dive. If this move\n"
+    "misses, the user is hurt instead.");
 
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
@@ -5522,8 +5574,6 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_MAGICAL_TORQUE - 1] = sMagicalTorqueDescription,
     [MOVE_PSYBLADE - 1] = sPsybladeDescription,
     [MOVE_HYDRO_STEAM - 1] = sHydroSteamDescription,
-    [MOVE_SPOOK - 1] = sSpookDescription,
-    [MOVE_CHILLY_AIR - 1] = sChillyAirDescription,
     [MOVE_ELECTRO_SHOT - 1] = sElectroShotDescription,
     [MOVE_FICKLE_BEAM - 1] = sFickleBeamDescription,
     [MOVE_BURNING_BULWARK - 1] = sBurningBulwarkDescription,
@@ -5535,6 +5585,8 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PSYCHIC_NOISE - 1] = sPsychicNoiseDescription,
     [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
+    [MOVE_SPOOK - 1] = sSpookDescription,
+    [MOVE_CHILLY_AIR - 1] = sChillyAirDescription,
     [MOVE_BUG_SNACK - 1] = sLeechLifeDescription,
     [MOVE_HIT_N_RUN - 1] = sHitNRunDescription,
     [MOVE_WYVERN_WAVE - 1] = sWyvernWaveDescription,
@@ -5719,7 +5771,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_TRUE_LOVES_KISS - 1] = sSplashDescription,
     [MOVE_SABRE_BREAK - 1] = sSabreBreakDescription,
     [MOVE_MIND_GAP - 1] = gNotDoneYetDescription,
-    [MOVE_SUPERCELL_SLAM - 1] = gNotDoneYetDescription,
+    [MOVE_SUPERCELL_SLAM - 1] = sSupercellSlamDescription,
     [MOVE_SWEET_WHISPERS - 1] = gNotDoneYetDescription,
     [MOVE_SYRUP_BOMB - 1] = gNotDoneYetDescription,
 };

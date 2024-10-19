@@ -13173,6 +13173,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .sheerForceBoost = TRUE,
+        .highCritRatio = TRUE,
     },
 
     [MOVE_JET_PUNCH] =
@@ -13884,43 +13885,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .zMoveEffect = Z_EFFECT_NONE,
     },
 
-    [MOVE_SPOOK] =
-    {
-        #if B_UPDATED_MOVE_DATA >= GEN_6
-            .accuracy = 0,
-        #else
-            .accuracy = 100,
-        #endif
-        .effect = EFFECT_SPOOK,
-        .power = 0,
-        .type = TYPE_GHOST,
-        .pp = 20,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = -6,
-        .split = SPLIT_STATUS,
-        .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
-        .ignoresProtect = B_UPDATED_MOVE_FLAGS >= GEN_6,
-        .magicCoatAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
-        .copycatBanned = TRUE,
-    },
-
-    [MOVE_CHILLY_AIR] =
-    {
-        .effect = EFFECT_CHILLY_AIR,
-        .power = 0,
-        .type = TYPE_ICE,
-        .accuracy = 100,
-        .pp = 10,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_BOTH,
-        .priority = 0,
-        .split = SPLIT_STATUS,
-        .zMoveEffect = Z_EFFECT_DEF_UP_1,
-        .magicCoatAffected = TRUE,
-        .windMove = TRUE,
-    },
-
     [MOVE_ELECTRO_SHOT] =
     {
         .effect = EFFECT_METEOR_BEAM,
@@ -14089,6 +14053,43 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_SPOOK] =
+    {
+        #if B_UPDATED_MOVE_DATA >= GEN_6
+            .accuracy = 0,
+        #else
+            .accuracy = 100,
+        #endif
+        .effect = EFFECT_SPOOK,
+        .power = 0,
+        .type = TYPE_GHOST,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = -6,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_SPDEF_UP_1,
+        .ignoresProtect = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .magicCoatAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
+        .copycatBanned = TRUE,
+    },
+
+    [MOVE_CHILLY_AIR] =
+    {
+        .effect = EFFECT_CHILLY_AIR,
+        .power = 0,
+        .type = TYPE_ICE,
+        .accuracy = 100,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_BOTH,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_DEF_UP_1,
+        .magicCoatAffected = TRUE,
+        .windMove = TRUE,
     },
 
     [MOVE_BUG_SNACK] =
