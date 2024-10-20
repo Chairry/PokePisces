@@ -315,7 +315,7 @@ const struct SpriteTemplate gSignalBeamGreenOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
-const struct SpriteTemplate gDecayBeamRedOrbSpriteTemplate =
+const struct SpriteTemplate gDecayBeamBlueOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_RED_ORB,
     .paletteTag = ANIM_TAG_WATER_ORB,
@@ -326,7 +326,7 @@ const struct SpriteTemplate gDecayBeamRedOrbSpriteTemplate =
     .callback = AnimToTargetInSinWave,
 };
 
-const struct SpriteTemplate gDecayBeamGreenOrbSpriteTemplate =
+const struct SpriteTemplate gDecayBeamBrownOrbSpriteTemplate =
 {
     .tileTag = ANIM_TAG_GLOWY_GREEN_ORB,
     .paletteTag = ANIM_TAG_MUD_SAND,

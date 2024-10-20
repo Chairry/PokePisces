@@ -50,6 +50,7 @@
     F(TROP_KICK) \
     F(RETALIATE) \
     F(SPIRIT_BREAK) \
+    F(GEO_PULSE) \
     F(BRICK_BREAK) \
     F(ROCK_SLIDE) \
     F(ZING_ZAP) \
@@ -57,7 +58,6 @@
     F(AURORA_BEAM) \
     F(DRAGON_CLAW) \
     F(PSYSHOCK) \
-    F(GEO_PULSE) \
     F(DAZZLING_GLEAM) \
     F(AURA_SPHERE) \
     F(DARK_PULSE) \

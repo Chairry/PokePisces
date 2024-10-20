@@ -10246,16 +10246,8 @@ BattleScript_EffectStickyHold::
 	end
 
 BattleScript_EffectDefenseUpHit::
-	jumpifmove MOVE_GEO_PULSE, BattleScript_CheckDefenseUpHitDoubles
-BattleScript_DoDefenseUpHit::
 	setmoveeffect MOVE_EFFECT_DEF_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
-BattleScript_CheckDefenseUpHitDoubles::
-	jumpifbattletype BATTLE_TYPE_DOUBLE, BattleScript_DefenseUpHitDoubles
-	goto BattleScript_DoDefenseUpHit
-BattleScript_DefenseUpHitDoubles::
-	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_NoMoveEffect
-	goto BattleScript_DoDefenseUpHit
 
 BattleScript_EffectAttackUpHit::
 	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER

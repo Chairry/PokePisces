@@ -20493,8 +20493,8 @@ Move_DECAY_BEAM::
 	waitforvisualfinish
 	end
 DecayBeamOrbs:
-	createsprite gDecayBeamRedOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, 16
-	createsprite gDecayBeamGreenOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
+	createsprite gDecayBeamBlueOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, 16
+	createsprite gDecayBeamBrownOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
 	delay 1
 	return
 

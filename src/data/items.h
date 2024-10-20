@@ -7779,7 +7779,7 @@ const struct Item gItems[] =
     {
         .name = _("TM48"),
         .price = 3000,
-        .description = sTM53Desc,
+        .description = sTM48Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7789,9 +7789,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_SPIRIT_BREAK] =
     {
-        .name = _("TM48"),
+        .name = _("TM49"),
         .price = 3000,
-        .description = sTM48Desc,
+        .description = sTM49Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7801,9 +7801,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_BRICK_BREAK] =
     {
-        .name = _("TM50"),
+        .name = _("TM51"),
         .price = 3000,
-        .description = sTM49Desc,
+        .description = sTM51Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7813,9 +7813,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ROCK_SLIDE] =
     {
-        .name = _("TM51"),
+        .name = _("TM52"),
         .price = 3000,
-        .description = sTM50Desc,
+        .description = sTM52Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7825,9 +7825,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ZING_ZAP] =
     {
-        .name = _("TM52"),
+        .name = _("TM53"),
         .price = 3000,
-        .description = sTM51Desc,
+        .description = sTM53Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7837,9 +7837,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_FLASH_CANNON] =
     {
-        .name = _("TM53"),
+        .name = _("TM54"),
         .price = 3000,
-        .description = sTM52Desc,
+        .description = sTM54Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7849,9 +7849,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DRAGON_CLAW] =
     {
-        .name = _("TM54"),
+        .name = _("TM55"),
         .price = 3000,
-        .description = sTM54Desc,
+        .description = sTM55Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7861,9 +7861,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_PSYSHOCK] =
     {
-        .name = _("TM55"),
+        .name = _("TM56"),
         .price = 3000,
-        .description = sTM55Desc,
+        .description = sTM56Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7873,9 +7873,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_GEO_PULSE] =
     {
-        .name = _("TM56"),
+        .name = _("TM49"),
         .price = 3000,
-        .description = sTM56Desc,
+        .description = sTM49Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
