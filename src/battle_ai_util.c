@@ -413,6 +413,8 @@ static const u16 sIgnoredPowerfulMoveEffects[] =
     EFFECT_AIR_CANNON,
     EFFECT_RECHARGE_REDUCE,
     EFFECT_FLEUR_CANNON,
+    EFFECT_AXEL_HEEL,
+    EFFECT_MIND_BREAK,
     IGNORED_MOVES_END
 };
 
@@ -866,10 +868,16 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
                 dmg = gBattleMons[battlerAtk].level * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
                 break;
             case EFFECT_DRAGON_RAGE:
-                dmg = 40 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                if (gBattleMons[battlerAtk].level > 49)
+                    dmg = 140 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                else
+                    dmg = 40 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
                 break;
             case EFFECT_SONICBOOM:
-                dmg = 20 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                if (gBattleMons[battlerAtk].level > 49)
+                    dmg = 120 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                else
+                    dmg = 20 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
                 break;
             case EFFECT_MULTI_HIT:
             case EFFECT_BLACK_BUFFET:
@@ -1466,6 +1474,7 @@ bool32 IsNonVolatileStatusMoveEffect(u32 moveEffect)
     case EFFECT_STUN_SPORE:
     case EFFECT_POISON_POWDER:
     case EFFECT_MAGIC_POWDER:
+    case EFFECT_WORRY_SEED:
         return TRUE;
     default:
         return FALSE;
@@ -1514,6 +1523,7 @@ bool32 IsStatLoweringMoveEffect(u32 moveEffect)
     case EFFECT_COTTON_SPORE:
     case EFFECT_FEATHER_DANCE:
     case EFFECT_KINESIS:
+    case EFFECT_POWDER:
         return TRUE;
     default:
         return FALSE;
@@ -2182,6 +2192,7 @@ bool32 IsTrappingMoveEffect(u32 effect)
     case EFFECT_SNAP_TRAP:
     case EFFECT_CONSTRICT:
     case EFFECT_BLOCK:
+    case EFFECT_HEAL_BLOCK:
     //case EFFECT_NO_RETREAT:   // TODO
         return TRUE;
     default:
@@ -2329,6 +2340,7 @@ bool32 IsStatLoweringEffect(u32 effect)
     case EFFECT_COTTON_SPORE:
     case EFFECT_FEATHER_DANCE:
     case EFFECT_KINESIS:
+    case EFFECT_POWDER:
         return TRUE;
     default:
         return FALSE;
@@ -3475,7 +3487,8 @@ bool32 PartnerMoveEffectIsStatusSameTarget(u32 battlerAtkPartner, u32 battlerDef
        || gBattleMoves[partnerMove].effect == EFFECT_SLEEP_POWDER
        || gBattleMoves[partnerMove].effect == EFFECT_STUN_SPORE
        || gBattleMoves[partnerMove].effect == EFFECT_POISON_POWDER
-       || gBattleMoves[partnerMove].effect == EFFECT_MAGIC_POWDER))
+       || gBattleMoves[partnerMove].effect == EFFECT_MAGIC_POWDER
+       || gBattleMoves[partnerMove].effect == EFFECT_WORRY_SEED))
         return TRUE;
     return FALSE;
 }
