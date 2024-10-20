@@ -26,8 +26,8 @@
 #define EFFECT_SPECIAL_DEFENSE_DOWN         22
 #define EFFECT_ACCURACY_DOWN                23
 #define EFFECT_EVASION_DOWN                 24
-#define EFFECT_HAZE                         25
-#define EFFECT_BIDE                         26
+#define EFFECT_HAZE                         25 //Changed in Pisces, added in checks for Substitute and Screens to existing EFFECT_HAZE code
+#define EFFECT_BIDE                         26 //Changed in Pisces, lowered HP thresholds for preventing use due to defense raises in EFFECT_BIDE code
 #define EFFECT_RAMPAGE                      27
 #define EFFECT_ROAR                         28
 #define EFFECT_MULTI_HIT                    29
@@ -37,17 +37,17 @@
 #define EFFECT_TOXIC                        33
 #define EFFECT_PAY_DAY                      34
 #define EFFECT_LIGHT_SCREEN                 35
-#define EFFECT_TRI_ATTACK                   36
+#define EFFECT_TRI_ATTACK                   36 //Added to AI_RISKY
 #define EFFECT_REST                         37
 #define EFFECT_OHKO                         38
 #define EFFECT_FUSION_COMBO                 39
 #define EFFECT_SUPER_FANG                   40
-#define EFFECT_DRAGON_RAGE                  41
+#define EFFECT_DRAGON_RAGE                  41 //Changed in Pisces, added a new level-based conditional to the fixed damage calc
 #define EFFECT_TRAP                         42
-#define EFFECT_HEAL_BLOCK                   43
+#define EFFECT_HEAL_BLOCK                   43 //Changed in Pisces, added in stuff from EFFECT_MEAN_LOOK to existing EFFECT_HEAL_BLOCK code
 #define EFFECT_RECOIL_IF_MISS               44
-#define EFFECT_MIST                         45
-#define EFFECT_FOCUS_ENERGY                 46
+#define EFFECT_MIST                         45 //Added to SETUP_FIRST_TURN, will need this and FLAG_SCREENER to be used often
+#define EFFECT_FOCUS_ENERGY                 46 //Changed in Pisces, added in check for ABILITY_INNER_FOCUS to existing EFFECT_FOCUS_ENERGY code
 #define EFFECT_RECOIL_25                    47
 #define EFFECT_CONFUSE                      48
 #define EFFECT_ATTACK_UP_2                  49
@@ -77,13 +77,13 @@
 #define EFFECT_EVASION_DOWN_HIT             73
 #define EFFECT_TWO_TURNS_ATTACK             74
 #define EFFECT_CONFUSE_HIT                  75
-#define EFFECT_VITAL_THROW                  76
+#define EFFECT_VITAL_THROW                  76 //Changed in Pisces, added in stuff from EFFECT_HIT_SWITCH_TARGET to existing EFFECT_VITAL_THROW code
 #define EFFECT_SUBSTITUTE                   77
 #define EFFECT_RECHARGE                     78
-#define EFFECT_RAGE                         79
+#define EFFECT_RAGE                         79 //Changed in Pisces, though according to EFFECT_REVELATION_DANCE, doesnt need special additional code
 #define EFFECT_MIMIC                        80
 #define EFFECT_METRONOME                    81
-#define EFFECT_LEECH_SEED                   82
+#define EFFECT_LEECH_SEED                   82 //Changed in Pisces, added in stuff from EFFECT_TRAP with a Blooming conditional to existing EFFECT_LEECH_SEED code
 #define EFFECT_DO_NOTHING                   83
 #define EFFECT_DISABLE                      84
 #define EFFECT_LEVEL_DAMAGE                 85
@@ -100,13 +100,13 @@
 #define EFFECT_DESTINY_BOND                 96
 #define EFFECT_FLAIL                        97
 #define EFFECT_SPITE                        98
-#define EFFECT_FALSE_SWIPE                  99
+#define EFFECT_FALSE_SWIPE                  99 //Changed in Pisces, though its level varying BP should not necessitate additional code
 #define EFFECT_HEAL_BELL                    100
 #define EFFECT_ALWAYS_CRIT                  101
-#define EFFECT_TRIPLE_KICK                  102
+#define EFFECT_TRIPLE_KICK                  102 //Added to AI_RISKY
 #define EFFECT_THIEF                        103
-#define EFFECT_MEAN_LOOK                    104
-#define EFFECT_NIGHTMARE                    105
+#define EFFECT_MEAN_LOOK                    104 //Changed in Pisces, added in stuff from EFFECT_FAKE_OUT to existing EFFECT_MEAN_LOOK code
+#define EFFECT_NIGHTMARE                    105 //Changed in Pisces, added in stuff from EFFECT_SLEEP and conditionals on whether or not the target is currently asleep to existing EFFECT_NIGHTMARE code
 #define EFFECT_MINIMIZE                     106
 #define EFFECT_CURSE                        107
 #define EFFECT_HEALING_WISH                 108
@@ -128,8 +128,8 @@
 #define EFFECT_BATON_PASS                   124
 #define EFFECT_PURSUIT                      125
 #define EFFECT_RAPID_SPIN                   126
-#define EFFECT_SONICBOOM                    127
-#define EFFECT_CAPTIVATE                    128
+#define EFFECT_SONICBOOM                    127 //Changed in Pisces, added a new level-based conditional to the fixed damage calc
+#define EFFECT_CAPTIVATE                    128                  //This move appears to have no special AI code although I think it needs some. Will come back to
 #define EFFECT_MORNING_SUN                  129
 #define EFFECT_SYNTHESIS                    130
 #define EFFECT_MOONLIGHT                    131
@@ -145,7 +145,7 @@
 #define EFFECT_MIRROR_COAT                  141
 #define EFFECT_SKULL_BASH                   142
 #define EFFECT_EARTHQUAKE                   143
-#define EFFECT_FUTURE_SIGHT                 144
+#define EFFECT_FUTURE_SIGHT                 144 //Added to AI_RISKY
 #define EFFECT_GUST                         145
 #define EFFECT_SOLAR_BEAM                   146
 #define EFFECT_THUNDER                      147
@@ -159,7 +159,7 @@
 #define EFFECT_STOCKPILE                    155
 #define EFFECT_SPIT_UP                      156
 #define EFFECT_SWALLOW                      157
-#define EFFECT_WORRY_SEED                   158
+#define EFFECT_WORRY_SEED                   158 //Changed in Pisces, added in stuff from EFFECT_TERRORIZE to existing EFFECT_WORRY_SEED code
 #define EFFECT_HAIL                         159
 #define EFFECT_TORMENT                      160
 #define EFFECT_FLATTER                      161
@@ -170,14 +170,14 @@
 #define EFFECT_SMELLINGSALT                 166
 #define EFFECT_FOLLOW_ME                    167
 #define EFFECT_NATURE_POWER                 168
-#define EFFECT_CHARGE                       169
+#define EFFECT_CHARGE                       169 //Changed in Pisces, added in ELECTRIC_TERRAIN conditional to existing EFFECT_CHARGE code
 #define EFFECT_TAUNT                        170
 #define EFFECT_HELPING_HAND                 171
 #define EFFECT_TRICK                        172
 #define EFFECT_ROLE_PLAY                    173
 #define EFFECT_WISH                         174
 #define EFFECT_ASSIST                       175
-#define EFFECT_INGRAIN                      176
+#define EFFECT_INGRAIN                      176 //Changed in Pisces, added in self-Blooming conditional
 #define EFFECT_SUPERPOWER                   177
 #define EFFECT_MAGIC_COAT                   178
 #define EFFECT_RECYCLE                      179
@@ -188,11 +188,11 @@
 #define EFFECT_ENDEAVOR                     184
 #define EFFECT_ERUPTION                     185
 #define EFFECT_SKILL_SWAP                   186
-#define EFFECT_IMPRISON                     187
+#define EFFECT_IMPRISON                     187                 //Changed in Pisces but requires borrowed code from EFFECT_PURSUIT which is weird rn so saving for later
 #define EFFECT_REFRESH                      188
 #define EFFECT_GRUDGE                       189
 #define EFFECT_SNATCH                       190
-#define EFFECT_LOW_KICK                     191
+#define EFFECT_LOW_KICK                     191 //Changed in Pisces, added in Gravity check
 #define EFFECT_SECRET_POWER                 192
 #define EFFECT_RECOIL_33                    193
 #define EFFECT_TEETER_DANCE                 194
@@ -217,11 +217,11 @@
 #define EFFECT_NATURAL_GIFT                 211
 #define EFFECT_WAKE_UP_SLAP                 212
 #define EFFECT_WRING_OUT                    213
-#define EFFECT_HEX                          214
+#define EFFECT_HEX                          214                 //Changed in Pisces but requires borrowed code from EFFECT_SPITE which is weird rn so saving for later
 #define EFFECT_ASSURANCE                    215
 #define EFFECT_TRUMP_CARD                   216
 #define EFFECT_ACROBATICS                   217
-#define EFFECT_HEAT_CRASH                   218
+#define EFFECT_HEAT_CRASH                   218 //Changed in Pisces, added in Gravity check
 #define EFFECT_PUNISHMENT                   219
 #define EFFECT_STORED_POWER                 220
 #define EFFECT_ELECTRO_BALL                 221
@@ -236,34 +236,34 @@
 #define EFFECT_FOUL_PLAY                    230
 #define EFFECT_PSYSHOCK                     231
 #define EFFECT_ROOST                        232
-#define EFFECT_GRAVITY                      233
-#define EFFECT_MIRACLE_EYE                  234
-#define EFFECT_TAILWIND                     235
+#define EFFECT_GRAVITY                      233 //Changed in Pisces, added checks for Gravity-benefitted damaging moves on the user, encouraging use if so
+#define EFFECT_MIRACLE_EYE                  234 //Changed completely in Pisces, added checks for positive stat changes on target and upped score accordingly
+#define EFFECT_TAILWIND                     235 //Changed in Pisces, added checks for Tailwind-benefitted damaging moves on the user, encouraging use if so
 #define EFFECT_EMBARGO                      236
 #define EFFECT_AQUA_RING                    237
 #define EFFECT_TRICK_ROOM                   238
-#define EFFECT_WONDER_ROOM                  239
+#define EFFECT_WONDER_ROOM                  239                 //Changed in Pisces but imma be real witcha chief I aint know where to start
 #define EFFECT_MAGIC_ROOM                   240
-#define EFFECT_MAGNET_RISE                  241
+#define EFFECT_MAGNET_RISE                  241 //Changed in Pisces, added in stuff from EFFECT_SPEED_UP to existing EFFECT_MAGNET_RISE code
 #define EFFECT_TOXIC_SPIKES                 242
 #define EFFECT_GASTRO_ACID                  243
 #define EFFECT_STEALTH_ROCK                 244
-#define EFFECT_TELEKINESIS                  245
-#define EFFECT_POWER_SWAP                   246
+#define EFFECT_TELEKINESIS                  245 //Changed in Pisces, added in stuff from EFFECT_TRAP to existing EFFECT_TELEKINESIS code
+#define EFFECT_POWER_SWAP                   246                 //Following 5 effects are tough to handle so I'm leaving them for now
 #define EFFECT_GUARD_SWAP                   247
 #define EFFECT_HEART_SWAP                   248
 #define EFFECT_POWER_SPLIT                  249
 #define EFFECT_GUARD_SPLIT                  250
 #define EFFECT_STICKY_WEB                   251
 #define EFFECT_METAL_BURST                  252
-#define EFFECT_LUCKY_CHANT                  253
+#define EFFECT_LUCKY_CHANT                  253 //Changed in Pisces, Lucky Chant is just plain better here so I upped the scores and added to SETUP_FIRST_TURN
 #define EFFECT_SUCKER_PUNCH                 254
 #define EFFECT_SPECIAL_DEFENSE_DOWN_HIT_2   255
 #define EFFECT_SIMPLE_BEAM                  256
 #define EFFECT_ENTRAINMENT                  257
 #define EFFECT_HEAL_PULSE                   258
 #define EFFECT_QUASH                        259
-#define EFFECT_ION_DELUGE                   260
+#define EFFECT_ION_DELUGE                   260 //Changed in Pisces, effect is more powerful so upped scores and adjusted conditionals some
 #define EFFECT_FREEZE_DRY                   261
 #define EFFECT_TOPSY_TURVY                  262
 #define EFFECT_MISTY_TERRAIN                263
@@ -279,7 +279,7 @@
 #define EFFECT_QUIVER_DANCE                 273
 #define EFFECT_COIL                         274
 #define EFFECT_ELECTRIFY                    275
-#define EFFECT_REFLECT_TYPE                 276
+#define EFFECT_REFLECT_TYPE                 276                 //Changed in Pisces but imma be real witcha chief I aint know where to start
 #define EFFECT_SOAK                         277
 #define EFFECT_GROWTH                       278
 #define EFFECT_CLOSE_COMBAT                 279
@@ -290,8 +290,8 @@
 #define EFFECT_SHELL_SMASH                  284
 #define EFFECT_SHIFT_GEAR                   285
 #define EFFECT_DEFENSE_UP_3                 286
-#define EFFECT_NOBLE_ROAR                   287
-#define EFFECT_VENOM_DRENCH                 288
+#define EFFECT_NOBLE_ROAR                   287 //Changed completely in Pisces, copied EFFECT_FAKE_OUT
+#define EFFECT_VENOM_DRENCH                 288 //Changed in Pisces, effect is more powerful so upped scores and adjusted conditionals some
 #define EFFECT_TOXIC_THREAD                 289
 #define EFFECT_CLEAR_SMOG                   290
 #define EFFECT_HIT_SWITCH_TARGET            291
@@ -301,14 +301,14 @@
 #define EFFECT_COPYCAT                      295
 #define EFFECT_DEFOG                        296
 #define EFFECT_HIT_ENEMY_HEAL_ALLY          297
-#define EFFECT_SMACK_DOWN                   298
+#define EFFECT_SMACK_DOWN                   298 //Changed in Pisces, added in Gravity check
 #define EFFECT_SYNCHRONOISE                 299
 #define EFFECT_PSYCHO_SHIFT                 300
 #define EFFECT_POWER_TRICK                  301
 #define EFFECT_FLAME_BURST                  302
 #define EFFECT_AFTER_YOU                    303
 #define EFFECT_BESTOW                       304
-#define EFFECT_ROTOTILLER                   305
+#define EFFECT_ROTOTILLER                   305                  //Both this and FLOWER_SHIELD below have similar uncoded effects. Waiting on these
 #define EFFECT_FLOWER_SHIELD                306
 #define EFFECT_HIT_PREVENT_ESCAPE           307
 #define EFFECT_SPEED_SWAP                   308
@@ -319,8 +319,8 @@
 #define EFFECT_FEINT                        313
 #define EFFECT_SPARKLING_ARIA               314
 #define EFFECT_ACUPRESSURE                  315
-#define EFFECT_AROMATIC_MIST                316
-#define EFFECT_POWDER                       317
+#define EFFECT_AROMATIC_MIST                316                  //Move is already coded kinda lackluster, will come back to
+#define EFFECT_POWDER                       317 //Changed in Pisces, added in code from EFFECT_ACCURACY_DOWN to existing EFFECT_POWDER code
 #define EFFECT_SP_ATTACK_UP_HIT             318
 #define EFFECT_BELCH                        319
 #define EFFECT_PARTING_SHOT                 320
@@ -357,7 +357,7 @@
 #define EFFECT_SNIPE_SHOT                   351
 #define EFFECT_RECOIL_HP_25                 352
 #define EFFECT_STUFF_CHEEKS                 353
-#define EFFECT_GRAV_APPLE                   354
+#define EFFECT_GRAV_APPLE                   354 //Changed in Pisces, added in code from EFFECT_FLINCH_HIT under a Blooming conditional to existing EFFECT_GRAV_APPLE code
 #define EFFECT_EVASION_UP_HIT               355
 #define EFFECT_GLITZY_GLOW                  356
 #define EFFECT_BADDY_BAD                    357
@@ -397,7 +397,7 @@
 #define EFFECT_PSYBLADE                     391
 #define EFFECT_HYDRO_STEAM                  392
 #define EFFECT_HIT_SET_ENTRY_HAZARD         393
-#define EFFECT_DIRE_CLAW                    394
+#define EFFECT_DIRE_CLAW                    394 //Added to AI_RISKY
 #define EFFECT_BARB_BARRAGE                 395
 #define EFFECT_REVIVAL_BLESSING             396
 #define EFFECT_FROSTBITE_HIT                397
@@ -604,24 +604,24 @@
 #define EFFECT_STALAG_BLAST                 598 //AI Flags added, made new code based off EFFECT_BELLY_DRUM. If AI_RISKY and not HP_AWARE, will use recklessly
 #define EFFECT_MOON_BEAM                    599 //AI Flags complete
 #define EFFECT_HUNKER_DOWN                  600 //AI Flags added, copied stuff from EFFECT_GEOMANCY
-#define EFFECT_POISON_GAS                   601
-#define EFFECT_HIGH_ROLL_HIT                602
-#define EFFECT_SPINDA_SWING                 603
-#define EFFECT_WILD_CHARGE                  604
-#define EFFECT_STORM_CHASE                  605
-#define EFFECT_STORM_FURY                   606
-#define EFFECT_SUBMISSION                   607
-#define EFFECT_DRAGON_CLAW                  608
-#define EFFECT_CHEESE_STEAL                 609
-#define EFFECT_LEAF_TORNADO                 610
-#define EFFECT_AXEL_HEEL                    611
-#define EFFECT_MIND_BREAK                   612
-#define EFFECT_HAYWIRE                      613
-#define EFFECT_FLYING_PRESS                 614
-#define EFFECT_TRUE_LOVES_KISS              615
-#define EFFECT_SABRE_BREAK                  616
-#define EFFECT_SYRUP_BOMB                   617
-#define EFFECT_OCTAZOOKA                    618
+#define EFFECT_POISON_GAS                   601            //Purple Haze thing. Waiting to code
+#define EFFECT_HIGH_ROLL_HIT                602 //Just added to AI_RISKY, random damage moves are not particularly accounted for by the AI
+#define EFFECT_SPINDA_SWING                 603 //AI Flags added, simple check on if the user is Confused or not
+#define EFFECT_WILD_CHARGE                  604 //AI Flags complete
+#define EFFECT_STORM_CHASE                  605 //According to EFFECT_PARALYZE_HIT, this doesnt need any special AI code
+#define EFFECT_STORM_FURY                   606 //According to EFFECT_RAMPAGE, this doesnt need any special AI code
+#define EFFECT_SUBMISSION                   607 //AI Flags added, combined stuff from EFFECT_RECOIL_25, EFFECT_SUCKER_PUNCH and EFFECT_QUASH, may cause a bug
+#define EFFECT_DRAGON_CLAW                  608 //Just added to AI_RISKY, random damage moves are not particularly accounted for by the AI
+#define EFFECT_CHEESE_STEAL                 609            //No idea how to code this one
+#define EFFECT_LEAF_TORNADO                 610 //AI Flags added, Blooming conditional should be tested
+#define EFFECT_AXEL_HEEL                    611 //AI Flags complete
+#define EFFECT_MIND_BREAK                   612 //AI Flags added, checks for Panic or Confusion
+#define EFFECT_HAYWIRE                      613 //Should not need special AI code as damage is calculated beforehand into AI move preferences
+#define EFFECT_FLYING_PRESS                 614 //Copied EFFECT_RECOIL_25; should not need AI code for minimize damage
+#define EFFECT_TRUE_LOVES_KISS              615 //Joke move, does not need special code
+#define EFFECT_SABRE_BREAK                  616 //AI Flags added, combined stuff from EFFECT_FLINCH_HIT with a Frostbite/Freeze check, may cause a bug
+#define EFFECT_SYRUP_BOMB                   617 //AI Flags added, simply took from EFFECT_SPEED_DOWN and adjusted scores. Could maybe do more
+#define EFFECT_OCTAZOOKA                    618 //AI Flags complete
 
 #define NUM_BATTLE_MOVE_EFFECTS             619
 
