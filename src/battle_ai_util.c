@@ -1315,7 +1315,7 @@ s32 AI_GetAbility(u32 battlerId)
         return AI_PARTY->mons[GetBattlerSide(battlerId)][gBattlerPartyIndexes[battlerId]].ability;
 
     // Abilities that prevent fleeing - treat as always known
-    if (knownAbility == ABILITY_SHADOW_TAG || knownAbility == ABILITY_MAGNET_PULL || knownAbility == ABILITY_ARENA_TRAP || knownAbility == ABILITY_SPIRALYSIS)
+    if (knownAbility == ABILITY_SHADOW_TAG || knownAbility == ABILITY_MAGNET_PULL || knownAbility == ABILITY_ARENA_TRAP || knownAbility == ABILITY_SPIRALYSIS || knownAbility == ABILITY_STICKY_HOLD)
         return knownAbility;
 
     // Else, guess the ability
@@ -1717,6 +1717,7 @@ bool32 ShouldSetRain(u32 battlerAtk, u32 atkAbility, u32 holdEffect)
       || atkAbility == ABILITY_HYDRATION
       || atkAbility == ABILITY_RAIN_DISH
       || atkAbility == ABILITY_DRY_SKIN
+      || atkAbility == ABILITY_WATER_VEIL
       || HasMoveEffect(battlerAtk, EFFECT_THUNDER)
       || HasMoveEffect(battlerAtk, EFFECT_HURRICANE)
       || HasMoveEffect(battlerAtk, EFFECT_WEATHER_BALL)
@@ -3242,7 +3243,7 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 u32 ShouldTryToFlinch(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbility, u32 move)
 {
     if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER 
-      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS || defAbility == ABILITY_TITANIC))
+      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS || defAbility == ABILITY_TITANIC || defAbility == ABILITY_STEADFAST))
       || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
       || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
       || AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_SLOWER)) // Opponent goes first
@@ -3289,6 +3290,7 @@ bool32 ShouldFakeOut(u32 battlerAtk, u32 battlerDef, u32 move)
     && (AI_DATA->abilities[battlerDef]  == ABILITY_PROPELLER_TAIL 
         || AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST 
         || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS
+        || AI_DATA->abilities[battlerDef] == ABILITY_STEADFAST
         || AI_DATA->abilities[battlerDef] == ABILITY_TITANIC)))
         return FALSE;
 

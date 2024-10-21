@@ -895,8 +895,13 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 if (gBattleMoves[move].bitingMove)
                     RETURN_SCORE_PLUS(2);
                 break;
+            case ABILITY_OWN_TEMPO:
+                if (gBattleMoves[move].danceMove)
+                    RETURN_SCORE_PLUS(2);
+                break;
             case ABILITY_PRODIGY:
             case ABILITY_LOVESICK:
+            case ABILITY_PICKPOCKET:
                 if (AI_MoveMakesContact(aiData->abilities[battlerAtk], aiData->holdEffects[battlerAtk], move))
                     RETURN_SCORE_PLUS(2);
                 break;
@@ -959,6 +964,26 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             case ABILITY_EMPTY:
                 if (moveType == TYPE_NORMAL || moveType == TYPE_FIGHTING)
                     RETURN_SCORE_MINUS(20);
+                break;
+            case ABILITY_IMMUNITY:
+                if (moveType == TYPE_POISON)
+                    RETURN_SCORE_MINUS(20);
+                break;
+            case ABILITY_MAGMA_ARMOR:
+                if (moveType == TYPE_WATER)
+                    RETURN_SCORE_MINUS(6);
+                break;
+            case ABILITY_TOXIC_BOOST:
+                if (moveType == TYPE_POISON)
+                    RETURN_SCORE_MINUS(2);
+                break;
+            case ABILITY_FLARE_BOOST:
+                if (moveType == TYPE_FIRE)
+                    RETURN_SCORE_MINUS(2);
+                break;
+            case ABILITY_OVERCOAT:
+                if (AI_MoveMakesContact(aiData->abilities[battlerAtk], aiData->holdEffects[battlerAtk], move))
+                    RETURN_SCORE_PLUS(6);
                 break;
             case ABILITY_ALL_GAME:
                 if (moveType == TYPE_WATER || moveType == TYPE_GROUND)
@@ -2117,6 +2142,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 score -= 12;
             else
                 score += 5;
+            if (aiData->abilities[battlerAtk] == ABILITY_FOREWARN)
+                score += 3;
             break;
         case EFFECT_TELEPORT:
             score -= 10;
@@ -3601,6 +3628,10 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     break;  // handled in AI_HPAware
                 case ABILITY_PINK_MIST:
                     if (moveType == TYPE_PSYCHIC)
+                        RETURN_SCORE_MINUS(10);
+                    break;
+                case ABILITY_IMMUNITY:
+                    if (moveType == TYPE_POISON)
                         RETURN_SCORE_MINUS(10);
                     break;
                 case ABILITY_EMPTY:
