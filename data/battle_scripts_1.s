@@ -2296,7 +2296,7 @@ BattleScript_EffectDanceMania:
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
-	@savedancetargets @new
+	savedancetargets @new
 @BattleScript_DanceManiaLoop:
 	@jumpifdanceinvulnerable BS_TARGET, BattleScript_DanceManiaVul @ in semi-invulnerable state
 	trydancemania @trigger move execution for saved targets
