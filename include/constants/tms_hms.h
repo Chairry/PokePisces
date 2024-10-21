@@ -50,7 +50,6 @@
     F(TROP_KICK) \
     F(RETALIATE) \
     F(SPIRIT_BREAK) \
-    F(GEO_PULSE) \
     F(BRICK_BREAK) \
     F(ROCK_SLIDE) \
     F(ZING_ZAP) \
@@ -76,6 +75,7 @@
     F(SEED_BOMB) \
     F(DRAGON_PULSE) \
     F(ICICLE_CRASH) \
+    F(GEO_PULSE) \
     F(BODY_SLAM) \
     F(BUG_BUZZ) \
     F(THUNDERBOLT) \

@@ -7801,9 +7801,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_BRICK_BREAK] =
     {
-        .name = _("TM51"),
+        .name = _("TM50"),
         .price = 3000,
-        .description = sTM51Desc,
+        .description = sTM50Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7813,9 +7813,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ROCK_SLIDE] =
     {
-        .name = _("TM52"),
+        .name = _("TM51"),
         .price = 3000,
-        .description = sTM52Desc,
+        .description = sTM51Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7825,9 +7825,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ZING_ZAP] =
     {
-        .name = _("TM53"),
+        .name = _("TM52"),
         .price = 3000,
-        .description = sTM53Desc,
+        .description = sTM52Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7837,9 +7837,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_FLASH_CANNON] =
     {
-        .name = _("TM54"),
+        .name = _("TM53"),
         .price = 3000,
-        .description = sTM54Desc,
+        .description = sTM53Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7849,9 +7849,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DRAGON_CLAW] =
     {
-        .name = _("TM55"),
+        .name = _("TM54"),
         .price = 3000,
-        .description = sTM55Desc,
+        .description = sTM54Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7861,9 +7861,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_PSYSHOCK] =
     {
-        .name = _("TM56"),
+        .name = _("TM55"),
         .price = 3000,
-        .description = sTM56Desc,
+        .description = sTM55Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7873,9 +7873,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_GEO_PULSE] =
     {
-        .name = _("TM49"),
+        .name = _("TM74"),
         .price = 3000,
-        .description = sTM49Desc,
+        .description = sTM74Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7885,9 +7885,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DAZZLING_GLEAM] =
     {
-        .name = _("TM57"),
+        .name = _("TM56"),
         .price = 3000,
-        .description = sTM57Desc,
+        .description = sTM56Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7897,9 +7897,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_AURA_SPHERE] =
     {
-        .name = _("TM58"),
+        .name = _("TM57"),
         .price = 3000,
-        .description = sTM58Desc,
+        .description = sTM57Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7909,9 +7909,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DARK_PULSE] =
     {
-        .name = _("TM59"),
+        .name = _("TM58"),
         .price = 3000,
-        .description = sTM59Desc,
+        .description = sTM58Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7921,9 +7921,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_SHADOW_BALL] =
     {
-        .name = _("TM60"),
+        .name = _("TM59"),
         .price = 3000,
-        .description = sTM60Desc,
+        .description = sTM59Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7933,9 +7933,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_WILLPOWER] =
     {
-        .name = _("TM61"),
+        .name = _("TM60"),
         .price = 3000,
-        .description = sTM61Desc,
+        .description = sTM60Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7945,9 +7945,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_IRON_HEAD] =
     {
-        .name = _("TM62"),
+        .name = _("TM61"),
         .price = 3000,
-        .description = sTM62Desc,
+        .description = sTM61Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7957,9 +7957,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DIRE_CLAW] =
     {
-        .name = _("TM63"),
+        .name = _("TM62"),
         .price = 3000,
-        .description = sTM63Desc,
+        .description = sTM62Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7969,9 +7969,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_THROAT_CHOP] =
     {
-        .name = _("TM64"),
+        .name = _("TM63"),
         .price = 3000,
-        .description = sTM64Desc,
+        .description = sTM63Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7981,9 +7981,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_COOL_MIST] =
     {
-        .name = _("TM65"),
+        .name = _("TM64"),
         .price = 3000,
-        .description = sTM65Desc,
+        .description = sTM64Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -7993,9 +7993,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_SHADOW_CLAW] =
     {
-        .name = _("TM66"),
+        .name = _("TM65"),
         .price = 3000,
-        .description = sTM66Desc,
+        .description = sTM65Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8005,9 +8005,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ZEN_HEADBUTT] =
     {
-        .name = _("TM67"),
+        .name = _("TM66"),
         .price = 3000,
-        .description = sTM67Desc,
+        .description = sTM66Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8017,9 +8017,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_LUNGE] =
     {
-        .name = _("TM68"),
+        .name = _("TM67"),
         .price = 3000,
-        .description = sTM68Desc,
+        .description = sTM67Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8029,9 +8029,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_FIRE_LASH] =
     {
-        .name = _("TM69"),
+        .name = _("TM68"),
         .price = 3000,
-        .description = sTM69Desc,
+        .description = sTM68Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8041,9 +8041,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_BODY_PRESS] =
     {
-        .name = _("TM70"),
+        .name = _("TM69"),
         .price = 3000,
-        .description = sTM70Desc,
+        .description = sTM69Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8053,9 +8053,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_SCALD] =
     {
-        .name = _("TM71"),
+        .name = _("TM70"),
         .price = 3000,
-        .description = sTM71Desc,
+        .description = sTM70Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8065,9 +8065,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_SEED_BOMB] =
     {
-        .name = _("TM72"),
+        .name = _("TM71"),
         .price = 3000,
-        .description = sTM72Desc,
+        .description = sTM71Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8077,9 +8077,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_DRAGON_PULSE] =
     {
-        .name = _("TM73"),
+        .name = _("TM72"),
         .price = 3000,
-        .description = sTM73Desc,
+        .description = sTM72Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -8089,9 +8089,9 @@ const struct Item gItems[] =
 
     [ITEM_TM_ICICLE_CRASH] =
     {
-        .name = _("TM74"),
+        .name = _("TM73"),
         .price = 3000,
-        .description = sTM74Desc,
+        .description = sTM73Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
