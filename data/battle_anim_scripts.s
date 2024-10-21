@@ -857,8 +857,6 @@ gBattleAnims_Moves::
 	.4byte Move_MAGICAL_TORQUE
 	.4byte Move_PSYBLADE
 	.4byte Move_HYDRO_STEAM
-	.4byte Move_SPOOK
-	.4byte Move_CHILLY_AIR
 	.4byte Move_ELECTRO_SHOT
 	.4byte Move_FICKLE_BEAM
 	.4byte Move_BURNING_BULWARK
@@ -870,6 +868,8 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
+	.4byte Move_SPOOK
+	.4byte Move_CHILLY_AIR
     .4byte Move_BUG_SNACK
     .4byte Move_HIT_N_RUN
     .4byte Move_WYVERN_WAVE
@@ -20493,8 +20493,8 @@ Move_DECAY_BEAM::
 	waitforvisualfinish
 	end
 DecayBeamOrbs:
-	createsprite gDecayBeamRedOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, 16
-	createsprite gDecayBeamGreenOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
+	createsprite gDecayBeamBlueOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, 16
+	createsprite gDecayBeamBrownOrbSpriteTemplate, ANIM_TARGET, 3, 10, 10, 0, -16
 	delay 1
 	return
 

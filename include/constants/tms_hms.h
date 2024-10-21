@@ -57,7 +57,6 @@
     F(AURORA_BEAM) \
     F(DRAGON_CLAW) \
     F(PSYSHOCK) \
-    F(GEO_PULSE) \
     F(DAZZLING_GLEAM) \
     F(AURA_SPHERE) \
     F(DARK_PULSE) \
@@ -76,6 +75,7 @@
     F(SEED_BOMB) \
     F(DRAGON_PULSE) \
     F(ICICLE_CRASH) \
+    F(GEO_PULSE) \
     F(BODY_SLAM) \
     F(BUG_BUZZ) \
     F(THUNDERBOLT) \
