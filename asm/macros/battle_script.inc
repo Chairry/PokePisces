@@ -1914,8 +1914,16 @@
 	.4byte \failInstr
 	.endm
 
+	.macro savedancetargets
+	various 0, VARIOUS_SAVE_DANCE_TARGETS
+	.endm
+
 	.macro trydancemania
-	various BS_ATTACKER, VARIOUS_TRY_DANCE_MANIA
+	various 0, VARIOUS_TRY_DANCE_MANIA
+	.endm
+
+	.macro calldancemove
+	various 0, VARIOUS_CALL_DANCE_MOVE
 	.endm
 
 	.macro settracedability battler:req
@@ -2315,6 +2323,11 @@
 	.macro tailwindremoval failInstr:req
 	various BS_TARGET, VARIOUS_TAILWIND_REMOVAL
 	.4byte \failInstr
+	.endm
+
+	.macro jumpifdanceinvulnerable battler:req, jumpInstr:req
+	various \battler, VARIOUS_DANCE_MANIA_INVUL
+	.4byte \jumpInstr
 	.endm
 
 @ helpful macros
