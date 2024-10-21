@@ -328,86 +328,86 @@
 #define ABILITIES_COUNT_GEN9 299
 
 // PISCES
-#define ABILITY_EXTREMO 300
-#define ABILITY_FALLING 301
-#define ABILITY_GOLDEN_MEAN 302
-#define ABILITY_HEARTSTRINGS 303
-#define ABILITY_LOVESICK 304
-#define ABILITY_LUMBERING 305
-#define ABILITY_MELANCHOLIA 306
-#define ABILITY_MILKY_WAY 307
-#define ABILITY_MOCKING 308
-#define ABILITY_PRODIGY 309
-#define ABILITY_PUNISHER 310
-#define ABILITY_STARS_GRACE 311
-#define ABILITY_RESET 312
-#define ABILITY_REVERSI 313
-#define ABILITY_RISING 314
-#define ABILITY_RISKTAKER 315
-#define ABILITY_SADDENED 316
-#define ABILITY_SHAMBLES 317
-#define ABILITY_STELLAR_BODY 318
-#define ABILITY_SUGAR_COAT 319
-#define ABILITY_TIME_TURN 320
-#define ABILITY_TITANIC 321
-#define ABILITY_WITCHCRAFT 322
-#define ABILITY_FAST_TALKER 323
-#define ABILITY_SERENE_AURA 324
-#define ABILITY_AMBUSHER 325
-#define ABILITY_CACOPHONY 326
-#define ABILITY_CRUELTY 327
-#define ABILITY_FRIENDLY_AURA 328
-#define ABILITY_FROST_JAW 329
-#define ABILITY_FUDDLE_POINT 330
-#define ABILITY_MADNESS 331
-#define ABILITY_ONE_WAY_TRIP 332
-#define ABILITY_PURPLE_HAZE 333
-#define ABILITY_RAPID_FIRE 334
-#define ABILITY_SOUL_LOCKER 335
-#define ABILITY_SPIRALYSIS 336
-#define ABILITY_PINK_MIST 337
-#define ABILITY_AQUA_HEART 338
-#define ABILITY_BRANDING_CLAWS 339
-#define ABILITY_DISDAIN 340
-#define ABILITY_DISTURB 341
-#define ABILITY_DRACO_FORCE 342
-#define ABILITY_DRAINAGE 343
-#define ABILITY_DREAD_VEIL 344
-#define ABILITY_EMPTY 345
-#define ABILITY_ENDLESS 346
-#define ABILITY_ENTRANCING 347
-#define ABILITY_EVIL_EYE 348
-#define ABILITY_FREE_LOVE 349
-#define ABILITY_GHOULISH 350
-#define ABILITY_GLARING_STAGGER 351
-#define ABILITY_GUSTY 352
-#define ABILITY_HIBERNAL 353
-#define ABILITY_MYSTIC_ONE 354
-#define ABILITY_PERMAFROST 355
-#define ABILITY_POTENCY 356
-#define ABILITY_POWER_SPIKE 357
-#define ABILITY_ARBITER 358
-#define ABILITY_SEAFARER 359
-#define ABILITY_STAR_SCREEN 360
-#define ABILITY_STRONGHOLD 361
-#define ABILITY_TRANSFUSION 362
-#define ABILITY_WHITE_OUT 363
-#define ABILITY_CINDER_WALTZ 364
-#define ABILITY_IGNORANT_BLISS 365
-#define ABILITY_MIASMA 366
-#define ABILITY_HARDBOILED 367
-#define ABILITY_TOXIC_CHAIN 368
-#define ABILITY_WATCHER 369
-#define ABILITY_APPETITE 370
-#define ABILITY_ALL_GAME 371
-#define ABILITY_EGGS_ROYALE 372
-#define ABILITY_BROKEN 373
-#define ABILITY_SHUNYONG 374
-#define ABILITY_DOMINEER 375
-#define ABILITY_VERTIGO 376
-#define ABILITY_MIND_GAMES 377
-#define ABILITY_INFERNAL_REIGN 378
-#define ABILITY_STORM_BREW 379
+#define ABILITY_EXTREMO 300 //AI Flags complete
+#define ABILITY_FALLING 301 //Should not need special AI code
+#define ABILITY_GOLDEN_MEAN 302                //Already programmed for the Shunyong final boss battle
+#define ABILITY_HEARTSTRINGS 303                 //Whenever Intimidate gets its switch in code from expansion, return to this
+#define ABILITY_LOVESICK 304 //AI Flags complete, added new check for contact moves to raise score
+#define ABILITY_LUMBERING 305 //Should not need special AI code
+#define ABILITY_MELANCHOLIA 306 //Should not need special AI code
+#define ABILITY_MILKY_WAY 307 //Should not need special AI code
+#define ABILITY_MOCKING 308                 //Whenever Intimidate gets its switch in code from expansion, return to this
+#define ABILITY_PRODIGY 309 //AI Flags complete, added new check for contact moves to raise score
+#define ABILITY_PUNISHER 310 //Should not need special AI code
+#define ABILITY_STARS_GRACE 311 //Added to EFFECT_PROTECT so that it will stall out to reach its boost after 4 turns
+#define ABILITY_RESET 312 //Should not need special AI code
+#define ABILITY_REVERSI 313 //Should not need special AI code
+#define ABILITY_RISING 314 //Should not need special AI code
+#define ABILITY_RISKTAKER 315 //AI Flags complete, added to ABILITY_SERENE_GRACE and ABILITY_SUPER_LUCK code
+#define ABILITY_SADDENED 316 //Should not need special AI code
+#define ABILITY_SHAMBLES 317 //Should not need special AI code, priority and power increases should be baked into the damage calcs for moves automatically
+#define ABILITY_STELLAR_BODY 318             //No idea
+#define ABILITY_SUGAR_COAT 319 //AI Flags complete
+#define ABILITY_TIME_TURN 320 //Should not need special AI code
+#define ABILITY_TITANIC 321 //AI Flags complete (added to ABILITY_CLEAR_BODY and all status and hazards checks)
+#define ABILITY_WITCHCRAFT 322 //AI Flags complete (copied ABILITY_LIGHTNING_ROD)
+#define ABILITY_FAST_TALKER 323 //Should not need special AI code, priority should be baked into the damage calcs for moves automatically
+#define ABILITY_SERENE_AURA 324 //AI Flags complete
+#define ABILITY_AMBUSHER 325 //AI Flags added (checks if move is physical and is the first turn the mon is out)
+#define ABILITY_CACOPHONY 326 //AI Flags complete
+#define ABILITY_CRUELTY 327 //Should not need special AI code, power increases should be baked into the damage calcs for moves automatically
+#define ABILITY_FRIENDLY_AURA 328 //Should not need special AI code
+#define ABILITY_FROST_JAW 329 //AI Flags added, new code based slightly on Bulletproof's
+#define ABILITY_FUDDLE_POINT 330 //According to ABILITY_FLAME_BODY, should not need special AI code
+#define ABILITY_MADNESS 331 //Should not need special AI code
+#define ABILITY_ONE_WAY_TRIP 332 //AI Flags complete
+#define ABILITY_PURPLE_HAZE 333                //Will return to once reprogrammed
+#define ABILITY_RAPID_FIRE 334 //AI Flags complete (added to ABILITY_PARENTAL_BOND code)
+#define ABILITY_SOUL_LOCKER 335 //AI Flags complete (copied ABILITY_LIGHTNING_ROD)
+#define ABILITY_SPIRALYSIS 336 //AI Flags complete
+#define ABILITY_PINK_MIST 337 //AI Flags complete
+#define ABILITY_AQUA_HEART 338 //Should not need special AI code
+#define ABILITY_BRANDING_CLAWS 339 //AI Flags complete
+#define ABILITY_DISDAIN 340 //AI Flags complete
+#define ABILITY_DISTURB 341                 //Whenever Intimidate gets its switch in code from expansion, return to this
+#define ABILITY_DRACO_FORCE 342 //Should not need special AI code
+#define ABILITY_DRAINAGE 343 //Should not need special AI code, power increases should be baked into the damage calcs for moves automatically
+#define ABILITY_DREAD_VEIL 344 //According to ABILITY_FLAME_BODY, should not need special AI code
+#define ABILITY_EMPTY 345 //AI Flags complete
+#define ABILITY_ENDLESS 346 //Should not need special AI code
+#define ABILITY_ENTRANCING 347 //Should not need special AI code
+#define ABILITY_EVIL_EYE 348                 //Whenever Intimidate gets its switch in code from expansion, return to this
+#define ABILITY_FREE_LOVE 349 //AI Flags added (check for Free Love before using Attract)
+#define ABILITY_GHOULISH 350 //Should not need special AI code
+#define ABILITY_GLARING_STAGGER 351                 //Whenever Intimidate gets its switch in code from expansion, return to this
+#define ABILITY_GUSTY 352 //Should not need special AI code
+#define ABILITY_HIBERNAL 353 //AI Flags complete
+#define ABILITY_MYSTIC_ONE 354 //Should not need special AI code
+#define ABILITY_PERMAFROST 355 //AI Flags complete
+#define ABILITY_POTENCY 356 //Should not need special AI code
+#define ABILITY_POWER_SPIKE 357 //Should not need special AI code, power increases should be baked into the damage calcs for moves automatically
+#define ABILITY_ARBITER 358 //Should not need special AI code
+#define ABILITY_SEAFARER 359 //Should not need special AI code
+#define ABILITY_STAR_SCREEN 360 //Should not need special AI code
+#define ABILITY_STRONGHOLD 361 //Should not need special AI code
+#define ABILITY_TRANSFUSION 362 //Should not need special AI code
+#define ABILITY_WHITE_OUT 363 //AI Flags complete
+#define ABILITY_CINDER_WALTZ 364             //No idea
+#define ABILITY_IGNORANT_BLISS 365 //AI Flags complete
+#define ABILITY_MIASMA 366 //Should not need special AI code
+#define ABILITY_HARDBOILED 367 //Should not need special AI code
+#define ABILITY_TOXIC_CHAIN 368 //Should not need special AI code
+#define ABILITY_WATCHER 369 //Should not need special AI code
+#define ABILITY_APPETITE 370 //AI Flags complete
+#define ABILITY_ALL_GAME 371 //AI Flags complete
+#define ABILITY_EGGS_ROYALE 372 //Should not need special AI code
+#define ABILITY_BROKEN 373 //Should not need special AI code
+#define ABILITY_SHUNYONG 374                      //Boss battle only, needs specific coding
+#define ABILITY_DOMINEER 375 //Should not need special AI code
+#define ABILITY_VERTIGO 376 //Should not need special AI code
+#define ABILITY_MIND_GAMES 377 //Should not need special AI code
+#define ABILITY_INFERNAL_REIGN 378               //lol?????????????????????????????????????????????????????????????
+#define ABILITY_STORM_BREW 379 //Should not need special AI code
 #define ABILITY_BATTLE_FURY 380
 #define ABILITY_SHATTERFROST 381
 #define ABILITY_BAD_OMEN 382
