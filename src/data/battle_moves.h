@@ -9624,7 +9624,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 0,
         .type = TYPE_ELECTRIC,
         .accuracy = 0,
-        .pp = 10,
+        .pp = 5,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_BOTH,
         .priority = 1,
@@ -9826,7 +9826,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
         .power = 0,
         .type = TYPE_ELECTRIC,
         .accuracy = 0,
-        .pp = 20,
+        .pp = 10,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -16878,7 +16878,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_Z] =
 
     [MOVE_TORPEDOES] =
     {
-        .effect = EFFECT_SHELL_SIDE_ARM,
+        .effect = EFFECT_PHOTON_GEYSER,
         .power = 70,
         .type = TYPE_WATER,
         .accuracy = 100,
