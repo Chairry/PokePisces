@@ -3000,7 +3000,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_AQUA_RING: // aqua ring
             if ((gStatuses3[battler] & STATUS3_AQUA_RING) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && gBattleMons[battler].hp != 0)
             {
-                gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
+                gBattleMoveDamage = GetDrainedBigRootHp(battler, ((gBattleMons[battler].maxHP - gBattleMons[battler].hp) / 3));
                 BattleScriptExecute(BattleScript_AquaRingHeal);
                 effect++;
             }
