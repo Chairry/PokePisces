@@ -627,6 +627,15 @@ gSongTable::
 	song mus_ruby_field, 0, 0
 	song mus_ranger_lyra_forest, 0, 0
 	song mus_mt_freeze, 0, 0
+	song mus_ranger_ringtown, 0, 0
+	song mus_sunken_kuru_ruins, 0, 0
+	song mus_ranger_tutorial_capture, 0, 0
+	song mus_sinister_woods, 0, 0
+	song mus_silent_chasm, 0, 0
+	song mus_lapis_cave, 0, 0
+	song mus_mt_blaze, 0, 0
+	song mus_mt_blaze_peak, 0, 0
+	song mus_ninetales_legend, 0, 0
 
 	.align 2
 dummy_song_header:
