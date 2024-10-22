@@ -1264,6 +1264,15 @@ SECTIONS {
         sound/songs/midi/mus_ruby_field.o(.rodata);
         sound/songs/midi/mus_ranger_lyra_forest.o(.rodata);
         sound/songs/midi/mus_mt_freeze.o(.rodata);
+        sound/songs/midi/mus_ranger_ringtown.o(.rodata);
+        sound/songs/midi/mus_sunken_kuru_ruins.o(.rodata);
+        sound/songs/midi/mus_ranger_tutorial_capture.o(.rodata);
+        sound/songs/midi/mus_sinister_woods.o(.rodata);
+        sound/songs/midi/mus_silent_chasm.o(.rodata);
+        sound/songs/midi/mus_lapis_cave.o(.rodata);
+        sound/songs/midi/mus_mt_blaze.o(.rodata);
+        sound/songs/midi/mus_mt_blaze_peak.o(.rodata);
+        sound/songs/midi/mus_ninetales_legend.o(.rodata);
 
     } =0
 

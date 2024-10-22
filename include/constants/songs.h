@@ -559,8 +559,17 @@
 #define MUS_RUBY_FIELD              623
 #define MUS_RANGER_LYRA_FOREST      624
 #define MUS_MT_FREEZE               625
+#define MUS_RANGER_RINGTOWN         626
+#define MUS_SUNKEN_KURU_RUINS       627
+#define MUS_RANGER_TUTORIAL_CAPTURE 628
+#define MUS_SINISTER_WOODS          629
+#define MUS_SILENT_CHASM            630
+#define MUS_LAPIS_CAVE              631
+#define MUS_MT_BLAZE                632
+#define MUS_MT_BLAZE_PEAK           633
+#define MUS_NINETALES_LEGEND        634
 
-#define END_MUS                     MUS_MT_FREEZE
+#define END_MUS                     MUS_NINETALES_LEGEND
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
