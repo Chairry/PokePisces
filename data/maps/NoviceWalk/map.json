@@ -2,7 +2,7 @@
   "id": "MAP_NOVICE_WALK",
   "name": "NoviceWalk",
   "layout": "LAYOUT_NOVICE_WALK",
-  "music": "MUS_RG_SLOW_PALLET",
+  "music": "MUS_RUBY_FIELD",
   "region_map_section": "MAPSEC_ROUTE_130",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

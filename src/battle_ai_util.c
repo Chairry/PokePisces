@@ -297,6 +297,68 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_PERISH_BODY] = -1,
     [ABILITY_WANDERING_SPIRIT] = 2,
     [ABILITY_GORILLA_TACTICS] = 4,
+    [ABILITY_ALL_GAME] = 8,
+    [ABILITY_AMBUSHER] = 6,
+    [ABILITY_APPETITE] = 7,
+    [ABILITY_ARBITER] = 9,
+    [ABILITY_BRANDING_CLAWS] = 4,
+    [ABILITY_CINDER_WALTZ] = 10,
+    [ABILITY_CRUELTY] = 6,
+    [ABILITY_DISDAIN] = 7,
+    [ABILITY_DISTURB] = 7,
+    [ABILITY_DOMINEER] = 6,
+    [ABILITY_DRAINAGE] = 5,
+    [ABILITY_DREAD_VEIL] = 4,
+    [ABILITY_EGGS_ROYALE] = 8,
+    [ABILITY_EMPTY] = 8,
+    [ABILITY_ENDLESS] = 5,
+    [ABILITY_ENTRANCING] = 3,
+    [ABILITY_EVIL_EYE] = 7,
+    [ABILITY_EXTREMO] = 6,
+    [ABILITY_FALLING] = 9,
+    [ABILITY_FAST_TALKER] = 5,
+    [ABILITY_FREE_LOVE] = 4,
+    [ABILITY_FRIENDLY_AURA] = 2,
+    [ABILITY_FROST_JAW] = 6,
+    [ABILITY_FUDDLE_POINT] = 4,
+    [ABILITY_GHOULISH] = 9,
+    [ABILITY_GLARING_STAGGER] = 7,
+    [ABILITY_GOLDEN_MEAN] = 10,
+    [ABILITY_IGNORANT_BLISS] = 9,
+    [ABILITY_LUMBERING] = -1,
+    [ABILITY_MADNESS] = 4,
+    [ABILITY_MELANCHOLIA] = 5,
+    [ABILITY_MIASMA] = 4,
+    [ABILITY_MILKY_WAY] = 0,
+    [ABILITY_MIND_GAMES] = 9,
+    [ABILITY_MOCKING] = 7,
+    [ABILITY_MYSTIC_ONE] = 10,
+    [ABILITY_ONE_WAY_TRIP] = 4,
+    [ABILITY_PERMAFROST] = 6,
+    [ABILITY_PINK_MIST] = 8,
+    [ABILITY_POTENCY] = 6,
+    [ABILITY_POWER_SPIKE] = 5,
+    [ABILITY_PRODIGY] = 9,
+    [ABILITY_PUNISHER] = -1,
+    [ABILITY_RAPID_FIRE] = 10,
+    [ABILITY_RESET] = 10,
+    [ABILITY_REVERSI] = 8,
+    [ABILITY_RISING] = 9,
+    [ABILITY_SERENE_AURA] = 8,
+    [ABILITY_RISKTAKER] = 9,
+    [ABILITY_SADDENED] = -2,
+    [ABILITY_SHAMBLES] = 6,
+    [ABILITY_SOUL_LOCKER] = 7,
+    [ABILITY_SPIRALYSIS] = 8,
+    [ABILITY_STAR_SCREEN] = 6,
+    [ABILITY_STARS_GRACE] = 5,
+    [ABILITY_STELLAR_BODY] = -1,
+    [ABILITY_STRONGHOLD] = 10,
+    [ABILITY_TIME_TURN] = 8,
+    [ABILITY_TITANIC] = 10,
+    [ABILITY_TRANSFUSION] = 2,
+    [ABILITY_WHITE_OUT] = 5,
+    [ABILITY_WITCHCRAFT] = 7,
     [ABILITY_SHUNYONG] = 2,
 };
 
@@ -1661,6 +1723,8 @@ bool32 ShouldSetSandstorm(u32 battler, u32 ability, u32 holdEffect)
     if (ability == ABILITY_SAND_VEIL
       || ability == ABILITY_SAND_RUSH
       || ability == ABILITY_SAND_FORCE
+      || ability == ABILITY_WIND_POWER
+      || ability == ABILITY_WIND_RIDER
       || ability == ABILITY_OVERCOAT
       || ability == ABILITY_MAGIC_GUARD
       || ability == ABILITY_SUGAR_COAT
@@ -3243,7 +3307,7 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
 u32 ShouldTryToFlinch(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbility, u32 move)
 {
     if (((AI_DATA->abilities[battlerAtk] != ABILITY_MOLD_BREAKER 
-      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS || defAbility == ABILITY_TITANIC || defAbility == ABILITY_STEADFAST))
+      && (defAbility == ABILITY_PROPELLER_TAIL || defAbility == ABILITY_SHIELD_DUST || defAbility == ABILITY_INNER_FOCUS || defAbility == ABILITY_TITANIC || defAbility == ABILITY_STEADFAST || defAbility == ABILITY_PROPELLER_TAIL))
       || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_COVERT_CLOAK
       || DoesSubstituteBlockMove(battlerAtk, battlerDef, move)
       || AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_SLOWER)) // Opponent goes first
@@ -3291,7 +3355,8 @@ bool32 ShouldFakeOut(u32 battlerAtk, u32 battlerDef, u32 move)
         || AI_DATA->abilities[battlerDef] == ABILITY_SHIELD_DUST 
         || AI_DATA->abilities[battlerDef] == ABILITY_INNER_FOCUS
         || AI_DATA->abilities[battlerDef] == ABILITY_STEADFAST
-        || AI_DATA->abilities[battlerDef] == ABILITY_TITANIC)))
+        || AI_DATA->abilities[battlerDef] == ABILITY_TITANIC
+        || AI_DATA->abilities[battlerDef] == ABILITY_PROPELLER_TAIL)))
         return FALSE;
 
     return TRUE;

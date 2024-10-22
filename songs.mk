@@ -1309,4 +1309,31 @@ $(MID_SUBDIR)/mus_ranger_lyra_forest.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
 
 $(MID_SUBDIR)/mus_mt_freeze.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090 
+
+$(MID_SUBDIR)/mus_ranger_ringtown.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
+
+$(MID_SUBDIR)/mus_sunken_kuru_ruins.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
+
+$(MID_SUBDIR)/mus_ranger_tutorial_capture.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V090
+
+$(MID_SUBDIR)/mus_sinister_woods.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V110
+
+$(MID_SUBDIR)/mus_silent_chasm.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_lapis_cave.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V100
+
+$(MID_SUBDIR)/mus_mt_blaze.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V110
+
+$(MID_SUBDIR)/mus_mt_blaze_peak.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V110
+
+$(MID_SUBDIR)/mus_ninetales_legend.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G195 -V110

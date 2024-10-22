@@ -2,7 +2,7 @@
   "id": "MAP_THE_COLD_MINES",
   "name": "TheColdMines",
   "layout": "LAYOUT_THE_COLD_MINES",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_MT_FREEZE",
   "region_map_section": "MAPSEC_ROUTE_107",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

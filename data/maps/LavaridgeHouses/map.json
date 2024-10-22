@@ -2,7 +2,7 @@
   "id": "MAP_LAVARIDGE_HOUSES",
   "name": "LavaridgeHouses",
   "layout": "LAYOUT_LAVARIDGE_HOUSES",
-  "music": "MUS_RG_MYSTERY_GIFT",
+  "music": "MUS_RANGER_RINGTOWN",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

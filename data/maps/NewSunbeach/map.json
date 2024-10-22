@@ -2,7 +2,7 @@
   "id": "MAP_NEW_SUNBEACH",
   "name": "NewSunbeach",
   "layout": "LAYOUT_NEW_SUNBEACH",
-  "music": "MUS_RG_FUCHSIA",
+  "music": "MUS_RANGER_LYRA_FOREST",
   "region_map_section": "MAPSEC_ROUTE_106",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

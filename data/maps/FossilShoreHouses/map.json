@@ -2,7 +2,7 @@
   "id": "MAP_FOSSIL_SHORE_HOUSES",
   "name": "FossilShoreHouses",
   "layout": "LAYOUT_FOSSIL_SHORE_HOUSES",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RG_MYSTERY_GIFT",
   "region_map_section": "MAPSEC_JAGGED_PASS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

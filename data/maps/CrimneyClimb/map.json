@@ -2,7 +2,7 @@
   "id": "MAP_CRIMNEY_CLIMB",
   "name": "CrimneyClimb",
   "layout": "LAYOUT_CRIMNEY_CLIMB",
-  "music": "MUS_ROUTE122",
+  "music": "MUS_MT_BLAZE",
   "region_map_section": "MAPSEC_ROUTE_117",
   "requires_flash": false,
   "weather": "WEATHER_DROUGHT",

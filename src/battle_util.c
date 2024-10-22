@@ -5520,7 +5520,21 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         case ABILITY_HUDDLE_UP:
             if (gBattleMons[battler].level < 25)
                 break;
-        // Fallthrough
+            if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_HP_PERCENT))
+            {
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
+                effect++;
+            }
+            else if ((gBattleMons[battler].level > 39) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+            {
+                BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
+                gBattleMoveDamage = gBattleMons[battler].maxHP / (gLastUsedAbility == ABILITY_HUDDLE_UP ? 16 : 8);
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+                gBattleMoveDamage *= -1;
+                effect++;
+            }
+            break;
         case ABILITY_ZEN_MODE:
         case ABILITY_SHIELDS_DOWN:
             if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_HP_PERCENT))
@@ -7853,7 +7867,9 @@ bool32 IsMoldBreakerTypeAbility(u32 battler, u32 ability)
         return FALSE;
 
     return (ability == ABILITY_MOLD_BREAKER || ability == ABILITY_TERAVOLT || ability == ABILITY_TURBOBLAZE || ability == ABILITY_IGNORANT_BLISS 
-        || (ability == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gCurrentMove)));
+        || (ability == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gCurrentMove))
+        || (ability == ABILITY_AQUA_HEART && (gBattleMoves[gCurrentMove].type == TYPE_NORMAL))
+        || (ability == ABILITY_DRACO_FORCE && (gBattleMoves[gCurrentMove].type == TYPE_NORMAL)));
 }
 
 bool32 IsIgnorantBliss(u32 battler, u32 ability)
@@ -12957,6 +12973,11 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
         defStage = DEFAULT_STAT_STAGE;
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_IGNORANT_BLISS)
+        defStage = DEFAULT_STAT_STAGE;
+    //aqua heart and draco force make normal moves ignore stat changes
+    if (atkAbility == ABILITY_AQUA_HEART && moveType == TYPE_NORMAL)
+        defStage = DEFAULT_STAT_STAGE;
+    if (atkAbility == ABILITY_DRACO_FORCE && moveType == TYPE_NORMAL)
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)

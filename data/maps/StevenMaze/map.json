@@ -2,7 +2,7 @@
   "id": "MAP_STEVEN_MAZE",
   "name": "StevenMaze",
   "layout": "LAYOUT_STEVEN_MAZE",
-  "music": "MUS_RG_ROCKET_HIDEOUT",
+  "music": "MUS_SILENT_CHASM",
   "region_map_section": "MAPSEC_MOSSDEEP_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

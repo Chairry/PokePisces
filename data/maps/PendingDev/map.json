@@ -2,7 +2,7 @@
   "id": "MAP_PENDING_DEV",
   "name": "PendingDev",
   "layout": "LAYOUT_PENDING_DEV",
-  "music": "MUS_RG_PALLET",
+  "music": "MUS_ROUTE122",
   "region_map_section": "MAPSEC_ROUTE_131",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
