@@ -1945,8 +1945,8 @@ static const u8 sHeartSwapDescription[] = _(
 
 static const u8 sAquaRingDescription[] = _(
     "The user envelops itself in a\n"
-    "veil made of water. It regains\n"
-    "some HP every turn.");
+    "veil of water. It regains 1/3\n"
+    "of its missing HP every turn.");
 
 static const u8 sMagnetRiseDescription[] = _(
     "The user levitates using\n"

@@ -3000,7 +3000,7 @@ u8 DoBattlerEndTurnEffects(void)
         case ENDTURN_AQUA_RING: // aqua ring
             if ((gStatuses3[battler] & STATUS3_AQUA_RING) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && gBattleMons[battler].hp != 0)
             {
-                gBattleMoveDamage = GetDrainedBigRootHp(battler, gBattleMons[battler].maxHP / 16);
+                gBattleMoveDamage = GetDrainedBigRootHp(battler, ((gBattleMons[battler].maxHP - gBattleMons[battler].hp) / 3));
                 BattleScriptExecute(BattleScript_AquaRingHeal);
                 effect++;
             }
@@ -5525,7 +5525,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
                 effect++;
             }
-            else if ((gBattleMons[battler].level > 39) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
+            if ((gBattleMons[battler].level >= 40) && !BATTLER_MAX_HP(battler) && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK))
             {
                 BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
                 gBattleMoveDamage = gBattleMons[battler].maxHP / (gLastUsedAbility == ABILITY_HUDDLE_UP ? 16 : 8);
@@ -7868,8 +7868,8 @@ bool32 IsMoldBreakerTypeAbility(u32 battler, u32 ability)
 
     return (ability == ABILITY_MOLD_BREAKER || ability == ABILITY_TERAVOLT || ability == ABILITY_TURBOBLAZE || ability == ABILITY_IGNORANT_BLISS 
         || (ability == ABILITY_MYCELIUM_MIGHT && IS_MOVE_STATUS(gCurrentMove))
-        || (ability == ABILITY_AQUA_HEART && (gBattleMoves[gCurrentMove].type == TYPE_NORMAL))
-        || (ability == ABILITY_DRACO_FORCE && (gBattleMoves[gCurrentMove].type == TYPE_NORMAL)));
+        || (ability == ABILITY_AQUA_HEART && (gBattleMoves[gCurrentMove].type == TYPE_WATER && gBattleStruct->ateBoost[battler]))
+        || (ability == ABILITY_DRACO_FORCE && (gBattleMoves[gCurrentMove].type == TYPE_DRAGON && gBattleStruct->ateBoost[battler])));
 }
 
 bool32 IsIgnorantBliss(u32 battler, u32 ability)
@@ -12667,6 +12667,8 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     // pokemon with unaware ignore attack stat changes while taking damage
     if (defAbility == ABILITY_UNAWARE || defAbility == ABILITY_IGNORANT_BLISS)
         atkStage = DEFAULT_STAT_STAGE;
+    if (atkAbility == ABILITY_AQUA_HEART && moveType == TYPE_WATER && gBattleStruct->ateBoost[battlerAtk])
+        atkStage = DEFAULT_STAT_STAGE;
 
     atkStat *= gStatStageRatios[atkStage][0];
     atkStat /= gStatStageRatios[atkStage][1];
@@ -12974,10 +12976,8 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_IGNORANT_BLISS)
         defStage = DEFAULT_STAT_STAGE;
-    //aqua heart and draco force make normal moves ignore stat changes
-    if (atkAbility == ABILITY_AQUA_HEART && moveType == TYPE_NORMAL)
-        defStage = DEFAULT_STAT_STAGE;
-    if (atkAbility == ABILITY_DRACO_FORCE && moveType == TYPE_NORMAL)
+    //draco force make normal moves ignore stat changes
+    if (atkAbility == ABILITY_DRACO_FORCE && moveType == TYPE_DRAGON && gBattleStruct->ateBoost[battlerAtk])
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
