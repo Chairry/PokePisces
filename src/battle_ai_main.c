@@ -1030,6 +1030,11 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 if (gBattleMoves[move].ballisticMove)
                     RETURN_SCORE_MINUS(10);
                 break;
+            case ABILITY_WIND_POWER:
+            case ABILITY_WIND_RIDER:
+                if (gBattleMoves[move].windMove)
+                    RETURN_SCORE_MINUS(10);
+                break;
             case ABILITY_DAZZLING:
             case ABILITY_QUEENLY_MAJESTY:
                 if (atkPriority > 0)
@@ -1756,6 +1761,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (CountUsablePartyMons(battlerDef) == 0)
                 score -= 10;
             else if (aiData->abilities[battlerDef] == ABILITY_SUCTION_CUPS)
+                score -= 10;
+            else if (aiData->abilities[battlerDef] == ABILITY_STALWART)
                 score -= 10;
             break;
         case EFFECT_TOXIC_THREAD:
