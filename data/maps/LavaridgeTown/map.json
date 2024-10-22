@@ -2,7 +2,7 @@
   "id": "MAP_LAVARIDGE_TOWN",
   "name": "LavaridgeTown",
   "layout": "LAYOUT_LAVARIDGE_TOWN",
-  "music": "MUS_RG_MYSTERY_GIFT",
+  "music": "MUS_MT_BLAZE_PEAK",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

@@ -2,7 +2,7 @@
   "id": "MAP_SLATEPORT_SHORE",
   "name": "SlateportShore",
   "layout": "LAYOUT_SLATEPORT_SHORE",
-  "music": "MUS_RG_ROUTE24",
+  "music": "MUS_SAPPHIRE_FIELD",
   "region_map_section": "MAPSEC_ROUTE_123",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

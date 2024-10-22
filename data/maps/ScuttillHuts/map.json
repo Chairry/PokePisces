@@ -2,7 +2,7 @@
   "id": "MAP_SCUTTILL_HUTS",
   "name": "ScuttillHuts",
   "layout": "LAYOUT_SCUTTILL_HUTS",
-  "music": "MUS_PETALBURG_WOODS",
+  "music": "MUS_LAPIS_CAVE",
   "region_map_section": "MAPSEC_ROUTE_112",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

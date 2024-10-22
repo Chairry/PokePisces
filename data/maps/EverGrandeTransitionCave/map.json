@@ -2,7 +2,7 @@
   "id": "MAP_EVER_GRANDE_TRANSITION_CAVE",
   "name": "EverGrandeTransitionCave",
   "layout": "LAYOUT_EVER_GRANDE_TRANSITION_CAVE",
-  "music": "MUS_SEALED_CHAMBER",
+  "music": "MUS_NINETALES_LEGEND",
   "region_map_section": "MAPSEC_VICTORY_ROAD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -2,7 +2,7 @@
   "id": "MAP_TEST_MAP",
   "name": "TestMap",
   "layout": "LAYOUT_TEST_MAP",
-  "music": "MUS_RANGER_FALL_CITY",
+  "music": "MUS_RG_VICTORY_ROAD",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
