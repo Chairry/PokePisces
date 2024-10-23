@@ -3320,6 +3320,15 @@ BattleScript_DurinBerryAllStatsDownSpDef::
 BattleScript_DurinBerryAllStatsDownRet::
 	return
 
+BattleScript_PomegBerryInvert::
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT, sB_ANIM_ARG1
+	invertnegativestatstages BS_SCRIPTING
+	printstring STRINGID_POMEGSWITCHEDNEGATIVESTATS
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
+BattleScript_PomegBerryInvertRet::
+	return
+
 BattleScript_EffectGunkFunk::
 	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_AllStatsDownHitCertain
 	goto BattleScript_EffectAllStatsDownHit
@@ -15795,9 +15804,18 @@ BattleScript_WatmelBerryActivate_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	waitanimation
 BattleScript_WatmelBerryActivate_Dmg:
-	call BattleScript_HurtAttacker
+	call BattleScript_WatmelHurtAttacker
 	updatestatusicon BS_SCRIPTING
 	removeitem BS_SCRIPTING
+	return
+
+BattleScript_WatmelHurtAttacker:
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_WATMELBERRYEXPLODED
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
 	return
 
 BattleScript_GemActivates::

@@ -287,6 +287,7 @@
 #define VARIOUS_ARBITER_DAMAGE                       195
 #define VARIOUS_TRY_GAIN_CHEESE                      196
 #define VARIOUS_JUMP_IF_TERU_CHARM_PROTECTED         197
+#define VARIOUS_INVERT_NEGATIVE_STAT_STAGES          198
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

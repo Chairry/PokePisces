@@ -939,6 +939,8 @@ static const u8 sText_PkmnIsSpinning[] = _("{B_ATK_NAME_WITH_PREFIX} is\nspinnin
 static const u8 sText_SloppyToppy[] = _("{B_ATK_NAME_WITH_PREFIX} kissed {B_DEF_NAME_WITH_PREFIX}\nin a show of true compassion!");
 static const u8 sText_NoSex[] = _("With {B_ATK_NAME_WITH_PREFIX}'s ally gone there\nis no more love for it to spread...");
 static const u8 sText_TargetCoveredInStickyCandySyrup[] = _("{B_DEF_NAME_WITH_PREFIX} got covered\nin sticky syrup!");
+static const u8 sText_PomegSwitchedNegativeStats[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s Pomeg Berry\nflipped its negative stat stages!");
+static const u8 sText_WatmelBerryExploded[] = _("{B_ATK_NAME_WITH_PREFIX}'s BLOOM caused its\nWatmel Berry to go BOOM!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1729,6 +1731,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_NOSEX - BATTLESTRINGS_TABLE_START] = sText_NoSex,
     [STRINGID_DEFENSESWERENOTLOWERED - BATTLESTRINGS_TABLE_START] = sText_DefensesWereNotLowered,
     [STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP - BATTLESTRINGS_TABLE_START] = sText_TargetCoveredInStickyCandySyrup,
+    [STRINGID_POMEGSWITCHEDNEGATIVESTATS - BATTLESTRINGS_TABLE_START] = sText_PomegSwitchedNegativeStats,
+    [STRINGID_WATMELBERRYEXPLODED - BATTLESTRINGS_TABLE_START] = sText_WatmelBerryExploded,
 };
 
 const u16 gTrainerUsedItemStringIds[] =

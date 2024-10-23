@@ -2779,7 +2779,7 @@ static const u8 sNanabBerryDesc[] = _(
     "counter by 1.");
 
 static const u8 sWepearBerryDesc[] = _(
-    "Eaten at 1/4 HP\n"
+    "Eaten at 1/2 HP\n"
     "To identify\n"
     "the opponent.");
 
@@ -2789,9 +2789,9 @@ static const u8 sPinapBerryDesc[] = _(
     "Max HP damage to foe.");
 
 static const u8 sPomegBerryDesc[] = _(
-    "Eaten at 1/20 HP.\n"
-    "Increases max HP by\n"
-    "200 and heals fully.");
+    "Eaten at 1/2 HP\n"
+    "to invert the holder's\n"
+    "negative stat stages.");
 
 static const u8 sKelpsyBerryDesc[] = _(
     "When using a Pulse\n"
@@ -2829,7 +2829,7 @@ static const u8 sMagostBerryDesc[] = _(
     "then is consumed.");
 
 static const u8 sRabutaBerryDesc[] = _(
-    "Eaten at 1/4 HP\n"
+    "Eaten at 1/2 HP\n"
     "and will confuse\n"
     "the opponent.");
 
@@ -2839,7 +2839,7 @@ static const u8 sNomelBerryDesc[] = _(
     "up damage by 1.5x.");
 
 static const u8 sSpelonBerryDesc[] = _(
-    "Eaten at 1/4 HP.\n"
+    "Eaten at 1/2 HP.\n"
     "Spikes will be laid\n"
     "on the foe's side.");
 
@@ -2854,12 +2854,12 @@ static const u8 sWatmelBerryDesc[] = _(
     "explode destructively.");
 
 static const u8 sDurinBerryDesc[] = _(
-    "Eaten if protected\n"
-    "and hit. Will deal\n"
-    "spike damage back.");
+    "Eaten at 1/2 HP\n"
+    "To lower all stats\n"
+    "of the opponent.");
 
 static const u8 sBelueBerryDesc[] = _(
-    "Eaten at 1/4 HP.\n"
+    "Eaten at 1/2 HP\n"
     "to cover the\n"
     "opponent in Tar.");
 

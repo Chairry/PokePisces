@@ -799,8 +799,10 @@
 #define STRINGID_NOSEX                                797
 #define STRINGID_DEFENSESWERENOTLOWERED               798
 #define STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP      799
+#define	STRINGID_POMEGSWITCHEDNEGATIVESTATS           800
+#define	STRINGID_WATMELBERRYEXPLODED                  801
 
-#define BATTLESTRINGS_COUNT                           800
+#define BATTLESTRINGS_COUNT                           802
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

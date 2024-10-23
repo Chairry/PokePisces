@@ -256,6 +256,7 @@
 #define HOLD_EFFECT_DRAGON_FANG     271  // dragon power +20%, additional +40% if move not very effective
 #define HOLD_EFFECT_SILK_SCARF      272  // normal power +20%, 10% boost to all other typed moves
 #define HOLD_EFFECT_FAIRY_FEATHER   273  // fairy power +20% and secondary effect chance -> 100%
+#define HOLD_EFFECT_POMEG_BERRY     274
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

@@ -108,6 +108,8 @@ extern const u8 BattleScript_AllStatsUp2Foe[];
 extern const u8 BattleScript_AllStatsDown[];
 extern const u8 BattleScript_DurinBerryAllStatsDown[];
 extern const u8 BattleScript_DurinBerryAllStatsDownRet[];
+extern const u8 BattleScript_PomegBerryInvert[];
+extern const u8 BattleScript_PomegBerryInvertRet[];
 extern const u8 BattleScript_HeartCarve[];
 extern const u8 BattleScript_RapidSpinAway[];
 extern const u8 BattleScript_WrapFree[];
