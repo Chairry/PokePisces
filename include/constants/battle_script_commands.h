@@ -288,8 +288,6 @@
 #define VARIOUS_TRY_GAIN_CHEESE                      196
 #define VARIOUS_JUMP_IF_TERU_CHARM_PROTECTED         197
 #define VARIOUS_SAVE_DANCE_TARGETS                   198
-#define VARIOUS_DANCE_MANIA_INVUL                    199
-#define VARIOUS_CALL_DANCE_MOVE                      200
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

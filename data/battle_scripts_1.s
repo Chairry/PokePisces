@@ -2289,6 +2289,8 @@ BattleScript_EffectDanceMania:
 	attackstring
 	ppreduce
 	pause 5
+	savedancetargets
+	trydancemania BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	setbyte gBattlerTarget, 0 @why?
@@ -2296,30 +2298,8 @@ BattleScript_EffectDanceMania:
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
-	savedancetargets @new
-@BattleScript_DanceManiaLoop:
-	@jumpifdanceinvulnerable BS_TARGET, BattleScript_DanceManiaVul @ in semi-invulnerable state
-	trydancemania @trigger move execution for saved targets
-	@setbyte sB_ANIM_TURN, 0
-	@setbyte sB_ANIM_TARGETS_HIT, 0
-	@jumptocalledmove TRUE
-	@moveendto MOVEEND_DANCE_MANIA_NEXT_TARGET
-	@jumpifnexttargetvalid BattleScript_DanceManiaLoop
 	moveendcase MOVEEND_CLEAR_BITS
 	goto BattleScript_MoveEnd
-	@jumptocalledmove TRUE
-@BattleScript_DanceManiaVul:
-	@moveendto MOVEEND_DANCE_MANIA_NEXT_TARGET
-	@jumpifnexttargetvalid BattleScript_DanceManiaLoop
-	@moveendcase MOVEEND_CLEAR_BITS
-	@goto BattleScript_MoveEnd
-
-BattleScript_ExecuteCalledMove::
-	setbyte sB_ANIM_TURN, 0
-	setbyte sB_ANIM_TARGETS_HIT, 0
-	calldancemove
-	@jumptocalledmove TRUE
-	return
 
 BattleScript_EffectBoundary:
 	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING | HITMARKER_NO_PPDEDUCT, BattleScript_EffectMagnitudeTarget
