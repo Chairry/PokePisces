@@ -2044,6 +2044,7 @@ static void Cmd_ppreduce(void)
             ppToDeduct *= 2;
         }
 
+        DebugPrintf("Deduct PP");
         if (gBattleMons[gBattlerAttacker].pp[gCurrMovePos] > ppToDeduct)
             gBattleMons[gBattlerAttacker].pp[gCurrMovePos] -= ppToDeduct;
         else
@@ -3560,6 +3561,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     }
                     else
                     {
+                        DebugPrintf("Push Confusion Script");
                         BattleScriptPush(gBattlescriptCurrInstr + 1);
                         gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
                     }
@@ -6168,13 +6170,16 @@ static u32 GetNextDanceManiaTarget(void)
         slowToFast = TRUE;
     SortBattlersBySpeed(battlersOrder, slowToFast);
 
-    //only proceed with next target if it is still alive
+    //only proceed with next target if it is still alive and valid
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
         u8 battler = battlersOrder[i];
         DebugPrintf("battler = %d, valid? %d", battler, gBattleStruct->savedDanceTargets &(1u << battler));
-        if (gBattleStruct->savedDanceTargets &(1u << battler) && IsBattlerAlive(battler))
-            break;
+        if (gBattleStruct->savedDanceTargets &(1u << battler) && IsBattlerAlive(battler)
+            && !(gStatuses3[i] & (STATUS3_SEMI_INVULNERABLE))
+            && !DoesSubstituteBlockMove(gBattlerAttacker, i, gCurrentMove)
+            && !IsBattlerProtected(i, gCurrentMove))
+                break;
     }
 
     if (i == MAX_BATTLERS_COUNT)
@@ -7118,7 +7123,6 @@ static void Cmd_moveend(void)
                 for (k = 0; k < MAX_BATTLERS_COUNT; k++)
                     gSpecialStatuses[k].dancerUsedMove = FALSE;
 
-                //gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[gBattlerTarget];
                 if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE))
                 {
                     u32 battler;
@@ -7140,6 +7144,7 @@ static void Cmd_moveend(void)
                         gSpecialStatuses[gBattlerTarget].instructedChosenTarget = *(gBattleStruct->moveTarget + gBattlerTarget) | 0x4;
                         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
                         gHitMarker |= HITMARKER_NO_PPDEDUCT;
+                        gHitMarker |= HITMARKER_NO_ATTACKSTRING; //required for PP checks?
                         PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
 
                         //gCalledMove = MOVE_LEER; //Test
