@@ -2298,7 +2298,7 @@ BattleScript_EffectDanceMania:
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_TURN, 0
 	setbyte sB_ANIM_TARGETS_HIT, 0
-	moveendcase MOVEEND_CLEAR_BITS
+	@moveendcase MOVEEND_CLEAR_BITS
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectBoundary:

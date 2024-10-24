@@ -727,7 +727,8 @@ struct BattleStruct
     u8 shunyongGoldPlainsHpUses:2; // 75%, 50%, 25% flags
     u8 distortedTypeMatchups;
     u8 aiCalcInProgress:1;
-    u8 savedDanceTarget;
+    u8 savedDanceTargets;
+    u8 DancerCount;
 };
 
 // The palaceFlags member of struct BattleStruct contains 1 flag per move to indicate which moves the AI should consider,

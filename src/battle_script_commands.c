@@ -878,9 +878,6 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_callnative,                              //0xFF
 };
 
-EWRAM_DATA u8 gSavedTargets[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u8 gDancerCount = 0;
-
 const struct StatFractions gAccuracyStageRatios[] =
 {
     { 33, 100}, // -6
@@ -6162,13 +6159,13 @@ static u32 GetNextDanceManiaTarget(void)
     u32 i, k;
     DebugPrintf("GetNextDanceManiaTarget");
 
+    //only proceed with next target if it is still alive
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (gSavedTargets[i] == TRUE
-            && IsBattlerAlive(i)
-            /*&& !(gBattleStruct->targetsDone[gBattlerAttacker] & gBitTable[i])*/)
-                break;
+        if (gBattleStruct->savedDanceTargets &(1u << i) && IsBattlerAlive(i))
+            break;
     }
+
     k = i;
     DebugPrintf("next battler = %d", k);
 
@@ -6176,7 +6173,7 @@ static u32 GetNextDanceManiaTarget(void)
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
         if (i == k)
-            gSavedTargets[i] = 0;
+            gBattleStruct->savedDanceTargets &= ~(1u << i);
     }
 
     return k;
@@ -6206,8 +6203,7 @@ static void Cmd_moveend(void)
     choicedMoveAtk = &gBattleStruct->choicedMove[gBattlerAttacker];
     GET_MOVE_TYPE(gCurrentMove, moveType);
 
-    DebugPrintf(" ### Cmd_moveend - moveendState %d", gBattleScripting.moveendState);
-    DebugPrintf("orignal move = %d", originallyUsedMove);
+    DebugPrintf("original move = %d", originallyUsedMove);
     DebugPrintf("called move = %d", gCurrentMove);
 
     do
@@ -6776,58 +6772,61 @@ static void Cmd_moveend(void)
             break;
         case MOVEEND_NEXT_TARGET: // For moves hitting two opposing Pokemon.
         {
-            u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
-            // Set a flag if move hits either target (for throat spray that can't check damage)
-            if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
-             && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
-                gProtectStructs[gBattlerAttacker].targetAffected = TRUE;
-
-            gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[gBattlerTarget];
-            if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
-                && gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-                && !gProtectStructs[gBattlerAttacker].chargingTurn
-                && (moveTarget == MOVE_TARGET_BOTH
-                    || moveTarget == MOVE_TARGET_FOES_AND_ALLY)
-                && !(gHitMarker & HITMARKER_NO_ATTACKSTRING))
+            if (gCurrentMove != MOVE_DANCE_MANIA)
             {
-                u32 nextTarget = GetNextTarget(moveTarget);
-                gHitMarker |= HITMARKER_NO_PPDEDUCT;
+                u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
+                // Set a flag if move hits either target (for throat spray that can't check damage)
+                if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
+                && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+                    gProtectStructs[gBattlerAttacker].targetAffected = TRUE;
 
-                if (nextTarget != MAX_BATTLERS_COUNT)
+                gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[gBattlerTarget];
+                if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
+                    && gBattleTypeFlags & BATTLE_TYPE_DOUBLE
+                    && !gProtectStructs[gBattlerAttacker].chargingTurn
+                    && (moveTarget == MOVE_TARGET_BOTH
+                        || moveTarget == MOVE_TARGET_FOES_AND_ALLY)
+                    && !(gHitMarker & HITMARKER_NO_ATTACKSTRING))
                 {
-                    gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget; // Fix for moxie spread moves
-                    gBattleScripting.moveendState = 0;
-                    MoveValuesCleanUp();
-                    gBattleScripting.moveEffect = gBattleScripting.savedMoveEffect;
-                    BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
-                    gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
-                    return;
-                }
-                // Check if the move used was actually a bounced move. If so, we need to go back to the original attacker and make sure, its move hits all 2 or 3 pokemon.
-                else if (gProtectStructs[gBattlerAttacker].usesBouncedMove)
-                {
-                    u8 originalBounceTarget = gBattlerAttacker;
-                    gBattlerAttacker = gBattleStruct->attackerBeforeBounce;
-                    gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[originalBounceTarget];
-                    gBattleStruct->targetsDone[originalBounceTarget] = 0;
+                    u32 nextTarget = GetNextTarget(moveTarget);
+                    gHitMarker |= HITMARKER_NO_PPDEDUCT;
 
-                    nextTarget = GetNextTarget(moveTarget);
                     if (nextTarget != MAX_BATTLERS_COUNT)
                     {
-                        // We found another target for the original move user.
-                        gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget;
+                        gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget; // Fix for moxie spread moves
                         gBattleScripting.moveendState = 0;
-                        gBattleScripting.animTurn = 0;
-                        gBattleScripting.animTargetsHit = 0;
                         MoveValuesCleanUp();
+                        gBattleScripting.moveEffect = gBattleScripting.savedMoveEffect;
                         BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
                         gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
                         return;
                     }
-                }
+                    // Check if the move used was actually a bounced move. If so, we need to go back to the original attacker and make sure, its move hits all 2 or 3 pokemon.
+                    else if (gProtectStructs[gBattlerAttacker].usesBouncedMove)
+                    {
+                        u8 originalBounceTarget = gBattlerAttacker;
+                        gBattlerAttacker = gBattleStruct->attackerBeforeBounce;
+                        gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[originalBounceTarget];
+                        gBattleStruct->targetsDone[originalBounceTarget] = 0;
 
-                gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
+                        nextTarget = GetNextTarget(moveTarget);
+                        if (nextTarget != MAX_BATTLERS_COUNT)
+                        {
+                            // We found another target for the original move user.
+                            gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget;
+                            gBattleScripting.moveendState = 0;
+                            gBattleScripting.animTurn = 0;
+                            gBattleScripting.animTargetsHit = 0;
+                            MoveValuesCleanUp();
+                            BattleScriptPush(gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect]);
+                            gBattlescriptCurrInstr = BattleScript_FlushMessageBox;
+                            return;
+                        }
+                    }
+
+                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+                    gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
+                }
             }
             RecordLastUsedMoveBy(gBattlerAttacker, gCurrentMove);
             gBattleScripting.moveendState++;
@@ -7042,7 +7041,9 @@ static void Cmd_moveend(void)
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_DANCER: // Special case because it's so annoying
-            if (gBattleMoves[gCurrentMove].danceMove && originallyUsedMove != MOVE_DANCE_MANIA)
+            DebugPrintf("MOVEEND_DANCER");
+            DebugPrintf("gCurrentMove = %d", gCurrentMove);
+            if (gBattleMoves[gCurrentMove].danceMove && gCurrentMove != MOVE_DANCE_MANIA)
             {
                 u8 battler, nextDancer = 0;
 
@@ -7061,12 +7062,15 @@ static void Cmd_moveend(void)
                     {
                         if (GetBattlerAbility(battler) == ABILITY_DANCER && !gSpecialStatuses[battler].dancerUsedMove)
                         {
+                            DebugPrintf("-- activate Dancer --");
                             if (!nextDancer || (gBattleMons[battler].speed < gBattleMons[nextDancer & 0x3].speed))
                                 nextDancer = battler | 0x4;
                         }
                     }
                     if (nextDancer && AbilityBattleEffects(ABILITYEFFECT_MOVE_END_OTHER, nextDancer & 0x3, 0, 0, 0))
+                    {
                         effect = TRUE;
+                    }
                 }
             }
             gBattleScripting.moveendState++;
@@ -7095,8 +7099,13 @@ static void Cmd_moveend(void)
         {
             if (originallyUsedMove == MOVE_DANCE_MANIA)
             {
+                u8 k = 0;
                 //gBattleStruct->savedDanceTarget |= 1u << gBattlerTarget;
                 DebugPrintf("MOVEEND_NEXT_DANCE_TARGET");
+
+                //reset dancerUsedMove, so Dancer can activate multiple times during a Dance Mania turn
+                for (k = 0; k < MAX_BATTLERS_COUNT; k++)
+                    gSpecialStatuses[k].dancerUsedMove = FALSE;
 
                 //gBattleStruct->targetsDone[gBattlerAttacker] |= gBitTable[gBattlerTarget];
                 if (!(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE))
@@ -7105,13 +7114,11 @@ static void Cmd_moveend(void)
 
                     DebugPrintf("get next target");
                     battler = GetNextDanceManiaTarget();
-                    
-                    gHitMarker |= HITMARKER_NO_PPDEDUCT;
 
                     if (battler != MAX_BATTLERS_COUNT)
                     {
-                        DebugPrintf("set savedDanceTarget for %d", battler);
-                        gBattleStruct->savedDanceTarget |= 1u << battler;
+                        //DebugPrintf("set savedDanceTarget for %d", battler);
+                        //gBattleStruct->savedDanceTarget |= 1u << battler;
 
                         //gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget; // Fix for moxie spread moves
                         gBattleScripting.moveendState = 0;
@@ -7124,6 +7131,7 @@ static void Cmd_moveend(void)
                         //= *(gBattleStruct->moveTarget + battler) | 0x4;
                         gSpecialStatuses[gBattlerTarget].instructedChosenTarget = *(gBattleStruct->moveTarget + gBattlerTarget) | 0x4;
                         gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+                        gHitMarker |= HITMARKER_NO_PPDEDUCT;
                         PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
 
                         //gCalledMove = MOVE_LEER; //Test
@@ -7138,48 +7146,16 @@ static void Cmd_moveend(void)
                         return;
                     }
 
-                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                    gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
+                    //gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+                    //gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
                 }
             }
             if (gBattleScripting.moveendState == MOVEEND_NEXT_DANCE_TARGET)
             {
-                DebugPrintf("reset gDancerCount");
-                gDancerCount = 0;
+                DebugPrintf("reset DancerCount");
+                gBattleStruct->DancerCount = 0;
             }
             RecordLastUsedMoveBy(gBattlerAttacker, gCurrentMove);
-            gBattleScripting.moveendState++;
-            break;
-        }
-        case MOVEEND_DANCE_MANIA: //wiz1989
-        {
-            /*if (gBattleMoves[gCurrentMove].danceMove && originallyUsedMove == MOVE_DANCE_MANIA)
-            {
-                DebugPrintf("MOVEEND_DANCE_MANIA");
-                //Approach Alex
-                for (i = 0; i < gBattlersCount; i++)
-                {
-                    DebugPrintf("battler loop");
-                    if (gBattleStruct->savedDanceTarget & (1u << i))
-                    {
-                        DebugPrintf("save target");
-                        gBattlerAttacker = i;
-                        gBattleStruct->moveTarget[i] = gBattlerTarget = BATTLE_OPPOSITE(i);
-                        gBattleScripting.moveendState = 0;
-                        gBattleScripting.animTurn = 0;
-                        gBattleScripting.animTargetsHit = 0;
-                        gBattleStruct->savedDanceTarget &= ~(1u << i);
-                        gCurrentMove = MOVE_LEER;
-                        SetTypeBeforeUsingMove(gCalledMove, i);
-                        MoveValuesCleanUp();
-                        SetAtkCancellerForCalledMove();
-                        BattleScriptPushCursor();
-                        gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[MOVE_LEER].effect];
-                        return;
-                    }
-                }
-            }
-            */
             gBattleScripting.moveendState++;
             break;
         }
@@ -7236,13 +7212,7 @@ static void Cmd_moveend(void)
 
     } while (gBattleScripting.moveendState != MOVEEND_COUNT && effect == FALSE);
 
-    /*DebugPrintf("clear saved targets");
-    // Clear saved targets
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-        gSavedTargets[i] = 0;*/
-
     DebugPrintf("exited moveend loop");
-
     if (gBattleScripting.moveendState == MOVEEND_COUNT && effect == FALSE)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
@@ -11217,18 +11187,20 @@ static void Cmd_various(void)
         VARIOUS_ARGS();
         u32 i;
 
-        gDancerCount = 0;
+        gBattleStruct->DancerCount = 0;
 
         DebugPrintf("VARIOUS_SAVE_DANCE_TARGETS");
 
         //save valid targets to call dance moves later on
         for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         {
-            if (IsBattlerAlive(i) && !(gStatuses3[i] & (STATUS3_SEMI_INVULNERABLE))
-                && !DoesSubstituteBlockMove(gBattlerAttacker, i, gCurrentMove))
+            if (gBattlerAttacker != i &&IsBattlerAlive(i)
+                && !(gStatuses3[i] & (STATUS3_SEMI_INVULNERABLE))
+                && !DoesSubstituteBlockMove(gBattlerAttacker, i, gCurrentMove)
+                && !IsBattlerProtected(i, gCurrentMove))
             {
-                gSavedTargets[i] = TRUE;
-                gDancerCount++;
+                gBattleStruct->savedDanceTargets |= 1u << i;
+                gBattleStruct->DancerCount++;
                 DebugPrintf("targets = %d", i);
             }
         }
@@ -11238,8 +11210,8 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS(const u8 *failInstr);
 
-        DebugPrintf("gDancerCount = %d", gDancerCount);
-        if (gDancerCount == 0)
+        DebugPrintf("DancerCount = %d", gBattleStruct->DancerCount);
+        if (gBattleStruct->DancerCount == 0)
             gBattlescriptCurrInstr = cmd->failInstr;
         else
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -13140,7 +13112,7 @@ static void Cmd_setatkhptozero(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-/*static void Cmd_jumpifnexttargetvalid(void)
+static void Cmd_jumpifnexttargetvalid(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
@@ -13161,40 +13133,6 @@ static void Cmd_setatkhptozero(void)
     DebugPrintf("%d >= %d", gBattlerTarget, gBattlersCount);
 
     if (gBattlerTarget >= gBattlersCount)
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    else
-        gBattlescriptCurrInstr = jumpInstr;
-}*/
-
-static void Cmd_jumpifnexttargetvalid(void)
-{
-    CMD_ARGS(const u8 *jumpInstr);
-
-    const u8 *jumpInstr = cmd->jumpInstr;
-    int i;
-
-    DebugPrintf("Cmd_jumpifnexttargetvalid");
-
-    //DebugPrintf("gBattlerTarget = %d", gBattlerTarget);
-    GetNextDanceManiaTarget();
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        if (gSavedTargets[i] == TRUE)
-            break;
-    }
-
-    /*for (gBattlerTarget++; gBattlerTarget < gBattlersCount; gBattlerTarget++)
-    {
-        if (gBattlerTarget == gBattlerAttacker && !(GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove) & MOVE_TARGET_USER))
-            continue;
-        if (IsBattlerAlive(gBattlerTarget))
-            break;
-    }*/
-
-   DebugPrintf("i = %d, gBattlersCount = %d", i, gBattlersCount);
-
-    if (i == gBattlersCount)
         gBattlescriptCurrInstr = cmd->nextInstr;
     else
         gBattlescriptCurrInstr = jumpInstr;
