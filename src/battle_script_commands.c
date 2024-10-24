@@ -6156,27 +6156,38 @@ static u32 GetNextTarget(u32 moveTarget)
 
 static u32 GetNextDanceManiaTarget(void)
 {
-    u32 i, k;
+    u32 i;
+    u8 fastestBattler = 0;
+    u8 battlersOrder[4] = {0, 1, 2, 3};
+    bool32 slowToFast = FALSE;
+
     DebugPrintf("GetNextDanceManiaTarget");
+
+    //order battlers by speed stat
+    if (gFieldStatuses & STATUS_FIELD_TRICK_ROOM)
+        slowToFast = TRUE;
+    SortBattlersBySpeed(battlersOrder, slowToFast);
 
     //only proceed with next target if it is still alive
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (gBattleStruct->savedDanceTargets &(1u << i) && IsBattlerAlive(i))
+        u8 battler = battlersOrder[i];
+        DebugPrintf("battler = %d, valid? %d", battler, gBattleStruct->savedDanceTargets &(1u << battler));
+        if (gBattleStruct->savedDanceTargets &(1u << battler) && IsBattlerAlive(battler))
             break;
     }
 
-    k = i;
-    DebugPrintf("next battler = %d", k);
+    if (i == MAX_BATTLERS_COUNT)
+        fastestBattler = MAX_BATTLERS_COUNT;
+    else
+        fastestBattler = battlersOrder[i];
+
+    DebugPrintf("next battler = %d", fastestBattler);
 
     //clear new Attacker from list
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        if (i == k)
-            gBattleStruct->savedDanceTargets &= ~(1u << i);
-    }
+    gBattleStruct->savedDanceTargets &= ~(1u << fastestBattler);
 
-    return k;
+    return fastestBattler;
 }
 
 static void Cmd_moveend(void)
@@ -7117,9 +7128,6 @@ static void Cmd_moveend(void)
 
                     if (battler != MAX_BATTLERS_COUNT)
                     {
-                        //DebugPrintf("set savedDanceTarget for %d", battler);
-                        //gBattleStruct->savedDanceTarget |= 1u << battler;
-
                         //gBattleStruct->moveTarget[gBattlerAttacker] = gBattlerTarget = nextTarget; // Fix for moxie spread moves
                         gBattleScripting.moveendState = 0;
                         gBattlerAttacker = battler;
@@ -13118,10 +13126,6 @@ static void Cmd_jumpifnexttargetvalid(void)
 
     const u8 *jumpInstr = cmd->jumpInstr;
 
-    DebugPrintf("Cmd_jumpifnexttargetvalid");
-
-    DebugPrintf("gBattlerTarget = %d", gBattlerTarget);
-
     for (gBattlerTarget++; gBattlerTarget < gBattlersCount; gBattlerTarget++)
     {
         if (gBattlerTarget == gBattlerAttacker && !(GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove) & MOVE_TARGET_USER))
@@ -13129,8 +13133,6 @@ static void Cmd_jumpifnexttargetvalid(void)
         if (IsBattlerAlive(gBattlerTarget))
             break;
     }
-
-    DebugPrintf("%d >= %d", gBattlerTarget, gBattlersCount);
 
     if (gBattlerTarget >= gBattlersCount)
         gBattlescriptCurrInstr = cmd->nextInstr;

@@ -7443,7 +7443,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_MOVE_END_OTHER: // Abilities that activate on *another* battler's moveend: Dancer, Soul-Heart, Receiver, Symbiosis
         switch (GetBattlerAbility(battler))
         {
-        case ABILITY_DANCER: //wiz1989
+        case ABILITY_DANCER:
             if (IsBattlerAlive(battler) 
             && (gBattleMoves[gCurrentMove].danceMove) 
             && !gSpecialStatuses[battler].dancerUsedMove 
